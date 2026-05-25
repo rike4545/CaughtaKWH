@@ -30,8 +30,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
       - name: Discover and scrape public Tesla pages
         run: npm run update:data
@@ -50,8 +50,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-      - run: npm ci
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-audit --no-fund
       - run: npm run build
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
