@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BatteryCharging, Clock3, DollarSign, MapPin, Search, TrendingDown, Zap } from 'lucide-react';
+import { BatteryCharging, Clock3, MapPin, Search, TrendingDown, Zap } from 'lucide-react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, BarChart, Bar } from 'recharts';
 import './styles.css';
 
@@ -62,9 +62,9 @@ function App() {
 
     <section className="statsGrid">
       <Stat icon={<MapPin/>} label="Stations discovered" value={nationalStats.stationCount} note="from Tesla public Find Us list" />
-      <Stat icon={<Clock3/>} label="Prediction rows" value={nationalStats.predictionCount} note="member and non-member models" />
-      <Stat icon={<TrendingDown/>} label="Cheapest known station" value={nationalStats.cheapest ? money(nationalStats.cheapest.expectedPrice) : '—'} note={nationalStats.cheapest?.stationId} />
-      <Stat icon={<BatteryCharging/>} label="Confidence method" value="95% CI" note="mean ± 1.96 × standard error" />
+      <Stat icon={<Clock3/>} label="Price models built" value={nationalStats.predictionCount} note="Tesla/member and non-Tesla estimates" />
+      <Stat icon={<TrendingDown/>} label="Lowest known estimate" value={nationalStats.cheapest ? money(nationalStats.cheapest.expectedPrice) : '—'} note={nationalStats.cheapest?.stationId} />
+      <Stat icon={<BatteryCharging/>} label="Confidence method" value="95% CI" note="estimated range, not a guarantee" />
     </section>
 
     <section className="layout">
@@ -82,15 +82,15 @@ function App() {
           <div className="sectionTitle"><div><p>Selected station</p><h2>{selected?.name || 'No station selected'}</h2></div><a href={selected?.url} target="_blank" rel="noreferrer">Tesla page</a></div>
           <p className="muted">{selected?.address || 'Address will populate after the scraper reads the station page.'}</p>
           <div className="priceStrip">
-            <div><span>Best member hour</span><strong>{prediction ? hourLabel(prediction.bestHour) : '—'}</strong></div>
-            <div><span>Expected</span><strong>{money(prediction?.expectedPrice)}</strong></div>
-            <div><span>95% confidence</span><strong>{prediction ? `${money(prediction.ci95Low)}–${money(prediction.ci95High)}` : '—'}</strong></div>
-            <div><span>Samples</span><strong>{prediction?.sampleCount ?? '—'}</strong></div>
+            <div><span>Cheapest time to charge</span><strong>{prediction ? hourLabel(prediction.bestHour) : '—'}</strong><small>Tesla/member rate</small></div>
+            <div><span>Estimated price</span><strong>{money(prediction?.expectedPrice)}</strong><small>per kWh</small></div>
+            <div><span>Estimated 95% range</span><strong>{prediction ? `${money(prediction.ci95Low)}–${money(prediction.ci95High)}` : '—'}</strong><small>lower to upper</small></div>
+            <div><span>Price samples</span><strong>{prediction?.sampleCount ?? '—'}</strong><small>observations used</small></div>
           </div>
         </Card>
 
         <Card>
-          <div className="sectionTitle"><div><p>Best time model</p><h2>Hourly price confidence</h2></div></div>
+          <div className="sectionTitle"><div><p>Best time model</p><h2>Hourly price estimate</h2></div></div>
           <div className="chartWrap">
             <ResponsiveContainer width="100%" height={310}>
               <LineChart data={(prediction?.hourly || []).map(x => ({ ...x, hourLabel: hourLabel(x.hour) }))}>
@@ -98,17 +98,17 @@ function App() {
                 <XAxis dataKey="hourLabel" />
                 <YAxis domain={['auto', 'auto']} tickFormatter={money} />
                 <Tooltip formatter={(v) => money(v)} />
-                <Line type="monotone" dataKey="expectedPrice" name="Expected $/kWh" strokeWidth={3} dot />
-                <Line type="monotone" dataKey="ci95High" name="95% upper" strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="ci95Low" name="95% lower" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="expectedPrice" name="Estimated $/kWh" strokeWidth={3} dot />
+                <Line type="monotone" dataKey="ci95High" name="Likely high" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="ci95Low" name="Likely low" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <p className="muted">Recommendation ranks hours by the lowest upper confidence bound, so sparse or volatile hours do not look artificially cheap.</p>
+          <p className="muted">The recommended hour is the time with the lowest likely price for Tesla owners and Supercharger members. Always confirm the final price in the Tesla app before charging.</p>
         </Card>
 
         <Card>
-          <div className="sectionTitle"><div><p>National comparison</p><h2>Known station expected price</h2></div></div>
+          <div className="sectionTitle"><div><p>National comparison</p><h2>Known Tesla/member price estimates</h2></div></div>
           <div className="chartWrap">
             <ResponsiveContainer width="100%" height={280}>
               <BarChart data={predictions.filter(p => p.membershipType === 'member').slice(0, 25)}>
@@ -116,7 +116,7 @@ function App() {
                 <XAxis dataKey="stationId" hide />
                 <YAxis tickFormatter={money} />
                 <Tooltip formatter={(v) => money(v)} />
-                <Bar dataKey="expectedPrice" name="Expected $/kWh" />
+                <Bar dataKey="expectedPrice" name="Estimated $/kWh" />
               </BarChart>
             </ResponsiveContainer>
           </div>
