@@ -6,7 +6,7 @@ on:
       max_stations:
         description: 'Max stations to scrape this run'
         required: false
-        default: '100'
+        default: '250'
   schedule:
     - cron: '17 * * * *'
 
