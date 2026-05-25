@@ -1,0 +1,30 @@
+{
+  "name": "caughtakwh",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "CaughtaKWH tracks Tesla Supercharger kWh pricing by station and recommends cheaper charging windows with 95% confidence intervals.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "npm run sync:public && vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "discover": "node scripts/discoverStations.mjs",
+    "scrape": "node scripts/scrapePrices.mjs",
+    "predict": "node scripts/buildPredictions.mjs",
+    "update:data": "npm run discover && npm run scrape && npm run predict",
+    "validate:data": "node scripts/validateData.mjs",
+    "sync:public": "node scripts/syncPublicData.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "typescript": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "lucide-react": "latest",
+    "recharts": "latest",
+    "leaflet": "latest",
+    "@playwright/test": "latest"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,60 @@
+name: Update Supercharger Price Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_stations:
+        description: 'Max stations to scrape this run'
+        required: false
+        default: '100'
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: caughtakwh-update
+  cancel-in-progress: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    env:
+      MAX_STATIONS: ${{ github.event.inputs.max_stations || '100' }}
+      SCRAPE_DELAY_MS: 2000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Discover and scrape public Tesla pages
+        run: npm run update:data
+      - run: npm run validate:data
+      - name: Commit data updates
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'Update Supercharger price observations'
+          file_pattern: 'data/**/*.json'
+
+  deploy:
+    needs: update-data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - uses: actions/deploy-pages@v4

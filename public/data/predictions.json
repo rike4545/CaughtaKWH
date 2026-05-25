@@ -1,0 +1,13 @@
+[
+  {
+    "stationId": "LakeGroveNYsupercharger",
+    "generatedAt": "2026-05-25T20:33:00.000Z",
+    "membershipType": "member",
+    "bestHour": 16,
+    "expectedPrice": 0.43,
+    "ci95Low": 0.43,
+    "ci95High": 0.43,
+    "sampleCount": 1,
+    "confidenceLabel": "low sample - first verified observation"
+  }
+]

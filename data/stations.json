@@ -1,0 +1,17 @@
+[
+  {
+    "id": "LakeGroveNYsupercharger",
+    "name": "Lake Grove Supercharger",
+    "city": "Lake Grove",
+    "state": "NY",
+    "country": "United States",
+    "address": "313 Smith Haven Mall, Lake Grove, NY 11755",
+    "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger",
+    "source": "tesla_public_findus_page",
+    "stalls": 8,
+    "maxKw": 250,
+    "lat": 40.8636,
+    "lng": -73.1309,
+    "lastDiscoveredAt": "2026-05-25T20:33:00.000Z"
+  }
+]
