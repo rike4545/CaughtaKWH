@@ -3,8 +3,12 @@ name: Update Supercharger Price Data
 on:
   workflow_dispatch:
     inputs:
+      discovery_limit:
+        description: 'Max station metadata records to discover'
+        required: false
+        default: '5000'
       max_stations:
-        description: 'Max stations to scrape this run'
+        description: 'Max station pricing pages to scrape this run'
         required: false
         default: '250'
   schedule:
@@ -23,7 +27,8 @@ jobs:
   update-data:
     runs-on: ubuntu-latest
     env:
-      MAX_STATIONS: ${{ github.event.inputs.max_stations || '100' }}
+      DISCOVERY_LIMIT: ${{ github.event.inputs.discovery_limit || '5000' }}
+      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '250' }}
       SCRAPE_DELAY_MS: 2000
     steps:
       - uses: actions/checkout@v4
@@ -33,8 +38,12 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm install --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
-      - name: Discover and scrape public Tesla pages
-        run: npm run update:data
+      - name: Discover all station metadata
+        run: MAX_STATIONS=$DISCOVERY_LIMIT npm run discover
+      - name: Scrape current prices for a limited batch
+        run: MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape
+      - name: Build predictions
+        run: npm run predict
       - run: npm run validate:data
       - name: Commit data updates
         uses: stefanzweifel/git-auto-commit-action@v5
@@ -47,6 +56,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 20
