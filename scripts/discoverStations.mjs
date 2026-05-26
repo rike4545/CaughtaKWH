@@ -21,11 +21,11 @@ function slug(value) {
 }
 
 function normalizeCountry(site) {
-  return site?.address?.country || site?.country || site?.countryId || site?.location?.country || '';
+  return site?.address?.country || site?.address?.countryId || site?.country || site?.countryId || site?.location?.country || site?.location?.countryId || '';
 }
 
 function isUnitedStates(site) {
-  const country = String(normalizeCountry(site)).toLowerCase();
+  const country = String(normalizeCountry(site)).toLowerCase().trim();
   return ['us', 'usa', 'united states', 'united states of america'].includes(country);
 }
 
@@ -65,11 +65,13 @@ function normalizeSuperchargeSite(site) {
 
 async function discoverFromSuperchargeInfo() {
   try {
-    const response = await fetch(SUPERCHARGE_URL, { headers: { accept: 'application/json', 'user-agent': 'CaughtaKWH station discovery' } });
+    const response = await fetch(SUPERCHARGE_URL, { headers: { accept: 'application/json' } });
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
     const sites = await response.json();
     if (!Array.isArray(sites)) throw new Error('unexpected Supercharge.info response');
-    return sites.filter(isUnitedStates).filter(isOpen).map(normalizeSuperchargeSite);
+    const usSites = sites.filter(isUnitedStates).filter(isOpen).map(normalizeSuperchargeSite);
+    console.log(`Supercharge.info returned ${sites.length} sites; ${usSites.length} US open/live sites.`);
+    return usSites;
   } catch (error) {
     console.log(`Supercharge.info discovery skipped: ${error.message}`);
     return [];
@@ -80,12 +82,13 @@ async function discoverFromTeslaList() {
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
-    const page = await browser.newPage({ userAgent: 'CaughtaKWH research bot; public Tesla pages only' });
+    const page = await browser.newPage();
     await page.goto(TESLA_LIST_URL, { waitUntil: 'networkidle', timeout: 90000 });
     await page.waitForTimeout(3500);
     const links = await page.$$eval('a[href*="/findus/location/supercharger/"]', anchors =>
       anchors.map(a => ({ href: a.href, text: a.textContent?.replace(/\s+/g, ' ').trim() || '' }))
     );
+    console.log(`Tesla list returned ${links.length} station links.`);
     return links.map(({ href, text }) => {
       const id = stationIdFromHref(href);
       if (!id) return null;
@@ -109,7 +112,8 @@ async function discoverFromTeslaList() {
 const existing = await readJson(path.join(dataDir, 'stations.json'), []);
 const supercharge = await discoverFromSuperchargeInfo();
 const tesla = await discoverFromTeslaList();
-const discovered = dedupeBy([...tesla, ...supercharge], x => x.id).slice(0, MAX_STATIONS);
+const discovered = dedupeBy([...supercharge, ...tesla], x => x.id).slice(0, MAX_STATIONS);
+if (discovered.length <= 1) throw new Error(`Discovery returned only ${discovered.length} station(s). Refusing to overwrite dataset.`);
 const merged = dedupeBy([...existing, ...discovered], x => x.id).sort((a, b) => String(a.name).localeCompare(String(b.name)));
 await writeJson(path.join(dataDir, 'stations.json'), merged);
 console.log(`Discovered ${discovered.length}; stored ${merged.length} stations.`);
