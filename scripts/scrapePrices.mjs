@@ -1,74 +1,105 @@
 import { chromium } from '@playwright/test';
 import path from 'node:path';
-import { dataDir, readJson, writeJson, parseMoney, nowIso, stationHistoryPath } from './lib.mjs';
+import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 
 const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const MAX_STATIONS = Number(process.env.MAX_STATIONS || stations.length || 1);
-const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1500);
+const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1200);
 const capturedAt = nowIso();
 
 function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
-
-function inferPrices(text) {
-  const normalized = text.replace(/\s+/g, ' ');
-  const memberMatch = normalized.match(/(?:Teslas and Members|Tesla(?:s)?\/Members|Members?)[:\s$]*\$?([0-9]+\.[0-9]{2})\s*\/\s*kWh/i);
-  const nonMemberMatch = normalized.match(/(?:Non[-\s]?Members?|Pricing for Non[-\s]?Members?)[:\s$]*\$?([0-9]+\.[0-9]{2})\s*\/\s*kWh/i);
-  const congestionMatch = normalized.match(/Congestion fees?[^$]*\$?([0-9]+\.[0-9]{2})\s*\/\s*min/i);
-  return {
-    memberPricePerKwh: memberMatch ? Number(memberMatch[1]) : null,
-    nonMemberPricePerKwh: nonMemberMatch ? Number(nonMemberMatch[1]) : null,
-    congestionFeePerMinuteMax: congestionMatch ? Number(congestionMatch[1]) : null
-  };
+function compact(value) { return String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]/g, ''); }
+function plausibleTeslaSlug(value) { return /[a-z]/i.test(String(value || '')) && /supercharger/i.test(String(value || '')); }
+function stationCandidates(station) {
+  const urls = [];
+  if (station.url && String(station.url).includes('tesla.com/findus/location/supercharger/') && plausibleTeslaSlug(station.url)) urls.push(station.url);
+  const city = compact(station.city || '').replace(/^The/i, '');
+  const state = compact(station.state || '');
+  const name = compact(String(station.name || '').replace(/\[.*?\]/g, '').replace(/supercharger/i, ''));
+  const ids = [station.id, `${city}${state}supercharger`, `${name}${state}supercharger`, `${name}supercharger`]
+    .filter(Boolean)
+    .filter(plausibleTeslaSlug);
+  for (const id of ids) urls.push(`https://www.tesla.com/findus/location/supercharger/${id}`);
+  return [...new Set(urls)].slice(0, 4);
+}
+function firstMoneyAfter(text, labels) {
+  for (const label of labels) {
+    const index = text.toLowerCase().indexOf(label.toLowerCase());
+    if (index < 0) continue;
+    const slice = text.slice(index, index + 500);
+    const match = slice.match(/\$\s*([0-9]+(?:\.[0-9]{1,2})?)\s*\/\s*(?:kwh|kw h|min)/i);
+    if (match) return Number(Number(match[1]).toFixed(2));
+  }
+  return null;
+}
+function inferPrices(text, html = '') {
+  const normalized = `${text}\n${html}`.replace(/\s+/g, ' ');
+  const lower = normalized.toLowerCase();
+  const allKwh = [...normalized.matchAll(/\$\s*([0-9]+(?:\.[0-9]{1,2})?)\s*\/\s*(?:kwh|kw h)/ig)].map(m => Number(m[1]));
+  let member = firstMoneyAfter(normalized, ['Pricing for Tesla & Members', 'Tesla & Members', 'Teslas and Members', 'Tesla and Members', 'Tesla/Member', 'Members']);
+  let nonMember = firstMoneyAfter(normalized, ['Pricing for Non-Tesla', 'Pricing for Non-Members', 'Non-Tesla', 'Non Members', 'Non-Members']);
+  const congestion = firstMoneyAfter(normalized, ['Congestion fees', 'Congestion fee']);
+  if (member === null && allKwh.length) member = allKwh[0];
+  if (nonMember === null && allKwh.length > 1 && lower.includes('non-tesla')) nonMember = allKwh[1];
+  return { memberPricePerKwh: member, nonMemberPricePerKwh: nonMember, congestionFeePerMinuteMax: congestion };
+}
+async function scrapeOne(context, station) {
+  const candidates = stationCandidates(station);
+  let lastError = null;
+  for (const url of candidates) {
+    const page = await context.newPage();
+    try {
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      await page.waitForTimeout(3500);
+      const bodyText = await page.locator('body').innerText({ timeout: 12000 });
+      const html = await page.content().catch(() => '');
+      const prices = inferPrices(bodyText, html);
+      const hasPrice = prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null;
+      const titleLooksValid = /supercharger|pricing|tesla/i.test(bodyText) && !/page not found|404/i.test(bodyText);
+      if (hasPrice || titleLooksValid) return { url, prices, bodyText, hasPrice };
+    } catch (error) {
+      lastError = error;
+    } finally {
+      await page.close();
+    }
+  }
+  throw lastError || new Error('No usable Tesla location candidate');
 }
 
+const ordered = [...stations].sort((a, b) => {
+  const aScore = (a.lastScrapeHadPrice ? -100 : 0) + (a.url ? -10 : 0);
+  const bScore = (b.lastScrapeHadPrice ? -100 : 0) + (b.url ? -10 : 0);
+  return aScore - bScore;
+});
 const browser = await chromium.launch({ headless: true });
-const context = await browser.newContext({ viewport: { width: 1440, height: 1400 } });
-
+const context = await browser.newContext({ viewport: { width: 1440, height: 1600 } });
 let saved = 0;
-for (const station of stations.slice(0, MAX_STATIONS)) {
-  const page = await context.newPage();
+let attempted = 0;
+for (const station of ordered.slice(0, MAX_STATIONS)) {
+  attempted++;
   try {
-    await page.goto(station.url, { waitUntil: 'networkidle', timeout: 90000 });
-    await page.waitForTimeout(2500);
-    const bodyText = await page.locator('body').innerText({ timeout: 10000 });
-    const prices = inferPrices(bodyText);
-
-    const address = await page.locator('body').innerText().then(t => {
-      const m = t.match(/([0-9][^\n]+(?:NY|CA|TX|FL|NJ|CT|PA|MA|VA|NC|SC|GA|WA|OR|AZ|NV|CO|UT|IL|OH|MI|MD|DE|RI|VT|NH|ME|TN|KY|IN|WI|MN|IA|MO|AR|LA|MS|AL|OK|KS|NE|SD|ND|MT|WY|ID|NM)\s+\d{5})/);
-      return m?.[1] || station.address || null;
-    }).catch(() => station.address || null);
-
-    const observation = {
-      stationId: station.id,
-      capturedAt,
-      localDate: new Date().toISOString().slice(0, 10),
-      localHour: new Date().getHours(),
-      ...prices,
-      currency: 'USD',
-      source: 'tesla_public_findus_location_page'
-    };
-
+    const result = await scrapeOne(context, station);
+    const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: new Date().getHours(), ...result.prices, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
     const hasPrice = observation.memberPricePerKwh !== null || observation.nonMemberPricePerKwh !== null;
     if (hasPrice) {
       const history = await readJson(stationHistoryPath(station.id), []);
-      const key = `${observation.capturedAt}-${observation.memberPricePerKwh}-${observation.nonMemberPricePerKwh}`;
-      const merged = [...history.filter(x => `${x.capturedAt}-${x.memberPricePerKwh}-${x.nonMemberPricePerKwh}` !== key), observation];
+      const key = `${observation.capturedAt}-${observation.memberPricePerKwh}-${observation.nonMemberPricePerKwh}-${observation.congestionFeePerMinuteMax}`;
+      const merged = [...history.filter(x => `${x.capturedAt}-${x.memberPricePerKwh}-${x.nonMemberPricePerKwh}-${x.congestionFeePerMinuteMax}` !== key), observation];
       await writeJson(stationHistoryPath(station.id), merged);
       saved++;
     }
-
-    if (address && !station.address) station.address = address;
+    station.url = result.url;
     station.lastScrapedAt = capturedAt;
     station.lastScrapeHadPrice = hasPrice;
+    delete station.lastScrapeError;
   } catch (error) {
     station.lastScrapeError = String(error.message || error);
     station.lastScrapedAt = capturedAt;
+    station.lastScrapeHadPrice = false;
   } finally {
-    await page.close();
     await sleep(DELAY_MS);
   }
 }
-
 await browser.close();
 await writeJson(path.join(dataDir, 'stations.json'), stations);
-console.log(`Saved price observations for ${saved} station(s).`);
+console.log(`Attempted ${attempted}; saved price observations for ${saved} station(s).`);
