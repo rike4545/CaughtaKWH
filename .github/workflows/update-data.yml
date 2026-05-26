@@ -29,6 +29,8 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - uses: actions/setup-node@v4
         with:
           node-version: 24
@@ -43,10 +45,17 @@ jobs:
         run: npm run predict
       - run: npm run validate:data
       - name: Commit data updates
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: Update Supercharger price observations
-          file_pattern: data/**/*.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git status --short
+          git add data public/data || true
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "Update Supercharger station data"
+            git push origin HEAD:main
+          fi
   deploy:
     needs: update-data
     runs-on: ubuntu-latest
