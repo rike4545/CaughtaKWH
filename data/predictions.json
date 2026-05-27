@@ -1,7 +1,7 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-05-27T19:55:27.041Z",
+    "generatedAt": "2026-05-27T22:30:17.417Z",
     "membershipType": "member",
     "bestHour": 16,
     "expectedPrice": 0.43,
@@ -21,7 +21,7 @@
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-05-27T19:55:27.042Z",
+    "generatedAt": "2026-05-27T22:30:17.417Z",
     "membershipType": "non_member",
     "bestHour": 16,
     "expectedPrice": 0.65,
