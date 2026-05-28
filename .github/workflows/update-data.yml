@@ -9,7 +9,7 @@ on:
       max_stations:
         description: Max station pricing pages to scrape this run
         required: false
-        default: '250'
+        default: '75'
   schedule:
     - cron: '7,37 * * * *'
 permissions:
@@ -24,8 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DISCOVERY_LIMIT: ${{ github.event.inputs.discovery_limit || '5000' }}
-      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '250' }}
-      SCRAPE_DELAY_MS: 1500
+      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '75' }}
+      SCRAPE_DELAY_MS: 500
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
