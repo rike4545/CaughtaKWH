@@ -1,22 +1,272 @@
-import React,{useEffect,useMemo,useState}from'react';
-import{createRoot}from'react-dom/client';
-import{AlertTriangle,BatteryCharging,Clock3,MapPin,Navigation,Search,TrendingDown,Zap}from'lucide-react';
-import{LineChart,Line,CartesianGrid,XAxis,YAxis,Tooltip,ResponsiveContainer,BarChart,Bar}from'recharts';
-import{geocodeZip,nearestStations}from'./zipSearch.js';
-import'./styles.css';
-const money=v=>typeof v==='number'?`$${v.toFixed(2)}`:'—';
-const percent=v=>typeof v==='number'?`${Math.round(v*100)}%`:'—';
-const slotLabel=s=>`${String(Math.floor(s/2)).padStart(2,'0')}:${s%2===0?'00':'30'}`;
-const wrapSlot=s=>(s+48)%48;
-const shortDate=iso=>iso?new Date(iso).toLocaleString([],{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):'—';
-const distance=v=>typeof v==='number'?`${v.toFixed(v<10?1:0)} mi`:'';
-function useJson(url,fallback,refreshMs=300000){const[d,setD]=useState(fallback),[e,setE]=useState(null),[f,setF]=useState(null);useEffect(()=>{let live=true;const load=()=>{setE(null);fetch(`${url}?t=${Date.now()}`,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`${r.status} ${r.statusText}`);return r.json()}).then(j=>{if(live){setD(j);setF(new Date().toISOString())}}).catch(x=>live&&setE(x.message))};load();const timer=refreshMs?window.setInterval(load,refreshMs):null;return()=>{live=false;if(timer)window.clearInterval(timer)}},[url,refreshMs]);return{data:d,error:e,fetchedAt:f}}
-function Card({children,className=''}){return<section className={`card ${className}`}>{children}</section>}
-function Stat({icon,label,value,note}){return<Card className='stat'><div className='statIcon'>{icon}</div><div><p>{label}</p><strong>{value}</strong>{note&&<small>{note}</small>}</div></Card>}
-function EmptyState({title,children}){return<div className='empty'><AlertTriangle size={18}/><div><strong>{title}</strong><p>{children}</p></div></div>}
-function UtilizationImpact({prediction}){const impact=prediction?.utilizationImpact,congestion=prediction?.congestion,bands=impact?.bands||[{band:'low',sampleCount:0},{band:'medium',sampleCount:0},{band:'high',sampleCount:0}];return<Card><div className='sectionTitle'><div><p>Utilization impact</p><h2>Surge and stall pressure</h2></div></div><div className='impactGrid'>{bands.map(b=><div key={b.band}><span>{b.band} utilization</span><strong>{money(b.expectedPrice)}</strong><small>{b.sampleCount||0} samples · avg load {percent(b.averageUtilizationPct)}</small><em>{typeof b.deltaFromLow==='number'?`${money(b.deltaFromLow)} vs low`:'needs low baseline'}</em></div>)}</div>{impact?.hasSignal?<p className='muted'>CaughtaKWH has observations in multiple utilization bands, so price changes can be compared against station load.</p>:<EmptyState title='Utilization signal not ready'>This station needs price observations across multiple load levels before surge impact can be measured.</EmptyState>}<div className='metaGrid'><span>Utilization samples <strong>{impact?.sampleCount??0}</strong></span><span>Congestion samples <strong>{congestion?.sampleCount??0}</strong></span><span>Max congestion fee <strong>{money(congestion?.maxFeePerMinute)}/min</strong></span><span>Average congestion fee <strong>{money(congestion?.averageFeePerMinute)}/min</strong></span></div></Card>}
-function App(){const{data:stations}=useJson('./data/stations.json',[]);const{data:predictions}=useJson('./data/predictions.json',[]);const[query,setQuery]=useState(''),[stateFilter,setStateFilter]=useState('All'),[rateType,setRateType]=useState('member'),[selectedId,setSelectedId]=useState('LakeGroveNYsupercharger'),[zip,setZip]=useState(''),[origin,setOrigin]=useState(null),[originMode,setOriginMode]=useState('browse'),[geoError,setGeoError]=useState(''),[geoLoading,setGeoLoading]=useState(false);const selected=stations.find(s=>s.id===selectedId)||stations[0];const{data:history,error:historyError}=useJson(selected?.id?`./data/history/${selected.id}.json`:'./data/history/none.json',[]);const prediction=predictions.find(p=>p.stationId===selected?.id&&p.membershipType===rateType)||predictions.find(p=>p.stationId===selected?.id);
-const states=useMemo(()=>['All',...Array.from(new Set(stations.map(s=>s.state).filter(Boolean))).sort()],[stations]);const closest5=useMemo(()=>nearestStations(stations,origin,5),[stations,origin]);const closest25=useMemo(()=>nearestStations(stations,origin,25),[stations,origin]);const nearbyList=originMode==='near-me'?closest5:originMode==='zip'?closest25:null;const filtered=useMemo(()=>{const q=query.toLowerCase().trim();return stations.filter(s=>{const ok=stateFilter==='All'||s.state===stateFilter;const text=[s.name,s.city,s.state,s.address,s.id].filter(Boolean).join(' ').toLowerCase();return ok&&(!q||text.includes(q))})},[stations,query,stateFilter]);async function findZip(e){e.preventDefault();setGeoLoading(true);setGeoError('');try{const o=await geocodeZip(zip);setOrigin(o);setOriginMode('zip');setQuery('');setStateFilter('All');const c=nearestStations(stations,o,1)[0];if(c)setSelectedId(c.id)}catch(err){setGeoError(err.message||'ZIP lookup failed')}finally{setGeoLoading(false)}}function useMyLocation(){setGeoLoading(true);setGeoError('');if(!navigator.geolocation){setGeoError('Location is not available in this browser.');setGeoLoading(false);return}navigator.geolocation.getCurrentPosition(pos=>{const o={zip:'current location',city:'Your location',state:'',lat:pos.coords.latitude,lng:pos.coords.longitude};setOrigin(o);setOriginMode('near-me');setQuery('');setStateFilter('All');const c=nearestStations(stations,o,1)[0];if(c)setSelectedId(c.id);setGeoLoading(false)},err=>{setGeoError(err.message||'Location permission denied.');setGeoLoading(false)},{enableHighAccuracy:false,timeout:10000,maximumAge:300000})}
-const halfHourly=useMemo(()=>Array.from({length:48},(_,slot)=>{const rows=prediction?.slots||prediction?.hourly||[],row=rows.find(x=>Number(x.slot??(Number(x.hour)*2+(Number(x.minute||0)>=30?1:0)))===slot);return{slot,slotLabel:slotLabel(slot),expectedPrice:row?.expectedPrice??null,ci95High:row?.ci95High??null,ci95Low:row?.ci95Low??null,sampleCount:row?.sampleCount??0}}),[prediction]);const twelveHourData=useMemo(()=>{const rows=prediction?.slots||prediction?.hourly||[],map=new Map(rows.map(r=>[Number(r.slot??(Number(r.hour)*2+(Number(r.minute||0)>=30?1:0))),r])),anchor=Number.isFinite(prediction?.bestSlot)?Number(prediction.bestSlot):new Date().getHours()*2+(new Date().getMinutes()>=30?1:0),start=wrapSlot(anchor-11);return Array.from({length:24},(_,i)=>{const slot=wrapSlot(start+i),row=map.get(slot);return{slot,slotLabel:slotLabel(slot),expectedPrice:row?.expectedPrice??null,hasObservation:Boolean(row)}})},[prediction]);const historyRows=useMemo(()=>(Array.isArray(history)?history:[]).map(r=>({...r,capturedLabel:shortDate(r.capturedAt),member:r.memberPricePerKwh??null,nonMember:r.nonMemberPricePerKwh??null})).slice(-100),[history]);const memberPreds=predictions.filter(p=>p.membershipType==='member');const cheapest=[...memberPreds].sort((a,b)=>a.expectedPrice-b.expectedPrice)[0];const pricedStations=new Set(predictions.map(p=>p.stationId)).size;const latestHistory=historyRows.at(-1);const pricingFresh=latestHistory?.capturedAt?((Date.now()-new Date(latestHistory.capturedAt).getTime())/36e5)<24:false;const scrapeStatus=selected?.lastScrapeError?selected.lastScrapeError:selected?.lastScrapedAt?(selected.lastScrapeHadPrice?'Latest scrape found pricing text.':selected.lastScrapeHadAvailability?'Latest scrape found availability, but no public price.':'Latest scrape did not find public pricing or availability text.'):'Not scraped yet.';const list=nearbyList||filtered;
-return<main><header className='hero'><div><div className='eyebrow'><Zap size={16}/> CaughtaKWH</div><h1>Know before you plug in.</h1><p>Browse U.S. Superchargers, use your location for the closest 5, or enter a ZIP code for the closest 25.</p></div><div className='heroPanel'><strong>Local-first mode</strong><p>Use location when you are not traveling. Use ZIP search when planning another area. The app ranks stations locally from loaded coordinates.</p></div></header><section className='statsGrid'><Stat icon={<MapPin/>} label='Stations discovered' value={stations.length} note='metadata directory'/><Stat icon={<Navigation/>} label={originMode==='near-me'?'Closest near you':originMode==='zip'?'Closest near ZIP':'Nearby mode'} value={nearbyList?nearbyList.length:'—'} note={origin?`${origin.city}${origin.state?', '+origin.state:''}`:'off'}/><Stat icon={<Clock3/>} label='Stations with pricing' value={pricedStations} note='history-backed models'/><Stat icon={<TrendingDown/>} label='Lowest known estimate' value={cheapest?money(cheapest.expectedPrice):'—'} note={cheapest?.stationId}/></section><section className='layout'><Card className='sidebar'><div className='nearbyBox'><strong>Closest Superchargers</strong><button className='wideButton' onClick={useMyLocation} disabled={geoLoading}>{geoLoading?'Finding…':'Use my location · closest 5'}</button><form onSubmit={findZip}><div className='zipRow'><input placeholder='ZIP code' value={zip} onChange={e=>setZip(e.target.value)} inputMode='numeric' maxLength={5}/><button disabled={geoLoading}>{geoLoading?'Finding…':'Find 25'}</button></div></form>{origin&&<small>{originMode==='near-me'?'Closest 5 near your current location':`Closest 25 near ${origin.zip} — ${origin.city}, ${origin.state}`}</small>}{geoError&&<small className='errorText'><AlertTriangle size={12}/> {geoError}</small>}{origin&&<button className='linkButton' onClick={()=>{setOrigin(null);setOriginMode('browse')}}>Clear nearby mode</button>}</div><label className='search'><Search size={16}/><input placeholder='Search station, city, state...' value={query} onChange={e=>setQuery(e.target.value)}/></label><select className='filter' value={stateFilter} onChange={e=>setStateFilter(e.target.value)}>{states.map(s=><option key={s}>{s}</option>)}</select><div className='stationList'>{list.map(s=><button key={s.id} className={s.id===selected?.id?'active':''} onClick={()=>setSelectedId(s.id)}><strong>{s.name}</strong><span>{s.distanceMiles!==undefined?`${distance(s.distanceMiles)} • `:''}{s.address||[s.city,s.state].filter(Boolean).join(', ')||s.id}</span></button>)}</div></Card><div className='content'><Card><div className='sectionTitle'><div><p>Selected station</p><h2>{selected?.name||'No station selected'}</h2></div>{selected?.url&&<a href={selected.url} target='_blank' rel='noreferrer'>Station page</a>}</div><p className='muted'>{selected?.address||'Address will populate after discovery enrichment.'}</p><div className='toolbar'><button className={rateType==='member'?'active':''} onClick={()=>setRateType('member')}>Tesla / member</button><button className={rateType==='non_member'?'active':''} onClick={()=>setRateType('non_member')}>Non-Tesla</button><span className={pricingFresh?'badge fresh':'badge'}>{latestHistory?`Last price: ${shortDate(latestHistory.capturedAt)}`:'Pricing not collected yet'}</span></div><div className='priceStrip'><div><span>Latest observed website price</span><strong>{money(prediction?.latestObservedPrice)}</strong><small>{prediction?.latestObservedAt?shortDate(prediction.latestObservedAt):'not scraped yet'}</small></div><div><span>Best 30-min period</span><strong>{prediction?slotLabel(prediction.bestSlot??prediction.bestHour*2):'—'}</strong><small>{rateType==='member'?'Tesla/member rate':'Non-Tesla rate'}</small></div><div><span>Estimated 95% range</span><strong>{prediction?`${money(prediction.ci95Low)}–${money(prediction.ci95High)}`:'—'}</strong><small>lower to upper</small></div><div><span>Price samples</span><strong>{prediction?.sampleCount??historyRows.length}</strong><small>observations used</small></div></div><div className='metaGrid'><span>Stalls <strong>{selected?.stalls||'—'}</strong></span><span>Max power <strong>{selected?.maxKw?`${selected.maxKw} kW`:'—'}</strong></span><span>Scrape status <strong>{scrapeStatus}</strong></span><span>Source <strong>{selected?.source?.replaceAll('_',' ')||'unknown'}</strong></span></div></Card>{origin&&<Card><div className='sectionTitle'><div><p>{originMode==='near-me'?'Near me':'ZIP search'}</p><h2>{originMode==='near-me'?'Closest 5 Superchargers':'25 closest Superchargers'}</h2></div></div><div className='nearbyGrid'>{nearbyList.map((s,i)=><button key={s.id} className={s.id===selected?.id?'nearby active':'nearby'} onClick={()=>setSelectedId(s.id)}><strong>{i+1}. {s.name}</strong><span>{distance(s.distanceMiles)} away</span><small>{s.address||[s.city,s.state].filter(Boolean).join(', ')}</small></button>)}</div></Card>}<Card><div className='sectionTitle'><div><p>Historical data</p><h2>Observed station pricing over time</h2></div></div>{historyRows.length?<div className='chartWrap'><ResponsiveContainer width='100%' height={300}><LineChart data={historyRows}><CartesianGrid strokeDasharray='3 3'/><XAxis dataKey='capturedLabel' minTickGap={28}/><YAxis domain={['auto','auto']} tickFormatter={money}/><Tooltip formatter={v=>money(v)} labelFormatter={v=>`Captured ${v}`}/><Line type='monotone' dataKey='member' name='Tesla/member $/kWh' strokeWidth={3} dot/><Line type='monotone' dataKey='nonMember' name='Non-Tesla $/kWh' strokeWidth={3} dot/></LineChart></ResponsiveContainer></div>:<EmptyState title='No historical prices yet'>{historyError?'No history file has been generated for this station yet.':'The station is in the directory, but the pricing bot has not collected observations for it yet.'}</EmptyState>}</Card><Card><div className='sectionTitle'><div><p>12-hour location view</p><h2>30-minute cost frequency around this station</h2></div></div><div className='chartWrap'><ResponsiveContainer width='100%' height={270}><BarChart data={twelveHourData}><CartesianGrid strokeDasharray='3 3'/><XAxis dataKey='slotLabel' minTickGap={18}/><YAxis domain={['auto','auto']} tickFormatter={money}/><Tooltip formatter={v=>money(v)} labelFormatter={v=>`${v} local`}/><Bar dataKey='expectedPrice' name='Estimated $/kWh'/></BarChart></ResponsiveContainer></div><div className='hourGrid'>{twelveHourData.map(row=><span key={row.slot} className={row.hasObservation?'known':''}><small>{row.slotLabel}</small><strong>{money(row.expectedPrice)}</strong></span>)}</div><p className='muted'>Blank buckets mean CaughtaKWH has not collected a public price observation for that 30-minute period yet.</p></Card><UtilizationImpact prediction={prediction}/><Card><div className='sectionTitle'><div><p>Best time model</p><h2>48-slot price estimate</h2></div></div><div className='chartWrap'><ResponsiveContainer width='100%' height={310}><LineChart data={halfHourly}><CartesianGrid strokeDasharray='3 3'/><XAxis dataKey='slotLabel' interval={3} angle={-35} textAnchor='end' height={58}/><YAxis domain={['auto','auto']} tickFormatter={money}/><Tooltip formatter={v=>money(v)} labelFormatter={v=>`30-min period: ${v}`}/><Line connectNulls type='monotone' dataKey='expectedPrice' name='Estimated $/kWh' strokeWidth={3} dot/><Line connectNulls type='monotone' dataKey='ci95High' name='Likely high' strokeWidth={2} dot={false}/><Line connectNulls type='monotone' dataKey='ci95Low' name='Likely low' strokeWidth={2} dot={false}/></LineChart></ResponsiveContainer></div><p className='muted'>Blank 30-minute slots mean the bot needs more observations for that period. Tesla prices are dynamic; always verify the latest observed price before relying on it.</p></Card><Card><div className='sectionTitle'><div><p>National comparison</p><h2>Known Tesla/member price estimates</h2></div></div><div className='chartWrap'><ResponsiveContainer width='100%' height={280}><BarChart data={memberPreds.slice(0,25)}><CartesianGrid strokeDasharray='3 3'/><XAxis dataKey='stationId' hide/><YAxis tickFormatter={money}/><Tooltip formatter={v=>money(v)}/><Bar dataKey='expectedPrice' name='Estimated $/kWh'/></BarChart></ResponsiveContainer></div></Card></div></section><footer><p>CaughtaKWH uses public Tesla Find Us pages and user-verified observations. It is not affiliated with Tesla. Pricing can change at any time; verify in the Tesla app before relying on a price.</p></footer></main>}
-createRoot(document.getElementById('root')).render(<App/>);
+import React, { useEffect, useMemo, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { AlertTriangle, BatteryCharging, Clock3, Compass, MapPin, Navigation, Search, TrendingDown, Zap } from 'lucide-react';
+import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { geocodeZip, nearestStations } from './zipSearch.js';
+import { coverageKpis, pricingStats, scrapeOutcome, topStates } from './kpis.js';
+import './styles.css';
+
+const money = value => typeof value === 'number' ? `$${value.toFixed(2)}` : '—';
+const percent = value => typeof value === 'number' ? `${Math.round(value)}%` : '—';
+const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
+const wrapSlot = slot => (slot + 48) % 48;
+const shortDate = iso => iso ? new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
+const distance = miles => typeof miles === 'number' ? `${miles.toFixed(miles < 10 ? 1 : 0)} mi` : '';
+
+function useJson(url, fallback, refreshMs = 300000) {
+  const [data, setData] = useState(fallback);
+  const [error, setError] = useState(null);
+  const [fetchedAt, setFetchedAt] = useState(null);
+
+  useEffect(() => {
+    let live = true;
+    const load = () => {
+      setError(null);
+      fetch(`${url}?t=${Date.now()}`, { cache: 'no-store' })
+        .then(response => {
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+          return response.json();
+        })
+        .then(json => {
+          if (!live) return;
+          setData(json);
+          setFetchedAt(new Date().toISOString());
+        })
+        .catch(error => live && setError(error.message));
+    };
+
+    load();
+    const timer = refreshMs ? window.setInterval(load, refreshMs) : null;
+    return () => {
+      live = false;
+      if (timer) window.clearInterval(timer);
+    };
+  }, [url, refreshMs]);
+
+  return { data, error, fetchedAt };
+}
+
+function Card({ children, className = '' }) {
+  return <section className={`card ${className}`}>{children}</section>;
+}
+
+function Stat({ icon, label, value, note }) {
+  return <Card className="stat"><div className="statIcon">{icon}</div><div><p>{label}</p><strong>{value}</strong>{note && <small>{note}</small>}</div></Card>;
+}
+
+function EmptyState({ title, children }) {
+  return <div className="empty"><AlertTriangle size={18}/><div><strong>{title}</strong><p>{children}</p></div></div>;
+}
+
+function PriceTruthNotice({ selected, prediction }) {
+  const hasObservation = Boolean(prediction?.latestObservedAt || selected?.lastScrapeHadPrice);
+  return <div className={hasObservation ? 'truthNotice ok' : 'truthNotice'}>
+    <strong>{hasObservation ? 'Last observed pricing' : 'Current Tesla price not visible yet'}</strong>
+    <p>{hasObservation
+      ? 'CaughtaKWH stores the last observed public price and refreshes it on a schedule. Tesla can still change prices at any time, so verify in Tesla before charging.'
+      : 'Tesla does not always expose current $/kWh pricing in public page text. The scraper now records diagnostics instead of pretending missing data is live pricing.'}</p>
+  </div>;
+}
+
+function App() {
+  const { data: stations, fetchedAt: stationsFetchedAt } = useJson('./data/stations.json', []);
+  const { data: predictions, fetchedAt: predictionsFetchedAt } = useJson('./data/predictions.json', []);
+  const [query, setQuery] = useState('');
+  const [stateFilter, setStateFilter] = useState('All');
+  const [rateType, setRateType] = useState('member');
+  const [selectedId, setSelectedId] = useState('LakeGroveNYsupercharger');
+  const [zip, setZip] = useState('');
+  const [origin, setOrigin] = useState(null);
+  const [originMode, setOriginMode] = useState('browse');
+  const [geoError, setGeoError] = useState('');
+  const [geoLoading, setGeoLoading] = useState(false);
+
+  const selected = stations.find(station => station.id === selectedId) || stations[0];
+  const { data: history, error: historyError } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
+  const prediction = predictions.find(item => item.stationId === selected?.id && item.membershipType === rateType) || predictions.find(item => item.stationId === selected?.id);
+
+  const states = useMemo(() => ['All', ...Array.from(new Set(stations.map(station => station.state).filter(Boolean))).sort()], [stations]);
+  const nearbyLimit = originMode === 'near-me' ? 5 : originMode === 'zip' ? 25 : 0;
+  const nearbyList = useMemo(() => origin ? nearestStations(stations, origin, nearbyLimit || 25) : [], [stations, origin, nearbyLimit]);
+  const filtered = useMemo(() => {
+    const normalized = query.toLowerCase().trim();
+    return stations.filter(station => {
+      const matchesState = stateFilter === 'All' || station.state === stateFilter;
+      const text = [station.name, station.city, station.state, station.address, station.id].filter(Boolean).join(' ').toLowerCase();
+      return matchesState && (!normalized || text.includes(normalized));
+    });
+  }, [stations, query, stateFilter]);
+
+  const list = origin ? nearbyList : filtered;
+
+  async function findZip(event) {
+    event.preventDefault();
+    setGeoLoading(true);
+    setGeoError('');
+    try {
+      const found = await geocodeZip(zip);
+      setOrigin(found);
+      setOriginMode('zip');
+      setQuery('');
+      setStateFilter('All');
+      const closest = nearestStations(stations, found, 1)[0];
+      if (closest) setSelectedId(closest.id);
+    } catch (error) {
+      setGeoError(error.message || 'ZIP lookup failed.');
+    } finally {
+      setGeoLoading(false);
+    }
+  }
+
+  function useMyLocation() {
+    setGeoLoading(true);
+    setGeoError('');
+    if (!navigator.geolocation) {
+      setGeoError('Location is not available in this browser.');
+      setGeoLoading(false);
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(position => {
+      const found = {
+        zip: 'current location',
+        city: 'Your location',
+        state: '',
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      setOrigin(found);
+      setOriginMode('near-me');
+      setQuery('');
+      setStateFilter('All');
+      const closest = nearestStations(stations, found, 1)[0];
+      if (closest) setSelectedId(closest.id);
+      setGeoLoading(false);
+    }, error => {
+      setGeoError(error.message || 'Location permission denied.');
+      setGeoLoading(false);
+    }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
+  }
+
+  const historyRows = useMemo(() => (Array.isArray(history) ? history : []).map(row => ({
+    ...row,
+    capturedLabel: shortDate(row.capturedAt),
+    member: row.memberPricePerKwh ?? null,
+    nonMember: row.nonMemberPricePerKwh ?? null
+  })).slice(-120), [history]);
+
+  const slotRows = useMemo(() => {
+    const rows = prediction?.slots || prediction?.hourly || [];
+    const bySlot = new Map(rows.map(row => [Number(row.slot ?? (Number(row.hour) * 2 + (Number(row.minute || 0) >= 30 ? 1 : 0))), row]));
+    const anchor = Number.isFinite(prediction?.bestSlot) ? Number(prediction.bestSlot) : new Date().getHours() * 2 + (new Date().getMinutes() >= 30 ? 1 : 0);
+    const start = wrapSlot(anchor - 11);
+    return Array.from({ length: 24 }, (_, index) => {
+      const slot = wrapSlot(start + index);
+      const row = bySlot.get(slot);
+      return { slot, slotLabel: slotLabel(slot), expectedPrice: row?.expectedPrice ?? null, hasObservation: Boolean(row), sampleCount: row?.sampleCount ?? 0 };
+    });
+  }, [prediction]);
+
+  const modelRows = useMemo(() => Array.from({ length: 48 }, (_, slot) => {
+    const rows = prediction?.slots || prediction?.hourly || [];
+    const row = rows.find(item => Number(item.slot ?? (Number(item.hour) * 2 + (Number(item.minute || 0) >= 30 ? 1 : 0))) === slot);
+    return { slot, slotLabel: slotLabel(slot), expectedPrice: row?.expectedPrice ?? null, ci95High: row?.ci95High ?? null, ci95Low: row?.ci95Low ?? null, sampleCount: row?.sampleCount ?? 0 };
+  }), [prediction]);
+
+  const memberPreds = predictions.filter(item => item.membershipType === 'member');
+  const cheapest = [...memberPreds].sort((a, b) => a.expectedPrice - b.expectedPrice)[0];
+  const pricedStations = new Set(predictions.map(item => item.stationId)).size;
+  const coverage = coverageKpis(stations, predictions);
+  const priceSummary = pricingStats(predictions);
+  const stateChart = topStates(stations, 12);
+  const scrapeChart = scrapeOutcome(stations);
+  const latestHistory = historyRows.at(-1);
+  const pricingFresh = latestHistory?.capturedAt ? ((Date.now() - new Date(latestHistory.capturedAt).getTime()) / 36e5) < 24 : false;
+  const scrapeStatus = selected?.lastScrapeError
+    ? selected.lastScrapeError
+    : selected?.lastScrapedAt
+      ? selected.lastScrapeHadPrice
+        ? 'Latest scrape found public pricing text.'
+        : selected.lastScrapeHadAvailability
+          ? 'Latest scrape found availability, but no public price.'
+          : 'Latest scrape did not find public pricing or availability text.'
+      : 'Not scraped yet.';
+
+  return <main>
+    <header className="hero">
+      <div><div className="eyebrow"><Zap size={16}/> CaughtaKWH</div><h1>Know before you plug in.</h1><p>Find nearby Superchargers, track last observed public pricing, and watch how coverage improves as the refresh bots collect more observations.</p></div>
+      <div className="heroPanel"><strong>Dynamic pricing disclaimer</strong><p>Tesla prices can change dynamically. CaughtaKWH shows last observed public pricing and confidence from observations; always verify in Tesla before relying on a price.</p></div>
+    </header>
+
+    <section className="statsGrid">
+      <Stat icon={<MapPin/>} label="Stations discovered" value={stations.length} note={`${coverage.coordsPct}% with coordinates`} />
+      <Stat icon={<Navigation/>} label={originMode === 'near-me' ? 'Closest near you' : originMode === 'zip' ? 'Closest near ZIP' : 'Nearby mode'} value={origin ? nearbyList.length : '—'} note={origin ? `${origin.city}${origin.state ? ', ' + origin.state : ''}` : 'off'} />
+      <Stat icon={<Clock3/>} label="Pricing coverage" value={`${coverage.pricedPct}%`} note={`${pricedStations} stations modeled`} />
+      <Stat icon={<TrendingDown/>} label="Lowest known estimate" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId} />
+    </section>
+
+    <section className="layout">
+      <Card className="sidebar">
+        <div className="nearbyBox betterNearby">
+          <div><strong>Nearby Superchargers</strong><small>Use location for closest 5, or ZIP for closest 25.</small></div>
+          <button className="nearMeButton" onClick={useMyLocation} disabled={geoLoading}><Compass size={18}/><span>{geoLoading ? 'Finding…' : 'Use my location'}</span><small>Closest 5</small></button>
+          <form onSubmit={findZip}><div className="zipRow"><input placeholder="ZIP code" value={zip} onChange={event => setZip(event.target.value)} inputMode="numeric" maxLength={5}/><button disabled={geoLoading}>Find 25</button></div></form>
+          {origin && <small>{originMode === 'near-me' ? 'Showing closest 5 near your current location.' : `Showing closest 25 near ${origin.zip} — ${origin.city}, ${origin.state}`}</small>}
+          {geoError && <small className="errorText"><AlertTriangle size={12}/> {geoError}</small>}
+          {origin && <button className="linkButton" onClick={() => { setOrigin(null); setOriginMode('browse'); }}>Clear nearby mode</button>}
+        </div>
+
+        <label className="search"><Search size={16}/><input placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
+        <select className="filter" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select>
+        <div className="stationList">{list.map(station => <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => setSelectedId(station.id)}><strong>{station.name}</strong><span>{station.distanceMiles !== undefined ? `${distance(station.distanceMiles)} • ` : ''}{station.address || [station.city, station.state].filter(Boolean).join(', ') || station.id}</span></button>)}</div>
+      </Card>
+
+      <div className="content">
+        <PriceTruthNotice selected={selected} prediction={prediction} />
+
+        <Card>
+          <div className="sectionTitle"><div><p>Selected station</p><h2>{selected?.name || 'No station selected'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Station page</a>}</div>
+          <p className="muted">{selected?.address || 'Address will populate after discovery enrichment.'}</p>
+          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><span className={pricingFresh ? 'badge fresh' : 'badge'}>{latestHistory ? `Last observation: ${shortDate(latestHistory.capturedAt)}` : 'No price observation yet'}</span></div>
+          <div className="priceStrip"><div><span>Last observed public price</span><strong>{money(prediction?.latestObservedPrice)}</strong><small>{prediction?.latestObservedAt ? shortDate(prediction.latestObservedAt) : 'not visible yet'}</small></div><div><span>Lowest observed/model slot</span><strong>{prediction ? slotLabel(prediction.bestSlot ?? prediction.bestHour * 2) : '—'}</strong><small>observation-based, not guaranteed</small></div><div><span>Estimated 95% range</span><strong>{prediction ? `${money(prediction.ci95Low)}–${money(prediction.ci95High)}` : '—'}</strong><small>from collected observations</small></div><div><span>Observation samples</span><strong>{prediction?.sampleCount ?? historyRows.length}</strong><small>pricing or availability rows</small></div></div>
+          <div className="metaGrid"><span>Stalls <strong>{selected?.stalls || '—'}</strong></span><span>Max power <strong>{selected?.maxKw ? `${selected.maxKw} kW` : '—'}</strong></span><span>Scrape status <strong>{scrapeStatus}</strong></span><span>Source <strong>{selected?.source?.replaceAll('_', ' ') || 'unknown'}</strong></span></div>
+        </Card>
+
+        {origin && <Card><div className="sectionTitle"><div><p>{originMode === 'near-me' ? 'Near me' : 'ZIP search'}</p><h2>{originMode === 'near-me' ? 'Closest 5 Superchargers' : '25 closest Superchargers'}</h2></div></div><div className="nearbyGrid">{nearbyList.map((station, index) => <button key={station.id} className={station.id === selected?.id ? 'nearby active' : 'nearby'} onClick={() => setSelectedId(station.id)}><strong>{index + 1}. {station.name}</strong><span>{distance(station.distanceMiles)} away</span><small>{station.address || [station.city, station.state].filter(Boolean).join(', ')}</small></button>)}</div></Card>}
+
+        <section className="statsGrid kpiGrid">
+          <Stat icon={<BatteryCharging/>} label="Tesla URL coverage" value={`${coverage.teslaUrlPct}%`} note={`${coverage.teslaUrls} stations`} />
+          <Stat icon={<Clock3/>} label="Scraped coverage" value={`${coverage.scrapedPct}%`} note={`${coverage.scraped} attempted`} />
+          <Stat icon={<TrendingDown/>} label="Median model price" value={money(priceSummary.median)} note={`${priceSummary.count} model rows`} />
+          <Stat icon={<MapPin/>} label="Average model price" value={money(priceSummary.avg)} note={`range ${money(priceSummary.low)}–${money(priceSummary.high)}`} />
+        </section>
+
+        <Card>
+          <div className="sectionTitle"><div><p>Historical observations</p><h2>Observed public pricing over time</h2></div></div>
+          {historyRows.length ? <div className="chartWrap"><ResponsiveContainer width="100%" height={300}><LineChart data={historyRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="capturedLabel" minTickGap={28} /><YAxis domain={['auto','auto']} tickFormatter={money} /><Tooltip formatter={value => money(value)} labelFormatter={value => `Captured ${value}`} /><Line type="monotone" dataKey="member" name="Tesla/member $/kWh" strokeWidth={3} dot /><Line type="monotone" dataKey="nonMember" name="Non-Tesla $/kWh" strokeWidth={3} dot /></LineChart></ResponsiveContainer></div> : <EmptyState title="No historical prices yet">{historyError ? 'No history file has been generated for this station yet.' : 'The station is in the directory, but CaughtaKWH has not collected a public price observation yet.'}</EmptyState>}
+        </Card>
+
+        <Card>
+          <div className="sectionTitle"><div><p>Observation coverage</p><h2>Observed/model windows by time of day</h2></div></div>
+          <div className="chartWrap"><ResponsiveContainer width="100%" height={270}><BarChart data={slotRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" minTickGap={18} /><YAxis domain={['auto','auto']} tickFormatter={money} /><Tooltip formatter={value => money(value)} labelFormatter={value => `${value} local`} /><Bar dataKey="expectedPrice" name="Observed/model $/kWh" /></BarChart></ResponsiveContainer></div>
+          <div className="hourGrid">{slotRows.map(row => <span key={row.slot} className={row.hasObservation ? 'known' : ''}><small>{row.slotLabel}</small><strong>{money(row.expectedPrice)}</strong></span>)}</div>
+          <p className="muted">This is not a Tesla price-frequency schedule. It only shows where CaughtaKWH has observations or model estimates. Tesla pricing can change dynamically at any time.</p>
+        </Card>
+
+        <Card>
+          <div className="sectionTitle"><div><p>48-slot model</p><h2>Observation-based price estimate</h2></div></div>
+          <div className="chartWrap"><ResponsiveContainer width="100%" height={310}><LineChart data={modelRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" interval={3} angle={-35} textAnchor="end" height={58} /><YAxis domain={['auto','auto']} tickFormatter={money} /><Tooltip formatter={value => money(value)} labelFormatter={value => `30-min period: ${value}`} /><Line connectNulls type="monotone" dataKey="expectedPrice" name="Estimated $/kWh" strokeWidth={3} dot /><Line connectNulls type="monotone" dataKey="ci95High" name="Likely high" strokeWidth={2} dot={false} /><Line connectNulls type="monotone" dataKey="ci95Low" name="Likely low" strokeWidth={2} dot={false} /></LineChart></ResponsiveContainer></div>
+          <p className="muted">Use this as an observation-based guide only. It is not a live Tesla quote and not a guarantee of the price shown in your vehicle or app.</p>
+        </Card>
+
+        <div className="chartGrid">
+          <Card><div className="sectionTitle"><div><p>Coverage</p><h2>Top states by stations</h2></div></div><div className="chartWrap"><ResponsiveContainer width="100%" height={280}><BarChart data={stateChart}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="state" /><YAxis allowDecimals={false} /><Tooltip /><Bar dataKey="count" name="Stations" /></BarChart></ResponsiveContainer></div></Card>
+          <Card><div className="sectionTitle"><div><p>Scraper funnel</p><h2>Pricing visibility status</h2></div></div><div className="chartWrap"><ResponsiveContainer width="100%" height={280}><BarChart data={scrapeChart}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="name" hide /><YAxis allowDecimals={false} /><Tooltip /><Bar dataKey="count" name="Stations" /></BarChart></ResponsiveContainer></div></Card>
+        </div>
+      </div>
+    </section>
+    <footer><p>Data refreshed {predictionsFetchedAt ? shortDate(predictionsFetchedAt) : 'recently'}. Station directory refreshed {stationsFetchedAt ? shortDate(stationsFetchedAt) : 'recently'}. Not affiliated with Tesla.</p></footer>
+  </main>;
+}
+
+createRoot(document.getElementById('root')).render(<App />);
