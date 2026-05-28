@@ -43,6 +43,33 @@ function inferPrices(text, html = '') {
   if (nonMember === null && allKwh.length > 1 && lower.includes('non-tesla')) nonMember = allKwh[1];
   return { memberPricePerKwh: member, nonMemberPricePerKwh: nonMember, congestionFeePerMinuteMax: congestion };
 }
+
+function inferAvailability(text, station) {
+  const normalized = text.replace(/\s+/g, ' ');
+  const totalFromStation = typeof station.stalls === 'number' ? station.stalls : null;
+  const ofTotalMatch = normalized.match(/(\d+)\s+(?:of|\/)\s+(\d+)\s+(?:stalls?|chargers?|posts?)\s+available/i);
+  const availableOnlyMatch = normalized.match(/(\d+)\s+(?:stalls?|chargers?|posts?)\s+available/i);
+  const availableStalls = ofTotalMatch ? Number(ofTotalMatch[1]) : availableOnlyMatch ? Number(availableOnlyMatch[1]) : null;
+  const totalStalls = ofTotalMatch ? Number(ofTotalMatch[2]) : totalFromStation;
+  const utilizationPct = typeof availableStalls === 'number' && typeof totalStalls === 'number' && totalStalls > 0
+    ? Number(((totalStalls - availableStalls) / totalStalls).toFixed(4))
+    : null;
+  const availabilityLabel = /limited\s+(?:stalls?|chargers?|availability)/i.test(normalized)
+    ? 'limited'
+    : /full|no\s+(?:stalls?|chargers?)\s+available/i.test(normalized)
+      ? 'full'
+      : typeof availableStalls === 'number'
+        ? 'available'
+        : null;
+
+  return {
+    availableStalls,
+    totalStalls,
+    utilizationPct,
+    availabilityLabel
+  };
+}
+
 async function scrapeOne(context, station) {
   const candidates = stationCandidates(station);
   let lastError = null;
@@ -54,9 +81,10 @@ async function scrapeOne(context, station) {
       const bodyText = await page.locator('body').innerText({ timeout: 12000 });
       const html = await page.content().catch(() => '');
       const prices = inferPrices(bodyText, html);
+      const availability = inferAvailability(bodyText, station);
       const hasPrice = prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null;
       const titleLooksValid = /supercharger|pricing|tesla/i.test(bodyText) && !/page not found|404/i.test(bodyText);
-      if (hasPrice || titleLooksValid) return { url, prices, bodyText, hasPrice };
+      if (hasPrice || titleLooksValid) return { url, prices, availability, bodyText, hasPrice };
     } catch (error) {
       lastError = error;
     } finally {
@@ -79,23 +107,26 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
   attempted++;
   try {
     const result = await scrapeOne(context, station);
-    const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: new Date().getHours(), ...result.prices, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
+    const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: new Date().getHours(), ...result.prices, ...result.availability, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
     const hasPrice = observation.memberPricePerKwh !== null || observation.nonMemberPricePerKwh !== null;
-    if (hasPrice) {
+    const hasAvailability = observation.availableStalls !== null || observation.utilizationPct !== null || observation.availabilityLabel !== null;
+    if (hasPrice || hasAvailability) {
       const history = await readJson(stationHistoryPath(station.id), []);
-      const key = `${observation.capturedAt}-${observation.memberPricePerKwh}-${observation.nonMemberPricePerKwh}-${observation.congestionFeePerMinuteMax}`;
-      const merged = [...history.filter(x => `${x.capturedAt}-${x.memberPricePerKwh}-${x.nonMemberPricePerKwh}-${x.congestionFeePerMinuteMax}` !== key), observation];
+      const key = `${observation.capturedAt}-${observation.memberPricePerKwh}-${observation.nonMemberPricePerKwh}-${observation.congestionFeePerMinuteMax}-${observation.availableStalls}-${observation.utilizationPct}`;
+      const merged = [...history.filter(x => `${x.capturedAt}-${x.memberPricePerKwh}-${x.nonMemberPricePerKwh}-${x.congestionFeePerMinuteMax}-${x.availableStalls}-${x.utilizationPct}` !== key), observation];
       await writeJson(stationHistoryPath(station.id), merged);
       saved++;
     }
     station.url = result.url;
     station.lastScrapedAt = capturedAt;
     station.lastScrapeHadPrice = hasPrice;
+    station.lastScrapeHadAvailability = hasAvailability;
     delete station.lastScrapeError;
   } catch (error) {
     station.lastScrapeError = String(error.message || error);
     station.lastScrapedAt = capturedAt;
     station.lastScrapeHadPrice = false;
+    station.lastScrapeHadAvailability = false;
   } finally {
     await sleep(DELAY_MS);
   }

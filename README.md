@@ -8,6 +8,7 @@ CaughtaKWH is a GitHub Pages-ready dashboard for tracking Tesla Supercharger $/k
 - Scrapes station-specific pricing text from public Tesla location pages using Playwright.
 - Stores observations per station in `data/history/{stationId}.json`.
 - Builds member and non-member best-hour predictions with 95% confidence intervals.
+- Tracks available stalls, utilization bands, and congestion fees when public pages expose those signals.
 - Deploys a static React dashboard to GitHub Pages.
 
 ## Important limitation
@@ -51,6 +52,9 @@ Then increase gradually. Full nationwide scraping too frequently may trigger ant
   "localHour": 16,
   "memberPricePerKwh": 0.43,
   "nonMemberPricePerKwh": 0.65,
+  "availableStalls": 3,
+  "totalStalls": 8,
+  "utilizationPct": 0.625,
   "congestionFeePerMinuteMax": 0.5,
   "currency": "USD"
 }
@@ -65,6 +69,10 @@ mean ± 1.96 × standard error
 ```
 
 The recommendation uses the lowest 95% upper confidence bound, which penalizes sparse or volatile hours.
+
+## Utilization method
+
+When observations include both price and stall availability, CaughtaKWH groups utilization into low, medium, and high bands and compares average $/kWh against the low-utilization baseline. Until a station has observations across multiple load levels, the dashboard labels utilization impact as not ready instead of guessing.
 
 ## Seed observation
 

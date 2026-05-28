@@ -8,6 +8,56 @@ function sd(xs) {
   const m = mean(xs);
   return Math.sqrt(xs.reduce((a, x) => a + (x - m) ** 2, 0) / (xs.length - 1));
 }
+
+function utilizationBand(value) {
+  if (typeof value !== 'number') return null;
+  if (value >= 0.8) return 'high';
+  if (value >= 0.5) return 'medium';
+  return 'low';
+}
+
+function utilizationImpact(obs, field) {
+  const rows = obs.filter(row => typeof row[field] === 'number' && typeof row.utilizationPct === 'number');
+  const buckets = new Map();
+  for (const row of rows) {
+    const band = utilizationBand(row.utilizationPct);
+    if (!band) continue;
+    if (!buckets.has(band)) buckets.set(band, []);
+    buckets.get(band).push(row);
+  }
+
+  const lowMean = buckets.has('low') ? mean(buckets.get('low').map(row => row[field])) : null;
+  const impact = ['low', 'medium', 'high'].map(band => {
+    const bandRows = buckets.get(band) || [];
+    const prices = bandRows.map(row => row[field]);
+    const utilization = bandRows.map(row => row.utilizationPct);
+    const expectedPrice = prices.length ? Number(mean(prices).toFixed(4)) : null;
+    return {
+      band,
+      sampleCount: bandRows.length,
+      expectedPrice,
+      averageUtilizationPct: utilization.length ? Number(mean(utilization).toFixed(4)) : null,
+      deltaFromLow: expectedPrice !== null && lowMean !== null ? Number((expectedPrice - lowMean).toFixed(4)) : null
+    };
+  });
+
+  return {
+    sampleCount: rows.length,
+    hasSignal: impact.filter(row => row.sampleCount > 0).length >= 2,
+    bands: impact
+  };
+}
+
+function congestionSummary(obs) {
+  const fees = obs.map(row => row.congestionFeePerMinuteMax).filter(value => typeof value === 'number');
+  if (!fees.length) return { sampleCount: 0, maxFeePerMinute: null, averageFeePerMinute: null };
+  return {
+    sampleCount: fees.length,
+    maxFeePerMinute: Number(Math.max(...fees).toFixed(4)),
+    averageFeePerMinute: Number(mean(fees).toFixed(4))
+  };
+}
+
 function predictionFor(stationId, obs, field, membershipType) {
   const buckets = new Map();
   for (const row of obs) {
@@ -41,6 +91,8 @@ function predictionFor(stationId, obs, field, membershipType) {
     ci95High: best.ci95High,
     sampleCount: best.sampleCount,
     confidenceLabel: best.sampleCount < 10 ? 'low sample - collect more observations' : '95% confidence interval from station history',
+    utilizationImpact: utilizationImpact(obs, field),
+    congestion: congestionSummary(obs),
     hourly
   };
 }
