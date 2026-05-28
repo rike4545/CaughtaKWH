@@ -1,0 +1,73 @@
+name: Dynamic Tesla Pricing Refresh
+on:
+  workflow_dispatch:
+    inputs:
+      max_stations:
+        description: Max station pricing pages to scrape this run
+        required: false
+        default: '75'
+  schedule:
+    - cron: '*/15 * * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: caughtakwh-price-refresh
+  cancel-in-progress: true
+jobs:
+  refresh-prices:
+    runs-on: ubuntu-latest
+    env:
+      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '75' }}
+      SCRAPE_DELAY_MS: 750
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Refresh dynamic Tesla pricing
+        run: MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape || true
+      - name: Rebuild predictions and price-change feed
+        run: |
+          npm run predict
+          node scripts/price-change-bot.mjs || true
+          npm run validate:data
+      - name: Commit pricing updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git status --short
+          git add data reports || true
+          if git diff --cached --quiet; then
+            echo "No pricing changes to commit."
+          else
+            git commit -m "Refresh dynamic Tesla pricing"
+            git push origin HEAD:main
+          fi
+  deploy:
+    needs: refresh-prices
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - uses: actions/deploy-pages@v4
