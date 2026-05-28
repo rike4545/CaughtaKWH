@@ -4,6 +4,8 @@
     "capturedAt": "2026-05-25T20:33:00.000Z",
     "localDate": "2026-05-25",
     "localHour": 16,
+    "localMinute": 33,
+    "halfHourSlot": 33,
     "memberPricePerKwh": 0.43,
     "nonMemberPricePerKwh": 0.65,
     "congestionFeePerMinuteMax": 0.5,

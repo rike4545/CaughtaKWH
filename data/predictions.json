@@ -1,9 +1,13 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-05-28T00:34:33.026Z",
+    "generatedAt": "2026-05-28T00:39:54.593Z",
     "membershipType": "member",
+    "latestObservedAt": "2026-05-25T20:33:00.000Z",
+    "latestObservedPrice": 0.43,
     "bestHour": 16,
+    "bestMinute": 30,
+    "bestSlot": 33,
     "expectedPrice": 0.43,
     "ci95Low": 0.43,
     "ci95High": 0.43,
@@ -41,9 +45,24 @@
       "maxFeePerMinute": 0.5,
       "averageFeePerMinute": 0.5
     },
+    "slots": [
+      {
+        "slot": 33,
+        "hour": 16,
+        "minute": 30,
+        "label": "16:30",
+        "expectedPrice": 0.43,
+        "ci95Low": 0.43,
+        "ci95High": 0.43,
+        "sampleCount": 1
+      }
+    ],
     "hourly": [
       {
+        "slot": 33,
         "hour": 16,
+        "minute": 30,
+        "label": "16:30",
         "expectedPrice": 0.43,
         "ci95Low": 0.43,
         "ci95High": 0.43,
@@ -53,9 +72,13 @@
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-05-28T00:34:33.027Z",
+    "generatedAt": "2026-05-28T00:39:54.594Z",
     "membershipType": "non_member",
+    "latestObservedAt": "2026-05-25T20:33:00.000Z",
+    "latestObservedPrice": 0.65,
     "bestHour": 16,
+    "bestMinute": 30,
+    "bestSlot": 33,
     "expectedPrice": 0.65,
     "ci95Low": 0.65,
     "ci95High": 0.65,
@@ -93,9 +116,24 @@
       "maxFeePerMinute": 0.5,
       "averageFeePerMinute": 0.5
     },
+    "slots": [
+      {
+        "slot": 33,
+        "hour": 16,
+        "minute": 30,
+        "label": "16:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.65,
+        "ci95High": 0.65,
+        "sampleCount": 1
+      }
+    ],
     "hourly": [
       {
+        "slot": 33,
         "hour": 16,
+        "minute": 30,
+        "label": "16:30",
         "expectedPrice": 0.65,
         "ci95Low": 0.65,
         "ci95High": 0.65,

@@ -58,34 +58,57 @@ function congestionSummary(obs) {
   };
 }
 
+function slotFromObservation(row) {
+  if (Number.isInteger(row.halfHourSlot)) return row.halfHourSlot;
+  if (typeof row.localHour === 'number') return row.localHour * 2 + (Number(row.localMinute || 0) >= 30 ? 1 : 0);
+  const date = new Date(row.capturedAt);
+  return date.getHours() * 2 + (date.getMinutes() >= 30 ? 1 : 0);
+}
+
+function slotParts(slot) {
+  const hour = Math.floor(slot / 2);
+  const minute = slot % 2 === 0 ? 0 : 30;
+  return { hour, minute, label: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}` };
+}
+
 function predictionFor(stationId, obs, field, membershipType) {
   const buckets = new Map();
+  const priceRows = obs.filter(row => typeof row[field] === 'number');
   for (const row of obs) {
     const val = row[field];
     if (typeof val !== 'number') continue;
-    const hour = Number(row.localHour ?? new Date(row.capturedAt).getHours());
-    if (!buckets.has(hour)) buckets.set(hour, []);
-    buckets.get(hour).push(val);
+    const slot = slotFromObservation(row);
+    if (!buckets.has(slot)) buckets.set(slot, []);
+    buckets.get(slot).push(val);
   }
-  const hourly = [...buckets.entries()].map(([hour, values]) => {
+  const slots = [...buckets.entries()].map(([slot, values]) => {
     const m = mean(values);
     const s = sd(values);
     const se = values.length > 1 ? s / Math.sqrt(values.length) : 0;
+    const parts = slotParts(slot);
     return {
-      hour,
+      slot,
+      hour: parts.hour,
+      minute: parts.minute,
+      label: parts.label,
       expectedPrice: Number(m.toFixed(4)),
       ci95Low: Number(Math.max(0, m - 1.96 * se).toFixed(4)),
       ci95High: Number((m + 1.96 * se).toFixed(4)),
       sampleCount: values.length
     };
   }).sort((a, b) => a.ci95High - b.ci95High || a.expectedPrice - b.expectedPrice);
-  if (!hourly.length) return null;
-  const best = hourly[0];
+  if (!slots.length) return null;
+  const best = slots[0];
+  const latest = [...priceRows].sort((a, b) => new Date(b.capturedAt) - new Date(a.capturedAt))[0];
   return {
     stationId,
     generatedAt: new Date().toISOString(),
     membershipType,
+    latestObservedAt: latest?.capturedAt || null,
+    latestObservedPrice: latest?.[field] ?? null,
     bestHour: best.hour,
+    bestMinute: best.minute,
+    bestSlot: best.slot,
     expectedPrice: best.expectedPrice,
     ci95Low: best.ci95Low,
     ci95High: best.ci95High,
@@ -93,7 +116,8 @@ function predictionFor(stationId, obs, field, membershipType) {
     confidenceLabel: best.sampleCount < 10 ? 'low sample - collect more observations' : '95% confidence interval from station history',
     utilizationImpact: utilizationImpact(obs, field),
     congestion: congestionSummary(obs),
-    hourly
+    slots,
+    hourly: slots
   };
 }
 

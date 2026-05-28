@@ -7,7 +7,9 @@ import './styles.css';
 const money = v => typeof v === 'number' ? `$${v.toFixed(2)}` : '—';
 const percent = v => typeof v === 'number' ? `${Math.round(v * 100)}%` : '—';
 const hourLabel = h => `${String(h).padStart(2, '0')}:00`;
+const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
 const wrapHour = h => (h + 24) % 24;
+const wrapSlot = slot => (slot + 48) % 48;
 const shortDate = iso => iso ? new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
 
 function useJson(url, fallback, refreshMs = 300000) {
@@ -95,19 +97,21 @@ function App() {
     });
   }, [stations, query, stateFilter]);
 
-  const hourly = useMemo(() => Array.from({ length: 24 }, (_, hour) => {
-    const row = prediction?.hourly?.find(x => Number(x.hour) === hour);
-    return { hour, hourLabel: hourLabel(hour), expectedPrice: row?.expectedPrice ?? null, ci95High: row?.ci95High ?? null, ci95Low: row?.ci95Low ?? null, sampleCount: row?.sampleCount ?? 0 };
+  const halfHourly = useMemo(() => Array.from({ length: 48 }, (_, slot) => {
+    const rows = prediction?.slots || prediction?.hourly || [];
+    const row = rows.find(x => Number(x.slot ?? (Number(x.hour) * 2 + (Number(x.minute || 0) >= 30 ? 1 : 0))) === slot);
+    return { slot, slotLabel: slotLabel(slot), expectedPrice: row?.expectedPrice ?? null, ci95High: row?.ci95High ?? null, ci95Low: row?.ci95Low ?? null, sampleCount: row?.sampleCount ?? 0 };
   }), [prediction]);
 
   const twelveHourData = useMemo(() => {
-    const modelHourly = new Map((prediction?.hourly || []).map(row => [Number(row.hour), row]));
-    const anchorHour = Number.isFinite(prediction?.bestHour) ? Number(prediction.bestHour) : new Date().getHours();
-    const startHour = wrapHour(anchorHour - 5);
-    return Array.from({ length: 12 }, (_, index) => {
-      const hour = wrapHour(startHour + index);
-      const row = modelHourly.get(hour);
-      return { hour, hourLabel: hourLabel(hour), expectedPrice: row?.expectedPrice ?? null, hasObservation: Boolean(row) };
+    const rows = prediction?.slots || prediction?.hourly || [];
+    const modelSlots = new Map(rows.map(row => [Number(row.slot ?? (Number(row.hour) * 2 + (Number(row.minute || 0) >= 30 ? 1 : 0))), row]));
+    const anchorSlot = Number.isFinite(prediction?.bestSlot) ? Number(prediction.bestSlot) : new Date().getHours() * 2 + (new Date().getMinutes() >= 30 ? 1 : 0);
+    const startSlot = wrapSlot(anchorSlot - 11);
+    return Array.from({ length: 24 }, (_, index) => {
+      const slot = wrapSlot(startSlot + index);
+      const row = modelSlots.get(slot);
+      return { slot, slotLabel: slotLabel(slot), expectedPrice: row?.expectedPrice ?? null, hasObservation: Boolean(row) };
     });
   }, [prediction]);
 
@@ -134,7 +138,7 @@ function App() {
       : 'Not scraped yet.';
 
   return <main>
-    <header className="hero"><div><div className="eyebrow"><Zap size={16}/> CaughtaKWH</div><h1>Know before you plug in.</h1><p>Browse U.S. Superchargers, track observed $/kWh history, and compare price behavior against time, confidence, congestion fees, and station load.</p></div><div className="heroPanel"><strong>Auto-refreshing</strong><p>Dashboard data refreshes every 5 minutes. Last checked {shortDate(predictionsFetchedAt || stationsFetchedAt)}.</p></div></header>
+    <header className="hero"><div><div className="eyebrow"><Zap size={16}/> CaughtaKWH</div><h1>Know before you plug in.</h1><p>Browse U.S. Superchargers, track point-in-time $/kWh observations, and compare dynamic price behavior against 30-minute periods, confidence, congestion fees, and station load.</p></div><div className="heroPanel"><strong>Auto-refreshing</strong><p>Dashboard data refreshes every 5 minutes. The data bot checks prices twice per hour. Last checked {shortDate(predictionsFetchedAt || stationsFetchedAt)}.</p></div></header>
 
     <section className="statsGrid">
       <Stat icon={<MapPin/>} label="Stations discovered" value={stations.length} note="metadata directory" />
@@ -155,7 +159,7 @@ function App() {
           <div className="sectionTitle"><div><p>Selected station</p><h2>{selected?.name || 'No station selected'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Station page</a>}</div>
           <p className="muted">{selected?.address || 'Address will populate after discovery enrichment.'}</p>
           <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><span className={pricingFresh ? 'badge fresh' : 'badge'}>{latestHistory ? `Last price: ${shortDate(latestHistory.capturedAt)}` : 'Pricing not collected yet'}</span></div>
-          <div className="priceStrip"><div><span>Cheapest time to charge</span><strong>{prediction ? hourLabel(prediction.bestHour) : '—'}</strong><small>{rateType === 'member' ? 'Tesla/member rate' : 'Non-Tesla rate'}</small></div><div><span>Estimated price</span><strong>{money(prediction?.expectedPrice)}</strong><small>per kWh</small></div><div><span>Estimated 95% range</span><strong>{prediction ? `${money(prediction.ci95Low)}–${money(prediction.ci95High)}` : '—'}</strong><small>lower to upper</small></div><div><span>Price samples</span><strong>{prediction?.sampleCount ?? historyRows.length}</strong><small>observations used</small></div></div>
+          <div className="priceStrip"><div><span>Latest observed website price</span><strong>{money(prediction?.latestObservedPrice)}</strong><small>{prediction?.latestObservedAt ? shortDate(prediction.latestObservedAt) : 'not scraped yet'}</small></div><div><span>Best 30-min period</span><strong>{prediction ? slotLabel(prediction.bestSlot ?? prediction.bestHour * 2) : '—'}</strong><small>{rateType === 'member' ? 'Tesla/member rate' : 'Non-Tesla rate'}</small></div><div><span>Estimated 95% range</span><strong>{prediction ? `${money(prediction.ci95Low)}–${money(prediction.ci95High)}` : '—'}</strong><small>lower to upper</small></div><div><span>Price samples</span><strong>{prediction?.sampleCount ?? historyRows.length}</strong><small>observations used</small></div></div>
           <div className="metaGrid"><span>Stalls <strong>{selected?.stalls || '—'}</strong></span><span>Max power <strong>{selected?.maxKw ? `${selected.maxKw} kW` : '—'}</strong></span><span>Scrape status <strong>{scrapeStatus}</strong></span><span>Source <strong>{selected?.source?.replaceAll('_', ' ') || 'unknown'}</strong></span></div>
         </Card>
 
@@ -165,18 +169,18 @@ function App() {
         </Card>
 
         <Card>
-          <div className="sectionTitle"><div><p>12-hour location view</p><h2>Cost frequency around this station</h2></div></div>
-          <div className="chartWrap"><ResponsiveContainer width="100%" height={270}><BarChart data={twelveHourData}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="hourLabel" /><YAxis domain={['auto','auto']} tickFormatter={money} /><Tooltip formatter={v => money(v)} labelFormatter={v => `${v} local`} /><Bar dataKey="expectedPrice" name="Estimated $/kWh" /></BarChart></ResponsiveContainer></div>
-          <div className="hourGrid">{twelveHourData.map(row => <span key={row.hour} className={row.hasObservation ? 'known' : ''}><small>{row.hourLabel}</small><strong>{money(row.expectedPrice)}</strong></span>)}</div>
-          <p className="muted">Blank buckets mean CaughtaKWH has not collected a public price observation for that local hour yet.</p>
+          <div className="sectionTitle"><div><p>12-hour location view</p><h2>30-minute cost frequency around this station</h2></div></div>
+          <div className="chartWrap"><ResponsiveContainer width="100%" height={270}><BarChart data={twelveHourData}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" minTickGap={18} /><YAxis domain={['auto','auto']} tickFormatter={money} /><Tooltip formatter={v => money(v)} labelFormatter={v => `${v} local`} /><Bar dataKey="expectedPrice" name="Estimated $/kWh" /></BarChart></ResponsiveContainer></div>
+          <div className="hourGrid">{twelveHourData.map(row => <span key={row.slot} className={row.hasObservation ? 'known' : ''}><small>{row.slotLabel}</small><strong>{money(row.expectedPrice)}</strong></span>)}</div>
+          <p className="muted">Blank buckets mean CaughtaKWH has not collected a public price observation for that 30-minute period yet.</p>
         </Card>
 
         <UtilizationImpact prediction={prediction} />
 
         <Card>
-          <div className="sectionTitle"><div><p>Best time model</p><h2>24-hour price estimate</h2></div></div>
-          <div className="chartWrap"><ResponsiveContainer width="100%" height={310}><LineChart data={hourly}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="hourLabel" interval={1} angle={-35} textAnchor="end" height={58} /><YAxis domain={['auto','auto']} tickFormatter={money} /><Tooltip formatter={(v) => money(v)} labelFormatter={v => `Hour: ${v}`} /><Line connectNulls type="monotone" dataKey="expectedPrice" name="Estimated $/kWh" strokeWidth={3} dot /><Line connectNulls type="monotone" dataKey="ci95High" name="Likely high" strokeWidth={2} dot={false} /><Line connectNulls type="monotone" dataKey="ci95Low" name="Likely low" strokeWidth={2} dot={false} /></LineChart></ResponsiveContainer></div>
-          <p className="muted">Blank hours mean the bot needs more observations for that time of day. The recommendation becomes stronger as all 24 hours collect samples.</p>
+          <div className="sectionTitle"><div><p>Best time model</p><h2>48-slot price estimate</h2></div></div>
+          <div className="chartWrap"><ResponsiveContainer width="100%" height={310}><LineChart data={halfHourly}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" interval={3} angle={-35} textAnchor="end" height={58} /><YAxis domain={['auto','auto']} tickFormatter={money} /><Tooltip formatter={(v) => money(v)} labelFormatter={v => `30-min period: ${v}`} /><Line connectNulls type="monotone" dataKey="expectedPrice" name="Estimated $/kWh" strokeWidth={3} dot /><Line connectNulls type="monotone" dataKey="ci95High" name="Likely high" strokeWidth={2} dot={false} /><Line connectNulls type="monotone" dataKey="ci95Low" name="Likely low" strokeWidth={2} dot={false} /></LineChart></ResponsiveContainer></div>
+          <p className="muted">Blank 30-minute slots mean the bot needs more observations for that period. Tesla prices are dynamic; always verify the latest observed price against Tesla before relying on it.</p>
         </Card>
 
         <Card>

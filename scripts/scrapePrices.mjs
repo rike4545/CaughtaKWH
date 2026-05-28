@@ -6,8 +6,12 @@ const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const MAX_STATIONS = Number(process.env.MAX_STATIONS || stations.length || 1);
 const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1200);
 const capturedAt = nowIso();
+const capturedDate = new Date(capturedAt);
 
 function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+function halfHourSlot(date) {
+  return date.getHours() * 2 + (date.getMinutes() >= 30 ? 1 : 0);
+}
 function compact(value) { return String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]/g, ''); }
 function plausibleTeslaSlug(value) { return /[a-z]/i.test(String(value || '')) && /supercharger/i.test(String(value || '')); }
 function stationCandidates(station) {
@@ -28,7 +32,11 @@ function firstMoneyAfter(text, labels) {
     if (index < 0) continue;
     const slice = text.slice(index, index + 500);
     const match = slice.match(/\$\s*([0-9]+(?:\.[0-9]{1,2})?)\s*\/\s*(?:kwh|kw h|min)/i);
-    if (match) return Number(Number(match[1]).toFixed(2));
+    if (match) return {
+      value: Number(Number(match[1]).toFixed(2)),
+      label,
+      evidence: slice.slice(0, 240).replace(/\s+/g, ' ').trim()
+    };
   }
   return null;
 }
@@ -36,12 +44,27 @@ function inferPrices(text, html = '') {
   const normalized = `${text}\n${html}`.replace(/\s+/g, ' ');
   const lower = normalized.toLowerCase();
   const allKwh = [...normalized.matchAll(/\$\s*([0-9]+(?:\.[0-9]{1,2})?)\s*\/\s*(?:kwh|kw h)/ig)].map(m => Number(m[1]));
-  let member = firstMoneyAfter(normalized, ['Pricing for Tesla & Members', 'Tesla & Members', 'Teslas and Members', 'Tesla and Members', 'Tesla/Member', 'Members']);
-  let nonMember = firstMoneyAfter(normalized, ['Pricing for Non-Tesla', 'Pricing for Non-Members', 'Non-Tesla', 'Non Members', 'Non-Members']);
+  const member = firstMoneyAfter(normalized, ['Pricing for Tesla & Members', 'Tesla & Members', 'Teslas and Members', 'Tesla and Members', 'Tesla/Member', 'Members']);
+  const nonMember = firstMoneyAfter(normalized, ['Pricing for Non-Tesla', 'Pricing for Non-Members', 'Non-Tesla', 'Non Members', 'Non-Members']);
   const congestion = firstMoneyAfter(normalized, ['Congestion fees', 'Congestion fee']);
-  if (member === null && allKwh.length) member = allKwh[0];
-  if (nonMember === null && allKwh.length > 1 && lower.includes('non-tesla')) nonMember = allKwh[1];
-  return { memberPricePerKwh: member, nonMemberPricePerKwh: nonMember, congestionFeePerMinuteMax: congestion };
+  const fallbackMember = !member && allKwh.length && /pricing|members|kwh/i.test(normalized)
+    ? { value: allKwh[0], label: 'first $/kWh on page', evidence: 'Matched first visible $/kWh value on a pricing page.' }
+    : null;
+  const fallbackNonMember = !nonMember && allKwh.length > 1 && lower.includes('non-tesla')
+    ? { value: allKwh[1], label: 'second $/kWh on non-Tesla page', evidence: 'Matched second visible $/kWh value near non-Tesla pricing text.' }
+    : null;
+  const memberEvidence = member || fallbackMember;
+  const nonMemberEvidence = nonMember || fallbackNonMember;
+  return {
+    memberPricePerKwh: memberEvidence?.value ?? null,
+    nonMemberPricePerKwh: nonMemberEvidence?.value ?? null,
+    congestionFeePerMinuteMax: congestion?.value ?? null,
+    priceEvidence: {
+      member: memberEvidence,
+      nonMember: nonMemberEvidence,
+      congestion
+    }
+  };
 }
 
 function inferAvailability(text, station) {
@@ -107,7 +130,19 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
   attempted++;
   try {
     const result = await scrapeOne(context, station);
-    const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: new Date().getHours(), ...result.prices, ...result.availability, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
+    const observation = {
+      stationId: station.id,
+      capturedAt,
+      localDate: capturedAt.slice(0, 10),
+      localHour: capturedDate.getHours(),
+      localMinute: capturedDate.getMinutes(),
+      halfHourSlot: halfHourSlot(capturedDate),
+      ...result.prices,
+      ...result.availability,
+      currency: 'USD',
+      source: 'tesla_public_findus_location_page',
+      url: result.url
+    };
     const hasPrice = observation.memberPricePerKwh !== null || observation.nonMemberPricePerKwh !== null;
     const hasAvailability = observation.availableStalls !== null || observation.utilizationPct !== null || observation.availabilityLabel !== null;
     if (hasPrice || hasAvailability) {
