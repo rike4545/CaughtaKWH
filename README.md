@@ -1,85 +1,242 @@
-# CaughtaKWH
+# CaughtaKWH ⚡
 
-CaughtaKWH is a GitHub Pages-ready dashboard for tracking point-in-time Tesla Supercharger $/kWh prices by station and recommending cheaper charging windows using 30-minute pricing buckets and 95% confidence intervals.
+Track Tesla Supercharger pricing trends, discover cheaper charging windows, and find nearby stations faster.
 
-## What it does
+## What is CaughtaKWH?
 
-- Discovers U.S. Supercharger station pages from Tesla's public Find Us list.
-- Scrapes station-specific pricing text from public Tesla location pages using Playwright.
-- Stores observations per station in `data/history/{stationId}.json`.
-- Builds member and non-member best-30-minute predictions with 95% confidence intervals.
-- Tracks available stalls, utilization bands, and congestion fees when public pages expose those signals.
-- Deploys a static React dashboard to GitHub Pages.
+CaughtaKWH is a public Tesla Supercharger analytics project that:
 
-## Important limitation
+- Tracks publicly observable Supercharger pricing data
+- Builds pricing history over time
+- Estimates lower-cost charging windows
+- Helps drivers compare nearby charging options
+- Shows pricing freshness and confidence levels
+- Works entirely as a static GitHub Pages deployment
 
-Tesla pricing is dynamic, may change within the hour, and may render differently by region, session, account, or browser. This project is not affiliated with Tesla. Always verify price inside Tesla's app or vehicle screen before charging.
+The project focuses on transparency:
 
-## Local setup
+- Tesla remains the source of truth
+- Public pricing visibility varies by station
+- Some stations expose pricing publicly, others do not
+- Confidence and freshness indicators are shown clearly
+
+---
+
+# Features
+
+## 🔎 Find Nearby Superchargers
+
+Search by:
+
+- ZIP code (recommended)
+- Current location
+- City or station name
+- State filtering
+
+Nearby mode automatically ranks the closest stations.
+
+---
+
+## 💲 Track Pricing Trends
+
+CaughtaKWH stores historical pricing observations and displays:
+
+- Tesla/member pricing
+- Non-Tesla pricing (when available)
+- Lowest observed pricing
+- Price volatility
+- Historical pricing charts
+- Confidence intervals
+
+---
+
+## 🧠 Predict Cheaper Charging Windows
+
+The prediction engine estimates:
+
+- Lower-cost charging periods
+- Historical average pricing
+- 95% confidence intervals
+- Best observed charging windows
+- Freshness of observations
+
+The more observations collected over time, the better the predictions become.
+
+---
+
+## 📍 Privacy Friendly
+
+Location usage is optional.
+
+Users can:
+
+- Enter a ZIP code manually
+- Use browser/device location
+- Deny location permissions entirely
+
+Location is only used to rank nearby chargers.
+
+---
+
+# Tech Stack
+
+## Frontend
+
+- React
+- Vite
+- Recharts
+- Leaflet
+- GitHub Pages
+
+## Data Pipeline
+
+- Node.js
+- Playwright
+- GitHub Actions
+
+## Hosting
+
+- Static GitHub Pages deployment
+- Fully automated scheduled updates
+
+---
+
+# How the Data Pipeline Works
+
+The update system:
+
+1. Discovers Supercharger stations
+2. Scrapes publicly visible pricing data
+3. Stores historical observations
+4. Builds prediction models
+5. Syncs public JSON data
+6. Deploys automatically to GitHub Pages
+
+The project is intentionally designed without a traditional backend server.
+
+---
+
+# Project Structure
+
+```text
+/data
+  stations.json
+  predictions.json
+  /history
+
+/scripts
+  discoverStations.mjs
+  scrapePrices.mjs
+  buildPredictions.mjs
+  validateData.mjs
+  syncPublicData.mjs
+
+/.github/workflows
+  update-data.yml
+```
+
+---
+
+# Running Locally
+
+## Install
 
 ```bash
 npm install
+```
+
+## Install Playwright
+
+```bash
 npx playwright install chromium
-npm run update:data
+```
+
+## Start Development Server
+
+```bash
 npm run dev
 ```
 
-## Production deployment
+## Run Full Data Update
 
-1. Push this repo to GitHub.
-2. Go to **Settings → Pages**.
-3. Select **GitHub Actions** as the Pages source.
-4. Run the **Deploy GitHub Pages** workflow once.
-5. Run **Update Supercharger Price Data** manually with `max_stations=25` first.
-
-## Scaling advice
-
-Start with small scrapes:
-
-```yaml
-MAX_STATIONS=25
-SCRAPE_DELAY_MS=3000
+```bash
+npm run update:data
 ```
 
-Then increase gradually. Full nationwide scraping too frequently may trigger anti-bot protections. The workflow defaults to 100 stations per run.
+## Build Production Site
 
-## Data model
-
-```json
-{
-  "stationId": "LakeGroveNYsupercharger",
-  "capturedAt": "2026-05-25T20:33:00.000Z",
-  "localHour": 16,
-  "localMinute": 33,
-  "halfHourSlot": 33,
-  "memberPricePerKwh": 0.43,
-  "nonMemberPricePerKwh": 0.65,
-  "availableStalls": 3,
-  "totalStalls": 8,
-  "utilizationPct": 0.625,
-  "congestionFeePerMinuteMax": 0.5,
-  "currency": "USD"
-}
+```bash
+npm run build
 ```
 
-## Prediction method
+---
 
-For each station and 30-minute bucket:
+# Automated Updates
 
-```text
-mean ± 1.96 × standard error
-```
+GitHub Actions automatically:
 
-The recommendation uses the lowest 95% upper confidence bound, which penalizes sparse or volatile 30-minute periods. The dashboard also shows the latest observed website price separately from historical estimates.
+- Refreshes pricing data
+- Updates predictions
+- Syncs public datasets
+- Deploys the website
 
-## Utilization method
+Current optimization strategy:
 
-When observations include both price and stall availability, CaughtaKWH groups utilization into low, medium, and high bands and compares average $/kWh against the low-utilization baseline. Until a station has observations across multiple load levels, the dashboard labels utilization impact as not ready instead of guessing.
+- Faster scrape intervals
+- Smaller scrape batches
+- Reduced throttling risk
+- Static asset synchronization
 
-## Seed observation
+---
 
-Lake Grove, NY is seeded from a user-verified Tesla public page screenshot:
+# Important Notes
 
-- Teslas/Members: $0.43/kWh
-- Non-Members: $0.65/kWh
-- Congestion fees: up to $0.50/min
+## Tesla Is The Source Of Truth
+
+CaughtaKWH is an analytics and observation platform.
+
+Actual live pricing inside Tesla vehicles or the Tesla app may differ from:
+
+- Historical observations
+- Estimated windows
+- Publicly visible pricing
+
+Always verify pricing in Tesla’s ecosystem before charging.
+
+---
+
+# Roadmap
+
+Planned improvements include:
+
+- Better mobile UI
+- Faster scraper concurrency
+- Improved regional filtering
+- Occupancy-aware predictions
+- Supercharger utilization modeling
+- Community-submitted observations
+- Better confidence scoring
+- EV route planning tools
+
+---
+
+# Contributing
+
+Pull requests, ideas, and bug reports are welcome.
+
+Suggested contribution areas:
+
+- Scraper reliability
+- UI polish
+- Data visualization
+- Prediction modeling
+- Map improvements
+- Performance optimization
+
+---
+
+# Disclaimer
+
+CaughtaKWH is an independent project and is not affiliated with or endorsed by Tesla.
+
+Tesla trademarks, vehicle names, and Supercharger branding belong to Tesla, Inc.
