@@ -34,17 +34,18 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Refresh dynamic Tesla pricing
         run: MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape || true
-      - name: Rebuild predictions and price-change feed
+      - name: Rebuild predictions and public data
         run: |
           npm run predict
           node scripts/price-change-bot.mjs || true
+          npm run sync:public
           npm run validate:data
       - name: Commit pricing updates
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git status --short
-          git add data reports || true
+          git add data public/data reports || true
           if git diff --cached --quiet; then
             echo "No pricing changes to commit."
           else
