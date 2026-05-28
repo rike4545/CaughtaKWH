@@ -2,6 +2,12 @@
 
 Track Tesla Supercharger pricing trends, discover cheaper charging windows, and find nearby stations faster.
 
+## 🌐 Live Site
+
+https://rike4545.github.io/CaughtaKWH/
+
+---
+
 ## What is CaughtaKWH?
 
 CaughtaKWH is a public Tesla Supercharger analytics project that:
