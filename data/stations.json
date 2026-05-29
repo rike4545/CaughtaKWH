@@ -49890,7 +49890,13 @@
     "maxKw": 250,
     "lat": 30.504362,
     "lng": -84.251479,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.02
   },
   {
     "id": "33783",
@@ -49905,7 +49911,13 @@
     "maxKw": 250,
     "lat": 30.441476,
     "lng": -84.319677,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.03
   },
   {
     "id": "tampafloridasupercharger",
@@ -49935,7 +49947,13 @@
     "maxKw": 325,
     "lat": 27.966003,
     "lng": -82.503669,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.05
   },
   {
     "id": "20028",
@@ -49950,7 +49968,13 @@
     "maxKw": 250,
     "lat": 27.996805,
     "lng": -82.372668,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.07
   },
   {
     "id": "tampafloridasupercharger3",
@@ -49965,7 +49989,13 @@
     "maxKw": 250,
     "lat": 28.088551,
     "lng": -82.4521,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.08
   },
   {
     "id": "TampaFLSupercharger5",
@@ -49980,7 +50010,13 @@
     "maxKw": 250,
     "lat": 27.949242,
     "lng": -82.504944,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.1
   },
   {
     "id": "59052",
@@ -49995,7 +50031,13 @@
     "maxKw": 325,
     "lat": 27.89279,
     "lng": -82.504655,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.12
   },
   {
     "id": "59043",
@@ -50010,7 +50052,13 @@
     "maxKw": 325,
     "lat": 27.995185,
     "lng": -82.478147,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.14
   },
   {
     "id": "tampawestswannavesupercharger",
@@ -50109,7 +50157,13 @@
     "maxKw": 250,
     "lat": 28.136633,
     "lng": -82.756734,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.15
   },
   {
     "id": "26733",
@@ -50154,7 +50208,13 @@
     "maxKw": 250,
     "lat": 40.871041,
     "lng": -74.005224,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.17
   },
   {
     "id": "tejonranchcasupercharger",
@@ -50184,7 +50244,13 @@
     "maxKw": 250,
     "lat": 34.985959,
     "lng": -118.94385,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.19
   },
   {
     "id": "temeculasupercharger",
@@ -50214,7 +50280,13 @@
     "maxKw": 325,
     "lat": 33.513917,
     "lng": -117.102859,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.2
   },
   {
     "id": "20036",
@@ -50229,7 +50301,13 @@
     "maxKw": 325,
     "lat": 33.52447,
     "lng": -117.150676,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.22
   },
   {
     "id": "SouthTemeculaCAsupercharger",
@@ -50244,7 +50322,13 @@
     "maxKw": 250,
     "lat": 33.475122,
     "lng": -117.129563,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.24
   },
   {
     "id": "32071",
@@ -50259,7 +50343,13 @@
     "maxKw": 250,
     "lat": 33.529489,
     "lng": -117.153067,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.25
   },
   {
     "id": "tempeazsupercharger",
@@ -50304,7 +50394,13 @@
     "maxKw": 325,
     "lat": 31.13776,
     "lng": -97.329332,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.27
   },
   {
     "id": "terrehautesupercharger",
@@ -50334,7 +50430,13 @@
     "maxKw": 325,
     "lat": 32.717529,
     "lng": -96.323024,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.29
   },
   {
     "id": "texarkanasupercharger",
@@ -50364,7 +50466,13 @@
     "maxKw": 325,
     "lat": 29.428145,
     "lng": -95.064151,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.141Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.141Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.3
   },
   {
     "id": "thedallessupercharger",
@@ -50539,7 +50647,13 @@
         "accessible": 1
       },
       "power": 250
-    }
+    },
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.32
   },
   {
     "id": "TiltonNHsupercharger",
@@ -50584,7 +50698,13 @@
     "maxKw": 250,
     "lat": 40.226272,
     "lng": -74.093538,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.34
   },
   {
     "id": "cocoawestsupercharger",
@@ -50599,7 +50719,13 @@
     "maxKw": 250,
     "lat": 28.552782,
     "lng": -80.840594,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.36
   },
   {
     "id": "4008655",
@@ -50614,7 +50740,13 @@
     "maxKw": 250,
     "lat": 28.587179,
     "lng": -80.805769,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.37
   },
   {
     "id": "13740",
@@ -50764,7 +50896,13 @@
     "maxKw": 250,
     "lat": 33.834811,
     "lng": -118.349039,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.39
   },
   {
     "id": "400454",
@@ -50779,7 +50917,13 @@
     "maxKw": 325,
     "lat": 33.858093,
     "lng": -118.365076,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.41
   },
   {
     "id": "TowsonMDsupercharger",
@@ -50809,7 +50953,13 @@
     "maxKw": 325,
     "lat": 37.760567,
     "lng": -121.435517,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.42
   },
   {
     "id": "TracyCASupercharger",
@@ -50824,7 +50974,13 @@
     "maxKw": 250,
     "lat": 37.753054,
     "lng": -121.467549,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.44
   },
   {
     "id": "402160",
@@ -50854,7 +51010,13 @@
     "maxKw": 250,
     "lat": 36.448879,
     "lng": -119.486766,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.46
   },
   {
     "id": "traversecitysupercharger",
@@ -50944,7 +51106,13 @@
     "maxKw": 325,
     "lat": 28.204285,
     "lng": -82.66587,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.47
   },
   {
     "id": "4005904",
@@ -51019,7 +51187,13 @@
     "maxKw": 325,
     "lat": 39.322829,
     "lng": -120.225771,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.49
   },
   {
     "id": "truckeecaliforniadonnersupercharger",
@@ -51043,13 +51217,19 @@
     "state": "CA",
     "country": "United States",
     "address": "10001 Soaring Way, Truckee, CA, 96161",
-    "url": "https://www.tesla.com/findus/location/supercharger/TruckeeCAsupercharger",
+    "url": "https://www.tesla.com/findus/location/supercharger/TruckeeCASoaringWayCAsupercharger",
     "source": "supercharge_info_with_tesla_location_id",
     "stalls": null,
     "maxKw": 250,
     "lat": 39.319501,
     "lng": -120.155831,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.52
   },
   {
     "id": "3405",
@@ -51104,7 +51284,13 @@
         "accessible": 1
       },
       "power": 250
-    }
+    },
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.54
   },
   {
     "id": "tucsonsupercharger",
@@ -51194,7 +51380,13 @@
     "maxKw": 250,
     "lat": 47.44738,
     "lng": -122.263652,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.56
   },
   {
     "id": "TukwilaWAsupercharger",
@@ -51209,7 +51401,13 @@
     "maxKw": 250,
     "lat": 47.455273,
     "lng": -122.256631,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.57
   },
   {
     "id": "26248",
@@ -51224,7 +51422,13 @@
     "maxKw": 250,
     "lat": 48.0955713,
     "lng": -122.1884739,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.59
   },
   {
     "id": "29095",
@@ -51239,7 +51443,13 @@
     "maxKw": 250,
     "lat": 42.800041,
     "lng": -76.121849,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.61
   },
   {
     "id": "19218",
@@ -51284,7 +51494,13 @@
     "maxKw": 250,
     "lat": 46.952944,
     "lng": -122.935111,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.63
   },
   {
     "id": "4008818",
@@ -51299,7 +51515,13 @@
     "maxKw": 325,
     "lat": 46.993092,
     "lng": -122.921688,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.64
   },
   {
     "id": "tupelomssupercharger",
@@ -51344,7 +51566,13 @@
     "maxKw": 250,
     "lat": 37.508786,
     "lng": -120.876109,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.66
   },
   {
     "id": "401861",
@@ -51359,7 +51587,13 @@
     "maxKw": 325,
     "lat": 37.506832,
     "lng": -120.881009,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.68
   },
   {
     "id": "tusayanazsupercharger",
@@ -51404,7 +51638,13 @@
     "maxKw": 250,
     "lat": 33.7123,
     "lng": -117.8163,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.69
   },
   {
     "id": "TustinCASupercharger10",
@@ -51419,7 +51659,13 @@
     "maxKw": 250,
     "lat": 33.704288,
     "lng": -117.836881,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.71
   },
   {
     "id": "28541",
@@ -51434,7 +51680,13 @@
     "maxKw": 250,
     "lat": 33.716605,
     "lng": -117.810303,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.73
   },
   {
     "id": "TustinCAQ322",
@@ -51449,7 +51701,13 @@
     "maxKw": 250,
     "lat": 33.727381,
     "lng": -117.821821,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.74
   },
   {
     "id": "twentyninepalmssupercharger",
@@ -51524,7 +51782,13 @@
     "maxKw": 325,
     "lat": 32.440678,
     "lng": -95.137045,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.76
   },
   {
     "id": "TyngsboroughMAsupercharger",
@@ -51539,7 +51803,13 @@
     "maxKw": 250,
     "lat": 42.697265,
     "lng": -71.43988,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.78
   },
   {
     "id": "26834",
@@ -51584,7 +51854,13 @@
     "maxKw": 250,
     "lat": 39.168351,
     "lng": -123.210046,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.79
   },
   {
     "id": "unioncitycasupercharger",
@@ -51599,7 +51875,13 @@
     "maxKw": 250,
     "lat": 37.587128,
     "lng": -122.020442,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.81
   },
   {
     "id": "19328",
@@ -51629,7 +51911,13 @@
     "maxKw": 325,
     "lat": 46.562095,
     "lng": -120.496057,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.141Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.141Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.83
   },
   {
     "id": "19245",
@@ -51644,7 +51932,13 @@
     "maxKw": 250,
     "lat": 40.695914,
     "lng": -74.254049,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.84
   },
   {
     "id": "20002",
@@ -51659,7 +51953,13 @@
     "maxKw": 250,
     "lat": 34.13802,
     "lng": -118.359248,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.86
   },
   {
     "id": "34733",
@@ -51674,7 +51974,13 @@
     "maxKw": 250,
     "lat": 34.099341,
     "lng": -117.700438,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.88
   },
   {
     "id": "17408",
@@ -51689,7 +51995,13 @@
     "maxKw": 325,
     "lat": 39.162909,
     "lng": -122.919152,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.89
   },
   {
     "id": "27531",
@@ -51764,7 +52076,13 @@
     "maxKw": 250,
     "lat": 29.211711,
     "lng": -99.777287,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.91
   },
   {
     "id": "vacavillecasupercharger",
@@ -51794,7 +52112,13 @@
     "maxKw": 250,
     "lat": 38.347268,
     "lng": -121.999145,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.93
   },
   {
     "id": "VacavilleCA2Q42022",
@@ -51809,7 +52133,13 @@
     "maxKw": 250,
     "lat": 38.365225,
     "lng": -121.967972,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.95
   },
   {
     "id": "29107",
@@ -51824,7 +52154,13 @@
     "maxKw": 325,
     "lat": 38.370565,
     "lng": -121.959665,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.96
   },
   {
     "id": "28561",
@@ -51839,7 +52175,13 @@
     "maxKw": 250,
     "lat": 38.362178,
     "lng": -121.963212,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 452.98
   },
   {
     "id": "valdostagasupercharger",
@@ -51880,7 +52222,13 @@
     "maxKw": 250,
     "lat": 34.4237,
     "lng": -118.5845,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453
   },
   {
     "id": "vallejosupercharger",
@@ -51910,7 +52258,13 @@
     "maxKw": 325,
     "lat": 38.133139,
     "lng": -122.218631,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.02
   },
   {
     "id": "30953",
@@ -51925,7 +52279,13 @@
     "maxKw": 325,
     "lat": 38.084499,
     "lng": -122.211269,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.04
   },
   {
     "id": "VallejoCASupercharger",
@@ -51940,7 +52300,13 @@
     "maxKw": 250,
     "lat": 38.104444,
     "lng": -122.230234,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.06
   },
   {
     "id": "407067",
@@ -51955,7 +52321,13 @@
     "maxKw": 325,
     "lat": 38.188551,
     "lng": -120.825031,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.08
   },
   {
     "id": "valleystreamnewyorksupercharger",
@@ -52001,7 +52373,13 @@
     "maxKw": 325,
     "lat": 27.894363,
     "lng": -82.245507,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.1
   },
   {
     "id": "VanBurenARsupercharger",
@@ -52031,7 +52409,13 @@
     "maxKw": 250,
     "lat": 31.037207,
     "lng": -104.854799,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.12
   },
   {
     "id": "25976",
@@ -52046,7 +52430,13 @@
     "maxKw": 250,
     "lat": 34.193507,
     "lng": -118.510361,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.14
   },
   {
     "id": "412004",
@@ -52091,7 +52481,13 @@
     "maxKw": 325,
     "lat": 45.638195,
     "lng": -122.598938,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.15
   },
   {
     "id": "VancouverWA",
@@ -52106,7 +52502,13 @@
     "maxKw": 250,
     "lat": 45.645661,
     "lng": -122.601249,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.17
   },
   {
     "id": "vancouverwanevancouvermalldrivesupercharger",
@@ -52121,7 +52523,13 @@
     "maxKw": 250,
     "lat": 45.659872,
     "lng": -122.582467,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.19
   },
   {
     "id": "26590",
@@ -52166,7 +52574,13 @@
     "maxKw": 250,
     "lat": 27.107963,
     "lng": -82.385287,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.21
   },
   {
     "id": "25975",
@@ -52181,7 +52595,13 @@
     "maxKw": 250,
     "lat": 34.275162,
     "lng": -119.239734,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.141Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.141Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.23
   },
   {
     "id": "26046",
@@ -52196,7 +52616,13 @@
     "maxKw": 250,
     "lat": 34.277273,
     "lng": -119.283436,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.24
   },
   {
     "id": "402609",
@@ -52220,7 +52646,7 @@
     "state": "VT",
     "country": "United States",
     "address": "113 Monkton Rd, Vergennes, VT, 05491",
-    "url": "https://www.tesla.com/findus/location/supercharger/404457",
+    "url": "https://www.tesla.com/findus/location/supercharger/VergennesVTsupercharger",
     "source": "supercharge_info_with_tesla_location_id",
     "stalls": 12,
     "maxKw": 250,
@@ -52235,7 +52661,13 @@
         "v3": 12
       },
       "power": 250
-    }
+    },
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.28
   },
   {
     "id": "27542",
@@ -52296,7 +52728,13 @@
     "maxKw": 250,
     "lat": 34.014333,
     "lng": -118.238189,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.29
   },
   {
     "id": "19585",
@@ -52326,7 +52764,13 @@
     "maxKw": 250,
     "lat": 34.161759,
     "lng": -99.297375,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.31
   },
   {
     "id": "verobeachsupercharger",
@@ -52373,7 +52817,13 @@
     "maxKw": 325,
     "lat": 27.640066,
     "lng": -80.446862,
-    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z"
+    "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
+    "lastScrapedAt": "2026-05-29T00:21:00.100Z",
+    "lastScrapeHadPrice": false,
+    "lastScrapeHadAvailability": false,
+    "lastPriceCandidateCount": 0,
+    "lastLowPriceId": null,
+    "observationPriorityScore": 453.33
   },
   {
     "id": "OneidaDelivery",
