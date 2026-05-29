@@ -9,23 +9,23 @@ on:
       max_stations:
         description: Max station pricing pages to scrape this run
         required: false
-        default: '75'
+        default: '300'
   schedule:
-    - cron: '7,37 * * * *'
+    - cron: '*/15 * * * *'
 permissions:
   contents: write
   pages: write
   id-token: write
 concurrency:
   group: caughtakwh-update
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   update-data:
     runs-on: ubuntu-latest
     env:
       DISCOVERY_LIMIT: ${{ github.event.inputs.discovery_limit || '5000' }}
-      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '75' }}
-      SCRAPE_DELAY_MS: 500
+      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '300' }}
+      SCRAPE_DELAY_MS: 350
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
