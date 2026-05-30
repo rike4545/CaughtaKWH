@@ -26,5 +26,33 @@
     "currency": "USD",
     "source": "tesla_public_findus_location_page",
     "url": "https://www.tesla.com/findus/location/supercharger/FullertonCAsupercharger"
+  },
+  {
+    "stationId": "404914",
+    "capturedAt": "2026-05-29T23:56:33.880Z",
+    "localDate": "2026-05-29",
+    "localHour": 23,
+    "localMinute": 56,
+    "halfHourSlot": 47,
+    "memberPricePerKwh": null,
+    "nonMemberPricePerKwh": null,
+    "congestionFeePerMinuteMax": null,
+    "lowestObservedPricePerKwh": null,
+    "lowPriceId": null,
+    "priceExtractionVersion": "tesla-public-v2-hardened",
+    "priceCandidateCount": 0,
+    "priceEvidence": {
+      "member": null,
+      "nonMember": null,
+      "congestion": null,
+      "candidates": []
+    },
+    "availableStalls": null,
+    "totalStalls": null,
+    "utilizationPct": null,
+    "availabilityLabel": "full",
+    "currency": "USD",
+    "source": "tesla_public_findus_location_page",
+    "url": "https://www.tesla.com/findus/location/supercharger/FullertonCAsupercharger"
   }
 ]
