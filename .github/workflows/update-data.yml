@@ -17,8 +17,8 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: caughtakwh-update
-  cancel-in-progress: true
+  group: caughtakwh-data-writer
+  cancel-in-progress: false
 jobs:
   update-data:
     runs-on: ubuntu-latest
@@ -28,12 +28,12 @@ jobs:
       SCRAPE_DELAY_MS: 350
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           persist-credentials: true
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
@@ -85,11 +85,11 @@ jobs:
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: main
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org

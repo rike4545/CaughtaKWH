@@ -13,8 +13,8 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: caughtakwh-price-refresh
-  cancel-in-progress: true
+  group: caughtakwh-data-writer
+  cancel-in-progress: false
 jobs:
   refresh-prices:
     runs-on: ubuntu-latest
@@ -23,10 +23,11 @@ jobs:
       SCRAPE_DELAY_MS: 750
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           persist-credentials: true
-      - uses: actions/setup-node@v4
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
@@ -42,26 +43,47 @@ jobs:
           npm run validate:data
       - name: Commit pricing updates
         run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git status --short
+
           git add data public/data reports || true
+
           if git diff --cached --quiet; then
             echo "No pricing changes to commit."
-          else
-            git commit -m "Refresh dynamic Tesla pricing"
-            git push origin HEAD:main
+            exit 0
           fi
+
+          git commit -m "Refresh dynamic Tesla pricing"
+
+          for attempt in 1 2 3; do
+            echo "Push attempt $attempt"
+            git fetch origin main
+
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Pricing update pushed successfully."
+              exit 0
+            fi
+
+            git rebase --abort || true
+            sleep 5
+          done
+
+          echo "Unable to push after rebasing. A newer conflicting data update may have landed."
+          exit 1
   deploy:
     needs: refresh-prices
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: main
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
