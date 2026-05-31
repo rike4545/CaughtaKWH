@@ -25,6 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
         with:
+          ref: main
           persist-credentials: true
           fetch-depth: 0
       - uses: actions/setup-node@v6
