@@ -4505,7 +4505,7 @@
     "lat": 35.400275,
     "lng": -119.091711,
     "lastDiscoveredAt": "2026-05-31T15:00:32.002Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
@@ -4521,7 +4521,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.22
+    "observationPriorityScore": 460.72
   },
   {
     "id": "BakersfieldCopusSupercharger21",
@@ -7760,12 +7760,12 @@
     "lat": 41.39169,
     "lng": -73.595175,
     "lastDiscoveredAt": "2026-05-31T15:00:32.002Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.24,
+    "observationPriorityScore": 460.74,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -8949,12 +8949,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.25
+    "observationPriorityScore": 460.76
   },
   {
     "id": "burlingtonnjsupercharger",
@@ -9001,12 +9001,12 @@
       },
       "power": 150
     },
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 438.66
+    "observationPriorityScore": 437.69
   },
   {
     "id": "27087",
@@ -10175,12 +10175,12 @@
     "lat": 33.825097,
     "lng": -116.459565,
     "lastDiscoveredAt": "2026-05-31T15:00:32.002Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.27,
+    "observationPriorityScore": 460.77,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -12330,12 +12330,12 @@
     "lat": 28.013295,
     "lng": -82.736244,
     "lastDiscoveredAt": "2026-05-31T15:00:32.003Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.29,
+    "observationPriorityScore": 460.79,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -13670,12 +13670,12 @@
     "lat": 40.688444,
     "lng": -73.4055,
     "lastDiscoveredAt": "2026-05-31T15:00:32.002Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.3,
+    "observationPriorityScore": 460.81,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -15605,12 +15605,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.32
+    "observationPriorityScore": 460.82
   },
   {
     "id": "defuniakspringssupercharger",
@@ -15761,12 +15761,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.33
+    "observationPriorityScore": 460.84
   },
   {
     "id": "demingnmsupercharger",
@@ -16955,12 +16955,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.35
+    "observationPriorityScore": 460.86
   },
   {
     "id": "30659",
@@ -18803,7 +18803,7 @@
     "state": "WA",
     "country": "United States",
     "address": "14581 US Hwy 97a, Entiat, WA, 98822",
-    "url": "https://www.tesla.com/findus/location/supercharger/entiatwasupercharger",
+    "url": "https://www.tesla.com/findus/location/supercharger/EntiatWAsupercharger",
     "source": "supercharge_info_with_tesla_location_id",
     "stalls": 8,
     "maxKw": 250,
@@ -18819,12 +18819,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.36
+    "observationPriorityScore": 460.89
   },
   {
     "id": "EphrataPASupercharger",
@@ -21810,12 +21810,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.38
+    "observationPriorityScore": 460.91
   },
   {
     "id": "freeportsupercharger",
@@ -21947,12 +21947,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.4
+    "observationPriorityScore": 460.92
   },
   {
     "id": "18884",
@@ -22124,12 +22124,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.41
+    "observationPriorityScore": 460.94
   },
   {
     "id": "fresnocalifornia5001supercharger",
@@ -22575,12 +22575,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.43
+    "observationPriorityScore": 460.96
   },
   {
     "id": "GardenCityNYSupercharger",
@@ -24071,12 +24071,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.44
+    "observationPriorityScore": 460.97
   },
   {
     "id": "greatfallssupercharger",
@@ -28411,12 +28411,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.46
+    "observationPriorityScore": 460.99
   },
   {
     "id": "18698",
@@ -30815,12 +30815,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.48
+    "observationPriorityScore": 461.01
   },
   {
     "id": "58907",
@@ -31256,12 +31256,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.49
+    "observationPriorityScore": 461.02
   },
   {
     "id": "18739",
@@ -31611,12 +31611,12 @@
     "lat": 28.189807,
     "lng": -82.400082,
     "lastDiscoveredAt": "2026-05-31T15:00:32.003Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.51,
+    "observationPriorityScore": 461.04,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -34378,12 +34378,12 @@
     "lat": 37.055666,
     "lng": -120.875227,
     "lastDiscoveredAt": "2026-05-31T15:00:32.003Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 462.19,
+    "observationPriorityScore": 462.66,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3250,
@@ -36060,12 +36060,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.52
+    "observationPriorityScore": 461.06
   },
   {
     "id": "26769",
@@ -36132,12 +36132,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.54
+    "observationPriorityScore": 461.07
   },
   {
     "id": "MariettaGAsupercharger",
@@ -36267,12 +36267,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.56
+    "observationPriorityScore": 461.09
   },
   {
     "id": "16754",
@@ -38283,12 +38283,12 @@
       },
       "power": 72
     },
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.64
+    "observationPriorityScore": 439.64
   },
   {
     "id": "17769",
@@ -38460,12 +38460,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.57
+    "observationPriorityScore": 461.11
   },
   {
     "id": "453502",
@@ -42418,12 +42418,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.59
+    "observationPriorityScore": 461.12
   },
   {
     "id": "16540",
@@ -44800,12 +44800,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.6
+    "observationPriorityScore": 461.14
   },
   {
     "id": "ontariocaliforniasupercharger",
@@ -45512,12 +45512,12 @@
     "lat": 39.501144,
     "lng": -121.562333,
     "lastDiscoveredAt": "2026-05-31T15:00:32.003Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.83,
+    "observationPriorityScore": 461.16,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4000,
@@ -46675,12 +46675,12 @@
       },
       "power": 325
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 462.21
+    "observationPriorityScore": 462.67
   },
   {
     "id": "19313",
@@ -48123,12 +48123,12 @@
       },
       "power": 325
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.62
+    "observationPriorityScore": 461.17
   },
   {
     "id": "36205",
@@ -49013,12 +49013,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.63
+    "observationPriorityScore": 461.19
   },
   {
     "id": "PotsdamNYQ322",
@@ -50398,7 +50398,7 @@
     "state": "MA",
     "country": "United States",
     "address": "40 Furlong Dr, Revere, MA, 02151",
-    "url": "https://www.tesla.com/findus/location/supercharger/reveremasupercharger",
+    "url": "https://www.tesla.com/findus/location/supercharger/RevereMAsupercharger",
     "source": "supercharge_info_with_tesla_location_id",
     "stalls": 8,
     "maxKw": 250,
@@ -50414,12 +50414,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.65
+    "observationPriorityScore": 461.22
   },
   {
     "id": "32421",
@@ -52277,12 +52277,12 @@
       },
       "power": 150
     },
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 438.67
+    "observationPriorityScore": 437.71
   },
   {
     "id": "406267",
@@ -52989,12 +52989,12 @@
       },
       "power": 325
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.67
+    "observationPriorityScore": 461.24
   },
   {
     "id": "19044",
@@ -63740,12 +63740,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.68
+    "observationPriorityScore": 461.26
   },
   {
     "id": "29236",
@@ -63835,12 +63835,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.7
+    "observationPriorityScore": 461.27
   },
   {
     "id": "32953",
@@ -64795,12 +64795,12 @@
       },
       "power": 250
     },
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 460.71
+    "observationPriorityScore": 461.29
   },
   {
     "id": "waterburyctsupercharger",
@@ -65551,12 +65551,12 @@
     "lat": 32.512997,
     "lng": -92.191189,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.05
+    "observationPriorityScore": 440.02
   },
   {
     "id": "westnyacknysupercharger",
@@ -65824,12 +65824,12 @@
     "lat": 41.605252,
     "lng": -84.406468,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.07
+    "observationPriorityScore": 440.04
   },
   {
     "id": "18686",
@@ -65845,12 +65845,12 @@
     "lat": 41.603667,
     "lng": -84.408721,
     "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.08
+    "observationPriorityScore": 440.05
   },
   {
     "id": "448902",
@@ -65866,12 +65866,12 @@
     "lat": 40.713137,
     "lng": -112.024217,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.1
+    "observationPriorityScore": 440.07
   },
   {
     "id": "westwendovernvsupercharger",
@@ -65887,12 +65887,12 @@
     "lat": 40.738151,
     "lng": -114.058977,
     "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.12
+    "observationPriorityScore": 440.09
   },
   {
     "id": "westyellowstonesupercharger",
@@ -65992,12 +65992,12 @@
     "lat": 39.832103,
     "lng": -105.023901,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.13
+    "observationPriorityScore": 440.1
   },
   {
     "id": "westonsupercharger",
@@ -66138,12 +66138,12 @@
     "lat": 38.5955,
     "lng": -76.9372,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.15
+    "observationPriorityScore": 440.12
   },
   {
     "id": "27332",
@@ -66159,12 +66159,12 @@
     "lat": 34.343899,
     "lng": -78.709851,
     "lastDiscoveredAt": "2026-05-27T23:38:35.141Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.16
+    "observationPriorityScore": 440.14
   },
   {
     "id": "30858",
@@ -66264,12 +66264,12 @@
     "lat": 37.678973,
     "lng": -97.431468,
     "lastDiscoveredAt": "2026-05-27T23:38:35.144Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.18
+    "observationPriorityScore": 440.15
   },
   {
     "id": "wickenburgsupercharger",
@@ -66306,12 +66306,12 @@
     "lat": 33.964756,
     "lng": -112.750257,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.19
+    "observationPriorityScore": 440.17
   },
   {
     "id": "19361",
@@ -66327,12 +66327,12 @@
     "lat": 35.788428,
     "lng": -88.390478,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.21
+    "observationPriorityScore": 440.19
   },
   {
     "id": "19506",
@@ -66348,12 +66348,12 @@
     "lat": 41.238923,
     "lng": -75.845562,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.23
+    "observationPriorityScore": 440.2
   },
   {
     "id": "willcoxsupercharger",
@@ -66390,12 +66390,12 @@
     "lat": 35.251803,
     "lng": -112.195467,
     "lastDiscoveredAt": "2026-05-27T23:38:35.141Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.24
+    "observationPriorityScore": 440.22
   },
   {
     "id": "williamssupercharger",
@@ -66524,12 +66524,12 @@
     "lat": 44.449659,
     "lng": -73.108963,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.26
+    "observationPriorityScore": 440.24
   },
   {
     "id": "33476",
@@ -66545,12 +66545,12 @@
     "lat": 45.100981,
     "lng": -95.041953,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.27
+    "observationPriorityScore": 440.25
   },
   {
     "id": "27552",
@@ -66566,12 +66566,12 @@
     "lat": 41.637135,
     "lng": -81.475471,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.29
+    "observationPriorityScore": 440.27
   },
   {
     "id": "32690",
@@ -66587,12 +66587,12 @@
     "lat": 39.720946,
     "lng": -75.656962,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.31
+    "observationPriorityScore": 440.29
   },
   {
     "id": "wilmingtonsupercharger",
@@ -66629,12 +66629,12 @@
     "lat": 34.288493,
     "lng": -77.869352,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.32
+    "observationPriorityScore": 440.3
   },
   {
     "id": "19349",
@@ -66650,12 +66650,12 @@
     "lat": 35.763439,
     "lng": -77.999889,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.34
+    "observationPriorityScore": 440.32
   },
   {
     "id": "36053",
@@ -66753,12 +66753,12 @@
     "lat": 43.84163,
     "lng": -70.441768,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.35
+    "observationPriorityScore": 440.34
   },
   {
     "id": "WindsorCAsupercharger",
@@ -66804,12 +66804,12 @@
     "lat": 40.958847,
     "lng": -117.746497,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.37
+    "observationPriorityScore": 440.35
   },
   {
     "id": "WinstonSalemNCSupercharger",
@@ -66825,12 +66825,12 @@
     "lat": 36.084444,
     "lng": -80.295348,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.39
+    "observationPriorityScore": 440.37
   },
   {
     "id": "wintergardenflsupercharger",
@@ -67043,12 +67043,12 @@
     "lat": 38.633037,
     "lng": -77.276321,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.4
+    "observationPriorityScore": 440.39
   },
   {
     "id": "26872",
@@ -67096,12 +67096,12 @@
     "lat": 38.659374,
     "lng": -77.300063,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.42
+    "observationPriorityScore": 440.4
   },
   {
     "id": "WoodbridgeVAsupercharger",
@@ -67117,12 +67117,12 @@
     "lat": 38.629244,
     "lng": -77.289539,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.43
+    "observationPriorityScore": 440.42
   },
   {
     "id": "woodburnorsupercharger",
@@ -67138,12 +67138,12 @@
     "lat": 45.15313,
     "lng": -122.881254,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.45
+    "observationPriorityScore": 440.44
   },
   {
     "id": "WoodcliffLakeNJsupercharger",
@@ -67252,12 +67252,12 @@
     "lat": 39.869829,
     "lng": -75.353136,
     "lastDiscoveredAt": "2026-05-27T23:38:35.141Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.47
+    "observationPriorityScore": 440.45
   },
   {
     "id": "WoodstockGASupercharger",
@@ -67273,12 +67273,12 @@
     "lat": 34.118729,
     "lng": -84.528502,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.48
+    "observationPriorityScore": 440.47
   },
   {
     "id": "WoodstockVAsupercharger",
@@ -67294,12 +67294,12 @@
     "lat": 38.866754,
     "lng": -78.5192,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.5
+    "observationPriorityScore": 440.49
   },
   {
     "id": "19499",
@@ -67387,12 +67387,12 @@
     "lat": 43.631528,
     "lng": -95.59523,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.51
+    "observationPriorityScore": 440.5
   },
   {
     "id": "wythevillesupercharger",
@@ -67471,12 +67471,12 @@
     "lat": 40.2293841,
     "lng": -74.8834183,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.53
+    "observationPriorityScore": 440.52
   },
   {
     "id": "YemasseeSCSupercharger",
@@ -67492,12 +67492,12 @@
     "lat": 32.634231,
     "lng": -80.875183,
     "lastDiscoveredAt": "2026-05-27T23:38:35.142Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.54
+    "observationPriorityScore": 440.54
   },
   {
     "id": "yermosupercharger",
@@ -67690,12 +67690,12 @@
     "lat": 37.165139,
     "lng": -76.464827,
     "lastDiscoveredAt": "2026-05-27T23:38:35.141Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.56
+    "observationPriorityScore": 440.56
   },
   {
     "id": "YpsilantiMISupercharger",
@@ -67711,12 +67711,12 @@
     "lat": 42.232722,
     "lng": -83.678722,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.58
+    "observationPriorityScore": 440.57
   },
   {
     "id": "YrekaCAsupercharger",
@@ -67858,12 +67858,12 @@
     "lat": 32.668143,
     "lng": -114.443438,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.59
+    "observationPriorityScore": 440.59
   },
   {
     "id": "18634",
@@ -67879,12 +67879,12 @@
     "lat": 39.94737,
     "lng": -81.999025,
     "lastDiscoveredAt": "2026-05-27T23:38:35.143Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.61
+    "observationPriorityScore": 440.61
   },
   {
     "id": "29289",
@@ -67900,12 +67900,12 @@
     "lat": 38.984481,
     "lng": -119.943218,
     "lastDiscoveredAt": "2026-05-27T23:38:35.145Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-05-31T16:07:38.577Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.62
+    "observationPriorityScore": 440.62
   },
   {
     "id": "zionsvillesupercharger",
