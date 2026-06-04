@@ -1,11 +1,11 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-04T15:40:41.853Z",
+    "generatedAt": "2026-06-04T20:23:37.145Z",
     "membershipType": "member",
-    "latestObservedAt": "2026-06-04T15:40:23.453Z",
+    "latestObservedAt": "2026-06-04T20:23:25.972Z",
     "latestObservedPrice": 0.43,
-    "latestObservationAgeHours": 0.01,
+    "latestObservationAgeHours": 0,
     "freshnessLabel": "fresh: observed within 30 minutes",
     "bestHour": 16,
     "bestMinute": 30,
@@ -18,11 +18,11 @@
     "volatility": 0,
     "ci95Low": 0.43,
     "ci95High": 0.43,
-    "sampleCount": 3,
+    "sampleCount": 4,
     "bestSlotSampleCount": 1,
     "confidenceScore": 74,
     "confidenceLabel": "medium",
-    "confidenceSummary": "medium confidence · 3 observations · fresh: observed within 30 minutes",
+    "confidenceSummary": "medium confidence · 4 observations · fresh: observed within 30 minutes",
     "pricingStatus": "recent observation",
     "utilizationImpact": {
       "sampleCount": 0,
@@ -52,7 +52,7 @@
       ]
     },
     "congestion": {
-      "sampleCount": 3,
+      "sampleCount": 4,
       "maxFeePerMinute": 0.5,
       "averageFeePerMinute": 0.5
     },
@@ -82,6 +82,16 @@
         "hour": 15,
         "minute": 30,
         "label": "15:30",
+        "expectedPrice": 0.43,
+        "ci95Low": 0.43,
+        "ci95High": 0.43,
+        "sampleCount": 1
+      },
+      {
+        "slot": 40,
+        "hour": 20,
+        "minute": 0,
+        "label": "20:00",
         "expectedPrice": 0.43,
         "ci95Low": 0.43,
         "ci95High": 0.43,
@@ -118,16 +128,26 @@
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 1
+      },
+      {
+        "slot": 40,
+        "hour": 20,
+        "minute": 0,
+        "label": "20:00",
+        "expectedPrice": 0.43,
+        "ci95Low": 0.43,
+        "ci95High": 0.43,
+        "sampleCount": 1
       }
     ]
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-04T15:40:41.854Z",
+    "generatedAt": "2026-06-04T20:23:37.146Z",
     "membershipType": "non_member",
-    "latestObservedAt": "2026-06-04T15:40:23.453Z",
+    "latestObservedAt": "2026-06-04T20:23:25.972Z",
     "latestObservedPrice": 0.65,
-    "latestObservationAgeHours": 0.01,
+    "latestObservationAgeHours": 0,
     "freshnessLabel": "fresh: observed within 30 minutes",
     "bestHour": 16,
     "bestMinute": 30,
@@ -140,11 +160,11 @@
     "volatility": 0,
     "ci95Low": 0.65,
     "ci95High": 0.65,
-    "sampleCount": 3,
+    "sampleCount": 4,
     "bestSlotSampleCount": 1,
     "confidenceScore": 74,
     "confidenceLabel": "medium",
-    "confidenceSummary": "medium confidence · 3 observations · fresh: observed within 30 minutes",
+    "confidenceSummary": "medium confidence · 4 observations · fresh: observed within 30 minutes",
     "pricingStatus": "recent observation",
     "utilizationImpact": {
       "sampleCount": 0,
@@ -174,7 +194,7 @@
       ]
     },
     "congestion": {
-      "sampleCount": 3,
+      "sampleCount": 4,
       "maxFeePerMinute": 0.5,
       "averageFeePerMinute": 0.5
     },
@@ -208,6 +228,16 @@
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 1
+      },
+      {
+        "slot": 40,
+        "hour": 20,
+        "minute": 0,
+        "label": "20:00",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.65,
+        "ci95High": 0.65,
+        "sampleCount": 1
       }
     ],
     "hourly": [
@@ -236,6 +266,16 @@
         "hour": 15,
         "minute": 30,
         "label": "15:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.65,
+        "ci95High": 0.65,
+        "sampleCount": 1
+      },
+      {
+        "slot": 40,
+        "hour": 20,
+        "minute": 0,
+        "label": "20:00",
         "expectedPrice": 0.65,
         "ci95Low": 0.65,
         "ci95High": 0.65,
