@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "stationId": "LakeGroveNYsupercharger",
+    "stationName": "Lake Grove, NY",
+    "city": "Lake Grove",
+    "state": "NY",
+    "detectedAt": "2026-06-04T22:44:18.546Z",
+    "previousCapturedAt": "2026-06-04T20:23:25.972Z",
+    "memberFrom": 0.43,
+    "memberTo": 0.3,
+    "nonMemberFrom": 0.65,
+    "nonMemberTo": 0.65,
+    "congestionFrom": 0.5,
+    "congestionTo": 0.5,
+    "source": "official_tesla_findus_location_page"
+  }
+]
