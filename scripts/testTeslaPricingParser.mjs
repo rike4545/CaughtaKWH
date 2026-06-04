@@ -1,4 +1,4 @@
-import { inferAvailability, inferPrices, inferSiteDetails, stationCandidates } from './teslaSiteParser.mjs';
+import { classifySiteContent, inferAvailability, inferPrices, inferSiteDetails, stationCandidates } from './teslaSiteParser.mjs';
 
 const fixture = `
   <section>
@@ -35,6 +35,10 @@ if (details.pageTitle !== 'Lake Grove Supercharger | Tesla') throw new Error(`Ti
 if (!details.amenities.includes('Restrooms')) throw new Error('Amenity parser missed restrooms');
 if (!details.amenities.includes('Trailer friendly')) throw new Error('Amenity parser missed trailer-friendly hint');
 if (details.chargerGeneration !== 'V3 high-power') throw new Error(`Charger generation failed, got ${details.chargerGeneration}`);
+
+const blocked = classifySiteContent({ bodyText: 'Access Denied You do not have permission to access this page', status: 403, finalUrl: 'https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger' });
+if (!blocked.blocked) throw new Error('Blocked Tesla page was not classified as blocked');
+if (blocked.validTeslaLocation) throw new Error('Blocked Tesla page should not be treated as a valid station page');
 
 const candidates = stationCandidates({
   id: '404914',

@@ -308,7 +308,7 @@ export function classifySiteContent({ bodyText = '', html = '', status = 0, fina
   const normalized = normalizeText(`${bodyText}\n${html}`);
   const pageNotFound = status === 404 || /page not found|404|not found/i.test(normalized);
   const blocked = status === 403 || /access denied|request blocked|captcha|verify you are human/i.test(normalized);
-  const validTeslaLocation = !pageNotFound && /supercharger|findus|tesla/i.test(normalized + finalUrl);
+  const validTeslaLocation = !pageNotFound && !blocked && /supercharger|findus|tesla/i.test(normalized + finalUrl);
   return {
     status,
     pageNotFound,

@@ -19,6 +19,7 @@ const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1200);
 const LOW_PRICE_THRESHOLD = Number(process.env.LOW_PRICE_THRESHOLD || 0.30);
 const SCRAPE_STATES = splitEnvList(process.env.SCRAPE_STATES || process.env.SCRAPE_STATE);
 const SCRAPE_COUNTRIES = splitEnvList(process.env.SCRAPE_COUNTRIES || process.env.SCRAPE_COUNTRY);
+const SCRAPE_STATION_IDS = splitEnvList(process.env.SCRAPE_STATION_IDS || process.env.SCRAPE_STATION_ID);
 const SCRAPE_ZIP = String(process.env.SCRAPE_ZIP || '').trim();
 const SCRAPE_LAT = Number(process.env.SCRAPE_LAT);
 const SCRAPE_LNG = Number(process.env.SCRAPE_LNG);
@@ -95,6 +96,7 @@ async function scrapeOne(context, station) {
       await page.waitForTimeout(5500);
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(() => {});
       await page.waitForTimeout(1200);
+      await expandPricingAccordions(page);
       const bodyText = await page.locator('body').innerText({ timeout: 12000 });
       const html = await page.content().catch(() => '');
       const scriptsText = await page.locator('script').evaluateAll(nodes => nodes.map(n => n.textContent || '').join('\n')).catch(() => '');
@@ -131,6 +133,23 @@ async function scrapeOne(context, station) {
   error.attempts = attempts;
   throw error;
 }
+async function expandPricingAccordions(page) {
+  const labels = ['Pricing for Tesla & Members', 'Pricing for Non-Tesla'];
+  for (const label of labels) {
+    const summary = page.locator('summary').filter({ hasText: label }).first();
+    try {
+      if (await summary.count()) {
+        const detailsOpen = await summary.evaluate(el => el.parentElement?.hasAttribute('open')).catch(() => false);
+        if (!detailsOpen) await summary.click({ timeout: 5000 });
+        continue;
+      }
+    } catch {}
+    try {
+      await page.getByText(label, { exact: true }).click({ timeout: 5000 });
+    } catch {}
+  }
+  await page.waitForTimeout(800);
+}
 function priorityFor(station) {
   const prediction = predictions.find(p => p.stationId === station.id && p.membershipType === 'member') || predictions.find(p => p.stationId === station.id);
   const scrapeAge = hoursSince(station.lastScrapedAt);
@@ -155,6 +174,10 @@ const scope = await scrapeScope();
 const distanceByStation = new Map();
 function scopedStations() {
   let scoped = [...stations];
+  if (SCRAPE_STATION_IDS.length) {
+    const wanted = new Set(SCRAPE_STATION_IDS.map(id => id.toLowerCase()));
+    scoped = scoped.filter(station => wanted.has(String(station.id || '').toLowerCase()));
+  }
   if (scope.states.length) {
     const wanted = new Set(scope.states.map(state => state.toLowerCase()));
     scoped = scoped.filter(station => wanted.has(String(station.state || '').toLowerCase()));
