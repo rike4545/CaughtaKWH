@@ -307,8 +307,8 @@ function App() {
             {commercialBenchmark?.secondaryUrl && <a href={commercialBenchmark.secondaryUrl} target="_blank" rel="noreferrer">NYSERDA context</a>}
           </div>
           <div className="manualRefreshNote">
-            <strong>Want one Supercharger watched more closely?</strong>
-            <p>Use the pricing pilot refresh for a specific station ID, such as <code>{selected?.id || 'LakeGroveNYsupercharger'}</code>. Each targeted pass builds the history needed for better volatility and cheaper-window analysis.</p>
+            <strong>Why some stations have better history</strong>
+            <p>Stations become more useful after CaughtaKWH sees public prices a few different times. Until then, treat the trend as early context and check Tesla for the live price before charging.</p>
           </div>
         </Card>
 
@@ -319,9 +319,9 @@ function App() {
             <span>Minimum usable<strong>{Math.min(Number(prediction?.sampleCount || 0), 3)}/3 observations</strong></span>
             <span>Stronger model<strong>{Math.min(Number(prediction?.sampleCount || 0), 10)}/10 observations</strong></span>
             <span>Freshness<strong>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'No public price yet'}</strong></span>
-            <span>Targeted update<strong>{selected?.id || 'Pick a station'}</strong></span>
+            <span>Current station<strong>{selected?.name || 'Pick a station'}</strong></span>
           </div>
-          <p className="muted compactNote">For manual updates, run the Pricing Pilot Panel with this station ID. For automation, scheduled refreshes can use needs-history mode so the scraper spends time on stations that still need usable observations.</p>
+          <p className="muted compactNote">CaughtaKWH keeps checking stations over time. A station needs at least three recent public price observations before its history becomes useful for trend watching.</p>
         </Card>
 
         <Card><div className="sectionTitle"><div><p>Cheaper times</p><h2>{prediction ? `Best time we have seen: ${prediction.bestHour}:${String(prediction.bestMinute).padStart(2, '0')}` : 'Not enough prices yet'}</h2></div><span className="badge">Estimate range</span></div><p className="muted">Use this for planning, then check Tesla before you charge. Live prices can move faster than this chart.</p><ResponsiveContainer width="100%" height={240}><BarChart data={modelRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" interval={5}/><YAxis tickFormatter={money}/><Tooltip formatter={value => money(value)} /><Bar dataKey="expectedPrice" name="Expected $/kWh" /></BarChart></ResponsiveContainer></Card>
