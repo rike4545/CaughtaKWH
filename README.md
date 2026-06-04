@@ -1,10 +1,16 @@
-# CaughtaKWH ⚡
+# CaughtaKWH
 
-Track Tesla Supercharger pricing trends, discover cheaper charging windows, and find nearby stations faster. CaughtaKWH is focused on United States Superchargers first while the scraper is hardened.
+Track Tesla Supercharger pricing trends, spot cheaper charging windows, and find nearby stations faster. CaughtaKWH is focused on United States Superchargers first while the scraper is hardened, with Canada and Mexico planned after the data pipeline is steadier.
 
-## 🌐 Live Site
+## Live Site
 
 https://rike4545.github.io/CaughtaKWH/
+
+## Support Development
+
+If CaughtaKWH is useful to you, support continued development here:
+
+https://linktr.ee/teslafi
 
 ---
 
@@ -30,7 +36,7 @@ The project focuses on transparency:
 
 # Features
 
-## 🔎 Find Nearby Superchargers
+## Find Nearby Superchargers
 
 Search by:
 
@@ -43,7 +49,7 @@ Nearby mode automatically ranks the closest stations.
 
 ---
 
-## 💲 Track Pricing Trends
+## Track Pricing Trends
 
 CaughtaKWH stores historical pricing observations and displays:
 
@@ -56,7 +62,7 @@ CaughtaKWH stores historical pricing observations and displays:
 
 ---
 
-## 🧠 Predict Cheaper Charging Windows
+## Predict Cheaper Charging Windows
 
 The prediction engine estimates:
 
@@ -70,7 +76,7 @@ The more observations collected over time, the better the predictions become.
 
 ---
 
-## 📍 Privacy Friendly
+## Privacy Friendly
 
 Location usage is optional.
 
@@ -99,6 +105,7 @@ Location is only used to rank nearby chargers.
 - Node.js
 - Playwright
 - GitHub Actions
+- Headed Chromium through Xvfb for Tesla page checks
 
 ## Hosting
 
@@ -112,11 +119,12 @@ Location is only used to rank nearby chargers.
 The update system:
 
 1. Discovers Supercharger stations
-2. Scrapes publicly visible pricing data
-3. Stores historical observations
-4. Builds prediction models
-5. Syncs public JSON data
-6. Deploys automatically to GitHub Pages
+2. Opens Tesla public station pages in a headed browser
+3. Expands pricing accordions for Tesla/member and Non-Tesla rates
+4. Stores historical observations
+5. Builds prediction models
+6. Syncs public JSON data
+7. Deploys automatically to GitHub Pages
 
 The project is intentionally designed without a traditional backend server.
 
@@ -157,6 +165,12 @@ npm install
 npx playwright install chromium
 ```
 
+Tesla currently blocks headless Chromium on some public station pages. For local live scraping, run the scraper in headed mode:
+
+```bash
+TESLA_HEADLESS=false npm run scrape
+```
+
 ## Start Development Server
 
 ```bash
@@ -167,6 +181,12 @@ npm run dev
 
 ```bash
 npm run update:data
+```
+
+For live scraping in environments without a visible display, use a virtual display:
+
+```bash
+xvfb-run -a env TESLA_HEADLESS=false MAX_STATIONS=25 npm run scrape
 ```
 
 ## Refresh A Local Area
@@ -184,6 +204,12 @@ You can also target coordinates or state/province batches:
 SCRAPE_LAT=40.7128 SCRAPE_LNG=-74.0060 SCRAPE_RADIUS_MILES=75 MAX_STATIONS=25 npm run scrape
 SCRAPE_STATES=CA,NV MAX_STATIONS=50 npm run scrape
 SCRAPE_ROTATE_STATES=true SCRAPE_ROTATION_COUNT=1 MAX_STATIONS=75 npm run scrape
+```
+
+You can target one station while debugging:
+
+```bash
+TESLA_HEADLESS=false SCRAPE_STATION_IDS=LakeGroveNYsupercharger MAX_STATIONS=1 npm run scrape
 ```
 
 Canada and Mexico support can be enabled later by running discovery with:
@@ -204,7 +230,7 @@ npm run build
 
 GitHub Actions automatically:
 
-- Refreshes pricing data
+- Refreshes pricing data with headed Chromium
 - Updates predictions
 - Syncs public datasets
 - Deploys the website
@@ -214,6 +240,7 @@ Current optimization strategy:
 - Daily rotating state/province refreshes
 - Manual ZIP or coordinate scoped refreshes for local areas
 - Smaller scrape batches to avoid slow Tesla page render passes piling up
+- Pricing accordions are opened before extraction
 - Static asset synchronization
 
 ---
@@ -238,14 +265,14 @@ Always verify pricing in Tesla’s ecosystem before charging.
 
 Planned improvements include:
 
-- Better mobile UI
-- Faster scraper concurrency
-- Improved regional filtering
+- Broader Canada and Mexico rollout
+- Better handling for Tesla anti-bot edge cases
+- More stations with fresh price history
+- Improved local refresh requests
 - Occupancy-aware predictions
 - Supercharger utilization modeling
 - Community-submitted observations
 - Better confidence scoring
-- EV route planning tools
 
 ---
 
