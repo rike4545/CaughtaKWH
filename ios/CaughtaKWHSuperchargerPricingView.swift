@@ -25,6 +25,9 @@ struct CaughtaKWHStation: Identifiable, Codable, Hashable {
     let lastScrapedAt: Date?
     let lastScrapeHadPrice: Bool?
     let lastScrapeHadAvailability: Bool?
+    let lastScrapeResult: String?
+    let lastPriceCandidateCount: Int?
+    let lastScrapeAttemptCount: Int?
 }
 
 struct CaughtaKWHPrediction: Identifiable, Codable, Hashable {
@@ -125,6 +128,7 @@ final class CaughtaKWHStationPricingStore: ObservableObject {
 struct CaughtaKWHSuperchargerPricingView: View {
     @StateObject private var store = CaughtaKWHStationPricingStore()
     @State private var searchText = ""
+    private let supportURL = URL(string: "https://linktr.ee/teslafi")!
 
     private var filteredStations: [CaughtaKWHStation] {
         guard !searchText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return store.stations }
@@ -150,10 +154,12 @@ struct CaughtaKWHSuperchargerPricingView: View {
 
                     if let station = store.selectedStation {
                         stationPicker
+                        rolloutCard
                         truthCard(station: station, prediction: store.selectedPrediction)
                         priceAndCapacityGrid(station: station, prediction: store.selectedPrediction)
                         capacityDetailCard(station: station)
                         staleDataCard(prediction: store.selectedPrediction)
+                        supportCard
                     } else if store.isLoading {
                         ProgressView("Loading CaughtaKWH data…")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -178,13 +184,24 @@ struct CaughtaKWHSuperchargerPricingView: View {
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.green)
                 .textCase(.uppercase)
-            Text("Separate current Tesla visibility from stale historical observations.")
+            Text("Check the charger before you roll up.")
                 .font(.largeTitle.bold())
                 .minimumScaleFactor(0.75)
-            Text("Tesla app and vehicle pricing remains the source of truth. CaughtaKWH shows public-page observations, confidence, freshness, and station capacity context.")
+            Text("US-first Supercharger pricing for MY EV Companion. Tesla’s app or your car is still the live price; CaughtaKWH separates fresh public prices from saved history.")
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }
+    }
+
+    private var rolloutCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label("US-first while the scraper settles in", systemImage: "map")
+                .font(.headline)
+            Text("CaughtaKWH is starting with United States Superchargers. The scraper now opens Tesla’s pricing accordions and runs in a headed browser because Tesla blocks some headless page checks.")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+        }
+        .cardStyle(border: Color.blue.opacity(0.25))
     }
 
     private var stationPicker: some View {
@@ -221,12 +238,12 @@ struct CaughtaKWHSuperchargerPricingView: View {
         let capacity = capacityModel(station: station)
         let publicPriceText = station.lastScrapeHadPrice == true && !isStale(prediction)
             ? currency(prediction?.latestObservedPrice)
-            : station.lastScrapeHadPrice == true ? "Stale" : "Not visible"
+            : station.lastScrapeHadPrice == true ? "Saved history" : "Hidden"
 
         return LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-            metricCard(title: "Tesla public price", value: publicPriceText, note: observationNote(prediction))
-            metricCard(title: "Historical price", value: currency(prediction?.latestObservedPrice), note: prediction?.freshnessLabel ?? "No public price observation")
-            metricCard(title: "Confidence", value: isStale(prediction) ? "Low" : (prediction?.confidenceLabel?.capitalized ?? "Low"), note: confidenceNote(prediction))
+            metricCard(title: "What Tesla showed us", value: publicPriceText, note: observationNote(prediction))
+            metricCard(title: "Last price we saw", value: currency(prediction?.latestObservedPrice), note: prediction?.freshnessLabel ?? "No saved price yet")
+            metricCard(title: "How much to trust it", value: isStale(prediction) ? "Low" : (prediction?.confidenceLabel?.capitalized ?? "Low"), note: confidenceNote(prediction))
             metricCard(title: "Station capacity", value: capacity.total.map { "\($0) stalls" } ?? "Unknown", note: capacity.maxKw.map { "\($0) kW max · \(capacity.grade)" } ?? capacity.grade)
         }
     }
@@ -244,8 +261,26 @@ struct CaughtaKWHSuperchargerPricingView: View {
                 detailColumn("Theoretical output", capacity.theoreticalKw.map { "\($0.formatted()) kW" } ?? "Unknown")
                 detailColumn("Source", capacity.source)
             }
+            HStack {
+                detailColumn("Latest page check", scrapeResultText(station))
+                detailColumn("Price-like numbers", station.lastPriceCandidateCount.map(String.init) ?? "—")
+            }
         }
         .cardStyle()
+    }
+
+    private var supportCard: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Label("Support development", systemImage: "heart")
+                .font(.headline)
+                .foregroundStyle(.pink)
+            Text("If this CaughtaKWH view helps inside MY EV Companion, you can support continued development here.")
+                .font(.callout)
+                .foregroundStyle(.secondary)
+            Link("Open support page", destination: supportURL)
+                .font(.callout.weight(.semibold))
+        }
+        .cardStyle(border: Color.pink.opacity(0.25))
     }
 
     private func staleDataCard(prediction: CaughtaKWHPrediction?) -> some View {
@@ -302,21 +337,21 @@ struct CaughtaKWHSuperchargerPricingView: View {
 
     private func pricingState(station: CaughtaKWHStation, prediction: CaughtaKWHPrediction?) -> (title: String, message: String, symbol: String, tint: Color) {
         if isVeryStale(prediction) {
-            return ("Very stale price observation", "The last public price is more than 48 hours old. The iOS view keeps it as history only, not as a current Tesla price.", "clock.badge.exclamationmark", .orange)
+            return ("Only old price history so far", "The last saved public price is more than 48 hours old. Keep it as history only, not as the current Tesla price.", "clock.badge.exclamationmark", .orange)
         }
         if isStale(prediction) {
-            return ("Stale price observation", "Tesla may have changed this price. Use the Tesla app or vehicle before relying on it.", "clock", .orange)
+            return ("Saved price may be stale", "Tesla may have changed this price. Use the Tesla app or vehicle before relying on it.", "clock", .orange)
         }
         if let prediction, prediction.latestObservedAt != nil {
-            return ("Recent Tesla public price observed", "\(currency(prediction.latestObservedPrice)) observed from Tesla public data. \(prediction.confidenceSummary ?? "")", "checkmark.seal.fill", .green)
+            return ("Fresh public price found", "\(currency(prediction.latestObservedPrice)) came from Tesla’s public station page. \(prediction.confidenceSummary ?? "")", "checkmark.seal.fill", .green)
         }
         if station.lastScrapeHadAvailability == true {
-            return ("Tesla public price not visible", "Tesla exposed availability information, but not a public $/kWh price for this check.", "eye.slash", .orange)
+            return ("Tesla showed the site, but not the price", "Tesla exposed availability information, but not a public $/kWh price for this check.", "eye.slash", .orange)
         }
         if station.lastScrapedAt != nil {
-            return ("No public Tesla price found", "The public station page was checked, but no parseable public price was found.", "magnifyingglass", .orange)
+            return ("No price on the public page yet", "The public station page was checked, but no parseable public price was found.", "magnifyingglass", .orange)
         }
-        return ("Tesla price check pending", "This station has not been checked yet in the current dataset.", "hourglass", .orange)
+        return ("We have not checked this one yet", "This station has not been checked yet in the current dataset.", "hourglass", .orange)
     }
 
     private func capacityModel(station: CaughtaKWHStation) -> (total: Int?, available: Int?, utilization: Double?, maxKw: Int?, theoreticalKw: Int?, grade: String, source: String) {
@@ -362,7 +397,7 @@ struct CaughtaKWHSuperchargerPricingView: View {
     }
 
     private func observationNote(_ prediction: CaughtaKWHPrediction?) -> String {
-        guard let prediction, prediction.latestObservedAt != nil else { return "No fresh public price" }
+        guard let prediction, prediction.latestObservedAt != nil else { return "No fresh public price yet" }
         return "\(shortDate(prediction.latestObservedAt)) · \(ageText(prediction.latestObservationAgeHours))"
     }
 
@@ -376,6 +411,21 @@ struct CaughtaKWHSuperchargerPricingView: View {
     private func shortDate(_ date: Date?) -> String {
         guard let date else { return "—" }
         return date.formatted(date: .abbreviated, time: .shortened)
+    }
+
+    private func scrapeResultText(_ station: CaughtaKWHStation) -> String {
+        switch station.lastScrapeResult {
+        case "price_found":
+            return "Price found"
+        case "availability_found":
+            return "Availability only"
+        case "valid_page_no_public_data":
+            return "Page loaded, price hidden"
+        case "no_usable_candidate":
+            return "Needs another pass"
+        default:
+            return station.lastScrapedAt == nil ? "Not checked" : "Checked"
+        }
     }
 }
 
