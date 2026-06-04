@@ -26,6 +26,7 @@ const SCRAPE_LNG = Number(process.env.SCRAPE_LNG);
 const SCRAPE_RADIUS_MILES = Number(process.env.SCRAPE_RADIUS_MILES || 150);
 const SCRAPE_ROTATE_STATES = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_ROTATE_STATES || '').toLowerCase());
 const SCRAPE_ROTATION_COUNT = Math.max(1, Number(process.env.SCRAPE_ROTATION_COUNT || 1));
+const TESLA_HEADLESS = !['0', 'false', 'no'].includes(String(process.env.TESLA_HEADLESS ?? 'true').toLowerCase());
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
 
@@ -200,8 +201,8 @@ function scopedStations() {
 
 const inScope = scopedStations();
 const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
-const browser = await chromium.launch({ headless: true });
-const context = await browser.newContext({ viewport: { width: 1440, height: 1800 }, userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36' });
+const browser = await chromium.launch({ headless: TESLA_HEADLESS, args: ['--disable-blink-features=AutomationControlled'] });
+const context = await browser.newContext({ viewport: { width: 1440, height: 1800 }, locale: 'en-US', timezoneId: 'America/New_York' });
 let saved = 0;
 let attempted = 0;
 for (const station of ordered.slice(0, MAX_STATIONS)) {

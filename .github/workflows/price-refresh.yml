@@ -53,6 +53,7 @@ jobs:
       SCRAPE_LAT: ${{ github.event.inputs.scrape_lat || '' }}
       SCRAPE_LNG: ${{ github.event.inputs.scrape_lng || '' }}
       SCRAPE_RADIUS_MILES: ${{ github.event.inputs.scrape_radius_miles || '150' }}
+      TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v6
@@ -67,7 +68,7 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
       - name: Refresh dynamic Tesla pricing
-        run: MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape || true
+        run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape || true
       - name: Rebuild predictions and public data
         run: |
           npm run predict

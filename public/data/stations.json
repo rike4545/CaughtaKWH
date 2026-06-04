@@ -43673,12 +43673,12 @@
     "lat": 40.862269,
     "lng": -73.129075,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-05-30T19:58:51.496Z",
-    "lastScrapeHadPrice": false,
+    "lastScrapedAt": "2026-06-04T11:07:35.984Z",
+    "lastScrapeHadPrice": true,
     "lastScrapeHadAvailability": false,
-    "lastPriceCandidateCount": 0,
+    "lastPriceCandidateCount": 18,
     "lastLowPriceId": null,
-    "observationPriorityScore": 414.75,
+    "observationPriorityScore": 340.02,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -43687,6 +43687,53 @@
         "v3": 8
       },
       "power": 250
+    },
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeResult": "price_found",
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 200,
+        "contentSignal": "tesla_location_page",
+        "hasPrice": true,
+        "hasAvailability": false,
+        "priceCandidateCount": 18,
+        "publicDetailsFound": true,
+        "error": null
+      }
+    ],
+    "lastSiteDetails": {
+      "pageTitle": "Find Us | Tesla",
+      "candidateReason": "stored_tesla_url",
+      "canonicalUrl": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger",
+      "address": "313 Smith Haven Mall, Lake Grove, NY, 11755, United States",
+      "city": "Lake Grove",
+      "state": "NY",
+      "coordinates": {
+        "lat": 40.862269,
+        "lng": -73.129075
+      },
+      "stalls": 8,
+      "maxKw": 250,
+      "estimatedSiteKw": 2000,
+      "chargerGeneration": "V3 high-power",
+      "amenities": [
+        "Restrooms",
+        "Wi-Fi",
+        "Food nearby",
+        "Shopping nearby",
+        "Lodging nearby",
+        "Parking",
+        "Trailer friendly",
+        "Accessible stalls"
+      ],
+      "accessHint": "Available 24/7",
+      "directionsHint": "Find a Collision Center Find a Certified Installer Company About Careers Investor Relations Charging Vehicle Accessories Apparel Lifestyle N",
+      "pageTextLength": 70668,
+      "publicDetailsFound": true,
+      "lastCheckedAt": "2026-06-04T11:07:35.984Z",
+      "scrapeResult": "price_found"
     }
   },
   {

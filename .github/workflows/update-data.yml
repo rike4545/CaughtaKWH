@@ -58,6 +58,7 @@ jobs:
       SCRAPE_LAT: ${{ github.event.inputs.scrape_lat || '' }}
       SCRAPE_LNG: ${{ github.event.inputs.scrape_lng || '' }}
       SCRAPE_RADIUS_MILES: ${{ github.event.inputs.scrape_radius_miles || '150' }}
+      TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v6
@@ -76,7 +77,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
 
       - name: Run full data refresh pipeline
-        run: MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run update:data
+        run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run update:data
 
       - name: Commit data updates
         run: |
