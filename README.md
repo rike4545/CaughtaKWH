@@ -230,6 +230,53 @@ LakeGroveNYsupercharger
 
 Add more stations by running the workflow manually with a comma-separated `station_ids` value. Once a pilot station has roughly 10-30 observations, the stability and cheaper-window analytics become much more useful.
 
+## Dynamic Pricing And Power Cost Context
+
+CaughtaKWH observes public Tesla prices over time. It can detect price changes, member vs Non-Tesla spread, congestion fees, volatility, and time-of-day movement once a station has enough repeated observations.
+
+It does not yet know true supply/demand elasticity. For that, the project would need stronger demand-side signals such as stall occupancy, queueing, session volume, or consistent utilization snapshots. If Tesla exposes availability or congestion consistently, CaughtaKWH can use those as proxy signals.
+
+For Lake Grove, NY, the latest observed public prices are:
+
+- Tesla/member: 43 cents/kWh
+- Non-Tesla: 65 cents/kWh
+- Congestion fee: up to 50 cents/min
+- Member vs Non-Tesla spread: 22 cents/kWh
+
+Commercial electricity benchmarks are useful context, not Tesla's actual site cost. For example:
+
+- EIA March 2026 New York commercial average: 22.21 cents/kWh
+- NYSERDA February 2026 New York statewide commercial average: 23.5 cents/kWh
+
+Using the EIA March 2026 commercial benchmark, Lake Grove's public Tesla/member price is about 1.94x the statewide commercial average, and the Non-Tesla price is about 2.93x. That comparison does not include Tesla-specific demand charges, site rent, charger hardware, maintenance, network costs, taxes, demand-response programs, or idle/congestion policy.
+
+Sources:
+
+- EIA Electric Power Monthly Table 5.6.A: https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_a
+- NYSERDA Monthly Commercial Electricity Prices: https://www.nyserda.ny.gov/Energy-Prices/Electricity/Monthly-Avg-Electricity-Commercial
+
+## Manually Refresh One Supercharger
+
+To refresh one station locally:
+
+```bash
+TESLA_HEADLESS=false SCRAPE_STATION_IDS=LakeGroveNYsupercharger MAX_STATIONS=1 npm run scrape
+npm run predict
+npm run sync:public
+npm run build
+git add data public/data
+git commit -m "Refresh Lake Grove pricing"
+git push origin main
+```
+
+To refresh one station from GitHub:
+
+1. Go to Actions.
+2. Open `Pricing Pilot Panel`.
+3. Click `Run workflow`.
+4. Set `station_ids` to the target station ID, such as `LakeGroveNYsupercharger`.
+5. Run the workflow.
+
 Canada and Mexico support can be enabled later by running discovery with:
 
 ```bash
