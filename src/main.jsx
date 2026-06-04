@@ -125,6 +125,7 @@ function App() {
   const [originMode, setOriginMode] = useState('browse');
   const [geoError, setGeoError] = useState('');
   const [geoLoading, setGeoLoading] = useState(false);
+  const [activeView, setActiveView] = useState('chargers');
 
   const selected = stations.find(station => station.id === selectedId) || stations[0];
   const { data: history } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
@@ -230,23 +231,20 @@ function App() {
       <div className="heroPanel"><strong>Use this as your early look</strong><p>Tesla’s app or your car is still the live price. CaughtaKWH is US-first for now; Canada and Mexico come next once the scraper is fully steady.</p></div>
     </header>
 
-    <section className="statsGrid">
-      <Stat icon={<MapPin/>} label="US stations found" value={stations.length} note={`${coverage.coordsPct}% with coordinates`} />
-      <Stat icon={<Navigation/>} label={originMode === 'near-me' ? 'Closest near you' : originMode === 'zip' ? 'Closest near ZIP' : 'Nearby mode'} value={origin ? nearbyList.length : '—'} note={origin ? `${origin.city}${origin.state ? ', ' + origin.state : ''}` : 'off'} />
-      <Stat icon={<Clock3/>} label="Stations with price history" value={pricedStations} note={`${priceHistoryPct} of US stations`} />
-      <Stat icon={<TrendingDown/>} label="Lowest typical price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId} />
-    </section>
+    <nav className="viewTabs" aria-label="Dashboard views">
+      <button className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
+      <button className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
+    </nav>
 
-    <Card className="dashboardPulse">
-      <div className="sectionTitle"><div><p>Dashboard pulse</p><h2>The system is learning in public</h2></div><span className="badge">{dashboardHealth?.generatedAt ? `Updated ${shortDate(dashboardHealth.generatedAt)}` : 'Building feed'}</span></div>
-      <div className="pulseGrid">
-        <div><Activity size={20}/><span>Coverage</span><strong>{dashboardSummary.checkedPct}% checked</strong><small>{dashboardSummary.checkedStations?.toLocaleString?.() || dashboardSummary.checkedStations || 0} of {stations.length.toLocaleString()} US stations have had a page pass.</small></div>
-        <div><Target size={20}/><span>Pricing depth</span><strong>{dashboardSummary.pricedPct}% priced</strong><small>{stationCountText(dashboardSummary.pricedStations ?? pricedStations)} usable price history. Repeated observations make the cheaper-window view better.</small></div>
-        <div><RefreshCw size={20}/><span>Automation</span><strong>Daily improvement loop</strong><small>Scraper runs stay staggered, while the dashboard bot refreshes this health feed and the public copy from real data.</small></div>
-      </div>
-    </Card>
+    {activeView === 'chargers' && <>
+      <section className="statsGrid">
+        <Stat icon={<MapPin/>} label="US stations found" value={stations.length} note={`${coverage.coordsPct}% with coordinates`} />
+        <Stat icon={<Navigation/>} label={originMode === 'near-me' ? 'Closest near you' : originMode === 'zip' ? 'Closest near ZIP' : 'Nearby mode'} value={origin ? nearbyList.length : '—'} note={origin ? `${origin.city}${origin.state ? ', ' + origin.state : ''}` : 'off'} />
+        <Stat icon={<Clock3/>} label="Stations with price history" value={pricedStations} note={`${priceHistoryPct} of US stations`} />
+        <Stat icon={<TrendingDown/>} label="Lowest typical price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId} />
+      </section>
 
-    <section className="layout">
+      <section className="layout">
       <Card className="sidebar">
         <div className="nearbyBox betterNearby"><div><strong>Find chargers nearby</strong><small>Use a ZIP for a wider search, or your location for the closest handful. Your location only sorts the list.</small></div><form onSubmit={findZip}><div className="zipRow"><input placeholder="ZIP code" value={zip} onChange={event => setZip(event.target.value)} inputMode="numeric" maxLength={5}/><button disabled={geoLoading}>Find 25</button></div></form><button className="nearMeButton" onClick={useMyLocation} disabled={geoLoading}><Compass size={18}/><span>{geoLoading ? 'Finding…' : 'Use my location'}</span><small>Closest 5</small></button>{origin && <small>{originMode === 'near-me' ? 'Showing the closest 5 chargers to you. This same area can be used for a focused refresh run.' : `Showing 25 chargers near ${origin.zip} — ${origin.city}, ${origin.state}. This ZIP can be used for a focused refresh run.`}</small>}{geoError && <small className="errorText"><AlertTriangle size={12}/> {geoError}</small>}{origin && <button className="linkButton" onClick={() => { setOrigin(null); setOriginMode('browse'); }}>Clear nearby mode</button>}</div>
         <label className="search"><Search size={16}/><input placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
@@ -315,25 +313,37 @@ function App() {
       <Stat icon={<Clock3/>} label="Data loaded" value={shortDate(stationsFetchedAt || predictionsFetchedAt)} note="browser refreshes periodically" />
       <Stat icon={<Zap/>} label="This charger" value={publicCheckResult} note="latest page check" />
     </section>
+    </>}
 
-    <section className="dashboardOps">
-      <Card>
-        <div className="sectionTitle"><div><p>Improvement loop</p><h2>What gets better next</h2></div><span className="badge">{dashboardSummary.priceChangeEvents || 0} price changes tracked</span></div>
-        <div className="improvementList">{(dashboardQueue.length ? dashboardQueue : [
-          { title: 'Grow repeated observations', status: 'needs_data', detail: 'Keep the pilot lane focused on stations where Tesla exposes public pricing.' },
-          { title: 'Keep fresh data visible', status: 'active', detail: 'Show freshness loudly so the dashboard never pretends old public data is live pricing.' },
-          { title: 'Add local power context state by state', status: 'next', detail: 'Only add a benchmark when the source and period are clear.' }
-        ]).map(item => <div key={item.title}><span>{statusText(item.status)}</span><strong>{item.title}</strong><p>{item.detail}</p></div>)}</div>
-      </Card>
-      <Card>
-        <div className="sectionTitle"><div><p>Refresh priorities</p><h2>Where the automation points next</h2></div><span className="badge">{dashboardSummary.staleOrUncheckedStations || 0} stale or unchecked</span></div>
-        <p className="muted">Tesla pages can be slow because each candidate gets a render and wait pass. The scheduled jobs keep the work spread out and favor stations that can improve pricing confidence.</p>
-        <div className="priorityColumns">
-          <div><strong>Station targets</strong>{dashboardTargets.slice(0, 6).map(station => <span key={station.id}>{station.name}<small>{station.state || 'US'} · {scrapeResultLabel(station.lastScrapeResult)}</small></span>)}</div>
-          <div><strong>State queue</strong>{dashboardStates.slice(0, 6).map(stateRow => <span key={stateRow.state}>{stateRow.state}<small>{stateRow.stale} stale/unchecked · {stateRow.pricedPct}% priced</small></span>)}{!dashboardStates.length && <span>US pilot<small>State priorities appear after the dashboard bot runs.</small></span>}</div>
+    {activeView === 'health' && <section className="healthView">
+      <Card className="dashboardPulse">
+        <div className="sectionTitle"><div><p>Dashboard pulse</p><h2>The system is learning in public</h2></div><span className="badge">{dashboardHealth?.generatedAt ? `Updated ${shortDate(dashboardHealth.generatedAt)}` : 'Building feed'}</span></div>
+        <div className="pulseGrid">
+          <div><Activity size={20}/><span>Coverage</span><strong>{dashboardSummary.checkedPct}% checked</strong><small>{dashboardSummary.checkedStations?.toLocaleString?.() || dashboardSummary.checkedStations || 0} of {stations.length.toLocaleString()} US stations have had a page pass.</small></div>
+          <div><Target size={20}/><span>Pricing depth</span><strong>{dashboardSummary.pricedPct}% priced</strong><small>{stationCountText(dashboardSummary.pricedStations ?? pricedStations)} usable price history. Repeated observations make the cheaper-window view better.</small></div>
+          <div><RefreshCw size={20}/><span>Automation</span><strong>Daily improvement loop</strong><small>Scraper runs stay staggered, while the dashboard bot refreshes this health feed and the public copy from real data.</small></div>
         </div>
       </Card>
-    </section>
+
+      <section className="dashboardOps">
+        <Card>
+          <div className="sectionTitle"><div><p>Improvement loop</p><h2>What gets better next</h2></div><span className="badge">{dashboardSummary.priceChangeEvents || 0} price changes tracked</span></div>
+          <div className="improvementList">{(dashboardQueue.length ? dashboardQueue : [
+            { title: 'Grow repeated observations', status: 'needs_data', detail: 'Keep the pilot lane focused on stations where Tesla exposes public pricing.' },
+            { title: 'Keep fresh data visible', status: 'active', detail: 'Show freshness loudly so the dashboard never pretends old public data is live pricing.' },
+            { title: 'Add local power context state by state', status: 'next', detail: 'Only add a benchmark when the source and period are clear.' }
+          ]).map(item => <div key={item.title}><span>{statusText(item.status)}</span><strong>{item.title}</strong><p>{item.detail}</p></div>)}</div>
+        </Card>
+        <Card>
+          <div className="sectionTitle"><div><p>Refresh priorities</p><h2>Where the automation points next</h2></div><span className="badge">{dashboardSummary.staleOrUncheckedStations || 0} stale or unchecked</span></div>
+          <p className="muted">Tesla pages can be slow because each candidate gets a render and wait pass. The scheduled jobs keep the work spread out and favor stations that can improve pricing confidence.</p>
+          <div className="priorityColumns">
+            <div><strong>Station targets</strong>{dashboardTargets.slice(0, 6).map(station => <span key={station.id}>{station.name}<small>{station.state || 'US'} · {scrapeResultLabel(station.lastScrapeResult)}</small></span>)}</div>
+            <div><strong>State queue</strong>{dashboardStates.slice(0, 6).map(stateRow => <span key={stateRow.state}>{stateRow.state}<small>{stateRow.stale} stale/unchecked · {stateRow.pricedPct}% priced</small></span>)}{!dashboardStates.length && <span>US pilot<small>State priorities appear after the dashboard bot runs.</small></span>}</div>
+          </div>
+        </Card>
+      </section>
+    </section>}
   </main>;
 }
 

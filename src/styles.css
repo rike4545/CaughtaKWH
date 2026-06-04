@@ -35,7 +35,12 @@ p { color: var(--muted); line-height: 1.55; }
 .statIcon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 16px; background: rgba(83,224,163,.12); color: var(--accent); flex: 0 0 auto; }
 .stat p, .stat small { display: block; margin: 0; color: var(--muted); }
 .stat strong { display: block; font-size: 26px; margin: 2px 0; overflow-wrap: anywhere; }
-.dashboardPulse { margin-bottom: 24px; }
+.viewTabs { display: inline-flex; gap: 8px; align-items: center; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.055); margin: 0 0 18px; padding: 6px; }
+.viewTabs button { align-items: center; border: 1px solid transparent; border-radius: 14px; background: transparent; color: var(--muted); cursor: pointer; display: inline-flex; gap: 8px; min-height: 42px; padding: 0 14px; }
+.viewTabs button.active, .viewTabs button:hover { border-color: rgba(83,224,163,.5); background: rgba(83,224,163,.12); color: var(--text); }
+.viewTabs svg { color: var(--accent); }
+.healthView { display: grid; gap: 18px; }
+.dashboardPulse { margin-bottom: 0; }
 .pulseGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .pulseGrid > div { background: rgba(255,255,255,.055); border: 1px solid var(--line); border-radius: 18px; display: grid; gap: 5px; min-height: 138px; padding: 15px; }
 .pulseGrid svg { color: var(--accent); }
@@ -112,7 +117,7 @@ p { color: var(--muted); line-height: 1.55; }
 .impactGrid > div { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; display: grid; gap: 5px; min-height: 128px; padding: 15px; }
 .impactGrid span, .impactGrid small, .impactGrid em { color: var(--muted); font-size: 13px; font-style: normal; }
 .impactGrid strong { color: var(--text); font-size: 26px; }
-.dashboardOps { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
+.dashboardOps { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .improvementList { display: grid; gap: 10px; }
 .improvementList > div { border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.05); padding: 14px; }
 .improvementList span { color: var(--accent); display: block; font-size: 12px; font-weight: 800; letter-spacing: .08em; margin-bottom: 5px; text-transform: uppercase; }
@@ -129,4 +134,4 @@ p { color: var(--muted); line-height: 1.55; }
 .recharts-default-tooltip { background: #101d2a !important; border: 1px solid var(--line) !important; border-radius: 14px; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
 @media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .priceStrip, .metaGrid, .priorityColumns { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }
+@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }
