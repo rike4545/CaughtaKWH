@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { AlertTriangle, BatteryCharging, Clock3, Compass, MapPin, Navigation, Search, ShieldCheck, TrendingDown, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
-import { coverageKpis, pricingStats, refreshQueueStates, scrapeOutcome } from './kpis.js';
+import { coverageKpis, pricingStats } from './kpis.js';
 import './styles.css';
 
 const money = value => typeof value === 'number' ? `$${value.toFixed(2)}` : '—';
@@ -86,6 +86,15 @@ function useJson(url, fallback, refreshMs = 300000) {
 function Card({ children, className = '' }) { return <section className={`card ${className}`}>{children}</section>; }
 function Stat({ icon, label, value, note }) { return <Card className="stat"><div className="statIcon">{icon}</div><div><p>{label}</p><strong>{value}</strong>{note && <small>{note}</small>}</div></Card>; }
 function EmptyState({ title, children }) { return <div className="empty"><AlertTriangle size={18}/><div><strong>{title}</strong><p>{children}</p></div></div>; }
+function statusText(value) {
+  return ({ active: 'Active', healthy: 'Healthy', in_progress: 'In progress', needs_data: 'Needs data', next: 'Next' })[value] || titleCase(value);
+}
+function stationCountText(count, verb = 'have') {
+  const value = Number(count || 0);
+  const noun = value === 1 ? 'station' : 'stations';
+  const action = value === 1 && verb === 'have' ? 'has' : verb;
+  return `${value.toLocaleString()} ${noun} ${action}`;
+}
 
 function priceState(selected, prediction) {
   if (prediction?.latestObservedAt && prediction.latestObservationAgeHours > 48) return { title: 'Only old price history so far', tone: 'warn', detail: `Last saved price was ${money(prediction.latestObservedPrice)} on ${shortDate(prediction.latestObservedAt)}. Tesla did not show a fresh public price in the latest checks, so treat this as historical context only.` };
@@ -106,6 +115,7 @@ function PriceTruthNotice({ selected, prediction }) {
 function App() {
   const { data: stations, fetchedAt: stationsFetchedAt } = useJson('./data/stations.json', []);
   const { data: predictions, fetchedAt: predictionsFetchedAt } = useJson('./data/predictions.json', []);
+  const { data: dashboardHealth } = useJson('./data/dashboard-health.json', null);
   const [query, setQuery] = useState('');
   const [stateFilter, setStateFilter] = useState('All');
   const [rateType, setRateType] = useState('member');
@@ -178,8 +188,6 @@ function App() {
   const priceHistoryPct = stations.length ? `${(pricedStations / stations.length * 100).toFixed(2)}%` : '0.00%';
   const coverage = coverageKpis(stations, predictions);
   const priceSummary = pricingStats(predictions);
-  const refreshQueueChart = refreshQueueStates(stations, 12);
-  const priceCheckChart = scrapeOutcome(stations);
   const state = priceState(selected, prediction);
   const pricingFresh = prediction?.latestObservationAgeHours <= 24;
   const latestHistory = historyRows.at(-1);
@@ -200,6 +208,21 @@ function App() {
   const memberSpreadCents = memberCents && benchmarkCents ? memberCents - benchmarkCents : null;
   const nonTeslaSpreadCents = nonTeslaCents && benchmarkCents ? nonTeslaCents - benchmarkCents : null;
   const priceSpreadCents = memberCents && nonTeslaCents ? nonTeslaCents - memberCents : null;
+  const dashboardSummary = dashboardHealth?.summary || {
+    checkedStations: coverage.checked,
+    checkedPct: Number(coverage.checkedPct),
+    pricedStations,
+    pricedPct: stations.length ? Number((pricedStations / stations.length * 100).toFixed(2)) : 0,
+    freshPriceStations: coverage.withPrice,
+    staleOrUncheckedStations: stations.filter(station => !station.lastScrapedAt).length,
+    priceChangeEvents: 0
+  };
+  const dashboardQueue = dashboardHealth?.improvementQueue || [];
+  const dashboardTargets = dashboardHealth?.refreshTargets?.length ? dashboardHealth.refreshTargets : stations
+    .filter(station => !station.lastScrapeHadPrice)
+    .slice(0, 6)
+    .map(station => ({ id: station.id, name: station.name || station.id, state: station.state || '', lastScrapeResult: station.lastScrapeResult || 'not_checked' }));
+  const dashboardStates = dashboardHealth?.statePriorities || [];
 
   return <main>
     <header className="hero">
@@ -213,6 +236,15 @@ function App() {
       <Stat icon={<Clock3/>} label="Stations with price history" value={pricedStations} note={`${priceHistoryPct} of US stations`} />
       <Stat icon={<TrendingDown/>} label="Lowest typical price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId} />
     </section>
+
+    <Card className="dashboardPulse">
+      <div className="sectionTitle"><div><p>Dashboard pulse</p><h2>The system is learning in public</h2></div><span className="badge">{dashboardHealth?.generatedAt ? `Updated ${shortDate(dashboardHealth.generatedAt)}` : 'Building feed'}</span></div>
+      <div className="pulseGrid">
+        <div><Activity size={20}/><span>Coverage</span><strong>{dashboardSummary.checkedPct}% checked</strong><small>{dashboardSummary.checkedStations?.toLocaleString?.() || dashboardSummary.checkedStations || 0} of {stations.length.toLocaleString()} US stations have had a page pass.</small></div>
+        <div><Target size={20}/><span>Pricing depth</span><strong>{dashboardSummary.pricedPct}% priced</strong><small>{stationCountText(dashboardSummary.pricedStations ?? pricedStations)} usable price history. Repeated observations make the cheaper-window view better.</small></div>
+        <div><RefreshCw size={20}/><span>Automation</span><strong>Daily improvement loop</strong><small>Scraper runs stay staggered, while the dashboard bot refreshes this health feed and the public copy from real data.</small></div>
+      </div>
+    </Card>
 
     <section className="layout">
       <Card className="sidebar">
@@ -284,7 +316,24 @@ function App() {
       <Stat icon={<Zap/>} label="This charger" value={publicCheckResult} note="latest page check" />
     </section>
 
-    <section className="chartsGrid"><Card><div className="sectionTitle"><div><p>Refresh queue</p><h2>States that need another look</h2></div></div><p className="muted">Prioritizes states with unchecked or stale charger pages, so slow Tesla renders get spread out instead of piling into one run.</p><ResponsiveContainer width="100%" height={220}><BarChart data={refreshQueueChart}><XAxis dataKey="state"/><YAxis/><Tooltip/><Bar dataKey="needsRefresh" name="Needs refresh" /><Bar dataKey="priceHidden" name="Price hidden last check" /></BarChart></ResponsiveContainer></Card><Card><div className="sectionTitle"><div><p>What Tesla pages showed</p><h2>Latest checks</h2></div></div><ResponsiveContainer width="100%" height={220}><BarChart data={priceCheckChart}><XAxis dataKey="label"/><YAxis/><Tooltip/><Bar dataKey="count" /></BarChart></ResponsiveContainer></Card></section>
+    <section className="dashboardOps">
+      <Card>
+        <div className="sectionTitle"><div><p>Improvement loop</p><h2>What gets better next</h2></div><span className="badge">{dashboardSummary.priceChangeEvents || 0} price changes tracked</span></div>
+        <div className="improvementList">{(dashboardQueue.length ? dashboardQueue : [
+          { title: 'Grow repeated observations', status: 'needs_data', detail: 'Keep the pilot lane focused on stations where Tesla exposes public pricing.' },
+          { title: 'Keep fresh data visible', status: 'active', detail: 'Show freshness loudly so the dashboard never pretends old public data is live pricing.' },
+          { title: 'Add local power context state by state', status: 'next', detail: 'Only add a benchmark when the source and period are clear.' }
+        ]).map(item => <div key={item.title}><span>{statusText(item.status)}</span><strong>{item.title}</strong><p>{item.detail}</p></div>)}</div>
+      </Card>
+      <Card>
+        <div className="sectionTitle"><div><p>Refresh priorities</p><h2>Where the automation points next</h2></div><span className="badge">{dashboardSummary.staleOrUncheckedStations || 0} stale or unchecked</span></div>
+        <p className="muted">Tesla pages can be slow because each candidate gets a render and wait pass. The scheduled jobs keep the work spread out and favor stations that can improve pricing confidence.</p>
+        <div className="priorityColumns">
+          <div><strong>Station targets</strong>{dashboardTargets.slice(0, 6).map(station => <span key={station.id}>{station.name}<small>{station.state || 'US'} · {scrapeResultLabel(station.lastScrapeResult)}</small></span>)}</div>
+          <div><strong>State queue</strong>{dashboardStates.slice(0, 6).map(stateRow => <span key={stateRow.state}>{stateRow.state}<small>{stateRow.stale} stale/unchecked · {stateRow.pricedPct}% priced</small></span>)}{!dashboardStates.length && <span>US pilot<small>State priorities appear after the dashboard bot runs.</small></span>}</div>
+        </div>
+      </Card>
+    </section>
   </main>;
 }
 

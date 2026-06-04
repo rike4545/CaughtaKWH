@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-06-04T18:42:00.555Z",
+  "scope": "United States Superchargers first",
+  "summary": {
+    "stationCount": 3104,
+    "checkedStations": 3097,
+    "checkedPct": 99.77,
+    "priceFoundStations": 1,
+    "priceFoundPct": 0.03,
+    "availabilityOnlyStations": 1,
+    "pricedStations": 1,
+    "pricedPct": 0.03,
+    "freshPriceStations": 1,
+    "staleOrUncheckedStations": 3101,
+    "coordinatePct": 100,
+    "addressPct": 100,
+    "historyFiles": 2,
+    "priceChangeEvents": 0
+  },
+  "statePriorities": [
+    {
+      "state": "CA",
+      "stations": 659,
+      "checked": 659,
+      "priced": 0,
+      "stale": 658,
+      "checkedPct": 100,
+      "pricedPct": 0,
+      "priorityScore": 296682.97
+    },
+    {
+      "state": "FL",
+      "stations": 244,
+      "checked": 244,
+      "priced": 0,
+      "stale": 244,
+      "checkedPct": 100,
+      "pricedPct": 0,
+      "priorityScore": 110074.48
+    },
+    {
+      "state": "TX",
+      "stations": 223,
+      "checked": 223,
+      "priced": 0,
+      "stale": 222,
+      "checkedPct": 100,
+      "pricedPct": 0,
+      "priorityScore": 100412.44
+    },
+    {
+      "state": "NY",
+      "stations": 124,
+      "checked": 124,
+      "priced": 1,
+      "stale": 123,
+      "checkedPct": 100,
+      "pricedPct": 0.81,
+      "priorityScore": 55207.04
+    },
+    {
+      "state": "PA",
+      "stations": 110,
+      "checked": 110,
+      "priced": 0,
+      "stale": 110,
+      "checkedPct": 100,
+      "pricedPct": 0,
+      "priorityScore": 48304.35
+    },
+    {
+      "state": "NJ",
+      "stations": 107,
+      "checked": 107,
+      "priced": 0,
+      "stale": 107,
+      "checkedPct": 100,
+      "pricedPct": 0,
+      "priorityScore": 48285.3
+    },
+    {
+      "state": "VA",
+      "stations": 103,
+      "checked": 102,
+      "priced": 0,
+      "stale": 103,
+      "checkedPct": 99.03,
+      "pricedPct": 0,
+      "priorityScore": 44938.71
+    },
+    {
+      "state": "NC",
+      "stations": 90,
+      "checked": 90,
+      "priced": 0,
+      "stale": 90,
+      "checkedPct": 100,
+      "pricedPct": 0,
+      "priorityScore": 39413.32
+    }
+  ],
+  "refreshTargets": [
+    {
+      "id": "404914",
+      "name": "Fullerton, CA - S Harbor Blvd",
+      "state": "CA",
+      "city": "Fullerton",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 497.37
+    },
+    {
+      "id": "15162",
+      "name": "Santa Monica, CA",
+      "state": "CA",
+      "city": "Santa Monica",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 492.51
+    },
+    {
+      "id": "sanclementesupercharger",
+      "name": "San Clemente, CA",
+      "state": "CA",
+      "city": "San Clemente",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 492.49
+    },
+    {
+      "id": "madisonvilletxsupercharger",
+      "name": "Madisonville, TX",
+      "state": "TX",
+      "city": "Madisonville",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 492.48
+    },
+    {
+      "id": "25874",
+      "name": "Lost Hills, CA - Tesla Oasis",
+      "state": "CA",
+      "city": "Lost Hills",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 492.46
+    },
+    {
+      "id": "firebaughsupercharger",
+      "name": "Firebaugh, CA",
+      "state": "CA",
+      "city": "Firebaugh",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 492.45
+    },
+    {
+      "id": "bakercasupercharger",
+      "name": "Baker, CA",
+      "state": "CA",
+      "city": "Baker",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 492.43
+    },
+    {
+      "id": "BaytownTXSupercharger",
+      "name": "Baytown, TX",
+      "state": "TX",
+      "city": "Baytown",
+      "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 483.72
+    },
+    {
+      "id": "valleystreamnewyorksupercharger",
+      "name": "Valley Stream, NY",
+      "state": "NY",
+      "city": "Valley Stream",
+      "lastScrapedAt": "2026-05-30T17:18:42.437Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 476.61
+    },
+    {
+      "id": "palmspinrgscaliforniasupercharger",
+      "name": "Palm Springs, CA",
+      "state": "CA",
+      "city": "Palm Springs",
+      "lastScrapedAt": "2026-05-30T17:18:42.437Z",
+      "lastScrapeResult": "not_checked",
+      "priorityScore": 476.59
+    }
+  ],
+  "improvementQueue": [
+    {
+      "title": "Grow repeated observations",
+      "status": "needs_data",
+      "detail": "1 of 3104 US stations has price history. The pilot lane should keep favoring stations with successful public price reads."
+    },
+    {
+      "title": "Keep fresh data visible",
+      "status": "active",
+      "detail": "1 station has a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current."
+    },
+    {
+      "title": "Prioritize slow Tesla pages",
+      "status": "active",
+      "detail": "3101 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time."
+    },
+    {
+      "title": "Add local power context state by state",
+      "status": "next",
+      "detail": "New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear."
+    }
+  ]
+}

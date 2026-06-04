@@ -1,0 +1,96 @@
+name: Dashboard Improvement Loop
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '37 11 * * *'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: caughtakwh-dashboard-improvement
+  cancel-in-progress: false
+
+jobs:
+  improve-dashboard:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: true
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - run: npm install --no-audit --no-fund
+
+      - name: Refresh dashboard health feed
+        run: npm run improve:dashboard
+
+      - name: Commit dashboard improvements
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git status --short
+          git add data/dashboard-health.json public/data/dashboard-health.json reports/dashboard-bot.md
+
+          if git diff --cached --quiet; then
+            echo "No dashboard-health changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Refresh dashboard improvement feed"
+
+          for attempt in 1 2 3; do
+            echo "Push attempt $attempt"
+            git fetch origin main
+
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Dashboard improvement feed pushed successfully."
+              exit 0
+            fi
+
+            git rebase --abort || true
+            sleep 5
+          done
+
+          echo "Unable to push after rebasing. A newer conflicting dashboard update may have landed."
+          exit 1
+
+  deploy:
+    needs: improve-dashboard
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - uses: actions/deploy-pages@v4

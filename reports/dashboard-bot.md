@@ -1,0 +1,42 @@
+# Dashboard Improvement Bot
+
+Generated: 2026-06-04T18:42:00.555Z
+
+## Public Dashboard Health
+
+- Scope: United States Superchargers first
+- Stations: 3104
+- Checked by scraper: 3097 (99.77%)
+- Stations with price history: 1 (0.03%)
+- Fresh price stations: 1
+- Stale or unchecked stations: 3101
+
+## State Refresh Priorities
+
+- CA: 658 stale/unchecked, 0% priced
+- FL: 244 stale/unchecked, 0% priced
+- TX: 222 stale/unchecked, 0% priced
+- NY: 123 stale/unchecked, 0.81% priced
+- PA: 110 stale/unchecked, 0% priced
+- NJ: 107 stale/unchecked, 0% priced
+- VA: 103 stale/unchecked, 0% priced
+- NC: 90 stale/unchecked, 0% priced
+
+## Station Refresh Targets
+
+- Fullerton, CA - S Harbor Blvd (404914) · not_checked
+- Santa Monica, CA (15162) · not_checked
+- San Clemente, CA (sanclementesupercharger) · not_checked
+- Madisonville, TX (madisonvilletxsupercharger) · not_checked
+- Lost Hills, CA - Tesla Oasis (25874) · not_checked
+
+## Improvement Queue
+
+- Grow repeated observations: 1 of 3104 US stations has price history. The pilot lane should keep favoring stations with successful public price reads.
+- Keep fresh data visible: 1 station has a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current.
+- Prioritize slow Tesla pages: 3101 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
+- Add local power context state by state: New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear.
+
+## Automation
+
+The dashboard improvement workflow regenerates this report and `data/dashboard-health.json`, syncs public data, validates the site data, and commits any changed dashboard-health output.

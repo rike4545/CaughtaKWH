@@ -297,6 +297,8 @@ GitHub Actions automatically:
 
 - Refreshes pricing data with headed Chromium
 - Updates predictions
+- Regenerates the public dashboard-health feed
+- Writes dashboard improvement recommendations from real data
 - Syncs public datasets
 - Deploys the website
 
@@ -306,6 +308,7 @@ Current optimization strategy:
 - Manual ZIP or coordinate scoped refreshes for local areas
 - Smaller scrape batches to avoid slow Tesla page render passes piling up
 - Pricing accordions are opened before extraction
+- Daily dashboard improvement checks with `npm run improve:dashboard`
 - Static asset synchronization
 
 ---
