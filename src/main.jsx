@@ -7,6 +7,8 @@ import { coverageKpis, pricingStats, refreshQueueStates, scrapeOutcome } from '.
 import './styles.css';
 
 const money = value => typeof value === 'number' ? `$${value.toFixed(2)}` : '—';
+const cents = value => typeof value === 'number' ? `${value.toFixed(value % 1 ? 2 : 0)}¢` : '—';
+const signedCents = value => typeof value === 'number' ? `${value >= 0 ? '+' : '-'}${cents(Math.abs(value))}` : '—';
 const shortDate = iso => iso ? new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
 const distance = miles => typeof miles === 'number' ? `${miles.toFixed(miles < 10 ? 1 : 0)} mi` : '';
 const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
@@ -42,6 +44,16 @@ const freshnessLabel = iso => {
   if (ageHours < 2) return 'Recent, under 2 hr';
   if (ageHours < 24) return 'Getting old, over 2 hr';
   return 'Old, over 24 hr';
+};
+const commercialBenchmarks = {
+  NY: {
+    centsPerKwh: 22.21,
+    label: 'NY commercial average',
+    period: 'EIA March 2026',
+    secondary: 'NYSERDA February 2026: 23.5¢/kWh',
+    sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_a',
+    secondaryUrl: 'https://www.nyserda.ny.gov/Energy-Prices/Electricity/Monthly-Avg-Electricity-Commercial'
+  }
 };
 
 function useJson(url, fallback, refreshMs = 300000) {
@@ -179,6 +191,15 @@ function App() {
   const availabilitySummary = latestHistory?.availabilityLabel
     ? `${titleCase(latestHistory.availabilityLabel)}${latestHistory.availableStalls != null ? ` · ${latestHistory.availableStalls}/${latestHistory.totalStalls || selected?.stalls || '—'} open` : ''}`
     : selected?.lastScrapeHadAvailability ? 'Availability showed up' : 'No availability shown';
+  const commercialBenchmark = commercialBenchmarks[selected?.state];
+  const memberCents = typeof latestHistory?.memberPricePerKwh === 'number' ? latestHistory.memberPricePerKwh * 100 : null;
+  const nonTeslaCents = typeof latestHistory?.nonMemberPricePerKwh === 'number' ? latestHistory.nonMemberPricePerKwh * 100 : null;
+  const benchmarkCents = commercialBenchmark?.centsPerKwh ?? null;
+  const memberVsBenchmark = memberCents && benchmarkCents ? memberCents / benchmarkCents : null;
+  const nonTeslaVsBenchmark = nonTeslaCents && benchmarkCents ? nonTeslaCents / benchmarkCents : null;
+  const memberSpreadCents = memberCents && benchmarkCents ? memberCents - benchmarkCents : null;
+  const nonTeslaSpreadCents = nonTeslaCents && benchmarkCents ? nonTeslaCents - benchmarkCents : null;
+  const priceSpreadCents = memberCents && nonTeslaCents ? nonTeslaCents - memberCents : null;
 
   return <main>
     <header className="hero">
@@ -224,6 +245,30 @@ function App() {
           </div>
           {amenityList.length ? <div className="amenityRow">{amenityList.map(item => <span key={item}>{item}</span>)}</div> : <p className="muted compactNote">Tesla did not list amenities on the page we checked.</p>}
           <div className="scrapeDetail"><span>Page looked like: <strong>{lastCandidate ? signalLabel(lastCandidate.contentSignal) : '—'}</strong></span><span>Tries this round: <strong>{selected?.lastScrapeAttemptCount ?? selected?.lastScrapeCandidates?.length ?? '—'}</strong></span><span>Price-like numbers: <strong>{selected?.lastPriceCandidateCount ?? '—'}</strong></span><span>Hours hint: <strong>{siteDetails.accessHint || '—'}</strong></span></div>
+        </Card>
+
+        <Card>
+          <div className="sectionTitle"><div><p>Pricing context</p><h2>What we can learn from this station</h2></div><span className="badge">US pilot</span></div>
+          <p className="muted">CaughtaKWH can track price changes, member versus non-Tesla spread, congestion fees, volatility, and time-of-day movement once a Supercharger has repeated public observations. It cannot prove true supply-and-demand elasticity yet because Tesla does not expose session volume, queue length, or consistent stall occupancy history on the public page.</p>
+          <div className="metaGrid siteMeta">
+            <span>Tesla/member price<strong>{cents(memberCents)}/kWh</strong></span>
+            <span>Non-Tesla price<strong>{cents(nonTeslaCents)}/kWh</strong></span>
+            <span>Non-Tesla premium<strong>{priceSpreadCents != null ? `${signedCents(priceSpreadCents)}/kWh` : '—'}</strong></span>
+            <span>Saved observations<strong>{historyRows.length}</strong></span>
+            <span>Commercial benchmark<strong>{commercialBenchmark ? `${cents(benchmarkCents)}/kWh` : 'Add local benchmark'}</strong></span>
+            <span>Benchmark period<strong>{commercialBenchmark ? commercialBenchmark.period : 'Coming state by state'}</strong></span>
+            <span>Member vs benchmark<strong>{memberVsBenchmark ? `${memberVsBenchmark.toFixed(2)}x · ${signedCents(memberSpreadCents)}` : '—'}</strong></span>
+            <span>Non-Tesla vs benchmark<strong>{nonTeslaVsBenchmark ? `${nonTeslaVsBenchmark.toFixed(2)}x · ${signedCents(nonTeslaSpreadCents)}` : '—'}</strong></span>
+          </div>
+          <p className="muted compactNote">{commercialBenchmark ? `${commercialBenchmark.label} is used as context only. It is not Tesla’s site cost, and it does not include demand charges, rent, charger hardware, maintenance, taxes, or Tesla’s pricing policy. ${commercialBenchmark.secondary}.` : 'Local utility context will be added state by state as we verify public commercial electricity benchmarks.'}</p>
+          <div className="sourceLinks">
+            {commercialBenchmark?.sourceUrl && <a href={commercialBenchmark.sourceUrl} target="_blank" rel="noreferrer">EIA benchmark</a>}
+            {commercialBenchmark?.secondaryUrl && <a href={commercialBenchmark.secondaryUrl} target="_blank" rel="noreferrer">NYSERDA context</a>}
+          </div>
+          <div className="manualRefreshNote">
+            <strong>Want one Supercharger watched more closely?</strong>
+            <p>Use the pricing pilot refresh for a specific station ID, such as <code>{selected?.id || 'LakeGroveNYsupercharger'}</code>. Each targeted pass builds the history needed for better volatility and cheaper-window analysis.</p>
+          </div>
         </Card>
 
         <Card><div className="sectionTitle"><div><p>Cheaper times</p><h2>{prediction ? `Best time we have seen: ${prediction.bestHour}:${String(prediction.bestMinute).padStart(2, '0')}` : 'Not enough prices yet'}</h2></div><span className="badge">Estimate range</span></div><p className="muted">Use this for planning, then check Tesla before you charge. Live prices can move faster than this chart.</p><ResponsiveContainer width="100%" height={240}><BarChart data={modelRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" interval={5}/><YAxis tickFormatter={money}/><Tooltip formatter={value => money(value)} /><Bar dataKey="expectedPrice" name="Expected $/kWh" /></BarChart></ResponsiveContainer></Card>

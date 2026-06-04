@@ -81,6 +81,12 @@ p { color: var(--muted); line-height: 1.55; }
 .amenityRow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
 .amenityRow span { border: 1px solid rgba(83,224,163,.35); border-radius: 999px; background: rgba(83,224,163,.1); color: var(--text); font-size: 13px; font-weight: 700; padding: 8px 11px; }
 .compactNote { margin: 12px 0 0; }
+.sourceLinks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.sourceLinks a { border: 1px solid rgba(83,224,163,.35); border-radius: 999px; background: rgba(83,224,163,.08); color: var(--accent); font-size: 13px; padding: 8px 11px; }
+.manualRefreshNote { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 14px; }
+.manualRefreshNote strong { color: var(--text); display: block; margin-bottom: 4px; }
+.manualRefreshNote p { margin: 0; }
+.manualRefreshNote code { background: rgba(0,0,0,.24); border: 1px solid var(--line); border-radius: 8px; color: var(--text); display: inline-block; font-size: 13px; padding: 2px 6px; overflow-wrap: anywhere; }
 .scrapeDetail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
 .scrapeDetail span { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding-top: 10px; overflow-wrap: anywhere; }
 .scrapeDetail strong { color: var(--text); font-weight: 800; }
