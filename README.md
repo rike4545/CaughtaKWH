@@ -1,6 +1,6 @@
 # CaughtaKWH ⚡
 
-Track Tesla Supercharger pricing trends, discover cheaper charging windows, and find nearby stations faster.
+Track Tesla Supercharger pricing trends, discover cheaper charging windows, and find nearby stations faster. CaughtaKWH is focused on United States Superchargers first while the scraper is hardened.
 
 ## 🌐 Live Site
 
@@ -10,7 +10,7 @@ https://rike4545.github.io/CaughtaKWH/
 
 ## What is CaughtaKWH?
 
-CaughtaKWH is a public Tesla Supercharger analytics project that:
+CaughtaKWH is a public Tesla Supercharger analytics project for United States Superchargers that:
 
 - Tracks publicly observable Supercharger pricing data
 - Builds pricing history over time
@@ -169,6 +169,29 @@ npm run dev
 npm run update:data
 ```
 
+## Refresh A Local Area
+
+Tesla station pages can be slow because every candidate page needs a browser render pass.
+For focused checks, refresh a smaller area instead of the whole United States catalog:
+
+```bash
+SCRAPE_ZIP=10001 SCRAPE_RADIUS_MILES=75 MAX_STATIONS=25 npm run scrape
+```
+
+You can also target coordinates or state/province batches:
+
+```bash
+SCRAPE_LAT=40.7128 SCRAPE_LNG=-74.0060 SCRAPE_RADIUS_MILES=75 MAX_STATIONS=25 npm run scrape
+SCRAPE_STATES=CA,NV MAX_STATIONS=50 npm run scrape
+SCRAPE_ROTATE_STATES=true SCRAPE_ROTATION_COUNT=1 MAX_STATIONS=75 npm run scrape
+```
+
+Canada and Mexico support can be enabled later by running discovery with:
+
+```bash
+DISCOVERY_COUNTRIES="United States,Canada,Mexico" npm run discover
+```
+
 ## Build Production Site
 
 ```bash
@@ -188,9 +211,9 @@ GitHub Actions automatically:
 
 Current optimization strategy:
 
-- Faster scrape intervals
-- Smaller scrape batches
-- Reduced throttling risk
+- Daily rotating state/province refreshes
+- Manual ZIP or coordinate scoped refreshes for local areas
+- Smaller scrape batches to avoid slow Tesla page render passes piling up
 - Static asset synchronization
 
 ---

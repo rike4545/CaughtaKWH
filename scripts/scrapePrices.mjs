@@ -1,139 +1,97 @@
 import { chromium } from '@playwright/test';
 import path from 'node:path';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
+import {
+  classifySiteContent,
+  halfHourSlot,
+  hoursSince,
+  inferSiteDetails,
+  inferAvailability,
+  inferPrices,
+  sleep,
+  stationCandidates
+} from './teslaSiteParser.mjs';
 
 const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const predictions = await readJson(path.join(dataDir, 'predictions.json'), []);
 const MAX_STATIONS = Number(process.env.MAX_STATIONS || stations.length || 1);
 const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1200);
 const LOW_PRICE_THRESHOLD = Number(process.env.LOW_PRICE_THRESHOLD || 0.30);
+const SCRAPE_STATES = splitEnvList(process.env.SCRAPE_STATES || process.env.SCRAPE_STATE);
+const SCRAPE_COUNTRIES = splitEnvList(process.env.SCRAPE_COUNTRIES || process.env.SCRAPE_COUNTRY);
+const SCRAPE_ZIP = String(process.env.SCRAPE_ZIP || '').trim();
+const SCRAPE_LAT = Number(process.env.SCRAPE_LAT);
+const SCRAPE_LNG = Number(process.env.SCRAPE_LNG);
+const SCRAPE_RADIUS_MILES = Number(process.env.SCRAPE_RADIUS_MILES || 150);
+const SCRAPE_ROTATE_STATES = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_ROTATE_STATES || '').toLowerCase());
+const SCRAPE_ROTATION_COUNT = Math.max(1, Number(process.env.SCRAPE_ROTATION_COUNT || 1));
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
 
-function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
-function halfHourSlot(date) { return date.getHours() * 2 + (date.getMinutes() >= 30 ? 1 : 0); }
-function compact(value) { return String(value || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]/g, ''); }
-function plausibleTeslaSlug(value) { return /[a-z]/i.test(String(value || '')) && /supercharger/i.test(String(value || '')); }
-function hoursSince(iso) { return iso ? Math.max(0, (Date.now() - new Date(iso).getTime()) / 36e5) : Infinity; }
-function lowPriceId(price) { return typeof price === 'number' && price < LOW_PRICE_THRESHOLD ? 'low_under_030_kwh' : null; }
-function stationCandidates(station) {
-  const urls = [];
-  if (station.url && String(station.url).includes('tesla.com/findus/location/supercharger/') && plausibleTeslaSlug(station.url)) urls.push(station.url);
-  const city = compact(station.city || '').replace(/^The/i, '');
-  const state = compact(station.state || '');
-  const name = compact(String(station.name || '').replace(/\[.*?\]/g, '').replace(/supercharger/i, ''));
-  const ids = [station.id, `${city}${state}supercharger`, `${name}${state}supercharger`, `${name}supercharger`].filter(Boolean).filter(plausibleTeslaSlug);
-  for (const id of ids) urls.push(`https://www.tesla.com/findus/location/supercharger/${id}`);
-  return [...new Set(urls)].slice(0, 4);
+function splitEnvList(value) {
+  return String(value || '').split(',').map(item => item.trim()).filter(Boolean);
 }
-function normalizeText(text) {
-  return String(text || '')
-    .replace(/\u00a0/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/\s+/g, ' ')
-    .trim();
+
+function radians(value) {
+  return value * Math.PI / 180;
 }
-function parseDollarValue(value) {
-  const parsed = Number(String(value).replace(/[^0-9.]/g, ''));
-  if (!Number.isFinite(parsed)) return null;
-  if (parsed <= 0 || parsed > 2.5) return null;
-  return Number(parsed.toFixed(2));
+
+function milesBetween(aLat, aLng, bLat, bLng) {
+  const radius = 3958.7613;
+  const dLat = radians(bLat - aLat);
+  const dLng = radians(bLng - aLng);
+  const lat1 = radians(aLat);
+  const lat2 = radians(bLat);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+  return radius * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
 }
-function extractPriceCandidates(text) {
-  const normalized = normalizeText(text);
-  const candidates = [];
-  const patterns = [
-    /(?:\$\s*([0-9]+(?:\.[0-9]{1,3})?)\s*(?:\/|per)?\s*(?:kwh|kw\s*h|kilowatt[-\s]?hour))/ig,
-    /(?:([0-9]+(?:\.[0-9]{1,3})?)\s*(?:usd|dollars?)?\s*(?:\/|per)\s*(?:kwh|kw\s*h|kilowatt[-\s]?hour))/ig,
-    /(?:(?:kwh|kw\s*h|kilowatt[-\s]?hour)[^$0-9]{0,40}\$\s*([0-9]+(?:\.[0-9]{1,3})?))/ig,
-    /(?:price[^$0-9]{0,40}\$\s*([0-9]+(?:\.[0-9]{1,3})?))/ig
-  ];
-  for (const pattern of patterns) {
-    for (const match of normalized.matchAll(pattern)) {
-      const price = parseDollarValue(match[1]);
-      if (price === null) continue;
-      const index = match.index ?? 0;
-      const window = normalized.slice(Math.max(0, index - 180), Math.min(normalized.length, index + 280));
-      candidates.push({ price, index, evidence: window, lowPriceId: lowPriceId(price) });
-    }
-  }
-  const deduped = [];
-  const seen = new Set();
-  for (const c of candidates) {
-    const key = `${c.price}-${Math.floor(c.index / 80)}`;
-    if (!seen.has(key)) { seen.add(key); deduped.push(c); }
-  }
-  return deduped;
+
+async function geocodeZip(zip) {
+  const cleaned = String(zip || '').trim().replace(/[^0-9]/g, '').slice(0, 5);
+  if (cleaned.length !== 5) throw new Error('SCRAPE_ZIP must be a 5-digit US ZIP code.');
+  const response = await fetch(`https://api.zippopotam.us/us/${cleaned}`);
+  if (!response.ok) throw new Error(`ZIP lookup failed for ${cleaned}: ${response.status}`);
+  const json = await response.json();
+  const place = json.places?.[0];
+  if (!place) throw new Error(`ZIP lookup returned no place for ${cleaned}.`);
+  return { label: `${cleaned} ${place['place name']}, ${place['state abbreviation']}`, lat: Number(place.latitude), lng: Number(place.longitude) };
 }
-function scoreCandidate(candidate, role) {
-  const e = candidate.evidence.toLowerCase();
-  let score = 0;
-  if (/pricing|price|rate|cost/.test(e)) score += 20;
-  if (/kwh|kw h|kilowatt/.test(e)) score += 25;
-  if (/supercharg/.test(e)) score += 8;
-  if (/member|tesla/.test(e)) score += role === 'member' ? 22 : 4;
-  if (/non[-\s]?tesla|non[-\s]?member|other ev|third[-\s]?party/.test(e)) score += role === 'nonMember' ? 25 : -12;
-  if (/idle|parking|minute|min|congestion/.test(e)) score -= role === 'congestion' ? -15 : 30;
-  if (candidate.price < 0.08) score -= 20;
-  if (candidate.price > 1.25) score -= 15;
-  return score;
+
+function dayOfYear(date) {
+  const start = Date.UTC(date.getUTCFullYear(), 0, 0);
+  const today = Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+  return Math.floor((today - start) / 86400000);
 }
-function bestCandidate(candidates, role) {
-  if (!candidates.length) return null;
-  return [...candidates].sort((a, b) => scoreCandidate(b, role) - scoreCandidate(a, role))[0];
+
+function rotatedStatesForToday(allStations, date) {
+  const states = [...new Set(allStations.map(station => station.state).filter(Boolean).map(String))].sort((a, b) => a.localeCompare(b));
+  if (!states.length) return [];
+  const start = dayOfYear(date) % states.length;
+  return Array.from({ length: Math.min(SCRAPE_ROTATION_COUNT, states.length) }, (_, offset) => states[(start + offset) % states.length]);
 }
-function firstMoneyAfter(text, labels, unitPattern = '(?:kwh|kw h|min|minute)') {
-  const normalized = normalizeText(text);
-  for (const label of labels) {
-    const index = normalized.toLowerCase().indexOf(label.toLowerCase());
-    if (index < 0) continue;
-    const slice = normalized.slice(index, index + 650);
-    const match = slice.match(new RegExp(`\\$\\s*([0-9]+(?:\\.[0-9]{1,3})?)\\s*(?:\\/|per)?\\s*${unitPattern}`, 'i')) || slice.match(/\$\s*([0-9]+(?:\.[0-9]{1,3})?)/i);
-    const value = match ? parseDollarValue(match[1]) : null;
-    if (value !== null) return { value, label, evidence: slice.slice(0, 280).replace(/\s+/g, ' ').trim(), lowPriceId: lowPriceId(value) };
-  }
-  return null;
+
+async function scrapeScope() {
+  const origin = Number.isFinite(SCRAPE_LAT) && Number.isFinite(SCRAPE_LNG)
+    ? { label: `${SCRAPE_LAT},${SCRAPE_LNG}`, lat: SCRAPE_LAT, lng: SCRAPE_LNG }
+    : SCRAPE_ZIP
+      ? await geocodeZip(SCRAPE_ZIP)
+      : null;
+  const rotationStates = SCRAPE_ROTATE_STATES ? rotatedStatesForToday(stations, capturedDate) : [];
+  const states = SCRAPE_STATES.length ? SCRAPE_STATES : rotationStates;
+  return { origin, states, countries: SCRAPE_COUNTRIES };
 }
-function inferPrices(text, html = '') {
-  const normalized = normalizeText(`${text}\n${html.replace(/<[^>]+>/g, ' ')}`);
-  const candidates = extractPriceCandidates(normalized);
-  const member = firstMoneyAfter(normalized, ['Pricing for Tesla & Members', 'Tesla & Members', 'Teslas and Members', 'Tesla and Members', 'Tesla/Member', 'Members', 'Tesla drivers', 'Tesla vehicles']);
-  const nonMember = firstMoneyAfter(normalized, ['Pricing for Non-Tesla', 'Pricing for Non-Members', 'Non-Tesla', 'Non Members', 'Non-Members', 'Other EVs', 'NACS partners']);
-  const congestion = firstMoneyAfter(normalized, ['Congestion fees', 'Congestion fee'], '(?:min|minute)');
-  const fallbackMember = !member ? bestCandidate(candidates, 'member') : null;
-  const fallbackNonMember = !nonMember && /non[-\s]?tesla|non[-\s]?member|other ev/i.test(normalized) ? bestCandidate(candidates.filter(c => c.price !== (member?.value ?? null)), 'nonMember') : null;
-  const memberEvidence = member || (fallbackMember ? { value: fallbackMember.price, label: 'best scored $/kWh candidate', evidence: fallbackMember.evidence, lowPriceId: fallbackMember.lowPriceId } : null);
-  const nonMemberEvidence = nonMember || (fallbackNonMember ? { value: fallbackNonMember.price, label: 'best scored non-Tesla $/kWh candidate', evidence: fallbackNonMember.evidence, lowPriceId: fallbackNonMember.lowPriceId } : null);
-  const bestObserved = [memberEvidence?.value, nonMemberEvidence?.value].filter(v => typeof v === 'number').sort((a, b) => a - b)[0] ?? null;
-  return {
-    memberPricePerKwh: memberEvidence?.value ?? null,
-    nonMemberPricePerKwh: nonMemberEvidence?.value ?? null,
-    congestionFeePerMinuteMax: congestion?.value ?? null,
-    lowestObservedPricePerKwh: bestObserved,
-    lowPriceId: lowPriceId(bestObserved),
-    priceExtractionVersion: 'tesla-public-v2-hardened',
-    priceCandidateCount: candidates.length,
-    priceEvidence: { member: memberEvidence, nonMember: nonMemberEvidence, congestion, candidates: candidates.slice(0, 8) }
-  };
-}
-function inferAvailability(text, station) {
-  const normalized = text.replace(/\s+/g, ' ');
-  const totalFromStation = typeof station.stalls === 'number' ? station.stalls : null;
-  const ofTotalMatch = normalized.match(/(\d+)\s+(?:of|\/)\s+(\d+)\s+(?:stalls?|chargers?|posts?)\s+available/i);
-  const availableOnlyMatch = normalized.match(/(\d+)\s+(?:stalls?|chargers?|posts?)\s+available/i);
-  const availableStalls = ofTotalMatch ? Number(ofTotalMatch[1]) : availableOnlyMatch ? Number(availableOnlyMatch[1]) : null;
-  const totalStalls = ofTotalMatch ? Number(ofTotalMatch[2]) : totalFromStation;
-  const utilizationPct = typeof availableStalls === 'number' && typeof totalStalls === 'number' && totalStalls > 0 ? Number(((totalStalls - availableStalls) / totalStalls).toFixed(4)) : null;
-  const availabilityLabel = /limited\s+(?:stalls?|chargers?|availability)/i.test(normalized) ? 'limited' : /full|no\s+(?:stalls?|chargers?)\s+available/i.test(normalized) ? 'full' : typeof availableStalls === 'number' ? 'available' : null;
-  return { availableStalls, totalStalls, utilizationPct, availabilityLabel };
-}
+
 async function scrapeOne(context, station) {
   const candidates = stationCandidates(station);
+  const attempts = [];
+  let bestValid = null;
   let lastError = null;
-  for (const url of candidates) {
+  for (const candidate of candidates) {
+    const { url, reason } = candidate;
     const page = await context.newPage();
     try {
-      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      const status = response?.status() || 0;
       await page.waitForTimeout(5500);
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(() => {});
       await page.waitForTimeout(1200);
@@ -142,16 +100,36 @@ async function scrapeOne(context, station) {
       const scriptsText = await page.locator('script').evaluateAll(nodes => nodes.map(n => n.textContent || '').join('\n')).catch(() => '');
       const prices = inferPrices(`${bodyText}\n${scriptsText}`, html);
       const availability = inferAvailability(bodyText, station);
+      const siteDetails = inferSiteDetails({ bodyText, html, station, url: page.url() || url, candidateReason: reason });
       const hasPrice = prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null;
-      const titleLooksValid = /supercharger|pricing|tesla/i.test(bodyText) && !/page not found|404/i.test(bodyText);
-      if (hasPrice || titleLooksValid) return { url, prices, availability, bodyText, hasPrice };
+      const hasAvailability = availability.availableStalls !== null || availability.utilizationPct !== null || availability.availabilityLabel !== null;
+      const site = classifySiteContent({ bodyText, html, status, finalUrl: page.url() });
+      const attempt = {
+        url,
+        finalUrl: page.url(),
+        reason,
+        status,
+        contentSignal: site.contentSignal,
+        hasPrice,
+        hasAvailability,
+        publicDetailsFound: siteDetails.publicDetailsFound,
+        priceCandidateCount: prices.priceCandidateCount
+      };
+      attempts.push(attempt);
+      const result = { url: page.url() || url, prices, availability, siteDetails, bodyText, hasPrice, hasAvailability, attempts };
+      if (hasPrice) return result;
+      if ((hasAvailability || site.validTeslaLocation) && !bestValid) bestValid = result;
     } catch (error) {
       lastError = error;
+      attempts.push({ url, reason, error: String(error.message || error) });
     } finally {
       await page.close();
     }
   }
-  throw lastError || new Error('No usable Tesla location candidate');
+  if (bestValid) return bestValid;
+  const error = lastError || new Error('No usable Tesla location candidate');
+  error.attempts = attempts;
+  throw error;
 }
 function priorityFor(station) {
   const prediction = predictions.find(p => p.stationId === station.id && p.membershipType === 'member') || predictions.find(p => p.stationId === station.id);
@@ -173,7 +151,32 @@ function priorityFor(station) {
   return Number(score.toFixed(2));
 }
 
-const ordered = [...stations].map(station => ({ station, priorityScore: priorityFor(station) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
+const scope = await scrapeScope();
+const distanceByStation = new Map();
+function scopedStations() {
+  let scoped = [...stations];
+  if (scope.states.length) {
+    const wanted = new Set(scope.states.map(state => state.toLowerCase()));
+    scoped = scoped.filter(station => wanted.has(String(station.state || '').toLowerCase()));
+  }
+  if (scope.countries.length) {
+    const wanted = new Set(scope.countries.map(country => country.toLowerCase()));
+    scoped = scoped.filter(station => wanted.has(String(station.country || '').toLowerCase()));
+  }
+  if (scope.origin) {
+    scoped = scoped
+      .filter(station => typeof station.lat === 'number' && typeof station.lng === 'number')
+      .filter(station => {
+        const distanceMiles = milesBetween(scope.origin.lat, scope.origin.lng, station.lat, station.lng);
+        distanceByStation.set(station, distanceMiles);
+        return distanceMiles <= SCRAPE_RADIUS_MILES;
+      });
+  }
+  return scoped;
+}
+
+const inScope = scopedStations();
+const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
 const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: 1440, height: 1800 }, userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36' });
 let saved = 0;
@@ -198,6 +201,24 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     station.lastScrapeHadAvailability = hasAvailability;
     station.lastPriceCandidateCount = result.prices.priceCandidateCount;
     station.lastLowPriceId = result.prices.lowPriceId;
+    station.lastScrapeAttemptCount = result.attempts.length;
+    station.lastScrapeResult = hasPrice ? 'price_found' : hasAvailability ? 'availability_found' : 'valid_page_no_public_data';
+    station.lastScrapeCandidates = result.attempts.map(attempt => ({
+      url: attempt.url,
+      reason: attempt.reason,
+      status: attempt.status ?? null,
+      contentSignal: attempt.contentSignal ?? null,
+      hasPrice: Boolean(attempt.hasPrice),
+      hasAvailability: Boolean(attempt.hasAvailability),
+      priceCandidateCount: attempt.priceCandidateCount ?? 0,
+      publicDetailsFound: Boolean(attempt.publicDetailsFound),
+      error: attempt.error ?? null
+    }));
+    station.lastSiteDetails = {
+      ...result.siteDetails,
+      lastCheckedAt: capturedAt,
+      scrapeResult: station.lastScrapeResult
+    };
     station.observationPriorityScore = priorityFor(station);
     delete station.lastScrapeError;
   } catch (error) {
@@ -205,6 +226,19 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     station.lastScrapedAt = capturedAt;
     station.lastScrapeHadPrice = false;
     station.lastScrapeHadAvailability = false;
+    station.lastScrapeResult = 'no_usable_candidate';
+    station.lastScrapeAttemptCount = Array.isArray(error.attempts) ? error.attempts.length : 0;
+    station.lastScrapeCandidates = Array.isArray(error.attempts) ? error.attempts.slice(0, 8).map(attempt => ({
+      url: attempt.url,
+      reason: attempt.reason,
+      status: attempt.status ?? null,
+      contentSignal: attempt.contentSignal ?? null,
+      hasPrice: Boolean(attempt.hasPrice),
+      hasAvailability: Boolean(attempt.hasAvailability),
+      priceCandidateCount: attempt.priceCandidateCount ?? 0,
+      publicDetailsFound: Boolean(attempt.publicDetailsFound),
+      error: attempt.error ?? null
+    })) : [];
     station.observationPriorityScore = priorityFor(station);
   } finally {
     await sleep(DELAY_MS);
@@ -212,4 +246,4 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
 }
 await browser.close();
 await writeJson(path.join(dataDir, 'stations.json'), stations);
-console.log(`Attempted ${attempted}; saved price observations for ${saved} station(s). Hardened extraction v2 enabled. Low price threshold: $${LOW_PRICE_THRESHOLD}/kWh.`);
+console.log(`Attempted ${attempted}; saved price observations for ${saved} station(s). In-scope stations: ${inScope.length}/${stations.length}. States: ${scope.states.join(', ') || 'all'}. Countries: ${scope.countries.join(', ') || 'all'}. Nearby: ${scope.origin ? `${scope.origin.label} within ${SCRAPE_RADIUS_MILES} mi` : 'off'}. Hardened extraction v3 enabled. Low price threshold: $${LOW_PRICE_THRESHOLD}/kWh.`);

@@ -1,44 +1,48 @@
-function decodeEntities(value) {
-  return String(value || '')
-    .replace(/&amp;/gi, '&')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&#x2F;/gi, '/')
-    .replace(/&#47;/g, '/')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>');
-}
-function normalizeTeslaHtml(value) {
-  return decodeEntities(value)
-    .replace(/<\s*br\s*\/?>/gi, ' ')
-    .replace(/<\/(p|div|span|li|dt|dd|tr|td|th|h\d)>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-function parseDollar(value) {
-  const n = Number(String(value || '').replace(/[^0-9.]/g, ''));
-  return Number.isFinite(n) && n > 0 && n < 2.5 ? Number(n.toFixed(2)) : null;
-}
-function priceAfterLabel(text, label) {
-  const normalized = normalizeTeslaHtml(text);
-  const idx = normalized.toLowerCase().indexOf(label.toLowerCase());
-  if (idx < 0) return null;
-  const slice = normalized.slice(idx, idx + 700);
-  const match = slice.match(/\$\s*([0-9]+(?:\.[0-9]{1,3})?)\s*(?:\/|per)?\s*(?:kwh|kw\s*h|kilowatt[-\s]?hour)/i);
-  return match ? parseDollar(match[1]) : null;
-}
+import { inferAvailability, inferPrices, inferSiteDetails, stationCandidates } from './teslaSiteParser.mjs';
+
 const fixture = `
   <section>
     <h3>Pricing for Tesla &amp; Members</h3>
     <p>$0.29 / kWh</p>
     <h3>Pricing for Non-Tesla</h3>
     <p>$0.39 / kWh</p>
+    <h3>Congestion fee</h3>
+    <p>$1.00 / min</p>
+    <p>2 of 8 stalls available</p>
+    <p>Open 24/7. Restrooms, Wi-Fi, restaurants and shopping nearby. Trailer friendly.</p>
   </section>
 `;
-const member = priceAfterLabel(fixture, 'Pricing for Tesla & Members');
-const nonMember = priceAfterLabel(fixture, 'Pricing for Non-Tesla');
-if (member !== 0.29) throw new Error(`Member parser failed, expected 0.29 got ${member}`);
-if (nonMember !== 0.39) throw new Error(`Non-member parser failed, expected 0.39 got ${nonMember}`);
+
+const prices = inferPrices(fixture);
+if (prices.memberPricePerKwh !== 0.29) throw new Error(`Member parser failed, expected 0.29 got ${prices.memberPricePerKwh}`);
+if (prices.nonMemberPricePerKwh !== 0.39) throw new Error(`Non-member parser failed, expected 0.39 got ${prices.nonMemberPricePerKwh}`);
+if (prices.congestionFeePerMinuteMax !== 1) throw new Error(`Congestion parser failed, expected 1 got ${prices.congestionFeePerMinuteMax}`);
+if (prices.lowPriceId !== 'low_under_030_kwh') throw new Error(`Low-price flag failed, got ${prices.lowPriceId}`);
+
+const availability = inferAvailability(fixture, { stalls: 8 });
+if (availability.availableStalls !== 2) throw new Error(`Availability parser failed, expected 2 got ${availability.availableStalls}`);
+if (availability.totalStalls !== 8) throw new Error(`Total stalls parser failed, expected 8 got ${availability.totalStalls}`);
+if (availability.utilizationPct !== 0.75) throw new Error(`Utilization parser failed, expected 0.75 got ${availability.utilizationPct}`);
+
+const details = inferSiteDetails({
+  bodyText: fixture,
+  html: '<title>Lake Grove Supercharger | Tesla</title>',
+  station: { address: '313 Smith Haven Mall', city: 'Lake Grove', state: 'NY', stalls: 8, maxKw: 250, lat: 40.86, lng: -73.13 },
+  url: 'https://www.tesla.com/findus/location/supercharger/404914',
+  candidateReason: 'station_id'
+});
+if (details.pageTitle !== 'Lake Grove Supercharger | Tesla') throw new Error(`Title parser failed, got ${details.pageTitle}`);
+if (!details.amenities.includes('Restrooms')) throw new Error('Amenity parser missed restrooms');
+if (!details.amenities.includes('Trailer friendly')) throw new Error('Amenity parser missed trailer-friendly hint');
+if (details.chargerGeneration !== 'V3 high-power') throw new Error(`Charger generation failed, got ${details.chargerGeneration}`);
+
+const candidates = stationCandidates({
+  id: '404914',
+  name: 'Lake Grove, NY Supercharger',
+  city: 'Lake Grove',
+  state: 'NY'
+});
+if (!candidates.some(candidate => candidate.url.endsWith('/404914'))) throw new Error('Numeric Tesla location ID candidate was not generated');
+if (!candidates.some(candidate => candidate.reason === 'city_state_slug')) throw new Error('City/state fallback candidate was not generated');
+
 console.log('Tesla pricing parser regression passed.');

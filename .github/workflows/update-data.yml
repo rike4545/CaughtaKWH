@@ -10,8 +10,32 @@ on:
         description: Max station pricing pages to scrape this run
         required: false
         default: '300'
+      scrape_states:
+        description: Optional comma-separated states/provinces to refresh, for example CA,NV,ON
+        required: false
+        default: ''
+      scrape_countries:
+        description: Optional comma-separated countries to refresh
+        required: false
+        default: ''
+      scrape_zip:
+        description: Optional US ZIP code for a nearby-first refresh
+        required: false
+        default: ''
+      scrape_lat:
+        description: Optional latitude for a nearby-first refresh
+        required: false
+        default: ''
+      scrape_lng:
+        description: Optional longitude for a nearby-first refresh
+        required: false
+        default: ''
+      scrape_radius_miles:
+        description: Radius for ZIP/lat/lng nearby refresh
+        required: false
+        default: '150'
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '43 9 * * 0'
 permissions:
   contents: write
   pages: write
@@ -26,6 +50,14 @@ jobs:
       DISCOVERY_LIMIT: ${{ github.event.inputs.discovery_limit || '5000' }}
       PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '300' }}
       SCRAPE_DELAY_MS: 350
+      SCRAPE_ROTATE_STATES: ${{ github.event_name == 'schedule' && 'true' || 'false' }}
+      SCRAPE_ROTATION_COUNT: 1
+      SCRAPE_STATES: ${{ github.event.inputs.scrape_states || '' }}
+      SCRAPE_COUNTRIES: ${{ github.event.inputs.scrape_countries || '' }}
+      SCRAPE_ZIP: ${{ github.event.inputs.scrape_zip || '' }}
+      SCRAPE_LAT: ${{ github.event.inputs.scrape_lat || '' }}
+      SCRAPE_LNG: ${{ github.event.inputs.scrape_lng || '' }}
+      SCRAPE_RADIUS_MILES: ${{ github.event.inputs.scrape_radius_miles || '150' }}
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v6

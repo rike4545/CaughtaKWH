@@ -5,6 +5,23 @@ import { dataDir, readJson, writeJson, dedupeBy, nowIso } from './lib.mjs';
 const TESLA_LIST_URL = process.env.TESLA_SUPERCHARGER_LIST_URL || 'https://www.tesla.com/findus/list/superchargers/United%20States';
 const SUPERCHARGE_URL = process.env.SUPERCHARGE_INFO_URL || 'https://supercharge.info/service/supercharge/allSites';
 const MAX_STATIONS = Number(process.env.MAX_STATIONS || 2500);
+const COUNTRY_NAMES = new Map([
+  ['us', 'United States'],
+  ['usa', 'United States'],
+  ['united states', 'United States'],
+  ['united states of america', 'United States'],
+  ['ca', 'Canada'],
+  ['can', 'Canada'],
+  ['canada', 'Canada'],
+  ['mx', 'Mexico'],
+  ['mex', 'Mexico'],
+  ['mexico', 'Mexico'],
+  ['méxico', 'Mexico']
+]);
+const DISCOVERY_COUNTRIES = String(process.env.DISCOVERY_COUNTRIES || 'United States')
+  .split(',')
+  .map(country => country.trim().toLowerCase())
+  .filter(Boolean);
 
 function stationIdFromHref(href) {
   const m = String(href || '').match(/\/findus\/location\/supercharger\/([^?#/]+)/);
@@ -16,9 +33,13 @@ function slug(value) {
 function normalizeCountry(site) {
   return site?.address?.country || site?.address?.countryId || site?.country || site?.countryId || site?.location?.country || site?.location?.countryId || '';
 }
-function isUnitedStates(site) {
+function countryName(site) {
   const country = String(normalizeCountry(site)).toLowerCase().trim();
-  return ['us', 'usa', 'united states', 'united states of america'].includes(country);
+  return COUNTRY_NAMES.get(country) || null;
+}
+function isDiscoveredCountry(site) {
+  const country = countryName(site);
+  return Boolean(country) && DISCOVERY_COUNTRIES.includes(country.toLowerCase());
 }
 function isOpen(site) {
   const status = String(site?.status || site?.siteStatus || '').toLowerCase();
@@ -66,6 +87,7 @@ function normalizeSuperchargeSite(site) {
   const gps = site.gps || site.location || {};
   const city = address.city || site.city || '';
   const state = address.state || site.state || '';
+  const country = countryName(site) || 'United States';
   const name = site.name || site.title || `${city} ${state} Supercharger`.trim();
   const locationId = site.locationId || site.location_id || site.teslaId || site.teslaLocationId || null;
   const id = locationId || site.id || `${slug(name)}-${slug(city)}-${slug(state)}`;
@@ -80,8 +102,8 @@ function normalizeSuperchargeSite(site) {
     name: String(name || id),
     city: city || null,
     state: state || null,
-    country: 'United States',
-    address: [street, city, state, zip].filter(Boolean).join(', ') || null,
+    country,
+    address: [street, city, state, zip, country].filter(Boolean).join(', ') || null,
     url: locationId ? `https://www.tesla.com/findus/location/supercharger/${locationId}` : (site.url || site.discussURL || site.permalink || null),
     source: locationId ? 'supercharge_info_with_tesla_location_id' : 'supercharge_info_directory',
     stalls,
@@ -104,10 +126,10 @@ async function discoverFromSuperchargeInfo() {
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
     const sites = await response.json();
     if (!Array.isArray(sites)) throw new Error('unexpected Supercharge.info response');
-    const usSites = sites.filter(isUnitedStates).filter(isOpen).map(normalizeSuperchargeSite);
-    const withStalls = usSites.filter(site => typeof site.stalls === 'number').length;
-    console.log(`Supercharge.info returned ${sites.length} sites; ${usSites.length} US open/live sites; ${withStalls} include stall counts.`);
-    return usSites;
+    const discoveredSites = sites.filter(isDiscoveredCountry).filter(isOpen).map(normalizeSuperchargeSite);
+    const withStalls = discoveredSites.filter(site => typeof site.stalls === 'number').length;
+    console.log(`Supercharge.info returned ${sites.length} sites; ${discoveredSites.length} ${DISCOVERY_COUNTRIES.join(', ')} open/live sites; ${withStalls} include stall counts.`);
+    return discoveredSites;
   } catch (error) {
     console.log(`Supercharge.info discovery skipped: ${error.message}`);
     return [];
@@ -151,7 +173,8 @@ const supercharge = await discoverFromSuperchargeInfo();
 const tesla = await discoverFromTeslaList();
 const discovered = dedupeBy([...supercharge, ...tesla], x => x.id).slice(0, MAX_STATIONS);
 if (discovered.length <= 1) throw new Error(`Discovery returned only ${discovered.length} station(s). Refusing to overwrite dataset.`);
-const byId = new Map(existing.map(station => [station.id, station]));
+const keepExisting = existing.filter(station => DISCOVERY_COUNTRIES.includes(String(station.country || 'United States').toLowerCase()));
+const byId = new Map(keepExisting.map(station => [station.id, station]));
 for (const station of discovered) byId.set(station.id, mergeStation(byId.get(station.id) || {}, station));
 const merged = [...byId.values()].sort((a, b) => String(a.name).localeCompare(String(b.name)));
 await writeJson(path.join(dataDir, 'stations.json'), merged);

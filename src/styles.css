@@ -77,6 +77,13 @@ p { color: var(--muted); line-height: 1.55; }
 .metaGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 16px; }
 .metaGrid span { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 16px; color: var(--muted); display: block; font-size: 13px; min-height: 58px; padding: 11px; overflow-wrap: anywhere; }
 .metaGrid strong { color: var(--text); display: block; font-size: 14px; margin-top: 2px; }
+.siteMeta span { min-height: 72px; }
+.amenityRow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.amenityRow span { border: 1px solid rgba(83,224,163,.35); border-radius: 999px; background: rgba(83,224,163,.1); color: var(--text); font-size: 13px; font-weight: 700; padding: 8px 11px; }
+.compactNote { margin: 12px 0 0; }
+.scrapeDetail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.scrapeDetail span { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding-top: 10px; overflow-wrap: anywhere; }
+.scrapeDetail strong { color: var(--text); font-weight: 800; }
 .hourGrid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
 .hourGrid span { background: rgba(255,255,255,.045); border: 1px solid var(--line); border-radius: 14px; display: grid; min-height: 58px; padding: 8px; }
 .hourGrid span.known { background: rgba(83,224,163,.12); border-color: rgba(83,224,163,.55); }
@@ -96,5 +103,5 @@ p { color: var(--muted); line-height: 1.55; }
 .recharts-cartesian-grid line { stroke: rgba(255,255,255,.08); }
 .recharts-default-tooltip { background: #101d2a !important; border: 1px solid var(--line) !important; border-radius: 14px; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
-@media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
+@media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .priceStrip, .metaGrid { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }
