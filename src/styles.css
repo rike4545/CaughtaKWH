@@ -99,6 +99,9 @@ p { color: var(--muted); line-height: 1.55; }
 .manualRefreshNote strong { color: var(--text); display: block; margin-bottom: 4px; }
 .manualRefreshNote p { margin: 0; }
 .manualRefreshNote code { background: rgba(0,0,0,.24); border: 1px solid var(--line); border-radius: 8px; color: var(--text); display: inline-block; font-size: 13px; padding: 2px 6px; overflow-wrap: anywhere; }
+.historyReadiness { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.historyReadiness span { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 16px; color: var(--muted); display: block; font-size: 13px; min-height: 70px; padding: 12px; overflow-wrap: anywhere; }
+.historyReadiness strong { color: var(--text); display: block; font-size: 15px; margin-top: 3px; }
 .scrapeDetail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
 .scrapeDetail span { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding-top: 10px; overflow-wrap: anywhere; }
 .scrapeDetail strong { color: var(--text); font-weight: 800; }
@@ -133,5 +136,5 @@ p { color: var(--muted); line-height: 1.55; }
 .recharts-cartesian-grid line { stroke: rgba(255,255,255,.08); }
 .recharts-default-tooltip { background: #101d2a !important; border: 1px solid var(--line) !important; border-radius: 14px; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
-@media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }
+@media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }

@@ -34,6 +34,10 @@ on:
         description: Radius for ZIP/lat/lng nearby refresh
         required: false
         default: '150'
+      needs_history:
+        description: Only refresh stations that need usable price history
+        required: false
+        default: 'false'
   schedule:
     - cron: '43 9 * * 0'
 permissions:
@@ -58,6 +62,7 @@ jobs:
       SCRAPE_LAT: ${{ github.event.inputs.scrape_lat || '' }}
       SCRAPE_LNG: ${{ github.event.inputs.scrape_lng || '' }}
       SCRAPE_RADIUS_MILES: ${{ github.event.inputs.scrape_radius_miles || '150' }}
+      SCRAPE_NEEDS_HISTORY: ${{ github.event.inputs.needs_history || (github.event_name == 'schedule' && 'true' || 'false') }}
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:

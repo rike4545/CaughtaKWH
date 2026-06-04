@@ -206,6 +206,12 @@ SCRAPE_STATES=CA,NV MAX_STATIONS=50 npm run scrape
 SCRAPE_ROTATE_STATES=true SCRAPE_ROTATION_COUNT=1 MAX_STATIONS=75 npm run scrape
 ```
 
+To spend a run only on stations that still need usable price history:
+
+```bash
+TESLA_HEADLESS=false SCRAPE_NEEDS_HISTORY=true MAX_STATIONS=25 npm run scrape
+```
+
 You can target one station while debugging:
 
 ```bash
@@ -221,6 +227,8 @@ Pricing analytics become useful after repeated observations, not after one scrap
 - Time-of-day movement
 - Volatility and confidence
 - Congestion fee changes
+
+A station is treated as having usable history after at least three recent price observations. Ten recent observations across different times is a stronger target for cheaper-window modeling.
 
 The pilot starts with:
 

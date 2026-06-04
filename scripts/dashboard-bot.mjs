@@ -43,6 +43,8 @@ try {
 const now = new Date().toISOString();
 const pricedStationIds = new Set(predictions.map(prediction => prediction.stationId));
 const recentPredictionIds = new Set(predictions.filter(prediction => Number(prediction.latestObservationAgeHours) <= 24).map(prediction => prediction.stationId));
+const usablePredictionIds = new Set(predictions.filter(prediction => Number(prediction.sampleCount || 0) >= 3 && Number(prediction.latestObservationAgeHours ?? Infinity) <= 48).map(prediction => prediction.stationId));
+const strongPredictionIds = new Set(predictions.filter(prediction => Number(prediction.sampleCount || 0) >= 10 && Number(prediction.latestObservationAgeHours ?? Infinity) <= 24).map(prediction => prediction.stationId));
 const checkedStations = stations.filter(station => station.lastScrapedAt);
 const priceFound = stations.filter(station => station.lastScrapeHadPrice);
 const availabilityOnly = stations.filter(station => station.lastScrapeHadAvailability && !station.lastScrapeHadPrice);
@@ -54,9 +56,10 @@ const stateRows = [...new Set(stations.map(station => station.state).filter(Bool
   const rows = stations.filter(station => station.state === state);
   const checked = rows.filter(station => station.lastScrapedAt).length;
   const priced = rows.filter(station => pricedStationIds.has(station.id)).length;
+  const usable = rows.filter(station => usablePredictionIds.has(station.id)).length;
   const stale = rows.filter(station => !station.lastScrapedAt || (hoursSince(station.lastScrapedAt) ?? Infinity) > 72).length;
   const priorityScore = rows.reduce((sum, station) => sum + Number(station.observationPriorityScore || 0), 0);
-  return { state, stations: rows.length, checked, priced, stale, checkedPct: pct(checked, rows.length), pricedPct: pct(priced, rows.length), priorityScore: Number(priorityScore.toFixed(2)) };
+  return { state, stations: rows.length, checked, priced, usable, stale, checkedPct: pct(checked, rows.length), pricedPct: pct(priced, rows.length), usablePct: pct(usable, rows.length), priorityScore: Number(priorityScore.toFixed(2)) };
 });
 
 const statePriorities = stateRows
@@ -65,7 +68,7 @@ const statePriorities = stateRows
   .slice(0, 8);
 
 const refreshTargets = stations
-  .filter(station => !station.lastScrapeHadPrice || !pricedStationIds.has(station.id) || (hoursSince(station.lastScrapedAt) ?? Infinity) > 48)
+  .filter(station => !station.lastScrapeHadPrice || !usablePredictionIds.has(station.id) || (hoursSince(station.lastScrapedAt) ?? Infinity) > 48)
   .sort((a, b) => Number(b.observationPriorityScore || 0) - Number(a.observationPriorityScore || 0))
   .slice(0, 10)
   .map(shortStation);
@@ -73,8 +76,8 @@ const refreshTargets = stations
 const improvementQueue = [
   {
     title: 'Grow repeated observations',
-    status: pricedStationIds.size >= 25 ? 'in_progress' : 'needs_data',
-    detail: `${pricedStationIds.size} of ${stations.length} US ${stationWord(stations.length)} ${pricedStationIds.size === 1 ? 'has' : 'have'} price history. The pilot lane should keep favoring stations with successful public price reads.`
+    status: usablePredictionIds.size >= 25 ? 'in_progress' : 'needs_data',
+    detail: `${usablePredictionIds.size} of ${stations.length} US ${stationWord(stations.length)} ${usablePredictionIds.size === 1 ? 'has' : 'have'} usable price history. A station becomes usable after at least 3 recent price observations.`
   },
   {
     title: 'Keep fresh data visible',
@@ -105,6 +108,10 @@ const health = {
     availabilityOnlyStations: availabilityOnly.length,
     pricedStations: pricedStationIds.size,
     pricedPct: pct(pricedStationIds.size, stations.length),
+    usableHistoryStations: usablePredictionIds.size,
+    usableHistoryPct: pct(usablePredictionIds.size, stations.length),
+    strongHistoryStations: strongPredictionIds.size,
+    strongHistoryPct: pct(strongPredictionIds.size, stations.length),
     freshPriceStations: recentPredictionIds.size,
     staleOrUncheckedStations: staleOrUnchecked.length,
     coordinatePct: pct(withCoords.length, stations.length),
@@ -137,7 +144,9 @@ const report = [
   `- Scope: ${health.scope}`,
   `- Stations: ${health.summary.stationCount}`,
   `- Checked by scraper: ${health.summary.checkedStations} (${health.summary.checkedPct}%)`,
-  `- Stations with price history: ${health.summary.pricedStations} (${health.summary.pricedPct}%)`,
+  `- Stations with any price history: ${health.summary.pricedStations} (${health.summary.pricedPct}%)`,
+  `- Stations with usable price history: ${health.summary.usableHistoryStations} (${health.summary.usableHistoryPct}%)`,
+  `- Stations with strong price history: ${health.summary.strongHistoryStations} (${health.summary.strongHistoryPct}%)`,
   `- Fresh price stations: ${health.summary.freshPriceStations}`,
   `- Stale or unchecked stations: ${health.summary.staleOrUncheckedStations}`,
   '',

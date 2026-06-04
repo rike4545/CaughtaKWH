@@ -14,7 +14,8 @@
     "update:data": "npm run discover && npm run scrape && npm run predict && npm run validate:data && npm run sync:public",
     "validate:data": "node scripts/validateData.mjs",
     "sync:public": "node scripts/syncPublicData.mjs",
-    "improve:dashboard": "node scripts/dashboard-bot.mjs && npm run sync:public && npm run validate:data"
+    "improve:dashboard": "node scripts/dashboard-bot.mjs && npm run sync:public && npm run validate:data",
+    "scrape:needs-history": "SCRAPE_NEEDS_HISTORY=true npm run scrape"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

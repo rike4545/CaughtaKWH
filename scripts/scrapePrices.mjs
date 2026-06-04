@@ -26,6 +26,7 @@ const SCRAPE_LNG = Number(process.env.SCRAPE_LNG);
 const SCRAPE_RADIUS_MILES = Number(process.env.SCRAPE_RADIUS_MILES || 150);
 const SCRAPE_ROTATE_STATES = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_ROTATE_STATES || '').toLowerCase());
 const SCRAPE_ROTATION_COUNT = Math.max(1, Number(process.env.SCRAPE_ROTATION_COUNT || 1));
+const SCRAPE_NEEDS_HISTORY = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_NEEDS_HISTORY || '').toLowerCase());
 const TESLA_HEADLESS = !['0', 'false', 'no'].includes(String(process.env.TESLA_HEADLESS ?? 'true').toLowerCase());
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
@@ -167,8 +168,15 @@ function priorityFor(station) {
   if (typeof station.maxKw === 'number' && station.maxKw >= 250) score += 25;
   if (volatility >= 0.08) score += 90; else if (volatility >= 0.04) score += 45;
   if (samples < 3) score += 80; else if (samples < 10) score += 35;
+  if (SCRAPE_NEEDS_HISTORY && samples < 3) score += 160;
   if (['CA', 'NY', 'FL', 'TX', 'NJ', 'WA', 'MA'].includes(station.state)) score += 12;
   return Number(score.toFixed(2));
+}
+
+function needsUsableHistory(station) {
+  const stationPredictions = predictions.filter(prediction => prediction.stationId === station.id);
+  if (!stationPredictions.length) return true;
+  return stationPredictions.some(prediction => Number(prediction.sampleCount || 0) < 3 || Number(prediction.latestObservationAgeHours ?? Infinity) > 48);
 }
 
 const scope = await scrapeScope();
@@ -195,6 +203,9 @@ function scopedStations() {
         distanceByStation.set(station, distanceMiles);
         return distanceMiles <= SCRAPE_RADIUS_MILES;
       });
+  }
+  if (SCRAPE_NEEDS_HISTORY) {
+    scoped = scoped.filter(needsUsableHistory);
   }
   return scoped;
 }
@@ -270,4 +281,4 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
 }
 await browser.close();
 await writeJson(path.join(dataDir, 'stations.json'), stations);
-console.log(`Attempted ${attempted}; saved price observations for ${saved} station(s). In-scope stations: ${inScope.length}/${stations.length}. States: ${scope.states.join(', ') || 'all'}. Countries: ${scope.countries.join(', ') || 'all'}. Nearby: ${scope.origin ? `${scope.origin.label} within ${SCRAPE_RADIUS_MILES} mi` : 'off'}. Hardened extraction v3 enabled. Low price threshold: $${LOW_PRICE_THRESHOLD}/kWh.`);
+console.log(`Attempted ${attempted}; saved price observations for ${saved} station(s). In-scope stations: ${inScope.length}/${stations.length}. States: ${scope.states.join(', ') || 'all'}. Countries: ${scope.countries.join(', ') || 'all'}. Nearby: ${scope.origin ? `${scope.origin.label} within ${SCRAPE_RADIUS_MILES} mi` : 'off'}. Needs-history mode: ${SCRAPE_NEEDS_HISTORY ? 'on' : 'off'}. Hardened extraction v3 enabled. Low price threshold: $${LOW_PRICE_THRESHOLD}/kWh.`);

@@ -95,6 +95,16 @@ function stationCountText(count, verb = 'have') {
   const action = value === 1 && verb === 'have' ? 'has' : verb;
   return `${value.toLocaleString()} ${noun} ${action}`;
 }
+function usableHistoryState(prediction, rows) {
+  const sampleCount = Number(prediction?.sampleCount || 0);
+  const recentRows = rows.filter(row => typeof row.memberPricePerKwh === 'number' || typeof row.nonMemberPricePerKwh === 'number');
+  const uniqueSlots = new Set(recentRows.map(row => row.halfHourSlot ?? `${row.localHour}:${row.localMinute}`)).size;
+  const ageHours = Number(prediction?.latestObservationAgeHours ?? Infinity);
+  if (sampleCount >= 10 && uniqueSlots >= 3 && ageHours <= 24) return { label: 'Strong history', tone: 'ok', next: 'This station has enough recent observations to start comparing time windows with more confidence.' };
+  if (sampleCount >= 3 && ageHours <= 48) return { label: 'Usable history', tone: 'ok', next: `Usable now. Add ${Math.max(0, 10 - sampleCount)} more observations across different times to strengthen the cheaper-window model.` };
+  if (sampleCount > 0) return { label: 'Needs more observations', tone: 'warn', next: `We have ${sampleCount} price observation${sampleCount === 1 ? '' : 's'}. Get to 3 recent observations before treating the history as usable.` };
+  return { label: 'No usable history yet', tone: 'warn', next: 'Run a focused refresh for this station to start building usable price history.' };
+}
 
 function priceState(selected, prediction) {
   if (prediction?.latestObservedAt && prediction.latestObservationAgeHours > 48) return { title: 'Only old price history so far', tone: 'warn', detail: `Last saved price was ${money(prediction.latestObservedPrice)} on ${shortDate(prediction.latestObservedAt)}. Tesla did not show a fresh public price in the latest checks, so treat this as historical context only.` };
@@ -192,6 +202,7 @@ function App() {
   const state = priceState(selected, prediction);
   const pricingFresh = prediction?.latestObservationAgeHours <= 24;
   const latestHistory = historyRows.at(-1);
+  const historyReadiness = usableHistoryState(prediction, historyRows);
   const publicCheckResult = selected?.lastScrapeHadPrice ? 'Price found' : selected?.lastScrapeHadAvailability ? 'Availability only' : selected?.lastScrapedAt ? 'No price shown' : 'Not checked yet';
   const siteDetails = selected?.lastSiteDetails || {};
   const lastCandidate = selected?.lastScrapeCandidates?.find(candidate => candidate.hasPrice || candidate.hasAvailability) || selected?.lastScrapeCandidates?.[0];
@@ -301,6 +312,18 @@ function App() {
           </div>
         </Card>
 
+        <Card>
+          <div className="sectionTitle"><div><p>Usable price history</p><h2>{historyReadiness.label}</h2></div><span className={historyReadiness.tone === 'ok' ? 'badge fresh' : 'badge'}>{prediction?.sampleCount || 0} samples</span></div>
+          <p className="muted">{historyReadiness.next}</p>
+          <div className="historyReadiness">
+            <span>Minimum usable<strong>{Math.min(Number(prediction?.sampleCount || 0), 3)}/3 observations</strong></span>
+            <span>Stronger model<strong>{Math.min(Number(prediction?.sampleCount || 0), 10)}/10 observations</strong></span>
+            <span>Freshness<strong>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'No public price yet'}</strong></span>
+            <span>Targeted update<strong>{selected?.id || 'Pick a station'}</strong></span>
+          </div>
+          <p className="muted compactNote">For manual updates, run the Pricing Pilot Panel with this station ID. For automation, scheduled refreshes can use needs-history mode so the scraper spends time on stations that still need usable observations.</p>
+        </Card>
+
         <Card><div className="sectionTitle"><div><p>Cheaper times</p><h2>{prediction ? `Best time we have seen: ${prediction.bestHour}:${String(prediction.bestMinute).padStart(2, '0')}` : 'Not enough prices yet'}</h2></div><span className="badge">Estimate range</span></div><p className="muted">Use this for planning, then check Tesla before you charge. Live prices can move faster than this chart.</p><ResponsiveContainer width="100%" height={240}><BarChart data={modelRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" interval={5}/><YAxis tickFormatter={money}/><Tooltip formatter={value => money(value)} /><Bar dataKey="expectedPrice" name="Expected $/kWh" /></BarChart></ResponsiveContainer></Card>
 
         <Card><div className="sectionTitle"><div><p>Price history</p><h2>{historyRows.length ? `${historyRows.length} recent checks` : 'No prices saved yet'}</h2></div><span className="badge">{historyRows.length ? shortDate(latestHistory?.capturedAt) : 'Waiting'}</span></div>{historyRows.length ? <ResponsiveContainer width="100%" height={240}><LineChart data={historyRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="capturedLabel" hide/><YAxis tickFormatter={money}/><Tooltip formatter={value => money(value)} /><Line type="monotone" dataKey="member" name="Tesla/member" dot={false}/><Line type="monotone" dataKey="nonMember" name="Non-Tesla" dot={false}/></LineChart></ResponsiveContainer> : <EmptyState title="No saved prices yet">We either have not checked this charger, or Tesla did not show a public price when we looked.</EmptyState>}</Card>
@@ -320,7 +343,7 @@ function App() {
         <div className="sectionTitle"><div><p>Dashboard pulse</p><h2>The system is learning in public</h2></div><span className="badge">{dashboardHealth?.generatedAt ? `Updated ${shortDate(dashboardHealth.generatedAt)}` : 'Building feed'}</span></div>
         <div className="pulseGrid">
           <div><Activity size={20}/><span>Coverage</span><strong>{dashboardSummary.checkedPct}% checked</strong><small>{dashboardSummary.checkedStations?.toLocaleString?.() || dashboardSummary.checkedStations || 0} of {stations.length.toLocaleString()} US stations have had a page pass.</small></div>
-          <div><Target size={20}/><span>Pricing depth</span><strong>{dashboardSummary.pricedPct}% priced</strong><small>{stationCountText(dashboardSummary.pricedStations ?? pricedStations)} usable price history. Repeated observations make the cheaper-window view better.</small></div>
+          <div><Target size={20}/><span>Usable history</span><strong>{dashboardSummary.usableHistoryPct ?? dashboardSummary.pricedPct}% usable</strong><small>{stationCountText(dashboardSummary.usableHistoryStations ?? dashboardSummary.pricedStations ?? pricedStations)} usable price history. Repeated observations make the cheaper-window view better.</small></div>
           <div><RefreshCw size={20}/><span>Automation</span><strong>Daily improvement loop</strong><small>Scraper runs stay staggered, while the dashboard bot refreshes this health feed and the public copy from real data.</small></div>
         </div>
       </Card>

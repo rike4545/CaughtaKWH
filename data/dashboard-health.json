@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-04T18:42:00.555Z",
+  "generatedAt": "2026-06-04T19:05:19.042Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3104,
@@ -10,6 +10,10 @@
     "availabilityOnlyStations": 1,
     "pricedStations": 1,
     "pricedPct": 0.03,
+    "usableHistoryStations": 1,
+    "usableHistoryPct": 0.03,
+    "strongHistoryStations": 0,
+    "strongHistoryPct": 0,
     "freshPriceStations": 1,
     "staleOrUncheckedStations": 3101,
     "coordinatePct": 100,
@@ -23,9 +27,11 @@
       "stations": 659,
       "checked": 659,
       "priced": 0,
+      "usable": 0,
       "stale": 658,
       "checkedPct": 100,
       "pricedPct": 0,
+      "usablePct": 0,
       "priorityScore": 296682.97
     },
     {
@@ -33,9 +39,11 @@
       "stations": 244,
       "checked": 244,
       "priced": 0,
+      "usable": 0,
       "stale": 244,
       "checkedPct": 100,
       "pricedPct": 0,
+      "usablePct": 0,
       "priorityScore": 110074.48
     },
     {
@@ -43,9 +51,11 @@
       "stations": 223,
       "checked": 223,
       "priced": 0,
+      "usable": 0,
       "stale": 222,
       "checkedPct": 100,
       "pricedPct": 0,
+      "usablePct": 0,
       "priorityScore": 100412.44
     },
     {
@@ -53,9 +63,11 @@
       "stations": 124,
       "checked": 124,
       "priced": 1,
+      "usable": 1,
       "stale": 123,
       "checkedPct": 100,
       "pricedPct": 0.81,
+      "usablePct": 0.81,
       "priorityScore": 55207.04
     },
     {
@@ -63,9 +75,11 @@
       "stations": 110,
       "checked": 110,
       "priced": 0,
+      "usable": 0,
       "stale": 110,
       "checkedPct": 100,
       "pricedPct": 0,
+      "usablePct": 0,
       "priorityScore": 48304.35
     },
     {
@@ -73,9 +87,11 @@
       "stations": 107,
       "checked": 107,
       "priced": 0,
+      "usable": 0,
       "stale": 107,
       "checkedPct": 100,
       "pricedPct": 0,
+      "usablePct": 0,
       "priorityScore": 48285.3
     },
     {
@@ -83,9 +99,11 @@
       "stations": 103,
       "checked": 102,
       "priced": 0,
+      "usable": 0,
       "stale": 103,
       "checkedPct": 99.03,
       "pricedPct": 0,
+      "usablePct": 0,
       "priorityScore": 44938.71
     },
     {
@@ -93,9 +111,11 @@
       "stations": 90,
       "checked": 90,
       "priced": 0,
+      "usable": 0,
       "stale": 90,
       "checkedPct": 100,
       "pricedPct": 0,
+      "usablePct": 0,
       "priorityScore": 39413.32
     }
   ],
@@ -195,7 +215,7 @@
     {
       "title": "Grow repeated observations",
       "status": "needs_data",
-      "detail": "1 of 3104 US stations has price history. The pilot lane should keep favoring stations with successful public price reads."
+      "detail": "1 of 3104 US stations has usable price history. A station becomes usable after at least 3 recent price observations."
     },
     {
       "title": "Keep fresh data visible",
