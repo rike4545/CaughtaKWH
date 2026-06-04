@@ -1,0 +1,115 @@
+name: Pricing Pilot Panel
+on:
+  workflow_dispatch:
+    inputs:
+      station_ids:
+        description: Comma-separated station IDs to refresh
+        required: false
+        default: 'LakeGroveNYsupercharger'
+      max_stations:
+        description: Max pilot stations to scrape
+        required: false
+        default: '5'
+  schedule:
+    - cron: '12 */3 * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: caughtakwh-data-writer
+  cancel-in-progress: false
+jobs:
+  refresh-pilot:
+    runs-on: ubuntu-latest
+    env:
+      PILOT_STATION_IDS: ${{ github.event.inputs.station_ids || 'LakeGroveNYsupercharger' }}
+      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '5' }}
+      SCRAPE_DELAY_MS: 500
+      TESLA_HEADLESS: 'false'
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: true
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - run: npm install --no-audit --no-fund
+
+      - run: npx playwright install --with-deps chromium
+
+      - name: Refresh pilot pricing panel
+        run: xvfb-run -a env SCRAPE_STATION_IDS="$PILOT_STATION_IDS" MAX_STATIONS="$PRICE_SCRAPE_LIMIT" npm run scrape
+
+      - name: Rebuild predictions and public data
+        run: |
+          npm run predict
+          node scripts/price-change-bot.mjs || true
+          npm run sync:public
+          npm run validate:data
+
+      - name: Commit pilot pricing updates
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git status --short
+          git add data public/data reports || true
+
+          if git diff --cached --quiet; then
+            echo "No pilot pricing changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Refresh pilot Supercharger pricing"
+
+          for attempt in 1 2 3; do
+            echo "Push attempt $attempt"
+            git fetch origin main
+
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Pilot pricing update pushed successfully."
+              exit 0
+            fi
+
+            git rebase --abort || true
+            sleep 5
+          done
+
+          echo "Unable to push after rebasing. A newer conflicting data update may have landed."
+          exit 1
+
+  deploy:
+    needs: refresh-pilot
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - run: npm install --no-audit --no-fund
+
+      - run: npm run build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - uses: actions/deploy-pages@v4

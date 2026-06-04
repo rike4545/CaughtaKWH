@@ -212,6 +212,24 @@ You can target one station while debugging:
 TESLA_HEADLESS=false SCRAPE_STATION_IDS=LakeGroveNYsupercharger MAX_STATIONS=1 npm run scrape
 ```
 
+## Build Pricing Analytics
+
+Pricing analytics become useful after repeated observations, not after one scrape. The `Pricing Pilot Panel` workflow refreshes a small station set every three hours so CaughtaKWH can measure:
+
+- Whether prices actually change
+- Member vs Non-Tesla spread
+- Time-of-day movement
+- Volatility and confidence
+- Congestion fee changes
+
+The pilot starts with:
+
+```text
+LakeGroveNYsupercharger
+```
+
+Add more stations by running the workflow manually with a comma-separated `station_ids` value. Once a pilot station has roughly 10-30 observations, the stability and cheaper-window analytics become much more useful.
+
 Canada and Mexico support can be enabled later by running discovery with:
 
 ```bash
