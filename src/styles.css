@@ -78,10 +78,19 @@ p { color: var(--muted); line-height: 1.55; }
 .toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 16px; }
 .badge { padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: rgba(255,255,255,.05); color: var(--muted); font-size: 13px; }
 .badge.fresh { color: var(--accent); border-color: rgba(83,224,163,.4); }
+.refreshButton { align-items: center; display: inline-flex; gap: 8px; font-weight: 800; }
+.refreshButton:disabled { cursor: wait; opacity: .72; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 .priceStrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
 .priceStrip > div { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
 .priceStrip span { color: var(--muted); font-size: 13px; display: block; }
 .priceStrip strong { font-size: 24px; display: block; margin-top: 4px; overflow-wrap: anywhere; }
+.manualCheck { align-items: flex-start; border: 1px solid rgba(83,224,163,.35); border-radius: 18px; background: rgba(83,224,163,.08); color: var(--text); display: flex; gap: 12px; margin-top: 14px; padding: 14px; }
+.manualCheck.loading { border-color: rgba(101,169,255,.35); background: rgba(101,169,255,.08); }
+.manualCheck svg { color: var(--accent); flex: 0 0 auto; margin-top: 2px; }
+.manualCheck strong { display: block; }
+.manualCheck p { margin: 4px 0 0; }
 .chartWrap { width: 100%; min-height: 280px; }
 .chartGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 .empty { display: flex; gap: 12px; align-items: flex-start; padding: 20px; border: 1px dashed var(--line); border-radius: 20px; background: rgba(255,255,255,.04); }

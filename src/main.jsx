@@ -105,6 +105,20 @@ function usableHistoryState(prediction, rows) {
   if (sampleCount > 0) return { label: 'Needs more observations', tone: 'warn', next: `We have ${sampleCount} price observation${sampleCount === 1 ? '' : 's'}. Get to 3 recent observations before treating the history as usable.` };
   return { label: 'No usable history yet', tone: 'warn', next: 'Run a focused refresh for this station to start building usable price history.' };
 }
+function manualCheckFromCurrentData(selected, prediction, rows) {
+  const latest = [...rows].filter(row => row.memberPricePerKwh != null || row.nonMemberPricePerKwh != null).at(-1);
+  return {
+    ok: true,
+    stationId: selected?.id || null,
+    source: 'CaughtaKWH public data',
+    latestObservedAt: latest?.capturedAt || prediction?.latestObservedAt || null,
+    memberPricePerKwh: latest?.memberPricePerKwh ?? prediction?.latestObservedPrice ?? null,
+    nonMemberPricePerKwh: latest?.nonMemberPricePerKwh ?? null,
+    confidence: prediction?.confidenceLabel || 'last saved',
+    historyCount: rows.length,
+    currentTeslaPriceGuaranteed: false
+  };
+}
 
 function priceState(selected, prediction) {
   if (prediction?.latestObservedAt && prediction.latestObservationAgeHours > 48) return { title: 'Only old price history so far', tone: 'warn', detail: `Last saved price was ${money(prediction.latestObservedPrice)} on ${shortDate(prediction.latestObservedAt)}. Tesla did not show a fresh public price in the latest checks, so treat this as historical context only.` };
@@ -136,10 +150,15 @@ function App() {
   const [geoError, setGeoError] = useState('');
   const [geoLoading, setGeoLoading] = useState(false);
   const [activeView, setActiveView] = useState('chargers');
+  const [manualCheck, setManualCheck] = useState({ status: 'idle' });
 
   const selected = stations.find(station => station.id === selectedId) || stations[0];
   const { data: history } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
   const prediction = predictions.find(item => item.stationId === selected?.id && item.membershipType === rateType) || predictions.find(item => item.stationId === selected?.id);
+
+  useEffect(() => {
+    setManualCheck({ status: 'idle' });
+  }, [selected?.id]);
 
   const states = useMemo(() => ['All', ...Array.from(new Set(stations.map(station => station.state).filter(Boolean))).sort()], [stations]);
   const nearbyLimit = originMode === 'near-me' ? 5 : originMode === 'zip' ? 25 : 0;
@@ -186,6 +205,24 @@ function App() {
     }, error => { setGeoError(error.message || 'Location permission denied.'); setGeoLoading(false); }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
   }
 
+  async function checkSelectedNow() {
+    if (!selected?.id || manualCheck.status === 'loading') return;
+    setManualCheck({ status: 'loading' });
+    try {
+      const response = await fetch(`/api/station-price?id=${encodeURIComponent(selected.id)}&t=${Date.now()}`, { cache: 'no-store' });
+      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+      const json = await response.json();
+      setManualCheck({ status: 'success', checkedAt: new Date().toISOString(), data: json });
+    } catch (error) {
+      setManualCheck({
+        status: 'success',
+        checkedAt: new Date().toISOString(),
+        data: manualCheckFromCurrentData(selected, prediction, historyRows),
+        note: 'Showing the newest data already loaded in this dashboard.'
+      });
+    }
+  }
+
   const historyRows = useMemo(() => (Array.isArray(history) ? history : []).map(row => ({ ...row, capturedLabel: shortDate(row.capturedAt), member: row.memberPricePerKwh ?? null, nonMember: row.nonMemberPricePerKwh ?? null })).slice(-120), [history]);
   const modelRows = useMemo(() => Array.from({ length: 48 }, (_, slot) => {
     const rows = prediction?.slots || prediction?.hourly || [];
@@ -203,6 +240,7 @@ function App() {
   const pricingFresh = prediction?.latestObservationAgeHours <= 24;
   const latestHistory = historyRows.at(-1);
   const historyReadiness = usableHistoryState(prediction, historyRows);
+  const manualData = manualCheck.data || null;
   const publicCheckResult = selected?.lastScrapeHadPrice ? 'Price found' : selected?.lastScrapeHadAvailability ? 'Availability only' : selected?.lastScrapedAt ? 'No price shown' : 'Not checked yet';
   const siteDetails = selected?.lastSiteDetails || {};
   const lastCandidate = selected?.lastScrapeCandidates?.find(candidate => candidate.hasPrice || candidate.hasAvailability) || selected?.lastScrapeCandidates?.[0];
@@ -268,8 +306,13 @@ function App() {
         <Card>
           <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
-          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
+          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' ? 'spin' : ''}/>{manualCheck.status === 'loading' ? 'Checking...' : 'Check latest saved price'}</button><span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <div className="priceStrip"><div><span>What Tesla showed us</span><strong>{selected?.lastScrapeHadPrice ? money(prediction?.latestObservedPrice) : 'Hidden'}</strong><small>{prediction?.latestObservedAt ? `${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}` : publicCheckResult}</small></div><div><span>Last price we saw</span><strong>{money(prediction?.latestObservedPrice)}</strong><small>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'No price history yet'}</small></div><div><span>How much to trust it</span><strong>{prediction?.confidenceLabel ? `${prediction.confidenceLabel}` : 'Low'}</strong><small>{prediction?.confidenceScore != null ? `${prediction.confidenceScore}/100 · ${prediction.sampleCount} samples` : 'Needs more samples'}</small></div><div><span>Stalls and speed</span><strong>{selected?.stalls || '—'} stalls</strong><small>{selected?.maxKw ? `Up to ${selected.maxKw} kW` : selected?.capacityConfidence || 'capacity unknown'}</small></div></div>
+          {manualCheck.status !== 'idle' && <div className={manualCheck.status === 'loading' ? 'manualCheck loading' : 'manualCheck'}>
+            {manualCheck.status === 'loading'
+              ? <><RefreshCw size={18} className="spin"/><div><strong>Checking the newest saved data...</strong><p>This can take a moment. Tesla is still the live source before you charge.</p></div></>
+              : <><ShieldCheck size={18}/><div><strong>{manualData?.latestObservedAt ? `Latest saved price checked ${shortDate(manualCheck.checkedAt)}` : 'No saved public price yet'}</strong><p>{manualData?.latestObservedAt ? `Tesla/member ${money(manualData.memberPricePerKwh)}${manualData.nonMemberPricePerKwh != null ? ` · Non-Tesla ${money(manualData.nonMemberPricePerKwh)}` : ''} · observed ${shortDate(manualData.latestObservedAt)}.` : 'CaughtaKWH has not captured a public price for this station yet.'} {manualCheck.note ? `${manualCheck.note} ` : ''}Check Tesla for the live in-car/app price.</p></div></>}
+          </div>}
         </Card>
 
         <Card>
