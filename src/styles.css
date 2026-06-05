@@ -80,6 +80,8 @@ p { color: var(--muted); line-height: 1.55; }
 .badge.fresh { color: var(--accent); border-color: rgba(83,224,163,.4); }
 .refreshButton { align-items: center; display: inline-flex; gap: 8px; font-weight: 800; }
 .refreshButton:disabled { cursor: wait; opacity: .72; }
+.liveTeslaButton { align-items: center; border: 1px solid rgba(83,224,163,.55); border-radius: 16px; background: rgba(83,224,163,.14); color: var(--text); display: inline-flex; gap: 8px; min-height: 49px; padding: 0 14px; }
+.liveTeslaButton:hover { border-color: rgba(83,224,163,.85); background: rgba(83,224,163,.2); }
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .priceStrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
