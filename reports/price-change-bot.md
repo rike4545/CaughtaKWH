@@ -1,11 +1,12 @@
 # Tesla Price Change Bot Report
 
-Generated: 2026-06-05T04:45:35.998Z
+Generated: 2026-06-05T10:15:17.211Z
 
-Price-change events found: 1
+Price-change events found: 2
 
 ## Recent changes
 
+- Lake Grove, NY - Lake Grove - NY: Tesla/member $0.30 -> $0.43 at 2026-06-05T10:15:07.375Z
 - Lake Grove, NY - Lake Grove - NY: Tesla/member $0.43 -> $0.30 at 2026-06-04T22:44:18.546Z
 
 ## Source
