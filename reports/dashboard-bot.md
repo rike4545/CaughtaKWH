@@ -1,6 +1,6 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-06-05T14:08:51.213Z
+Generated: 2026-06-06T12:52:57.353Z
 
 ## Public Dashboard Health
 
@@ -9,7 +9,7 @@ Generated: 2026-06-05T14:08:51.213Z
 - Checked by scraper: 3097 (99.77%)
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 1 (0.03%)
-- Stations with strong price history: 0 (0%)
+- Stations with strong price history: 1 (0.03%)
 - Fresh price stations: 1
 - Stale or unchecked stations: 3101
 

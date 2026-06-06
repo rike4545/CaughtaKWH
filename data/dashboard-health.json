@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T14:08:51.213Z",
+  "generatedAt": "2026-06-06T12:52:57.353Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3104,
@@ -12,14 +12,14 @@
     "pricedPct": 0.03,
     "usableHistoryStations": 1,
     "usableHistoryPct": 0.03,
-    "strongHistoryStations": 0,
-    "strongHistoryPct": 0,
+    "strongHistoryStations": 1,
+    "strongHistoryPct": 0.03,
     "freshPriceStations": 1,
     "staleOrUncheckedStations": 3101,
     "coordinatePct": 100,
     "addressPct": 100,
     "historyFiles": 2,
-    "priceChangeEvents": 2
+    "priceChangeEvents": 4
   },
   "statePriorities": [
     {
@@ -68,7 +68,7 @@
       "checkedPct": 100,
       "pricedPct": 0.81,
       "usablePct": 0.81,
-      "priorityScore": 55212.7
+      "priorityScore": 55158.09
     },
     {
       "state": "PA",
