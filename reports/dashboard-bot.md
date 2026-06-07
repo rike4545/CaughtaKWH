@@ -1,6 +1,6 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-06-06T12:52:57.353Z
+Generated: 2026-06-07T13:09:16.390Z
 
 ## Public Dashboard Health
 
@@ -11,13 +11,13 @@ Generated: 2026-06-06T12:52:57.353Z
 - Stations with usable price history: 1 (0.03%)
 - Stations with strong price history: 1 (0.03%)
 - Fresh price stations: 1
-- Stale or unchecked stations: 3101
+- Stale or unchecked stations: 3103
 
 ## State Refresh Priorities
 
-- CA: 658 stale/unchecked, 0% priced
+- CA: 659 stale/unchecked, 0% priced
 - FL: 244 stale/unchecked, 0% priced
-- TX: 222 stale/unchecked, 0% priced
+- TX: 223 stale/unchecked, 0% priced
 - NY: 123 stale/unchecked, 0.81% priced
 - PA: 110 stale/unchecked, 0% priced
 - NJ: 107 stale/unchecked, 0% priced
@@ -36,7 +36,7 @@ Generated: 2026-06-06T12:52:57.353Z
 
 - Grow repeated observations: 1 of 3104 US stations has usable price history. A station becomes usable after at least 3 recent price observations.
 - Keep fresh data visible: 1 station has a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current.
-- Prioritize slow Tesla pages: 3101 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
+- Prioritize slow Tesla pages: 3103 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
 - Add local power context state by state: New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear.
 
 ## Automation
