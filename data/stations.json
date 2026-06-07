@@ -43673,12 +43673,12 @@
     "lat": 40.862269,
     "lng": -73.129075,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-06-07T19:45:32.060Z",
+    "lastScrapedAt": "2026-06-07T22:17:18.433Z",
     "lastScrapeHadPrice": true,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 18,
     "lastLowPriceId": null,
-    "observationPriorityScore": 157.68,
+    "observationPriorityScore": 140.24,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -43732,7 +43732,7 @@
       "directionsHint": "Find a Collision Center Find a Certified Installer Company About Careers Investor Relations Charging Vehicle Accessories Apparel Lifestyle N",
       "pageTextLength": 71696,
       "publicDetailsFound": true,
-      "lastCheckedAt": "2026-06-07T19:45:32.060Z",
+      "lastCheckedAt": "2026-06-07T22:17:18.433Z",
       "scrapeResult": "price_found"
     }
   },
