@@ -43673,12 +43673,12 @@
     "lat": 40.862269,
     "lng": -73.129075,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-06-07T16:44:07.740Z",
-    "lastScrapeHadPrice": false,
+    "lastScrapedAt": "2026-06-07T19:45:32.060Z",
+    "lastScrapeHadPrice": true,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 18,
     "lastLowPriceId": null,
-    "observationPriorityScore": 219.68,
+    "observationPriorityScore": 157.68,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -43688,28 +43688,17 @@
       },
       "power": 250
     },
-    "lastScrapeAttemptCount": 2,
-    "lastScrapeResult": "no_usable_candidate",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeResult": "price_found",
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger",
         "reason": "stored_tesla_url",
         "status": 200,
         "contentSignal": "not_found",
-        "hasPrice": false,
+        "hasPrice": true,
         "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 404,
-        "contentSignal": "not_found",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
+        "priceCandidateCount": 18,
         "publicDetailsFound": true,
         "error": null
       }
@@ -43741,12 +43730,11 @@
       ],
       "accessHint": "Available 24/7",
       "directionsHint": "Find a Collision Center Find a Certified Installer Company About Careers Investor Relations Charging Vehicle Accessories Apparel Lifestyle N",
-      "pageTextLength": 71691,
+      "pageTextLength": 71696,
       "publicDetailsFound": true,
-      "lastCheckedAt": "2026-06-07T14:19:12.572Z",
+      "lastCheckedAt": "2026-06-07T19:45:32.060Z",
       "scrapeResult": "price_found"
-    },
-    "lastScrapeError": "No usable Tesla location candidate"
+    }
   },
   {
     "id": "27309",
