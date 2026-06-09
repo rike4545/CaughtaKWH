@@ -2495,5 +2495,97 @@
     "currency": "USD",
     "source": "tesla_public_findus_location_page",
     "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger"
+  },
+  {
+    "stationId": "LakeGroveNYsupercharger",
+    "capturedAt": "2026-06-09T20:21:18.149Z",
+    "localDate": "2026-06-09",
+    "localHour": 20,
+    "localMinute": 21,
+    "halfHourSlot": 40,
+    "memberPricePerKwh": 0.43,
+    "nonMemberPricePerKwh": 0.65,
+    "congestionFeePerMinuteMax": 0.5,
+    "lowestObservedPricePerKwh": 0.43,
+    "lowPriceId": null,
+    "priceExtractionVersion": "tesla-public-v3-site-diagnostics",
+    "priceCandidateCount": 20,
+    "priceEvidence": {
+      "member": {
+        "value": 0.43,
+        "label": "Pricing for Tesla & Members",
+        "evidence": "Pricing for Tesla & Members $0.43/kWh Congestion fees (up to) $0.50/min Pricing for Non-Tesla $0.65/kWh Congestion fees (up to) $0.50/min A Supercharging Membership allows EV owners to Supercharge at the same price as Tesla vehicle owners when using the Tesla app. If you are a Tesla vehicle owner, y",
+        "lowPriceId": null
+      },
+      "nonMember": {
+        "value": 0.65,
+        "label": "Pricing for Non-Tesla",
+        "evidence": "Pricing for Non-Tesla $0.65/kWh Congestion fees (up to) $0.50/min A Supercharging Membership allows EV owners to Supercharge at the same price as Tesla vehicle owners when using the Tesla app. If you are a Tesla vehicle owner, you do not need a Supercharging Membership. Learn More Roadside Assistanc",
+        "lowPriceId": null
+      },
+      "congestion": {
+        "value": 0.5,
+        "label": "Congestion fees",
+        "evidence": "Congestion fees (up to) $0.50/min Pricing for Non-Tesla $0.65/kWh Congestion fees (up to) $0.50/min A Supercharging Membership allows EV owners to Supercharge at the same price as Tesla vehicle owners when using the Tesla app. If you are a Tesla vehicle owner, you do not need a Supercharging Members",
+        "lowPriceId": null
+      },
+      "candidates": [
+        {
+          "price": 0.43,
+          "index": 298,
+          "evidence": " Haven Mall NACS adapter needed for non-Tesla EVs 313 Smith Haven Mall Lake Grove, NY 11755 8 Superchargers Up to 250kW max Access Hours Available 24/7 Pricing for Tesla & Members $0.43/kWh Congestion fees (up to) $0.50/min Pricing for Non-Tesla $0.65/kWh Congestion fees (up to) $0.50/min A Supercharging Membership allows EV owners to Supercharge at the same price as Tesla vehicle owners when using the Tesla app. If you are a Tesla vehicle owner, you do not need a Superchargi",
+          "lowPriceId": null
+        },
+        {
+          "price": 0.65,
+          "index": 364,
+          "evidence": "Mall Lake Grove, NY 11755 8 Superchargers Up to 250kW max Access Hours Available 24/7 Pricing for Tesla & Members $0.43/kWh Congestion fees (up to) $0.50/min Pricing for Non-Tesla $0.65/kWh Congestion fees (up to) $0.50/min A Supercharging Membership allows EV owners to Supercharge at the same price as Tesla vehicle owners when using the Tesla app. If you are a Tesla vehicle owner, you do not need a Supercharging Membership. Learn More Roadside Assistance (877) 798-3752 NACS ",
+          "lowPriceId": null
+        },
+        {
+          "price": 0.43,
+          "index": 11629,
+          "evidence": ":\" (877) 798-3752\",\"chargerPricing\":[{\"chargingLabel\":\"Charging Fees for Tesla Owner\",\"idleFee\":null,\"idleLabel\":\"Idle fees (up to)\",\"pricingDetails\":[{\"label\":\"Base Rate\",\"rate\":\"$0.43/kWh\"}]},{\"chargingLabel\":\"Charging Fees for All EVs\",\"idleFee\":null,\"idleLabel\":\"Idle fees (up to)\",\"pricingDetails\":[{\"label\":\"Base Rate\",\"rate\":\"$0.65/kWh\"}]}],\"chargerQuantity\":8,\"chargerHistogramData\":[{\"chargingLabel\":\"Pricing for Tesla & Members\",\"data\":{\"labels\":[\"4AM\",\"5AM\",\"6AM\",\"7AM\"",
+          "lowPriceId": null
+        },
+        {
+          "price": 0.65,
+          "index": 11782,
+          "evidence": "label\":\"Base Rate\",\"rate\":\"$0.43/kWh\"}]},{\"chargingLabel\":\"Charging Fees for All EVs\",\"idleFee\":null,\"idleLabel\":\"Idle fees (up to)\",\"pricingDetails\":[{\"label\":\"Base Rate\",\"rate\":\"$0.65/kWh\"}]}],\"chargerQuantity\":8,\"chargerHistogramData\":[{\"chargingLabel\":\"Pricing for Tesla & Members\",\"data\":{\"labels\":[\"4AM\",\"5AM\",\"6AM\",\"7AM\",\"8AM\",\"9AM\",\"10AM\",\"11AM\",\"12PM\",\"1PM\",\"2PM\",\"3PM\",\"4PM\",\"5PM\",\"6PM\",\"7PM\",\"8PM\",\"9PM\",\"10PM\",\"11PM\",\"12AM\",\"1AM\",\"2AM\",\"3AM\"],\"datasets\":[{\"label\":\"Con",
+          "lowPriceId": null
+        },
+        {
+          "price": 0.43,
+          "index": 12682,
+          "evidence": "92200690616567,0.06285678182491741,0.045973908988573384,0.025307254655158953]}]},\"busyTimes\":null,\"idleFees\":\"\",\"congestionFees\":\"Congestion fees (up to) $0.50/min\",\"currentRate\":\"$0.43/kWh\",\"activeBar\":16,\"axisLabels\":[{\"index\":0,\"value\":\"4a\"},{\"index\":7,\"value\":\"11a\"},{\"index\":17,\"value\":\"9p\"},{\"index\":24,\"value\":\"4a\"}],\"chargingUom\":\"kwh\",\"maxRateIndex\":1,\"parkingRate\":{\"currencyCode\":\"USD\",\"price\":0},\"parkingUom\":\"min\",\"regionLabels\":[{\"index\":0.25,\"value\":{\"currencyCode\"",
+          "lowPriceId": null
+        },
+        {
+          "price": 0.65,
+          "index": 14057,
+          "evidence": "92200690616567,0.06285678182491741,0.045973908988573384,0.025307254655158953]}]},\"busyTimes\":null,\"idleFees\":\"\",\"congestionFees\":\"Congestion fees (up to) $0.50/min\",\"currentRate\":\"$0.65/kWh\",\"activeBar\":16,\"axisLabels\":[{\"index\":0,\"value\":\"4a\"},{\"index\":4,\"value\":\"8a\"},{\"index\":8,\"value\":\"12p\"},{\"index\":12,\"value\":\"4p\"},{\"index\":16,\"value\":\"8p\"},{\"index\":20,\"value\":\"12a\"},{\"index\":24,\"value\":\"4a\"}],\"chargingUom\":\"kwh\",\"parkingRate\":{\"currencyCode\":\"USD\",\"price\":0},\"parkingUom",
+          "lowPriceId": null
+        },
+        {
+          "price": 0.43,
+          "index": 67245,
+          "evidence": " Haven Mall NACS adapter needed for non-Tesla EVs 313 Smith Haven Mall Lake Grove, NY 11755 8 Superchargers Up to 250kW max Access Hours Available 24/7 Pricing for Tesla & Members $0.43/kWh Congestion fees (up to) $0.50/min Pricing for Non-Tesla $0.65/kWh Congestion fees (up to) $0.50/min A Supercharging Membership allows EV owners to Supercharge at the same price as Tesla vehicle owners when using the Tesla app. If you are a Tesla vehicle owner, you do not need a Superchargi",
+          "lowPriceId": null
+        },
+        {
+          "price": 0.65,
+          "index": 67311,
+          "evidence": "Mall Lake Grove, NY 11755 8 Superchargers Up to 250kW max Access Hours Available 24/7 Pricing for Tesla & Members $0.43/kWh Congestion fees (up to) $0.50/min Pricing for Non-Tesla $0.65/kWh Congestion fees (up to) $0.50/min A Supercharging Membership allows EV owners to Supercharge at the same price as Tesla vehicle owners when using the Tesla app. If you are a Tesla vehicle owner, you do not need a Supercharging Membership. Learn More Roadside Assistance (877) 798-3752 NACS ",
+          "lowPriceId": null
+        }
+      ]
+    },
+    "availableStalls": null,
+    "totalStalls": 8,
+    "utilizationPct": null,
+    "availabilityLabel": null,
+    "currency": "USD",
+    "source": "tesla_public_findus_location_page",
+    "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger"
   }
 ]
