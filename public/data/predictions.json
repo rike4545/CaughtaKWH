@@ -1,28 +1,28 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-10T11:48:20.016Z",
+    "generatedAt": "2026-06-10T16:06:43.366Z",
     "membershipType": "member",
-    "latestObservedAt": "2026-06-10T10:22:45.695Z",
+    "latestObservedAt": "2026-06-10T16:06:26.993Z",
     "latestObservedPrice": 0.43,
-    "latestObservationAgeHours": 1.43,
-    "freshnessLabel": "recent: observed within 2 hours",
+    "latestObservationAgeHours": 0,
+    "freshnessLabel": "fresh: observed within 30 minutes",
     "bestHour": 22,
     "bestMinute": 30,
     "bestSlot": 45,
     "expectedPrice": 0.3,
-    "averageObservedPrice": 0.3731,
+    "averageObservedPrice": 0.3748,
     "medianObservedPrice": 0.43,
     "minObservedPrice": 0.3,
     "maxObservedPrice": 0.43,
-    "volatility": 0.0655,
+    "volatility": 0.0652,
     "ci95Low": 0.3,
     "ci95High": 0.3,
-    "sampleCount": 32,
+    "sampleCount": 33,
     "bestSlotSampleCount": 3,
-    "confidenceScore": 69,
-    "confidenceLabel": "medium",
-    "confidenceSummary": "medium confidence · 32 observations · recent: observed within 2 hours",
+    "confidenceScore": 78,
+    "confidenceLabel": "high",
+    "confidenceSummary": "high confidence · 33 observations · fresh: observed within 30 minutes",
     "pricingStatus": "recent observation",
     "utilizationImpact": {
       "sampleCount": 0,
@@ -52,7 +52,7 @@
       ]
     },
     "congestion": {
-      "sampleCount": 32,
+      "sampleCount": 33,
       "maxFeePerMinute": 0.5,
       "averageFeePerMinute": 0.5
     },
@@ -103,8 +103,8 @@
         "minute": 30,
         "label": "08:30",
         "expectedPrice": 0.3,
-        "ci95Low": 0.1716,
-        "ci95High": 0.4284,
+        "ci95Low": 0.1721,
+        "ci95High": 0.4279,
         "sampleCount": 1
       },
       {
@@ -113,8 +113,8 @@
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.3,
-        "ci95Low": 0.1716,
-        "ci95High": 0.4284,
+        "ci95Low": 0.1721,
+        "ci95High": 0.4279,
         "sampleCount": 1
       },
       {
@@ -123,8 +123,8 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.3,
-        "ci95Low": 0.1716,
-        "ci95High": 0.4284,
+        "ci95Low": 0.1721,
+        "ci95High": 0.4279,
         "sampleCount": 1
       },
       {
@@ -168,6 +168,16 @@
         "sampleCount": 2
       },
       {
+        "slot": 32,
+        "hour": 16,
+        "minute": 0,
+        "label": "16:00",
+        "expectedPrice": 0.43,
+        "ci95Low": 0.43,
+        "ci95High": 0.43,
+        "sampleCount": 2
+      },
+      {
         "slot": 39,
         "hour": 19,
         "minute": 30,
@@ -183,8 +193,8 @@
         "minute": 30,
         "label": "16:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -193,8 +203,8 @@
         "minute": 0,
         "label": "07:00",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -203,8 +213,8 @@
         "minute": 30,
         "label": "15:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -213,18 +223,8 @@
         "minute": 30,
         "label": "10:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
-        "sampleCount": 1
-      },
-      {
-        "slot": 32,
-        "hour": 16,
-        "minute": 0,
-        "label": "16:00",
-        "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -233,8 +233,8 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       }
     ],
@@ -285,8 +285,8 @@
         "minute": 30,
         "label": "08:30",
         "expectedPrice": 0.3,
-        "ci95Low": 0.1716,
-        "ci95High": 0.4284,
+        "ci95Low": 0.1721,
+        "ci95High": 0.4279,
         "sampleCount": 1
       },
       {
@@ -295,8 +295,8 @@
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.3,
-        "ci95Low": 0.1716,
-        "ci95High": 0.4284,
+        "ci95Low": 0.1721,
+        "ci95High": 0.4279,
         "sampleCount": 1
       },
       {
@@ -305,8 +305,8 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.3,
-        "ci95Low": 0.1716,
-        "ci95High": 0.4284,
+        "ci95Low": 0.1721,
+        "ci95High": 0.4279,
         "sampleCount": 1
       },
       {
@@ -350,6 +350,16 @@
         "sampleCount": 2
       },
       {
+        "slot": 32,
+        "hour": 16,
+        "minute": 0,
+        "label": "16:00",
+        "expectedPrice": 0.43,
+        "ci95Low": 0.43,
+        "ci95High": 0.43,
+        "sampleCount": 2
+      },
+      {
         "slot": 39,
         "hour": 19,
         "minute": 30,
@@ -365,8 +375,8 @@
         "minute": 30,
         "label": "16:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -375,8 +385,8 @@
         "minute": 0,
         "label": "07:00",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -385,8 +395,8 @@
         "minute": 30,
         "label": "15:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -395,18 +405,8 @@
         "minute": 30,
         "label": "10:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
-        "sampleCount": 1
-      },
-      {
-        "slot": 32,
-        "hour": 16,
-        "minute": 0,
-        "label": "16:00",
-        "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       },
       {
@@ -415,36 +415,36 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.43,
-        "ci95Low": 0.3016,
-        "ci95High": 0.5584,
+        "ci95Low": 0.3021,
+        "ci95High": 0.5579,
         "sampleCount": 1
       }
     ]
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-10T11:48:20.017Z",
+    "generatedAt": "2026-06-10T16:06:43.366Z",
     "membershipType": "non_member",
-    "latestObservedAt": "2026-06-10T10:22:45.695Z",
-    "latestObservedPrice": 0.65,
-    "latestObservationAgeHours": 1.43,
-    "freshnessLabel": "recent: observed within 2 hours",
-    "bestHour": 16,
-    "bestMinute": 30,
-    "bestSlot": 33,
+    "latestObservedAt": "2026-06-10T16:06:26.993Z",
+    "latestObservedPrice": 0.43,
+    "latestObservationAgeHours": 0,
+    "freshnessLabel": "fresh: observed within 30 minutes",
+    "bestHour": 20,
+    "bestMinute": 0,
+    "bestSlot": 40,
     "expectedPrice": 0.65,
-    "averageObservedPrice": 0.65,
+    "averageObservedPrice": 0.6433,
     "medianObservedPrice": 0.65,
-    "minObservedPrice": 0.65,
+    "minObservedPrice": 0.43,
     "maxObservedPrice": 0.65,
-    "volatility": 0,
+    "volatility": 0.0383,
     "ci95Low": 0.65,
     "ci95High": 0.65,
-    "sampleCount": 32,
-    "bestSlotSampleCount": 1,
+    "sampleCount": 33,
+    "bestSlotSampleCount": 3,
     "confidenceScore": 86,
     "confidenceLabel": "high",
-    "confidenceSummary": "high confidence · 32 observations · recent: observed within 2 hours",
+    "confidenceSummary": "high confidence · 33 observations · fresh: observed within 30 minutes",
     "pricingStatus": "recent observation",
     "utilizationImpact": {
       "sampleCount": 0,
@@ -474,42 +474,12 @@
       ]
     },
     "congestion": {
-      "sampleCount": 32,
+      "sampleCount": 33,
       "maxFeePerMinute": 0.5,
       "averageFeePerMinute": 0.5
     },
     "slots": [
       {
-        "slot": 33,
-        "hour": 16,
-        "minute": 30,
-        "label": "16:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
-        "slot": 14,
-        "hour": 7,
-        "minute": 0,
-        "label": "07:00",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
-        "slot": 31,
-        "hour": 15,
-        "minute": 30,
-        "label": "15:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
         "slot": 40,
         "hour": 20,
         "minute": 0,
@@ -580,26 +550,6 @@
         "sampleCount": 2
       },
       {
-        "slot": 17,
-        "hour": 8,
-        "minute": 30,
-        "label": "08:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
-        "slot": 21,
-        "hour": 10,
-        "minute": 30,
-        "label": "10:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
         "slot": 28,
         "hour": 14,
         "minute": 0,
@@ -608,16 +558,6 @@
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
-      },
-      {
-        "slot": 32,
-        "hour": 16,
-        "minute": 0,
-        "label": "16:00",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
       },
       {
         "slot": 39,
@@ -630,13 +570,63 @@
         "sampleCount": 2
       },
       {
+        "slot": 33,
+        "hour": 16,
+        "minute": 30,
+        "label": "16:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 14,
+        "hour": 7,
+        "minute": 0,
+        "label": "07:00",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 31,
+        "hour": 15,
+        "minute": 30,
+        "label": "15:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 17,
+        "hour": 8,
+        "minute": 30,
+        "label": "08:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 21,
+        "hour": 10,
+        "minute": 30,
+        "label": "10:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
         "slot": 19,
         "hour": 9,
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
         "sampleCount": 1
       },
       {
@@ -645,8 +635,8 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
         "sampleCount": 1
       },
       {
@@ -655,43 +645,23 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
         "sampleCount": 1
+      },
+      {
+        "slot": 32,
+        "hour": 16,
+        "minute": 0,
+        "label": "16:00",
+        "expectedPrice": 0.54,
+        "ci95Low": 0.3244,
+        "ci95High": 0.7556,
+        "sampleCount": 2
       }
     ],
     "hourly": [
       {
-        "slot": 33,
-        "hour": 16,
-        "minute": 30,
-        "label": "16:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
-        "slot": 14,
-        "hour": 7,
-        "minute": 0,
-        "label": "07:00",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
-        "slot": 31,
-        "hour": 15,
-        "minute": 30,
-        "label": "15:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
         "slot": 40,
         "hour": 20,
         "minute": 0,
@@ -762,26 +732,6 @@
         "sampleCount": 2
       },
       {
-        "slot": 17,
-        "hour": 8,
-        "minute": 30,
-        "label": "08:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
-        "slot": 21,
-        "hour": 10,
-        "minute": 30,
-        "label": "10:30",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
-      },
-      {
         "slot": 28,
         "hour": 14,
         "minute": 0,
@@ -790,16 +740,6 @@
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
-      },
-      {
-        "slot": 32,
-        "hour": 16,
-        "minute": 0,
-        "label": "16:00",
-        "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
-        "sampleCount": 1
       },
       {
         "slot": 39,
@@ -812,13 +752,63 @@
         "sampleCount": 2
       },
       {
+        "slot": 33,
+        "hour": 16,
+        "minute": 30,
+        "label": "16:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 14,
+        "hour": 7,
+        "minute": 0,
+        "label": "07:00",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 31,
+        "hour": 15,
+        "minute": 30,
+        "label": "15:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 17,
+        "hour": 8,
+        "minute": 30,
+        "label": "08:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
+        "slot": 21,
+        "hour": 10,
+        "minute": 30,
+        "label": "10:30",
+        "expectedPrice": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
+        "sampleCount": 1
+      },
+      {
         "slot": 19,
         "hour": 9,
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
         "sampleCount": 1
       },
       {
@@ -827,8 +817,8 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
         "sampleCount": 1
       },
       {
@@ -837,9 +827,19 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.65,
-        "ci95Low": 0.65,
-        "ci95High": 0.65,
+        "ci95Low": 0.5749,
+        "ci95High": 0.7251,
         "sampleCount": 1
+      },
+      {
+        "slot": 32,
+        "hour": 16,
+        "minute": 0,
+        "label": "16:00",
+        "expectedPrice": 0.54,
+        "ci95Low": 0.3244,
+        "ci95High": 0.7556,
+        "sampleCount": 2
       }
     ]
   }
