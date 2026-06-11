@@ -43673,12 +43673,12 @@
     "lat": 40.862269,
     "lng": -73.129075,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-06-10T22:57:31.331Z",
+    "lastScrapedAt": "2026-06-11T04:58:27.198Z",
     "lastScrapeHadPrice": true,
     "lastScrapeHadAvailability": false,
-    "lastPriceCandidateCount": 20,
+    "lastPriceCandidateCount": 21,
     "lastLowPriceId": null,
-    "observationPriorityScore": 138.33,
+    "observationPriorityScore": 161.18,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -43698,7 +43698,7 @@
         "contentSignal": "not_found",
         "hasPrice": true,
         "hasAvailability": false,
-        "priceCandidateCount": 20,
+        "priceCandidateCount": 21,
         "publicDetailsFound": true,
         "error": null
       }
@@ -43730,9 +43730,9 @@
       ],
       "accessHint": "Available 24/7",
       "directionsHint": "Find a Collision Center Find a Certified Installer Company About Careers Investor Relations Charging Vehicle Accessories Apparel Lifestyle N",
-      "pageTextLength": 71751,
+      "pageTextLength": 71735,
       "publicDetailsFound": true,
-      "lastCheckedAt": "2026-06-10T22:57:31.331Z",
+      "lastCheckedAt": "2026-06-11T04:58:27.198Z",
       "scrapeResult": "price_found"
     }
   },
