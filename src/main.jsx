@@ -13,6 +13,63 @@ const signedCents = value => typeof value === 'number' ? `${value >= 0 ? '+' : '
 const shortDate = iso => iso ? new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
 const distance = miles => typeof miles === 'number' ? `${miles.toFixed(miles < 10 ? 1 : 0)} mi` : '';
 const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
+
+const EV_PRICE_LAWS = [
+  {
+    state: "Federal / NEVI",
+    status: "enacted",
+    requirement: "Price must be displayed prior to initiating a session in $/kWh. Real-time price must be shown and cannot change mid-session. All additional fees must be clearly disclosed. Price data must be available via open API to third parties.",
+    scope: "NEVI-funded DC fast chargers only",
+    authority: "Federal Highway Administration (FHWA) / U.S. DOT",
+    effectiveDate: "March 30, 2023",
+    citation: "23 CFR §§ 680.106, 680.116",
+  },
+  {
+    state: "CA",
+    status: "enacted",
+    requirement: "Two overlapping requirements: (1) CARB requires disclosure at point of sale of all fees and the price in $/kWh before the session starts; (2) CDFA weights-and-measures rule requires all commercial EVSE to display unit price in $/kWh. Billing by the minute is prohibited — pricing must be energy-based.",
+    scope: "All publicly available commercial chargers (L2 and DCFC)",
+    authority: "California Air Resources Board (CARB); CA Dept. of Food & Agriculture (CDFA)",
+    effectiveDate: "2022 (DCFC), 2023 (L2)",
+    citation: "Cal. Code Regs. tit. 13, § 2360.1; tit. 4, § 4002.11",
+  },
+  {
+    state: "WA",
+    status: "enacted",
+    requirement: "EV service providers must clearly disclose all charges, fees, and costs at the point of sale prior to initiating a session, including parking fees, price in $/kWh, and variable pricing terms. Free charging must also be disclosed before the session begins.",
+    scope: "All publicly available EVSE (L2 and DCFC)",
+    authority: "Washington State Dept. of Agriculture (WSDA) — Weights & Measures",
+    effectiveDate: "January 1, 2023",
+    citation: "RCW 19.94.560 (SB 5192, 2021)",
+  },
+  {
+    state: "TX",
+    status: "enacted",
+    requirement: "Providers must display on the charger: the method for calculating the fee, the current rate, and applicable surcharges. Itemized receipts available on request. TDLR administers registration, inspections, and consumer complaints.",
+    scope: "All publicly available EVSE",
+    authority: "Texas Dept. of Licensing and Regulation (TDLR)",
+    effectiveDate: "June 18, 2023 (statute); Dec 1, 2024 (TDLR rules)",
+    citation: "Texas Occ. Code §§ 2311.0206, 2311.0303–2311.0306 (SB 1001, 2023)",
+  },
+  {
+    state: "GA",
+    status: "enacted",
+    requirement: "All public EV charging stations must accurately measure and display electricity dispensed on a per-kWh basis. The Dept. of Revenue conducts inspections. Violations subject to fines up to $1,000. Compliance deadline was extended to 2027.",
+    scope: "All public EV charging stations (L2 and DCFC)",
+    authority: "Georgia Dept. of Revenue",
+    effectiveDate: "January 1, 2027 (compliance deadline)",
+    citation: "Georgia Code § 10-1-222 (SB 146, 2023; extended by HB 516, 2024)",
+  },
+  {
+    state: "MN",
+    status: "enacted",
+    requirement: "Retail EV chargers must display: price per kWh in whole or tenths of a cent (or indicate free); terms for variable pricing; charger power level; type of energy transfer; and any additional fees. Mirrors a weights-and-measures retail labeling approach.",
+    scope: "All retail (commercial public) chargers where electricity is sold as vehicle fuel",
+    authority: "Minnesota Dept. of Commerce — Weights & Measures",
+    effectiveDate: "June 14, 2025",
+    citation: "Minn. Stat. § 296A.073 (2025 Legislature, 1st Special Session)",
+  },
+];
 const wrapSlot = slot => (slot + 48) % 48;
 const ageText = hours => typeof hours === 'number' ? hours < 1 ? `${Math.round(hours * 60)} min old` : `${hours.toFixed(hours < 10 ? 1 : 0)} hr old` : 'No public price yet';
 const percent = value => typeof value === 'number' ? `${Math.round(value * 100)}%` : '—';
@@ -509,6 +566,27 @@ function App() {
           <div><strong>Regulators are catching up</strong><p>The 2021 Bipartisan Infrastructure Law required NEVI-funded stations to display pricing on-screen. Tesla accepted NEVI funding for select corridors, creating a partial but uneven disclosure obligation.</p></div>
           <div><strong>Utilities must disclose; chargers should too</strong><p>Your home electricity rate is a published tariff. Commercial and industrial rates are filed with state regulators. The energy sold at a Supercharger is the same commodity — the disclosure standard should match.</p></div>
         </div>
+      </Card>
+
+      <Card>
+        <div className="sectionTitle"><div><p>State &amp; federal law</p><h2>Where EV price disclosure is legally required</h2></div><a href="https://afdc.energy.gov/laws/12511" target="_blank" rel="noreferrer" className="badge">AFDC source</a></div>
+        <p className="muted">A growing number of states require EV charging stations to display prices before a session starts — similar to how gas pumps are required to post pump prices. Federal NEVI rules set a baseline for federally funded stations; some states go further.</p>
+        <div className="lawGrid">
+          {EV_PRICE_LAWS.map(law => <div key={law.state} className={`lawCard ${law.status}`}>
+            <div className="lawCardHead">
+              <span className="lawState">{law.state}</span>
+              <span className={`lawStatus ${law.status}`}>{law.status === 'enacted' ? 'Enacted' : law.status === 'pending' ? 'Pending' : law.status}</span>
+            </div>
+            <p className="lawReq">{law.requirement}</p>
+            <div className="lawMeta">
+              <span><strong>Scope</strong> {law.scope}</span>
+              <span><strong>Authority</strong> {law.authority}</span>
+              <span><strong>Effective</strong> {law.effectiveDate}</span>
+              {law.citation && <span><strong>Citation</strong> <em>{law.citation}</em></span>}
+            </div>
+          </div>)}
+        </div>
+        <p className="muted compactNote">States not listed have no confirmed EV-charging-specific price disclosure mandate. General consumer protection laws may apply but are not included here. Data reflects laws as of June 2026 — check your state legislature for updates.</p>
       </Card>
     </section>}
 

@@ -187,6 +187,20 @@ p { color: var(--muted); line-height: 1.55; }
 .crowdsourceContext ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
 .crowdsourceContext li { color: var(--muted); font-size: 13px; }
 .compactNote { font-size: 12px; margin-top: 0; }
+.lawGrid { display: grid; gap: 12px; margin-top: 16px; }
+.lawCard { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+.lawCard.enacted { border-color: rgba(83,224,163,.25); }
+.lawCard.pending { border-color: rgba(255,209,102,.25); }
+.lawCardHead { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.lawState { font-size: 16px; font-weight: 800; color: var(--text); }
+.lawStatus { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; }
+.lawStatus.enacted { background: rgba(83,224,163,.15); color: var(--accent); }
+.lawStatus.pending { background: rgba(255,209,102,.15); color: var(--warning); }
+.lawReq { margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: var(--text); }
+.lawMeta { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+.lawMeta span { font-size: 12px; color: var(--muted); }
+.lawMeta strong { color: var(--text); margin-right: 4px; }
+.lawMeta em { font-style: normal; color: var(--muted); }
 .policyPoints { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
 .policyPoints > div { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
 .policyPoints strong { display: block; margin-bottom: 6px; }
