@@ -287,6 +287,25 @@ function App() {
     setManualCheck({ status: 'idle' });
   }, [selected?.id]);
 
+  // Sync URL hash and page title with selected station.
+  useEffect(() => {
+    if (selected) {
+      const hash = `#${selected.id}`;
+      if (window.location.hash !== hash) window.history.replaceState(null, '', hash);
+      document.title = `${selected.name || selected.city || selected.id} · CaughtaKWH`;
+    } else {
+      if (window.location.hash) window.history.replaceState(null, '', window.location.pathname);
+      document.title = 'CaughtaKWH';
+    }
+  }, [selected?.id]);
+
+  // On first load, restore selected station from URL hash.
+  useEffect(() => {
+    if (!stations.length || selectedId) return;
+    const hash = window.location.hash.slice(1);
+    if (hash && stations.some(s => s.id === hash)) setSelectedId(hash);
+  }, [stations.length]);
+
   const states = useMemo(() => ['All', ...Array.from(new Set(stations.map(station => station.state).filter(Boolean))).sort()], [stations]);
   const nearbyLimit = originMode === 'near-me' ? 5 : originMode === 'zip' ? 25 : 0;
   const nearbyList = useMemo(() => origin ? nearestStations(stations, origin, nearbyLimit || 25) : [], [stations, origin, nearbyLimit]);
