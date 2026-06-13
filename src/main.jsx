@@ -69,6 +69,42 @@ const EV_PRICE_LAWS = [
     effectiveDate: "June 14, 2025",
     citation: "Minn. Stat. § 296A.073 (2025 Legislature, 1st Special Session)",
   },
+  {
+    state: "NY",
+    status: "pending",
+    requirement: "Requires publicly available EV charging stations that received state funding, grants, tax benefits, or ratepayer support to clearly post the total price at the point of sale before a session starts. Prohibits requiring a mobile device as the sole payment method and barring access without a subscription. DPS must finalize rules by June 1, 2027; compliance required for stations constructed or upgraded after January 1, 2028.",
+    scope: "Publicly available chargers that received any state funding, grants, tax benefits, rebates, or ratepayer support",
+    authority: "NY Dept. of Public Service (DPS) / Public Service Commission",
+    effectiveDate: "Awaiting Governor signature (passed both chambers June 2, 2026); compliance Jan 1, 2028",
+    citation: "S7260A / A7633 (2025-2026 session), proposing Public Service Law § 66-x",
+  },
+  {
+    state: "MA",
+    status: "pending",
+    requirement: "Requires the Division of Standards to promulgate regulations setting minimum requirements for the communication and display of pricing information at public EV charging stations. Separately requires real-time data sharing including price by port. Law is enacted; implementing regulations are still being drafted.",
+    scope: "Public EV charging stations (residential properties with 4 or fewer units excluded)",
+    authority: "Massachusetts Division of Standards; Executive Office of Energy and Environmental Affairs (EOEEA)",
+    effectiveDate: "Law signed Nov 21, 2024; implementing regulations pending as of June 2026",
+    citation: "St. 2024, c. 239 (An Act Promoting a Clean Energy Grid), §§ 31, 42 (amending M.G.L. cc. 25B, 98)",
+  },
+  {
+    state: "NJ",
+    status: "none",
+    requirement: "No confirmed EV-charging-specific price disclosure law. Secondary sources reference a proposed 'Electric Vehicle Charging Public Disclosure Act' but no enacted statute citation could be verified in official legislative records as of June 2026.",
+    scope: "",
+    authority: "",
+    effectiveDate: "",
+    citation: "",
+  },
+  {
+    state: "CT",
+    status: "none",
+    requirement: "No confirmed enacted law or PURA regulation requiring consumer-facing price display at public EV chargers. PURA's EV Charging Program governs utility incentive programs and rate design but does not mandate point-of-sale price disclosure at third-party public stations.",
+    scope: "",
+    authority: "",
+    effectiveDate: "",
+    citation: "",
+  },
 ];
 const wrapSlot = slot => (slot + 48) % 48;
 const ageText = hours => typeof hours === 'number' ? hours < 1 ? `${Math.round(hours * 60)} min old` : `${hours.toFixed(hours < 10 ? 1 : 0)} hr old` : 'No public price yet';
@@ -575,15 +611,15 @@ function App() {
           {EV_PRICE_LAWS.map(law => <div key={law.state} className={`lawCard ${law.status}`}>
             <div className="lawCardHead">
               <span className="lawState">{law.state}</span>
-              <span className={`lawStatus ${law.status}`}>{law.status === 'enacted' ? 'Enacted' : law.status === 'pending' ? 'Pending' : law.status}</span>
+              <span className={`lawStatus ${law.status}`}>{law.status === 'enacted' ? 'Enacted' : law.status === 'pending' ? 'Pending regs' : 'No law yet'}</span>
             </div>
             <p className="lawReq">{law.requirement}</p>
-            <div className="lawMeta">
-              <span><strong>Scope</strong> {law.scope}</span>
-              <span><strong>Authority</strong> {law.authority}</span>
-              <span><strong>Effective</strong> {law.effectiveDate}</span>
+            {law.status !== 'none' && <div className="lawMeta">
+              {law.scope && <span><strong>Scope</strong> {law.scope}</span>}
+              {law.authority && <span><strong>Authority</strong> {law.authority}</span>}
+              {law.effectiveDate && <span><strong>Effective</strong> {law.effectiveDate}</span>}
               {law.citation && <span><strong>Citation</strong> <em>{law.citation}</em></span>}
-            </div>
+            </div>}
           </div>)}
         </div>
         <p className="muted compactNote">States not listed have no confirmed EV-charging-specific price disclosure mandate. General consumer protection laws may apply but are not included here. Data reflects laws as of June 2026 — check your state legislature for updates.</p>
