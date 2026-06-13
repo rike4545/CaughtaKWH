@@ -255,6 +255,11 @@ function PriceTruthNotice({ selected, prediction }) {
   </div>;
 }
 
+const isTesla = /Tesla\//.test(navigator.userAgent);
+const isMobile = !isTesla && navigator.maxTouchPoints > 0
+  && window.matchMedia('(pointer: coarse)').matches
+  && window.screen.width < 1024;
+
 function App() {
   const { data: stations, fetchedAt: stationsFetchedAt } = useJson('./data/stations.json', []);
   const { data: predictions, fetchedAt: predictionsFetchedAt } = useJson('./data/predictions.json', []);
@@ -270,6 +275,7 @@ function App() {
   const [geoLoading, setGeoLoading] = useState(false);
   const [activeView, setActiveView] = useState('chargers');
   const [manualCheck, setManualCheck] = useState({ status: 'idle' });
+  const [autoLocateDone, setAutoLocateDone] = useState(false);
 
   const selected = stations.find(station => station.id === selectedId) ?? null;
   const { data: history } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
@@ -292,6 +298,23 @@ function App() {
   }, [stations, query, stateFilter]);
   const hasFilter = query.trim() || stateFilter !== 'All';
   const list = origin ? nearbyList : hasFilter ? filtered : [];
+
+  // Auto-geolocate on load for Tesla browser and mobile — skip the search step entirely.
+  useEffect(() => {
+    if (autoLocateDone || !stations.length) return;
+    if (!isTesla && !isMobile) return;
+    setAutoLocateDone(true);
+    if (!navigator.geolocation) return;
+    setGeoLoading(true);
+    navigator.geolocation.getCurrentPosition(position => {
+      const found = { zip: 'current location', city: 'Your location', state: '', lat: position.coords.latitude, lng: position.coords.longitude };
+      setOrigin(found);
+      setOriginMode('near-me');
+      const closest = nearestStations(stations, found, 1)[0];
+      if (closest) setSelectedId(closest.id);
+      setGeoLoading(false);
+    }, () => setGeoLoading(false), { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
+  }, [stations.length, autoLocateDone]);
 
   async function findZip(event) {
     event.preventDefault();
@@ -400,33 +423,38 @@ function App() {
   const darkPct = stations.length ? Math.round(darkStations / stations.length * 100) : 100;
   const CROWDSOURCE_URL = "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.md&title=Price+report";
 
-  return <main>
-    <header className="hero">
-      <div>
-        <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
-        <h1>EV charging prices should be public.</h1>
-        <p>Tesla operates {stations.length.toLocaleString()} Supercharger stations across the United States. Pricing at <strong style={{color:"var(--text)"}}>{darkPct}% of them is hidden</strong> from the public — no posted rate, no advance disclosure. Gas stations post prices at the pump. Utilities publish rate schedules. EV charging should be no different.</p>
-      </div>
-      <div className="heroPanel">
-        <strong>Why this matters</strong>
-        <p>Without posted prices, drivers cannot comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH scrapes Tesla's public pages, tracks what prices do appear, and compares them to local commercial electricity benchmarks — building the public record that Tesla has not provided.</p>
-        <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
-      </div>
-    </header>
+  return <main className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
+    {isTesla
+      ? <header className="teslaHeader">
+          <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
+          <p className="muted">{geoLoading ? 'Finding nearby chargers…' : origin ? `Showing chargers near ${origin.city || 'your location'}` : 'Finding chargers near you…'}</p>
+        </header>
+      : <header className="hero">
+          <div>
+            <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
+            <h1>EV charging prices should be public.</h1>
+            <p>Tesla operates {stations.length.toLocaleString()} Supercharger stations across the United States. Pricing at <strong style={{color:"var(--text)"}}>{darkPct}% of them is hidden</strong> from the public — no posted rate, no advance disclosure. Gas stations post prices at the pump. Utilities publish rate schedules. EV charging should be no different.</p>
+          </div>
+          <div className="heroPanel">
+            <strong>Why this matters</strong>
+            <p>Without posted prices, drivers cannot comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH scrapes Tesla's public pages, tracks what prices do appear, and compares them to local commercial electricity benchmarks — building the public record that Tesla has not provided.</p>
+            <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
+          </div>
+        </header>}
 
-    <nav className="viewTabs" aria-label="Dashboard views">
+    {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
       <button className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
       <button className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
       <button className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
-    </nav>
+    </nav>}
 
-    {activeView === 'chargers' && <>
-      <section className="statsGrid">
+    {(isTesla || activeView === 'chargers') && <>
+      {!isTesla && <section className="statsGrid">
         <Stat icon={<MapPin/>} label="US Supercharger stations" value={stations.length.toLocaleString()} note={`${coverage.coordsPct}% with coordinates`} />
         <Stat icon={<EyeOff/>} label="Stations hiding price" value={`${darkPct}%`} note={`${darkStations.toLocaleString()} of ${stations.length.toLocaleString()} never shown publicly`} />
         <Stat icon={<Clock3/>} label="Prices captured" value={pricedStations} note={currentStations ? `${currentStations} current (under 2 hr)` : 'none current'} />
         <Stat icon={<TrendingDown/>} label="Lowest captured price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId || 'no current prices'} />
-      </section>
+      </section>}
 
       <section className="layout">
       <Card className="sidebar">
@@ -548,12 +576,12 @@ function App() {
       </div>
     </section>
 
-    <section className="statsGrid bottomStats">
+    {!isTesla && <section className="statsGrid bottomStats">
       <Stat icon={<ShieldCheck/>} label="Average recent price" value={currentPriceSummary.avg ? money(currentPriceSummary.avg) : '—'} note={`${currentPriceSummary.count} current rates · ${priceSummary.count} historical`} />
       <Stat icon={<BatteryCharging/>} label="Fresh public prices" value={currentStations} note={`observed within ${CURRENT_PRICE_MAX_HOURS} hr`} />
       <Stat icon={<Clock3/>} label="Data loaded" value={shortDate(stationsFetchedAt || predictionsFetchedAt)} note="browser refreshes periodically" />
       <Stat icon={<Zap/>} label="This charger" value={publicCheckResult} note="latest page check" />
-    </section>
+    </section>}
     </>}
 
     {activeView === 'transparency' && <section className="transparencyView">

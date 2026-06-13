@@ -209,6 +209,21 @@ p { color: var(--muted); line-height: 1.55; }
 .policyPoints > div { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
 .policyPoints strong { display: block; margin-bottom: 6px; }
 .policyPoints p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+/* ── Tesla in-car browser & mobile modes ── */
+.teslaHeader { padding: 16px 0 8px; display: flex; align-items: center; gap: 12px; }
+.teslaHeader .eyebrow { font-size: 14px; }
+.teslaHeader p { margin: 0; font-size: 14px; }
+.tesla-mode .stationList button,
+.mobile-mode .stationList button { min-height: 68px; padding: 14px 16px; }
+.tesla-mode .stationList button strong,
+.mobile-mode .stationList button strong { font-size: 16px; }
+.tesla-mode .card { border-radius: 20px; }
+.tesla-mode .nearMeButton,
+.mobile-mode .nearMeButton { min-height: 60px; font-size: 16px; }
+.tesla-mode .toolbar button,
+.mobile-mode .toolbar button { min-height: 52px; font-size: 15px; }
+.tesla-mode .priceStrip > div strong,
+.mobile-mode .priceStrip > div strong { font-size: 22px; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
 @media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } .transparencyScorecard { grid-template-columns: 1fr 1fr; } .crowdsourceActions, .policyPoints { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 50px 1fr 1fr; } .benchmarkCoverage { display: none; } }
 @media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } .transparencyScorecard { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 48px 1fr 1fr; font-size: 12px; } }
