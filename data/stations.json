@@ -43673,12 +43673,12 @@
     "lat": 40.862269,
     "lng": -73.129075,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-06-12T22:46:03.183Z",
-    "lastScrapeHadPrice": true,
+    "lastScrapedAt": "2026-06-13T04:48:58.996Z",
+    "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 21,
     "lastLowPriceId": null,
-    "observationPriorityScore": 305.03,
+    "observationPriorityScore": 241.47,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -43688,17 +43688,28 @@
       },
       "power": 250
     },
-    "lastScrapeAttemptCount": 1,
-    "lastScrapeResult": "price_found",
+    "lastScrapeAttemptCount": 2,
+    "lastScrapeResult": "no_usable_candidate",
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger",
         "reason": "stored_tesla_url",
         "status": 200,
-        "contentSignal": "not_found",
-        "hasPrice": true,
+        "contentSignal": "blocked",
+        "hasPrice": false,
         "hasAvailability": false,
-        "priceCandidateCount": 21,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": true,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
         "publicDetailsFound": true,
         "error": null
       }
@@ -43734,7 +43745,8 @@
       "publicDetailsFound": true,
       "lastCheckedAt": "2026-06-12T22:46:03.183Z",
       "scrapeResult": "price_found"
-    }
+    },
+    "lastScrapeError": "No usable Tesla location candidate"
   },
   {
     "id": "27309",
