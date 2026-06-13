@@ -274,7 +274,19 @@ function scopedStations() {
 
 const inScope = scopedStations();
 const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
-const browser = await chromium.launch({ headless: TESLA_HEADLESS, args: ['--disable-blink-features=AutomationControlled', '--disable-web-security', '--no-sandbox'] });
+const browser = await chromium.launch({
+  headless: TESLA_HEADLESS,
+  args: [
+    '--disable-blink-features=AutomationControlled',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-dev-shm-usage',
+    '--disable-accelerated-2d-canvas',
+    '--no-first-run',
+    '--no-zygote',
+    '--disable-gpu',
+  ]
+});
 const context = await browser.newContext({
   viewport: { width: 1440, height: 900 },
   locale: 'en-US',
@@ -286,6 +298,23 @@ const context = await browser.newContext({
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"macOS"',
   }
+});
+
+// Patch bot-detection properties before any page navigation.
+// Akamai's JS challenge inspects these; patching them makes Playwright
+// look like a regular Chrome browser rather than an automation tool.
+await context.addInitScript(() => {
+  Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+  Object.defineProperty(navigator, 'plugins', { get: () => [{ name: 'Chrome PDF Plugin' }, { name: 'Chrome PDF Viewer' }, { name: 'Native Client' }] });
+  Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+  Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
+  Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
+  window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
+  const originalQuery = window.navigator.permissions.query;
+  window.navigator.permissions.query = params =>
+    params.name === 'notifications'
+      ? Promise.resolve({ state: Notification.permission })
+      : originalQuery(params);
 });
 let saved = 0;
 let attempted = 0;
