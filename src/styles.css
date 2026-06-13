@@ -153,6 +153,8 @@ p { color: var(--muted); line-height: 1.55; }
 .chartTooltip { background: #0e1c29; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 10px 14px; font-size: 13px; }
 .chartTooltip p { margin: 2px 0; color: var(--muted); }
 .chartTooltip strong { color: var(--text); font-weight: 800; }
+.chartTooltipLabel { color: var(--text) !important; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 6px !important; padding-bottom: 6px; }
+.priceStrip > div.fresh strong { color: var(--accent); }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
 @media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }
