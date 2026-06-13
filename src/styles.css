@@ -155,6 +155,42 @@ p { color: var(--muted); line-height: 1.55; }
 .chartTooltip strong { color: var(--text); font-weight: 800; }
 .chartTooltipLabel { color: var(--text) !important; font-weight: 800; border-bottom: 1px solid rgba(255,255,255,.1); margin-bottom: 6px !important; padding-bottom: 6px; }
 .priceStrip > div.fresh strong { color: var(--accent); }
+.transparencyScorecard { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
+.scorecardStat { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px; }
+.scorecardStat.dark { border-color: rgba(255,82,82,.3); background: rgba(255,82,82,.07); }
+.scorecardStat svg { color: var(--muted); }
+.scorecardStat strong { font-size: 28px; color: var(--text); line-height: 1; }
+.scorecardStat.dark strong { color: #ff8080; }
+.scorecardStat span { color: var(--muted); font-size: 13px; line-height: 1.4; }
+.transparencyNote { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-top: 4px; }
+.transparencyNote strong { display: block; margin-bottom: 6px; }
+.transparencyNote p { margin: 0; color: var(--muted); font-size: 14px; }
+.benchmarkGrid { display: grid; gap: 0; margin-top: 16px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.benchmarkRow { display: grid; grid-template-columns: 60px 1fr 1fr 1fr; align-items: center; gap: 12px; padding: 11px 16px; border-top: 1px solid rgba(255,255,255,.07); font-size: 14px; }
+.benchmarkRow:first-child { border-top: none; }
+.benchmarkRow:nth-child(even) { background: rgba(255,255,255,.03); }
+.benchmarkState { font-weight: 800; color: var(--text); }
+.benchmarkUtil { display: flex; flex-direction: column; gap: 2px; }
+.benchmarkUtil small { color: var(--muted); font-size: 11px; }
+.benchmarkObserved { display: flex; gap: 6px; align-items: center; }
+.benchmarkObserved em { color: var(--accent); font-style: normal; font-size: 12px; font-weight: 700; }
+.benchmarkDark { display: flex; align-items: center; gap: 4px; color: var(--muted); font-size: 13px; }
+.benchmarkCoverage { color: var(--muted); font-size: 12px; }
+.crowdsourceActions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+.crowdsourceButton { display: flex; gap: 14px; align-items: flex-start; background: rgba(83,224,163,.1); border: 1px solid rgba(83,224,163,.3); border-radius: 18px; padding: 16px; color: var(--text); transition: background .15s, border-color .15s; }
+.crowdsourceButton:hover { background: rgba(83,224,163,.18); border-color: rgba(83,224,163,.5); }
+.crowdsourceButton svg { flex-shrink: 0; color: var(--accent); margin-top: 2px; }
+.crowdsourceButton strong { display: block; margin-bottom: 4px; }
+.crowdsourceButton small { color: var(--muted); font-size: 12px; font-weight: 400; }
+.crowdsourceContext { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+.crowdsourceContext strong { display: block; margin-bottom: 10px; }
+.crowdsourceContext ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.crowdsourceContext li { color: var(--muted); font-size: 13px; }
+.compactNote { font-size: 12px; margin-top: 0; }
+.policyPoints { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+.policyPoints > div { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+.policyPoints strong { display: block; margin-bottom: 6px; }
+.policyPoints p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
-@media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }
+@media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } .transparencyScorecard { grid-template-columns: 1fr 1fr; } .crowdsourceActions, .policyPoints { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 50px 1fr 1fr; } .benchmarkCoverage { display: none; } }
+@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } .transparencyScorecard { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 48px 1fr 1fr; font-size: 12px; } }

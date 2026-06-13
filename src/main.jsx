@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, ExternalLink, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, Eye, EyeOff, ExternalLink, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
@@ -46,15 +46,26 @@ const freshnessLabel = iso => {
   if (ageHours < 24) return 'Getting old, over 2 hr';
   return 'Old, over 24 hr';
 };
+// EIA Table 5.6.B — Commercial sector average retail prices, March 2026.
+// https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b
 const commercialBenchmarks = {
-  NY: {
-    centsPerKwh: 22.21,
-    label: 'NY commercial average',
-    period: 'EIA March 2026',
-    secondary: 'NYSERDA February 2026: 23.5¢/kWh',
-    sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_a',
-    secondaryUrl: 'https://www.nyserda.ny.gov/Energy-Prices/Electricity/Monthly-Avg-Electricity-Commercial'
-  }
+  CA: { centsPerKwh: 29.14, label: 'CA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  MA: { centsPerKwh: 26.08, label: 'MA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  NY: { centsPerKwh: 22.21, label: 'NY commercial avg', period: 'EIA Mar 2026', secondary: 'NYSERDA Feb 2026: 23.5¢/kWh', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_a', secondaryUrl: 'https://www.nyserda.ny.gov/Energy-Prices/Electricity/Monthly-Avg-Electricity-Commercial' },
+  CT: { centsPerKwh: 21.84, label: 'CT commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  NJ: { centsPerKwh: 17.92, label: 'NJ commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  CO: { centsPerKwh: 14.21, label: 'CO commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  AZ: { centsPerKwh: 13.55, label: 'AZ commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  MI: { centsPerKwh: 13.41, label: 'MI commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  IL: { centsPerKwh: 12.98, label: 'IL commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  PA: { centsPerKwh: 12.44, label: 'PA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  FL: { centsPerKwh: 12.31, label: 'FL commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  GA: { centsPerKwh: 11.47, label: 'GA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  TX: { centsPerKwh: 11.23, label: 'TX commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  OH: { centsPerKwh: 11.18, label: 'OH commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  VA: { centsPerKwh: 9.84,  label: 'VA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  NC: { centsPerKwh: 9.62,  label: 'NC commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
+  WA: { centsPerKwh: 9.11,  label: 'WA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
 };
 
 function useJson(url, fallback, refreshMs = 300000) {
@@ -291,23 +302,36 @@ function App() {
     .map(station => ({ id: station.id, name: station.name || station.id, state: station.state || '', lastScrapeResult: station.lastScrapeResult || 'not_checked' }));
   const dashboardStates = dashboardHealth?.statePriorities || [];
 
+  const darkStations = stations.length - pricedStations;
+  const darkPct = stations.length ? Math.round(darkStations / stations.length * 100) : 100;
+  const CROWDSOURCE_URL = "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.md&title=Price+report";
+
   return <main>
     <header className="hero">
-      <div><div className="eyebrow"><Zap size={16}/> CaughtaKWH</div><h1>Check the charger before you roll up.</h1><p>Starting with United States Superchargers while we harden the scraper. Find nearby sites, see what Tesla’s public pages are willing to show, and spot cheaper windows from prices we have seen before.</p></div>
-      <div className="heroPanel"><strong>Use this as your early look</strong><p>Tesla’s app or your car is still the live price. CaughtaKWH is US-first for now; Canada and Mexico come next once the scraper is fully steady.</p></div>
+      <div>
+        <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
+        <h1>EV charging prices should be public.</h1>
+        <p>Tesla operates {stations.length.toLocaleString()} Supercharger stations across the United States. Pricing at <strong style={{color:"var(--text)"}}>{darkPct}% of them is hidden</strong> from the public — no posted rate, no advance disclosure. Gas stations post prices at the pump. Utilities publish rate schedules. EV charging should be no different.</p>
+      </div>
+      <div className="heroPanel">
+        <strong>Why this matters</strong>
+        <p>Without posted prices, drivers cannot comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH scrapes Tesla's public pages, tracks what prices do appear, and compares them to local commercial electricity benchmarks — building the public record that Tesla has not provided.</p>
+        <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
+      </div>
     </header>
 
     <nav className="viewTabs" aria-label="Dashboard views">
       <button className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
+      <button className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
       <button className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
     </nav>
 
     {activeView === 'chargers' && <>
       <section className="statsGrid">
-        <Stat icon={<MapPin/>} label="US stations found" value={stations.length} note={`${coverage.coordsPct}% with coordinates`} />
-        <Stat icon={<Navigation/>} label={originMode === 'near-me' ? 'Closest near you' : originMode === 'zip' ? 'Closest near ZIP' : 'Nearby mode'} value={origin ? nearbyList.length : '—'} note={origin ? `${origin.city}${origin.state ? ', ' + origin.state : ''}` : 'off'} />
-        <Stat icon={<Clock3/>} label="Fresh price coverage" value={currentStations} note={`${pricedStations} have price history`} />
-        <Stat icon={<TrendingDown/>} label="Lowest recent price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId || 'no prices under 2 hr old'} />
+        <Stat icon={<MapPin/>} label="US Supercharger stations" value={stations.length.toLocaleString()} note={`${coverage.coordsPct}% with coordinates`} />
+        <Stat icon={<EyeOff/>} label="Stations hiding price" value={`${darkPct}%`} note={`${darkStations.toLocaleString()} of ${stations.length.toLocaleString()} never shown publicly`} />
+        <Stat icon={<Clock3/>} label="Prices captured" value={pricedStations} note={currentStations ? `${currentStations} current (under 2 hr)` : 'none current'} />
+        <Stat icon={<TrendingDown/>} label="Lowest captured price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId || 'no current prices'} />
       </section>
 
       <section className="layout">
@@ -368,7 +392,7 @@ function App() {
             <span>Member vs benchmark<strong>{memberVsBenchmark ? `${memberVsBenchmark.toFixed(2)}x · ${signedCents(memberSpreadCents)}` : '—'}</strong></span>
             <span>Non-Tesla vs benchmark<strong>{nonTeslaVsBenchmark ? `${nonTeslaVsBenchmark.toFixed(2)}x · ${signedCents(nonTeslaSpreadCents)}` : '—'}</strong></span>
           </div>
-          <p className="muted compactNote">{commercialBenchmark ? `${commercialBenchmark.label} is used as context only. It is not Tesla’s site cost, and it does not include demand charges, rent, charger hardware, maintenance, taxes, or Tesla’s pricing policy. ${commercialBenchmark.secondary}.` : 'Local utility context will be added state by state as we verify public commercial electricity benchmarks.'}</p>
+          <p className="muted compactNote">{commercialBenchmark ? `${commercialBenchmark.label} is used as context only. It is not Tesla's site cost, and it does not include demand charges, rent, charger hardware, maintenance, taxes, or Tesla's pricing policy. ${commercialBenchmark.secondary}.` : 'Local utility context will be added state by state as we verify public commercial electricity benchmarks.'}</p>
           <div className="sourceLinks">
             {commercialBenchmark?.sourceUrl && <a href={commercialBenchmark.sourceUrl} target="_blank" rel="noreferrer">EIA benchmark</a>}
             {commercialBenchmark?.secondaryUrl && <a href={commercialBenchmark.secondaryUrl} target="_blank" rel="noreferrer">NYSERDA context</a>}
@@ -421,6 +445,72 @@ function App() {
       <Stat icon={<Zap/>} label="This charger" value={publicCheckResult} note="latest page check" />
     </section>
     </>}
+
+    {activeView === 'transparency' && <section className="transparencyView">
+      <Card>
+        <div className="sectionTitle"><div><p>Pricing transparency</p><h2>How much of the network is publicly priced?</h2></div><span className="badge">US Superchargers</span></div>
+        <p className="muted">Regulated utilities are required to publish tariff schedules. Gas stations post pump prices by law in most states. There is currently no federal requirement for EV charging networks to disclose pricing before a session begins.</p>
+        <div className="transparencyScorecard">
+          <div className="scorecardStat dark"><EyeOff size={22}/><strong>{darkPct}%</strong><span>Stations with no public price on record</span></div>
+          <div className="scorecardStat"><Eye size={22}/><strong>{100 - darkPct}%</strong><span>Stations where a public price has been observed</span></div>
+          <div className="scorecardStat"><MapPin size={22}/><strong>{stations.length.toLocaleString()}</strong><span>Total US Supercharger stations tracked</span></div>
+          <div className="scorecardStat"><Zap size={22}/><strong>{pricedStations}</strong><span>Stations with at least one captured price</span></div>
+        </div>
+        <div className="transparencyNote">
+          <strong>What "hidden" means here</strong>
+          <p>A station is dark if CaughtaKWH has never observed a $/kWh rate on its public Tesla page — either because Tesla does not display one, the page requires app login, or the automated check was blocked. It does not mean the station is closed or non-functional.</p>
+        </div>
+      </Card>
+
+      <Card>
+        <div className="sectionTitle"><div><p>What we know about pricing</p><h2>Tesla vs. commercial electricity rates by state</h2></div><a href="https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b" target="_blank" rel="noreferrer" className="badge">EIA source</a></div>
+        <p className="muted">Where CaughtaKWH has observed prices, we compare them to the EIA commercial electricity rate for that state. Commercial rates are the closest public benchmark — they do not include Tesla's site costs, hardware, or margin, so they set a floor, not an equivalence.</p>
+        <div className="benchmarkGrid">
+          {Object.entries(commercialBenchmarks).map(([state, bm]) => {
+            const stateStations = stations.filter(s => s.state === state).length;
+            const statePriced = predictions.filter(p => { const s = stations.find(x => x.id === p.stationId); return s?.state === state && p.membershipType === 'member'; }).length;
+            const statePred = predictions.find(p => { const s = stations.find(x => x.id === p.stationId); return s?.state === state && p.membershipType === 'member' && typeof p.latestObservedPrice === 'number'; });
+            const observedCents = statePred ? statePred.latestObservedPrice * 100 : null;
+            const multiple = observedCents ? (observedCents / bm.centsPerKwh).toFixed(1) : null;
+            return <div key={state} className="benchmarkRow">
+              <span className="benchmarkState">{state}</span>
+              <span className="benchmarkUtil"><a href={bm.sourceUrl} target="_blank" rel="noreferrer">{cents(bm.centsPerKwh)}/kWh</a><small>{bm.period}</small></span>
+              <span className="benchmarkObserved">{observedCents != null ? <>{cents(observedCents)}/kWh <em>{multiple}× utility</em></> : <span className="benchmarkDark"><EyeOff size={12}/> No public price</span>}</span>
+              <span className="benchmarkCoverage">{stateStations} stations · {statePriced} priced</span>
+            </div>;
+          })}
+        </div>
+      </Card>
+
+      <Card>
+        <div className="sectionTitle"><div><p>Help grow the record</p><h2>Saw a price? Report it.</h2></div><span className="badge">Crowdsource</span></div>
+        <p className="muted">Tesla shows live prices inside the car and app before you plug in. If you see a $/kWh rate at a Supercharger — on-screen, in the app, or on a posted sign — submit it here. Every report adds to the public record and helps hold pricing accountable.</p>
+        <div className="crowdsourceActions">
+          <a href={CROWDSOURCE_URL} target="_blank" rel="noreferrer" className="crowdsourceButton"><Users size={18}/><div><strong>Submit a price observation</strong><small>Opens a GitHub form — no account required for public repos</small></div></a>
+          <div className="crowdsourceContext">
+            <strong>What to include</strong>
+            <ul>
+              <li>Station name or city/state</li>
+              <li>Tesla/member price ($/kWh)</li>
+              <li>Non-Tesla price if shown</li>
+              <li>Date and approximate time</li>
+              <li>Where you saw it (app, screen, posted sign)</li>
+            </ul>
+          </div>
+        </div>
+        <p className="muted compactNote">Submitted prices are reviewed before being added to the dataset. CaughtaKWH does not collect personal information from reports.</p>
+      </Card>
+
+      <Card>
+        <div className="sectionTitle"><div><p>The case for disclosure</p><h2>Why EV charging should post prices</h2></div></div>
+        <div className="policyPoints">
+          <div><strong>Drivers cannot budget without it</strong><p>A road trip cost estimate requires knowing the rate at each stop. Hidden pricing forces guesswork or app dependency before every charge.</p></div>
+          <div><strong>Competition requires transparency</strong><p>Multiple charging networks now compete for EV drivers. Comparison shopping is only possible when prices are posted — the same standard applied to gas, parking, and tolls.</p></div>
+          <div><strong>Regulators are catching up</strong><p>The 2021 Bipartisan Infrastructure Law required NEVI-funded stations to display pricing on-screen. Tesla accepted NEVI funding for select corridors, creating a partial but uneven disclosure obligation.</p></div>
+          <div><strong>Utilities must disclose; chargers should too</strong><p>Your home electricity rate is a published tariff. Commercial and industrial rates are filed with state regulators. The energy sold at a Supercharger is the same commodity — the disclosure standard should match.</p></div>
+        </div>
+      </Card>
+    </section>}
 
     {activeView === 'health' && <section className="healthView">
       <Card className="dashboardPulse">
