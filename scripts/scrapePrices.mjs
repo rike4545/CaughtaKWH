@@ -3,6 +3,7 @@ import path from 'node:path';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import {
   classifySiteContent,
+  extractNextData,
   halfHourSlot,
   hoursSince,
   inferSiteDetails,
@@ -84,15 +85,79 @@ async function scrapeScope() {
   return { origin, states, countries: SCRAPE_COUNTRIES };
 }
 
+const FETCH_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
+const FETCH_HEADERS = {
+  'User-Agent': FETCH_UA,
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+  'Accept-Language': 'en-US,en;q=0.9',
+  'Accept-Encoding': 'gzip, deflate, br',
+  'Sec-Fetch-Dest': 'document',
+  'Sec-Fetch-Mode': 'navigate',
+  'Sec-Fetch-Site': 'none',
+  'Sec-Fetch-User': '?1',
+  'Cache-Control': 'max-age=0',
+  'Upgrade-Insecure-Requests': '1',
+};
+
+async function fetchHtml(url) {
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 18000);
+    const response = await fetch(url, { headers: FETCH_HEADERS, redirect: 'follow', signal: controller.signal });
+    clearTimeout(timer);
+    if (!response.ok) return { html: '', status: response.status, finalUrl: response.url };
+    const html = await response.text();
+    return { html, status: response.status, finalUrl: response.url || url };
+  } catch {
+    return { html: '', status: 0, finalUrl: url };
+  }
+}
+
 async function scrapeOne(context, station) {
   const candidates = stationCandidates(station);
   const attempts = [];
   let bestValid = null;
   let lastError = null;
   const hasStoredUrl = Boolean(station.url && String(station.url).includes('tesla.com'));
+
   for (const candidate of candidates) {
     const { url, reason } = candidate;
     const isStoredUrl = hasStoredUrl && url === station.url;
+
+    // --- Fetch-first: try a plain HTTPS request before spinning up a browser tab.
+    // Tesla's SSR pages embed full pricing in __NEXT_DATA__ JSON — no JS execution needed.
+    // This is faster and far less detectable than Playwright for pages that cooperate.
+    const fetched = await fetchHtml(url);
+    if (fetched.status === 200 && fetched.html) {
+      const nextData = extractNextData(fetched.html);
+      if (nextData) {
+        const prices = {
+          memberPricePerKwh: nextData.memberPrice,
+          nonMemberPricePerKwh: nextData.nonMemberPrice,
+          congestionFeePerMinuteMax: nextData.congestionFee ?? null,
+          lowestObservedPricePerKwh: [nextData.memberPrice, nextData.nonMemberPrice].filter(v => v != null).sort((a, b) => a - b)[0] ?? null,
+          lowPriceId: null,
+          priceExtractionVersion: 'tesla-next-data-v1',
+          priceCandidateCount: (nextData.memberPrice != null ? 1 : 0) + (nextData.nonMemberPrice != null ? 1 : 0),
+          priceEvidence: { source: '__NEXT_DATA__', ...nextData }
+        };
+        const availability = inferAvailability('', station);
+        const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
+        const attempt = { url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'tesla_location_page', hasPrice: true, hasAvailability: false, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' };
+        attempts.push(attempt);
+        return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
+      }
+      // Page loaded but no __NEXT_DATA__ pricing — try text extraction before Playwright
+      const prices = inferPrices('', fetched.html);
+      if (prices.memberPricePerKwh != null || prices.nonMemberPricePerKwh != null) {
+        const availability = inferAvailability('', station);
+        const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
+        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'tesla_location_page', hasPrice: true, hasAvailability: false, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+html' });
+        return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
+      }
+    }
+
+    // --- Playwright fallback: needed when the page requires JS rendering.
     const page = await context.newPage();
     try {
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -110,17 +175,7 @@ async function scrapeOne(context, station) {
       const hasPrice = prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null;
       const hasAvailability = availability.availableStalls !== null || availability.utilizationPct !== null || availability.availabilityLabel !== null;
       const site = classifySiteContent({ bodyText, html, status, finalUrl: page.url() });
-      const attempt = {
-        url,
-        finalUrl: page.url(),
-        reason,
-        status,
-        contentSignal: site.contentSignal,
-        hasPrice,
-        hasAvailability,
-        publicDetailsFound: siteDetails.publicDetailsFound,
-        priceCandidateCount: prices.priceCandidateCount
-      };
+      const attempt = { url, finalUrl: page.url(), reason, status, contentSignal: site.contentSignal, hasPrice, hasAvailability, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'playwright' };
       attempts.push(attempt);
       const result = { url: page.url() || url, prices, availability, siteDetails, bodyText, hasPrice, hasAvailability, attempts };
       if (hasPrice) return result;
@@ -219,8 +274,19 @@ function scopedStations() {
 
 const inScope = scopedStations();
 const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
-const browser = await chromium.launch({ headless: TESLA_HEADLESS, args: ['--disable-blink-features=AutomationControlled'] });
-const context = await browser.newContext({ viewport: { width: 1440, height: 1800 }, locale: 'en-US', timezoneId: 'America/New_York' });
+const browser = await chromium.launch({ headless: TESLA_HEADLESS, args: ['--disable-blink-features=AutomationControlled', '--disable-web-security', '--no-sandbox'] });
+const context = await browser.newContext({
+  viewport: { width: 1440, height: 900 },
+  locale: 'en-US',
+  timezoneId: 'America/New_York',
+  userAgent: FETCH_UA,
+  extraHTTPHeaders: {
+    'Accept-Language': 'en-US,en;q=0.9',
+    'sec-ch-ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+  }
+});
 let saved = 0;
 let attempted = 0;
 for (const station of ordered.slice(0, MAX_STATIONS)) {

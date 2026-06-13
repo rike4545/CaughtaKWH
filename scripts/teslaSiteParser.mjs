@@ -304,6 +304,46 @@ export function inferSiteDetails({ bodyText = '', html = '', station = {}, url =
   };
 }
 
+export function extractNextData(html) {
+  try {
+    const match = String(html || '').match(/<script[^>]+id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/i);
+    if (!match) return null;
+    const data = JSON.parse(match[1]);
+    const props = data?.props?.pageProps ?? data?.props ?? {};
+    const loc = props?.location ?? props?.supercharger ?? props?.data ?? null;
+    if (!loc) return null;
+    const pricing = loc.chargerPricing ?? loc.pricing ?? null;
+    if (!pricing) return null;
+
+    let memberPrice = null;
+    let nonMemberPrice = null;
+    let congestionFee = null;
+
+    for (const tier of pricing) {
+      const label = String(tier.chargingLabel || tier.label || '').toLowerCase();
+      const isMember = /tesla owner|tesla.*member|member.*tesla|charging fees for tesla/i.test(label);
+      const isNonMember = /non.?tesla|non.?member|all ev/i.test(label);
+      const details = tier.pricingDetails ?? tier.details ?? [];
+      for (const d of details) {
+        const val = parseDollarValue(String(d.rate ?? d.price ?? ''));
+        if (val == null) continue;
+        if (isMember && memberPrice == null) memberPrice = val;
+        else if (isNonMember && nonMemberPrice == null) nonMemberPrice = val;
+      }
+    }
+
+    const currentRate = parseDollarValue(String(loc.currentRate ?? ''));
+    if (memberPrice == null && currentRate != null) memberPrice = currentRate;
+
+    const congestionRaw = String(loc.congestionFees ?? loc.idleFees ?? '');
+    const congestionMatch = congestionRaw.match(/\$(\d+(?:\.\d+)?)\s*\/\s*min/i);
+    if (congestionMatch) congestionFee = parseDollarValue(congestionMatch[0]);
+
+    if (memberPrice == null && nonMemberPrice == null) return null;
+    return { memberPrice, nonMemberPrice, congestionFee, source: '__NEXT_DATA__' };
+  } catch { return null; }
+}
+
 export function classifySiteContent({ bodyText = '', html = '', status = 0, finalUrl = '' } = {}) {
   const normalized = normalizeText(`${bodyText}\n${html}`);
   const pageNotFound = status === 404 || /page not found|404|not found/i.test(normalized);
