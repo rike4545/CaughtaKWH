@@ -89,15 +89,17 @@ async function scrapeOne(context, station) {
   const attempts = [];
   let bestValid = null;
   let lastError = null;
+  const hasStoredUrl = Boolean(station.url && String(station.url).includes('tesla.com'));
   for (const candidate of candidates) {
     const { url, reason } = candidate;
+    const isStoredUrl = hasStoredUrl && url === station.url;
     const page = await context.newPage();
     try {
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
       const status = response?.status() || 0;
-      await page.waitForTimeout(5500);
+      await page.waitForTimeout(isStoredUrl ? 3000 : 5500);
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(() => {});
-      await page.waitForTimeout(1200);
+      await page.waitForTimeout(isStoredUrl ? 800 : 1200);
       await expandPricingAccordions(page);
       const bodyText = await page.locator('body').innerText({ timeout: 12000 });
       const html = await page.content().catch(() => '');
@@ -159,15 +161,20 @@ function priorityFor(station) {
   const volatility = Number(prediction?.volatility || 0);
   const samples = Number(prediction?.sampleCount || 0);
   let score = 0;
+  // Stations with proven price history are the top priority — keep them fresh above all else.
+  if (samples > 0) score += 600 + Math.min(300, observationAge * 50);
   if (!Number.isFinite(scrapeAge)) score += 500; else score += Math.min(240, scrapeAge * 8);
-  if (!Number.isFinite(observationAge)) score += 220; else score += Math.min(180, observationAge * 6);
-  if (!station.lastScrapeHadPrice) score += 80;
+  if (samples === 0) {
+    if (!Number.isFinite(observationAge)) score += 220; else score += Math.min(180, observationAge * 6);
+  }
+  if (station.lastScrapeHadPrice) score += 120;
+  if (!station.lastScrapeHadPrice && samples === 0) score += 40;
   if (station.lastScrapeHadAvailability && !station.lastScrapeHadPrice) score += 45;
   if (station.url) score += 35;
   if (typeof station.stalls === 'number') score += Math.min(40, station.stalls);
   if (typeof station.maxKw === 'number' && station.maxKw >= 250) score += 25;
   if (volatility >= 0.08) score += 90; else if (volatility >= 0.04) score += 45;
-  if (samples < 3) score += 80; else if (samples < 10) score += 35;
+  if (samples < 3 && samples > 0) score += 80; else if (samples < 10) score += 35;
   if (SCRAPE_NEEDS_HISTORY && samples < 3) score += 160;
   if (['CA', 'NY', 'FL', 'TX', 'NJ', 'WA', 'MA'].includes(station.state)) score += 12;
   return Number(score.toFixed(2));
