@@ -1,5 +1,4 @@
-import { chromium as chromiumBase } from 'playwright-extra';
-import StealthPlugin from 'playwright-extra-plugin-stealth';
+import { chromium } from '@playwright/test';
 import path from 'node:path';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import {
@@ -13,8 +12,6 @@ import {
   sleep,
   stationCandidates
 } from './teslaSiteParser.mjs';
-
-const chromium = chromiumBase.use(StealthPlugin());
 
 const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const predictions = await readJson(path.join(dataDir, 'predictions.json'), []);
@@ -303,6 +300,47 @@ const context = await browser.newContext({
     'sec-ch-ua-mobile': '?0',
     'sec-ch-ua-platform': '"macOS"',
   }
+});
+
+// Stealth patches applied to every page before navigation.
+// Covers the vectors Akamai Bot Manager reads during its JS challenge.
+await context.addInitScript(() => {
+  // Core automation flag
+  Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+
+  // userAgentData — Akamai reads this to detect Chromium vs Chrome
+  Object.defineProperty(navigator, 'userAgentData', {
+    get: () => ({
+      brands: [{ brand: 'Chromium', version: '136' }, { brand: 'Google Chrome', version: '136' }, { brand: 'Not.A/Brand', version: '99' }],
+      mobile: false,
+      platform: 'macOS',
+      getHighEntropyValues: async () => ({ platform: 'macOS', platformVersion: '13.6.0', architecture: 'arm', model: '', uaFullVersion: '136.0.7103.114' })
+    })
+  });
+
+  // Plugins — empty list is a bot signal
+  Object.defineProperty(navigator, 'plugins', {
+    get: () => Object.assign([{ name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' }, { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' }, { name: 'Native Client', filename: 'internal-nacl-plugin' }], { item: i => this[i], namedItem: n => null, refresh: () => {} })
+  });
+  Object.defineProperty(navigator, 'mimeTypes', { get: () => [] });
+  Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+  Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
+  Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
+
+  // Chrome runtime object — absence is a strong bot signal
+  if (!window.chrome) {
+    window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
+  }
+
+  // Permissions API — Akamai queries notification permission
+  const _permQuery = navigator.permissions.query.bind(navigator.permissions);
+  navigator.permissions.query = p => p.name === 'notifications'
+    ? Promise.resolve({ state: Notification.permission, onchange: null })
+    : _permQuery(p);
+
+  // Focus/visibility — automation contexts are often backgrounded
+  Object.defineProperty(document, 'hidden', { get: () => false });
+  Object.defineProperty(document, 'visibilityState', { get: () => 'visible' });
 });
 
 let saved = 0;

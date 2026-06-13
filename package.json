@@ -22,8 +22,6 @@
     "@vitejs/plugin-react": "latest",
     "leaflet": "latest",
     "lucide-react": "latest",
-    "playwright-extra": "^4.3.6",
-    "playwright-extra-plugin-stealth": "^0.0.1",
     "react": "latest",
     "react-dom": "latest",
     "recharts": "latest",
