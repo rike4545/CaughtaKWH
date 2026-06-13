@@ -35,7 +35,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '17 8 * * *'
+    - cron: '*/30 * * * *'
 permissions:
   contents: write
   pages: write

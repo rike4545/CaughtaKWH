@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, ExternalLink, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Zap } from 'lucide-react';
-import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
-import { coverageKpis, pricingStats } from './kpis.js';
+import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
 import './styles.css';
 
+const CURRENT_PRICE_MAX_HOURS = 2;
 const money = value => typeof value === 'number' ? `$${value.toFixed(2)}` : '—';
 const cents = value => typeof value === 'number' ? `${value.toFixed(value % 1 ? 2 : 0)}¢` : '—';
 const signedCents = value => typeof value === 'number' ? `${value >= 0 ? '+' : '-'}${cents(Math.abs(value))}` : '—';
@@ -86,6 +87,14 @@ function useJson(url, fallback, refreshMs = 300000) {
 function Card({ children, className = '' }) { return <section className={`card ${className}`}>{children}</section>; }
 function Stat({ icon, label, value, note }) { return <Card className="stat"><div className="statIcon">{icon}</div><div><p>{label}</p><strong>{value}</strong>{note && <small>{note}</small>}</div></Card>; }
 function EmptyState({ title, children }) { return <div className="empty"><AlertTriangle size={18}/><div><strong>{title}</strong><p>{children}</p></div></div>; }
+
+function ChartTooltip({ active, payload, label, formatter }) {
+  if (!active || !payload?.length) return null;
+  return <div className="chartTooltip">
+    {label && <p className="chartTooltipLabel">{label}</p>}
+    {payload.map((entry, i) => <p key={i} style={{ color: entry.color || entry.stroke || 'inherit' }}>{entry.name}: <strong>{formatter ? formatter(entry.value) : entry.value}</strong></p>)}
+  </div>;
+}
 function statusText(value) {
   return ({ active: 'Active', healthy: 'Healthy', in_progress: 'In progress', needs_data: 'Needs data', next: 'Next' })[value] || titleCase(value);
 }
@@ -121,8 +130,14 @@ function manualCheckFromCurrentData(selected, prediction, rows) {
 }
 
 function priceState(selected, prediction) {
-  if (prediction?.latestObservedAt && prediction.latestObservationAgeHours > 48) return { title: 'Only old price history so far', tone: 'warn', detail: `Last saved price was ${money(prediction.latestObservedPrice)} on ${shortDate(prediction.latestObservedAt)}. Tesla did not show a fresh public price in the latest checks, so treat this as historical context only.` };
-  if (prediction?.latestObservedAt) return { title: 'We have a recent price trail', tone: 'ok', detail: `Last seen at ${money(prediction.latestObservedPrice)} on ${shortDate(prediction.latestObservedAt)}. ${freshnessLabel(prediction.latestObservedAt)}. Treat the cheaper-time chart as a heads-up, not a promise; Tesla can change live prices anytime.` };
+  if (prediction?.latestObservedAt) {
+    const current = isCurrentPrediction(prediction);
+    return {
+      title: current ? 'Recent Tesla public price observed' : 'Stale historical price only',
+      tone: current ? 'ok' : 'warn',
+      detail: `${money(prediction.latestObservedPrice)} last observed ${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}. ${current ? 'Treat this as recently observed, but still verify in Tesla before charging.' : `Older than ${CURRENT_PRICE_MAX_HOURS} hours, so CaughtaKWH keeps it as history instead of showing it as the current Tesla price.`}`
+    };
+  }
   if (selected?.lastScrapeHadAvailability) return { title: 'Tesla shows the site, but not the price', tone: 'warn', detail: 'The station page had availability info last time we checked, but it did not show a public $/kWh rate.' };
   if (selected?.lastScrapedAt) return { title: 'No price on the public page yet', tone: 'warn', detail: `Last checked ${shortDate(selected.lastScrapedAt)}. The live rate may only be visible in the Tesla app or inside the car.` };
   return { title: 'We have not checked this one yet', tone: 'warn', detail: 'Until the scraper gets a clean look at this station, use Tesla for the live price.' };
@@ -231,17 +246,19 @@ function App() {
   }), [prediction]);
 
   const memberPreds = predictions.filter(item => item.membershipType === 'member');
-  const cheapest = [...memberPreds].sort((a, b) => a.expectedPrice - b.expectedPrice)[0];
+  const currentPreds = memberPreds.filter(isCurrentPrediction);
+  const cheapest = [...currentPreds].sort((a, b) => a.expectedPrice - b.expectedPrice)[0];
   const pricedStations = new Set(predictions.map(item => item.stationId)).size;
-  const priceHistoryPct = stations.length ? `${(pricedStations / stations.length * 100).toFixed(2)}%` : '0.00%';
+  const currentStations = new Set(predictions.filter(isCurrentPrediction).map(item => item.stationId)).size;
   const coverage = coverageKpis(stations, predictions);
   const priceSummary = pricingStats(predictions);
+  const currentPriceSummary = currentPricingStats(predictions);
   const state = priceState(selected, prediction);
-  const pricingFresh = prediction?.latestObservationAgeHours <= 24;
+  const pricingFresh = isCurrentPrediction(prediction);
   const latestHistory = historyRows.at(-1);
   const historyReadiness = usableHistoryState(prediction, historyRows);
   const manualData = manualCheck.data || null;
-  const publicCheckResult = selected?.lastScrapeHadPrice ? 'Price found' : selected?.lastScrapeHadAvailability ? 'Availability only' : selected?.lastScrapedAt ? 'No price shown' : 'Not checked yet';
+  const publicCheckResult = pricingFresh ? 'Recent price found' : prediction?.latestObservedAt ? 'Stale history only' : selected?.lastScrapeHadAvailability ? 'Availability only' : selected?.lastScrapedAt ? 'No price shown' : 'Not checked yet';
   const siteDetails = selected?.lastSiteDetails || {};
   const lastCandidate = selected?.lastScrapeCandidates?.find(candidate => candidate.hasPrice || candidate.hasAvailability) || selected?.lastScrapeCandidates?.[0];
   const amenityList = Array.isArray(siteDetails.amenities) ? siteDetails.amenities : [];
@@ -289,8 +306,8 @@ function App() {
       <section className="statsGrid">
         <Stat icon={<MapPin/>} label="US stations found" value={stations.length} note={`${coverage.coordsPct}% with coordinates`} />
         <Stat icon={<Navigation/>} label={originMode === 'near-me' ? 'Closest near you' : originMode === 'zip' ? 'Closest near ZIP' : 'Nearby mode'} value={origin ? nearbyList.length : '—'} note={origin ? `${origin.city}${origin.state ? ', ' + origin.state : ''}` : 'off'} />
-        <Stat icon={<Clock3/>} label="Stations with price history" value={pricedStations} note={`${priceHistoryPct} of US stations`} />
-        <Stat icon={<TrendingDown/>} label="Lowest typical price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId} />
+        <Stat icon={<Clock3/>} label="Fresh price coverage" value={currentStations} note={`${pricedStations} have price history`} />
+        <Stat icon={<TrendingDown/>} label="Lowest recent price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId || 'no prices under 2 hr old'} />
       </section>
 
       <section className="layout">
@@ -298,7 +315,14 @@ function App() {
         <div className="nearbyBox betterNearby"><div><strong>Find chargers nearby</strong><small>Use a ZIP for a wider search, or your location for the closest handful. Your location only sorts the list.</small></div><form onSubmit={findZip}><div className="zipRow"><input placeholder="ZIP code" value={zip} onChange={event => setZip(event.target.value)} inputMode="numeric" maxLength={5}/><button disabled={geoLoading}>Find 25</button></div></form><button className="nearMeButton" onClick={useMyLocation} disabled={geoLoading}><Compass size={18}/><span>{geoLoading ? 'Finding…' : 'Use my location'}</span><small>Closest 5</small></button>{origin && <small>{originMode === 'near-me' ? 'Showing the closest 5 chargers to you. This same area can be used for a focused refresh run.' : `Showing 25 chargers near ${origin.zip} — ${origin.city}, ${origin.state}. This ZIP can be used for a focused refresh run.`}</small>}{geoError && <small className="errorText"><AlertTriangle size={12}/> {geoError}</small>}{origin && <button className="linkButton" onClick={() => { setOrigin(null); setOriginMode('browse'); }}>Clear nearby mode</button>}</div>
         <label className="search"><Search size={16}/><input placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
         <select className="filter" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select>
-        <div className="stationList">{list.map(station => <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => setSelectedId(station.id)}><strong>{station.name}</strong><span>{station.distanceMiles !== undefined ? `${distance(station.distanceMiles)} • ` : ''}{station.address || [station.city, station.state].filter(Boolean).join(', ') || station.id}</span></button>)}</div>
+        <div className="stationList">{list.map(station => {
+          const pred = predictions.find(p => p.stationId === station.id && p.membershipType === 'member');
+          const hasFresh = pred && isCurrentPrediction(pred);
+          return <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => setSelectedId(station.id)}>
+            <div className="stationRow"><strong>{station.name}</strong>{hasFresh && pred.latestObservedPrice != null && <em className="stationPrice">{money(pred.latestObservedPrice)}</em>}</div>
+            <span>{station.distanceMiles !== undefined ? `${distance(station.distanceMiles)} • ` : ''}{station.address || [station.city, station.state].filter(Boolean).join(', ') || station.id}</span>
+          </button>;
+        })}</div>
       </Card>
 
       <div className="content">
@@ -306,8 +330,8 @@ function App() {
         <Card>
           <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
-          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' ? 'spin' : ''}/>{manualCheck.status === 'loading' ? 'Loading...' : 'Show newest CaughtaKWH observation'}</button>{selected?.url && <a className="liveTeslaButton" href={selected.url} target="_blank" rel="noreferrer"><ExternalLink size={16}/>Get live Tesla price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
-          <div className="priceStrip"><div><span>What Tesla showed us</span><strong>{selected?.lastScrapeHadPrice ? money(prediction?.latestObservedPrice) : 'Hidden'}</strong><small>{prediction?.latestObservedAt ? `${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}` : publicCheckResult}</small></div><div><span>Last price we saw</span><strong>{money(prediction?.latestObservedPrice)}</strong><small>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'No price history yet'}</small></div><div><span>How much to trust it</span><strong>{prediction?.confidenceLabel ? `${prediction.confidenceLabel}` : 'Low'}</strong><small>{prediction?.confidenceScore != null ? `${prediction.confidenceScore}/100 · ${prediction.sampleCount} samples` : 'Needs more samples'}</small></div><div><span>Stalls and speed</span><strong>{selected?.stalls || '—'} stalls</strong><small>{selected?.maxKw ? `Up to ${selected.maxKw} kW` : selected?.capacityConfidence || 'capacity unknown'}</small></div></div>
+          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' ? 'spin' : ''}/>{manualCheck.status === 'loading' ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <a className="liveTeslaButton" href={selected.url} target="_blank" rel="noreferrer"><ExternalLink size={16}/>Get live Tesla price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
+          <div className="priceStrip"><div className={pricingFresh ? 'fresh' : ''}><span>What Tesla showed us</span><strong>{pricingFresh ? money(prediction?.latestObservedPrice) : prediction?.latestObservedAt ? 'Stale' : 'Hidden'}</strong><small>{pricingFresh ? `${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}` : publicCheckResult}</small></div><div><span>Last price we saw</span><strong>{money(prediction?.latestObservedPrice)}</strong><small>{prediction?.latestObservedAt ? `${freshnessLabel(prediction.latestObservedAt)} · historical only` : 'No price history yet'}</small></div><div><span>How much to trust it</span><strong>{prediction?.confidenceLabel ? `${prediction.confidenceLabel}` : 'Low'}</strong><small>{prediction?.confidenceScore != null ? `${prediction.confidenceScore}/100 · ${prediction.sampleCount} samples` : 'Needs more samples'}</small></div><div><span>Stalls and speed</span><strong>{selected?.stalls || '—'} stalls</strong><small>{selected?.maxKw ? `Up to ${selected.maxKw} kW` : selected?.capacityConfidence || 'capacity unknown'}</small></div></div>
           {manualCheck.status !== 'idle' && <div className={manualCheck.status === 'loading' ? 'manualCheck loading' : 'manualCheck'}>
             {manualCheck.status === 'loading'
               ? <><RefreshCw size={18} className="spin"/><div><strong>Loading the newest CaughtaKWH observation...</strong><p>This is not a live Tesla price check. Tesla is still the live source before you charge.</p></div></>
@@ -374,8 +398,8 @@ function App() {
     </section>
 
     <section className="statsGrid bottomStats">
-      <Stat icon={<ShieldCheck/>} label="Average saved price" value={priceSummary.avg ? money(priceSummary.avg) : '—'} note={`${priceSummary.count} rates in the model`} />
-      <Stat icon={<BatteryCharging/>} label="Fresh public prices" value={coverage.withPrice} note="from the latest page checks" />
+      <Stat icon={<ShieldCheck/>} label="Average recent price" value={currentPriceSummary.avg ? money(currentPriceSummary.avg) : '—'} note={`${currentPriceSummary.count} current rates · ${priceSummary.count} historical`} />
+      <Stat icon={<BatteryCharging/>} label="Fresh public prices" value={currentStations} note={`observed within ${CURRENT_PRICE_MAX_HOURS} hr`} />
       <Stat icon={<Clock3/>} label="Data loaded" value={shortDate(stationsFetchedAt || predictionsFetchedAt)} note="browser refreshes periodically" />
       <Stat icon={<Zap/>} label="This charger" value={publicCheckResult} note="latest page check" />
     </section>

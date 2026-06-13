@@ -31,6 +31,7 @@ The project focuses on transparency:
 - Public pricing visibility varies by station
 - Some stations expose pricing publicly, others do not
 - Confidence and freshness indicators are shown clearly
+- Prices older than 2 hours are treated as historical, not current
 
 ---
 
@@ -313,6 +314,8 @@ GitHub Actions automatically:
 Current optimization strategy:
 
 - Daily rotating state/province refreshes
+- Dynamic pricing checks run every 30 minutes because Tesla pricing can move on half-hour windows
+- Full station discovery runs weekly so it does not block price refreshes
 - Manual ZIP or coordinate scoped refreshes for local areas
 - Smaller scrape batches to avoid slow Tesla page render passes piling up
 - Pricing accordions are opened before extraction

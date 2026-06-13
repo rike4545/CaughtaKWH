@@ -25,6 +25,14 @@ function freshnessLabel(ageHours) {
   if (ageHours <= 48) return 'stale: older than 12 hours';
   return 'very stale: older than 2 days';
 }
+function currentPriceStatus(ageHours) {
+  if (typeof ageHours !== 'number') return 'missing';
+  if (ageHours <= 0.5) return 'fresh';
+  if (ageHours <= 2) return 'recent';
+  if (ageHours <= 12) return 'aging';
+  if (ageHours <= 48) return 'stale';
+  return 'very_stale';
+}
 function confidence(sampleCount, ageHours, volatility) {
   let score = 0;
   if (sampleCount >= 30) score += 35; else if (sampleCount >= 10) score += 25; else if (sampleCount >= 3) score += 14; else score += 6;
@@ -100,6 +108,7 @@ function predictionFor(stationId, obs, field, membershipType) {
   }).sort((a, b) => a.ci95High - b.ci95High || a.expectedPrice - b.expectedPrice);
   const best = slots[0];
   const ageHours = hoursSince(latest?.capturedAt);
+  const status = currentPriceStatus(ageHours);
   const conf = confidence(priceRows.length, ageHours, overallSd);
   return {
     stationId,
@@ -109,6 +118,9 @@ function predictionFor(stationId, obs, field, membershipType) {
     latestObservedPrice: latest?.[field] ?? null,
     latestObservationAgeHours: typeof ageHours === 'number' ? Number(ageHours.toFixed(2)) : null,
     freshnessLabel: freshnessLabel(ageHours),
+    currentPriceStatus: status,
+    isCurrentPrice: status === 'fresh' || status === 'recent',
+    stalePrice: !(status === 'fresh' || status === 'recent'),
     bestHour: best.hour,
     bestMinute: best.minute,
     bestSlot: best.slot,
