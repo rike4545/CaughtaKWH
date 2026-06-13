@@ -139,7 +139,9 @@ async function scrapeOne(context, station) {
       if (nextData) {
         const prices = {
           memberPricePerKwh: nextData.memberPrice,
+          memberPeakPricePerKwh: nextData.memberPeakPrice ?? null,
           nonMemberPricePerKwh: nextData.nonMemberPrice,
+          nonMemberPeakPricePerKwh: nextData.nonMemberPeakPrice ?? null,
           congestionFeePerMinuteMax: nextData.congestionFee ?? null,
           lowestObservedPricePerKwh: [nextData.memberPrice, nextData.nonMemberPrice].filter(v => v != null).sort((a, b) => a - b)[0] ?? null,
           lowPriceId: null,

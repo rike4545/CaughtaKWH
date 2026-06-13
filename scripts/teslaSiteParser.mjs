@@ -181,10 +181,34 @@ function firstMoneyAfter(text, labels, unitPattern = '(?:kwh|kw h|kilowatt[-\\s]
   return null;
 }
 
+// Collects all distinct plausible kWh prices within a section window (for TOD bar-chart pages).
+// Returns { offPeak, peak } where offPeak = min and peak = max (null if only one price found).
+function sectionPriceRange(text, labels) {
+  const normalized = normalizeText(text);
+  for (const label of labels) {
+    const index = normalized.toLowerCase().indexOf(label.toLowerCase());
+    if (index < 0) continue;
+    // Find the next section boundary (another "Pricing for" heading or end of relevant window).
+    const nextSection = normalized.toLowerCase().indexOf('pricing for', index + label.length);
+    const window = normalized.slice(index, nextSection > 0 ? Math.min(nextSection, index + 800) : index + 800);
+    const prices = [];
+    for (const match of window.matchAll(/\$\s*([0-9]+(?:\.[0-9]{1,3})?)/g)) {
+      const v = parseDollarValue(match[1]);
+      if (v !== null && !prices.includes(v)) prices.push(v);
+    }
+    if (!prices.length) continue;
+    const offPeak = Math.min(...prices);
+    const peak = Math.max(...prices);
+    return { offPeak, peak: peak !== offPeak ? peak : null };
+  }
+  return null;
+}
+
 export function inferPrices(text, html = '') {
   const normalized = normalizeText(`${text}\n${html}`);
   const candidates = extractPriceCandidates(normalized);
-  const member = firstMoneyAfter(normalized, [
+
+  const MEMBER_LABELS = [
     'Pricing for Tesla & Members',
     'Pricing for Tesla and Members',
     'Tesla & Members',
@@ -194,8 +218,8 @@ export function inferPrices(text, html = '') {
     'Members',
     'Tesla drivers',
     'Tesla vehicles'
-  ]);
-  const nonMember = firstMoneyAfter(normalized, [
+  ];
+  const NON_MEMBER_LABELS = [
     'Pricing for Non-Tesla',
     'Pricing for Non-Members',
     'Non-Tesla',
@@ -204,7 +228,10 @@ export function inferPrices(text, html = '') {
     'Non-Members',
     'Other EVs',
     'NACS partners'
-  ]);
+  ];
+
+  const member = firstMoneyAfter(normalized, MEMBER_LABELS);
+  const nonMember = firstMoneyAfter(normalized, NON_MEMBER_LABELS);
   const congestion = firstMoneyAfter(normalized, ['Congestion fees', 'Congestion fee'], '(?:min|minute)');
   const fallbackMember = !member ? bestCandidate(candidates, 'member') : null;
   const fallbackNonMember = !nonMember && /non[-\s]?tesla|non[-\s]?member|other ev|nacs partner/i.test(normalized)
@@ -214,9 +241,15 @@ export function inferPrices(text, html = '') {
   const nonMemberEvidence = nonMember || (fallbackNonMember ? { value: fallbackNonMember.price, label: 'best scored non-Tesla $/kWh candidate', evidence: fallbackNonMember.evidence, lowPriceId: fallbackNonMember.lowPriceId } : null);
   const bestObserved = [memberEvidence?.value, nonMemberEvidence?.value].filter(v => typeof v === 'number').sort((a, b) => a - b)[0] ?? null;
 
+  // Time-of-day pricing: collect all prices in each section to find peak vs off-peak.
+  const memberRange = memberEvidence ? sectionPriceRange(normalized, MEMBER_LABELS) : null;
+  const nonMemberRange = nonMemberEvidence ? sectionPriceRange(normalized, NON_MEMBER_LABELS) : null;
+
   return {
     memberPricePerKwh: memberEvidence?.value ?? null,
+    memberPeakPricePerKwh: memberRange?.peak ?? null,
     nonMemberPricePerKwh: nonMemberEvidence?.value ?? null,
+    nonMemberPeakPricePerKwh: nonMemberRange?.peak ?? null,
     congestionFeePerMinuteMax: congestion?.value ?? null,
     lowestObservedPricePerKwh: bestObserved,
     lowPriceId: lowPriceId(bestObserved),
@@ -316,19 +349,27 @@ export function extractNextData(html) {
     if (!pricing) return null;
 
     let memberPrice = null;
+    let memberPeakPrice = null;
     let nonMemberPrice = null;
+    let nonMemberPeakPrice = null;
     let congestionFee = null;
 
     for (const tier of pricing) {
       const label = String(tier.chargingLabel || tier.label || '').toLowerCase();
       const isMember = /tesla owner|tesla.*member|member.*tesla|charging fees for tesla/i.test(label);
       const isNonMember = /non.?tesla|non.?member|all ev/i.test(label);
+      if (!isMember && !isNonMember) continue;
       const details = tier.pricingDetails ?? tier.details ?? [];
-      for (const d of details) {
-        const val = parseDollarValue(String(d.rate ?? d.price ?? ''));
-        if (val == null) continue;
-        if (isMember && memberPrice == null) memberPrice = val;
-        else if (isNonMember && nonMemberPrice == null) nonMemberPrice = val;
+      const rates = details.map(d => parseDollarValue(String(d.rate ?? d.price ?? ''))).filter(v => v != null);
+      if (!rates.length) continue;
+      const offPeak = Math.min(...rates);
+      const peak = Math.max(...rates);
+      if (isMember && memberPrice == null) {
+        memberPrice = offPeak;
+        memberPeakPrice = peak !== offPeak ? peak : null;
+      } else if (isNonMember && nonMemberPrice == null) {
+        nonMemberPrice = offPeak;
+        nonMemberPeakPrice = peak !== offPeak ? peak : null;
       }
     }
 
@@ -340,7 +381,7 @@ export function extractNextData(html) {
     if (congestionMatch) congestionFee = parseDollarValue(congestionMatch[1]);
 
     if (memberPrice == null && nonMemberPrice == null) return null;
-    return { memberPrice, nonMemberPrice, congestionFee, source: '__NEXT_DATA__' };
+    return { memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice, congestionFee, source: '__NEXT_DATA__' };
   } catch { return null; }
 }
 

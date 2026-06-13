@@ -226,7 +226,9 @@ function manualCheckFromCurrentData(selected, prediction, rows) {
     source: 'CaughtaKWH public data',
     latestObservedAt: latest?.capturedAt || prediction?.latestObservedAt || null,
     memberPricePerKwh: latest?.memberPricePerKwh ?? prediction?.latestObservedPrice ?? null,
+    memberPeakPricePerKwh: latest?.memberPeakPricePerKwh ?? null,
     nonMemberPricePerKwh: latest?.nonMemberPricePerKwh ?? null,
+    nonMemberPeakPricePerKwh: latest?.nonMemberPeakPricePerKwh ?? null,
     confidence: prediction?.confidenceLabel || 'last saved',
     historyCount: rows.length,
     currentTeslaPriceGuaranteed: false
@@ -481,7 +483,7 @@ function App() {
           {manualCheck.status !== 'idle' && <div className={manualCheck.status === 'loading' ? 'manualCheck loading' : 'manualCheck'}>
             {manualCheck.status === 'loading'
               ? <><RefreshCw size={18} className="spin"/><div><strong>Loading the newest CaughtaKWH observation...</strong><p>This is not a live Tesla price check. Tesla is still the live source before you charge.</p></div></>
-              : <><ShieldCheck size={18}/><div><strong>{manualData?.latestObservedAt ? `Newest CaughtaKWH observation loaded ${shortDate(manualCheck.checkedAt)}` : 'No CaughtaKWH price observation yet'}</strong><p>{manualData?.latestObservedAt ? `Tesla/member ${money(manualData.memberPricePerKwh)}${manualData.nonMemberPricePerKwh != null ? ` · Non-Tesla ${money(manualData.nonMemberPricePerKwh)}` : ''} · observed ${shortDate(manualData.latestObservedAt)}.` : 'CaughtaKWH has not captured a public price for this station yet.'} {manualCheck.note ? `${manualCheck.note} ` : ''}This is saved observation data, not a live Tesla quote. Check Tesla for the live in-car/app price.</p></div></>}
+              : <><ShieldCheck size={18}/><div><strong>{manualData?.latestObservedAt ? `Newest CaughtaKWH observation loaded ${shortDate(manualCheck.checkedAt)}` : 'No CaughtaKWH price observation yet'}</strong><p>{manualData?.latestObservedAt ? `Tesla/member ${money(manualData.memberPricePerKwh)}${manualData.memberPeakPricePerKwh != null ? `–${money(manualData.memberPeakPricePerKwh)} peak` : ''}${manualData.nonMemberPricePerKwh != null ? ` · Non-Tesla ${money(manualData.nonMemberPricePerKwh)}${manualData.nonMemberPeakPricePerKwh != null ? `–${money(manualData.nonMemberPeakPricePerKwh)} peak` : ''}` : ''} · observed ${shortDate(manualData.latestObservedAt)}.` : 'CaughtaKWH has not captured a public price for this station yet.'} {manualCheck.note ? `${manualCheck.note} ` : ''}This is saved observation data, not a live Tesla quote. Check Tesla for the live in-car/app price.</p></div></>}
           </div>}
         </Card>
 
