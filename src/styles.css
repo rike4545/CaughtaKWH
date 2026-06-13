@@ -67,10 +67,12 @@ p { color: var(--muted); line-height: 1.55; }
 .filter { margin-top: 12px; width: 100%; }
 .search input { width: 100%; border: 0; outline: 0; background: transparent; color: var(--text); font-size: 15px; }
 .stationList { margin-top: 16px; overflow: auto; display: grid; gap: 8px; padding-right: 4px; }
-.stationList button, .toolbar button { text-align: left; border: 1px solid transparent; background: rgba(255,255,255,.05); color: var(--text); border-radius: 16px; padding: 14px; cursor: pointer; }
+.stationList button, .toolbar button { text-align: left; border: 1px solid transparent; background: rgba(255,255,255,.05); color: var(--text); border-radius: 16px; padding: 14px; cursor: pointer; transition: border-color .15s, background .15s; }
 .stationList button.active, .stationList button:hover, .toolbar button.active { border-color: rgba(83,224,163,.55); background: rgba(83,224,163,.12); }
 .stationList strong, .stationList span { display: block; }
 .stationList span { color: var(--muted); margin-top: 4px; font-size: 13px; }
+.stationRow { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.stationPrice { color: var(--accent); font-size: 13px; font-weight: 800; font-style: normal; white-space: nowrap; }
 .content { display: grid; gap: 18px; }
 .sectionTitle { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
 .sectionTitle p { margin: 0 0 4px; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; font-weight: 800; font-size: 12px; }
@@ -85,7 +87,8 @@ p { color: var(--muted); line-height: 1.55; }
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 .priceStrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
-.priceStrip > div { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+.priceStrip > div { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; padding: 16px; transition: border-color .2s, background .2s; }
+.priceStrip > div.fresh { border-color: rgba(83,224,163,.5); background: rgba(83,224,163,.08); }
 .priceStrip span { color: var(--muted); font-size: 13px; display: block; }
 .priceStrip strong { font-size: 24px; display: block; margin-top: 4px; overflow-wrap: anywhere; }
 .manualCheck { align-items: flex-start; border: 1px solid rgba(83,224,163,.35); border-radius: 18px; background: rgba(83,224,163,.08); color: var(--text); display: flex; gap: 12px; margin-top: 14px; padding: 14px; }
@@ -146,6 +149,10 @@ p { color: var(--muted); line-height: 1.55; }
 .recharts-cartesian-axis-tick-value { fill: var(--muted); }
 .recharts-cartesian-grid line { stroke: rgba(255,255,255,.08); }
 .recharts-default-tooltip { background: #101d2a !important; border: 1px solid var(--line) !important; border-radius: 14px; }
+.recharts-legend-item-text { color: var(--muted) !important; }
+.chartTooltip { background: #0e1c29; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 10px 14px; font-size: 13px; }
+.chartTooltip p { margin: 2px 0; color: var(--muted); }
+.chartTooltip strong { color: var(--text); font-weight: 800; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
 @media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } }

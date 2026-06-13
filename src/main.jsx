@@ -391,9 +391,26 @@ function App() {
           <p className="muted compactNote">CaughtaKWH keeps checking stations over time. A station needs at least three recent public price observations before its history becomes useful for trend watching.</p>
         </Card>
 
-        <Card><div className="sectionTitle"><div><p>Cheaper times</p><h2>{prediction ? `Best time we have seen: ${prediction.bestHour}:${String(prediction.bestMinute).padStart(2, '0')}` : 'Not enough prices yet'}</h2></div><span className="badge">Estimate range</span></div><p className="muted">Use this for planning, then check Tesla before you charge. Live prices can move faster than this chart.</p><ResponsiveContainer width="100%" height={240}><BarChart data={modelRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="slotLabel" interval={5}/><YAxis tickFormatter={money}/><Tooltip formatter={value => money(value)} /><Bar dataKey="expectedPrice" name="Expected $/kWh" /></BarChart></ResponsiveContainer></Card>
+        <Card>{(() => {
+          const priceVals = modelRows.map(r => r.expectedPrice).filter(v => v != null);
+          const minPrice = priceVals.length ? Math.min(...priceVals) : 0;
+          const maxPrice = priceVals.length ? Math.max(...priceVals) : 1;
+          const getBarColor = v => {
+            if (v == null) return 'rgba(255,255,255,.12)';
+            const ratio = maxPrice === minPrice ? 0.5 : (v - minPrice) / (maxPrice - minPrice);
+            if (ratio <= 0.33) return '#53e0a3';
+            if (ratio <= 0.66) return '#ffd166';
+            return '#ff8fa3';
+          };
+          const bestSlot = prediction?.bestHour != null ? prediction.bestHour * 2 + (prediction.bestMinute >= 30 ? 1 : 0) : null;
+          return <>
+            <div className="sectionTitle"><div><p>Cheaper times</p><h2>{prediction ? `Best window: ${slotLabel(bestSlot ?? 0)}` : 'Not enough prices yet'}</h2></div><span className="badge">Estimate range</span></div>
+            <p className="muted">Green = cheaper, yellow = mid, red = pricier. Use this for planning, then check Tesla before you charge.</p>
+            <ResponsiveContainer width="100%" height={260}><BarChart data={modelRows} barCategoryGap="10%"><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="slotLabel" interval={5} tick={{ fill: 'var(--muted)', fontSize: 12 }}/><YAxis tickFormatter={money} tick={{ fill: 'var(--muted)', fontSize: 12 }} width={48}/><Tooltip content={<ChartTooltip formatter={money}/>}/>{bestSlot != null && <ReferenceLine x={slotLabel(bestSlot)} stroke="#53e0a3" strokeDasharray="4 3" label={{ value: 'Best', fill: '#53e0a3', fontSize: 11 }}/>}<Bar dataKey="expectedPrice" name="Expected $/kWh" radius={[4,4,0,0]}>{modelRows.map((row, i) => <Cell key={i} fill={getBarColor(row.expectedPrice)}/>)}</Bar></BarChart></ResponsiveContainer>
+          </>;
+        })()}</Card>
 
-        <Card><div className="sectionTitle"><div><p>Price history</p><h2>{historyRows.length ? `${historyRows.length} recent checks` : 'No prices saved yet'}</h2></div><span className="badge">{historyRows.length ? shortDate(latestHistory?.capturedAt) : 'Waiting'}</span></div>{historyRows.length ? <ResponsiveContainer width="100%" height={240}><LineChart data={historyRows}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="capturedLabel" hide/><YAxis tickFormatter={money}/><Tooltip formatter={value => money(value)} /><Line type="monotone" dataKey="member" name="Tesla/member" dot={false}/><Line type="monotone" dataKey="nonMember" name="Non-Tesla" dot={false}/></LineChart></ResponsiveContainer> : <EmptyState title="No saved prices yet">We either have not checked this charger, or Tesla did not show a public price when we looked.</EmptyState>}</Card>
+        <Card><div className="sectionTitle"><div><p>Price history</p><h2>{historyRows.length ? `${historyRows.length} recent checks` : 'No prices saved yet'}</h2></div><span className="badge">{historyRows.length ? shortDate(latestHistory?.capturedAt) : 'Waiting'}</span></div>{historyRows.length ? <ResponsiveContainer width="100%" height={260}><LineChart data={historyRows}><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="capturedLabel" hide/><YAxis tickFormatter={money} tick={{ fill: 'var(--muted)', fontSize: 12 }} width={48}/><Tooltip content={<ChartTooltip formatter={money}/>}/><Legend wrapperStyle={{ fontSize: 13, paddingTop: 8 }}/><Line type="monotone" dataKey="member" name="Tesla / member" dot={false} stroke="#53e0a3" strokeWidth={2}/><Line type="monotone" dataKey="nonMember" name="Non-Tesla" dot={false} stroke="#65a9ff" strokeWidth={2}/></LineChart></ResponsiveContainer> : <EmptyState title="No saved prices yet">We either have not checked this charger, or Tesla did not show a public price when we looked.</EmptyState>}</Card>
       </div>
     </section>
 
