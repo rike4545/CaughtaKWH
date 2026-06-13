@@ -262,7 +262,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [stateFilter, setStateFilter] = useState('All');
   const [rateType, setRateType] = useState('member');
-  const [selectedId, setSelectedId] = useState('LakeGroveNYsupercharger');
+  const [selectedId, setSelectedId] = useState(null);
   const [zip, setZip] = useState('');
   const [origin, setOrigin] = useState(null);
   const [originMode, setOriginMode] = useState('browse');
@@ -271,7 +271,7 @@ function App() {
   const [activeView, setActiveView] = useState('chargers');
   const [manualCheck, setManualCheck] = useState({ status: 'idle' });
 
-  const selected = stations.find(station => station.id === selectedId) || stations[0];
+  const selected = stations.find(station => station.id === selectedId) ?? null;
   const { data: history } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
   const prediction = predictions.find(item => item.stationId === selected?.id && item.membershipType === rateType) || predictions.find(item => item.stationId === selected?.id);
 
@@ -290,7 +290,8 @@ function App() {
       return matchesState && (!normalized || text.includes(normalized));
     });
   }, [stations, query, stateFilter]);
-  const list = origin ? nearbyList : filtered;
+  const hasFilter = query.trim() || stateFilter !== 'All';
+  const list = origin ? nearbyList : hasFilter ? filtered : [];
 
   async function findZip(event) {
     event.preventDefault();
@@ -432,7 +433,7 @@ function App() {
         <div className="nearbyBox betterNearby"><div><strong>Find chargers nearby</strong><small>Use a ZIP for a wider search, or your location for the closest handful. Your location only sorts the list.</small></div><form onSubmit={findZip}><div className="zipRow"><input placeholder="ZIP code" value={zip} onChange={event => setZip(event.target.value)} inputMode="numeric" maxLength={5}/><button disabled={geoLoading}>Find 25</button></div></form><button className="nearMeButton" onClick={useMyLocation} disabled={geoLoading}><Compass size={18}/><span>{geoLoading ? 'Finding…' : 'Use my location'}</span><small>Closest 5</small></button>{origin && <small>{originMode === 'near-me' ? 'Showing the closest 5 chargers to you. This same area can be used for a focused refresh run.' : `Showing 25 chargers near ${origin.zip} — ${origin.city}, ${origin.state}. This ZIP can be used for a focused refresh run.`}</small>}{geoError && <small className="errorText"><AlertTriangle size={12}/> {geoError}</small>}{origin && <button className="linkButton" onClick={() => { setOrigin(null); setOriginMode('browse'); }}>Clear nearby mode</button>}</div>
         <label className="search"><Search size={16}/><input placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
         <select className="filter" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select>
-        <div className="stationList">{list.map(station => {
+        <div className="stationList">{!origin && !hasFilter && <p className="muted listPrompt">Enter a ZIP, use your location, or search to find chargers.</p>}{list.map(station => {
           const pred = predictions.find(p => p.stationId === station.id && p.membershipType === 'member');
           const hasFresh = pred && isCurrentPrediction(pred);
           return <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => setSelectedId(station.id)}>

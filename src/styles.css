@@ -188,6 +188,7 @@ p { color: var(--muted); line-height: 1.55; }
 .crowdsourceContext li { color: var(--muted); font-size: 13px; }
 .compactNote { font-size: 12px; margin-top: 0; }
 .statusWarning { color: #ff8080 !important; }
+.listPrompt { font-size: 13px; padding: 12px 4px; margin: 0; text-align: center; }
 .lawGrid { display: grid; gap: 12px; margin-top: 16px; }
 .lawCard { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
 .lawCard.enacted { border-color: rgba(83,224,163,.25); }
