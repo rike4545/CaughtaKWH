@@ -467,8 +467,24 @@ function App() {
             <span>Utilization<strong>{percent(latestHistory?.utilizationPct)}</strong></span>
             <span>Last page check<strong>{selected?.lastScrapedAt ? shortDate(selected.lastScrapedAt) : 'Not checked'}</strong></span>
             <span>Page we tried<strong>{lastCandidate ? `${candidateLabel(lastCandidate.reason)} · ${lastCandidate.status || '—'}` : '—'}</strong></span>
+            {selected?.dateOpened && <span>Opened<strong>{selected.dateOpened}</strong></span>}
+            {selected?.facilityName && <span>At / near<strong>{selected.facilityName}</strong></span>}
+            {selected?.superchargeInfoStatus && selected.superchargeInfoStatus !== 'OPEN' && <span>Network status<strong className="statusWarning">{selected.superchargeInfoStatus.replace(/_/g, ' ')}</strong></span>}
           </div>
-          {amenityList.length ? <div className="amenityRow">{amenityList.map(item => <span key={item}>{item}</span>)}</div> : <p className="muted compactNote">Tesla did not list amenities on the page we checked.</p>}
+          {(() => {
+            const tags = [];
+            if (selected?.otherEVs) tags.push('Open to non-Tesla EVs');
+            if (selected?.solarCanopy) tags.push('Solar canopy');
+            if (selected?.battery) tags.push('On-site battery');
+            if (selected?.stallTypes) {
+              const types = Object.entries(selected.stallTypes).filter(([k]) => k !== 'accessible').map(([k, v]) => `${v} ${k.toUpperCase()}`);
+              if (types.length) tags.push(types.join(' + '));
+            }
+            if (selected?.plugTypes?.nacs && !selected?.plugTypes?.tpc) tags.push('NACS only');
+            else if (selected?.plugTypes?.tpc && selected?.plugTypes?.nacs) tags.push('NACS + TPC');
+            return tags.length ? <div className="amenityRow">{tags.map(t => <span key={t}>{t}</span>)}</div> : null;
+          })()}
+          {amenityList.length ? <div className="amenityRow">{amenityList.map(item => <span key={item}>{item}</span>)}</div> : null}
           <div className="scrapeDetail"><span>Page looked like: <strong>{lastCandidate ? signalLabel(lastCandidate.contentSignal) : '—'}</strong></span><span>Tries this round: <strong>{selected?.lastScrapeAttemptCount ?? selected?.lastScrapeCandidates?.length ?? '—'}</strong></span><span>Price-like numbers: <strong>{selected?.lastPriceCandidateCount ?? '—'}</strong></span><span>Hours hint: <strong>{siteDetails.accessHint || '—'}</strong></span></div>
         </Card>
 

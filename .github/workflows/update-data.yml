@@ -81,6 +81,9 @@ jobs:
 
       - run: npx playwright install --with-deps chromium
 
+      - name: Enrich stations from supercharge.info
+        run: npm run enrich:superchargeinfo
+
       - name: Run full data refresh pipeline
         run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run update:data
 
