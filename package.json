@@ -18,15 +18,16 @@
     "scrape:needs-history": "SCRAPE_NEEDS_HISTORY=true npm run scrape"
   },
   "dependencies": {
+    "@playwright/test": "latest",
     "@vitejs/plugin-react": "latest",
-    "vite": "latest",
-    "typescript": "latest",
+    "leaflet": "latest",
+    "lucide-react": "latest",
+    "playwright-extra": "^4.3.6",
+    "playwright-extra-plugin-stealth": "^0.0.1",
     "react": "latest",
     "react-dom": "latest",
-    "lucide-react": "latest",
     "recharts": "latest",
-    "leaflet": "latest",
-    "@playwright/test": "latest"
-  },
-  "devDependencies": {}
+    "typescript": "latest",
+    "vite": "latest"
+  }
 }

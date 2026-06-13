@@ -1,4 +1,5 @@
-import { chromium } from '@playwright/test';
+import { chromium as chromiumBase } from 'playwright-extra';
+import StealthPlugin from 'playwright-extra-plugin-stealth';
 import path from 'node:path';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import {
@@ -12,6 +13,8 @@ import {
   sleep,
   stationCandidates
 } from './teslaSiteParser.mjs';
+
+const chromium = chromiumBase.use(StealthPlugin());
 
 const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const predictions = await readJson(path.join(dataDir, 'predictions.json'), []);
@@ -162,9 +165,11 @@ async function scrapeOne(context, station) {
     try {
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
       const status = response?.status() || 0;
-      await page.waitForTimeout(isStoredUrl ? 3000 : 5500);
+      // Wait for Akamai JS challenge to complete and page to settle.
+      await page.waitForLoadState('networkidle', { timeout: 12000 }).catch(() => {});
+      await page.waitForTimeout(2500);
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(() => {});
-      await page.waitForTimeout(isStoredUrl ? 800 : 1200);
+      await page.waitForTimeout(1000);
       await expandPricingAccordions(page);
       const bodyText = await page.locator('body').innerText({ timeout: 12000 });
       const html = await page.content().catch(() => '');
@@ -300,22 +305,6 @@ const context = await browser.newContext({
   }
 });
 
-// Patch bot-detection properties before any page navigation.
-// Akamai's JS challenge inspects these; patching them makes Playwright
-// look like a regular Chrome browser rather than an automation tool.
-await context.addInitScript(() => {
-  Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-  Object.defineProperty(navigator, 'plugins', { get: () => [{ name: 'Chrome PDF Plugin' }, { name: 'Chrome PDF Viewer' }, { name: 'Native Client' }] });
-  Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
-  Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
-  Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
-  window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
-  const originalQuery = window.navigator.permissions.query;
-  window.navigator.permissions.query = params =>
-    params.name === 'notifications'
-      ? Promise.resolve({ state: Notification.permission })
-      : originalQuery(params);
-});
 let saved = 0;
 let attempted = 0;
 for (const station of ordered.slice(0, MAX_STATIONS)) {
