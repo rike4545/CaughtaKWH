@@ -337,7 +337,7 @@ export function extractNextData(html) {
 
     const congestionRaw = String(loc.congestionFees ?? loc.idleFees ?? '');
     const congestionMatch = congestionRaw.match(/\$(\d+(?:\.\d+)?)\s*\/\s*min/i);
-    if (congestionMatch) congestionFee = parseDollarValue(congestionMatch[0]);
+    if (congestionMatch) congestionFee = parseDollarValue(congestionMatch[1]);
 
     if (memberPrice == null && nonMemberPrice == null) return null;
     return { memberPrice, nonMemberPrice, congestionFee, source: '__NEXT_DATA__' };
@@ -347,13 +347,19 @@ export function extractNextData(html) {
 export function classifySiteContent({ bodyText = '', html = '', status = 0, finalUrl = '' } = {}) {
   const normalized = normalizeText(`${bodyText}\n${html}`);
   const pageNotFound = status === 404 || /page not found|404|not found/i.test(normalized);
-  const blocked = status === 403 || /access denied|request blocked|captcha|verify you are human/i.test(normalized);
+  // Akamai Bot Manager challenge pages return HTTP 200 but embed JS challenge signals.
+  // Must detect these to avoid wasting Playwright time and storing bad URLs.
+  const akamaiChallenge = /(_abck|ak_bmsc|akamai[\s\S]{0,400}?bot|enable javascript and cookies to continue|enable javascript.*cookies|please enable cookies)/i.test(html)
+    || /just a moment\.\.\.|checking your browser|ray id[:\s]+[a-f0-9]{10,}/i.test(normalized);
+  const blocked = status === 403 || akamaiChallenge
+    || /access denied|request blocked|captcha|verify you are human/i.test(normalized);
   const validTeslaLocation = !pageNotFound && !blocked && /supercharger|findus|tesla/i.test(normalized + finalUrl);
   return {
     status,
     pageNotFound,
     blocked,
+    akamaiChallenge,
     validTeslaLocation,
-    contentSignal: pageNotFound ? 'not_found' : blocked ? 'blocked' : validTeslaLocation ? 'tesla_location_page' : 'unknown'
+    contentSignal: pageNotFound ? 'not_found' : akamaiChallenge ? 'akamai_challenge' : blocked ? 'blocked' : validTeslaLocation ? 'tesla_location_page' : 'unknown'
   };
 }

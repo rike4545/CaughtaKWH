@@ -118,17 +118,23 @@ async function scrapeOne(context, station) {
   const attempts = [];
   let bestValid = null;
   let lastError = null;
-  const hasStoredUrl = Boolean(station.url && String(station.url).includes('tesla.com'));
+  let allBlocked = true;
 
   for (const candidate of candidates) {
     const { url, reason } = candidate;
-    const isStoredUrl = hasStoredUrl && url === station.url;
 
     // --- Fetch-first: try a plain HTTPS request before spinning up a browser tab.
     // Tesla's SSR pages embed full pricing in __NEXT_DATA__ JSON — no JS execution needed.
-    // This is faster and far less detectable than Playwright for pages that cooperate.
     const fetched = await fetchHtml(url);
     if (fetched.status === 200 && fetched.html) {
+      const fetchSite = classifySiteContent({ html: fetched.html, status: fetched.status, finalUrl: fetched.finalUrl });
+      if (fetchSite.akamaiChallenge) {
+        // Akamai JS challenge — Playwright is also blocked from GitHub Actions IPs.
+        // Record and skip without burning a browser tab.
+        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'akamai_challenge', hasPrice: false, hasAvailability: false, via: 'fetch' });
+        continue;
+      }
+      allBlocked = false;
       const nextData = extractNextData(fetched.html);
       if (nextData) {
         const prices = {
@@ -143,8 +149,7 @@ async function scrapeOne(context, station) {
         };
         const availability = inferAvailability('', station);
         const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
-        const attempt = { url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'tesla_location_page', hasPrice: true, hasAvailability: false, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' };
-        attempts.push(attempt);
+        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'tesla_location_page', hasPrice: true, hasAvailability: false, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' });
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
       }
       // Page loaded but no __NEXT_DATA__ pricing — try text extraction before Playwright
@@ -155,6 +160,9 @@ async function scrapeOne(context, station) {
         attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'tesla_location_page', hasPrice: true, hasAvailability: false, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+html' });
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
       }
+    } else if (fetched.status === 403) {
+      attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'blocked', hasPrice: false, hasAvailability: false, via: 'fetch' });
+      continue;
     }
 
     // --- Playwright fallback: needed when the page requires JS rendering.
@@ -162,25 +170,31 @@ async function scrapeOne(context, station) {
     try {
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
       const status = response?.status() || 0;
-      // Wait for Akamai JS challenge to complete and page to settle.
       await page.waitForLoadState('networkidle', { timeout: 12000 }).catch(() => {});
       await page.waitForTimeout(2500);
+      // Check for Akamai challenge before spending more time on this page.
+      const html = await page.content().catch(() => '');
+      const site = classifySiteContent({ html, status, finalUrl: page.url() });
+      if (site.akamaiChallenge) {
+        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: 'akamai_challenge', hasPrice: false, hasAvailability: false, via: 'playwright' });
+        continue;
+      }
+      allBlocked = false;
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(() => {});
       await page.waitForTimeout(1000);
       await expandPricingAccordions(page);
       const bodyText = await page.locator('body').innerText({ timeout: 12000 });
-      const html = await page.content().catch(() => '');
       const scriptsText = await page.locator('script').evaluateAll(nodes => nodes.map(n => n.textContent || '').join('\n')).catch(() => '');
       const prices = inferPrices(`${bodyText}\n${scriptsText}`, html);
       const availability = inferAvailability(bodyText, station);
       const siteDetails = inferSiteDetails({ bodyText, html, station, url: page.url() || url, candidateReason: reason });
       const hasPrice = prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null;
       const hasAvailability = availability.availableStalls !== null || availability.utilizationPct !== null || availability.availabilityLabel !== null;
-      const site = classifySiteContent({ bodyText, html, status, finalUrl: page.url() });
       const attempt = { url, finalUrl: page.url(), reason, status, contentSignal: site.contentSignal, hasPrice, hasAvailability, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'playwright' };
       attempts.push(attempt);
       const result = { url: page.url() || url, prices, availability, siteDetails, bodyText, hasPrice, hasAvailability, attempts };
       if (hasPrice) return result;
+      // Only use this URL as the canonical stored URL if it looks like a real Tesla page.
       if ((hasAvailability || site.validTeslaLocation) && !bestValid) bestValid = result;
     } catch (error) {
       lastError = error;
@@ -189,10 +203,12 @@ async function scrapeOne(context, station) {
       await page.close();
     }
   }
+
   if (bestValid) return bestValid;
-  const error = lastError || new Error('No usable Tesla location candidate');
-  error.attempts = attempts;
-  throw error;
+  const err = lastError || new Error(allBlocked ? 'akamai_blocked' : 'No usable Tesla location candidate');
+  err.attempts = attempts;
+  err.allBlocked = allBlocked;
+  throw err;
 }
 async function expandPricingAccordions(page) {
   const labels = ['Pricing for Tesla & Members', 'Pricing for Non-Tesla'];
@@ -234,6 +250,9 @@ function priorityFor(station) {
   if (samples < 3 && samples > 0) score += 80; else if (samples < 10) score += 35;
   if (SCRAPE_NEEDS_HISTORY && samples < 3) score += 160;
   if (['CA', 'NY', 'FL', 'TX', 'NJ', 'WA', 'MA'].includes(station.state)) score += 12;
+  // Stations confirmed Akamai-blocked last run are deprioritized unless they have price history.
+  // They still rotate in over time as scrapeAge accumulates, but don't crowd out unknown stations.
+  if (station.lastScrapeBlocked && samples === 0) score -= 200;
   return Number(score.toFixed(2));
 }
 
@@ -359,10 +378,12 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
       await writeJson(stationHistoryPath(station.id), merged);
       saved++;
     }
-    station.url = result.url;
+    // Only update the stored URL if the result came from a real Tesla page, not a redirect or challenge.
+    if (result.url && String(result.url).includes('/findus/location/supercharger/')) station.url = result.url;
     station.lastScrapedAt = capturedAt;
     station.lastScrapeHadPrice = hasPrice;
     station.lastScrapeHadAvailability = hasAvailability;
+    station.lastScrapeBlocked = false;
     station.lastPriceCandidateCount = result.prices.priceCandidateCount;
     station.lastLowPriceId = result.prices.lowPriceId;
     station.lastScrapeAttemptCount = result.attempts.length;
@@ -386,11 +407,13 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     station.observationPriorityScore = priorityFor(station);
     delete station.lastScrapeError;
   } catch (error) {
+    const isBlocked = error.allBlocked === true;
     station.lastScrapeError = String(error.message || error);
     station.lastScrapedAt = capturedAt;
     station.lastScrapeHadPrice = false;
     station.lastScrapeHadAvailability = false;
-    station.lastScrapeResult = 'no_usable_candidate';
+    station.lastScrapeBlocked = isBlocked;
+    station.lastScrapeResult = isBlocked ? 'akamai_blocked' : 'no_usable_candidate';
     station.lastScrapeAttemptCount = Array.isArray(error.attempts) ? error.attempts.length : 0;
     station.lastScrapeCandidates = Array.isArray(error.attempts) ? error.attempts.slice(0, 8).map(attempt => ({
       url: attempt.url,
