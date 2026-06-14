@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, Eye, EyeOff, ExternalLink, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
@@ -167,6 +167,9 @@ function useJson(url, fallback, refreshMs = 300000) {
   const [fetchedAt, setFetchedAt] = useState(null);
   useEffect(() => {
     let live = true;
+    // Reset to fallback when the URL changes so one station's data never bleeds into the
+    // next when the new fetch 404s (e.g. a station with no saved price history file).
+    setData(fallback);
     const load = () => {
       setError(null);
       fetch(`${url}?t=${Date.now()}`, { cache: 'no-store' })
@@ -179,7 +182,7 @@ function useJson(url, fallback, refreshMs = 300000) {
           setData(json);
           setFetchedAt(new Date().toISOString());
         })
-        .catch(error => live && setError(error.message));
+        .catch(error => { if (live) { setError(error.message); setData(fallback); } });
     };
     load();
     const timer = refreshMs ? window.setInterval(load, refreshMs) : null;
@@ -257,6 +260,37 @@ function PriceTruthNotice({ selected, prediction }) {
   </div>;
 }
 
+function RateTile({ kind, label, icon, off, peak, fresh, benchDelta }) {
+  const hasPrice = typeof off === 'number';
+  return <div className={`rateTile ${kind}${fresh && hasPrice ? ' fresh' : ''}${hasPrice ? '' : ' empty'}`}>
+    <div className="rateTileHead">{icon}<span>{label}</span></div>
+    {hasPrice ? <>
+      <div className="rateBig">{money(off)}<small>/kWh{peak != null ? ' off-peak' : ''}</small></div>
+      {peak != null
+        ? <div className="ratePeak"><span className="peakDot" /> to <strong>{money(peak)}</strong> at peak</div>
+        : <div className="rateFlat">flat rate, all day</div>}
+      {benchDelta != null && <div className={`rateBench ${benchDelta > 0 ? 'over' : 'under'}`}>{signedCents(benchDelta)} vs local grid</div>}
+    </> : <div className="rateBig empty">Hidden<small>no public rate shown</small></div>}
+  </div>;
+}
+
+function PriceMatrix({ memberOff, memberPeak, nonOff, nonPeak, congestion, fresh, benchmarkCents, observedAt }) {
+  const benchmark = typeof benchmarkCents === 'number' ? benchmarkCents : null;
+  const delta = price => (typeof price === 'number' && benchmark != null) ? price * 100 - benchmark : null;
+  const anyPrice = typeof memberOff === 'number' || typeof nonOff === 'number';
+  return <div className={`priceMatrix${fresh ? ' fresh' : ''}`}>
+    <div className="rateRow">
+      <RateTile kind="member" label="Tesla / member" icon={<Zap size={15}/>} off={memberOff} peak={memberPeak} fresh={fresh} benchDelta={delta(memberOff)} />
+      <RateTile kind="nonmember" label="Non-Tesla" icon={<Users size={15}/>} off={nonOff} peak={nonPeak} fresh={fresh} benchDelta={delta(nonOff)} />
+    </div>
+    <div className="rateFooter">
+      <span className="rateFoot"><Clock3 size={14}/> Congestion fee <strong>{congestion != null ? `${money(congestion)}/min` : 'none shown'}</strong></span>
+      <span className="rateFoot"><TrendingDown size={14}/> Local grid <strong>{benchmark != null ? `${cents(benchmark)}/kWh` : 'no benchmark'}</strong></span>
+      <span className={`rateFoot rateFreshTag${fresh ? ' ok' : ''}`}>{anyPrice ? (fresh ? 'Recently observed' : observedAt ? 'Historical only' : 'Saved') : 'Not checked yet'}</span>
+    </div>
+  </div>;
+}
+
 const isTesla = /Tesla\//.test(navigator.userAgent);
 const isMobile = !isTesla && navigator.maxTouchPoints > 0
   && window.matchMedia('(pointer: coarse)').matches
@@ -269,7 +303,7 @@ function App() {
   const [query, setQuery] = useState('');
   const [stateFilter, setStateFilter] = useState('All');
   const [rateType, setRateType] = useState('member');
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState(() => window.location.hash.slice(1) || null);
   const [zip, setZip] = useState('');
   const [origin, setOrigin] = useState(null);
   const [originMode, setOriginMode] = useState('browse');
@@ -278,6 +312,7 @@ function App() {
   const [activeView, setActiveView] = useState('chargers');
   const [manualCheck, setManualCheck] = useState({ status: 'idle' });
   const [autoLocateDone, setAutoLocateDone] = useState(false);
+  const detailRef = useRef(null);
 
   const selected = stations.find(station => station.id === selectedId) ?? null;
   const { data: history } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
@@ -287,23 +322,22 @@ function App() {
     setManualCheck({ status: 'idle' });
   }, [selected?.id]);
 
-  // Sync URL hash and page title with selected station.
+  // Sync URL hash and page title with the selected station. Keyed on selectedId so the
+  // hash survives initial load (selectedId is seeded from the hash before stations arrive).
   useEffect(() => {
-    if (selected) {
-      const hash = `#${selected.id}`;
+    if (selectedId) {
+      const hash = `#${selectedId}`;
       if (window.location.hash !== hash) window.history.replaceState(null, '', hash);
-      document.title = `${selected.name || selected.city || selected.id} · CaughtaKWH`;
+      document.title = `${selected?.name || selected?.city || selectedId} · CaughtaKWH`;
     } else {
       if (window.location.hash) window.history.replaceState(null, '', window.location.pathname);
       document.title = 'CaughtaKWH';
     }
-  }, [selected?.id]);
+  }, [selectedId, selected?.name]);
 
-  // On first load, restore selected station from URL hash.
+  // Once stations load, drop a hash-seeded selection that doesn't match any real station.
   useEffect(() => {
-    if (!stations.length || selectedId) return;
-    const hash = window.location.hash.slice(1);
-    if (hash && stations.some(s => s.id === hash)) setSelectedId(hash);
+    if (stations.length && selectedId && !stations.some(s => s.id === selectedId)) setSelectedId(null);
   }, [stations.length]);
 
   const states = useMemo(() => ['All', ...Array.from(new Set(stations.map(station => station.state).filter(Boolean))).sort()], [stations]);
@@ -418,6 +452,13 @@ function App() {
   const commercialBenchmark = commercialBenchmarks[selected?.state];
   const memberCents = typeof latestHistory?.memberPricePerKwh === 'number' ? latestHistory.memberPricePerKwh * 100 : null;
   const nonTeslaCents = typeof latestHistory?.nonMemberPricePerKwh === 'number' ? latestHistory.nonMemberPricePerKwh * 100 : null;
+  const rateMemberOff = latestHistory?.memberPricePerKwh ?? (pricingFresh ? prediction?.latestObservedPrice : null) ?? null;
+  const rateMemberPeak = latestHistory?.memberPeakPricePerKwh ?? null;
+  const rateNonOff = latestHistory?.nonMemberPricePerKwh ?? null;
+  const rateNonPeak = latestHistory?.nonMemberPeakPricePerKwh ?? null;
+  const rateCongestion = latestHistory?.congestionFeePerMinuteMax ?? null;
+  const bestWindowSlot = prediction?.bestHour != null ? prediction.bestHour * 2 + (prediction.bestMinute >= 30 ? 1 : 0) : null;
+  const bestWindowLabel = bestWindowSlot != null ? slotLabel(bestWindowSlot) : '—';
   const benchmarkCents = commercialBenchmark?.centsPerKwh ?? null;
   const memberVsBenchmark = memberCents && benchmarkCents ? memberCents / benchmarkCents : null;
   const nonTeslaVsBenchmark = nonTeslaCents && benchmarkCents ? nonTeslaCents / benchmarkCents : null;
@@ -485,20 +526,21 @@ function App() {
         <div className="stationList">{!origin && !hasFilter && <p className="muted listPrompt">Enter a ZIP, use your location, or search to find chargers.</p>}{list.map(station => {
           const pred = predictions.find(p => p.stationId === station.id && p.membershipType === 'member');
           const hasFresh = pred && isCurrentPrediction(pred);
-          return <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => setSelectedId(station.id)}>
+          return <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => { setSelectedId(station.id); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }}>
             <div className="stationRow"><strong>{station.name}</strong>{hasFresh && pred.latestObservedPrice != null && <em className="stationPrice">{money(pred.latestObservedPrice)}</em>}</div>
             <span>{station.distanceMiles !== undefined ? `${distance(station.distanceMiles)} • ` : ''}{station.address || [station.city, station.state].filter(Boolean).join(', ') || station.id}</span>
           </button>;
         })}</div>
       </Card>
 
-      <div className="content">
+      <div className="content" ref={detailRef}>
         <PriceTruthNotice selected={selected} prediction={prediction} />
         <Card>
           <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
           <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' ? 'spin' : ''}/>{manualCheck.status === 'loading' ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <a className="liveTeslaButton" href={selected.url} target="_blank" rel="noreferrer"><ExternalLink size={16}/>Get live Tesla price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
-          <div className="priceStrip"><div className={pricingFresh ? 'fresh' : ''}><span>What Tesla showed us</span><strong>{pricingFresh ? money(prediction?.latestObservedPrice) : prediction?.latestObservedAt ? 'Stale' : 'Hidden'}</strong><small>{pricingFresh ? `${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}` : publicCheckResult}</small></div><div><span>Last price we saw</span><strong>{money(prediction?.latestObservedPrice)}</strong><small>{prediction?.latestObservedAt ? `${freshnessLabel(prediction.latestObservedAt)} · historical only` : 'No price history yet'}</small></div><div><span>How much to trust it</span><strong>{prediction?.confidenceLabel ? `${prediction.confidenceLabel}` : 'Low'}</strong><small>{prediction?.confidenceScore != null ? `${prediction.confidenceScore}/100 · ${prediction.sampleCount} samples` : 'Needs more samples'}</small></div><div><span>Stalls and speed</span><strong>{selected?.stalls || '—'} stalls</strong><small>{selected?.maxKw ? `Up to ${selected.maxKw} kW` : selected?.capacityConfidence || 'capacity unknown'}</small></div></div>
+          <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
+          <div className="priceStrip"><div><span>Last observed</span><strong>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'Never'}</strong><small>{prediction?.latestObservedAt ? `${shortDate(prediction.latestObservedAt)} · ${publicCheckResult}` : 'No public price yet'}</small></div><div><span>Best charging window</span><strong>{bestWindowLabel}</strong><small>{prediction ? 'cheapest expected time' : 'needs more data'}</small></div><div><span>How much to trust it</span><strong>{prediction?.confidenceLabel || 'Low'}</strong><small>{prediction?.confidenceScore != null ? `${prediction.confidenceScore}/100 · ${prediction.sampleCount} samples` : 'Needs more samples'}</small></div><div><span>Stalls and speed</span><strong>{selected?.stalls || '—'} stalls</strong><small>{selected?.maxKw ? `Up to ${selected.maxKw} kW` : selected?.capacityConfidence || 'capacity unknown'}</small></div></div>
           {manualCheck.status !== 'idle' && <div className={manualCheck.status === 'loading' ? 'manualCheck loading' : 'manualCheck'}>
             {manualCheck.status === 'loading'
               ? <><RefreshCw size={18} className="spin"/><div><strong>Loading the newest CaughtaKWH observation...</strong><p>This is not a live Tesla price check. Tesla is still the live source before you charge.</p></div></>
@@ -724,4 +766,8 @@ function App() {
   </main>;
 }
 
-createRoot(document.getElementById('root')).render(<App />);
+// Reuse a single root across HMR reloads so the dev server doesn't warn about
+// calling createRoot() twice on the same container.
+const container = document.getElementById('root');
+const root = (window.__caughtaRoot ??= createRoot(container));
+root.render(<App />);

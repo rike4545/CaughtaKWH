@@ -168,14 +168,45 @@ function bestCandidate(candidates, role) {
   return [...candidates].sort((a, b) => scoreCandidate(b, role) - scoreCandidate(a, role))[0];
 }
 
+// Per-minute / per-hour suffixes mark congestion or idle fees, NOT kWh prices.
+// Tesla's TOU pricing sections lead with "Congestion fees (up to) $0.50/min", so any
+// $/kWh extraction in those windows must skip per-time values or it reports the fee as a price.
+const PER_TIME_SUFFIX = /^\s*(?:\/|per)?\s*(?:min|minute|mins|hr|hour)\b/i;
+
+// Pulls every plausible $/kWh value out of a text window, skipping per-minute/hour fees.
+// Returns values in document order, de-duplicated, with $/kWh-tagged values preferred first.
+function kwhDollarsInWindow(window) {
+  const tagged = [];
+  const untagged = [];
+  for (const match of window.matchAll(/\$\s*([0-9]+(?:\.[0-9]{1,3})?)/g)) {
+    const after = window.slice((match.index ?? 0) + match[0].length);
+    if (PER_TIME_SUFFIX.test(after)) continue; // congestion/idle fee — not a kWh rate
+    const value = parseDollarValue(match[1]);
+    if (value === null) continue;
+    const isKwh = /^\s*(?:\/|per)?\s*(?:kwh|kw\s*h|kilowatt[-\s]?hour)/i.test(after);
+    (isKwh ? tagged : untagged).push(value);
+  }
+  const ordered = [...tagged, ...untagged];
+  return ordered.filter((v, i) => ordered.indexOf(v) === i);
+}
+
 function firstMoneyAfter(text, labels, unitPattern = '(?:kwh|kw h|kilowatt[-\\s]?hour)') {
   const normalized = normalizeText(text);
+  const wantsPerTime = /min|\bhr\b/i.test(unitPattern);
   for (const label of labels) {
     const index = normalized.toLowerCase().indexOf(label.toLowerCase());
     if (index < 0) continue;
     const slice = normalized.slice(index, index + 700);
-    const match = slice.match(new RegExp(`\\$\\s*([0-9]+(?:\\.[0-9]{1,3})?)\\s*(?:\\/|per)?\\s*${unitPattern}`, 'i')) || slice.match(/\$\s*([0-9]+(?:\.[0-9]{1,3})?)/i);
-    const value = match ? parseDollarValue(match[1]) : null;
+    let value = null;
+    if (wantsPerTime) {
+      // Congestion / idle fee lookups: take the first $X tagged with the requested per-time unit.
+      const match = slice.match(new RegExp(`\\$\\s*([0-9]+(?:\\.[0-9]{1,3})?)\\s*(?:\\/|per)?\\s*${unitPattern}`, 'i'));
+      value = match ? parseDollarValue(match[1]) : null;
+    } else {
+      // $/kWh lookups: prefer a kWh-tagged value, else the first $X that is NOT a per-time fee.
+      const tagged = slice.match(new RegExp(`\\$\\s*([0-9]+(?:\\.[0-9]{1,3})?)\\s*(?:\\/|per)?\\s*${unitPattern}`, 'i'));
+      value = tagged ? parseDollarValue(tagged[1]) : (kwhDollarsInWindow(slice)[0] ?? null);
+    }
     if (value !== null) return { value, label, evidence: slice.slice(0, 300).replace(/\s+/g, ' ').trim(), lowPriceId: lowPriceId(value) };
   }
   return null;
@@ -191,11 +222,7 @@ function sectionPriceRange(text, labels) {
     // Find the next section boundary (another "Pricing for" heading or end of relevant window).
     const nextSection = normalized.toLowerCase().indexOf('pricing for', index + label.length);
     const window = normalized.slice(index, nextSection > 0 ? Math.min(nextSection, index + 800) : index + 800);
-    const prices = [];
-    for (const match of window.matchAll(/\$\s*([0-9]+(?:\.[0-9]{1,3})?)/g)) {
-      const v = parseDollarValue(match[1]);
-      if (v !== null && !prices.includes(v)) prices.push(v);
-    }
+    const prices = kwhDollarsInWindow(window);
     if (!prices.length) continue;
     const offPeak = Math.min(...prices);
     const peak = Math.max(...prices);

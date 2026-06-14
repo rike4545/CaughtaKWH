@@ -86,7 +86,37 @@ p { color: var(--muted); line-height: 1.55; }
 .liveTeslaButton:hover { border-color: rgba(83,224,163,.85); background: rgba(83,224,163,.2); }
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.priceStrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+/* --- Price matrix: the hero pricing display --- */
+.priceMatrix { margin-top: 18px; border-radius: 22px; border: 1px solid var(--line); background: rgba(0,0,0,.18); overflow: hidden; }
+.priceMatrix.fresh { border-color: rgba(83,224,163,.45); box-shadow: 0 0 0 1px rgba(83,224,163,.18), 0 16px 40px rgba(0,0,0,.28); }
+.rateRow { display: grid; grid-template-columns: 1fr 1fr; }
+.rateTile { padding: 20px 22px; position: relative; }
+.rateTile + .rateTile { border-left: 1px solid var(--line); }
+.rateTile.empty { opacity: .72; }
+.rateTileHead { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.rateTile.member .rateTileHead svg { color: var(--accent); }
+.rateTile.nonmember .rateTileHead svg { color: var(--accent2); }
+.rateBig { font-size: 40px; font-weight: 800; line-height: 1.05; margin-top: 10px; color: var(--text); letter-spacing: -.02em; }
+.rateBig small { font-size: 14px; font-weight: 600; color: var(--muted); margin-left: 6px; letter-spacing: 0; }
+.rateBig.empty { font-size: 26px; color: var(--muted); }
+.rateBig.empty small { display: block; margin: 4px 0 0; font-size: 13px; }
+.rateTile.member.fresh .rateBig { color: var(--accent); }
+.rateTile.nonmember.fresh .rateBig { color: var(--accent2); }
+.ratePeak { margin-top: 8px; font-size: 14px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.ratePeak strong { color: #ffb3c0; font-weight: 800; }
+.peakDot { width: 8px; height: 8px; border-radius: 50%; background: #ff8fa3; box-shadow: 0 0 8px rgba(255,143,163,.7); }
+.rateFlat { margin-top: 8px; font-size: 13px; color: var(--muted); }
+.rateBench { margin-top: 10px; display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+.rateBench.over { background: rgba(255,143,163,.14); color: #ffb3c0; }
+.rateBench.under { background: rgba(83,224,163,.14); color: var(--accent); }
+.rateFooter { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; padding: 13px 22px; border-top: 1px solid var(--line); background: rgba(255,255,255,.03); }
+.rateFoot { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.rateFoot svg { color: var(--muted); }
+.rateFoot strong { color: var(--text); font-weight: 700; }
+.rateFreshTag { margin-left: auto; padding: 3px 11px; border-radius: 999px; background: rgba(255,255,255,.08); font-size: 12px; font-weight: 700; color: var(--muted); }
+.rateFreshTag.ok { background: rgba(83,224,163,.16); color: var(--accent); }
+
+.priceStrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
 .priceStrip > div { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; padding: 16px; transition: border-color .2s, background .2s; }
 .priceStrip > div.fresh { border-color: rgba(83,224,163,.5); background: rgba(83,224,163,.08); }
 .priceStrip span { color: var(--muted); font-size: 13px; display: block; }
@@ -224,6 +254,10 @@ p { color: var(--muted); line-height: 1.55; }
 .mobile-mode .toolbar button { min-height: 52px; font-size: 15px; }
 .tesla-mode .priceStrip > div strong,
 .mobile-mode .priceStrip > div strong { font-size: 22px; }
+.tesla-mode .rateBig,
+.mobile-mode .rateBig { font-size: 46px; }
+.tesla-mode .rateTile,
+.mobile-mode .rateTile { padding: 22px 20px; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
 @media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } .transparencyScorecard { grid-template-columns: 1fr 1fr; } .crowdsourceActions, .policyPoints { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 50px 1fr 1fr; } .benchmarkCoverage { display: none; } }
-@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } .transparencyScorecard { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 48px 1fr 1fr; font-size: 12px; } }
+@media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } .transparencyScorecard { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 48px 1fr 1fr; font-size: 12px; } .rateRow { grid-template-columns: 1fr; } .rateTile + .rateTile { border-left: 0; border-top: 1px solid var(--line); } .rateBig { font-size: 36px; } .rateFooter { gap: 6px 14px; } .rateFreshTag { margin-left: 0; } }
