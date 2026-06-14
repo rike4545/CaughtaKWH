@@ -16,7 +16,8 @@
     "sync:public": "node scripts/syncPublicData.mjs",
     "improve:dashboard": "node scripts/dashboard-bot.mjs && npm run sync:public && npm run validate:data",
     "scrape:needs-history": "SCRAPE_NEEDS_HISTORY=true npm run scrape",
-    "enrich:superchargeinfo": "node scripts/enrichFromSuperchargeInfo.mjs"
+    "enrich:superchargeinfo": "node scripts/enrichFromSuperchargeInfo.mjs",
+    "ingest:reports": "node scripts/ingestPriceReports.mjs"
   },
   "dependencies": {
     "@playwright/test": "latest",
@@ -27,6 +28,7 @@
     "react-dom": "latest",
     "recharts": "latest",
     "typescript": "latest",
+    "undici": "^8.4.1",
     "vite": "latest"
   }
 }

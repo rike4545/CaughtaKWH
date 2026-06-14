@@ -1,0 +1,80 @@
+name: Ingest community price report
+on:
+  issues:
+    types: [opened, edited, reopened, labeled]
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: caughtakwh-data-writer
+  cancel-in-progress: false
+jobs:
+  ingest:
+    # Only run for issues created from the price-report form (it auto-applies this label).
+    if: contains(join(github.event.issue.labels.*.name, ','), 'price-report')
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: true
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - run: npm install --no-audit --no-fund
+
+      - name: Parse and ingest the report
+        id: ingest
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: npm run ingest:reports
+
+      - name: Rebuild predictions and public data
+        if: steps.ingest.outputs.status == 'success'
+        run: npm run predict && npm run validate:data && npm run sync:public
+
+      - name: Commit data updates
+        if: steps.ingest.outputs.status == 'success'
+        run: |
+          set -euo pipefail
+          git config user.name "Bryan Carroll"
+          git config user.email "carrollbh@gmail.com"
+          git add data public/data
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "Add community price report for issue #${{ github.event.issue.number }}"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Pushed."
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep 5
+          done
+          echo "Unable to push after rebasing."
+          exit 1
+
+      - name: Comment success and close
+        if: steps.ingest.outputs.status == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "✅ ${{ steps.ingest.outputs.message }}"
+          gh issue close "${{ github.event.issue.number }}" --reason completed
+
+      - name: Comment validation error
+        if: steps.ingest.outputs.status == 'error'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment "${{ github.event.issue.number }}" --body "⚠️ ${{ steps.ingest.outputs.message }}"

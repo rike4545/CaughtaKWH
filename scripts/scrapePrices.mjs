@@ -1,5 +1,6 @@
 import { chromium } from '@playwright/test';
 import path from 'node:path';
+import { ProxyAgent, setGlobalDispatcher } from 'undici';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import {
   classifySiteContent,
@@ -31,6 +32,47 @@ const SCRAPE_NEEDS_HISTORY = ['1', 'true', 'yes'].includes(String(process.env.SC
 const TESLA_HEADLESS = !['0', 'false', 'no'].includes(String(process.env.TESLA_HEADLESS ?? 'true').toLowerCase());
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
+
+// --- Egress proxy (optional) -----------------------------------------------
+// GitHub Actions runners use datacenter IPs that Akamai Bot Manager blocks on
+// tesla.com. Routing through a residential/ISP proxy makes requests look like a
+// normal browser and is the practical way around the block. Set SCRAPE_PROXY
+// (e.g. http://host:port or http://user:pass@host:port) as an Actions secret.
+const SCRAPE_PROXY = String(process.env.SCRAPE_PROXY || '').trim();
+const SCRAPE_PROXY_USERNAME = String(process.env.SCRAPE_PROXY_USERNAME || '').trim();
+const SCRAPE_PROXY_PASSWORD = String(process.env.SCRAPE_PROXY_PASSWORD || '').trim();
+
+// Builds the Playwright proxy config and applies the proxy to Node's global
+// fetch dispatcher. Returns null when no proxy is configured (default behavior).
+function configureProxy() {
+  if (!SCRAPE_PROXY) {
+    console.log('No SCRAPE_PROXY set — using the runner IP directly (likely Akamai-blocked from CI).');
+    return null;
+  }
+  let parsed;
+  try {
+    parsed = new URL(SCRAPE_PROXY);
+  } catch {
+    console.warn(`SCRAPE_PROXY is not a valid URL (${SCRAPE_PROXY}); ignoring it.`);
+    return null;
+  }
+  const username = SCRAPE_PROXY_USERNAME || decodeURIComponent(parsed.username || '');
+  const password = SCRAPE_PROXY_PASSWORD || decodeURIComponent(parsed.password || '');
+  // Route Node's global fetch (the fetch-first path) through the proxy.
+  const token = username && password ? `${encodeURIComponent(username)}:${encodeURIComponent(password)}@` : '';
+  const dispatcherUrl = `${parsed.protocol}//${token}${parsed.host}`;
+  try {
+    setGlobalDispatcher(new ProxyAgent(dispatcherUrl));
+  } catch (error) {
+    console.warn(`Could not apply proxy to fetch: ${error.message}`);
+  }
+  // Playwright wants the server without inline credentials, plus separate auth.
+  const server = `${parsed.protocol}//${parsed.host}`;
+  console.log(`Routing scraper traffic through proxy ${parsed.host}.`);
+  return username ? { server, username, password } : { server };
+}
+
+const proxyConfig = configureProxy();
 
 function splitEnvList(value) {
   return String(value || '').split(',').map(item => item.trim()).filter(Boolean);
@@ -299,6 +341,7 @@ const inScope = scopedStations();
 const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
 const browser = await chromium.launch({
   headless: TESLA_HEADLESS,
+  ...(proxyConfig ? { proxy: proxyConfig } : {}),
   args: [
     '--disable-blink-features=AutomationControlled',
     '--no-sandbox',

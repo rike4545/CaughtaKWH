@@ -483,7 +483,7 @@ function App() {
 
   const darkStations = stations.length - pricedStations;
   const darkPct = stations.length ? Math.round(darkStations / stations.length * 100) : 100;
-  const CROWDSOURCE_URL = "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.md&title=Price+report";
+  const CROWDSOURCE_URL = "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml";
 
   return <main className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
     {isTesla
@@ -687,7 +687,7 @@ function App() {
         <div className="sectionTitle"><div><p>Help grow the record</p><h2>Saw a price? Report it.</h2></div><span className="badge">Crowdsource</span></div>
         <p className="muted">Tesla shows live prices inside the car and app before you plug in. If you see a $/kWh rate at a Supercharger — on-screen, in the app, or on a posted sign — submit it here. Every report adds to the public record and helps hold pricing accountable.</p>
         <div className="crowdsourceActions">
-          <a href={CROWDSOURCE_URL} target="_blank" rel="noreferrer" className="crowdsourceButton"><Users size={18}/><div><strong>Submit a price observation</strong><small>Opens a GitHub form — no account required for public repos</small></div></a>
+          <a href={CROWDSOURCE_URL} target="_blank" rel="noreferrer" className="crowdsourceButton"><Users size={18}/><div><strong>Submit a price observation</strong><small>Opens a GitHub form — a bot validates it and adds it to the station's history within minutes</small></div></a>
           <div className="crowdsourceContext">
             <strong>What to include</strong>
             <ul>

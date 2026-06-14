@@ -1,0 +1,61 @@
+name: Supercharger price report
+description: Saw a public price at a Tesla Supercharger? Report it and it will be added to the CaughtaKWH database automatically.
+title: "Price report: "
+labels: ["price-report"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping build the public pricing record. Fill in what you saw on the
+        Tesla page, in the app, or on the in-car screen. A bot validates the numbers and
+        adds them to the station's price history within a few minutes. Only the fields you
+        fill in are used — leave the rest blank.
+  - type: input
+    id: station
+    attributes:
+      label: Station
+      description: The CaughtaKWH station ID, or the full Tesla page URL (e.g. https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger).
+      placeholder: LakeGroveNYsupercharger
+    validations:
+      required: true
+  - type: input
+    id: member_price
+    attributes:
+      label: Tesla / member price ($/kWh)
+      description: The off-peak (lowest) Tesla or member rate, in dollars per kWh.
+      placeholder: "0.30"
+  - type: input
+    id: member_peak
+    attributes:
+      label: Tesla / member PEAK price ($/kWh)
+      description: Only if the station shows time-of-use pricing — the highest Tesla/member rate.
+      placeholder: "0.43"
+  - type: input
+    id: nonmember_price
+    attributes:
+      label: Non-Tesla price ($/kWh)
+      description: The off-peak (lowest) non-Tesla rate, in dollars per kWh.
+      placeholder: "0.65"
+  - type: input
+    id: nonmember_peak
+    attributes:
+      label: Non-Tesla PEAK price ($/kWh)
+      description: Only if time-of-use — the highest non-Tesla rate.
+      placeholder: "0.78"
+  - type: input
+    id: congestion
+    attributes:
+      label: Congestion fee ($/min)
+      description: The "up to" congestion fee per minute, if shown.
+      placeholder: "0.50"
+  - type: input
+    id: observed_at
+    attributes:
+      label: When did you see this? (YYYY-MM-DD)
+      description: Date you observed the price. Leave blank to use today.
+      placeholder: "2026-06-13"
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else — where you saw it (page / app / in-car), screenshot link, etc.
