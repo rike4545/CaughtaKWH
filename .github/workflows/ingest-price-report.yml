@@ -40,6 +40,13 @@ jobs:
         if: steps.ingest.outputs.status == 'success'
         run: npm run predict && npm run validate:data && npm run sync:public
 
+      - name: Announce new and changed prices on Mastodon
+        if: steps.ingest.outputs.status == 'success'
+        env:
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+          MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE || 'https://mastodon.social' }}
+        run: npm run social:post
+
       - name: Commit data updates
         if: steps.ingest.outputs.status == 'success'
         run: |

@@ -70,6 +70,10 @@ jobs:
       SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}
       SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
+      # Mastodon @caughtakwh bot. Add secret MASTODON_ACCESS_TOKEN (write:statuses)
+      # to enable auto-posting of new/changed prices; without it the step is a no-op.
+      MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+      MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE || 'https://mastodon.social' }}
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -93,6 +97,9 @@ jobs:
 
       - name: Run full data refresh pipeline
         run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run update:data
+
+      - name: Announce new and changed prices on Mastodon
+        run: npm run social:post
 
       - name: Commit data updates
         run: |
