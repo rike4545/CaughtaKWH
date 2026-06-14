@@ -18,7 +18,8 @@
     "scrape:needs-history": "SCRAPE_NEEDS_HISTORY=true npm run scrape",
     "enrich:superchargeinfo": "node scripts/enrichFromSuperchargeInfo.mjs",
     "ingest:reports": "node scripts/ingestPriceReports.mjs",
-    "social:post": "node scripts/socialBot.mjs"
+    "social:post": "node scripts/socialBot.mjs",
+    "social:summary": "node scripts/socialSummary.mjs"
   },
   "dependencies": {
     "@playwright/test": "latest",

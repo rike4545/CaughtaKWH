@@ -1,0 +1,61 @@
+name: Weekly transparency summary
+on:
+  schedule:
+    - cron: '0 15 * * 1'   # Mondays 15:00 UTC
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Post even if a summary already went out this ISO week
+        required: false
+        default: 'false'
+permissions:
+  contents: write
+concurrency:
+  group: caughtakwh-data-writer
+  cancel-in-progress: false
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
+      MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE || 'https://mastodon.social' }}
+      SOCIAL_FORCE_SUMMARY: ${{ github.event.inputs.force || 'false' }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+          persist-credentials: true
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - run: npm install --no-audit --no-fund
+
+      - name: Post the weekly transparency summary
+        run: npm run social:summary
+
+      - name: Commit summary state
+        run: |
+          set -euo pipefail
+          git config user.name "Bryan Carroll"
+          git config user.email "carrollbh@gmail.com"
+          git add data/social-summary-state.json
+          if git diff --cached --quiet; then
+            echo "No summary state change to commit."
+            exit 0
+          fi
+          git commit -m "Record weekly transparency summary post"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Pushed."
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep 5
+          done
+          echo "Unable to push after rebasing."
+          exit 1
