@@ -1,6 +1,6 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-06-14T13:16:52.969Z
+Generated: 2026-06-15T16:30:50.019Z
 
 ## Public Dashboard Health
 
@@ -8,7 +8,7 @@ Generated: 2026-06-14T13:16:52.969Z
 - Stations: 3105
 - Checked by scraper: 3101 (99.87%)
 - Stations with any price history: 1 (0.03%)
-- Stations with usable price history: 1 (0.03%)
+- Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
 - Fresh price stations: 0
 - Stale or unchecked stations: 3100
@@ -34,7 +34,7 @@ Generated: 2026-06-14T13:16:52.969Z
 
 ## Improvement Queue
 
-- Grow repeated observations: 1 of 3105 US stations has usable price history. A station becomes usable after at least 3 recent price observations.
+- Grow repeated observations: 0 of 3105 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
 - Keep fresh data visible: 0 stations have a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current.
 - Prioritize slow Tesla pages: 3100 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
 - Add local power context state by state: New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear.
