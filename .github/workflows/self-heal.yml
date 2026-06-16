@@ -1,10 +1,5 @@
 name: Self-Heal Pipeline
 
-# Runs after data refreshes to keep the pipeline healthy: retries recoverable
-# failures, repairs data, restores last-known-good on regression, and escalates
-# only when a human is genuinely needed. Does not attempt to bypass access
-# controls — a hard block is escalated, not worked around.
-
 on:
   workflow_run:
     workflows: ["Update Supercharger Price Data"]
@@ -20,7 +15,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: self-heal
+  group: main-writer
   cancel-in-progress: false
 
 jobs:
@@ -28,37 +23,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-
       - run: npm ci
-
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-
       - name: Run self-heal (headed via Xvfb)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TESLA_HEADLESS: "false"
           MAX_STATIONS: ${{ github.event.inputs.max_stations || '25' }}
         run: xvfb-run -a node scripts/selfHeal.mjs
-
       - name: Repair data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/dataDoctor.mjs
-
-      - name: Commit recovered data
+      - name: Commit recovered data (rebase-safe)
         run: |
           git config user.name "caughtakwh-agent[bot]"
           git config user.email "agent@users.noreply.github.com"
           git add data public/data reports || true
-          if ! git diff --cached --quiet; then
-            git commit -m "chore(agent): self-heal + data repair"
-            git push origin HEAD:main
-          else
-            echo "No changes to commit"
-          fi
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "chore(agent): self-heal + data repair"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push origin HEAD:main && exit 0
+            echo "push race, retry $i"; sleep 5
+          done
+          echo "Could not push after retries"; exit 1
