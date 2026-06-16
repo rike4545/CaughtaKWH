@@ -84,6 +84,10 @@ p { color: var(--muted); line-height: 1.55; }
 .refreshButton:disabled { cursor: wait; opacity: .72; }
 .liveTeslaButton { align-items: center; border: 1px solid rgba(83,224,163,.55); border-radius: 16px; background: rgba(83,224,163,.14); color: var(--text); display: inline-flex; gap: 8px; min-height: 49px; padding: 0 14px; }
 .liveTeslaButton:hover { border-color: rgba(83,224,163,.85); background: rgba(83,224,163,.2); }
+
+.reportPriceButton { align-items: center; border: 1px solid rgba(56,139,253,.55); border-radius: 16px; background: rgba(56,139,253,.14); color: var(--text); display: inline-flex; gap: 8px; min-height: 49px; padding: 0 14px; font-weight: 800; }
+.reportPriceButton:hover { border-color: rgba(56,139,253,.85); background: rgba(56,139,253,.2); }
+.reportPriceButton svg { color: #4c9bff; }
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 /* --- Price matrix: the hero pricing display --- */

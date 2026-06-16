@@ -13,6 +13,9 @@ const signedCents = value => typeof value === 'number' ? `${value >= 0 ? '+' : '
 const shortDate = iso => iso ? new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
 const distance = miles => typeof miles === 'number' ? `${miles.toFixed(miles < 10 ? 1 : 0)} mi` : '';
 const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
+const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
+const reportUrl = id => id ? `${REPORT_FORM}&station=${encodeURIComponent(id)}` : REPORT_FORM;
+const CONTRIBUTE_URL = '/contribute.html';
 
 const EV_PRICE_LAWS = [
   {
@@ -501,6 +504,7 @@ function App() {
             <strong>Why this matters</strong>
             <p>Without posted prices, drivers cannot comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH scrapes Tesla's public pages, tracks what prices do appear, and compares them to local commercial electricity benchmarks — building the public record that Tesla has not provided.</p>
             <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
+            <a className="crowdsourceLink" href={CONTRIBUTE_URL} target="_blank" rel="noreferrer"><Target size={15}/> Stations needing prices &amp; leaderboard</a>
           </div>
         </header>}
 
@@ -538,7 +542,7 @@ function App() {
         <Card>
           <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
-          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' ? 'spin' : ''}/>{manualCheck.status === 'loading' ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <a className="liveTeslaButton" href={selected.url} target="_blank" rel="noreferrer"><ExternalLink size={16}/>Get live Tesla price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
+          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' ? 'spin' : ''}/>{manualCheck.status === 'loading' ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <a className="liveTeslaButton" href={selected.url} target="_blank" rel="noreferrer"><ExternalLink size={16}/>Get live Tesla price</a>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
           <div className="priceStrip"><div><span>Last observed</span><strong>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'Never'}</strong><small>{prediction?.latestObservedAt ? `${shortDate(prediction.latestObservedAt)} · ${publicCheckResult}` : 'No public price yet'}</small></div><div><span>Best charging window</span><strong>{bestWindowLabel}</strong><small>{prediction ? 'cheapest expected time' : 'needs more data'}</small></div><div><span>How much to trust it</span><strong>{prediction?.confidenceLabel || 'Low'}</strong><small>{prediction?.confidenceScore != null ? `${prediction.confidenceScore}/100 · ${prediction.sampleCount} samples` : 'Needs more samples'}</small></div><div><span>Stalls and speed</span><strong>{selected?.stalls || '—'} stalls</strong><small>{selected?.maxKw ? `Up to ${selected.maxKw} kW` : selected?.capacityConfidence || 'capacity unknown'}</small></div></div>
           {manualCheck.status !== 'idle' && <div className={manualCheck.status === 'loading' ? 'manualCheck loading' : 'manualCheck'}>
