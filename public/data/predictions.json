@@ -1,11 +1,11 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-16T11:33:27.420Z",
+    "generatedAt": "2026-06-16T15:25:32.552Z",
     "membershipType": "member",
     "latestObservedAt": "2026-06-12T22:46:03.183Z",
     "latestObservedPrice": 0.3,
-    "latestObservationAgeHours": 84.79,
+    "latestObservationAgeHours": 88.66,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
@@ -426,11 +426,11 @@
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-16T11:33:27.421Z",
+    "generatedAt": "2026-06-16T15:25:32.553Z",
     "membershipType": "non_member",
     "latestObservedAt": "2026-06-12T22:46:03.183Z",
     "latestObservedPrice": 0.65,
-    "latestObservationAgeHours": 84.79,
+    "latestObservationAgeHours": 88.66,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
