@@ -14,7 +14,7 @@ const shortDate = iso => iso ? new Date(iso).toLocaleString([], { month: 'short'
 const distance = miles => typeof miles === 'number' ? `${miles.toFixed(miles < 10 ? 1 : 0)} mi` : '';
 const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
-const reportUrl = id => id ? `${REPORT_FORM}&station=${encodeURIComponent(id)}` : REPORT_FORM;
+const reportUrl = id => id ? `report.html?station=${encodeURIComponent(id)}` : 'report.html';
 const CONTRIBUTE_URL = '/contribute.html';
 
 const EV_PRICE_LAWS = [

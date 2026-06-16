@@ -1,0 +1,57 @@
+name: Ingest Google Form price reports
+
+# Pulls anonymous price reports from a published Google Sheet (fed by a Google
+# Form) into station history, so contributors don't need a GitHub account.
+# Configure the repo variable SHEET_CSV_URL (Settings -> Secrets and variables ->
+# Actions -> Variables) with the sheet's "Publish to web -> CSV" URL.
+# Until that variable is set, the job runs and cleanly no-ops.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # every 30 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: caughtakwh-data-writer
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Ingest sheet responses
+        id: sheet
+        env:
+          SHEET_CSV_URL: ${{ vars.SHEET_CSV_URL }}
+        run: npm run ingest:sheet
+
+      - name: Rebuild predictions, credits, public data
+        if: steps.sheet.outputs.status == 'success'
+        run: npm run predict && npm run validate:data && npm run community:rollup && npm run sync:public
+
+      - name: Commit data (rebase-safe)
+        if: steps.sheet.outputs.status == 'success'
+        run: |
+          git config user.name "caughtakwh-agent[bot]"
+          git config user.email "agent@users.noreply.github.com"
+          git add data public/data CONTRIBUTORS.md || true
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "chore(sheet): ingest community Google Form reports"
+          for i in 1 2 3 4 5; do
+            git pull --rebase --autostash origin main && git push origin HEAD:main && exit 0
+            echo "push race, retry $i"; sleep 5
+          done
+          echo "Could not push after retries"; exit 1

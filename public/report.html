@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Report a price · CaughtaKWH</title>
+<style>
+  :root{
+    --bg:#0b0e11; --card:#151a21; --line:#222a34; --fg:#e8edf2; --muted:#93a1b0;
+    --accent:#3fb950; --accent2:#388bfd; --radius:14px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f6f8fa; --card:#fff; --line:#e3e8ee; --fg:#1c2128; --muted:#5b6672; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.5}
+  .wrap{max-width:560px;margin:0 auto;padding:22px 16px calc(40px + env(safe-area-inset-bottom))}
+  h1{font-size:1.35rem;margin:.2em 0}
+  p.sub{color:var(--muted);margin:.2em 0 1em}
+  .station{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-bottom:16px}
+  .station .name{font-weight:700;font-size:1.05rem}
+  .station .loc{color:var(--muted);font-size:.9rem}
+  label.fieldlbl{display:block;font-weight:600;margin:18px 0 6px}
+  label.fieldlbl small{font-weight:400;color:var(--muted)}
+  .pricein{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px}
+  .pricein span{color:var(--muted);font-size:1.2rem}
+  .pricein input{flex:1;border:0;background:transparent;color:var(--fg);font-size:1.5rem;padding:14px 0;width:100%;outline:none;font-variant-numeric:tabular-nums}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .chip{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;
+    padding:9px 14px;font-size:1rem;cursor:pointer;font-variant-numeric:tabular-nums}
+  .chip:active,.chip.sel{border-color:var(--accent);background:rgba(63,185,80,.15);color:var(--accent)}
+  details{margin-top:18px;border-top:1px solid var(--line);padding-top:8px}
+  summary{cursor:pointer;color:var(--accent2);font-weight:600;padding:6px 0}
+  .submit{display:block;width:100%;margin-top:24px;background:var(--accent);color:#04210b;border:0;
+    border-radius:12px;padding:16px;font-size:1.1rem;font-weight:750;cursor:pointer}
+  .submit:disabled{opacity:.5;cursor:not-allowed}
+  .note{color:var(--muted);font-size:.85rem;margin-top:12px;text-align:center}
+  input[type=search],input[type=date]{width:100%;padding:12px 13px;border-radius:10px;border:1px solid var(--line);
+    background:var(--card);color:var(--fg);font-size:1rem}
+  .results{margin-top:8px}
+  .result{display:flex;justify-content:space-between;gap:10px;padding:12px;border:1px solid var(--line);
+    border-radius:10px;background:var(--card);margin-top:8px;cursor:pointer;align-items:center}
+  .result .nm{font-weight:600}
+  .result .lc{color:var(--muted);font-size:.85rem}
+  a{color:var(--accent2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Report a Supercharger price ⚡</h1>
+  <p class="sub">Enter the price you see on the Tesla app, the car screen, or the website. Takes about 15 seconds.</p>
+
+  <div id="stationBox" class="station" hidden></div>
+  <div id="searchBox" hidden>
+    <input type="search" id="search" placeholder="Search a station by name, city, or state" autocomplete="off" />
+    <div class="results" id="results"></div>
+  </div>
+
+  <div id="form" hidden>
+    <label class="fieldlbl">Tesla / member price <small>$ per kWh</small></label>
+    <div class="pricein"><span>$</span><input id="member" inputmode="decimal" placeholder="0.43" /></div>
+    <div class="chips" id="memberChips"></div>
+
+    <details>
+      <summary>Add more detail (optional)</summary>
+      <label class="fieldlbl">Non-Tesla price <small>$ per kWh</small></label>
+      <div class="pricein"><span>$</span><input id="nonmember" inputmode="decimal" placeholder="0.65" /></div>
+      <label class="fieldlbl">Congestion fee <small>$ per minute</small></label>
+      <div class="pricein"><span>$</span><input id="congestion" inputmode="decimal" placeholder="0.50" /></div>
+      <label class="fieldlbl">Date seen</label>
+      <input type="date" id="observed" />
+    </details>
+
+    <button class="submit" id="submit" disabled>Submit report</button>
+    <p class="note">You'll finish on GitHub (a free account is needed) — tap <strong>Submit new issue</strong> there and a bot adds it within minutes. Everything is pre-filled.</p>
+  </div>
+
+  <p class="note" id="loading">Loading…</p>
+</div>
+
+<script>
+const REPO = "rike4545/CaughtaKWH";
+const params = new URLSearchParams(location.search);
+const escapeHtml = x => String(x==null?'':x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const num = x => { const n = Number(String(x).replace(/[^0-9.]/g,'')); return isFinite(n) && n>0 ? n : null; };
+
+let station = null; // {id,name,city,state}
+let index = [];
+
+async function getJSON(p){ const r = await fetch(p,{cache:'no-store'}); if(!r.ok) throw new Error(p); return r.json(); }
+
+function showStation(s){
+  station = s;
+  const box = document.getElementById('stationBox');
+  const loc = [s.city, s.state].filter(Boolean).join(', ');
+  box.innerHTML = `<div class="name">${escapeHtml(s.name)}</div><div class="loc">${escapeHtml(loc)} · <a href="contribute.html">change</a></div>`;
+  box.hidden = false;
+  document.getElementById('searchBox').hidden = true;
+  document.getElementById('form').hidden = false;
+  validate();
+}
+
+function showSearch(){
+  document.getElementById('searchBox').hidden = false;
+  document.getElementById('form').hidden = true;
+  const box = document.getElementById('search'), out = document.getElementById('results');
+  let t;
+  box.addEventListener('input', ()=>{ clearTimeout(t); t=setTimeout(()=>{
+    const q = box.value.trim().toLowerCase();
+    if(q.length<2){ out.innerHTML=''; return; }
+    const hits = index.filter(s => (s.name||'').toLowerCase().includes(q) ||
+      (s.city||'').toLowerCase().includes(q) || (s.state||'').toLowerCase().includes(q)).slice(0,8);
+    out.innerHTML = hits.map((s,i)=>{
+      const loc=[s.city,s.state].filter(Boolean).join(', ');
+      return `<div class="result" data-i="${i}"><div><div class="nm">${escapeHtml(s.name)}</div><div class="lc">${escapeHtml(loc)}</div></div><span>›</span></div>`;
+    }).join('');
+    [...out.querySelectorAll('.result')].forEach((el,i)=> el.addEventListener('click',()=>showStation(hits[i])));
+  },150); });
+}
+
+function setupChips(){
+  const chips = ['0.25','0.30','0.36','0.40','0.43','0.50','0.56'];
+  const wrap = document.getElementById('memberChips');
+  const input = document.getElementById('member');
+  wrap.innerHTML = chips.map(c=>`<button type="button" class="chip" data-v="${c}">$${c}</button>`).join('');
+  [...wrap.children].forEach(ch => ch.addEventListener('click', ()=>{
+    input.value = ch.dataset.v;
+    [...wrap.children].forEach(c=>c.classList.remove('sel'));
+    ch.classList.add('sel');
+    validate();
+  }));
+  input.addEventListener('input', ()=>{ [...wrap.children].forEach(c=>c.classList.remove('sel')); validate(); });
+  document.getElementById('nonmember').addEventListener('input', validate);
+}
+
+function validate(){
+  const ok = station && (num(document.getElementById('member').value) || num(document.getElementById('nonmember').value));
+  document.getElementById('submit').disabled = !ok;
+}
+
+function submit(){
+  const member = num(document.getElementById('member').value);
+  const nonmember = num(document.getElementById('nonmember').value);
+  const congestion = num(document.getElementById('congestion').value);
+  const observed = document.getElementById('observed').value;
+  let u = `https://github.com/${REPO}/issues/new?template=price-report.yml&station=${encodeURIComponent(station.id)}`;
+  if(member!=null) u += `&member_price=${member}`;
+  if(nonmember!=null) u += `&nonmember_price=${nonmember}`;
+  if(congestion!=null) u += `&congestion=${congestion}`;
+  if(observed) u += `&observed_at=${encodeURIComponent(observed)}`;
+  window.location.href = u;
+}
+
+(async function init(){
+  try{ index = await getJSON('./data/stations-min.json'); }catch(e){}
+  // Prefill date with today
+  try{ document.getElementById('observed').value = new Date().toISOString().slice(0,10); }catch(e){}
+  // Prefill any price values passed in (e.g. from the bookmarklet)
+  if(params.get('member')) document.getElementById('member').value = params.get('member');
+  if(params.get('non')) document.getElementById('nonmember').value = params.get('non');
+  if(params.get('cong')) document.getElementById('congestion').value = params.get('cong');
+
+  setupChips();
+  document.getElementById('submit').addEventListener('click', submit);
+
+  const sid = params.get('station');
+  document.getElementById('loading').hidden = true;
+  if(sid){
+    const s = index.find(x => String(x.id) === String(sid));
+    showStation(s || { id: sid, name: 'Station ' + sid, city:null, state:null });
+  } else {
+    showSearch();
+  }
+})();
+</script>
+</body>
+</html>

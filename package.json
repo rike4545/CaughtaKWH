@@ -26,7 +26,8 @@
     "agent:improve": "node scripts/improveAgent.mjs",
     "agent:qa": "node scripts/predictionQA.mjs",
     "agent:community": "node scripts/communityQA.mjs",
-    "community:rollup": "node scripts/communityRollup.mjs"
+    "community:rollup": "node scripts/communityRollup.mjs",
+    "ingest:sheet": "node scripts/ingestSheet.mjs"
   },
   "dependencies": {
     "@playwright/test": "latest",

@@ -76,8 +76,8 @@
 
 <script>
 const REPO = "rike4545/CaughtaKWH";
-const reportUrl = id => `https://github.com/${REPO}/issues/new?template=price-report.yml&station=${encodeURIComponent(id)}`;
-document.getElementById('reportAny').href = `https://github.com/${REPO}/issues/new?template=price-report.yml`;
+const reportUrl = id => `report.html?station=${encodeURIComponent(id)}`;
+document.getElementById('reportAny').href = 'report.html';
 
 const medal = r => r===1?'🥇':r===2?'🥈':r===3?'🥉':'';
 
@@ -92,7 +92,7 @@ function stationRow(s){
       <div class="name">${escapeHtml(s.name)}</div>
       <div class="loc">${escapeHtml(loc)} · <span class="pill ${pillClass}">${pillText}</span></div>
     </div>
-    <a class="report" href="${s.reportUrl || reportUrl(s.id)}" target="_blank" rel="noopener">Report price</a>
+    <a class="report" href="${reportUrl(s.id)}" target="_blank" rel="noopener">Report price</a>
   </div>`;
 }
 function escapeHtml(x){ return String(x==null?'':x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }

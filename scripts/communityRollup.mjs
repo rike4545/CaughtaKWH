@@ -24,7 +24,7 @@ const FRESH_HOURS = 24;
 const NEEDS_LIMIT = 200;
 
 function reportUrl(stationId) {
-  return `https://github.com/${REPO}/issues/new?template=price-report.yml&station=${encodeURIComponent(stationId)}`;
+  return `report.html?station=${encodeURIComponent(stationId)}`;
 }
 
 async function main() {
