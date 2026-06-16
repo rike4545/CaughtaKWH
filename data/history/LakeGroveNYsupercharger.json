@@ -3323,5 +3323,29 @@
     "currency": "USD",
     "source": "tesla_public_findus_location_page",
     "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger"
+  },
+  {
+    "stationId": "LakeGroveNYsupercharger",
+    "capturedAt": "2026-06-16T23:08:50.726Z",
+    "localDate": "2026-06-16",
+    "localHour": 23,
+    "localMinute": 8,
+    "halfHourSlot": 46,
+    "memberPricePerKwh": 0.43,
+    "memberPeakPricePerKwh": null,
+    "nonMemberPricePerKwh": null,
+    "nonMemberPeakPricePerKwh": null,
+    "congestionFeePerMinuteMax": null,
+    "lowestObservedPricePerKwh": 0.43,
+    "lowPriceId": null,
+    "priceExtractionVersion": "community-form-v1",
+    "availableStalls": null,
+    "totalStalls": 8,
+    "utilizationPct": null,
+    "availabilityLabel": null,
+    "currency": "USD",
+    "source": "community_form",
+    "reportedBy": "anonymous (Google Form)",
+    "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger"
   }
 ]

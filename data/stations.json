@@ -65817,7 +65817,8 @@
       "nacs": 8
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeBlocked": true
+    "lastScrapeBlocked": true,
+    "lastObservationSource": "community_form"
   },
   {
     "id": "27309",

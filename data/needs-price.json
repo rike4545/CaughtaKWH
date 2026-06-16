@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T22:15:44.179Z",
+  "generatedAt": "2026-06-16T23:08:51.311Z",
   "totalStations": 3105,
   "needsCount": 200,
   "stations": [
@@ -13,7 +13,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=15162"
+      "reportUrl": "report.html?station=15162"
     },
     {
       "id": "sanclementesupercharger",
@@ -25,7 +25,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=sanclementesupercharger"
+      "reportUrl": "report.html?station=sanclementesupercharger"
     },
     {
       "id": "madisonvilletxsupercharger",
@@ -37,7 +37,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=madisonvilletxsupercharger"
+      "reportUrl": "report.html?station=madisonvilletxsupercharger"
     },
     {
       "id": "25874",
@@ -49,7 +49,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=25874"
+      "reportUrl": "report.html?station=25874"
     },
     {
       "id": "firebaughsupercharger",
@@ -61,7 +61,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=firebaughsupercharger"
+      "reportUrl": "report.html?station=firebaughsupercharger"
     },
     {
       "id": "bakercasupercharger",
@@ -73,7 +73,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=bakercasupercharger"
+      "reportUrl": "report.html?station=bakercasupercharger"
     },
     {
       "id": "BaytownTXSupercharger",
@@ -85,7 +85,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=BaytownTXSupercharger"
+      "reportUrl": "report.html?station=BaytownTXSupercharger"
     },
     {
       "id": "valleystreamnewyorksupercharger",
@@ -97,7 +97,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=valleystreamnewyorksupercharger"
+      "reportUrl": "report.html?station=valleystreamnewyorksupercharger"
     },
     {
       "id": "palmspinrgscaliforniasupercharger",
@@ -109,7 +109,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=palmspinrgscaliforniasupercharger"
+      "reportUrl": "report.html?station=palmspinrgscaliforniasupercharger"
     },
     {
       "id": "413725",
@@ -121,7 +121,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=413725"
+      "reportUrl": "report.html?station=413725"
     },
     {
       "id": "elcentrosupercharger",
@@ -133,7 +133,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=elcentrosupercharger"
+      "reportUrl": "report.html?station=elcentrosupercharger"
     },
     {
       "id": "426462",
@@ -145,7 +145,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=426462"
+      "reportUrl": "report.html?station=426462"
     },
     {
       "id": "wacotxsupercharger",
@@ -157,7 +157,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=wacotxsupercharger"
+      "reportUrl": "report.html?station=wacotxsupercharger"
     },
     {
       "id": "santarosacasupercharger",
@@ -169,7 +169,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=santarosacasupercharger"
+      "reportUrl": "report.html?station=santarosacasupercharger"
     },
     {
       "id": "407484",
@@ -181,7 +181,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=407484"
+      "reportUrl": "report.html?station=407484"
     },
     {
       "id": "58911",
@@ -193,7 +193,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=58911"
+      "reportUrl": "report.html?station=58911"
     },
     {
       "id": "20325",
@@ -205,7 +205,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20325"
+      "reportUrl": "report.html?station=20325"
     },
     {
       "id": "20521",
@@ -217,7 +217,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20521"
+      "reportUrl": "report.html?station=20521"
     },
     {
       "id": "beaumontcasupercharger",
@@ -229,7 +229,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=beaumontcasupercharger"
+      "reportUrl": "report.html?station=beaumontcasupercharger"
     },
     {
       "id": "58767",
@@ -241,7 +241,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=58767"
+      "reportUrl": "report.html?station=58767"
     },
     {
       "id": "13326",
@@ -253,7 +253,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=13326"
+      "reportUrl": "report.html?station=13326"
     },
     {
       "id": "woodbridgesupercharger",
@@ -265,7 +265,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=woodbridgesupercharger"
+      "reportUrl": "report.html?station=woodbridgesupercharger"
     },
     {
       "id": "442164",
@@ -277,7 +277,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=442164"
+      "reportUrl": "report.html?station=442164"
     },
     {
       "id": "11076",
@@ -289,7 +289,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=11076"
+      "reportUrl": "report.html?station=11076"
     },
     {
       "id": "santacruzcaliforniasupercharger",
@@ -301,7 +301,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=santacruzcaliforniasupercharger"
+      "reportUrl": "report.html?station=santacruzcaliforniasupercharger"
     },
     {
       "id": "457017",
@@ -313,7 +313,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=457017"
+      "reportUrl": "report.html?station=457017"
     },
     {
       "id": "26969",
@@ -325,7 +325,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26969"
+      "reportUrl": "report.html?station=26969"
     },
     {
       "id": "leemasupercharger",
@@ -337,7 +337,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=leemasupercharger"
+      "reportUrl": "report.html?station=leemasupercharger"
     },
     {
       "id": "32439",
@@ -349,7 +349,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=32439"
+      "reportUrl": "report.html?station=32439"
     },
     {
       "id": "458005",
@@ -361,7 +361,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=458005"
+      "reportUrl": "report.html?station=458005"
     },
     {
       "id": "chulavistacaliforniasupercharger",
@@ -373,7 +373,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=chulavistacaliforniasupercharger"
+      "reportUrl": "report.html?station=chulavistacaliforniasupercharger"
     },
     {
       "id": "408254",
@@ -385,7 +385,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=408254"
+      "reportUrl": "report.html?station=408254"
     },
     {
       "id": "WoburnMAsupercharger",
@@ -397,7 +397,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=WoburnMAsupercharger"
+      "reportUrl": "report.html?station=WoburnMAsupercharger"
     },
     {
       "id": "WindsorCAsupercharger",
@@ -409,7 +409,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=WindsorCAsupercharger"
+      "reportUrl": "report.html?station=WindsorCAsupercharger"
     },
     {
       "id": "457902",
@@ -421,7 +421,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=457902"
+      "reportUrl": "report.html?station=457902"
     },
     {
       "id": "34723",
@@ -433,7 +433,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=34723"
+      "reportUrl": "report.html?station=34723"
     },
     {
       "id": "31524",
@@ -445,7 +445,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=31524"
+      "reportUrl": "report.html?station=31524"
     },
     {
       "id": "pismobeachcasupercharger",
@@ -457,7 +457,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=pismobeachcasupercharger"
+      "reportUrl": "report.html?station=pismobeachcasupercharger"
     },
     {
       "id": "15015",
@@ -469,7 +469,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=15015"
+      "reportUrl": "report.html?station=15015"
     },
     {
       "id": "401506",
@@ -481,7 +481,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=401506"
+      "reportUrl": "report.html?station=401506"
     },
     {
       "id": "27409",
@@ -493,7 +493,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=27409"
+      "reportUrl": "report.html?station=27409"
     },
     {
       "id": "20828",
@@ -505,7 +505,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20828"
+      "reportUrl": "report.html?station=20828"
     },
     {
       "id": "4005352",
@@ -517,7 +517,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4005352"
+      "reportUrl": "report.html?station=4005352"
     },
     {
       "id": "19226",
@@ -529,7 +529,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=19226"
+      "reportUrl": "report.html?station=19226"
     },
     {
       "id": "407917",
@@ -541,7 +541,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=407917"
+      "reportUrl": "report.html?station=407917"
     },
     {
       "id": "27075",
@@ -553,7 +553,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=27075"
+      "reportUrl": "report.html?station=27075"
     },
     {
       "id": "lafayettelasupercharger",
@@ -565,7 +565,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=lafayettelasupercharger"
+      "reportUrl": "report.html?station=lafayettelasupercharger"
     },
     {
       "id": "laceywasupercharger",
@@ -577,7 +577,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=laceywasupercharger"
+      "reportUrl": "report.html?station=laceywasupercharger"
     },
     {
       "id": "kelsowasupercharger",
@@ -589,7 +589,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=kelsowasupercharger"
+      "reportUrl": "report.html?station=kelsowasupercharger"
     },
     {
       "id": "jacksontnsupercharger",
@@ -601,7 +601,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=jacksontnsupercharger"
+      "reportUrl": "report.html?station=jacksontnsupercharger"
     },
     {
       "id": "InyokernCASupercharger2",
@@ -613,7 +613,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=InyokernCASupercharger2"
+      "reportUrl": "report.html?station=InyokernCASupercharger2"
     },
     {
       "id": "hyannismasupercharger",
@@ -625,7 +625,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=hyannismasupercharger"
+      "reportUrl": "report.html?station=hyannismasupercharger"
     },
     {
       "id": "401263",
@@ -637,7 +637,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=401263"
+      "reportUrl": "report.html?station=401263"
     },
     {
       "id": "GrapevineTXsupercharger",
@@ -649,7 +649,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=GrapevineTXsupercharger"
+      "reportUrl": "report.html?station=GrapevineTXsupercharger"
     },
     {
       "id": "33475",
@@ -661,7 +661,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=33475"
+      "reportUrl": "report.html?station=33475"
     },
     {
       "id": "34128",
@@ -673,7 +673,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=34128"
+      "reportUrl": "report.html?station=34128"
     },
     {
       "id": "fishkillnysupercharger",
@@ -685,7 +685,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=fishkillnysupercharger"
+      "reportUrl": "report.html?station=fishkillnysupercharger"
     },
     {
       "id": "20928",
@@ -697,7 +697,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20928"
+      "reportUrl": "report.html?station=20928"
     },
     {
       "id": "400167",
@@ -709,7 +709,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=400167"
+      "reportUrl": "report.html?station=400167"
     },
     {
       "id": "daytonabeachsupercharger",
@@ -721,7 +721,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=daytonabeachsupercharger"
+      "reportUrl": "report.html?station=daytonabeachsupercharger"
     },
     {
       "id": "DavenportFLsupercharger",
@@ -733,7 +733,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=DavenportFLsupercharger"
+      "reportUrl": "report.html?station=DavenportFLsupercharger"
     },
     {
       "id": "27021",
@@ -745,7 +745,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=27021"
+      "reportUrl": "report.html?station=27021"
     },
     {
       "id": "56627",
@@ -757,7 +757,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=56627"
+      "reportUrl": "report.html?station=56627"
     },
     {
       "id": "34939",
@@ -769,7 +769,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=34939"
+      "reportUrl": "report.html?station=34939"
     },
     {
       "id": "brunswickgasupercharger",
@@ -781,7 +781,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=brunswickgasupercharger"
+      "reportUrl": "report.html?station=brunswickgasupercharger"
     },
     {
       "id": "26639",
@@ -793,7 +793,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26639"
+      "reportUrl": "report.html?station=26639"
     },
     {
       "id": "stocktonsupercharger",
@@ -805,7 +805,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=stocktonsupercharger"
+      "reportUrl": "report.html?station=stocktonsupercharger"
     },
     {
       "id": "439860",
@@ -817,7 +817,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=439860"
+      "reportUrl": "report.html?station=439860"
     },
     {
       "id": "438052",
@@ -829,7 +829,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=438052"
+      "reportUrl": "report.html?station=438052"
     },
     {
       "id": "13887",
@@ -841,7 +841,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=13887"
+      "reportUrl": "report.html?station=13887"
     },
     {
       "id": "441728",
@@ -853,7 +853,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=441728"
+      "reportUrl": "report.html?station=441728"
     },
     {
       "id": "26666",
@@ -865,7 +865,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26666"
+      "reportUrl": "report.html?station=26666"
     },
     {
       "id": "WoodcliffLakeNJsupercharger",
@@ -877,7 +877,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=WoodcliffLakeNJsupercharger"
+      "reportUrl": "report.html?station=WoodcliffLakeNJsupercharger"
     },
     {
       "id": "westdesmoinessupercharger",
@@ -889,7 +889,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=westdesmoinessupercharger"
+      "reportUrl": "report.html?station=westdesmoinessupercharger"
     },
     {
       "id": "watermillnysupercharger",
@@ -901,7 +901,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=watermillnysupercharger"
+      "reportUrl": "report.html?station=watermillnysupercharger"
     },
     {
       "id": "verobeachsupercharger",
@@ -913,7 +913,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=verobeachsupercharger"
+      "reportUrl": "report.html?station=verobeachsupercharger"
     },
     {
       "id": "29237",
@@ -925,7 +925,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=29237"
+      "reportUrl": "report.html?station=29237"
     },
     {
       "id": "436210",
@@ -937,7 +937,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=436210"
+      "reportUrl": "report.html?station=436210"
     },
     {
       "id": "reveremasupercharger",
@@ -949,7 +949,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=reveremasupercharger"
+      "reportUrl": "report.html?station=reveremasupercharger"
     },
     {
       "id": "27050",
@@ -961,7 +961,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=27050"
+      "reportUrl": "report.html?station=27050"
     },
     {
       "id": "20410",
@@ -973,7 +973,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20410"
+      "reportUrl": "report.html?station=20410"
     },
     {
       "id": "oneontanysupercharger",
@@ -985,7 +985,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=oneontanysupercharger"
+      "reportUrl": "report.html?station=oneontanysupercharger"
     },
     {
       "id": "20627",
@@ -997,7 +997,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20627"
+      "reportUrl": "report.html?station=20627"
     },
     {
       "id": "michigancityinsupercharger",
@@ -1009,7 +1009,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=michigancityinsupercharger"
+      "reportUrl": "report.html?station=michigancityinsupercharger"
     },
     {
       "id": "MarinaDelReyCAsupercharger",
@@ -1021,7 +1021,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=MarinaDelReyCAsupercharger"
+      "reportUrl": "report.html?station=MarinaDelReyCAsupercharger"
     },
     {
       "id": "MariannaFLsupercharger",
@@ -1033,7 +1033,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=MariannaFLsupercharger"
+      "reportUrl": "report.html?station=MariannaFLsupercharger"
     },
     {
       "id": "mapleshadenjsupercharger",
@@ -1045,7 +1045,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=mapleshadenjsupercharger"
+      "reportUrl": "report.html?station=mapleshadenjsupercharger"
     },
     {
       "id": "LandOLakesFLsupercharger",
@@ -1057,7 +1057,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=LandOLakesFLsupercharger"
+      "reportUrl": "report.html?station=LandOLakesFLsupercharger"
     },
     {
       "id": "lakeplacidnewyorksupercharger",
@@ -1069,7 +1069,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=lakeplacidnewyorksupercharger"
+      "reportUrl": "report.html?station=lakeplacidnewyorksupercharger"
     },
     {
       "id": "ladylakeflsupercharger",
@@ -1081,7 +1081,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=ladylakeflsupercharger"
+      "reportUrl": "report.html?station=ladylakeflsupercharger"
     },
     {
       "id": "sonorajacksoncasupercharger",
@@ -1093,7 +1093,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=sonorajacksoncasupercharger"
+      "reportUrl": "report.html?station=sonorajacksoncasupercharger"
     },
     {
       "id": "greatbarringtonmasupercharger",
@@ -1105,7 +1105,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=greatbarringtonmasupercharger"
+      "reportUrl": "report.html?station=greatbarringtonmasupercharger"
     },
     {
       "id": "4008209",
@@ -1117,7 +1117,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4008209"
+      "reportUrl": "report.html?station=4008209"
     },
     {
       "id": "FresnoCAsupercharger",
@@ -1129,7 +1129,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=FresnoCAsupercharger"
+      "reportUrl": "report.html?station=FresnoCAsupercharger"
     },
     {
       "id": "35702",
@@ -1141,7 +1141,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=35702"
+      "reportUrl": "report.html?station=35702"
     },
     {
       "id": "freeholdnjsupercharger",
@@ -1153,7 +1153,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=freeholdnjsupercharger"
+      "reportUrl": "report.html?station=freeholdnjsupercharger"
     },
     {
       "id": "entiatwasupercharger",
@@ -1165,7 +1165,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=entiatwasupercharger"
+      "reportUrl": "report.html?station=entiatwasupercharger"
     },
     {
       "id": "DunniganCAQ322",
@@ -1177,7 +1177,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=DunniganCAQ322"
+      "reportUrl": "report.html?station=DunniganCAQ322"
     },
     {
       "id": "4007413",
@@ -1189,7 +1189,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4007413"
+      "reportUrl": "report.html?station=4007413"
     },
     {
       "id": "Deltonaflsupercharger",
@@ -1201,7 +1201,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=Deltonaflsupercharger"
+      "reportUrl": "report.html?station=Deltonaflsupercharger"
     },
     {
       "id": "DetroitMIsupercharger",
@@ -1213,7 +1213,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=DetroitMIsupercharger"
+      "reportUrl": "report.html?station=DetroitMIsupercharger"
     },
     {
       "id": "deerfieldbeachsupercharger",
@@ -1225,7 +1225,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=deerfieldbeachsupercharger"
+      "reportUrl": "report.html?station=deerfieldbeachsupercharger"
     },
     {
       "id": "copiaguenysupercharger",
@@ -1237,7 +1237,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=copiaguenysupercharger"
+      "reportUrl": "report.html?station=copiaguenysupercharger"
     },
     {
       "id": "clearwaterflsupercharger",
@@ -1249,7 +1249,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=clearwaterflsupercharger"
+      "reportUrl": "report.html?station=clearwaterflsupercharger"
     },
     {
       "id": "36089",
@@ -1261,7 +1261,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=36089"
+      "reportUrl": "report.html?station=36089"
     },
     {
       "id": "20657",
@@ -1273,7 +1273,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20657"
+      "reportUrl": "report.html?station=20657"
     },
     {
       "id": "BrewsterNYsupercharger",
@@ -1285,7 +1285,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=BrewsterNYsupercharger"
+      "reportUrl": "report.html?station=BrewsterNYsupercharger"
     },
     {
       "id": "425021",
@@ -1297,7 +1297,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=425021"
+      "reportUrl": "report.html?station=425021"
     },
     {
       "id": "chestertownsupercharger",
@@ -1309,7 +1309,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=chestertownsupercharger"
+      "reportUrl": "report.html?station=chestertownsupercharger"
     },
     {
       "id": "ardmoreoksupercharger",
@@ -1321,7 +1321,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=ardmoreoksupercharger"
+      "reportUrl": "report.html?station=ardmoreoksupercharger"
     },
     {
       "id": "32640",
@@ -1333,7 +1333,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=32640"
+      "reportUrl": "report.html?station=32640"
     },
     {
       "id": "26773",
@@ -1345,7 +1345,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26773"
+      "reportUrl": "report.html?station=26773"
     },
     {
       "id": "lakewoodwcosupercharger",
@@ -1357,7 +1357,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=lakewoodwcosupercharger"
+      "reportUrl": "report.html?station=lakewoodwcosupercharger"
     },
     {
       "id": "31117",
@@ -1369,7 +1369,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=31117"
+      "reportUrl": "report.html?station=31117"
     },
     {
       "id": "brattleborovtsupercharger",
@@ -1381,7 +1381,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=brattleborovtsupercharger"
+      "reportUrl": "report.html?station=brattleborovtsupercharger"
     },
     {
       "id": "56489",
@@ -1393,7 +1393,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=56489"
+      "reportUrl": "report.html?station=56489"
     },
     {
       "id": "hudsonnysupercharger",
@@ -1405,7 +1405,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=hudsonnysupercharger"
+      "reportUrl": "report.html?station=hudsonnysupercharger"
     },
     {
       "id": "490113",
@@ -1417,7 +1417,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=490113"
+      "reportUrl": "report.html?station=490113"
     },
     {
       "id": "HowellTownshipNJQ322",
@@ -1429,7 +1429,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=HowellTownshipNJQ322"
+      "reportUrl": "report.html?station=HowellTownshipNJQ322"
     },
     {
       "id": "unioncitycasupercharger",
@@ -1441,7 +1441,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=unioncitycasupercharger"
+      "reportUrl": "report.html?station=unioncitycasupercharger"
     },
     {
       "id": "4008208",
@@ -1453,7 +1453,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4008208"
+      "reportUrl": "report.html?station=4008208"
     },
     {
       "id": "UkiahCASupercharger2",
@@ -1465,7 +1465,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=UkiahCASupercharger2"
+      "reportUrl": "report.html?station=UkiahCASupercharger2"
     },
     {
       "id": "18987",
@@ -1477,7 +1477,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=18987"
+      "reportUrl": "report.html?station=18987"
     },
     {
       "id": "HoustonTXsupercharger",
@@ -1489,7 +1489,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=HoustonTXsupercharger"
+      "reportUrl": "report.html?station=HoustonTXsupercharger"
     },
     {
       "id": "PembrokePinesFLSupercharger22",
@@ -1501,7 +1501,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=PembrokePinesFLSupercharger22"
+      "reportUrl": "report.html?station=PembrokePinesFLSupercharger22"
     },
     {
       "id": "TyngsboroughMAsupercharger",
@@ -1513,7 +1513,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=TyngsboroughMAsupercharger"
+      "reportUrl": "report.html?station=TyngsboroughMAsupercharger"
     },
     {
       "id": "407535",
@@ -1525,7 +1525,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=407535"
+      "reportUrl": "report.html?station=407535"
     },
     {
       "id": "31523",
@@ -1537,7 +1537,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=31523"
+      "reportUrl": "report.html?station=31523"
     },
     {
       "id": "407108",
@@ -1549,7 +1549,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=407108"
+      "reportUrl": "report.html?station=407108"
     },
     {
       "id": "27055",
@@ -1561,7 +1561,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=27055"
+      "reportUrl": "report.html?station=27055"
     },
     {
       "id": "pattersoncaspenodrsupercharger",
@@ -1573,7 +1573,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=pattersoncaspenodrsupercharger"
+      "reportUrl": "report.html?station=pattersoncaspenodrsupercharger"
     },
     {
       "id": "TustinCAQ322",
@@ -1585,7 +1585,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=TustinCAQ322"
+      "reportUrl": "report.html?station=TustinCAQ322"
     },
     {
       "id": "31014",
@@ -1597,7 +1597,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=31014"
+      "reportUrl": "report.html?station=31014"
     },
     {
       "id": "36231",
@@ -1609,7 +1609,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=36231"
+      "reportUrl": "report.html?station=36231"
     },
     {
       "id": "chinohillsupercharger",
@@ -1621,7 +1621,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=chinohillsupercharger"
+      "reportUrl": "report.html?station=chinohillsupercharger"
     },
     {
       "id": "26635",
@@ -1633,7 +1633,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26635"
+      "reportUrl": "report.html?station=26635"
     },
     {
       "id": "436107",
@@ -1645,7 +1645,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=436107"
+      "reportUrl": "report.html?station=436107"
     },
     {
       "id": "28541",
@@ -1657,7 +1657,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=28541"
+      "reportUrl": "report.html?station=28541"
     },
     {
       "id": "29307",
@@ -1669,7 +1669,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=29307"
+      "reportUrl": "report.html?station=29307"
     },
     {
       "id": "TustinCASupercharger10",
@@ -1681,7 +1681,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=TustinCASupercharger10"
+      "reportUrl": "report.html?station=TustinCASupercharger10"
     },
     {
       "id": "ChicopeeMASupercharger",
@@ -1693,7 +1693,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=ChicopeeMASupercharger"
+      "reportUrl": "report.html?station=ChicopeeMASupercharger"
     },
     {
       "id": "HoustonTX1Q42022",
@@ -1705,7 +1705,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=HoustonTX1Q42022"
+      "reportUrl": "report.html?station=HoustonTX1Q42022"
     },
     {
       "id": "ChevyChaseMDsupercharger",
@@ -1717,7 +1717,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=ChevyChaseMDsupercharger"
+      "reportUrl": "report.html?station=ChevyChaseMDsupercharger"
     },
     {
       "id": "26970",
@@ -1729,7 +1729,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26970"
+      "reportUrl": "report.html?station=26970"
     },
     {
       "id": "pasoroblessupercharger",
@@ -1741,7 +1741,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=pasoroblessupercharger"
+      "reportUrl": "report.html?station=pasoroblessupercharger"
     },
     {
       "id": "tustincaliforniasupercharger",
@@ -1753,7 +1753,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=tustincaliforniasupercharger"
+      "reportUrl": "report.html?station=tustincaliforniasupercharger"
     },
     {
       "id": "19167",
@@ -1765,7 +1765,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=19167"
+      "reportUrl": "report.html?station=19167"
     },
     {
       "id": "cherryhillnjhaddonfieldroadsupercharger",
@@ -1777,7 +1777,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=cherryhillnjhaddonfieldroadsupercharger"
+      "reportUrl": "report.html?station=cherryhillnjhaddonfieldroadsupercharger"
     },
     {
       "id": "58303",
@@ -1789,7 +1789,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=58303"
+      "reportUrl": "report.html?station=58303"
     },
     {
       "id": "401861",
@@ -1801,7 +1801,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=401861"
+      "reportUrl": "report.html?station=401861"
     },
     {
       "id": "26360",
@@ -1813,7 +1813,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26360"
+      "reportUrl": "report.html?station=26360"
     },
     {
       "id": "TurlockCAsupercharger",
@@ -1825,7 +1825,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=TurlockCAsupercharger"
+      "reportUrl": "report.html?station=TurlockCAsupercharger"
     },
     {
       "id": "19015",
@@ -1837,7 +1837,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=19015"
+      "reportUrl": "report.html?station=19015"
     },
     {
       "id": "hustontxhempsteadroadsupercharger",
@@ -1849,7 +1849,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=hustontxhempsteadroadsupercharger"
+      "reportUrl": "report.html?station=hustontxhempsteadroadsupercharger"
     },
     {
       "id": "cheektowaganysupercharger",
@@ -1861,7 +1861,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=cheektowaganysupercharger"
+      "reportUrl": "report.html?station=cheektowaganysupercharger"
     },
     {
       "id": "4003236",
@@ -1873,7 +1873,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4003236"
+      "reportUrl": "report.html?station=4003236"
     },
     {
       "id": "SouthPasadenaCAsupercharger",
@@ -1885,7 +1885,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=SouthPasadenaCAsupercharger"
+      "reportUrl": "report.html?station=SouthPasadenaCAsupercharger"
     },
     {
       "id": "4008818",
@@ -1897,7 +1897,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4008818"
+      "reportUrl": "report.html?station=4008818"
     },
     {
       "id": "20978",
@@ -1909,7 +1909,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=20978"
+      "reportUrl": "report.html?station=20978"
     },
     {
       "id": "tumwaterwasupercharger",
@@ -1921,7 +1921,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=tumwaterwasupercharger"
+      "reportUrl": "report.html?station=tumwaterwasupercharger"
     },
     {
       "id": "26144",
@@ -1933,7 +1933,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26144"
+      "reportUrl": "report.html?station=26144"
     },
     {
       "id": "houstonsupercharger",
@@ -1945,7 +1945,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=houstonsupercharger"
+      "reportUrl": "report.html?station=houstonsupercharger"
     },
     {
       "id": "charltonmasupercharger",
@@ -1957,7 +1957,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=charltonmasupercharger"
+      "reportUrl": "report.html?station=charltonmasupercharger"
     },
     {
       "id": "58769",
@@ -1969,7 +1969,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=58769"
+      "reportUrl": "report.html?station=58769"
     },
     {
       "id": "PasadenaCASupercharger22",
@@ -1981,7 +1981,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=PasadenaCASupercharger22"
+      "reportUrl": "report.html?station=PasadenaCASupercharger22"
     },
     {
       "id": "29095",
@@ -1993,7 +1993,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=29095"
+      "reportUrl": "report.html?station=29095"
     },
     {
       "id": "parsippanysupercharger",
@@ -2005,7 +2005,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=parsippanysupercharger"
+      "reportUrl": "report.html?station=parsippanysupercharger"
     },
     {
       "id": "charltonmaebsupercharger",
@@ -2017,7 +2017,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=charltonmaebsupercharger"
+      "reportUrl": "report.html?station=charltonmaebsupercharger"
     },
     {
       "id": "35665",
@@ -2029,7 +2029,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=35665"
+      "reportUrl": "report.html?station=35665"
     },
     {
       "id": "26248",
@@ -2041,7 +2041,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26248"
+      "reportUrl": "report.html?station=26248"
     },
     {
       "id": "19568",
@@ -2053,7 +2053,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=19568"
+      "reportUrl": "report.html?station=19568"
     },
     {
       "id": "33580",
@@ -2065,7 +2065,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=33580"
+      "reportUrl": "report.html?station=33580"
     },
     {
       "id": "TukwilaWAsupercharger",
@@ -2077,7 +2077,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=TukwilaWAsupercharger"
+      "reportUrl": "report.html?station=TukwilaWAsupercharger"
     },
     {
       "id": "33772",
@@ -2089,7 +2089,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=33772"
+      "reportUrl": "report.html?station=33772"
     },
     {
       "id": "centervilletxsupercharger",
@@ -2101,7 +2101,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=centervilletxsupercharger"
+      "reportUrl": "report.html?station=centervilletxsupercharger"
     },
     {
       "id": "412210",
@@ -2113,7 +2113,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=412210"
+      "reportUrl": "report.html?station=412210"
     },
     {
       "id": "ParishNYQ322",
@@ -2125,7 +2125,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=ParishNYQ322"
+      "reportUrl": "report.html?station=ParishNYQ322"
     },
     {
       "id": "36132",
@@ -2137,7 +2137,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=36132"
+      "reportUrl": "report.html?station=36132"
     },
     {
       "id": "19146",
@@ -2149,7 +2149,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=19146"
+      "reportUrl": "report.html?station=19146"
     },
     {
       "id": "19359",
@@ -2161,7 +2161,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=19359"
+      "reportUrl": "report.html?station=19359"
     },
     {
       "id": "26660",
@@ -2173,7 +2173,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=26660"
+      "reportUrl": "report.html?station=26660"
     },
     {
       "id": "32157",
@@ -2185,7 +2185,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=32157"
+      "reportUrl": "report.html?station=32157"
     },
     {
       "id": "centennialcosupercharger",
@@ -2197,7 +2197,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=centennialcosupercharger"
+      "reportUrl": "report.html?station=centennialcosupercharger"
     },
     {
       "id": "406157",
@@ -2209,7 +2209,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=406157"
+      "reportUrl": "report.html?station=406157"
     },
     {
       "id": "425863",
@@ -2221,7 +2221,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=425863"
+      "reportUrl": "report.html?station=425863"
     },
     {
       "id": "TruckeeCAsupercharger",
@@ -2233,7 +2233,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=TruckeeCAsupercharger"
+      "reportUrl": "report.html?station=TruckeeCAsupercharger"
     },
     {
       "id": "31808",
@@ -2245,7 +2245,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=31808"
+      "reportUrl": "report.html?station=31808"
     },
     {
       "id": "32552",
@@ -2257,7 +2257,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=32552"
+      "reportUrl": "report.html?station=32552"
     },
     {
       "id": "18586",
@@ -2269,7 +2269,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=18586"
+      "reportUrl": "report.html?station=18586"
     },
     {
       "id": "4006752",
@@ -2281,7 +2281,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4006752"
+      "reportUrl": "report.html?station=4006752"
     },
     {
       "id": "58811",
@@ -2293,7 +2293,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=58811"
+      "reportUrl": "report.html?station=58811"
     },
     {
       "id": "4160",
@@ -2305,7 +2305,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=4160"
+      "reportUrl": "report.html?station=4160"
     },
     {
       "id": "33697",
@@ -2317,7 +2317,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=33697"
+      "reportUrl": "report.html?station=33697"
     },
     {
       "id": "32743",
@@ -2329,7 +2329,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=32743"
+      "reportUrl": "report.html?station=32743"
     },
     {
       "id": "CedarParkTXSupercharger",
@@ -2341,7 +2341,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=CedarParkTXSupercharger"
+      "reportUrl": "report.html?station=CedarParkTXSupercharger"
     },
     {
       "id": "hillsboroorsupercharger",
@@ -2353,7 +2353,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=hillsboroorsupercharger"
+      "reportUrl": "report.html?station=hillsboroorsupercharger"
     },
     {
       "id": "34872",
@@ -2365,7 +2365,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=34872"
+      "reportUrl": "report.html?station=34872"
     },
     {
       "id": "traversupercharger",
@@ -2377,7 +2377,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=traversupercharger"
+      "reportUrl": "report.html?station=traversupercharger"
     },
     {
       "id": "destinfloridasupercharger",
@@ -2389,7 +2389,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=destinfloridasupercharger"
+      "reportUrl": "report.html?station=destinfloridasupercharger"
     },
     {
       "id": "TracyCASupercharger",
@@ -2401,7 +2401,7 @@
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml&station=TracyCASupercharger"
+      "reportUrl": "report.html?station=TracyCASupercharger"
     }
   ]
 }
