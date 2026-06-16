@@ -19,7 +19,12 @@
     "enrich:superchargeinfo": "node scripts/enrichFromSuperchargeInfo.mjs",
     "ingest:reports": "node scripts/ingestPriceReports.mjs",
     "social:post": "node scripts/socialBot.mjs",
-    "social:summary": "node scripts/socialSummary.mjs"
+    "social:summary": "node scripts/socialSummary.mjs",
+    "agent:heal": "node scripts/selfHeal.mjs",
+    "agent:drift": "node scripts/detectDrift.mjs",
+    "agent:data": "node scripts/dataDoctor.mjs",
+    "agent:improve": "node scripts/improveAgent.mjs",
+    "agent:qa": "node scripts/predictionQA.mjs"
   },
   "dependencies": {
     "@playwright/test": "latest",
