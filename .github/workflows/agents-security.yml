@@ -1,0 +1,41 @@
+name: Agents - Security Keeper
+
+# Keeps dependencies safe automatically: runs npm audit, applies safe fixes,
+# and opens a PR. Pairs with Dependabot (which handles version bumps).
+
+on:
+  schedule:
+    - cron: "30 7 * * 2"   # weekly, Tuesdays
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  audit-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Audit and apply safe fixes
+        run: |
+          npm audit --json > reports/npm-audit.json || true
+          npm audit fix || true
+
+      - name: Open PR if anything changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "fix(deps): apply safe npm audit fixes"
+          title: "Automated dependency security fixes"
+          body: |
+            Automated `npm audit fix` from the Security Keeper agent.
+            Review the diff and CI before merging. Audit summary committed to `reports/npm-audit.json`.
+          branch: agent/security-fixes
+          labels: security, self-improve
+          delete-branch: true

@@ -1,0 +1,79 @@
+name: Agents - Improve & QA
+
+# The "gets better over time" loop: drift detection (adapts to legitimate page
+# changes), prediction backtesting, and the prioritized improvement backlog.
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"      # weekly improvement backlog (Mondays 09:00 UTC)
+    - cron: "0 */6 * * *"    # prediction QA + data health every 6h
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  qa-and-health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+
+      - name: Data health check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/dataDoctor.mjs
+
+      - name: Prediction QA / backtest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/predictionQA.mjs
+
+      - name: Commit reports
+        run: |
+          git config user.name "caughtakwh-agent[bot]"
+          git config user.email "agent@users.noreply.github.com"
+          git add reports data || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(agent): refresh QA + health reports"
+            git push origin HEAD:main
+          fi
+
+  drift-and-backlog:
+    # Heavier job (browser + weekly summary) runs only on the weekly cron / manual.
+    if: github.event.schedule == '0 9 * * 1' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+
+      - name: Structure drift detection
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TESLA_HEADLESS: "false"
+        run: xvfb-run -a node scripts/detectDrift.mjs
+
+      - name: Improvement backlog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/improveAgent.mjs
+
+      - name: Commit fingerprints + backlog
+        run: |
+          git config user.name "caughtakwh-agent[bot]"
+          git config user.email "agent@users.noreply.github.com"
+          git add data reports || true
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(agent): drift fingerprint + improvement backlog"
+            git push origin HEAD:main
+          fi
