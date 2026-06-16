@@ -36,9 +36,12 @@ jobs:
           ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
         run: npm run ingest:reports
 
-      - name: Rebuild predictions and public data
+      - name: Rebuild predictions, credits, and public data
+        id: rollup
         if: steps.ingest.outputs.status == 'success'
-        run: npm run predict && npm run validate:data && npm run sync:public
+        env:
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
+        run: npm run predict && npm run validate:data && npm run community:rollup && npm run sync:public
 
       - name: Announce new and changed prices on Mastodon
         if: steps.ingest.outputs.status == 'success'
@@ -53,7 +56,7 @@ jobs:
           set -euo pipefail
           git config user.name "Bryan Carroll"
           git config user.email "carrollbh@gmail.com"
-          git add data public/data
+          git add data public/data CONTRIBUTORS.md
           if git diff --cached --quiet; then
             echo "No data changes to commit."
             exit 0
@@ -76,7 +79,10 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh issue comment "${{ github.event.issue.number }}" --body "✅ ${{ steps.ingest.outputs.message }}"
+          BODY="✅ ${{ steps.ingest.outputs.message }}"
+          THANKS="${{ steps.rollup.outputs.thanks }}"
+          if [ -n "$THANKS" ]; then BODY="$BODY"$'\n\n'"$THANKS"; fi
+          gh issue comment "${{ github.event.issue.number }}" --body "$BODY"
           gh issue close "${{ github.event.issue.number }}" --reason completed
 
       - name: Comment validation error

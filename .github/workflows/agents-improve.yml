@@ -28,6 +28,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/dataDoctor.mjs
+      - name: Community report QA
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/communityQA.mjs
+      - name: Community credits + needs list
+        run: npm run community:rollup
       - name: Prediction QA / backtest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,7 +42,7 @@ jobs:
         run: |
           git config user.name "caughtakwh-agent[bot]"
           git config user.email "agent@users.noreply.github.com"
-          git add reports data || true
+          git add reports data CONTRIBUTORS.md public/data || true
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
           git commit -m "chore(agent): refresh QA + health reports"
           for i in 1 2 3 4 5; do

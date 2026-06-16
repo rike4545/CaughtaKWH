@@ -19,11 +19,11 @@ import {
 } from './agentLib.mjs';
 
 // Public US Supercharger pricing guardrails, in DOLLARS.
-const MAX_PER_KWH = 2.0;     // $2.00/kWh is already far above anything observed
-const MAX_FEE_PER_MIN = 2.0; // congestion fee ceiling guardrail ($/min)
+const MAX_PER_KWH = 2.5;     // matches ingestPriceReports.mjs accepted range
+const MAX_FEE_PER_MIN = 5.0; // matches ingestPriceReports.mjs accepted range
 const MIN_PRICE = 0;
 
-const PRICE_FIELDS = ['memberPricePerKwh', 'nonMemberPricePerKwh', 'lowestObservedPricePerKwh'];
+const PRICE_FIELDS = ['memberPricePerKwh', 'memberPeakPricePerKwh', 'nonMemberPricePerKwh', 'nonMemberPeakPricePerKwh', 'lowestObservedPricePerKwh'];
 
 function toIso(v) {
   if (!v) return null;

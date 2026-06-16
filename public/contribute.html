@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contribute a price · CaughtaKWH</title>
+<style>
+  :root{
+    --bg:#0b0e11; --card:#151a21; --line:#222a34; --fg:#e8edf2; --muted:#93a1b0;
+    --accent:#3fb950; --accent2:#388bfd; --warn:#d29922;
+    --radius:14px; --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f6f8fa; --card:#fff; --line:#e3e8ee; --fg:#1c2128; --muted:#5b6672; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.5}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 18px 80px}
+  h1{font-size:1.7rem;margin:.2em 0}
+  h2{font-size:1.15rem;margin:1.6em 0 .6em;display:flex;align-items:center;gap:.5em}
+  p.sub{color:var(--muted);margin-top:.2em}
+  .cta{display:inline-block;background:var(--accent);color:#04210b;font-weight:650;
+    padding:11px 18px;border-radius:10px;text-decoration:none;margin:.4em 0}
+  .cta.alt{background:var(--accent2);color:#021533}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin:10px 0}
+  .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .meta{min-width:0}
+  .row .name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .row .loc{color:var(--muted);font-size:.86rem}
+  .pill{font-size:.72rem;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+  .pill.new{color:var(--accent);border-color:var(--accent)}
+  .pill.stale{color:var(--warn);border-color:var(--warn)}
+  .report{background:transparent;border:1px solid var(--accent);color:var(--accent);
+    padding:7px 12px;border-radius:8px;text-decoration:none;font-size:.85rem;font-weight:600;white-space:nowrap}
+  input[type=search]{width:100%;padding:11px 13px;border-radius:10px;border:1px solid var(--line);
+    background:var(--bg);color:var(--fg);font-size:1rem}
+  .lb{display:grid;grid-template-columns:auto 1fr auto auto;gap:8px 14px;align-items:center}
+  .lb .h{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+  .rank{font-variant-numeric:tabular-nums;color:var(--muted)}
+  .medal{font-size:1.05rem}
+  a{color:var(--accent2)}
+  .muted{color:var(--muted)}
+  footer{margin-top:40px;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Help map Supercharger prices ⚡</h1>
+  <p class="sub">Saw a price on the Tesla app, the in-car screen, or the website? Add it in about 20 seconds. A bot checks the numbers and folds them into the public record automatically.</p>
+  <a class="cta" id="reportAny" href="#">Report a price now</a>
+
+  <h2>🔎 Find a station to report</h2>
+  <input type="search" id="search" placeholder="Search by name, city, or state (e.g. Lake Grove, NY)" autocomplete="off" />
+  <div id="searchResults"></div>
+
+  <h2>📍 Stations that need a price <span class="pill" id="needsCount"></span></h2>
+  <p class="sub">These have no price yet, or their last one is over a day old. Charging at one of these? You'd be the first to log it.</p>
+  <div class="card" id="needsList"><div class="muted">Loading…</div></div>
+
+  <h2>🏆 Top contributors</h2>
+  <div class="card"><div class="lb" id="leaderboard"><div class="muted">Loading…</div></div></div>
+
+  <footer>
+    Prices are user-reported and shown for transparency; always confirm on the Tesla app before charging.
+    Built by the community · <a href="https://github.com/rike4545/CaughtaKWH">source on GitHub</a>.
+  </footer>
+</div>
+
+<script>
+const REPO = "rike4545/CaughtaKWH";
+const reportUrl = id => `https://github.com/${REPO}/issues/new?template=price-report.yml&station=${encodeURIComponent(id)}`;
+document.getElementById('reportAny').href = `https://github.com/${REPO}/issues/new?template=price-report.yml`;
+
+const medal = r => r===1?'🥇':r===2?'🥈':r===3?'🥉':'';
+
+async function getJSON(p){ const r = await fetch(p, {cache:'no-store'}); if(!r.ok) throw new Error(p); return r.json(); }
+
+function stationRow(s){
+  const pillClass = s.status === 'no_price_yet' ? 'new' : 'stale';
+  const pillText = s.status === 'no_price_yet' ? 'no price yet' : `${s.lastPriceAgeHours}h old`;
+  const loc = [s.city, s.state].filter(Boolean).join(', ');
+  return `<div class="row">
+    <div class="meta">
+      <div class="name">${escapeHtml(s.name)}</div>
+      <div class="loc">${escapeHtml(loc)} · <span class="pill ${pillClass}">${pillText}</span></div>
+    </div>
+    <a class="report" href="${s.reportUrl || reportUrl(s.id)}" target="_blank" rel="noopener">Report price</a>
+  </div>`;
+}
+function escapeHtml(x){ return String(x==null?'':x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+(async function needs(){
+  try{
+    const d = await getJSON('./data/needs-price.json');
+    document.getElementById('needsCount').textContent = `${d.needsCount} stations`;
+    const top = d.stations.slice(0, 25);
+    document.getElementById('needsList').innerHTML = top.map(stationRow).join('') ||
+      '<div class="muted">Every tracked station has a fresh price — nice work!</div>';
+  }catch(e){ document.getElementById('needsList').innerHTML = '<div class="muted">Could not load the list right now.</div>'; }
+})();
+
+(async function board(){
+  try{
+    const d = await getJSON('./data/contributors.json');
+    const el = document.getElementById('leaderboard');
+    if(!d.leaderboard.length){ el.innerHTML = '<div class="muted">No reports yet — be the first!</div>'; return; }
+    el.innerHTML = `<div class="h">#</div><div class="h">Contributor</div><div class="h">Reports</div><div class="h">Stations</div>` +
+      d.leaderboard.slice(0,15).map(r => `
+        <div class="rank">${medal(r.rank)||r.rank}</div>
+        <div><a href="https://github.com/${escapeHtml(r.login)}" target="_blank" rel="noopener">@${escapeHtml(r.login)}</a></div>
+        <div class="rank">${r.reports}</div>
+        <div class="rank">${r.stations}</div>`).join('');
+  }catch(e){ document.getElementById('leaderboard').innerHTML = '<div class="muted">Could not load contributors.</div>'; }
+})();
+
+(async function search(){
+  let index = [];
+  try{ index = await getJSON('./data/stations-min.json'); }catch(e){}
+  const box = document.getElementById('search');
+  const out = document.getElementById('searchResults');
+  let t;
+  box.addEventListener('input', ()=>{
+    clearTimeout(t);
+    t = setTimeout(()=>{
+      const q = box.value.trim().toLowerCase();
+      if(q.length < 2){ out.innerHTML=''; return; }
+      const hits = index.filter(s =>
+        (s.name||'').toLowerCase().includes(q) ||
+        (s.city||'').toLowerCase().includes(q) ||
+        (s.state||'').toLowerCase().includes(q)).slice(0,10);
+      out.innerHTML = hits.length ? '<div class="card">' + hits.map(s=>{
+        const loc=[s.city,s.state].filter(Boolean).join(', ');
+        return `<div class="row"><div class="meta"><div class="name">${escapeHtml(s.name)}</div><div class="loc">${escapeHtml(loc)}</div></div>
+          <a class="report" href="${reportUrl(s.id)}" target="_blank" rel="noopener">Report price</a></div>`;
+      }).join('') + '</div>' : '<p class="muted">No matches.</p>';
+    }, 150);
+  });
+})();
+</script>
+</body>
+</html>
