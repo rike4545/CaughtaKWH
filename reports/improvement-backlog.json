@@ -1,0 +1,91 @@
+{
+  "generatedAt": "2026-06-16T22:05:14.082Z",
+  "totals": {
+    "stations": 3105,
+    "withAnyHistory": 2,
+    "predictions": 2
+  },
+  "priorities": [
+    {
+      "rank": 1,
+      "action": "Capture first observations for stations with zero history",
+      "count": 3103,
+      "sample": [
+        "403969",
+        "481260",
+        "485163",
+        "481358",
+        "487103",
+        "484317",
+        "487202",
+        "481359",
+        "492964",
+        "485807",
+        "487054",
+        "487153",
+        "484459",
+        "487104",
+        "421525"
+      ],
+      "how": "Run Pricing Pilot Panel with these station_ids, or SCRAPE_NEEDS_HISTORY=true."
+    },
+    {
+      "rank": 2,
+      "action": "Grow thin-history stations toward 10+ observations",
+      "count": 0,
+      "sample": [],
+      "how": "Schedule time-diverse refreshes (morning/afternoon/evening) for time-of-day signal."
+    },
+    {
+      "rank": 3,
+      "action": "Refresh stale stations (>24h since latest observation)",
+      "count": 2,
+      "sample": [
+        "404914",
+        "LakeGroveNYsupercharger"
+      ],
+      "how": "Targeted SCRAPE_STATION_IDS or a state-rotation pass."
+    },
+    {
+      "rank": 4,
+      "action": "Improve lowest-coverage states via rotation",
+      "targets": [
+        {
+          "state": "KS",
+          "coverage": 0,
+          "total": 20
+        },
+        {
+          "state": "GA",
+          "coverage": 0,
+          "total": 85
+        },
+        {
+          "state": "IL",
+          "coverage": 0,
+          "total": 76
+        },
+        {
+          "state": "FL",
+          "coverage": 0,
+          "total": 244
+        },
+        {
+          "state": "TX",
+          "coverage": 0,
+          "total": 223
+        }
+      ],
+      "how": "Set SCRAPE_STATES to these states for upcoming rotations."
+    },
+    {
+      "rank": 5,
+      "action": "Tighten low-confidence predictions",
+      "count": 1,
+      "sample": [
+        "LakeGroveNYsupercharger"
+      ],
+      "how": "More observations across different hours raises confidence and narrows CIs."
+    }
+  ]
+}
