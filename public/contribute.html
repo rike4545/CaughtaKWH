@@ -50,6 +50,13 @@
   <p class="sub">Saw a price on the Tesla app, the in-car screen, or the website? Add it in about 20 seconds. A bot checks the numbers and folds them into the public record automatically.</p>
   <a class="cta" id="reportAny" href="#">Report a price now</a>
 
+  <h2>⚡ One-tap reporting (desktop)</h2>
+  <p class="sub">Already looking at a Tesla Supercharger page in your browser? Drag the button below to your bookmarks bar once. Then, any time you're on a station's Tesla page, click it — it reads the station and the price shown, and opens a pre-filled report for you to confirm and submit. Nothing is sent until you review and submit it yourself.</p>
+  <div class="card">
+    <a class="cta alt" href="javascript:(function(){var R='rike4545/CaughtaKWH';var m=location.pathname.match(/\/findus\/location\/supercharger\/([^\/?#]+)/i);if(!m){alert('Open a Tesla Supercharger page first (tesla.com/findus/location/supercharger/...), then tap this.');return;}var id=m[1],mem=null,non=null,cong=null;function nz(x){var n=Number(String(x).replace(/[^0-9.]/g,''));return isFinite(n)?n:null;}try{var el=document.getElementById('__NEXT_DATA__');if(el){(function w(o,d){if(!o||typeof o!=='object'||d>12)return;for(var k in o){var v=o[k],lk=k.toLowerCase();if(typeof v==='number'){if(mem==null&amp;&amp;/member/.test(lk)&amp;&amp;/price/.test(lk)&amp;&amp;!/non/.test(lk))mem=v;else if(non==null&amp;&amp;/non.?member/.test(lk)&amp;&amp;/price/.test(lk))non=v;else if(cong==null&amp;&amp;/congest/.test(lk))cong=v;}else if(v&amp;&amp;typeof v==='object')w(v,d+1);}})(JSON.parse(el.textContent||'null'),0);}}catch(e){}if(mem==null){var t=(document.body&amp;&amp;document.body.innerText)||'';var pk=t.match(/\$?\s*(\d+(?:\.\d+)?)\s*(?:\u00a2|cents?)?\s*\/\s*kwh/i);if(pk){var val=nz(pk[1]);if(val!=null&amp;&amp;val>5)val=val/100;mem=val;}}var u='https://github.com/'+R+'/issues/new?template=price-report.yml&amp;station='+encodeURIComponent(id);if(mem!=null)u+='&amp;member_price='+mem;if(non!=null)u+='&amp;nonmember_price='+non;if(cong!=null)u+='&amp;congestion='+cong;window.open(u,'_blank');})();">📍 Report this Supercharger</a>
+    <p class="sub" style="margin-top:10px">Drag that button to your bookmarks bar (don't just click it here). On mobile, use the search or list below instead — the Tesla app doesn't support bookmarklets.</p>
+  </div>
+
   <h2>🔎 Find a station to report</h2>
   <input type="search" id="search" placeholder="Search by name, city, or state (e.g. Lake Grove, NY)" autocomplete="off" />
   <div id="searchResults"></div>
