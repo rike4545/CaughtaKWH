@@ -1,13 +1,13 @@
 {
-  "ranAt": "2026-06-16T22:04:31.506Z",
+  "ranAt": "2026-06-17T02:13:19.847Z",
   "units": "cents_per_kwh",
   "stationsEvaluated": 1,
-  "overallMAECents": 7.65,
+  "overallMAECents": 6.81,
   "worst": [
     {
       "stationId": "LakeGroveNYsupercharger",
-      "maeCents": 7.65,
-      "predictedCents": 37.65,
+      "maeCents": 6.81,
+      "predictedCents": 37.43,
       "samples": 3
     }
   ]
