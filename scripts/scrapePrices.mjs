@@ -2,6 +2,7 @@ import { chromium } from '@playwright/test';
 import path from 'node:path';
 import { ProxyAgent, setGlobalDispatcher } from 'undici';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
+import { validateCapturedPrices } from './pricingNeuralNetwork.mjs';
 import {
   classifySiteContent,
   extractNextData,
@@ -16,6 +17,7 @@ import {
 
 const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const predictions = await readJson(path.join(dataDir, 'predictions.json'), []);
+const pricingNeuralModel = await readJson(path.join(dataDir, 'pricing-neural-model.json'), null);
 const MAX_STATIONS = Number(process.env.MAX_STATIONS || stations.length || 1);
 const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1200);
 const LOW_PRICE_THRESHOLD = Number(process.env.LOW_PRICE_THRESHOLD || 0.30);
@@ -414,6 +416,7 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
   try {
     const result = await scrapeOne(context, station);
     const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: capturedDate.getHours(), localMinute: capturedDate.getMinutes(), halfHourSlot: halfHourSlot(capturedDate), ...result.prices, ...result.availability, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
+    observation.neuralValidation = validateCapturedPrices(pricingNeuralModel, { station, observation });
     const hasPrice = observation.memberPricePerKwh !== null || observation.nonMemberPricePerKwh !== null;
     const hasAvailability = observation.availableStalls !== null || observation.utilizationPct !== null || observation.availabilityLabel !== null;
     if (hasPrice || hasAvailability) {
@@ -430,6 +433,7 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     station.lastScrapeHadAvailability = hasAvailability;
     station.lastScrapeBlocked = false;
     station.lastPriceCandidateCount = result.prices.priceCandidateCount;
+    station.lastNeuralValidation = observation.neuralValidation;
     station.lastLowPriceId = result.prices.lowPriceId;
     station.lastScrapeAttemptCount = result.attempts.length;
     station.lastScrapeResult = hasPrice ? 'price_found' : hasAvailability ? 'availability_found' : 'valid_page_no_public_data';

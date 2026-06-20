@@ -311,6 +311,18 @@ GitHub Actions automatically:
 - Syncs public datasets
 - Deploys the website
 
+## Neural pricing model
+
+`npm run predict` first trains a small feed-forward network from validated history and then rebuilds the public predictions. Its inputs include half-hour time, weekday, membership type, utilization when available, stall count, maximum power, congestion fees, coordinates, source type, and parser candidate density.
+
+The model is deliberately guarded:
+
+- Tesla and validated community reports remain the only sources of recorded prices.
+- Neural output can flag a capture for review but never discards or invents an official observation.
+- Holdout MAE must beat a membership-aware baseline before capture validation turns on.
+- Neural price blending stays off until there are at least 200 examples, 5 priced stations, and 30 utilization-labeled examples.
+- Model weights, coverage, activation state, and error metrics are published in `data/pricing-neural-model.json` and `reports/pricing-neural-model.md`.
+
 Current optimization strategy:
 
 - Daily rotating state/province refreshes

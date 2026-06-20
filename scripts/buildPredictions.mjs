@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { dataDir, historyDir, readJson, writeJson } from './lib.mjs';
+import { predictNeuralPrice } from './pricingNeuralNetwork.mjs';
 
 function mean(xs) { return xs.reduce((a, b) => a + b, 0) / xs.length; }
 function sd(xs) {
@@ -86,7 +87,7 @@ function slotParts(slot) {
   const minute = slot % 2 === 0 ? 0 : 30;
   return { hour, minute, label: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}` };
 }
-function predictionFor(stationId, obs, field, membershipType) {
+function predictionFor(stationId, station, obs, field, membershipType, neuralModel) {
   const buckets = new Map();
   const priceRows = obs.filter(row => typeof row[field] === 'number');
   for (const row of priceRows) {
@@ -110,6 +111,12 @@ function predictionFor(stationId, obs, field, membershipType) {
   const ageHours = hoursSince(latest?.capturedAt);
   const status = currentPriceStatus(ageHours);
   const conf = confidence(priceRows.length, ageHours, overallSd);
+  const neuralSlots = Array.from({ length: 48 }, (_, slot) => {
+    const parts = slotParts(slot);
+    const expectedPrice = predictNeuralPrice(neuralModel, { station, observation: latest, membershipType, slotOverride: slot });
+    return { slot, hour: parts.hour, minute: parts.minute, label: parts.label, expectedPrice };
+  }).filter(row => typeof row.expectedPrice === 'number');
+  const neuralBest = [...neuralSlots].sort((a, b) => a.expectedPrice - b.expectedPrice)[0] || null;
   return {
     stationId,
     generatedAt: new Date().toISOString(),
@@ -138,6 +145,24 @@ function predictionFor(stationId, obs, field, membershipType) {
     confidenceLabel: conf.label,
     confidenceSummary: `${conf.label} confidence · ${priceRows.length} observation${priceRows.length === 1 ? '' : 's'} · ${freshnessLabel(ageHours)}`,
     pricingStatus: typeof ageHours === 'number' && ageHours <= 2 ? 'recent observation' : typeof ageHours === 'number' ? 'historical observation' : 'no public price observation',
+    predictionMethod: neuralModel?.activation?.priceBlending ? 'statistical_neural_blend' : neuralSlots.length ? 'statistical_with_experimental_neural' : 'statistical',
+    neuralModel: neuralModel ? {
+      version: neuralModel.version,
+      status: neuralModel.status,
+      reason: neuralModel.reason,
+      holdoutMae: neuralModel.metrics?.mae ?? null,
+      baselineMae: neuralModel.metrics?.baselineMae ?? null,
+      exampleCount: neuralModel.coverage?.exampleCount ?? 0,
+      stationCount: neuralModel.coverage?.stationCount ?? 0,
+      utilizationCoveragePct: neuralModel.coverage?.utilizationCoveragePct ?? 0,
+      historicalCapturesChecked: neuralModel.historicalReview?.checked ?? 0,
+      historicalCapturesFlagged: neuralModel.historicalReview?.flagged ?? 0,
+      priceBlending: Boolean(neuralModel.activation?.priceBlending)
+    } : null,
+    neuralBestHour: neuralBest?.hour ?? null,
+    neuralBestMinute: neuralBest?.minute ?? null,
+    neuralBestExpectedPrice: neuralBest?.expectedPrice ?? null,
+    neuralSlots,
     utilizationImpact: utilizationImpact(obs, field),
     congestion: congestionSummary(obs),
     slots,
@@ -147,12 +172,16 @@ function predictionFor(stationId, obs, field, membershipType) {
 
 await fs.mkdir(historyDir, { recursive: true });
 const files = (await fs.readdir(historyDir)).filter(f => f.endsWith('.json'));
+const stations = await readJson(path.join(dataDir, 'stations.json'), []);
+const stationById = new Map(stations.map(station => [station.id, station]));
+const neuralModel = await readJson(path.join(dataDir, 'pricing-neural-model.json'), null);
 const predictions = [];
 for (const file of files) {
   const stationId = file.replace(/\.json$/, '');
   const obs = await readJson(path.join(historyDir, file), []);
-  const member = predictionFor(stationId, obs, 'memberPricePerKwh', 'member');
-  const nonMember = predictionFor(stationId, obs, 'nonMemberPricePerKwh', 'non_member');
+  const station = stationById.get(stationId) || { id: stationId };
+  const member = predictionFor(stationId, station, obs, 'memberPricePerKwh', 'member', neuralModel);
+  const nonMember = predictionFor(stationId, station, obs, 'nonMemberPricePerKwh', 'non_member', neuralModel);
   if (member) predictions.push(member);
   if (nonMember) predictions.push(nonMember);
 }

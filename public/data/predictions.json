@@ -1,11 +1,11 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-20T22:22:36.111Z",
+    "generatedAt": "2026-06-20T22:44:24.899Z",
     "membershipType": "member",
     "latestObservedAt": "2026-06-16T23:08:50.726Z",
     "latestObservedPrice": 0.43,
-    "latestObservationAgeHours": 95.23,
+    "latestObservationAgeHours": 95.59,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
@@ -27,6 +27,361 @@
     "confidenceLabel": "low",
     "confidenceSummary": "low confidence · 38 observations · very stale: older than 2 days",
     "pricingStatus": "historical observation",
+    "predictionMethod": "statistical_with_experimental_neural",
+    "neuralModel": {
+      "version": "caughtakwh-pricing-nn-v1",
+      "status": "experimental",
+      "reason": "Holdout quality passed; more stations and utilization labels are needed before blending.",
+      "holdoutMae": 0.0442,
+      "baselineMae": 0.0493,
+      "exampleCount": 75,
+      "stationCount": 1,
+      "utilizationCoveragePct": 0,
+      "historicalCapturesChecked": 36,
+      "historicalCapturesFlagged": 1,
+      "priceBlending": false
+    },
+    "neuralBestHour": 2,
+    "neuralBestMinute": 30,
+    "neuralBestExpectedPrice": 0.2888,
+    "neuralSlots": [
+      {
+        "slot": 0,
+        "hour": 0,
+        "minute": 0,
+        "label": "00:00",
+        "expectedPrice": 0.3042
+      },
+      {
+        "slot": 1,
+        "hour": 0,
+        "minute": 30,
+        "label": "00:30",
+        "expectedPrice": 0.299
+      },
+      {
+        "slot": 2,
+        "hour": 1,
+        "minute": 0,
+        "label": "01:00",
+        "expectedPrice": 0.2948
+      },
+      {
+        "slot": 3,
+        "hour": 1,
+        "minute": 30,
+        "label": "01:30",
+        "expectedPrice": 0.2917
+      },
+      {
+        "slot": 4,
+        "hour": 2,
+        "minute": 0,
+        "label": "02:00",
+        "expectedPrice": 0.2897
+      },
+      {
+        "slot": 5,
+        "hour": 2,
+        "minute": 30,
+        "label": "02:30",
+        "expectedPrice": 0.2888
+      },
+      {
+        "slot": 6,
+        "hour": 3,
+        "minute": 0,
+        "label": "03:00",
+        "expectedPrice": 0.289
+      },
+      {
+        "slot": 7,
+        "hour": 3,
+        "minute": 30,
+        "label": "03:30",
+        "expectedPrice": 0.2904
+      },
+      {
+        "slot": 8,
+        "hour": 4,
+        "minute": 0,
+        "label": "04:00",
+        "expectedPrice": 0.2929
+      },
+      {
+        "slot": 9,
+        "hour": 4,
+        "minute": 30,
+        "label": "04:30",
+        "expectedPrice": 0.2964
+      },
+      {
+        "slot": 10,
+        "hour": 5,
+        "minute": 0,
+        "label": "05:00",
+        "expectedPrice": 0.3011
+      },
+      {
+        "slot": 11,
+        "hour": 5,
+        "minute": 30,
+        "label": "05:30",
+        "expectedPrice": 0.3067
+      },
+      {
+        "slot": 12,
+        "hour": 6,
+        "minute": 0,
+        "label": "06:00",
+        "expectedPrice": 0.3132
+      },
+      {
+        "slot": 13,
+        "hour": 6,
+        "minute": 30,
+        "label": "06:30",
+        "expectedPrice": 0.3206
+      },
+      {
+        "slot": 14,
+        "hour": 7,
+        "minute": 0,
+        "label": "07:00",
+        "expectedPrice": 0.3287
+      },
+      {
+        "slot": 15,
+        "hour": 7,
+        "minute": 30,
+        "label": "07:30",
+        "expectedPrice": 0.3373
+      },
+      {
+        "slot": 16,
+        "hour": 8,
+        "minute": 0,
+        "label": "08:00",
+        "expectedPrice": 0.3464
+      },
+      {
+        "slot": 17,
+        "hour": 8,
+        "minute": 30,
+        "label": "08:30",
+        "expectedPrice": 0.3557
+      },
+      {
+        "slot": 18,
+        "hour": 9,
+        "minute": 0,
+        "label": "09:00",
+        "expectedPrice": 0.3651
+      },
+      {
+        "slot": 19,
+        "hour": 9,
+        "minute": 30,
+        "label": "09:30",
+        "expectedPrice": 0.3744
+      },
+      {
+        "slot": 20,
+        "hour": 10,
+        "minute": 0,
+        "label": "10:00",
+        "expectedPrice": 0.3834
+      },
+      {
+        "slot": 21,
+        "hour": 10,
+        "minute": 30,
+        "label": "10:30",
+        "expectedPrice": 0.3919
+      },
+      {
+        "slot": 22,
+        "hour": 11,
+        "minute": 0,
+        "label": "11:00",
+        "expectedPrice": 0.3999
+      },
+      {
+        "slot": 23,
+        "hour": 11,
+        "minute": 30,
+        "label": "11:30",
+        "expectedPrice": 0.4071
+      },
+      {
+        "slot": 24,
+        "hour": 12,
+        "minute": 0,
+        "label": "12:00",
+        "expectedPrice": 0.4135
+      },
+      {
+        "slot": 25,
+        "hour": 12,
+        "minute": 30,
+        "label": "12:30",
+        "expectedPrice": 0.4189
+      },
+      {
+        "slot": 26,
+        "hour": 13,
+        "minute": 0,
+        "label": "13:00",
+        "expectedPrice": 0.4232
+      },
+      {
+        "slot": 27,
+        "hour": 13,
+        "minute": 30,
+        "label": "13:30",
+        "expectedPrice": 0.4265
+      },
+      {
+        "slot": 28,
+        "hour": 14,
+        "minute": 0,
+        "label": "14:00",
+        "expectedPrice": 0.4286
+      },
+      {
+        "slot": 29,
+        "hour": 14,
+        "minute": 30,
+        "label": "14:30",
+        "expectedPrice": 0.4296
+      },
+      {
+        "slot": 30,
+        "hour": 15,
+        "minute": 0,
+        "label": "15:00",
+        "expectedPrice": 0.4293
+      },
+      {
+        "slot": 31,
+        "hour": 15,
+        "minute": 30,
+        "label": "15:30",
+        "expectedPrice": 0.4279
+      },
+      {
+        "slot": 32,
+        "hour": 16,
+        "minute": 0,
+        "label": "16:00",
+        "expectedPrice": 0.4254
+      },
+      {
+        "slot": 33,
+        "hour": 16,
+        "minute": 30,
+        "label": "16:30",
+        "expectedPrice": 0.4217
+      },
+      {
+        "slot": 34,
+        "hour": 17,
+        "minute": 0,
+        "label": "17:00",
+        "expectedPrice": 0.4169
+      },
+      {
+        "slot": 35,
+        "hour": 17,
+        "minute": 30,
+        "label": "17:30",
+        "expectedPrice": 0.4111
+      },
+      {
+        "slot": 36,
+        "hour": 18,
+        "minute": 0,
+        "label": "18:00",
+        "expectedPrice": 0.4043
+      },
+      {
+        "slot": 37,
+        "hour": 18,
+        "minute": 30,
+        "label": "18:30",
+        "expectedPrice": 0.3968
+      },
+      {
+        "slot": 38,
+        "hour": 19,
+        "minute": 0,
+        "label": "19:00",
+        "expectedPrice": 0.3885
+      },
+      {
+        "slot": 39,
+        "hour": 19,
+        "minute": 30,
+        "label": "19:30",
+        "expectedPrice": 0.3798
+      },
+      {
+        "slot": 40,
+        "hour": 20,
+        "minute": 0,
+        "label": "20:00",
+        "expectedPrice": 0.3706
+      },
+      {
+        "slot": 41,
+        "hour": 20,
+        "minute": 30,
+        "label": "20:30",
+        "expectedPrice": 0.3612
+      },
+      {
+        "slot": 42,
+        "hour": 21,
+        "minute": 0,
+        "label": "21:00",
+        "expectedPrice": 0.3518
+      },
+      {
+        "slot": 43,
+        "hour": 21,
+        "minute": 30,
+        "label": "21:30",
+        "expectedPrice": 0.3426
+      },
+      {
+        "slot": 44,
+        "hour": 22,
+        "minute": 0,
+        "label": "22:00",
+        "expectedPrice": 0.3337
+      },
+      {
+        "slot": 45,
+        "hour": 22,
+        "minute": 30,
+        "label": "22:30",
+        "expectedPrice": 0.3252
+      },
+      {
+        "slot": 46,
+        "hour": 23,
+        "minute": 0,
+        "label": "23:00",
+        "expectedPrice": 0.3174
+      },
+      {
+        "slot": 47,
+        "hour": 23,
+        "minute": 30,
+        "label": "23:30",
+        "expectedPrice": 0.3104
+      }
+    ],
     "utilizationImpact": {
       "sampleCount": 0,
       "hasSignal": false,
@@ -446,11 +801,11 @@
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-20T22:22:36.112Z",
+    "generatedAt": "2026-06-20T22:44:24.900Z",
     "membershipType": "non_member",
     "latestObservedAt": "2026-06-12T22:46:03.183Z",
     "latestObservedPrice": 0.65,
-    "latestObservationAgeHours": 191.61,
+    "latestObservationAgeHours": 191.97,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
@@ -472,6 +827,361 @@
     "confidenceLabel": "medium",
     "confidenceSummary": "medium confidence · 37 observations · very stale: older than 2 days",
     "pricingStatus": "historical observation",
+    "predictionMethod": "statistical_with_experimental_neural",
+    "neuralModel": {
+      "version": "caughtakwh-pricing-nn-v1",
+      "status": "experimental",
+      "reason": "Holdout quality passed; more stations and utilization labels are needed before blending.",
+      "holdoutMae": 0.0442,
+      "baselineMae": 0.0493,
+      "exampleCount": 75,
+      "stationCount": 1,
+      "utilizationCoveragePct": 0,
+      "historicalCapturesChecked": 36,
+      "historicalCapturesFlagged": 1,
+      "priceBlending": false
+    },
+    "neuralBestHour": 2,
+    "neuralBestMinute": 30,
+    "neuralBestExpectedPrice": 0.6197,
+    "neuralSlots": [
+      {
+        "slot": 0,
+        "hour": 0,
+        "minute": 0,
+        "label": "00:00",
+        "expectedPrice": 0.6282
+      },
+      {
+        "slot": 1,
+        "hour": 0,
+        "minute": 30,
+        "label": "00:30",
+        "expectedPrice": 0.6255
+      },
+      {
+        "slot": 2,
+        "hour": 1,
+        "minute": 0,
+        "label": "01:00",
+        "expectedPrice": 0.6232
+      },
+      {
+        "slot": 3,
+        "hour": 1,
+        "minute": 30,
+        "label": "01:30",
+        "expectedPrice": 0.6215
+      },
+      {
+        "slot": 4,
+        "hour": 2,
+        "minute": 0,
+        "label": "02:00",
+        "expectedPrice": 0.6203
+      },
+      {
+        "slot": 5,
+        "hour": 2,
+        "minute": 30,
+        "label": "02:30",
+        "expectedPrice": 0.6197
+      },
+      {
+        "slot": 6,
+        "hour": 3,
+        "minute": 0,
+        "label": "03:00",
+        "expectedPrice": 0.6198
+      },
+      {
+        "slot": 7,
+        "hour": 3,
+        "minute": 30,
+        "label": "03:30",
+        "expectedPrice": 0.6205
+      },
+      {
+        "slot": 8,
+        "hour": 4,
+        "minute": 0,
+        "label": "04:00",
+        "expectedPrice": 0.6218
+      },
+      {
+        "slot": 9,
+        "hour": 4,
+        "minute": 30,
+        "label": "04:30",
+        "expectedPrice": 0.6237
+      },
+      {
+        "slot": 10,
+        "hour": 5,
+        "minute": 0,
+        "label": "05:00",
+        "expectedPrice": 0.626
+      },
+      {
+        "slot": 11,
+        "hour": 5,
+        "minute": 30,
+        "label": "05:30",
+        "expectedPrice": 0.6288
+      },
+      {
+        "slot": 12,
+        "hour": 6,
+        "minute": 0,
+        "label": "06:00",
+        "expectedPrice": 0.632
+      },
+      {
+        "slot": 13,
+        "hour": 6,
+        "minute": 30,
+        "label": "06:30",
+        "expectedPrice": 0.6354
+      },
+      {
+        "slot": 14,
+        "hour": 7,
+        "minute": 0,
+        "label": "07:00",
+        "expectedPrice": 0.639
+      },
+      {
+        "slot": 15,
+        "hour": 7,
+        "minute": 30,
+        "label": "07:30",
+        "expectedPrice": 0.6427
+      },
+      {
+        "slot": 16,
+        "hour": 8,
+        "minute": 0,
+        "label": "08:00",
+        "expectedPrice": 0.6465
+      },
+      {
+        "slot": 17,
+        "hour": 8,
+        "minute": 30,
+        "label": "08:30",
+        "expectedPrice": 0.6502
+      },
+      {
+        "slot": 18,
+        "hour": 9,
+        "minute": 0,
+        "label": "09:00",
+        "expectedPrice": 0.6538
+      },
+      {
+        "slot": 19,
+        "hour": 9,
+        "minute": 30,
+        "label": "09:30",
+        "expectedPrice": 0.6572
+      },
+      {
+        "slot": 20,
+        "hour": 10,
+        "minute": 0,
+        "label": "10:00",
+        "expectedPrice": 0.6605
+      },
+      {
+        "slot": 21,
+        "hour": 10,
+        "minute": 30,
+        "label": "10:30",
+        "expectedPrice": 0.6635
+      },
+      {
+        "slot": 22,
+        "hour": 11,
+        "minute": 0,
+        "label": "11:00",
+        "expectedPrice": 0.6662
+      },
+      {
+        "slot": 23,
+        "hour": 11,
+        "minute": 30,
+        "label": "11:30",
+        "expectedPrice": 0.6686
+      },
+      {
+        "slot": 24,
+        "hour": 12,
+        "minute": 0,
+        "label": "12:00",
+        "expectedPrice": 0.6707
+      },
+      {
+        "slot": 25,
+        "hour": 12,
+        "minute": 30,
+        "label": "12:30",
+        "expectedPrice": 0.6725
+      },
+      {
+        "slot": 26,
+        "hour": 13,
+        "minute": 0,
+        "label": "13:00",
+        "expectedPrice": 0.6739
+      },
+      {
+        "slot": 27,
+        "hour": 13,
+        "minute": 30,
+        "label": "13:30",
+        "expectedPrice": 0.675
+      },
+      {
+        "slot": 28,
+        "hour": 14,
+        "minute": 0,
+        "label": "14:00",
+        "expectedPrice": 0.6757
+      },
+      {
+        "slot": 29,
+        "hour": 14,
+        "minute": 30,
+        "label": "14:30",
+        "expectedPrice": 0.6761
+      },
+      {
+        "slot": 30,
+        "hour": 15,
+        "minute": 0,
+        "label": "15:00",
+        "expectedPrice": 0.6761
+      },
+      {
+        "slot": 31,
+        "hour": 15,
+        "minute": 30,
+        "label": "15:30",
+        "expectedPrice": 0.6757
+      },
+      {
+        "slot": 32,
+        "hour": 16,
+        "minute": 0,
+        "label": "16:00",
+        "expectedPrice": 0.675
+      },
+      {
+        "slot": 33,
+        "hour": 16,
+        "minute": 30,
+        "label": "16:30",
+        "expectedPrice": 0.6739
+      },
+      {
+        "slot": 34,
+        "hour": 17,
+        "minute": 0,
+        "label": "17:00",
+        "expectedPrice": 0.6725
+      },
+      {
+        "slot": 35,
+        "hour": 17,
+        "minute": 30,
+        "label": "17:30",
+        "expectedPrice": 0.6707
+      },
+      {
+        "slot": 36,
+        "hour": 18,
+        "minute": 0,
+        "label": "18:00",
+        "expectedPrice": 0.6685
+      },
+      {
+        "slot": 37,
+        "hour": 18,
+        "minute": 30,
+        "label": "18:30",
+        "expectedPrice": 0.6661
+      },
+      {
+        "slot": 38,
+        "hour": 19,
+        "minute": 0,
+        "label": "19:00",
+        "expectedPrice": 0.6633
+      },
+      {
+        "slot": 39,
+        "hour": 19,
+        "minute": 30,
+        "label": "19:30",
+        "expectedPrice": 0.6602
+      },
+      {
+        "slot": 40,
+        "hour": 20,
+        "minute": 0,
+        "label": "20:00",
+        "expectedPrice": 0.6569
+      },
+      {
+        "slot": 41,
+        "hour": 20,
+        "minute": 30,
+        "label": "20:30",
+        "expectedPrice": 0.6534
+      },
+      {
+        "slot": 42,
+        "hour": 21,
+        "minute": 0,
+        "label": "21:00",
+        "expectedPrice": 0.6497
+      },
+      {
+        "slot": 43,
+        "hour": 21,
+        "minute": 30,
+        "label": "21:30",
+        "expectedPrice": 0.646
+      },
+      {
+        "slot": 44,
+        "hour": 22,
+        "minute": 0,
+        "label": "22:00",
+        "expectedPrice": 0.6421
+      },
+      {
+        "slot": 45,
+        "hour": 22,
+        "minute": 30,
+        "label": "22:30",
+        "expectedPrice": 0.6384
+      },
+      {
+        "slot": 46,
+        "hour": 23,
+        "minute": 0,
+        "label": "23:00",
+        "expectedPrice": 0.6347
+      },
+      {
+        "slot": 47,
+        "hour": 23,
+        "minute": 30,
+        "label": "23:30",
+        "expectedPrice": 0.6313
+      }
+    ],
     "utilizationImpact": {
       "sampleCount": 0,
       "hasSignal": false,

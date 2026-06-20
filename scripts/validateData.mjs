@@ -3,9 +3,16 @@ import { dataDir, readJson } from './lib.mjs';
 
 const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const predictions = await readJson(path.join(dataDir, 'predictions.json'), []);
+const neuralModel = await readJson(path.join(dataDir, 'pricing-neural-model.json'), null);
+const neuralReview = await readJson(path.join(dataDir, 'pricing-neural-review.json'), null);
 
 if (!Array.isArray(stations)) throw new Error('stations.json must be an array');
 if (!Array.isArray(predictions)) throw new Error('predictions.json must be an array');
+if (neuralModel) {
+  if (!neuralModel.version || !neuralModel.status || !neuralModel.coverage || !neuralModel.activation) throw new Error('pricing-neural-model.json is missing required model metadata');
+  if (neuralModel.activation.priceBlending && neuralModel.status !== 'active') throw new Error('Neural price blending requires an active model');
+  if (neuralReview && neuralReview.modelVersion !== neuralModel.version) throw new Error('Neural review queue does not match the pricing model version');
+}
 
 for (const s of stations) {
   if (!s.id || !s.name) throw new Error(`Invalid station: ${JSON.stringify(s)}`);
@@ -15,3 +22,4 @@ const withTeslaUrl = stations.filter(s => typeof s.url === 'string' && s.url.inc
 const withCoords = stations.filter(s => typeof s.lat === 'number' && typeof s.lng === 'number').length;
 console.log(`Validated ${stations.length} stations and ${predictions.length} predictions.`);
 console.log(`${withTeslaUrl} stations have Tesla location URLs; ${withCoords} have coordinates.`);
+if (neuralModel) console.log(`Neural pricing model: ${neuralModel.status}; ${neuralModel.coverage.exampleCount} examples; holdout MAE ${neuralModel.metrics?.mae ?? 'n/a'}.`);

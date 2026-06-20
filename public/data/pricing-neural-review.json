@@ -1,0 +1,34 @@
+{
+  "generatedAt": "2026-06-20T22:44:24.807Z",
+  "modelVersion": "caughtakwh-pricing-nn-v1",
+  "status": "experimental",
+  "checked": 36,
+  "flagged": 1,
+  "reviews": [
+    {
+      "stationId": "LakeGroveNYsupercharger",
+      "capturedAt": "2026-06-10T16:06:26.993Z",
+      "source": "tesla_public_findus_location_page",
+      "status": "review",
+      "modelVersion": "caughtakwh-pricing-nn-v1",
+      "checks": [
+        {
+          "membershipType": "member",
+          "observed": 0.43,
+          "expected": 0.4542,
+          "residual": 0.0242,
+          "threshold": 0.1326,
+          "needsReview": false
+        },
+        {
+          "membershipType": "non_member",
+          "observed": 0.43,
+          "expected": 0.6801,
+          "residual": 0.2501,
+          "threshold": 0.1326,
+          "needsReview": true
+        }
+      ]
+    }
+  ]
+}
