@@ -1,11 +1,11 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-20T23:41:05.455Z",
+    "generatedAt": "2026-06-20T23:53:49.671Z",
     "membershipType": "member",
     "latestObservedAt": "2026-06-16T23:08:50.726Z",
     "latestObservedPrice": 0.43,
-    "latestObservationAgeHours": 96.54,
+    "latestObservationAgeHours": 96.75,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
@@ -421,6 +421,7 @@
         "minute": 30,
         "label": "22:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3319,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 5
@@ -431,6 +432,7 @@
         "minute": 30,
         "label": "04:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3359,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 4
@@ -441,6 +443,7 @@
         "minute": 0,
         "label": "22:00",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3411,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 3
@@ -451,6 +454,7 @@
         "minute": 0,
         "label": "04:00",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3479,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 2
@@ -461,6 +465,7 @@
         "minute": 30,
         "label": "08:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3575,
         "ci95Low": 0.1716,
         "ci95High": 0.4284,
         "sampleCount": 1
@@ -471,6 +476,7 @@
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3575,
         "ci95Low": 0.1716,
         "ci95High": 0.4284,
         "sampleCount": 1
@@ -481,6 +487,7 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3575,
         "ci95Low": 0.1716,
         "ci95High": 0.4284,
         "sampleCount": 1
@@ -491,6 +498,7 @@
         "minute": 0,
         "label": "20:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3968,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 3
@@ -501,6 +509,7 @@
         "minute": 0,
         "label": "10:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3968,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 3
@@ -511,6 +520,7 @@
         "minute": 0,
         "label": "15:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -521,6 +531,7 @@
         "minute": 0,
         "label": "14:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -531,6 +542,7 @@
         "minute": 0,
         "label": "16:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -541,6 +553,7 @@
         "minute": 30,
         "label": "19:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -551,6 +564,7 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -561,6 +575,7 @@
         "minute": 30,
         "label": "16:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -571,6 +586,7 @@
         "minute": 0,
         "label": "07:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -581,6 +597,7 @@
         "minute": 30,
         "label": "15:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -591,6 +608,7 @@
         "minute": 30,
         "label": "10:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -601,6 +619,7 @@
         "minute": 0,
         "label": "23:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -613,6 +632,7 @@
         "minute": 30,
         "label": "22:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3319,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 5
@@ -623,6 +643,7 @@
         "minute": 30,
         "label": "04:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3359,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 4
@@ -633,6 +654,7 @@
         "minute": 0,
         "label": "22:00",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3411,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 3
@@ -643,6 +665,7 @@
         "minute": 0,
         "label": "04:00",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3479,
         "ci95Low": 0.3,
         "ci95High": 0.3,
         "sampleCount": 2
@@ -653,6 +676,7 @@
         "minute": 30,
         "label": "08:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3575,
         "ci95Low": 0.1716,
         "ci95High": 0.4284,
         "sampleCount": 1
@@ -663,6 +687,7 @@
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3575,
         "ci95Low": 0.1716,
         "ci95High": 0.4284,
         "sampleCount": 1
@@ -673,6 +698,7 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.3,
+        "smoothedExpectedPrice": 0.3575,
         "ci95Low": 0.1716,
         "ci95High": 0.4284,
         "sampleCount": 1
@@ -683,6 +709,7 @@
         "minute": 0,
         "label": "20:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3968,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 3
@@ -693,6 +720,7 @@
         "minute": 0,
         "label": "10:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3968,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 3
@@ -703,6 +731,7 @@
         "minute": 0,
         "label": "15:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -713,6 +742,7 @@
         "minute": 0,
         "label": "14:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -723,6 +753,7 @@
         "minute": 0,
         "label": "16:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -733,6 +764,7 @@
         "minute": 30,
         "label": "19:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -743,6 +775,7 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3912,
         "ci95Low": 0.43,
         "ci95High": 0.43,
         "sampleCount": 2
@@ -753,6 +786,7 @@
         "minute": 30,
         "label": "16:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -763,6 +797,7 @@
         "minute": 0,
         "label": "07:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -773,6 +808,7 @@
         "minute": 30,
         "label": "15:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -783,6 +819,7 @@
         "minute": 30,
         "label": "10:30",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -793,6 +830,7 @@
         "minute": 0,
         "label": "23:00",
         "expectedPrice": 0.43,
+        "smoothedExpectedPrice": 0.3835,
         "ci95Low": 0.3016,
         "ci95High": 0.5584,
         "sampleCount": 1
@@ -801,28 +839,28 @@
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-20T23:41:05.458Z",
+    "generatedAt": "2026-06-20T23:53:49.673Z",
     "membershipType": "non_member",
     "latestObservedAt": "2026-06-12T22:46:03.183Z",
     "latestObservedPrice": 0.65,
-    "latestObservationAgeHours": 192.92,
+    "latestObservationAgeHours": 193.13,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
     "stalePrice": true,
-    "bestHour": 20,
+    "bestHour": 16,
     "bestMinute": 0,
-    "bestSlot": 40,
-    "expectedPrice": 0.65,
+    "bestSlot": 32,
+    "expectedPrice": 0.54,
     "averageObservedPrice": 0.6441,
     "medianObservedPrice": 0.65,
     "minObservedPrice": 0.43,
     "maxObservedPrice": 0.65,
     "volatility": 0.0362,
-    "ci95Low": 0.65,
-    "ci95High": 0.65,
+    "ci95Low": 0.3244,
+    "ci95High": 0.7556,
     "sampleCount": 37,
-    "bestSlotSampleCount": 3,
+    "bestSlotSampleCount": 2,
     "confidenceScore": 51,
     "confidenceLabel": "medium",
     "confidenceSummary": "medium confidence · 37 observations · very stale: older than 2 days",
@@ -1221,6 +1259,7 @@
         "minute": 0,
         "label": "20:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6466,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 3
@@ -1231,6 +1270,7 @@
         "minute": 30,
         "label": "22:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6474,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 5
@@ -1241,6 +1281,7 @@
         "minute": 30,
         "label": "04:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.647,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 4
@@ -1251,6 +1292,7 @@
         "minute": 0,
         "label": "10:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6466,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 3
@@ -1261,6 +1303,7 @@
         "minute": 0,
         "label": "15:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1271,6 +1314,7 @@
         "minute": 0,
         "label": "22:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6466,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 3
@@ -1281,6 +1325,7 @@
         "minute": 0,
         "label": "04:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1291,6 +1336,7 @@
         "minute": 0,
         "label": "14:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1301,6 +1347,7 @@
         "minute": 30,
         "label": "19:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1311,6 +1358,7 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1321,6 +1369,7 @@
         "minute": 30,
         "label": "16:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1331,6 +1380,7 @@
         "minute": 0,
         "label": "07:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1341,6 +1391,7 @@
         "minute": 30,
         "label": "15:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1351,6 +1402,7 @@
         "minute": 30,
         "label": "08:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1361,6 +1413,7 @@
         "minute": 30,
         "label": "10:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1371,6 +1424,7 @@
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1381,6 +1435,7 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1391,6 +1446,7 @@
         "minute": 0,
         "label": "16:00",
         "expectedPrice": 0.54,
+        "smoothedExpectedPrice": 0.6094,
         "ci95Low": 0.3244,
         "ci95High": 0.7556,
         "sampleCount": 2
@@ -1403,6 +1459,7 @@
         "minute": 0,
         "label": "20:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6466,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 3
@@ -1413,6 +1470,7 @@
         "minute": 30,
         "label": "22:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6474,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 5
@@ -1423,6 +1481,7 @@
         "minute": 30,
         "label": "04:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.647,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 4
@@ -1433,6 +1492,7 @@
         "minute": 0,
         "label": "10:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6466,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 3
@@ -1443,6 +1503,7 @@
         "minute": 0,
         "label": "15:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1453,6 +1514,7 @@
         "minute": 0,
         "label": "22:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6466,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 3
@@ -1463,6 +1525,7 @@
         "minute": 0,
         "label": "04:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1473,6 +1536,7 @@
         "minute": 0,
         "label": "14:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1483,6 +1547,7 @@
         "minute": 30,
         "label": "19:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1493,6 +1558,7 @@
         "minute": 30,
         "label": "20:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.646,
         "ci95Low": 0.65,
         "ci95High": 0.65,
         "sampleCount": 2
@@ -1503,6 +1569,7 @@
         "minute": 30,
         "label": "16:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1513,6 +1580,7 @@
         "minute": 0,
         "label": "07:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1523,6 +1591,7 @@
         "minute": 30,
         "label": "15:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1533,6 +1602,7 @@
         "minute": 30,
         "label": "08:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1543,6 +1613,7 @@
         "minute": 30,
         "label": "10:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1553,6 +1624,7 @@
         "minute": 30,
         "label": "09:30",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1563,6 +1635,7 @@
         "minute": 0,
         "label": "05:00",
         "expectedPrice": 0.65,
+        "smoothedExpectedPrice": 0.6452,
         "ci95Low": 0.5791,
         "ci95High": 0.7209,
         "sampleCount": 1
@@ -1573,6 +1646,7 @@
         "minute": 0,
         "label": "16:00",
         "expectedPrice": 0.54,
+        "smoothedExpectedPrice": 0.6094,
         "ci95Low": 0.3244,
         "ci95High": 0.7556,
         "sampleCount": 2

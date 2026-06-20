@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { dataDir, historyDir, readJson, writeJson } from './lib.mjs';
 import { predictNeuralPrice } from './pricingNeuralNetwork.mjs';
+import { chooseCheapestSlot, shrinkToward } from './predictionMath.mjs';
 
 function mean(xs) { return xs.reduce((a, b) => a + b, 0) / xs.length; }
 function sd(xs) {
@@ -105,9 +106,14 @@ function predictionFor(stationId, station, obs, field, membershipType, neuralMod
     const s = sd(values);
     const se = values.length > 1 ? s / Math.sqrt(values.length) : overallSd || 0;
     const parts = slotParts(slot);
-    return { slot, hour: parts.hour, minute: parts.minute, label: parts.label, expectedPrice: Number(m.toFixed(4)), ci95Low: Number(Math.max(0, m - 1.96 * se).toFixed(4)), ci95High: Number((m + 1.96 * se).toFixed(4)), sampleCount: values.length };
+    // Shrink each slot's mean toward the station's overall mean by sample count, so a half-hour
+    // seen only once or twice can't masquerade as the cheapest window on a lucky low reading.
+    const smoothed = shrinkToward(m, values.length, overallMean);
+    return { slot, hour: parts.hour, minute: parts.minute, label: parts.label, expectedPrice: Number(m.toFixed(4)), smoothedExpectedPrice: smoothed != null ? Number(smoothed.toFixed(4)) : null, ci95Low: Number(Math.max(0, m - 1.96 * se).toFixed(4)), ci95High: Number((m + 1.96 * se).toFixed(4)), sampleCount: values.length };
   }).sort((a, b) => a.ci95High - b.ci95High || a.expectedPrice - b.expectedPrice);
-  const best = slots[0];
+  // Choose the recommended cheapest window on the shrunk estimate (robust), but report that
+  // slot's actual observed price so the cost estimate stays honest to what was seen.
+  const best = chooseCheapestSlot(slots) || slots[0];
   const ageHours = hoursSince(latest?.capturedAt);
   const status = currentPriceStatus(ageHours);
   const conf = confidence(priceRows.length, ageHours, overallSd);
