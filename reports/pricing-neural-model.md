@@ -1,9 +1,9 @@
 # Pricing Neural Model
 
-Generated: 2026-06-20T23:41:05.351Z
+Generated: 2026-06-20T23:54:19.229Z
 
 - Status: **experimental**
-- Reason: Holdout quality passed; more stations and utilization labels are needed before blending.
+- Reason: Holdout quality passed; more stations and price history are needed before blending.
 - Examples: 75
 - Stations: 1
 - Distinct prices: 3

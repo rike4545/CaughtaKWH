@@ -55,7 +55,7 @@ jobs:
       PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '300' }}
       SCRAPE_DELAY_MS: 350
       SCRAPE_ROTATE_STATES: ${{ github.event_name == 'schedule' && 'true' || 'false' }}
-      SCRAPE_ROTATION_COUNT: 1
+      SCRAPE_ROTATION_COUNT: 6
       SCRAPE_STATES: ${{ github.event.inputs.scrape_states || '' }}
       SCRAPE_COUNTRIES: ${{ github.event.inputs.scrape_countries || '' }}
       SCRAPE_ZIP: ${{ github.event.inputs.scrape_zip || '' }}

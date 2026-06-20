@@ -198,13 +198,17 @@ export function trainPricingNetwork(examples, options = {}) {
 
   const metrics = evaluate(network, train, validation);
   const qualityPassed = metrics.mae <= 0.12 && (metrics.baselineMae === 0 ? metrics.mae <= 0.03 : metrics.mae <= metrics.baselineMae * 1.2);
-  const productionCoverage = stationCount >= 5 && examples.length >= 200 && utilizationExamples >= 30;
+  // Coverage gate for promoting the model to price-blending. Utilization is one of 14 features
+  // and is rarely public on Tesla's pages, so it is reported as a bonus signal rather than a
+  // hard requirement — gating on it would deadlock the model at 'experimental' forever even
+  // with strong multi-station price history. Station and example breadth remain hard gates.
+  const productionCoverage = stationCount >= 5 && examples.length >= 200;
   return {
     version: MODEL_VERSION,
     generatedAt: new Date().toISOString(),
     status: qualityPassed ? (productionCoverage ? 'active' : 'experimental') : 'rejected',
     reason: qualityPassed
-      ? productionCoverage ? 'Holdout quality and coverage thresholds passed.' : 'Holdout quality passed; more stations and utilization labels are needed before blending.'
+      ? productionCoverage ? 'Holdout quality and coverage thresholds passed.' : 'Holdout quality passed; more stations and price history are needed before blending.'
       : 'Holdout error did not beat the guarded quality threshold.',
     library: 'synaptic@1.1.4',
     architecture: [FEATURE_NAMES.length, 10, 6, 1],

@@ -1,11 +1,11 @@
 [
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-20T23:53:49.671Z",
+    "generatedAt": "2026-06-20T23:54:19.322Z",
     "membershipType": "member",
     "latestObservedAt": "2026-06-16T23:08:50.726Z",
     "latestObservedPrice": 0.43,
-    "latestObservationAgeHours": 96.75,
+    "latestObservationAgeHours": 96.76,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
@@ -31,7 +31,7 @@
     "neuralModel": {
       "version": "caughtakwh-pricing-nn-v1",
       "status": "experimental",
-      "reason": "Holdout quality passed; more stations and utilization labels are needed before blending.",
+      "reason": "Holdout quality passed; more stations and price history are needed before blending.",
       "holdoutMae": 0.0442,
       "baselineMae": 0.0493,
       "exampleCount": 75,
@@ -839,11 +839,11 @@
   },
   {
     "stationId": "LakeGroveNYsupercharger",
-    "generatedAt": "2026-06-20T23:53:49.673Z",
+    "generatedAt": "2026-06-20T23:54:19.324Z",
     "membershipType": "non_member",
     "latestObservedAt": "2026-06-12T22:46:03.183Z",
     "latestObservedPrice": 0.65,
-    "latestObservationAgeHours": 193.13,
+    "latestObservationAgeHours": 193.14,
     "freshnessLabel": "very stale: older than 2 days",
     "currentPriceStatus": "very_stale",
     "isCurrentPrice": false,
@@ -869,7 +869,7 @@
     "neuralModel": {
       "version": "caughtakwh-pricing-nn-v1",
       "status": "experimental",
-      "reason": "Holdout quality passed; more stations and utilization labels are needed before blending.",
+      "reason": "Holdout quality passed; more stations and price history are needed before blending.",
       "holdoutMae": 0.0442,
       "baselineMae": 0.0493,
       "exampleCount": 75,
