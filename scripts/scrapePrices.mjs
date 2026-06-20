@@ -4,6 +4,7 @@ import { ProxyAgent, setGlobalDispatcher } from 'undici';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import { validateCapturedPrices } from './pricingNeuralNetwork.mjs';
 import { isScrapeEligible, nextBlockedState, successfulScrapeState } from './scrapePolicy.mjs';
+import { fetchHtmlWithRetry, isAccessControlStatus, isTransientStatus, summarizeTransport, transportSignal } from './scrapeTransport.mjs';
 import {
   classifySiteContent,
   extractNextData,
@@ -37,6 +38,8 @@ const AKAMAI_CIRCUIT_BREAKER = Math.max(1, Number(process.env.AKAMAI_CIRCUIT_BRE
 const BLOCK_COOLDOWN_BASE_HOURS = Math.max(1, Number(process.env.BLOCK_COOLDOWN_BASE_HOURS || 6));
 const BLOCK_COOLDOWN_MAX_HOURS = Math.max(BLOCK_COOLDOWN_BASE_HOURS, Number(process.env.BLOCK_COOLDOWN_MAX_HOURS || 72));
 const SCRAPE_IGNORE_COOLDOWN = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_IGNORE_COOLDOWN || '').toLowerCase());
+const FETCH_MAX_ATTEMPTS = Math.max(1, Number(process.env.FETCH_MAX_ATTEMPTS || 2));
+const FETCH_RETRY_DELAY_MS = Math.max(0, Number(process.env.FETCH_RETRY_DELAY_MS || 750));
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
 
@@ -147,18 +150,19 @@ const FETCH_HEADERS = {
 };
 
 async function fetchHtml(url) {
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 18000);
-    const response = await fetch(url, { headers: FETCH_HEADERS, redirect: 'follow', signal: controller.signal });
-    clearTimeout(timer);
-    const retryAfter = response.headers.get('retry-after');
-    if (!response.ok) return { html: '', status: response.status, finalUrl: response.url, retryAfter };
-    const html = await response.text();
-    return { html, status: response.status, finalUrl: response.url || url, retryAfter };
-  } catch {
-    return { html: '', status: 0, finalUrl: url, retryAfter: null };
-  }
+  return fetchHtmlWithRetry(url, {
+    headers: FETCH_HEADERS,
+    maxAttempts: FETCH_MAX_ATTEMPTS,
+    retryDelayMs: FETCH_RETRY_DELAY_MS
+  });
+}
+
+function scrapeError(outcome, attempts, message = outcome) {
+  const error = new Error(message);
+  error.scrapeOutcome = outcome;
+  error.attempts = attempts;
+  error.retryAfter = attempts.map(attempt => attempt.retryAfter).find(Boolean) || null;
+  return error;
 }
 
 async function scrapeOne(context, station) {
@@ -166,7 +170,6 @@ async function scrapeOne(context, station) {
   const attempts = [];
   let bestValid = null;
   let lastError = null;
-  let allBlocked = true;
 
   for (const candidate of candidates) {
     const { url, reason } = candidate;
@@ -174,16 +177,46 @@ async function scrapeOne(context, station) {
     // --- Fetch-first: try a plain HTTPS request before spinning up a browser tab.
     // Tesla's SSR pages embed full pricing in __NEXT_DATA__ JSON — no JS execution needed.
     const fetched = await fetchHtml(url);
+    const fetchSite = classifySiteContent({ html: fetched.html, status: fetched.status, finalUrl: fetched.finalUrl });
+    const fetchSignal = fetchSite.contentSignal !== 'unknown'
+      ? fetchSite.contentSignal
+      : fetched.status === 0
+        ? transportSignal(fetched.status)
+        : 'unknown';
+    const fetchAttempt = {
+      url,
+      finalUrl: fetched.finalUrl,
+      reason,
+      status: fetched.status,
+      retryAfter: fetched.retryAfter,
+      retryCount: fetched.retryCount,
+      requestAttempts: fetched.requestAttempts,
+      durationMs: fetched.durationMs,
+      contentSignal: fetchSignal,
+      hasPrice: false,
+      hasAvailability: false,
+      via: 'fetch'
+    };
+
+    if (fetchSite.blocked || isAccessControlStatus(fetched.status)) {
+      attempts.push(fetchAttempt);
+      throw scrapeError('access_control', attempts, fetchSite.rateLimited ? 'tesla_rate_limited' : 'tesla_access_controlled');
+    }
+    if (fetchSite.pageNotFound || fetched.status === 410) {
+      attempts.push({ ...fetchAttempt, contentSignal: 'not_found' });
+      continue;
+    }
+    if (isTransientStatus(fetched.status)) {
+      attempts.push({ ...fetchAttempt, contentSignal: 'transient_failure', error: fetched.error });
+      continue;
+    }
+    if (fetched.status >= 400) {
+      attempts.push({ ...fetchAttempt, contentSignal: 'http_error', error: fetched.error });
+      continue;
+    }
+
     if (fetched.status === 200 && fetched.html) {
-      const fetchSite = classifySiteContent({ html: fetched.html, status: fetched.status, finalUrl: fetched.finalUrl });
-      if (fetchSite.akamaiChallenge) {
-        // Akamai JS challenge — Playwright is also blocked from GitHub Actions IPs.
-        // Record and skip without burning a browser tab.
-        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, retryAfter: fetched.retryAfter, contentSignal: 'akamai_challenge', hasPrice: false, hasAvailability: false, via: 'fetch' });
-        continue;
-      }
-      allBlocked = false;
-      const nextData = extractNextData(fetched.html);
+      const nextData = fetchSite.validTeslaLocation ? extractNextData(fetched.html) : null;
       if (nextData) {
         const prices = {
           memberPricePerKwh: nextData.memberPrice,
@@ -199,21 +232,19 @@ async function scrapeOne(context, station) {
         };
         const availability = inferAvailability('', station);
         const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
-        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'tesla_location_page', hasPrice: true, hasAvailability: false, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' });
+        attempts.push({ ...fetchAttempt, contentSignal: 'tesla_location_page', hasPrice: true, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' });
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
       }
       // Page loaded but no __NEXT_DATA__ pricing — try text extraction before Playwright
-      const prices = inferPrices('', fetched.html);
+      const prices = fetchSite.validTeslaLocation ? inferPrices('', fetched.html) : inferPrices('', '');
       if (prices.memberPricePerKwh != null || prices.nonMemberPricePerKwh != null) {
         const availability = inferAvailability('', station);
         const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
-        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'tesla_location_page', hasPrice: true, hasAvailability: false, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+html' });
+        attempts.push({ ...fetchAttempt, contentSignal: 'tesla_location_page', hasPrice: true, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+html' });
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
       }
-    } else if (fetched.status === 403) {
-      attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, retryAfter: fetched.retryAfter, contentSignal: 'blocked', hasPrice: false, hasAvailability: false, via: 'fetch' });
-      continue;
     }
+    attempts.push(fetchAttempt);
 
     // --- Playwright fallback: needed when the page requires JS rendering.
     const page = await context.newPage();
@@ -225,11 +256,18 @@ async function scrapeOne(context, station) {
       // Check for Akamai challenge before spending more time on this page.
       const html = await page.content().catch(() => '');
       const site = classifySiteContent({ html, status, finalUrl: page.url() });
-      if (site.akamaiChallenge) {
-        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: 'akamai_challenge', hasPrice: false, hasAvailability: false, via: 'playwright' });
+      if (site.blocked || isAccessControlStatus(status)) {
+        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: site.contentSignal, hasPrice: false, hasAvailability: false, via: 'playwright' });
+        throw scrapeError('access_control', attempts, site.rateLimited ? 'tesla_rate_limited' : 'tesla_access_controlled');
+      }
+      if (site.pageNotFound) {
+        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: 'not_found', hasPrice: false, hasAvailability: false, via: 'playwright' });
         continue;
       }
-      allBlocked = false;
+      if (isTransientStatus(status)) {
+        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: 'transient_failure', hasPrice: false, hasAvailability: false, via: 'playwright' });
+        continue;
+      }
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(() => {});
       await page.waitForTimeout(1000);
       await expandPricingAccordions(page);
@@ -247,19 +285,23 @@ async function scrapeOne(context, station) {
       // Only use this URL as the canonical stored URL if it looks like a real Tesla page.
       if ((hasAvailability || site.validTeslaLocation) && !bestValid) bestValid = result;
     } catch (error) {
+      if (error.scrapeOutcome) throw error;
       lastError = error;
-      attempts.push({ url, reason, error: String(error.message || error) });
+      attempts.push({ url, reason, status: 0, contentSignal: 'transient_failure', via: 'playwright', error: String(error.message || error) });
     } finally {
       await page.close();
     }
   }
 
   if (bestValid) return bestValid;
-  const err = lastError || new Error(allBlocked ? 'akamai_blocked' : 'No usable Tesla location candidate');
-  err.attempts = attempts;
-  err.allBlocked = allBlocked;
-  err.retryAfter = attempts.map(attempt => attempt.retryAfter).find(Boolean) || null;
-  throw err;
+  const signals = attempts.map(attempt => attempt.contentSignal).filter(Boolean);
+  const resolvedSignals = signals.filter(signal => signal !== 'unknown');
+  const transientOnly = resolvedSignals.length > 0 && resolvedSignals.every(signal => signal === 'transient_failure');
+  throw scrapeError(
+    transientOnly ? 'transient_failure' : 'no_usable_candidate',
+    attempts,
+    lastError ? String(lastError.message || lastError) : transientOnly ? 'temporary_transport_failure' : 'No usable Tesla location candidate'
+  );
 }
 async function expandPricingAccordions(page) {
   const labels = ['Pricing for Tesla & Members', 'Pricing for Non-Tesla'];
@@ -426,6 +468,9 @@ function summarizeAttempts(attempts) {
     reason: attempt.reason,
     status: attempt.status ?? null,
     retryAfter: attempt.retryAfter ?? null,
+    via: attempt.via ?? null,
+    durationMs: attempt.durationMs ?? null,
+    retryCount: attempt.retryCount ?? 0,
     contentSignal: attempt.contentSignal ?? null,
     hasPrice: Boolean(attempt.hasPrice),
     hasAvailability: Boolean(attempt.hasAvailability),
@@ -439,11 +484,16 @@ let saved = 0;
 let attempted = 0;
 let blocked = 0;
 let failed = 0;
+let transientFailures = 0;
+let unusableCandidates = 0;
 let validPages = 0;
 let consecutiveBlocked = 0;
 let circuitOpened = false;
 const attemptedStationIds = [];
 const blockedStationIds = [];
+const transientFailureStationIds = [];
+const unusableStationIds = [];
+const runAttempts = [];
 for (const station of ordered.slice(0, MAX_STATIONS)) {
   if (consecutiveBlocked >= AKAMAI_CIRCUIT_BREAKER) {
     circuitOpened = true;
@@ -453,6 +503,7 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
   attemptedStationIds.push(station.id);
   try {
     const result = await scrapeOne(context, station);
+    runAttempts.push(...result.attempts);
     validPages++;
     consecutiveBlocked = 0;
     const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: capturedDate.getHours(), localMinute: capturedDate.getMinutes(), halfHourSlot: halfHourSlot(capturedDate), ...result.prices, ...result.availability, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
@@ -475,6 +526,7 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     station.lastNeuralValidation = observation.neuralValidation;
     station.lastLowPriceId = result.prices.lowPriceId;
     station.lastScrapeAttemptCount = result.attempts.length;
+    station.lastTransportSummary = summarizeTransport(result.attempts);
     station.lastScrapeResult = hasPrice ? 'price_found' : hasAvailability ? 'availability_found' : 'valid_page_no_public_data';
     station.lastScrapeCandidates = summarizeAttempts(result.attempts);
     station.lastSiteDetails = {
@@ -485,7 +537,9 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     station.observationPriorityScore = priorityFor(station);
     delete station.lastScrapeError;
   } catch (error) {
-    const isBlocked = error.allBlocked === true;
+    const outcome = error.scrapeOutcome || 'no_usable_candidate';
+    const isBlocked = outcome === 'access_control';
+    runAttempts.push(...(Array.isArray(error.attempts) ? error.attempts : []));
     station.lastScrapeError = String(error.message || error);
     station.lastAttemptedAt = capturedAt;
     if (isBlocked) {
@@ -500,15 +554,23 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
       }));
     } else {
       failed++;
+      if (outcome === 'transient_failure') {
+        transientFailures++;
+        transientFailureStationIds.push(station.id);
+      } else {
+        unusableCandidates++;
+        unusableStationIds.push(station.id);
+      }
       consecutiveBlocked = 0;
       station.lastScrapeBlocked = false;
       station.consecutiveBlockedAttempts = 0;
       station.blockCooldownHours = 0;
       station.nextScrapeEligibleAt = null;
     }
-    station.lastScrapeResult = isBlocked ? 'akamai_blocked' : 'no_usable_candidate';
+    station.lastScrapeResult = isBlocked ? 'access_controlled' : outcome;
     station.lastScrapeAttemptCount = Array.isArray(error.attempts) ? error.attempts.length : 0;
     station.lastScrapeCandidates = summarizeAttempts(error.attempts);
+    station.lastTransportSummary = summarizeTransport(error.attempts);
     station.observationPriorityScore = priorityFor(station);
   } finally {
     await sleep(DELAY_MS);
@@ -525,9 +587,19 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
   savedObservations: saved,
   blocked,
   failed,
+  transientFailures,
+  unusableCandidates,
   cooldownSkipped,
   attemptedStationIds,
   blockedStationIds,
+  transientFailureStationIds,
+  unusableStationIds,
+  transport: {
+    ...summarizeTransport(runAttempts),
+    fetchMaxAttempts: FETCH_MAX_ATTEMPTS,
+    retryDelayMs: FETCH_RETRY_DELAY_MS,
+    proxyConfigured: Boolean(proxyConfig)
+  },
   circuitBreaker: {
     opened: circuitOpened,
     threshold: AKAMAI_CIRCUIT_BREAKER,
@@ -545,4 +617,4 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
     needsHistory: SCRAPE_NEEDS_HISTORY
   }
 });
-console.log(`Attempted ${attempted}; valid pages ${validPages}; blocked ${blocked}; saved ${saved}; cooldown-skipped ${cooldownSkipped}; circuit ${circuitOpened ? 'open' : 'closed'}. In-scope stations: ${inScope.length}/${stations.length}.`);
+console.log(`Attempted ${attempted}; valid pages ${validPages}; access-controlled ${blocked}; transient ${transientFailures}; unusable ${unusableCandidates}; saved ${saved}; retries ${summarizeTransport(runAttempts).retries}; cooldown-skipped ${cooldownSkipped}; circuit ${circuitOpened ? 'open' : 'closed'}. In-scope stations: ${inScope.length}/${stations.length}.`);

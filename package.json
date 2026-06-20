@@ -14,6 +14,7 @@
     "predict": "npm run train:neural && node scripts/buildPredictions.mjs",
     "test:neural": "node scripts/testPricingNeuralNetwork.mjs",
     "test:scrape-policy": "node scripts/testScrapePolicy.mjs",
+    "test:scrape-transport": "node scripts/testScrapeTransport.mjs",
     "pilot:lake-grove": "node scripts/buildLakeGrovePilot.mjs",
     "update:data": "npm run discover && npm run scrape && npm run predict && npm run validate:data && npm run sync:public",
     "validate:data": "node scripts/validateData.mjs",

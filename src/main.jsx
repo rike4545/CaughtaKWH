@@ -118,7 +118,9 @@ const scrapeResultLabel = value => ({
   price_found: 'Price found',
   availability_found: 'Availability found',
   valid_page_no_public_data: 'Page loaded, price hidden',
-  no_usable_candidate: 'Page check needs another pass'
+  access_controlled: 'Access controlled',
+  transient_failure: 'Temporary connection problem',
+  no_usable_candidate: 'Station page not confirmed'
 })[value] || titleCase(value);
 const candidateLabel = value => ({
   stored_tesla_url: 'Saved Tesla link',
@@ -132,6 +134,10 @@ const signalLabel = value => ({
   tesla_location_page: 'Tesla station page',
   not_found: 'Not found',
   blocked: 'Blocked',
+  rate_limited: 'Rate limited',
+  akamai_challenge: 'Access challenge',
+  transient_failure: 'Temporary connection problem',
+  http_error: 'Page request failed',
   unknown: 'Unknown'
 })[value] || titleCase(value);
 const freshnessLabel = iso => {
@@ -244,14 +250,20 @@ function manualCheckFromCurrentData(selected, prediction, rows) {
 function priceState(selected, prediction) {
   if (prediction?.latestObservedAt) {
     const current = isCurrentPrediction(prediction);
-    const blockedNote = selected?.lastScrapeBlocked ? ` Tesla blocked the latest automated attempt${selected.lastAttemptedAt ? ` on ${shortDate(selected.lastAttemptedAt)}` : ''}; the saved observation was preserved.` : '';
+    const attemptNote = selected?.lastScrapeBlocked
+      ? ` Tesla blocked the latest automated attempt${selected.lastAttemptedAt ? ` on ${shortDate(selected.lastAttemptedAt)}` : ''}; the saved observation was preserved.`
+      : selected?.lastScrapeResult === 'transient_failure'
+        ? ` The latest automated attempt had a temporary connection problem${selected.lastAttemptedAt ? ` on ${shortDate(selected.lastAttemptedAt)}` : ''}; the saved observation was preserved.`
+        : '';
     return {
       title: current ? 'Recent Tesla public price observed' : 'Stale historical price only',
       tone: current ? 'ok' : 'warn',
-      detail: `${money(prediction.latestObservedPrice)} last observed ${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}. ${current ? 'Treat this as recently observed, but still verify in Tesla before charging.' : `Older than ${CURRENT_PRICE_MAX_HOURS} hours, so CaughtaKWH keeps it as history instead of showing it as the current Tesla price.`}${blockedNote}`
+      detail: `${money(prediction.latestObservedPrice)} last observed ${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}. ${current ? 'Treat this as recently observed, but still verify in Tesla before charging.' : `Older than ${CURRENT_PRICE_MAX_HOURS} hours, so CaughtaKWH keeps it as history instead of showing it as the current Tesla price.`}${attemptNote}`
     };
   }
   if (selected?.lastScrapeBlocked) return { title: 'Tesla blocked the automated check', tone: 'warn', detail: `Attempted ${shortDate(selected.lastAttemptedAt || selected.lastBlockedAt || selected.lastScrapedAt)}. CaughtaKWH preserved prior data and will wait until ${shortDate(selected.nextScrapeEligibleAt)} before retrying.` };
+  if (selected?.lastScrapeResult === 'transient_failure') return { title: 'Temporary connection problem', tone: 'warn', detail: `The attempt on ${shortDate(selected.lastAttemptedAt)} could not reliably reach Tesla. It was not counted as a successful page check, and prior data was preserved.` };
+  if (selected?.lastScrapeResult === 'no_usable_candidate') return { title: 'Tesla station page not confirmed', tone: 'warn', detail: `The attempt on ${shortDate(selected.lastAttemptedAt)} did not find a valid public page for this station. No price state was changed.` };
   if (selected?.lastScrapeHadAvailability) return { title: 'Tesla shows the site, but not the price', tone: 'warn', detail: 'The station page had availability info last time we checked, but it did not show a public $/kWh rate.' };
   if (selected?.lastScrapedAt) return { title: 'No price on the public page yet', tone: 'warn', detail: `Last checked ${shortDate(selected.lastScrapedAt)}. The live rate may only be visible in the Tesla app or inside the car.` };
   return { title: 'We have not checked this one yet', tone: 'warn', detail: 'Until the scraper gets a clean look at this station, use Tesla for the live price.' };
@@ -564,7 +576,7 @@ function App() {
             <span>Availability<strong>{availabilitySummary}</strong></span>
             <span>Utilization<strong>{percent(latestHistory?.utilizationPct)}</strong></span>
             <span>Last successful page<strong>{selected?.lastSuccessfulScrapeAt || (!selected?.lastScrapeBlocked && selected?.lastScrapedAt) ? shortDate(selected.lastSuccessfulScrapeAt || selected.lastScrapedAt) : 'None recorded'}</strong></span>
-            <span>Last attempt<strong>{selected?.lastAttemptedAt || selected?.lastBlockedAt || selected?.lastScrapedAt ? `${shortDate(selected.lastAttemptedAt || selected.lastBlockedAt || selected.lastScrapedAt)}${selected?.lastScrapeBlocked ? ' · blocked' : ''}` : 'Not checked'}</strong></span>
+            <span>Last attempt<strong>{selected?.lastAttemptedAt || selected?.lastBlockedAt || selected?.lastScrapedAt ? `${shortDate(selected.lastAttemptedAt || selected.lastBlockedAt || selected.lastScrapedAt)}${selected?.lastScrapeResult ? ` · ${scrapeResultLabel(selected.lastScrapeResult).toLowerCase()}` : ''}` : 'Not checked'}</strong></span>
             <span>Page we tried<strong>{lastCandidate ? `${candidateLabel(lastCandidate.reason)} · ${lastCandidate.status || '—'}` : '—'}</strong></span>
             {selected?.dateOpened && <span>Opened<strong>{selected.dateOpened}</strong></span>}
             {selected?.facilityName && <span>At / near<strong>{selected.facilityName}</strong></span>}

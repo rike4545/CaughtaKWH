@@ -54060,7 +54060,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 175.02,
+    "observationPriorityScore": 177.23,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -54084,37 +54084,19 @@
       "nacs": 8
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeError": "akamai_blocked",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapeBlocked": true,
-    "lastScrapeResult": "akamai_blocked",
-    "lastScrapeAttemptCount": 3,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/HauppaugeNYsupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/HauppaugeNYMotorPkwyNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/HauppaugeNYMotorPkwysupercharger",
-        "reason": "name_slug",
-        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 258,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -54122,7 +54104,18 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T23:05:45.810Z",
+    "lastBlockedAt": "2026-06-20T23:05:45.810Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T05:05:45.810Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 258
+    }
   },
   {
     "id": "27763",
@@ -79162,7 +79155,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 177.01,
+    "observationPriorityScore": 179.23,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2500,
@@ -79186,26 +79179,19 @@
       "nacs": 0
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeError": "akamai_blocked",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapeBlocked": true,
-    "lastScrapeResult": "akamai_blocked",
-    "lastScrapeAttemptCount": 2,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/MelvilleNYsupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/MelvilleNYNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 286,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -79213,7 +79199,18 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T23:05:45.810Z",
+    "lastBlockedAt": "2026-06-20T23:05:45.810Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T05:05:45.810Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 286
+    }
   },
   {
     "id": "melvillenywaltwhitmanroadsupercharger",
@@ -121304,7 +121301,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 175.02,
+    "observationPriorityScore": 177.23,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2600,
@@ -121334,37 +121331,19 @@
       "multi": 8
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeError": "akamai_blocked",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapeBlocked": true,
-    "lastScrapeResult": "akamai_blocked",
-    "lastScrapeAttemptCount": 3,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/56490",
         "reason": "stored_tesla_url",
         "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/SmithtownNYsupercharger",
-        "reason": "city_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/SmithtownNYNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 135,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -121372,7 +121351,18 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T23:05:45.810Z",
+    "lastBlockedAt": "2026-06-20T23:05:45.810Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T05:05:45.810Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 135
+    }
   },
   {
     "id": "437123",

@@ -24,6 +24,7 @@ if (lakeGrovePilot) {
 if (scrapeHealth) {
   if (!scrapeHealth.generatedAt || !scrapeHealth.circuitBreaker || !scrapeHealth.cooldownPolicy) throw new Error('scrape-health.json is missing block-response metadata');
   if (scrapeHealth.attempted < scrapeHealth.blocked + scrapeHealth.failed) throw new Error('Scrape health outcome counts are inconsistent');
+  if (scrapeHealth.transport && scrapeHealth.transport.retries > scrapeHealth.transport.requestAttempts) throw new Error('Scrape transport counts are inconsistent');
 }
 
 for (const s of stations) {

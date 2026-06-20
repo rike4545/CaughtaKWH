@@ -1,23 +1,36 @@
 {
-  "generatedAt": "2026-06-20T22:59:45.934Z",
+  "generatedAt": "2026-06-20T23:05:45.810Z",
   "requestedLimit": 10,
-  "inScopeStations": 7,
+  "inScopeStations": 4,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
   "blocked": 3,
   "failed": 0,
-  "cooldownSkipped": 3,
+  "transientFailures": 0,
+  "unusableCandidates": 0,
+  "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "26660",
-    "NorthBabylonNYSupercharger",
-    "shirleynysupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "blockedStationIds": [
-    "26660",
-    "NorthBabylonNYSupercharger",
-    "shirleynysupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
+  "transientFailureStationIds": [],
+  "unusableStationIds": [],
+  "transport": {
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
+    "retries": 0,
+    "averageRequestMs": 226,
+    "fetchMaxAttempts": 2,
+    "retryDelayMs": 750,
+    "proxyConfigured": false
+  },
   "circuitBreaker": {
     "opened": true,
     "threshold": 3,

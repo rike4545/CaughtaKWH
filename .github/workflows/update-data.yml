@@ -66,6 +66,8 @@ jobs:
       AKAMAI_CIRCUIT_BREAKER: 3
       BLOCK_COOLDOWN_BASE_HOURS: 6
       BLOCK_COOLDOWN_MAX_HOURS: 72
+      FETCH_MAX_ATTEMPTS: 2
+      FETCH_RETRY_DELAY_MS: 750
       # Optional organization-approved egress routing. Access-control detection,
       # per-station cooldowns, and the run-level circuit breaker remain enabled.
       SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}

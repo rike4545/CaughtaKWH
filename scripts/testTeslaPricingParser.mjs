@@ -40,6 +40,18 @@ const blocked = classifySiteContent({ bodyText: 'Access Denied You do not have p
 if (!blocked.blocked) throw new Error('Blocked Tesla page was not classified as blocked');
 if (blocked.validTeslaLocation) throw new Error('Blocked Tesla page should not be treated as a valid station page');
 
+const rateLimited = classifySiteContent({ bodyText: 'Too many requests', status: 429, finalUrl: 'https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger' });
+if (!rateLimited.rateLimited || rateLimited.contentSignal !== 'rate_limited') throw new Error('Rate-limited Tesla page was not classified correctly');
+
+const redirectedHome = classifySiteContent({ bodyText: 'Tesla electric vehicles and energy', status: 200, finalUrl: 'https://www.tesla.com/' });
+if (redirectedHome.validTeslaLocation) throw new Error('Tesla homepage redirect should not be accepted as a Supercharger page');
+
+const validLocation = classifySiteContent({ bodyText: 'Tesla Supercharger charging stalls and pricing per kWh', status: 200, finalUrl: 'https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger' });
+if (!validLocation.validTeslaLocation) throw new Error('Valid Tesla Supercharger page was not recognized');
+
+const numericLocation = classifySiteContent({ bodyText: 'Tesla Supercharger 404914 charging stalls', status: 200, finalUrl: 'https://www.tesla.com/findus/location/supercharger/404914' });
+if (numericLocation.pageNotFound || !numericLocation.validTeslaLocation) throw new Error('Numeric location ID containing 404 was mistaken for a missing page');
+
 const candidates = stationCandidates({
   id: '404914',
   name: 'Lake Grove, NY Supercharger',

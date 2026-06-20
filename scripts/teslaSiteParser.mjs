@@ -414,20 +414,24 @@ export function extractNextData(html) {
 
 export function classifySiteContent({ bodyText = '', html = '', status = 0, finalUrl = '' } = {}) {
   const normalized = normalizeText(`${bodyText}\n${html}`);
-  const pageNotFound = status === 404 || /page not found|404|not found/i.test(normalized);
+  const pageNotFound = status === 404 || /page not found|\b404\b|location not found/i.test(normalized);
   // Akamai Bot Manager challenge pages return HTTP 200 but embed JS challenge signals.
   // Must detect these to avoid wasting Playwright time and storing bad URLs.
   const akamaiChallenge = /(_abck|ak_bmsc|akamai[\s\S]{0,400}?bot|enable javascript and cookies to continue|enable javascript.*cookies|please enable cookies)/i.test(html)
     || /just a moment\.\.\.|checking your browser|ray id[:\s]+[a-f0-9]{10,}/i.test(normalized);
-  const blocked = status === 403 || akamaiChallenge
+  const rateLimited = status === 429;
+  const blocked = status === 403 || rateLimited || akamaiChallenge
     || /access denied|request blocked|captcha|verify you are human/i.test(normalized);
-  const validTeslaLocation = !pageNotFound && !blocked && /supercharger|findus|tesla/i.test(normalized + finalUrl);
+  const superchargerUrl = /tesla\.com\/findus\/location\/supercharger\/[^/?#]+/i.test(finalUrl);
+  const locationContent = /supercharger/i.test(normalized) && /tesla|charging|stalls?|kwh/i.test(normalized);
+  const validTeslaLocation = status >= 200 && status < 300 && !pageNotFound && !blocked && superchargerUrl && locationContent;
   return {
     status,
     pageNotFound,
     blocked,
+    rateLimited,
     akamaiChallenge,
     validTeslaLocation,
-    contentSignal: pageNotFound ? 'not_found' : akamaiChallenge ? 'akamai_challenge' : blocked ? 'blocked' : validTeslaLocation ? 'tesla_location_page' : 'unknown'
+    contentSignal: pageNotFound ? 'not_found' : rateLimited ? 'rate_limited' : akamaiChallenge ? 'akamai_challenge' : blocked ? 'blocked' : validTeslaLocation ? 'tesla_location_page' : 'unknown'
   };
 }
