@@ -15,7 +15,7 @@ const distance = miles => typeof miles === 'number' ? `${miles.toFixed(miles < 1
 const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
 const reportUrl = id => id ? `report.html?station=${encodeURIComponent(id)}` : 'report.html';
-const CONTRIBUTE_URL = '/contribute.html';
+const CONTRIBUTE_URL = './contribute.html';
 
 const EV_PRICE_LAWS = [
   {
