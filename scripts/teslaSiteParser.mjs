@@ -413,17 +413,28 @@ export function extractNextData(html) {
 }
 
 export function classifySiteContent({ bodyText = '', html = '', status = 0, finalUrl = '' } = {}) {
+  const rawHtml = String(html || '');
   const normalized = normalizeText(`${bodyText}\n${html}`);
   const pageNotFound = status === 404 || /page not found|\b404\b|location not found/i.test(normalized);
-  // Akamai Bot Manager challenge pages return HTTP 200 but embed JS challenge signals.
-  // Must detect these to avoid wasting Playwright time and storing bad URLs.
-  const akamaiChallenge = /(_abck|ak_bmsc|akamai[\s\S]{0,400}?bot|enable javascript and cookies to continue|enable javascript.*cookies|please enable cookies)/i.test(html)
-    || /just a moment\.\.\.|checking your browser|ray id[:\s]+[a-f0-9]{10,}/i.test(normalized);
-  const rateLimited = status === 429;
-  const blocked = status === 403 || rateLimited || akamaiChallenge
-    || /access denied|request blocked|captcha|verify you are human/i.test(normalized);
+
   const superchargerUrl = /tesla\.com\/findus\/location\/supercharger\/[^/?#]+/i.test(finalUrl);
+  // A real, rendered Supercharger page ships the SSR data island and/or charging copy.
+  const hasNextData = /id="__NEXT_DATA__"/i.test(rawHtml);
   const locationContent = /supercharger/i.test(normalized) && /tesla|charging|stalls?|kwh/i.test(normalized);
+  const hasRealContent = hasNextData || locationContent;
+
+  const rateLimited = status === 429;
+  // Definitive interstitial / deny copy — this text only appears when Akamai is actively
+  // blocking the request, so it is a block signal on its own regardless of page content.
+  const challengeText = /access denied|request blocked|pardon our interruption|verify you are human|captcha|enable javascript and cookies to continue|just a moment\.\.\.|checking your browser/i.test(normalized);
+  // Akamai Bot Manager ships its sensor cookies (_abck / ak_bmsc) and bot-manager script on
+  // EVERY protected tesla.com page, including valid ones — so these artifacts only indicate a
+  // block when the page rendered no real Supercharger content (i.e. the challenge bootstrap page).
+  const akamaiArtifacts = /_abck|ak_bmsc|akamai[\s\S]{0,400}?bot|please enable cookies|enable javascript.*cookies/i.test(rawHtml)
+    || /ray id[:\s]+[a-f0-9]{10,}/i.test(normalized);
+  const akamaiChallenge = challengeText || (akamaiArtifacts && !hasRealContent);
+
+  const blocked = status === 403 || rateLimited || akamaiChallenge;
   const validTeslaLocation = status >= 200 && status < 300 && !pageNotFound && !blocked && superchargerUrl && locationContent;
   return {
     status,
@@ -431,6 +442,7 @@ export function classifySiteContent({ bodyText = '', html = '', status = 0, fina
     blocked,
     rateLimited,
     akamaiChallenge,
+    hasRealContent,
     validTeslaLocation,
     contentSignal: pageNotFound ? 'not_found' : rateLimited ? 'rate_limited' : akamaiChallenge ? 'akamai_challenge' : blocked ? 'blocked' : validTeslaLocation ? 'tesla_location_page' : 'unknown'
   };

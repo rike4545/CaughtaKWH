@@ -52,6 +52,26 @@ if (!validLocation.validTeslaLocation) throw new Error('Valid Tesla Supercharger
 const numericLocation = classifySiteContent({ bodyText: 'Tesla Supercharger 404914 charging stalls', status: 200, finalUrl: 'https://www.tesla.com/findus/location/supercharger/404914' });
 if (numericLocation.pageNotFound || !numericLocation.validTeslaLocation) throw new Error('Numeric location ID containing 404 was mistaken for a missing page');
 
+// A valid, fully-rendered Supercharger page still carries Akamai's sensor cookie names in its
+// inline bot-manager script. That artifact must NOT be mistaken for a block, or fetch-first
+// pricing extraction never runs and every Akamai-protected page looks blocked.
+const validWithAkamaiSensor = classifySiteContent({
+  html: '<html><head><script>bmak.startTracking();var _abck="0~-1~..."; ak_bmsc=true;</script><script id="__NEXT_DATA__">{"props":{"pageProps":{}}}</script></head><body>Tesla Supercharger charging stalls and pricing per kWh</body></html>',
+  status: 200,
+  finalUrl: 'https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger'
+});
+if (validWithAkamaiSensor.blocked) throw new Error('Valid Supercharger page with Akamai sensor script was wrongly classified as blocked');
+if (!validWithAkamaiSensor.validTeslaLocation) throw new Error('Valid Supercharger page with Akamai sensor script was not recognized');
+
+// A genuine Akamai challenge page: sensor artifacts present, but no real Supercharger content.
+const akamaiChallengePage = classifySiteContent({
+  html: '<html><head><script>var _abck="0~...";</script></head><body>Please enable JavaScript and cookies to continue</body></html>',
+  status: 200,
+  finalUrl: 'https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger'
+});
+if (!akamaiChallengePage.blocked || akamaiChallengePage.contentSignal !== 'akamai_challenge') throw new Error('Akamai challenge bootstrap page was not classified as a challenge');
+if (akamaiChallengePage.validTeslaLocation) throw new Error('Akamai challenge page should not be treated as a valid station page');
+
 const candidates = stationCandidates({
   id: '404914',
   name: 'Lake Grove, NY Supercharger',
