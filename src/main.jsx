@@ -4,6 +4,7 @@ import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, Eye, EyeOff,
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
+import { TESLA_BATTERY_PRESETS, estimateChargeCost } from './chargeCost.js';
 import './styles.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
@@ -308,6 +309,63 @@ function PriceMatrix({ memberOff, memberPeak, nonOff, nonPeak, congestion, fresh
   </div>;
 }
 
+function ChargeCostCalculator({ currentPrice, cheapestPrice, cheapestLabel, rateLabel, fresh, congestion }) {
+  const [presetId, setPresetId] = useState('m3-lr');
+  const [manualKwh, setManualKwh] = useState('');
+  const [arrival, setArrival] = useState(40);
+  const [target, setTarget] = useState(80);
+  const preset = TESLA_BATTERY_PRESETS.find(p => p.id === presetId) || TESLA_BATTERY_PRESETS[0];
+  const manualMode = presetId === 'other' || manualKwh.trim() !== '';
+  const usableKwh = manualKwh.trim() !== '' ? Number(manualKwh) : preset.usableKwh;
+  const priceForCalc = typeof currentPrice === 'number' ? currentPrice : null;
+  const now = estimateChargeCost({ usableKwh, arrivalPct: arrival, targetPct: target, pricePerKwh: priceForCalc });
+  const best = typeof cheapestPrice === 'number'
+    ? estimateChargeCost({ usableKwh, arrivalPct: arrival, targetPct: target, pricePerKwh: cheapestPrice })
+    : null;
+  const savings = now && best ? Number((now.cost - best.cost).toFixed(2)) : null;
+  const needBattery = !(typeof usableKwh === 'number' && usableKwh > 0);
+  return <Card>
+    <div className="sectionTitle"><div><p>Cost to charge</p><h2>{now ? `≈ ${money(now.cost)} to ${target}%` : 'Estimate your session cost'}</h2></div><span className={fresh ? 'badge fresh' : 'badge'}>{rateLabel}</span></div>
+    <p className="muted">Pick your car (or enter usable kWh), then your arrival charge. We multiply the energy you need by the {fresh ? 'latest observed' : 'best available'} {rateLabel.toLowerCase()} rate.</p>
+    <div className="costCalcInputs">
+      <label>Vehicle
+        <select value={presetId} onChange={e => { setPresetId(e.target.value); if (e.target.value !== 'other') setManualKwh(''); }}>
+          {TESLA_BATTERY_PRESETS.map(p => <option key={p.id} value={p.id}>{p.label}{p.usableKwh ? ` · ${p.usableKwh} kWh` : ''}</option>)}
+        </select>
+      </label>
+      <label>Usable battery (kWh)
+        <input type="number" inputMode="decimal" min="10" max="250" step="0.5" placeholder={preset.usableKwh ? String(preset.usableKwh) : 'e.g. 75'} value={manualKwh} onChange={e => setManualKwh(e.target.value)} />
+      </label>
+      <label>Arrive at (%)
+        <input type="number" inputMode="numeric" min="0" max="100" step="1" value={arrival} onChange={e => setArrival(e.target.value)} />
+      </label>
+      <label>Charge to (%)
+        <input type="number" inputMode="numeric" min="0" max="100" step="1" value={target} onChange={e => setTarget(e.target.value)} />
+      </label>
+    </div>
+    {needBattery
+      ? <EmptyState title="Pick your car or enter a battery size">Choose a Tesla model above, or type your usable battery capacity in kWh, to estimate the cost.</EmptyState>
+      : !now
+        ? <EmptyState title="No price to estimate with yet">We have not observed a public {rateLabel.toLowerCase()} rate for this charger, so there is no price to multiply by. Check Tesla for the live rate.</EmptyState>
+        : <>
+          <div className="costCalcResult">
+            <div className="costNow">
+              <span>Estimated cost{fresh ? '' : ' (from history)'}</span>
+              <strong>{money(now.cost)}</strong>
+              <small>{now.kwh} kWh added · {arrival}% → {target}% · {cents(now.pricePerKwh * 100)}/kWh</small>
+            </div>
+            {best && cheapestLabel && <div className="costBest">
+              <span>At the cheapest window ({cheapestLabel})</span>
+              <strong>{money(best.cost)}</strong>
+              <small>{cents(best.pricePerKwh * 100)}/kWh{savings > 0 ? ` · save ≈ ${money(savings)}` : ''}</small>
+            </div>}
+          </div>
+          {congestion != null && <p className="muted compactNote">Heads up: this station has shown a congestion fee of {money(congestion)}/min above a high state of charge — it is billed by the minute, not included here.</p>}
+          <p className="muted compactNote">Energy = (charge to − arrive at) × usable battery. Real sessions vary with charging speed, preconditioning, and temperature. Always confirm the live rate in Tesla before charging.</p>
+        </>}
+  </Card>;
+}
+
 const isTesla = /Tesla\//.test(navigator.userAgent);
 const isMobile = !isTesla && navigator.maxTouchPoints > 0
   && window.matchMedia('(pointer: coarse)').matches
@@ -476,6 +534,11 @@ function App() {
   const rateCongestion = latestHistory?.congestionFeePerMinuteMax ?? null;
   const bestWindowSlot = prediction?.bestHour != null ? prediction.bestHour * 2 + (prediction.bestMinute >= 30 ? 1 : 0) : null;
   const bestWindowLabel = bestWindowSlot != null ? slotLabel(bestWindowSlot) : '—';
+  const calcCurrentRate = (rateType === 'member' ? rateMemberOff : rateNonOff)
+    ?? (pricingFresh ? prediction?.latestObservedPrice : null)
+    ?? prediction?.averageObservedPrice ?? null;
+  const calcCheapestRate = prediction?.expectedPrice ?? null;
+  const calcRateLabel = rateType === 'member' ? 'Tesla / member' : 'Non-Tesla';
   const benchmarkCents = commercialBenchmark?.centsPerKwh ?? null;
   const memberVsBenchmark = memberCents && benchmarkCents ? memberCents / benchmarkCents : null;
   const nonTeslaVsBenchmark = nonTeslaCents && benchmarkCents ? nonTeslaCents / benchmarkCents : null;
@@ -653,6 +716,15 @@ function App() {
             <ResponsiveContainer width="100%" height={260}><BarChart data={modelRows} barCategoryGap="10%"><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="slotLabel" interval={5} tick={{ fill: 'var(--muted)', fontSize: 12 }}/><YAxis tickFormatter={money} tick={{ fill: 'var(--muted)', fontSize: 12 }} width={48}/><Tooltip content={<ChartTooltip formatter={money}/>}/>{bestSlot != null && <ReferenceLine x={slotLabel(bestSlot)} stroke="#53e0a3" strokeDasharray="4 3" label={{ value: 'Best', fill: '#53e0a3', fontSize: 11 }}/>}<Bar dataKey="expectedPrice" name="Expected $/kWh" radius={[4,4,0,0]}>{modelRows.map((row, i) => <Cell key={i} fill={getBarColor(row.expectedPrice)}/>)}</Bar></BarChart></ResponsiveContainer>
           </>;
         })()}</Card>
+
+        <ChargeCostCalculator
+          currentPrice={calcCurrentRate}
+          cheapestPrice={calcCheapestRate}
+          cheapestLabel={bestWindowSlot != null ? bestWindowLabel : null}
+          rateLabel={calcRateLabel}
+          fresh={pricingFresh}
+          congestion={rateCongestion}
+        />
 
         <Card><div className="sectionTitle"><div><p>Price history</p><h2>{historyRows.length ? `${historyRows.length} recent checks` : 'No prices saved yet'}</h2></div><span className="badge">{historyRows.length ? shortDate(latestHistory?.capturedAt) : 'Waiting'}</span></div>{historyRows.length ? <ResponsiveContainer width="100%" height={260}><LineChart data={historyRows}><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="capturedLabel" hide/><YAxis tickFormatter={money} tick={{ fill: 'var(--muted)', fontSize: 12 }} width={48}/><Tooltip content={<ChartTooltip formatter={money}/>}/><Legend wrapperStyle={{ fontSize: 13, paddingTop: 8 }}/><Line type="monotone" dataKey="member" name="Tesla / member" dot={false} stroke="#53e0a3" strokeWidth={2}/><Line type="monotone" dataKey="nonMember" name="Non-Tesla" dot={false} stroke="#65a9ff" strokeWidth={2}/></LineChart></ResponsiveContainer> : <EmptyState title="No saved prices yet">We either have not checked this charger, or Tesla did not show a public price when we looked.</EmptyState>}</Card>
       </div>
