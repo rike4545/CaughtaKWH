@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-06-20T22:55:52.088Z",
+  "generatedAt": "2026-06-20T22:59:45.934Z",
   "requestedLimit": 10,
-  "inScopeStations": 10,
+  "inScopeStations": 7,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
   "blocked": 3,
   "failed": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "circuitBreaker": {
     "opened": true,

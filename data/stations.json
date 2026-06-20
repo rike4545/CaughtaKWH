@@ -22052,7 +22052,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 179.01,
+    "observationPriorityScore": 180.44,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -22086,6 +22086,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/26660",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -22097,6 +22098,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/CentereachNYsupercharger",
         "reason": "city_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -22108,6 +22110,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/CentereachNYNYsupercharger",
         "reason": "name_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -22115,7 +22118,12 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T22:59:45.934Z",
+    "lastBlockedAt": "2026-06-20T22:59:45.934Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T04:59:45.934Z"
   },
   {
     "id": "centervilletxsupercharger",
@@ -90778,7 +90786,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 179.01,
+    "observationPriorityScore": 180.44,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -90811,6 +90819,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/NorthBabylonNYSupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -90822,6 +90831,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/NorthBabylonNYNYsupercharger",
         "reason": "name_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -90829,7 +90839,12 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T22:59:45.934Z",
+    "lastBlockedAt": "2026-06-20T22:59:45.934Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T04:59:45.934Z"
   },
   {
     "id": "northbendsupercharger",
@@ -120129,7 +120144,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 179.01,
+    "observationPriorityScore": 180.44,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -120163,6 +120178,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/shirleynysupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -120174,6 +120190,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/ShirleyNYNYsupercharger",
         "reason": "name_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -120181,7 +120198,12 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T22:59:45.934Z",
+    "lastBlockedAt": "2026-06-20T22:59:45.934Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T04:59:45.934Z"
   },
   {
     "id": "32902",
