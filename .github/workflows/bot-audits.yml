@@ -18,7 +18,7 @@ jobs:
       - run: node scripts/dashboard-bot.mjs
       - run: node scripts/price-change-bot.mjs
       - name: Commit reports
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: 'Bot audit reports'
           file_pattern: 'reports/**/*.md data/price-changes.json'
