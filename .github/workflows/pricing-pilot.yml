@@ -3,13 +3,13 @@ on:
   workflow_dispatch:
     inputs:
       station_ids:
-        description: Comma-separated station IDs to refresh
+        description: Optional comma-separated override; blank uses the nearest 10 to Lake Grove
         required: false
-        default: 'LakeGroveNYsupercharger'
+        default: ''
       max_stations:
         description: Max pilot stations to scrape
         required: false
-        default: '5'
+        default: '10'
   schedule:
     - cron: '12 */3 * * *'
 permissions:
@@ -23,8 +23,9 @@ jobs:
   refresh-pilot:
     runs-on: ubuntu-latest
     env:
-      PILOT_STATION_IDS: ${{ github.event.inputs.station_ids || 'LakeGroveNYsupercharger' }}
-      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '5' }}
+      PILOT_STATION_IDS: ${{ github.event.inputs.station_ids || '' }}
+      PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '10' }}
+      PILOT_CLUSTER_SIZE: 10
       SCRAPE_DELAY_MS: 500
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -44,8 +45,17 @@ jobs:
 
       - run: npx playwright install --with-deps chromium
 
+      - name: Build Lake Grove pricing cluster
+        run: npm run pilot:lake-grove
+
       - name: Refresh pilot pricing panel
-        run: xvfb-run -a env SCRAPE_STATION_IDS="$PILOT_STATION_IDS" MAX_STATIONS="$PRICE_SCRAPE_LIMIT" npm run scrape
+        run: |
+          station_ids="$PILOT_STATION_IDS"
+          if [ -z "$station_ids" ]; then
+            station_ids="$(jq -r '.stationIds | join(",")' data/pilot-lake-grove.json)"
+          fi
+          echo "Refreshing Lake Grove cluster: $station_ids"
+          xvfb-run -a env SCRAPE_STATION_IDS="$station_ids" MAX_STATIONS="$PRICE_SCRAPE_LIMIT" npm run scrape
 
       - name: Rebuild predictions and public data
         run: |

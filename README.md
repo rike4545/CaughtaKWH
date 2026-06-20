@@ -231,13 +231,22 @@ Pricing analytics become useful after repeated observations, not after one scrap
 
 A station is treated as having usable history after at least three recent price observations. Ten recent observations across different times is a stronger target for cheaper-window modeling.
 
-The pilot starts with:
+The pilot now recomputes the nearest 10 Superchargers around Lake Grove before every scheduled run. The current cluster is:
 
 ```text
 LakeGroveNYsupercharger
+26660                         # Centereach
+56490                         # Smithtown
+islandiasupercharger          # Islandia
+HauppaugeNYsupercharger       # Hauppauge
+401968                        # Commack
+BayshoreNYsupercharger        # Bay Shore
+NorthBabylonNYSupercharger    # North Babylon
+shirleynysupercharger         # Shirley
+MelvilleNYsupercharger        # Melville
 ```
 
-Add more stations by running the workflow manually with a comma-separated `station_ids` value. Once a pilot station has roughly 10-30 observations, the stability and cheaper-window analytics become much more useful.
+Run `npm run pilot:lake-grove` to regenerate `data/pilot-lake-grove.json`. The current outer station is about 15.5 miles from Lake Grove. You can override the dynamic cluster by running the workflow manually with a comma-separated `station_ids` value. Once each station has roughly 10-30 observations, the neural and cheaper-window analytics become much more useful.
 
 ## Dynamic Pricing And Power Cost Context
 

@@ -13,6 +13,7 @@
     "train:neural": "node scripts/trainPricingNeuralNetwork.mjs",
     "predict": "npm run train:neural && node scripts/buildPredictions.mjs",
     "test:neural": "node scripts/testPricingNeuralNetwork.mjs",
+    "pilot:lake-grove": "node scripts/buildLakeGrovePilot.mjs",
     "update:data": "npm run discover && npm run scrape && npm run predict && npm run validate:data && npm run sync:public",
     "validate:data": "node scripts/validateData.mjs",
     "sync:public": "node scripts/syncPublicData.mjs",

@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-06-20T22:47:35.270Z",
+  "origin": {
+    "id": "LakeGroveNYsupercharger",
+    "name": "Lake Grove, NY",
+    "lat": 40.862269,
+    "lng": -73.129075
+  },
+  "stationCount": 10,
+  "radiusMiles": 15.44,
+  "stationIds": [
+    "LakeGroveNYsupercharger",
+    "26660",
+    "56490",
+    "islandiasupercharger",
+    "HauppaugeNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger",
+    "MelvilleNYsupercharger"
+  ],
+  "stations": [
+    {
+      "id": "LakeGroveNYsupercharger",
+      "name": "Lake Grove, NY",
+      "city": "Lake Grove",
+      "state": "NY",
+      "distanceMiles": 0,
+      "lat": 40.862269,
+      "lng": -73.129075,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger"
+    },
+    {
+      "id": "26660",
+      "name": "Centereach, NY",
+      "city": "Centereach",
+      "state": "NY",
+      "distanceMiles": 2.86,
+      "lat": 40.859122,
+      "lng": -73.074425,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/26660"
+    },
+    {
+      "id": "56490",
+      "name": "Smithtown, NY",
+      "city": "Smithtown",
+      "state": "NY",
+      "distanceMiles": 4.02,
+      "lat": 40.832268,
+      "lng": -73.194976,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/56490"
+    },
+    {
+      "id": "islandiasupercharger",
+      "name": "Islandia, NY",
+      "city": "Islandia",
+      "state": "NY",
+      "distanceMiles": 4.78,
+      "lat": 40.805079,
+      "lng": -73.180528,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/islandiasupercharger"
+    },
+    {
+      "id": "HauppaugeNYsupercharger",
+      "name": "Hauppauge, NY - Motor Pkwy",
+      "city": "Hauppauge",
+      "state": "NY",
+      "distanceMiles": 6.87,
+      "lat": 40.806913,
+      "lng": -73.238313,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/HauppaugeNYsupercharger"
+    },
+    {
+      "id": "401968",
+      "name": "Commack, NY",
+      "city": "Commack",
+      "state": "NY",
+      "distanceMiles": 9.29,
+      "lat": 40.806118,
+      "lng": -73.290494,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/401968"
+    },
+    {
+      "id": "BayshoreNYsupercharger",
+      "name": "Bay Shore, NY",
+      "city": "Bay Shore",
+      "state": "NY",
+      "distanceMiles": 12.11,
+      "lat": 40.727358,
+      "lng": -73.276843,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/BayshoreNYsupercharger"
+    },
+    {
+      "id": "NorthBabylonNYSupercharger",
+      "name": "North Babylon, NY",
+      "city": "North Babylon",
+      "state": "NY",
+      "distanceMiles": 13.08,
+      "lat": 40.739557,
+      "lng": -73.319465,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/NorthBabylonNYSupercharger"
+    },
+    {
+      "id": "shirleynysupercharger",
+      "name": "Shirley, NY",
+      "city": "Shirley",
+      "state": "NY",
+      "distanceMiles": 14.61,
+      "lat": 40.804373,
+      "lng": -72.860362,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/shirleynysupercharger"
+    },
+    {
+      "id": "MelvilleNYsupercharger",
+      "name": "Melville, NY",
+      "city": "Melville",
+      "state": "NY",
+      "distanceMiles": 15.44,
+      "lat": 40.798738,
+      "lng": -73.41226,
+      "teslaUrl": "https://www.tesla.com/findus/location/supercharger/MelvilleNYsupercharger"
+    }
+  ]
+}

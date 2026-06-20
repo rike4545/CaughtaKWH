@@ -5,6 +5,7 @@ const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const predictions = await readJson(path.join(dataDir, 'predictions.json'), []);
 const neuralModel = await readJson(path.join(dataDir, 'pricing-neural-model.json'), null);
 const neuralReview = await readJson(path.join(dataDir, 'pricing-neural-review.json'), null);
+const lakeGrovePilot = await readJson(path.join(dataDir, 'pilot-lake-grove.json'), null);
 
 if (!Array.isArray(stations)) throw new Error('stations.json must be an array');
 if (!Array.isArray(predictions)) throw new Error('predictions.json must be an array');
@@ -12,6 +13,12 @@ if (neuralModel) {
   if (!neuralModel.version || !neuralModel.status || !neuralModel.coverage || !neuralModel.activation) throw new Error('pricing-neural-model.json is missing required model metadata');
   if (neuralModel.activation.priceBlending && neuralModel.status !== 'active') throw new Error('Neural price blending requires an active model');
   if (neuralReview && neuralReview.modelVersion !== neuralModel.version) throw new Error('Neural review queue does not match the pricing model version');
+}
+if (lakeGrovePilot) {
+  const ids = lakeGrovePilot.stationIds || [];
+  if (ids.length !== 10 || new Set(ids).size !== 10) throw new Error('Lake Grove pilot must contain 10 unique station IDs');
+  if (!ids.includes('LakeGroveNYsupercharger')) throw new Error('Lake Grove pilot must include its origin station');
+  if (lakeGrovePilot.stationCount !== ids.length) throw new Error('Lake Grove pilot station count does not match its IDs');
 }
 
 for (const s of stations) {
