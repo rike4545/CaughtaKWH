@@ -11043,12 +11043,12 @@
     "lat": 40.727358,
     "lng": -73.276843,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.3,
+    "observationPriorityScore": 179.01,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -11071,7 +11071,35 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 2,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BayshoreNYsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BayShoreNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "BaytownTXSupercharger",
@@ -22012,12 +22040,12 @@
     "lat": 40.859122,
     "lng": -73.074425,
     "lastDiscoveredAt": "2026-06-04T10:54:01.496Z",
-    "lastScrapedAt": "2026-05-30T18:42:38.971Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.55,
+    "observationPriorityScore": 179.01,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -22041,7 +22069,46 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 3,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/26660",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/CentereachNYsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/CentereachNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "centervilletxsupercharger",
@@ -28077,12 +28144,12 @@
     "lat": 40.806118,
     "lng": -73.290494,
     "lastDiscoveredAt": "2026-06-04T10:54:01.496Z",
-    "lastScrapedAt": "2026-05-30T19:58:51.496Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.35,
+    "observationPriorityScore": 191.01,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 7800,
@@ -28107,7 +28174,46 @@
     "plugTypes": {
       "nacs": 24
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 3,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/401968",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/CommackNYsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/CommackNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "CommerceCAsupercharger",
@@ -53926,12 +54032,12 @@
     "lat": 40.806913,
     "lng": -73.238313,
     "lastDiscoveredAt": "2026-06-04T10:54:01.498Z",
-    "lastScrapedAt": "2026-05-30T19:58:51.496Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.23,
+    "observationPriorityScore": 175.02,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -53954,7 +54060,46 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 3,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/HauppaugeNYsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/HauppaugeNYMotorPkwyNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/HauppaugeNYMotorPkwysupercharger",
+        "reason": "name_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "27763",
@@ -59613,12 +59758,12 @@
     "lat": 40.805079,
     "lng": -73.180528,
     "lastDiscoveredAt": "2026-06-04T10:54:01.500Z",
-    "lastScrapedAt": "2026-05-30T15:49:25.879Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 430.41,
+    "observationPriorityScore": 152.02,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1500,
@@ -59640,7 +59785,46 @@
     "plugTypes": {
       "tpc": 10
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 3,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/islandiasupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/IslandiaNYsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/IslandiaNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "issaquahwasupercharger",
@@ -65729,12 +65913,12 @@
     "lat": 40.862269,
     "lng": -73.129075,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-06-20T22:22:27.388Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 21,
     "lastLowPriceId": null,
-    "observationPriorityScore": 1025.02,
+    "observationPriorityScore": 1025,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -78943,12 +79127,12 @@
     "lat": 40.798738,
     "lng": -73.41226,
     "lastDiscoveredAt": "2026-06-04T10:54:01.500Z",
-    "lastScrapedAt": "2026-05-30T21:12:16.707Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 454.29,
+    "observationPriorityScore": 177.01,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2500,
@@ -78971,7 +79155,35 @@
       "tpc": 10,
       "nacs": 0
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 2,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/MelvilleNYsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/MelvilleNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "melvillenywaltwhitmanroadsupercharger",
@@ -90539,12 +90751,12 @@
     "lat": 40.739557,
     "lng": -73.319465,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-05-30T21:12:16.707Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.46,
+    "observationPriorityScore": 179.01,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -90567,7 +90779,35 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 2,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/NorthBabylonNYSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/NorthBabylonNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "northbendsupercharger",
@@ -119862,12 +120102,12 @@
     "lat": 40.804373,
     "lng": -72.860362,
     "lastDiscoveredAt": "2026-06-04T10:54:01.500Z",
-    "lastScrapedAt": "2026-05-30T22:16:24.560Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.14,
+    "observationPriorityScore": 179.01,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -119891,7 +120131,35 @@
       "ccs1": 12,
       "multi": 12
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 2,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/shirleynysupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/ShirleyNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "32902",
@@ -120987,12 +121255,12 @@
     "lat": 40.832268,
     "lng": -73.194976,
     "lastDiscoveredAt": "2026-06-04T10:54:01.497Z",
-    "lastScrapedAt": "2026-05-30T22:16:24.560Z",
+    "lastScrapedAt": "2026-06-20T22:49:02.138Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.28,
+    "observationPriorityScore": 175.02,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2600,
@@ -121021,7 +121289,46 @@
       "ccs1": 8,
       "multi": 8
     },
-    "superchargeInfoMatchedAt": "2026-06-14"
+    "superchargeInfoMatchedAt": "2026-06-14",
+    "lastScrapeError": "akamai_blocked",
+    "lastScrapeBlocked": true,
+    "lastScrapeResult": "akamai_blocked",
+    "lastScrapeAttemptCount": 3,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/56490",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/SmithtownNYsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      },
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/SmithtownNYNYsupercharger",
+        "reason": "name_state_slug",
+        "status": 403,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ]
   },
   {
     "id": "437123",
