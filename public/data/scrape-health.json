@@ -1,40 +1,36 @@
 {
-  "generatedAt": "2026-06-20T23:05:45.810Z",
+  "generatedAt": "2026-06-20T23:08:53.265Z",
   "requestedLimit": 10,
-  "inScopeStations": 4,
-  "attempted": 3,
+  "inScopeStations": 1,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "MelvilleNYsupercharger",
-    "HauppaugeNYsupercharger",
-    "56490"
+    "islandiasupercharger"
   ],
   "blockedStationIds": [
-    "MelvilleNYsupercharger",
-    "HauppaugeNYsupercharger",
-    "56490"
+    "islandiasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 226,
+    "averageRequestMs": 206,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "cooldownPolicy": {
     "baseHours": 6,

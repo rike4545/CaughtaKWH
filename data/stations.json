@@ -59779,7 +59779,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 152.02,
+    "observationPriorityScore": 154.66,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1500,
@@ -59802,37 +59802,19 @@
       "tpc": 10
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeError": "akamai_blocked",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapeBlocked": true,
-    "lastScrapeResult": "akamai_blocked",
-    "lastScrapeAttemptCount": 3,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/islandiasupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/IslandiaNYsupercharger",
-        "reason": "city_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/IslandiaNYNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 206,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -59840,7 +59822,18 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T23:08:53.265Z",
+    "lastBlockedAt": "2026-06-20T23:08:53.265Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T05:08:53.265Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 206
+    }
   },
   {
     "id": "issaquahwasupercharger",
