@@ -3,6 +3,7 @@ import path from 'node:path';
 import { ProxyAgent, setGlobalDispatcher } from 'undici';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import { validateCapturedPrices } from './pricingNeuralNetwork.mjs';
+import { isScrapeEligible, nextBlockedState, successfulScrapeState } from './scrapePolicy.mjs';
 import {
   classifySiteContent,
   extractNextData,
@@ -32,14 +33,16 @@ const SCRAPE_ROTATE_STATES = ['1', 'true', 'yes'].includes(String(process.env.SC
 const SCRAPE_ROTATION_COUNT = Math.max(1, Number(process.env.SCRAPE_ROTATION_COUNT || 1));
 const SCRAPE_NEEDS_HISTORY = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_NEEDS_HISTORY || '').toLowerCase());
 const TESLA_HEADLESS = !['0', 'false', 'no'].includes(String(process.env.TESLA_HEADLESS ?? 'true').toLowerCase());
+const AKAMAI_CIRCUIT_BREAKER = Math.max(1, Number(process.env.AKAMAI_CIRCUIT_BREAKER || 3));
+const BLOCK_COOLDOWN_BASE_HOURS = Math.max(1, Number(process.env.BLOCK_COOLDOWN_BASE_HOURS || 6));
+const BLOCK_COOLDOWN_MAX_HOURS = Math.max(BLOCK_COOLDOWN_BASE_HOURS, Number(process.env.BLOCK_COOLDOWN_MAX_HOURS || 72));
+const SCRAPE_IGNORE_COOLDOWN = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_IGNORE_COOLDOWN || '').toLowerCase());
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
 
 // --- Egress proxy (optional) -----------------------------------------------
-// GitHub Actions runners use datacenter IPs that Akamai Bot Manager blocks on
-// tesla.com. Routing through a residential/ISP proxy makes requests look like a
-// normal browser and is the practical way around the block. Set SCRAPE_PROXY
-// (e.g. http://host:port or http://user:pass@host:port) as an Actions secret.
+// Optional organization-managed egress proxy. This changes network routing only;
+// block detection, cooldowns, and circuit breakers still apply.
 const SCRAPE_PROXY = String(process.env.SCRAPE_PROXY || '').trim();
 const SCRAPE_PROXY_USERNAME = String(process.env.SCRAPE_PROXY_USERNAME || '').trim();
 const SCRAPE_PROXY_PASSWORD = String(process.env.SCRAPE_PROXY_PASSWORD || '').trim();
@@ -149,11 +152,12 @@ async function fetchHtml(url) {
     const timer = setTimeout(() => controller.abort(), 18000);
     const response = await fetch(url, { headers: FETCH_HEADERS, redirect: 'follow', signal: controller.signal });
     clearTimeout(timer);
-    if (!response.ok) return { html: '', status: response.status, finalUrl: response.url };
+    const retryAfter = response.headers.get('retry-after');
+    if (!response.ok) return { html: '', status: response.status, finalUrl: response.url, retryAfter };
     const html = await response.text();
-    return { html, status: response.status, finalUrl: response.url || url };
+    return { html, status: response.status, finalUrl: response.url || url, retryAfter };
   } catch {
-    return { html: '', status: 0, finalUrl: url };
+    return { html: '', status: 0, finalUrl: url, retryAfter: null };
   }
 }
 
@@ -175,7 +179,7 @@ async function scrapeOne(context, station) {
       if (fetchSite.akamaiChallenge) {
         // Akamai JS challenge — Playwright is also blocked from GitHub Actions IPs.
         // Record and skip without burning a browser tab.
-        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'akamai_challenge', hasPrice: false, hasAvailability: false, via: 'fetch' });
+        attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, retryAfter: fetched.retryAfter, contentSignal: 'akamai_challenge', hasPrice: false, hasAvailability: false, via: 'fetch' });
         continue;
       }
       allBlocked = false;
@@ -207,7 +211,7 @@ async function scrapeOne(context, station) {
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
       }
     } else if (fetched.status === 403) {
-      attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, contentSignal: 'blocked', hasPrice: false, hasAvailability: false, via: 'fetch' });
+      attempts.push({ url, finalUrl: fetched.finalUrl, reason, status: fetched.status, retryAfter: fetched.retryAfter, contentSignal: 'blocked', hasPrice: false, hasAvailability: false, via: 'fetch' });
       continue;
     }
 
@@ -254,6 +258,7 @@ async function scrapeOne(context, station) {
   const err = lastError || new Error(allBlocked ? 'akamai_blocked' : 'No usable Tesla location candidate');
   err.attempts = attempts;
   err.allBlocked = allBlocked;
+  err.retryAfter = attempts.map(attempt => attempt.retryAfter).find(Boolean) || null;
   throw err;
 }
 async function expandPricingAccordions(page) {
@@ -310,6 +315,7 @@ function needsUsableHistory(station) {
 
 const scope = await scrapeScope();
 const distanceByStation = new Map();
+let cooldownSkipped = 0;
 function scopedStations() {
   let scoped = [...stations];
   if (SCRAPE_STATION_IDS.length) {
@@ -335,6 +341,11 @@ function scopedStations() {
   }
   if (SCRAPE_NEEDS_HISTORY) {
     scoped = scoped.filter(needsUsableHistory);
+  }
+  if (!SCRAPE_IGNORE_COOLDOWN) {
+    const beforeCooldown = scoped.length;
+    scoped = scoped.filter(station => isScrapeEligible(station, capturedDate));
+    cooldownSkipped = beforeCooldown - scoped.length;
   }
   return scoped;
 }
@@ -409,12 +420,41 @@ await context.addInitScript(() => {
   Object.defineProperty(document, 'visibilityState', { get: () => 'visible' });
 });
 
+function summarizeAttempts(attempts) {
+  return Array.isArray(attempts) ? attempts.slice(0, 8).map(attempt => ({
+    url: attempt.url,
+    reason: attempt.reason,
+    status: attempt.status ?? null,
+    retryAfter: attempt.retryAfter ?? null,
+    contentSignal: attempt.contentSignal ?? null,
+    hasPrice: Boolean(attempt.hasPrice),
+    hasAvailability: Boolean(attempt.hasAvailability),
+    priceCandidateCount: attempt.priceCandidateCount ?? 0,
+    publicDetailsFound: Boolean(attempt.publicDetailsFound),
+    error: attempt.error ?? null
+  })) : [];
+}
+
 let saved = 0;
 let attempted = 0;
+let blocked = 0;
+let failed = 0;
+let validPages = 0;
+let consecutiveBlocked = 0;
+let circuitOpened = false;
+const attemptedStationIds = [];
+const blockedStationIds = [];
 for (const station of ordered.slice(0, MAX_STATIONS)) {
+  if (consecutiveBlocked >= AKAMAI_CIRCUIT_BREAKER) {
+    circuitOpened = true;
+    break;
+  }
   attempted++;
+  attemptedStationIds.push(station.id);
   try {
     const result = await scrapeOne(context, station);
+    validPages++;
+    consecutiveBlocked = 0;
     const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: capturedDate.getHours(), localMinute: capturedDate.getMinutes(), halfHourSlot: halfHourSlot(capturedDate), ...result.prices, ...result.availability, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
     observation.neuralValidation = validateCapturedPrices(pricingNeuralModel, { station, observation });
     const hasPrice = observation.memberPricePerKwh !== null || observation.nonMemberPricePerKwh !== null;
@@ -428,26 +468,15 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     }
     // Only update the stored URL if the result came from a real Tesla page, not a redirect or challenge.
     if (result.url && String(result.url).includes('/findus/location/supercharger/')) station.url = result.url;
-    station.lastScrapedAt = capturedAt;
+    Object.assign(station, successfulScrapeState(capturedAt));
     station.lastScrapeHadPrice = hasPrice;
     station.lastScrapeHadAvailability = hasAvailability;
-    station.lastScrapeBlocked = false;
     station.lastPriceCandidateCount = result.prices.priceCandidateCount;
     station.lastNeuralValidation = observation.neuralValidation;
     station.lastLowPriceId = result.prices.lowPriceId;
     station.lastScrapeAttemptCount = result.attempts.length;
     station.lastScrapeResult = hasPrice ? 'price_found' : hasAvailability ? 'availability_found' : 'valid_page_no_public_data';
-    station.lastScrapeCandidates = result.attempts.map(attempt => ({
-      url: attempt.url,
-      reason: attempt.reason,
-      status: attempt.status ?? null,
-      contentSignal: attempt.contentSignal ?? null,
-      hasPrice: Boolean(attempt.hasPrice),
-      hasAvailability: Boolean(attempt.hasAvailability),
-      priceCandidateCount: attempt.priceCandidateCount ?? 0,
-      publicDetailsFound: Boolean(attempt.publicDetailsFound),
-      error: attempt.error ?? null
-    }));
+    station.lastScrapeCandidates = summarizeAttempts(result.attempts);
     station.lastSiteDetails = {
       ...result.siteDetails,
       lastCheckedAt: capturedAt,
@@ -458,23 +487,28 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
   } catch (error) {
     const isBlocked = error.allBlocked === true;
     station.lastScrapeError = String(error.message || error);
-    station.lastScrapedAt = capturedAt;
-    station.lastScrapeHadPrice = false;
-    station.lastScrapeHadAvailability = false;
-    station.lastScrapeBlocked = isBlocked;
+    station.lastAttemptedAt = capturedAt;
+    if (isBlocked) {
+      blocked++;
+      consecutiveBlocked++;
+      blockedStationIds.push(station.id);
+      Object.assign(station, nextBlockedState(station, {
+        attemptedAt: capturedAt,
+        retryAfter: error.retryAfter,
+        baseHours: BLOCK_COOLDOWN_BASE_HOURS,
+        maxHours: BLOCK_COOLDOWN_MAX_HOURS
+      }));
+    } else {
+      failed++;
+      consecutiveBlocked = 0;
+      station.lastScrapeBlocked = false;
+      station.consecutiveBlockedAttempts = 0;
+      station.blockCooldownHours = 0;
+      station.nextScrapeEligibleAt = null;
+    }
     station.lastScrapeResult = isBlocked ? 'akamai_blocked' : 'no_usable_candidate';
     station.lastScrapeAttemptCount = Array.isArray(error.attempts) ? error.attempts.length : 0;
-    station.lastScrapeCandidates = Array.isArray(error.attempts) ? error.attempts.slice(0, 8).map(attempt => ({
-      url: attempt.url,
-      reason: attempt.reason,
-      status: attempt.status ?? null,
-      contentSignal: attempt.contentSignal ?? null,
-      hasPrice: Boolean(attempt.hasPrice),
-      hasAvailability: Boolean(attempt.hasAvailability),
-      priceCandidateCount: attempt.priceCandidateCount ?? 0,
-      publicDetailsFound: Boolean(attempt.publicDetailsFound),
-      error: attempt.error ?? null
-    })) : [];
+    station.lastScrapeCandidates = summarizeAttempts(error.attempts);
     station.observationPriorityScore = priorityFor(station);
   } finally {
     await sleep(DELAY_MS);
@@ -482,4 +516,33 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
 }
 await browser.close();
 await writeJson(path.join(dataDir, 'stations.json'), stations);
-console.log(`Attempted ${attempted}; saved price observations for ${saved} station(s). In-scope stations: ${inScope.length}/${stations.length}. States: ${scope.states.join(', ') || 'all'}. Countries: ${scope.countries.join(', ') || 'all'}. Nearby: ${scope.origin ? `${scope.origin.label} within ${SCRAPE_RADIUS_MILES} mi` : 'off'}. Needs-history mode: ${SCRAPE_NEEDS_HISTORY ? 'on' : 'off'}. Hardened extraction v3 enabled. Low price threshold: $${LOW_PRICE_THRESHOLD}/kWh.`);
+await writeJson(path.join(dataDir, 'scrape-health.json'), {
+  generatedAt: capturedAt,
+  requestedLimit: MAX_STATIONS,
+  inScopeStations: inScope.length,
+  attempted,
+  validPages,
+  savedObservations: saved,
+  blocked,
+  failed,
+  cooldownSkipped,
+  attemptedStationIds,
+  blockedStationIds,
+  circuitBreaker: {
+    opened: circuitOpened,
+    threshold: AKAMAI_CIRCUIT_BREAKER,
+    consecutiveBlocks: consecutiveBlocked
+  },
+  cooldownPolicy: {
+    baseHours: BLOCK_COOLDOWN_BASE_HOURS,
+    maxHours: BLOCK_COOLDOWN_MAX_HOURS,
+    ignored: SCRAPE_IGNORE_COOLDOWN
+  },
+  scope: {
+    states: scope.states,
+    countries: scope.countries,
+    nearby: scope.origin ? { label: scope.origin.label, radiusMiles: SCRAPE_RADIUS_MILES } : null,
+    needsHistory: SCRAPE_NEEDS_HISTORY
+  }
+});
+console.log(`Attempted ${attempted}; valid pages ${validPages}; blocked ${blocked}; saved ${saved}; cooldown-skipped ${cooldownSkipped}; circuit ${circuitOpened ? 'open' : 'closed'}. In-scope stations: ${inScope.length}/${stations.length}.`);

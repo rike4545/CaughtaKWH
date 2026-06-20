@@ -16,13 +16,20 @@ function hoursSince(iso) {
   return Number.isFinite(hours) ? Math.max(0, hours) : null;
 }
 
+function successfulScrapeAt(station) {
+  if (station.lastSuccessfulScrapeAt) return station.lastSuccessfulScrapeAt;
+  return station.lastScrapeBlocked ? null : station.lastScrapedAt || null;
+}
+
 function shortStation(station) {
   return {
     id: station.id,
     name: station.name || station.id,
     state: station.state || '',
     city: station.city || '',
-    lastScrapedAt: station.lastScrapedAt || null,
+    lastScrapedAt: successfulScrapeAt(station),
+    lastAttemptedAt: station.lastAttemptedAt || station.lastBlockedAt || station.lastScrapedAt || null,
+    blocked: Boolean(station.lastScrapeBlocked),
     lastScrapeResult: station.lastScrapeResult || 'not_checked',
     priorityScore: Number(station.observationPriorityScore || 0)
   };
@@ -45,19 +52,20 @@ const pricedStationIds = new Set(predictions.map(prediction => prediction.statio
 const recentPredictionIds = new Set(predictions.filter(prediction => Number(prediction.latestObservationAgeHours) <= 24).map(prediction => prediction.stationId));
 const usablePredictionIds = new Set(predictions.filter(prediction => Number(prediction.sampleCount || 0) >= 3 && Number(prediction.latestObservationAgeHours ?? Infinity) <= 48).map(prediction => prediction.stationId));
 const strongPredictionIds = new Set(predictions.filter(prediction => Number(prediction.sampleCount || 0) >= 10 && Number(prediction.latestObservationAgeHours ?? Infinity) <= 24).map(prediction => prediction.stationId));
-const checkedStations = stations.filter(station => station.lastScrapedAt);
-const priceFound = stations.filter(station => station.lastScrapeHadPrice);
-const availabilityOnly = stations.filter(station => station.lastScrapeHadAvailability && !station.lastScrapeHadPrice);
-const staleOrUnchecked = stations.filter(station => !station.lastScrapedAt || (hoursSince(station.lastScrapedAt) ?? Infinity) > 72);
+const checkedStations = stations.filter(station => successfulScrapeAt(station));
+const blockedStations = stations.filter(station => station.lastScrapeBlocked);
+const priceFound = stations.filter(station => station.lastScrapeHadPrice && !station.lastScrapeBlocked);
+const availabilityOnly = stations.filter(station => station.lastScrapeHadAvailability && !station.lastScrapeHadPrice && !station.lastScrapeBlocked);
+const staleOrUnchecked = stations.filter(station => !successfulScrapeAt(station) || (hoursSince(successfulScrapeAt(station)) ?? Infinity) > 72);
 const withCoords = stations.filter(station => typeof station.lat === 'number' && typeof station.lng === 'number');
 const withAddress = stations.filter(station => station.address);
 
 const stateRows = [...new Set(stations.map(station => station.state).filter(Boolean))].sort().map(state => {
   const rows = stations.filter(station => station.state === state);
-  const checked = rows.filter(station => station.lastScrapedAt).length;
+  const checked = rows.filter(station => successfulScrapeAt(station)).length;
   const priced = rows.filter(station => pricedStationIds.has(station.id)).length;
   const usable = rows.filter(station => usablePredictionIds.has(station.id)).length;
-  const stale = rows.filter(station => !station.lastScrapedAt || (hoursSince(station.lastScrapedAt) ?? Infinity) > 72).length;
+  const stale = rows.filter(station => !successfulScrapeAt(station) || (hoursSince(successfulScrapeAt(station)) ?? Infinity) > 72).length;
   const priorityScore = rows.reduce((sum, station) => sum + Number(station.observationPriorityScore || 0), 0);
   return { state, stations: rows.length, checked, priced, usable, stale, checkedPct: pct(checked, rows.length), pricedPct: pct(priced, rows.length), usablePct: pct(usable, rows.length), priorityScore: Number(priorityScore.toFixed(2)) };
 });
@@ -68,7 +76,7 @@ const statePriorities = stateRows
   .slice(0, 8);
 
 const refreshTargets = stations
-  .filter(station => !station.lastScrapeHadPrice || !usablePredictionIds.has(station.id) || (hoursSince(station.lastScrapedAt) ?? Infinity) > 48)
+  .filter(station => !station.lastScrapeHadPrice || !usablePredictionIds.has(station.id) || (hoursSince(successfulScrapeAt(station)) ?? Infinity) > 48)
   .sort((a, b) => Number(b.observationPriorityScore || 0) - Number(a.observationPriorityScore || 0))
   .slice(0, 10)
   .map(shortStation);
@@ -106,6 +114,7 @@ const health = {
     priceFoundStations: priceFound.length,
     priceFoundPct: pct(priceFound.length, stations.length),
     availabilityOnlyStations: availabilityOnly.length,
+    blockedStations: blockedStations.length,
     pricedStations: pricedStationIds.size,
     pricedPct: pct(pricedStationIds.size, stations.length),
     usableHistoryStations: usablePredictionIds.size,
@@ -144,6 +153,7 @@ const report = [
   `- Scope: ${health.scope}`,
   `- Stations: ${health.summary.stationCount}`,
   `- Checked by scraper: ${health.summary.checkedStations} (${health.summary.checkedPct}%)`,
+  `- Latest attempts blocked by access controls: ${health.summary.blockedStations}`,
   `- Stations with any price history: ${health.summary.pricedStations} (${health.summary.pricedPct}%)`,
   `- Stations with usable price history: ${health.summary.usableHistoryStations} (${health.summary.usableHistoryPct}%)`,
   `- Stations with strong price history: ${health.summary.strongHistoryStations} (${health.summary.strongHistoryPct}%)`,

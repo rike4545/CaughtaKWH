@@ -63,10 +63,11 @@ jobs:
       SCRAPE_LNG: ${{ github.event.inputs.scrape_lng || '' }}
       SCRAPE_RADIUS_MILES: ${{ github.event.inputs.scrape_radius_miles || '150' }}
       SCRAPE_NEEDS_HISTORY: ${{ github.event.inputs.needs_history || (github.event_name == 'schedule' && 'true' || 'false') }}
-      # Optional residential/ISP proxy to bypass Akamai's datacenter-IP block.
-      # Add repo secrets to enable: SCRAPE_PROXY (e.g. http://host:port or
-      # http://user:pass@host:port), and optionally SCRAPE_PROXY_USERNAME /
-      # SCRAPE_PROXY_PASSWORD. Without it, the scraper runs on the (blocked) runner IP.
+      AKAMAI_CIRCUIT_BREAKER: 3
+      BLOCK_COOLDOWN_BASE_HOURS: 6
+      BLOCK_COOLDOWN_MAX_HOURS: 72
+      # Optional organization-approved egress routing. Access-control detection,
+      # per-station cooldowns, and the run-level circuit breaker remain enabled.
       SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}
       SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}

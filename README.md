@@ -207,6 +207,8 @@ SCRAPE_STATES=CA,NV MAX_STATIONS=50 npm run scrape
 SCRAPE_ROTATE_STATES=true SCRAPE_ROTATION_COUNT=1 MAX_STATIONS=75 npm run scrape
 ```
 
+When Tesla returns an Akamai challenge or access-control response, the scraper does not treat that as a successful no-price result. It preserves the last successful price state, records the attempt separately, applies a 6/12/24/48/72-hour station cooldown, and opens a run-level circuit breaker after three consecutive blocks. The latest operational summary is written to `data/scrape-health.json`.
+
 To spend a run only on stations that still need usable price history:
 
 ```bash

@@ -244,12 +244,14 @@ function manualCheckFromCurrentData(selected, prediction, rows) {
 function priceState(selected, prediction) {
   if (prediction?.latestObservedAt) {
     const current = isCurrentPrediction(prediction);
+    const blockedNote = selected?.lastScrapeBlocked ? ` Tesla blocked the latest automated attempt${selected.lastAttemptedAt ? ` on ${shortDate(selected.lastAttemptedAt)}` : ''}; the saved observation was preserved.` : '';
     return {
       title: current ? 'Recent Tesla public price observed' : 'Stale historical price only',
       tone: current ? 'ok' : 'warn',
-      detail: `${money(prediction.latestObservedPrice)} last observed ${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}. ${current ? 'Treat this as recently observed, but still verify in Tesla before charging.' : `Older than ${CURRENT_PRICE_MAX_HOURS} hours, so CaughtaKWH keeps it as history instead of showing it as the current Tesla price.`}`
+      detail: `${money(prediction.latestObservedPrice)} last observed ${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}. ${current ? 'Treat this as recently observed, but still verify in Tesla before charging.' : `Older than ${CURRENT_PRICE_MAX_HOURS} hours, so CaughtaKWH keeps it as history instead of showing it as the current Tesla price.`}${blockedNote}`
     };
   }
+  if (selected?.lastScrapeBlocked) return { title: 'Tesla blocked the automated check', tone: 'warn', detail: `Attempted ${shortDate(selected.lastAttemptedAt || selected.lastBlockedAt || selected.lastScrapedAt)}. CaughtaKWH preserved prior data and will wait until ${shortDate(selected.nextScrapeEligibleAt)} before retrying.` };
   if (selected?.lastScrapeHadAvailability) return { title: 'Tesla shows the site, but not the price', tone: 'warn', detail: 'The station page had availability info last time we checked, but it did not show a public $/kWh rate.' };
   if (selected?.lastScrapedAt) return { title: 'No price on the public page yet', tone: 'warn', detail: `Last checked ${shortDate(selected.lastScrapedAt)}. The live rate may only be visible in the Tesla app or inside the car.` };
   return { title: 'We have not checked this one yet', tone: 'warn', detail: 'Until the scraper gets a clean look at this station, use Tesla for the live price.' };
@@ -444,7 +446,7 @@ function App() {
   const latestHistory = historyRows.at(-1);
   const historyReadiness = usableHistoryState(prediction, historyRows);
   const manualData = manualCheck.data || null;
-  const publicCheckResult = pricingFresh ? 'Recent price found' : prediction?.latestObservedAt ? 'Stale history only' : selected?.lastScrapeHadAvailability ? 'Availability only' : selected?.lastScrapedAt ? 'No price shown' : 'Not checked yet';
+  const publicCheckResult = pricingFresh ? 'Recent price found' : prediction?.latestObservedAt ? 'Stale history only' : selected?.lastScrapeBlocked ? 'Automated check blocked' : selected?.lastScrapeHadAvailability ? 'Availability only' : selected?.lastScrapedAt ? 'No price shown' : 'Not checked yet';
   const siteDetails = selected?.lastSiteDetails || {};
   const lastCandidate = selected?.lastScrapeCandidates?.find(candidate => candidate.hasPrice || candidate.hasAvailability) || selected?.lastScrapeCandidates?.[0];
   const amenityList = Array.isArray(siteDetails.amenities) ? siteDetails.amenities : [];
@@ -561,7 +563,8 @@ function App() {
             <span>Estimated capacity<strong>{selected?.estimatedSiteKw ? `${selected.estimatedSiteKw.toLocaleString()} kW` : selected?.stalls && selected?.maxKw ? `${(selected.stalls * selected.maxKw).toLocaleString()} kW` : '—'}</strong></span>
             <span>Availability<strong>{availabilitySummary}</strong></span>
             <span>Utilization<strong>{percent(latestHistory?.utilizationPct)}</strong></span>
-            <span>Last page check<strong>{selected?.lastScrapedAt ? shortDate(selected.lastScrapedAt) : 'Not checked'}</strong></span>
+            <span>Last successful page<strong>{selected?.lastSuccessfulScrapeAt || (!selected?.lastScrapeBlocked && selected?.lastScrapedAt) ? shortDate(selected.lastSuccessfulScrapeAt || selected.lastScrapedAt) : 'None recorded'}</strong></span>
+            <span>Last attempt<strong>{selected?.lastAttemptedAt || selected?.lastBlockedAt || selected?.lastScrapedAt ? `${shortDate(selected.lastAttemptedAt || selected.lastBlockedAt || selected.lastScrapedAt)}${selected?.lastScrapeBlocked ? ' · blocked' : ''}` : 'Not checked'}</strong></span>
             <span>Page we tried<strong>{lastCandidate ? `${candidateLabel(lastCandidate.reason)} · ${lastCandidate.status || '—'}` : '—'}</strong></span>
             {selected?.dateOpened && <span>Opened<strong>{selected.dateOpened}</strong></span>}
             {selected?.facilityName && <span>At / near<strong>{selected.facilityName}</strong></span>}

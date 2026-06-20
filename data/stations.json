@@ -11048,7 +11048,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 179.01,
+    "observationPriorityScore": 179.91,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -11081,6 +11081,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/BayshoreNYsupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -11092,6 +11093,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/BayShoreNYNYsupercharger",
         "reason": "name_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -11099,7 +11101,12 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T22:55:52.088Z",
+    "lastBlockedAt": "2026-06-20T22:55:52.088Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T04:55:52.088Z"
   },
   {
     "id": "BaytownTXSupercharger",
@@ -28149,7 +28156,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 191.01,
+    "observationPriorityScore": 191.91,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 7800,
@@ -28184,6 +28191,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/401968",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -28195,6 +28203,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/CommackNYsupercharger",
         "reason": "city_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -28206,6 +28215,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/CommackNYNYsupercharger",
         "reason": "name_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -28213,7 +28223,12 @@
         "publicDetailsFound": false,
         "error": null
       }
-    ]
+    ],
+    "lastAttemptedAt": "2026-06-20T22:55:52.088Z",
+    "lastBlockedAt": "2026-06-20T22:55:52.088Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T04:55:52.088Z"
   },
   {
     "id": "CommerceCAsupercharger",
@@ -65918,7 +65933,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 21,
     "lastLowPriceId": null,
-    "observationPriorityScore": 1025,
+    "observationPriorityScore": 1025.91,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -65935,6 +65950,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYsupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -65946,6 +65962,7 @@
         "url": "https://www.tesla.com/findus/location/supercharger/LakeGroveNYNYsupercharger",
         "reason": "name_state_slug",
         "status": 403,
+        "retryAfter": null,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -66002,7 +66019,12 @@
     },
     "superchargeInfoMatchedAt": "2026-06-14",
     "lastScrapeBlocked": true,
-    "lastObservationSource": "community_form"
+    "lastObservationSource": "community_form",
+    "lastAttemptedAt": "2026-06-20T22:55:52.088Z",
+    "lastBlockedAt": "2026-06-20T22:55:52.088Z",
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-06-21T04:55:52.088Z"
   },
   {
     "id": "27309",

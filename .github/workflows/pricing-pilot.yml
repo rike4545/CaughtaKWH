@@ -27,6 +27,9 @@ jobs:
       PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '10' }}
       PILOT_CLUSTER_SIZE: 10
       SCRAPE_DELAY_MS: 500
+      AKAMAI_CIRCUIT_BREAKER: 3
+      BLOCK_COOLDOWN_BASE_HOURS: 6
+      BLOCK_COOLDOWN_MAX_HOURS: 72
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:

@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-06-20T22:55:52.088Z",
+  "requestedLimit": 10,
+  "inScopeStations": 10,
+  "attempted": 3,
+  "validPages": 0,
+  "savedObservations": 0,
+  "blocked": 3,
+  "failed": 0,
+  "cooldownSkipped": 0,
+  "attemptedStationIds": [
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
+  ],
+  "blockedStationIds": [
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
+  ],
+  "circuitBreaker": {
+    "opened": true,
+    "threshold": 3,
+    "consecutiveBlocks": 3
+  },
+  "cooldownPolicy": {
+    "baseHours": 6,
+    "maxHours": 72,
+    "ignored": false
+  },
+  "scope": {
+    "states": [],
+    "countries": [],
+    "nearby": null,
+    "needsHistory": false
+  }
+}

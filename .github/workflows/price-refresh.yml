@@ -58,6 +58,9 @@ jobs:
       SCRAPE_LNG: ${{ github.event.inputs.scrape_lng || '' }}
       SCRAPE_RADIUS_MILES: ${{ github.event.inputs.scrape_radius_miles || '150' }}
       SCRAPE_NEEDS_HISTORY: ${{ github.event.inputs.needs_history || (github.event_name == 'schedule' && 'true' || 'false') }}
+      AKAMAI_CIRCUIT_BREAKER: 3
+      BLOCK_COOLDOWN_BASE_HOURS: 6
+      BLOCK_COOLDOWN_MAX_HOURS: 72
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
