@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-20T19:04:49.307Z",
+  "generatedAt": "2026-06-21T19:09:02.412Z",
   "totalStations": 3105,
   "needsCount": 200,
   "stations": [
@@ -2164,18 +2164,6 @@
       "reportUrl": "report.html?station=19359"
     },
     {
-      "id": "26660",
-      "name": "Centereach, NY",
-      "city": "Centereach",
-      "state": "NY",
-      "lat": 40.859122,
-      "lng": -73.074425,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26660"
-    },
-    {
       "id": "32157",
       "name": "Hollywood, FL - S State Rd 7",
       "city": "Hollywood",
@@ -2402,6 +2390,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=TracyCASupercharger"
+    },
+    {
+      "id": "CastaicCASupercharger",
+      "name": "Castaic, CA",
+      "city": "Castaic",
+      "state": "CA",
+      "lat": 34.452312,
+      "lng": -118.61614,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=CastaicCASupercharger"
     }
   ]
 }
