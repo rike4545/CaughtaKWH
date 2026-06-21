@@ -50,7 +50,7 @@ jobs:
           git commit -m "Record weekly transparency summary post"
           for attempt in 1 2 3; do
             git fetch origin main
-            if git pull --rebase origin main && git push origin HEAD:main; then
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
               echo "Pushed."
               exit 0
             fi
