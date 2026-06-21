@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, Eye, EyeOff, ExternalLink, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, Eye, EyeOff, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
@@ -478,20 +478,25 @@ function App() {
     }, error => { setGeoError(error.message || 'Location permission denied.'); setGeoLoading(false); }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
   }
 
-  async function checkSelectedNow() {
+  async function checkSelectedNow({ live = false } = {}) {
     if (!selected?.id || manualCheck.status === 'loading') return;
-    setManualCheck({ status: 'loading' });
+    setManualCheck({ status: 'loading', live });
     try {
-      const response = await fetch(`/api/station-price?id=${encodeURIComponent(selected.id)}&t=${Date.now()}`, { cache: 'no-store' });
+      // `live=1` asks the backend to run a careful, headless (hidden) Tesla page
+      // check on demand. The scrape happens server-side because a browser cannot
+      // read Tesla's cross-origin page directly; we just surface the result inline
+      // instead of opening a new window.
+      const response = await fetch(`/api/station-price?id=${encodeURIComponent(selected.id)}${live ? '&live=1' : ''}&t=${Date.now()}`, { cache: 'no-store' });
       if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
       const json = await response.json();
-      setManualCheck({ status: 'success', checkedAt: new Date().toISOString(), data: json });
+      setManualCheck({ status: 'success', live, checkedAt: new Date().toISOString(), data: json });
     } catch (error) {
       setManualCheck({
         status: 'success',
+        live,
         checkedAt: new Date().toISOString(),
         data: manualCheckFromCurrentData(selected, prediction, historyRows),
-        note: 'Showing the newest data already loaded in this dashboard.'
+        note: 'Live sync was unavailable, so this is the newest data already loaded in this dashboard.'
       });
     }
   }
@@ -619,12 +624,12 @@ function App() {
         <Card>
           <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url}>Open Tesla page</a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
-          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' ? 'spin' : ''}/>{manualCheck.status === 'loading' ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <a className="liveTeslaButton" href={selected.url}><ExternalLink size={16}/>Get live Tesla price</a>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
+          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={() => checkSelectedNow()} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' && !manualCheck.live ? 'spin' : ''}/>{manualCheck.status === 'loading' && !manualCheck.live ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <button className="liveTeslaButton" onClick={() => checkSelectedNow({ live: true })} disabled={manualCheck.status === 'loading'}>{manualCheck.status === 'loading' && manualCheck.live ? <RefreshCw size={16} className="spin"/> : <Zap size={16}/>}{manualCheck.status === 'loading' && manualCheck.live ? 'Syncing live price…' : 'Get live Tesla price'}</button>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
           <div className="priceStrip"><div><span>Last observed</span><strong>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'Never'}</strong><small>{prediction?.latestObservedAt ? `${shortDate(prediction.latestObservedAt)} · ${publicCheckResult}` : 'No public price yet'}</small></div><div><span>Best charging window</span><strong>{bestWindowLabel}</strong><small>{prediction ? 'cheapest expected time' : 'needs more data'}</small></div><div><span>How much to trust it</span><strong>{prediction?.confidenceLabel || 'Low'}</strong><small>{prediction?.confidenceScore != null ? `${prediction.confidenceScore}/100 · ${prediction.sampleCount} samples` : 'Needs more samples'}{prediction?.neuralModel?.status ? ` · NN ${prediction.neuralModel.status}${prediction.neuralModel.holdoutMae != null ? `, ${(prediction.neuralModel.holdoutMae * 100).toFixed(1)}¢ MAE` : ''}${prediction.neuralModel.historicalCapturesFlagged ? ` · ${prediction.neuralModel.historicalCapturesFlagged} capture flagged` : ''}` : ''}</small></div><div><span>Stalls and speed</span><strong>{selected?.stalls || '—'} stalls</strong><small>{selected?.maxKw ? `Up to ${selected.maxKw} kW` : selected?.capacityConfidence || 'capacity unknown'}</small></div></div>
           {manualCheck.status !== 'idle' && <div className={manualCheck.status === 'loading' ? 'manualCheck loading' : 'manualCheck'}>
             {manualCheck.status === 'loading'
-              ? <><RefreshCw size={18} className="spin"/><div><strong>Loading the newest CaughtaKWH observation...</strong><p>This is not a live Tesla price check. Tesla is still the live source before you charge.</p></div></>
+              ? <><RefreshCw size={18} className="spin"/><div><strong>{manualCheck.live ? 'Syncing the latest Tesla price…' : 'Loading the newest CaughtaKWH observation...'}</strong><p>{manualCheck.live ? 'Checking the Tesla page in the background — no new window opens. Tesla is still the live source before you charge.' : 'This is not a live Tesla price check. Tesla is still the live source before you charge.'}</p></div></>
               : <><ShieldCheck size={18}/><div><strong>{manualData?.latestObservedAt ? `Newest CaughtaKWH observation loaded ${shortDate(manualCheck.checkedAt)}` : 'No CaughtaKWH price observation yet'}</strong><p>{manualData?.latestObservedAt ? `Tesla/member ${money(manualData.memberPricePerKwh)}${manualData.memberPeakPricePerKwh != null ? `–${money(manualData.memberPeakPricePerKwh)} peak` : ''}${manualData.nonMemberPricePerKwh != null ? ` · Non-Tesla ${money(manualData.nonMemberPricePerKwh)}${manualData.nonMemberPeakPricePerKwh != null ? `–${money(manualData.nonMemberPeakPricePerKwh)} peak` : ''}` : ''} · observed ${shortDate(manualData.latestObservedAt)}.` : 'CaughtaKWH has not captured a public price for this station yet.'} {manualCheck.note ? `${manualCheck.note} ` : ''}This is saved observation data, not a live Tesla quote. Check Tesla for the live in-car/app price.</p></div></>}
           </div>}
         </Card>

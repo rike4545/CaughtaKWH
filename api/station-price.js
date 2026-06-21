@@ -23,6 +23,7 @@ export default async function handler(request) {
   if (request.method === 'OPTIONS') return json(200, { ok: true });
   const url = new URL(request.url);
   const stationId = url.searchParams.get('id');
+  const liveRequested = url.searchParams.get('live') === '1';
   if (!stationId) return json(400, { ok: false, error: 'Missing station id.' });
 
   const base = process.env.CAUGHTAKWH_DATA_BASE || 'https://rike4545.github.io/CaughtaKWH/data';
@@ -43,10 +44,13 @@ export default async function handler(request) {
   return json(200, {
     ok: true,
     stationId,
-    mode: 'last-known-plus-on-demand-api-scaffold',
+    liveRequested,
+    mode: liveRequested ? 'live-check-requested-served-from-cache' : 'last-known-plus-on-demand-api-scaffold',
     source: 'CaughtaKWH public dataset cache',
     currentTeslaPriceGuaranteed: false,
-    note: 'This endpoint returns the freshest CaughtaKWH observation available. A deployed worker/function can be extended to run a live Tesla page check on demand, but Tesla does not always expose public $/kWh pricing.',
+    note: liveRequested
+      ? 'A live Tesla check must run server-side in a hidden/headless browser (the page is cross-origin and behind anti-bot protection, so it cannot be read from the visitor browser). Until a headless worker is wired up here, this returns the freshest CaughtaKWH observation instead of opening a window for the user.'
+      : 'This endpoint returns the freshest CaughtaKWH observation available. A deployed worker/function can be extended to run a live Tesla page check on demand, but Tesla does not always expose public $/kWh pricing.',
     cachePolicy: {
       freshForSeconds: CACHE_TTL_SECONDS,
       stale: typeof ageSeconds === 'number' ? ageSeconds > CACHE_TTL_SECONDS : true
