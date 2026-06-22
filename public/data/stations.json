@@ -22049,7 +22049,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 180.44,
+    "observationPriorityScore": 419,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -22074,40 +22074,19 @@
       "nacs": 12
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeError": "akamai_blocked",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapeBlocked": true,
-    "lastScrapeResult": "akamai_blocked",
-    "lastScrapeAttemptCount": 3,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/26660",
         "reason": "stored_tesla_url",
         "status": 403,
         "retryAfter": null,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/CentereachNYsupercharger",
-        "reason": "city_state_slug",
-        "status": 403,
-        "retryAfter": null,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/CentereachNYNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
-        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 195,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -22116,11 +22095,17 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-06-20T22:59:45.934Z",
-    "lastBlockedAt": "2026-06-20T22:59:45.934Z",
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-06-21T04:59:45.934Z"
+    "lastAttemptedAt": "2026-06-22T05:28:46.951Z",
+    "lastBlockedAt": "2026-06-22T05:28:46.951Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-06-22T17:28:46.951Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 195
+    }
   },
   {
     "id": "centervilletxsupercharger",
@@ -90755,7 +90740,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 180.44,
+    "observationPriorityScore": 419,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -90779,28 +90764,19 @@
       "nacs": 12
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeError": "akamai_blocked",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapeBlocked": true,
-    "lastScrapeResult": "akamai_blocked",
-    "lastScrapeAttemptCount": 2,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/NorthBabylonNYSupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
         "retryAfter": null,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/NorthBabylonNYNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
-        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 171,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -90809,11 +90785,17 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-06-20T22:59:45.934Z",
-    "lastBlockedAt": "2026-06-20T22:59:45.934Z",
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-06-21T04:59:45.934Z"
+    "lastAttemptedAt": "2026-06-22T05:28:46.951Z",
+    "lastBlockedAt": "2026-06-22T05:28:46.951Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-06-22T17:28:46.951Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 171
+    }
   },
   {
     "id": "northbendsupercharger",
@@ -120113,7 +120095,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 180.44,
+    "observationPriorityScore": 419,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -120138,28 +120120,19 @@
       "multi": 12
     },
     "superchargeInfoMatchedAt": "2026-06-14",
-    "lastScrapeError": "akamai_blocked",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapeBlocked": true,
-    "lastScrapeResult": "akamai_blocked",
-    "lastScrapeAttemptCount": 2,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/shirleynysupercharger",
         "reason": "stored_tesla_url",
         "status": 403,
         "retryAfter": null,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": false,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/ShirleyNYNYsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
-        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 126,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
@@ -120168,11 +120141,17 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-06-20T22:59:45.934Z",
-    "lastBlockedAt": "2026-06-20T22:59:45.934Z",
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-06-21T04:59:45.934Z"
+    "lastAttemptedAt": "2026-06-22T05:28:46.951Z",
+    "lastBlockedAt": "2026-06-22T05:28:46.951Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-06-22T17:28:46.951Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 126
+    }
   },
   {
     "id": "32902",
