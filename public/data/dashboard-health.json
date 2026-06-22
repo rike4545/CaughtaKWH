@@ -1,13 +1,14 @@
 {
-  "generatedAt": "2026-06-20T13:10:10.118Z",
+  "generatedAt": "2026-06-22T16:15:25.786Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3105,
-    "checkedStations": 3101,
-    "checkedPct": 99.87,
+    "checkedStations": 3091,
+    "checkedPct": 99.55,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 1,
+    "blockedStations": 10,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -15,7 +16,7 @@
     "strongHistoryStations": 0,
     "strongHistoryPct": 0,
     "freshPriceStations": 0,
-    "staleOrUncheckedStations": 3104,
+    "staleOrUncheckedStations": 3105,
     "coordinatePct": 100,
     "addressPct": 100,
     "historyFiles": 2,
@@ -61,14 +62,14 @@
     {
       "state": "NY",
       "stations": 124,
-      "checked": 124,
+      "checked": 114,
       "priced": 1,
       "usable": 0,
-      "stale": 123,
-      "checkedPct": 100,
+      "stale": 124,
+      "checkedPct": 91.94,
       "pricedPct": 0.81,
       "usablePct": 0,
-      "priorityScore": 56044.7
+      "priorityScore": 55009.03
     },
     {
       "state": "PA",
@@ -125,9 +126,11 @@
       "name": "Lake Grove, NY",
       "state": "NY",
       "city": "Lake Grove",
-      "lastScrapedAt": "2026-06-20T09:37:05.829Z",
-      "lastScrapeResult": "akamai_blocked",
-      "priorityScore": 1025.01
+      "lastScrapedAt": null,
+      "lastAttemptedAt": "2026-06-22T12:24:47.636Z",
+      "blocked": true,
+      "lastScrapeResult": "access_controlled",
+      "priorityScore": 1265
     },
     {
       "id": "404914",
@@ -135,6 +138,8 @@
       "state": "CA",
       "city": "Fullerton",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 497.37
     },
@@ -144,6 +149,8 @@
       "state": "CA",
       "city": "Santa Monica",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 492.51
     },
@@ -153,6 +160,8 @@
       "state": "CA",
       "city": "San Clemente",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 492.49
     },
@@ -162,6 +171,8 @@
       "state": "TX",
       "city": "Madisonville",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 492.48
     },
@@ -171,6 +182,8 @@
       "state": "CA",
       "city": "Lost Hills",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 492.46
     },
@@ -180,6 +193,8 @@
       "state": "CA",
       "city": "Firebaugh",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 492.45
     },
@@ -189,6 +204,8 @@
       "state": "CA",
       "city": "Baker",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 492.43
     },
@@ -198,6 +215,8 @@
       "state": "TX",
       "city": "Baytown",
       "lastScrapedAt": "2026-05-30T23:35:32.829Z",
+      "lastAttemptedAt": "2026-05-30T23:35:32.829Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 483.72
     },
@@ -207,6 +226,8 @@
       "state": "NY",
       "city": "Valley Stream",
       "lastScrapedAt": "2026-05-30T17:18:42.437Z",
+      "lastAttemptedAt": "2026-05-30T17:18:42.437Z",
+      "blocked": false,
       "lastScrapeResult": "not_checked",
       "priorityScore": 476.61
     }
@@ -225,7 +246,7 @@
     {
       "title": "Prioritize slow Tesla pages",
       "status": "active",
-      "detail": "3104 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time."
+      "detail": "3105 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time."
     },
     {
       "title": "Add local power context state by state",
