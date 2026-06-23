@@ -1,40 +1,32 @@
 {
-  "generatedAt": "2026-06-23T15:23:35.054Z",
-  "requestedLimit": 10,
-  "inScopeStations": 6,
-  "attempted": 3,
+  "generatedAt": "2026-06-23T16:27:18.472Z",
+  "requestedLimit": 100,
+  "inScopeStations": 0,
+  "attempted": 0,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 0,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 4,
-  "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
-  ],
-  "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
-  ],
+  "cooldownSkipped": 0,
+  "attemptedStationIds": [],
+  "blockedStationIds": [],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 0,
+    "requestAttempts": 0,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 0
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -42,9 +34,17 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "LA",
+      "MA",
+      "MD",
+      "ME"
+    ],
     "countries": [],
-    "nearby": null,
-    "needsHistory": false
+    "nearby": {
+      "label": "0,0",
+      "radiusMiles": 150
+    },
+    "needsHistory": true
   }
 }
