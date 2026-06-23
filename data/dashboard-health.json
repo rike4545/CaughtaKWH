@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-22T16:15:25.786Z",
+  "generatedAt": "2026-06-23T14:02:37.997Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3105,
@@ -69,7 +69,7 @@
       "checkedPct": 91.94,
       "pricedPct": 0.81,
       "usablePct": 0,
-      "priorityScore": 55009.03
+      "priorityScore": 55959.68
     },
     {
       "state": "PA",
