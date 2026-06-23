@@ -59746,7 +59746,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 154.66,
+    "observationPriorityScore": 392,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1500,
@@ -59780,7 +59780,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 206,
+        "durationMs": 235,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -59790,16 +59790,16 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-06-20T23:08:53.265Z",
-    "lastBlockedAt": "2026-06-20T23:08:53.265Z",
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-06-21T05:08:53.265Z",
+    "lastAttemptedAt": "2026-06-23T04:19:57.297Z",
+    "lastBlockedAt": "2026-06-23T04:19:57.297Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-06-23T16:19:57.297Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 206
+      "averageRequestMs": 235
     }
   },
   {
