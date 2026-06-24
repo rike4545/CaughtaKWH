@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T23:02:30.985Z",
+  "generatedAt": "2026-06-24T00:09:11.673Z",
   "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
@@ -35,10 +35,10 @@
   },
   "scope": {
     "states": [
-      "LA",
       "MA",
       "MD",
-      "ME"
+      "ME",
+      "MI"
     ],
     "countries": [],
     "nearby": {
