@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-25T12:11:59.789Z",
-  "requestedLimit": 100,
+  "generatedAt": "2026-06-25T15:10:43.907Z",
+  "requestedLimit": 10,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -9,7 +9,7 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 10,
   "attemptedStationIds": [],
   "blockedStationIds": [],
   "transientFailureStationIds": [],
@@ -34,17 +34,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "MD",
-      "ME",
-      "MI",
-      "MN"
-    ],
+    "states": [],
     "countries": [],
-    "nearby": {
-      "label": "0,0",
-      "radiusMiles": 150
-    },
-    "needsHistory": true
+    "nearby": null,
+    "needsHistory": false
   }
 }
