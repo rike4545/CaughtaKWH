@@ -722,6 +722,35 @@ function App() {
           </>;
         })()}</Card>
 
+        <Card>{(() => {
+          const av = prediction?.availability;
+          if (!av || !av.hasData) {
+            return <>
+              <div className="sectionTitle"><div><p>Stall availability</p><h2>Not enough availability data yet</h2></div><span className="badge">Forecast</span></div>
+              <p className="muted">CaughtaKWH hasn't captured open-vs-occupied stall counts for this station yet. Once Tesla's availability shows up in our checks, a busy-times forecast and the best time to find an open stall will appear here.</p>
+            </>;
+          }
+          const occRows = Array.from({ length: 48 }, (_, slot) => {
+            const row = av.slots.find(s => s.slot === slot);
+            return { slot, slotLabel: slotLabel(slot), occupancy: row && row.smoothedOccupancyPct != null ? Math.round(row.smoothedOccupancyPct * 100) : null };
+          });
+          const barColor = v => v == null ? 'rgba(255,255,255,.12)' : v <= 33 ? '#53e0a3' : v <= 66 ? '#ffd166' : '#ff8fa3';
+          const q = av.quietestSlot;
+          const b = av.busiestSlot;
+          const pctOf = v => typeof v === 'number' ? `${Math.round(v * 100)}%` : '—';
+          return <>
+            <div className="sectionTitle"><div><p>Stall availability forecast</p><h2>{q ? `Best shot at an open stall: ${q.label}` : 'Typical occupancy by time of day'}</h2></div><span className={av.confidenceLabel === 'high' ? 'badge fresh' : 'badge'}>{av.confidenceLabel} confidence</span></div>
+            <p className="muted">Green = usually open, yellow = filling, red = usually busy. Based on {av.occupancySampleCount} stall-count observation{av.occupancySampleCount === 1 ? '' : 's'}. Always check Tesla for live availability before you go.</p>
+            <div className="priceStrip">
+              <div><span>Best time for an open stall</span><strong>{q ? q.label : '—'}</strong><small>{q ? `${q.expectedAvailableStalls != null ? `~${q.expectedAvailableStalls} open · ` : ''}${pctOf(q.expectedOccupancyPct)} full typically` : 'needs more data'}</small></div>
+              <div><span>Busiest time</span><strong>{b ? b.label : '—'}</strong><small>{b ? `${pctOf(b.expectedOccupancyPct)} full typically` : 'needs more data'}</small></div>
+              <div><span>Right now</span><strong>{av.latestAvailabilityLabel ? titleCase(av.latestAvailabilityLabel) : '—'}</strong><small>{av.latestAvailableStalls != null ? `${av.latestAvailableStalls}/${av.latestTotalStalls || selected?.stalls || '—'} open · ${av.latestAgeHours != null ? `${av.latestAgeHours.toFixed(1)}h ago` : 'recent'}` : 'no recent snapshot'}</small></div>
+              <div><span>Typical occupancy</span><strong>{pctOf(av.overallOccupancyPct)}</strong><small>across all observed times</small></div>
+            </div>
+            <ResponsiveContainer width="100%" height={220}><BarChart data={occRows} barCategoryGap="10%"><CartesianGrid strokeDasharray="3 3" vertical={false}/><XAxis dataKey="slotLabel" interval={5} tick={{ fill: 'var(--muted)', fontSize: 12 }}/><YAxis tickFormatter={v => `${v}%`} domain={[0, 100]} tick={{ fill: 'var(--muted)', fontSize: 12 }} width={40}/><Tooltip content={<ChartTooltip formatter={v => `${v}% full`}/>}/>{q && <ReferenceLine x={slotLabel(q.slot)} stroke="#53e0a3" strokeDasharray="4 3" label={{ value: 'Open', fill: '#53e0a3', fontSize: 11 }}/>}<Bar dataKey="occupancy" name="Typical occupancy" radius={[4, 4, 0, 0]}>{occRows.map((row, i) => <Cell key={i} fill={barColor(row.occupancy)}/>)}</Bar></BarChart></ResponsiveContainer>
+          </>;
+        })()}</Card>
+
         <ChargeCostCalculator
           currentPrice={calcCurrentRate}
           cheapestPrice={calcCheapestRate}
