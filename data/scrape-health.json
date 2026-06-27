@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T01:27:18.709Z",
+  "generatedAt": "2026-06-27T20:48:08.138Z",
   "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
@@ -21,7 +21,12 @@
     "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
-    "proxyConfigured": false
+    "proxyConfigured": false,
+    "proxyPool": {
+      "candidates": 0,
+      "tried": 0,
+      "activeHost": null
+    }
   },
   "circuitBreaker": {
     "opened": false,
