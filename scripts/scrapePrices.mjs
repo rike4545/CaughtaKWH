@@ -5,6 +5,7 @@ import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.
 import { validateCapturedPrices } from './pricingNeuralNetwork.mjs';
 import { isScrapeEligible, nextBlockedState, successfulScrapeState } from './scrapePolicy.mjs';
 import { fetchHtmlWithRetry, isAccessControlStatus, isTransientStatus, summarizeTransport, transportSignal } from './scrapeTransport.mjs';
+import { gatherProxyCandidates, parseProxy, checkProxy } from './proxyPool.mjs';
 import {
   classifySiteContent,
   extractNextData,
@@ -43,44 +44,62 @@ const FETCH_RETRY_DELAY_MS = Math.max(0, Number(process.env.FETCH_RETRY_DELAY_MS
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
 
-// --- Egress proxy (optional) -----------------------------------------------
-// Optional organization-managed egress proxy. This changes network routing only;
-// block detection, cooldowns, and circuit breakers still apply.
-const SCRAPE_PROXY = String(process.env.SCRAPE_PROXY || '').trim();
+// --- Egress proxy pool with health-checked failover ------------------------
+// Routes scraper traffic through one or more proxies. Free/public proxies are dead or blocked
+// most of the time, so candidates (SCRAPE_PROXY + SCRAPE_PROXY_LIST + SCRAPE_PROXY_LIST_URL)
+// are health-checked and rotated through: a dead one is skipped, and if Akamai blocks stack up
+// mid-run the fetch route rotates to the next healthy proxy instead of ending the run. This
+// changes network routing only; block detection, cooldowns, and circuit breakers still apply.
 const SCRAPE_PROXY_USERNAME = String(process.env.SCRAPE_PROXY_USERNAME || '').trim();
 const SCRAPE_PROXY_PASSWORD = String(process.env.SCRAPE_PROXY_PASSWORD || '').trim();
+const PROXY_CHECK_URL = String(process.env.SCRAPE_PROXY_CHECK_URL || 'https://api.ipify.org').trim();
+const PROXY_CHECK_TIMEOUT_MS = Math.max(1000, Number(process.env.SCRAPE_PROXY_CHECK_TIMEOUT_MS || 8000));
+const PROXY_MAX_CANDIDATES = Math.max(1, Number(process.env.SCRAPE_PROXY_MAX_CANDIDATES || 25));
+const PROXY_SKIP_CHECK = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_PROXY_SKIP_CHECK || '').toLowerCase());
 
-// Builds the Playwright proxy config and applies the proxy to Node's global
-// fetch dispatcher. Returns null when no proxy is configured (default behavior).
-function configureProxy() {
-  if (!SCRAPE_PROXY) {
-    console.log('No SCRAPE_PROXY set — using the runner IP directly (likely Akamai-blocked from CI).');
-    return null;
+const proxyCandidates = (await gatherProxyCandidates(process.env))
+  .map(raw => parseProxy(raw, { username: SCRAPE_PROXY_USERNAME, password: SCRAPE_PROXY_PASSWORD }))
+  .filter(Boolean)
+  .slice(0, PROXY_MAX_CANDIDATES);
+const triedProxyUrls = new Set();
+let activeProxy = null;
+
+// Find the next candidate that passes a connectivity check, apply it to Node's global fetch
+// dispatcher, and return its parsed form (with Playwright config). Returns null when the list
+// is exhausted, so callers can fall back to a direct connection.
+async function activateNextProxy() {
+  for (const candidate of proxyCandidates) {
+    if (triedProxyUrls.has(candidate.dispatcherUrl)) continue;
+    triedProxyUrls.add(candidate.dispatcherUrl);
+    if (!PROXY_SKIP_CHECK) {
+      const ok = await checkProxy(candidate, { url: PROXY_CHECK_URL, timeoutMs: PROXY_CHECK_TIMEOUT_MS });
+      if (!ok) {
+        console.log(`Proxy ${candidate.host} failed the connectivity check; skipping.`);
+        continue;
+      }
+    }
+    try {
+      setGlobalDispatcher(new ProxyAgent(candidate.dispatcherUrl));
+    } catch (error) {
+      console.warn(`Could not apply proxy ${candidate.host} to fetch: ${error.message}`);
+      continue;
+    }
+    activeProxy = candidate;
+    console.log(`Routing scraper fetch traffic through proxy ${candidate.host} (${triedProxyUrls.size}/${proxyCandidates.length} tried).`);
+    return candidate;
   }
-  let parsed;
-  try {
-    parsed = new URL(SCRAPE_PROXY);
-  } catch {
-    console.warn(`SCRAPE_PROXY is not a valid URL (${SCRAPE_PROXY}); ignoring it.`);
-    return null;
-  }
-  const username = SCRAPE_PROXY_USERNAME || decodeURIComponent(parsed.username || '');
-  const password = SCRAPE_PROXY_PASSWORD || decodeURIComponent(parsed.password || '');
-  // Route Node's global fetch (the fetch-first path) through the proxy.
-  const token = username && password ? `${encodeURIComponent(username)}:${encodeURIComponent(password)}@` : '';
-  const dispatcherUrl = `${parsed.protocol}//${token}${parsed.host}`;
-  try {
-    setGlobalDispatcher(new ProxyAgent(dispatcherUrl));
-  } catch (error) {
-    console.warn(`Could not apply proxy to fetch: ${error.message}`);
-  }
-  // Playwright wants the server without inline credentials, plus separate auth.
-  const server = `${parsed.protocol}//${parsed.host}`;
-  console.log(`Routing scraper traffic through proxy ${parsed.host}.`);
-  return username ? { server, username, password } : { server };
+  return null;
 }
 
-const proxyConfig = configureProxy();
+if (!proxyCandidates.length) {
+  console.log('No proxy configured — using the runner IP directly (likely Akamai-blocked from CI).');
+} else {
+  await activateNextProxy();
+  if (!activeProxy) console.log(`None of the ${proxyCandidates.length} proxy candidate(s) passed the connectivity check — using the runner IP directly.`);
+}
+// Playwright is launched once with the first working proxy; the fetch-first path can rotate
+// across the rest mid-run (the browser tab keeps this initial proxy as a fallback).
+const proxyConfig = activeProxy ? activeProxy.playwright : null;
 
 function splitEnvList(value) {
   return String(value || '').split(',').map(item => item.trim()).filter(Boolean);
@@ -552,6 +571,16 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
         baseHours: BLOCK_COOLDOWN_BASE_HOURS,
         maxHours: BLOCK_COOLDOWN_MAX_HOURS
       }));
+      // Free-proxy failover: once blocks reach the circuit-breaker threshold, rotate the fetch
+      // route to the next healthy proxy and keep going rather than opening the circuit. Only when
+      // every candidate is exhausted does consecutiveBlocked stay high and the breaker trip.
+      if (consecutiveBlocked >= AKAMAI_CIRCUIT_BREAKER && triedProxyUrls.size < proxyCandidates.length) {
+        const rotated = await activateNextProxy();
+        if (rotated) {
+          console.log(`Akamai blocks reached the breaker; rotated fetch traffic to proxy ${rotated.host} and continuing.`);
+          consecutiveBlocked = 0;
+        }
+      }
     } else {
       failed++;
       if (outcome === 'transient_failure') {
@@ -598,7 +627,12 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
     ...summarizeTransport(runAttempts),
     fetchMaxAttempts: FETCH_MAX_ATTEMPTS,
     retryDelayMs: FETCH_RETRY_DELAY_MS,
-    proxyConfigured: Boolean(proxyConfig)
+    proxyConfigured: Boolean(proxyConfig),
+    proxyPool: {
+      candidates: proxyCandidates.length,
+      tried: triedProxyUrls.size,
+      activeHost: activeProxy?.host || null
+    }
   },
   circuitBreaker: {
     opened: circuitOpened,

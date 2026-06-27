@@ -11,23 +11,47 @@ automated coverage.
 
 ## How it's wired
 
-`scripts/scrapePrices.mjs` reads three optional environment variables and, when
-`SCRAPE_PROXY` is set, routes **both** the Playwright browser and Node's global
-`fetch` through it (`configureProxy()`):
+`scripts/proxyPool.mjs` gathers proxy candidates from the env vars below,
+health-checks them, and `scripts/scrapePrices.mjs` routes **both** the Playwright
+browser and Node's global `fetch` through the first one that connects.
 
 | Variable | Purpose |
 | --- | --- |
-| `SCRAPE_PROXY` | Proxy URL, e.g. `http://proxy.example.com:8080`. Credentials may be embedded (`http://user:pass@host:port`) or supplied separately. |
-| `SCRAPE_PROXY_USERNAME` | Optional username (overrides any in the URL). |
-| `SCRAPE_PROXY_PASSWORD` | Optional password (overrides any in the URL). |
+| `SCRAPE_PROXY` | A single proxy, e.g. `http://proxy.example.com:8080`. Credentials may be embedded (`http://user:pass@host:port`) or supplied separately. Bare `ip:port` is also accepted (assumed `http://`). |
+| `SCRAPE_PROXY_LIST` | Multiple proxies, comma/space/newline separated. Used for rotation/failover. |
+| `SCRAPE_PROXY_LIST_URL` | A URL returning a proxy list — plain `ip:port` lines, proxy URLs, or JSON (`["ip:port", ...]` or `[{ip,port}, ...]`). Fetched once at startup. Handy for free proxy-list endpoints. |
+| `SCRAPE_PROXY_USERNAME` / `SCRAPE_PROXY_PASSWORD` | Optional shared credentials applied to every candidate (override any embedded in the URL). |
+| `SCRAPE_PROXY_CHECK_URL` | Connectivity-check endpoint (default `https://api.ipify.org`). |
+| `SCRAPE_PROXY_CHECK_TIMEOUT_MS` | Per-proxy check timeout (default `8000`). |
+| `SCRAPE_PROXY_MAX_CANDIDATES` | Cap on candidates considered per run (default `25`). |
+| `SCRAPE_PROXY_SKIP_CHECK` | `true` to skip health checks and use candidates as-is. |
 
-When `SCRAPE_PROXY` is empty the code logs that it's using the runner IP
+When no candidates are configured, the code logs that it's using the runner IP
 directly and behaves exactly as before — so adding these env vars to a workflow
-is safe even before a proxy exists.
+is safe even before any proxy exists.
+
+### Rotation and failover
+
+This is what makes a free/public proxy list usable, since most entries are dead
+or already blocked:
+
+1. **At startup**, candidates are connectivity-checked one at a time; the first
+   that responds is applied to fetch and used to launch the browser. Dead ones
+   are skipped.
+2. **Mid-run**, if Akamai blocks pile up to the circuit-breaker threshold
+   (`AKAMAI_CIRCUIT_BREAKER`), the fetch route **rotates to the next healthy
+   proxy** and the run continues, instead of stopping. The breaker only trips
+   once every candidate is exhausted.
+
+The fetch-first path (which handles most successful captures via Tesla's
+embedded SSR JSON) rotates freely. The Playwright browser keeps the
+**initial** proxy for the whole run as a fallback — relaunching the browser per
+rotation would be far more expensive.
 
 Block detection, per-station cooldowns (`BLOCK_COOLDOWN_*`), and the run-level
-Akamai circuit breaker (`AKAMAI_CIRCUIT_BREAKER`) all stay in effect regardless
-of the proxy.
+circuit breaker all stay in effect regardless of the proxy. The run's
+`data/scrape-health.json` records `transport.proxyPool` (`candidates`, `tried`,
+`activeHost`) so you can see what happened.
 
 ## Enabling it
 
@@ -40,6 +64,16 @@ of the proxy.
 3. That's it — the workflows already reference these secrets. The next
    scheduled run of **Dynamic Tesla Pricing Refresh**, **Pricing Pilot Panel**,
    and **Update Supercharger Price Data** will route through the proxy.
+
+### Using a free proxy list
+
+Set `SCRAPE_PROXY_LIST` to several `ip:port` entries, or point
+`SCRAPE_PROXY_LIST_URL` at a free proxy-list endpoint (e.g. a ProxyScrape /
+geonode "free list" URL). The pool will health-check them and use the first that
+connects, rotating on blocks. **Manage expectations:** free proxies are
+datacenter IPs that Akamai usually pre-blocks, so even a "working" (connectable)
+proxy often still returns `access_controlled` on Tesla. Free lists are good for
+*testing the plumbing*; a residential proxy is what reliably gets through.
 
 ## Verifying
 
