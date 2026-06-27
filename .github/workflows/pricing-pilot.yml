@@ -32,6 +32,13 @@ jobs:
       BLOCK_COOLDOWN_MAX_HOURS: 72
       FETCH_MAX_ATTEMPTS: 2
       FETCH_RETRY_DELAY_MS: 750
+      # Optional organization-approved egress routing. When the SCRAPE_PROXY secret is
+      # unset this is a no-op and the runner IP is used (usually Akamai-blocked); set the
+      # secret to route every scrape through a proxy. Cooldowns and the circuit breaker
+      # still apply. See docs/scrape-proxy.md.
+      SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}
+      SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
+      SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
