@@ -72,6 +72,78 @@ function utilizationImpact(obs, field) {
   });
   return { sampleCount: rows.length, hasSignal: impact.filter(row => row.sampleCount > 0).length >= 2, bands: impact };
 }
+// Availability has a different scale and cadence than price (0..1 occupancy, captured whenever
+// the Tesla page or availability feed exposes stall counts), so it gets its own confidence curve.
+function availabilityConfidence(sampleCount, ageHours, spread) {
+  let score = 0;
+  if (sampleCount >= 60) score += 35; else if (sampleCount >= 20) score += 26; else if (sampleCount >= 6) score += 15; else score += 6;
+  if (typeof ageHours === 'number') {
+    if (ageHours <= 1) score += 30; else if (ageHours <= 6) score += 22; else if (ageHours <= 24) score += 14; else if (ageHours <= 72) score += 7;
+  }
+  if (typeof spread === 'number') {
+    if (spread <= 0.1) score += 20; else if (spread <= 0.25) score += 13; else score += 6;
+  }
+  const label = score >= 75 ? 'high' : score >= 45 ? 'medium' : 'low';
+  return { score: Math.min(100, score), label };
+}
+
+// Predict how busy a station tends to be by time of day, so the UI can suggest when an open
+// stall is most likely. Built from any observation that carries stall counts — page scrapes
+// today, and Tesla's availability feed once that source is wired into the scrape pipeline.
+function availabilityForecast(obs) {
+  const rows = obs.filter(row => typeof row.utilizationPct === 'number' || typeof row.availableStalls === 'number');
+  if (!rows.length) return { hasData: false, sampleCount: 0, slots: [] };
+  const occAll = rows.map(row => row.utilizationPct).filter(value => typeof value === 'number');
+  const overallOcc = occAll.length ? mean(occAll) : null;
+  const buckets = new Map();
+  for (const row of rows) {
+    const slot = slotFromObservation(row);
+    if (!buckets.has(slot)) buckets.set(slot, []);
+    buckets.get(slot).push(row);
+  }
+  const slots = [...buckets.entries()].map(([slot, slotRows]) => {
+    const occ = slotRows.map(row => row.utilizationPct).filter(value => typeof value === 'number');
+    const avail = slotRows.map(row => row.availableStalls).filter(value => typeof value === 'number');
+    const totals = slotRows.map(row => row.totalStalls).filter(value => typeof value === 'number');
+    const m = occ.length ? mean(occ) : null;
+    // Shrink each slot toward the station's overall occupancy by sample count, so a slot seen
+    // once at a quiet moment can't masquerade as reliably empty.
+    const smoothed = m != null && overallOcc != null ? shrinkToward(m, occ.length, overallOcc) : m;
+    const parts = slotParts(slot);
+    return {
+      slot, hour: parts.hour, minute: parts.minute, label: parts.label,
+      sampleCount: slotRows.length,
+      expectedOccupancyPct: m != null ? Number(m.toFixed(4)) : null,
+      smoothedOccupancyPct: smoothed != null ? Number(smoothed.toFixed(4)) : null,
+      expectedAvailableStalls: avail.length ? Number(mean(avail).toFixed(1)) : null,
+      typicalTotalStalls: totals.length ? median(totals) : null
+    };
+  }).sort((a, b) => a.slot - b.slot);
+  const ranked = slots.filter(row => typeof row.smoothedOccupancyPct === 'number');
+  const quietest = ranked.length ? [...ranked].sort((a, b) => a.smoothedOccupancyPct - b.smoothedOccupancyPct)[0] : null;
+  const busiest = ranked.length ? [...ranked].sort((a, b) => b.smoothedOccupancyPct - a.smoothedOccupancyPct)[0] : null;
+  const latest = [...rows].sort((a, b) => new Date(b.capturedAt) - new Date(a.capturedAt))[0];
+  const ageHours = hoursSince(latest?.capturedAt);
+  const conf = availabilityConfidence(rows.length, ageHours, occAll.length ? sd(occAll) : undefined);
+  const slim = row => row && { slot: row.slot, hour: row.hour, minute: row.minute, label: row.label, expectedOccupancyPct: row.smoothedOccupancyPct, expectedAvailableStalls: row.expectedAvailableStalls };
+  return {
+    hasData: true,
+    sampleCount: rows.length,
+    occupancySampleCount: occAll.length,
+    overallOccupancyPct: overallOcc != null ? Number(overallOcc.toFixed(4)) : null,
+    latestObservedAt: latest?.capturedAt || null,
+    latestAgeHours: typeof ageHours === 'number' ? Number(ageHours.toFixed(2)) : null,
+    latestAvailableStalls: latest?.availableStalls ?? null,
+    latestTotalStalls: latest?.totalStalls ?? null,
+    latestUtilizationPct: latest?.utilizationPct ?? null,
+    latestAvailabilityLabel: latest?.availabilityLabel ?? null,
+    quietestSlot: slim(quietest),
+    busiestSlot: slim(busiest),
+    confidenceScore: conf.score,
+    confidenceLabel: conf.label,
+    slots
+  };
+}
 function congestionSummary(obs) {
   const fees = obs.map(row => row.congestionFeePerMinuteMax).filter(value => typeof value === 'number');
   if (!fees.length) return { sampleCount: 0, maxFeePerMinute: null, averageFeePerMinute: null };
@@ -188,8 +260,10 @@ for (const file of files) {
   const station = stationById.get(stationId) || { id: stationId };
   const member = predictionFor(stationId, station, obs, 'memberPricePerKwh', 'member', neuralModel);
   const nonMember = predictionFor(stationId, station, obs, 'nonMemberPricePerKwh', 'non_member', neuralModel);
-  if (member) predictions.push(member);
-  if (nonMember) predictions.push(nonMember);
+  // Availability is membership-agnostic, so compute it once and attach to both rows.
+  const availability = availabilityForecast(obs);
+  if (member) { member.availability = availability; predictions.push(member); }
+  if (nonMember) { nonMember.availability = availability; predictions.push(nonMember); }
 }
 await writeJson(path.join(dataDir, 'predictions.json'), predictions);
 console.log(`Built ${predictions.length} predictions.`);
