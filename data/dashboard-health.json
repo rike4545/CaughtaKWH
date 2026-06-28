@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-27T12:53:53.084Z",
+  "generatedAt": "2026-06-28T13:03:26.168Z",
   "scope": "United States Superchargers first",
   "summary": {
-    "stationCount": 3105,
+    "stationCount": 3107,
     "checkedStations": 3091,
-    "checkedPct": 99.55,
+    "checkedPct": 99.49,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 1,
@@ -16,7 +16,7 @@
     "strongHistoryStations": 0,
     "strongHistoryPct": 0,
     "freshPriceStations": 0,
-    "staleOrUncheckedStations": 3105,
+    "staleOrUncheckedStations": 3107,
     "coordinatePct": 100,
     "addressPct": 100,
     "historyFiles": 2,
@@ -236,7 +236,7 @@
     {
       "title": "Grow repeated observations",
       "status": "needs_data",
-      "detail": "0 of 3105 US stations have usable price history. A station becomes usable after at least 3 recent price observations."
+      "detail": "0 of 3107 US stations have usable price history. A station becomes usable after at least 3 recent price observations."
     },
     {
       "title": "Keep fresh data visible",
@@ -246,7 +246,7 @@
     {
       "title": "Prioritize slow Tesla pages",
       "status": "active",
-      "detail": "3105 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time."
+      "detail": "3107 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time."
     },
     {
       "title": "Add local power context state by state",
