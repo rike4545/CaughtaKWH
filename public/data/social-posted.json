@@ -1,9 +1,9 @@
 {
   "LakeGroveNYsupercharger": {
-    "member": 0.3,
-    "nonMember": 0.65,
-    "type": "first",
-    "postedAt": "2026-06-14T01:51:26.705Z",
-    "statusId": "116745953995466361"
+    "member": 0.43,
+    "nonMember": null,
+    "type": "change",
+    "postedAt": "2026-06-28T11:25:39.774Z",
+    "statusId": "116827484246380561"
   }
 }
