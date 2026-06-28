@@ -6792,6 +6792,12 @@
     "state": "MD"
   },
   {
+    "id": "13542",
+    "name": "Halethorpe, MD",
+    "city": "Halethorpe",
+    "state": "MD"
+  },
+  {
     "id": "HalifaxNCQ42022",
     "name": "Halifax, NC",
     "city": "Halifax",
@@ -14182,6 +14188,12 @@
     "name": "Rosedale, MD - Pulaski Hwy",
     "city": "Rosedale",
     "state": "MD"
+  },
+  {
+    "id": "rosemontillinoissupercharger",
+    "name": "Rosemont, IL",
+    "city": "Rosemont",
+    "state": "IL"
   },
   {
     "id": "rosevillesupercharger",
