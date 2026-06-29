@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-22T14:49:30.706Z",
+  "generatedAt": "2026-06-29T13:13:27.359Z",
   "totals": {
-    "stations": 3105,
+    "stations": 3107,
     "withAnyHistory": 2,
     "predictions": 2
   },
@@ -9,7 +9,7 @@
     {
       "rank": 1,
       "action": "Capture first observations for stations with zero history",
-      "count": 3103,
+      "count": 3105,
       "sample": [
         "403969",
         "481260",
@@ -63,7 +63,7 @@
         {
           "state": "IL",
           "coverage": 0,
-          "total": 76
+          "total": 77
         },
         {
           "state": "FL",
