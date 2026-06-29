@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-29T04:57:51.899Z",
-  "requestedLimit": 10,
+  "generatedAt": "2026-06-29T06:27:10.285Z",
+  "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -9,7 +9,7 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 10,
+  "cooldownSkipped": 0,
   "attemptedStationIds": [],
   "blockedStationIds": [],
   "transientFailureStationIds": [],
@@ -39,9 +39,17 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "MO",
+      "MS",
+      "MT",
+      "NC"
+    ],
     "countries": [],
-    "nearby": null,
-    "needsHistory": false
+    "nearby": {
+      "label": "0,0",
+      "radiusMiles": 150
+    },
+    "needsHistory": true
   }
 }
