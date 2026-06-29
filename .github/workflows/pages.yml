@@ -3,6 +3,17 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
+  # The data workflows commit with GITHUB_TOKEN, which does not trigger `push`
+  # events, so deploy after they finish instead. This is now the single place
+  # Pages is deployed from — those workflows no longer deploy themselves, which
+  # avoids the "multiple github-pages artifacts" collisions on re-runs.
+  workflow_run:
+    workflows:
+      - Dynamic Tesla Pricing Refresh
+      - Pricing Pilot Panel
+      - Update Supercharger Price Data
+      - Dashboard Improvement Loop
+    types: [completed]
   workflow_dispatch:
 
 permissions:
