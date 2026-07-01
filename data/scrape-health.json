@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T23:02:33.502Z",
+  "generatedAt": "2026-07-01T00:19:43.753Z",
   "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
@@ -40,10 +40,10 @@
   },
   "scope": {
     "states": [
-      "MS",
       "MT",
       "NC",
-      "ND"
+      "ND",
+      "NE"
     ],
     "countries": [],
     "nearby": {
