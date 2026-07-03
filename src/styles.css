@@ -16,6 +16,13 @@
 body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at top left, rgba(83,224,163,.25), transparent 35%), radial-gradient(circle at top right, rgba(101,169,255,.2), transparent 35%), var(--bg); color: var(--text); }
 a { color: var(--accent); text-decoration: none; font-weight: 700; }
 button, input, select { font: inherit; }
+/* ── Accessibility & polish ── */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+/* Line up the digits wherever prices and counts are read in columns. */
+.rateBig, .liveBig, .leadV, .priceStrip strong, .stat strong, .pulseGrid strong, .impactGrid strong, .costCalcResult strong, .scorecardStat strong, .historyReadiness strong, .metaGrid strong, .kpiGrid strong { font-variant-numeric: tabular-nums; }
 main { width: min(1240px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 40px; }
 .hero { display: grid; grid-template-columns: 1.5fr .8fr; gap: 24px; align-items: stretch; padding: 42px 0 24px; }
 .eyebrow { display: inline-flex; gap: 8px; align-items: center; color: var(--accent); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
@@ -159,6 +166,18 @@ p { color: var(--muted); line-height: 1.55; }
 .rateFreshTag { margin-left: auto; padding: 3px 11px; border-radius: 999px; background: rgba(255,255,255,.08); font-size: 12px; font-weight: 700; color: var(--muted); }
 .rateFreshTag.ok { background: rgba(83,224,163,.16); color: var(--accent); }
 
+/* ── Shopper-first lead insights (cheapest window + open stall) ── */
+.leadInsights { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+.leadIns { display: flex; gap: 13px; align-items: center; border: 1px solid var(--line); border-radius: 18px; padding: 15px 16px; background: rgba(255,255,255,.04); }
+.leadIns.cheap { border-color: rgba(83,224,163,.32); background: rgba(83,224,163,.06); }
+.leadIns.open { border-color: rgba(101,169,255,.32); background: rgba(101,169,255,.06); }
+.leadIcon { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex: 0 0 auto; }
+.leadIns.cheap .leadIcon { background: rgba(83,224,163,.14); color: var(--accent); }
+.leadIns.open .leadIcon { background: rgba(101,169,255,.14); color: var(--accent2); }
+.leadK { color: var(--muted); font-size: 12.5px; display: block; }
+.leadV { display: block; font-size: 21px; font-weight: 800; letter-spacing: -.01em; margin-top: 1px; }
+.leadS { color: var(--faint); font-size: 12.5px; display: block; margin-top: 1px; }
+@media (max-width: 560px) { .leadInsights { grid-template-columns: 1fr; } }
 .priceStrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
 .priceStrip > div { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; padding: 16px; transition: border-color .2s, background .2s; }
 .priceStrip > div.fresh { border-color: rgba(83,224,163,.5); background: rgba(83,224,163,.08); }
