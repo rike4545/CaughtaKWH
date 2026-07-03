@@ -89,7 +89,7 @@ p { color: var(--muted); line-height: 1.55; }
 .dashboardPulse { margin-bottom: 0; }
 .pulseGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .pulseGrid > div { background: rgba(255,255,255,.055); border: 1px solid var(--line); border-radius: 18px; display: grid; gap: 5px; min-height: 138px; padding: 15px; }
-.pulseGrid svg { color: var(--accent); }
+.pulseGrid svg { color: var(--accent); width: 40px; height: 40px; padding: 9px; border-radius: 12px; background: rgba(83,224,163,.12); }
 .pulseGrid span { color: var(--muted); font-size: 13px; }
 .pulseGrid strong { color: var(--text); font-size: 24px; overflow-wrap: anywhere; }
 .pulseGrid small { color: var(--muted); line-height: 1.4; }
@@ -262,7 +262,8 @@ p { color: var(--muted); line-height: 1.55; }
 .transparencyScorecard { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 20px 0; }
 .scorecardStat { background: rgba(255,255,255,.06); border: 1px solid var(--line); border-radius: 18px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px; }
 .scorecardStat.dark { border-color: rgba(255,82,82,.3); background: rgba(255,82,82,.07); }
-.scorecardStat svg { color: var(--muted); }
+.scorecardStat svg { color: var(--accent); width: 40px; height: 40px; padding: 9px; border-radius: 12px; background: rgba(83,224,163,.12); }
+.scorecardStat.dark svg { color: #ff8080; background: rgba(255,82,82,.13); }
 .scorecardStat strong { font-size: 28px; color: var(--text); line-height: 1; }
 .scorecardStat.dark strong { color: #ff8080; }
 .scorecardStat span { color: var(--muted); font-size: 13px; line-height: 1.4; }
