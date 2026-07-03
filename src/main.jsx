@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, AlertTriangle, BatteryCharging, Clock3, Compass, Eye, EyeOff, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, ArrowRight, BatteryCharging, Clock3, Compass, Eye, EyeOff, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
@@ -577,17 +577,50 @@ function App() {
           <p className="muted">{geoLoading ? 'Finding nearby chargers…' : origin ? `Showing chargers near ${origin.city || 'your location'}` : 'Finding chargers near you…'}</p>
         </header>
       : <header className="hero">
-          <div>
-            <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
-            <h1>EV charging prices should be public.</h1>
-            <p>Tesla operates {stations.length.toLocaleString()} Supercharger stations across the United States. Pricing at <strong style={{color:"var(--text)"}}>{darkPct}% of them is hidden</strong> from the public — no posted rate, no advance disclosure. Gas stations post prices at the pump. Utilities publish rate schedules. EV charging should be no different.</p>
+          <div className="heroCopy">
+            <div className="eyebrow"><span className="eyebrowDot" aria-hidden="true"/> Supercharger price transparency</div>
+            <h1>Know the <span className="heroGrad">real price</span> before you plug in.</h1>
+            <p className="heroLede">Tesla hides most Supercharger pricing until you arrive. CaughtaKWH captures public $/kWh, tracks it over time, and shows the cheapest window and the best shot at an open stall.</p>
+            <div className="heroCta">
+              <button className="btnPrimary" onClick={useMyLocation} disabled={geoLoading}><Compass size={17}/>{geoLoading ? 'Finding…' : 'Find chargers near me'}</button>
+              <form className="heroZip" onSubmit={findZip}>
+                <input inputMode="numeric" maxLength={5} placeholder="ZIP code" aria-label="ZIP code" value={zip} onChange={event => setZip(event.target.value)} />
+                <button disabled={geoLoading}>Find 5</button>
+              </form>
+            </div>
+            <div className="heroTrust">
+              <span><strong>{stations.length.toLocaleString()}</strong> US stations tracked</span>
+              <span><strong>{darkPct}%</strong> never show price publicly</span>
+              <span>Prices verified by <strong>the community</strong></span>
+            </div>
           </div>
-          <div className="heroPanel">
-            <strong>Why this matters</strong>
-            <p>Without posted prices, drivers cannot comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH scrapes Tesla's public pages, tracks what prices do appear, and compares them to local commercial electricity benchmarks — building the public record that Tesla has not provided.</p>
-            <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
-            <a className="crowdsourceLink" href={CONTRIBUTE_URL} target="_blank" rel="noreferrer"><Target size={15}/> Stations needing prices &amp; leaderboard</a>
-          </div>
+          {(() => {
+            // Lead with one real, honestly-labeled price: the freshest current member observation,
+            // else the most recently observed station. Falls back to the mission panel if we have none.
+            const feat = cheapest || [...memberPreds].filter(item => item.latestObservedAt).sort((a, b) => new Date(b.latestObservedAt) - new Date(a.latestObservedAt))[0];
+            if (!feat) {
+              return <div className="heroPanel">
+                <strong>Why this matters</strong>
+                <p>Without posted prices, drivers can't comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH builds the public price record Tesla doesn't provide.</p>
+                <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
+              </div>;
+            }
+            const st = stations.find(item => item.id === feat.stationId) || {};
+            const non = predictions.find(item => item.stationId === feat.stationId && item.membershipType === 'non_member');
+            const fresh = isCurrentPrediction(feat);
+            const spread = non?.latestObservedPrice && feat.latestObservedPrice ? Math.round((non.latestObservedPrice / feat.latestObservedPrice - 1) * 100) : null;
+            return <aside className="liveCard" aria-label="Example observed price">
+              <div className="liveTop">
+                <div className="liveName">{st.name || feat.stationId}<span>{[st.city, st.state].filter(Boolean).join(', ') || 'United States'}{st.stalls ? ` · ${st.stalls} stalls` : ''}{st.maxKw ? ` · up to ${st.maxKw} kW` : ''}</span></div>
+                <span className={fresh ? 'freshPill ok' : 'freshPill'}><span className="freshDot" aria-hidden="true"/>{feat.latestObservedAt ? freshnessLabel(feat.latestObservedAt) : 'No recent price'}</span>
+              </div>
+              <div className="liveRates">
+                <div className="liveRate m"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Tesla / member</span><div className="liveBig">{money(feat.latestObservedPrice)}<small>/kWh</small></div></div>
+                <div className="liveRate n"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Non-Tesla</span><div className="liveBig">{non?.latestObservedPrice != null ? money(non.latestObservedPrice) : '—'}<small>/kWh</small></div>{spread != null && <div className="liveSub">{spread}% more than member</div>}</div>
+              </div>
+              <button className="liveCardCta" onClick={() => { setSelectedId(feat.stationId); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }}>See this charger<ArrowRight size={15}/></button>
+            </aside>;
+          })()}
         </header>}
 
     {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
