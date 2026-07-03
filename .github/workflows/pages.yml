@@ -47,4 +47,15 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
-      - uses: actions/deploy-pages@v5
+      # GitHub's Pages backend returns "Deployment failed, try again later" when two
+      # deploys land close together (rapid merges, or a workflow_run right after a push).
+      # Concurrency can't fully prevent it, so retry once after a short pause.
+      - id: deploy
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: Wait before retrying a transient Pages failure
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 45
+      - name: Retry Pages deploy
+        if: steps.deploy.outcome == 'failure'
+        uses: actions/deploy-pages@v5
