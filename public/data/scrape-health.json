@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-03T21:21:54.897Z",
-  "requestedLimit": 100,
+  "generatedAt": "2026-07-03T22:15:26.228Z",
+  "requestedLimit": 10,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -9,7 +9,7 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 10,
   "attemptedStationIds": [],
   "blockedStationIds": [],
   "transientFailureStationIds": [],
@@ -39,17 +39,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "ND",
-      "NE",
-      "NH",
-      "NJ"
-    ],
+    "states": [],
     "countries": [],
-    "nearby": {
-      "label": "0,0",
-      "radiusMiles": 150
-    },
-    "needsHistory": true
+    "nearby": null,
+    "needsHistory": false
   }
 }
