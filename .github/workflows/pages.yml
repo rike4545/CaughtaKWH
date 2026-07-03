@@ -22,8 +22,11 @@ permissions:
   id-token: write
 
 concurrency:
+  # Serialize Pages deploys but let an in-flight one finish. Cancelling a running
+  # deployment (which happens often now that workflow_run fires after every data job)
+  # leaves it half-done and surfaces "Deployment failed, try again later".
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
