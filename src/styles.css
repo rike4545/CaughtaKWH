@@ -1,5 +1,5 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light dark;
   --bg: #071019;
   --card: rgba(255,255,255,.075);
   --card2: rgba(255,255,255,.12);
@@ -336,3 +336,62 @@ p { color: var(--muted); line-height: 1.55; }
 footer { margin-top: 32px; border-top: 1px solid var(--line); padding-top: 18px; }
 @media (max-width: 1000px) { .hero, .layout, .statsGrid, .chartGrid, .scrapeDetail, .dashboardOps, .pulseGrid { grid-template-columns: 1fr; } .sidebar { position: static; height: auto; } .priceStrip, .metaGrid, .historyReadiness { grid-template-columns: 1fr 1fr; } .impactGrid, .nearbyGrid { grid-template-columns: 1fr; } .transparencyScorecard { grid-template-columns: 1fr 1fr; } .crowdsourceActions, .policyPoints { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 50px 1fr 1fr; } .benchmarkCoverage { display: none; } }
 @media (max-width: 560px) { main { width: min(100% - 20px, 1240px); } .viewTabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; } .viewTabs button { justify-content: center; padding: 0 8px; } .priceStrip, .metaGrid, .priorityColumns, .historyReadiness { grid-template-columns: 1fr; } .hourGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .card { padding: 16px; border-radius: 22px; } .nearMeButton { grid-template-columns: 22px 1fr; } .nearMeButton small { grid-column: 2; justify-self: start; } .transparencyScorecard { grid-template-columns: 1fr; } .benchmarkRow { grid-template-columns: 48px 1fr 1fr; font-size: 12px; } .rateRow { grid-template-columns: 1fr; } .rateTile + .rateTile { border-left: 0; border-top: 1px solid var(--line); } .rateBig { font-size: 36px; } .rateFooter { gap: 6px 14px; } .rateFreshTag { margin-left: 0; } }
+
+/* ─────────────────────────  Light theme  ─────────────────────────
+   The design is a dark "glass on gradient" system: most surfaces are token-driven
+   (var(--card)/(--text)/(--line)), so flipping the tokens does most of the work.
+   The rest of this block remaps the accents for contrast on white and overrides the
+   literal dark/white overlays (inputs, price surfaces, sub-tiles) that aren't tokens. */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #e9eff5;
+    --card: #f4f8fb;
+    --card2: #ffffff;
+    --text: #10293c;
+    --muted: #48607a;
+    --faint: #6d8399;
+    --accent: #0e9d69;   /* darkened so prices/links pass contrast on white */
+    --accent2: #2f6fd0;
+    --line: rgba(16,41,60,.12);
+    --line-strong: rgba(16,41,60,.22);
+  }
+  body { background:
+      radial-gradient(1100px 520px at 12% -6%, rgba(83,224,163,.16), transparent 60%),
+      radial-gradient(1000px 520px at 100% -4%, rgba(101,169,255,.14), transparent 58%),
+      var(--bg); }
+  .heroPanel, .card, .truthNotice { box-shadow: 0 12px 40px rgba(16,41,60,.10); }
+  .liveCard, .live { box-shadow: 0 12px 40px rgba(16,41,60,.12); }
+  /* Dark holes → light fills */
+  .zipRow input, .heroZip, .costCalcInputs select, .costCalcInputs input,
+  .priceMatrix, .liveRate, .rateTile { background: #ffffff; }
+  .heroZip input { background: transparent; }
+  .manualRefreshNote code { background: rgba(16,41,60,.06); }
+  .rateFooter { background: rgba(16,41,60,.03); }
+  /* White overlays go invisible on a light card — give them a faint dark tint instead */
+  .viewTabs, .nearbyBox, .search, .filter, .stationList button, .toolbar button,
+  .badge, .priceStrip > div, .leadIns, .liveCardCta, .metaGrid span, .historyReadiness span,
+  .hourGrid span, .nearby, .impactGrid > div, .improvementList > div, .priorityColumns > div,
+  .pulseGrid > div, .scorecardStat, .transparencyNote, .crowdsourceContext, .lawCard,
+  .policyPoints > div, .costCalcResult > div, .benchmarkGrid { background: rgba(16,41,60,.035); }
+  /* Chart surfaces */
+  .recharts-cartesian-grid line { stroke: rgba(16,41,60,.10); }
+  .chartTooltip, .recharts-default-tooltip { background: #ffffff !important; }
+}
+
+/* ── Mobile: thumb-reachable bottom tab bar ──
+   The view tabs move from a mid-page grid to a fixed bottom bar (icon over label),
+   which is where thumbs reach on a phone. Content gets bottom padding so nothing
+   hides behind it, and the safe-area inset keeps it clear of the home indicator. */
+@media (max-width: 560px) {
+  .viewTabs {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+    width: auto; margin: 0; border: 0; border-top: 1px solid var(--line); border-radius: 0;
+    grid-template-columns: repeat(3, 1fr); gap: 4px;
+    padding: 7px 8px calc(7px + env(safe-area-inset-bottom, 0px));
+    background: var(--bg); box-shadow: 0 -10px 30px rgba(0,0,0,.28);
+  }
+  .viewTabs button { flex-direction: column; gap: 3px; min-height: 54px; padding: 6px 4px; border-radius: 12px; font-weight: 700; }
+  .viewTabs button span { font-size: 11px; }
+  .viewTabs svg { width: 20px; height: 20px; }
+  main { padding-bottom: 88px; }
+}
