@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-05T23:55:46.073Z",
+  "generatedAt": "2026-07-06T02:01:34.150Z",
   "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
@@ -40,10 +40,10 @@
   },
   "scope": {
     "states": [
-      "NH",
       "NJ",
       "NM",
-      "NV"
+      "NV",
+      "NY"
     ],
     "countries": [],
     "nearby": {
