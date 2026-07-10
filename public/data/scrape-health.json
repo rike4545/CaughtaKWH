@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-10T04:12:10.717Z",
-  "requestedLimit": 10,
+  "generatedAt": "2026-07-10T06:28:08.568Z",
+  "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -9,7 +9,7 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 10,
+  "cooldownSkipped": 0,
   "attemptedStationIds": [],
   "blockedStationIds": [],
   "transientFailureStationIds": [],
@@ -39,9 +39,17 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "OH",
+      "OK",
+      "OR",
+      "PA"
+    ],
     "countries": [],
-    "nearby": null,
-    "needsHistory": false
+    "nearby": {
+      "label": "0,0",
+      "radiusMiles": 150
+    },
+    "needsHistory": true
   }
 }
