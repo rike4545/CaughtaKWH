@@ -54108,7 +54108,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 55,
+        "durationMs": 52,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -54118,16 +54118,16 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-07-07T04:15:35.310Z",
-    "lastBlockedAt": "2026-07-07T04:15:35.310Z",
-    "consecutiveBlockedAttempts": 8,
+    "lastAttemptedAt": "2026-07-10T09:51:47.536Z",
+    "lastBlockedAt": "2026-07-10T09:51:47.536Z",
+    "consecutiveBlockedAttempts": 9,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-07-10T04:15:35.310Z",
+    "nextScrapeEligibleAt": "2026-07-13T09:51:47.536Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 55
+      "averageRequestMs": 52
     }
   },
   {
@@ -79194,7 +79194,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 95,
+        "durationMs": 185,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -79204,16 +79204,16 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-07-07T04:15:35.310Z",
-    "lastBlockedAt": "2026-07-07T04:15:35.310Z",
-    "consecutiveBlockedAttempts": 8,
+    "lastAttemptedAt": "2026-07-10T09:51:47.536Z",
+    "lastBlockedAt": "2026-07-10T09:51:47.536Z",
+    "consecutiveBlockedAttempts": 9,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-07-10T04:15:35.310Z",
+    "nextScrapeEligibleAt": "2026-07-13T09:51:47.536Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 95
+      "averageRequestMs": 185
     }
   },
   {
@@ -121385,7 +121385,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 67,
+        "durationMs": 32,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -121395,16 +121395,16 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-07-07T04:15:35.310Z",
-    "lastBlockedAt": "2026-07-07T04:15:35.310Z",
-    "consecutiveBlockedAttempts": 8,
+    "lastAttemptedAt": "2026-07-10T09:51:47.536Z",
+    "lastBlockedAt": "2026-07-10T09:51:47.536Z",
+    "consecutiveBlockedAttempts": 9,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-07-10T04:15:35.310Z",
+    "nextScrapeEligibleAt": "2026-07-13T09:51:47.536Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 67
+      "averageRequestMs": 32
     }
   },
   {
