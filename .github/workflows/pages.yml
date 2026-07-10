@@ -3,17 +3,13 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
-  # The data workflows commit with GITHUB_TOKEN, which does not trigger `push`
-  # events, so deploy after they finish instead. This is now the single place
-  # Pages is deployed from — those workflows no longer deploy themselves, which
-  # avoids the "multiple github-pages artifacts" collisions on re-runs.
-  workflow_run:
-    workflows:
-      - Dynamic Tesla Pricing Refresh
-      - Pricing Pilot Panel
-      - Update Supercharger Price Data
-      - Dashboard Improvement Loop
-    types: [completed]
+  # Data workflows commit with GITHUB_TOKEN (which doesn't fire a `push` event), so redeploy
+  # on a cadence to pick up their commits instead of after every run. Deploying after every
+  # 15-minute scrape blew past GitHub Pages' ~10-deploys/hour limit and caused
+  # "Deployment failed, try again later"; a 20-minute schedule stays well under the limit.
+  # Merges still deploy immediately via `push`.
+  schedule:
+    - cron: '*/20 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -22,9 +18,6 @@ permissions:
   id-token: write
 
 concurrency:
-  # Serialize Pages deploys but let an in-flight one finish. Cancelling a running
-  # deployment (which happens often now that workflow_run fires after every data job)
-  # leaves it half-done and surfaces "Deployment failed, try again later".
   group: pages
   cancel-in-progress: false
 
@@ -48,8 +41,7 @@ jobs:
         with:
           path: dist
       # GitHub's Pages backend returns "Deployment failed, try again later" when two
-      # deploys land close together (rapid merges, or a workflow_run right after a push).
-      # Concurrency can't fully prevent it, so retry once after a short pause.
+      # deploys land close together. Concurrency can't fully prevent it, so retry once.
       - id: deploy
         uses: actions/deploy-pages@v5
         continue-on-error: true
