@@ -21,6 +21,7 @@
     "sync:public": "node scripts/syncPublicData.mjs",
     "improve:dashboard": "node scripts/dashboard-bot.mjs && npm run sync:public && npm run validate:data",
     "scrape:needs-history": "SCRAPE_NEEDS_HISTORY=true npm run scrape",
+    "scrape:proxy-test": "node scripts/proxyDoctor.mjs",
     "enrich:superchargeinfo": "node scripts/enrichFromSuperchargeInfo.mjs",
     "ingest:reports": "node scripts/ingestPriceReports.mjs",
     "social:post": "node scripts/socialBot.mjs",

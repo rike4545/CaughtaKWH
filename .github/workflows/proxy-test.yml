@@ -1,0 +1,48 @@
+name: Proxy Doctor
+
+# On-demand check: does the configured egress proxy actually get past Tesla's Akamai?
+# Run it from the Actions tab after setting the SCRAPE_PROXY secret. It probes real Supercharger
+# pages through each configured proxy and reports PASS/BLOCKED per route. The job fails (red X)
+# when proxies are configured but none returns a usable Tesla page, so you get an unambiguous
+# signal instead of digging through scrape logs.
+on:
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: How many Supercharger pages to probe per proxy
+        required: false
+        default: '6'
+      include_direct:
+        description: Also probe direct (no-proxy) egress for contrast
+        required: false
+        default: 'true'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: proxy-doctor
+  cancel-in-progress: true
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      PROXY_TEST_SAMPLE: ${{ github.event.inputs.sample || '6' }}
+      PROXY_TEST_INCLUDE_DIRECT: ${{ github.event.inputs.include_direct || 'true' }}
+      SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}
+      SCRAPE_PROXY_LIST: ${{ secrets.SCRAPE_PROXY_LIST }}
+      SCRAPE_PROXY_LIST_URL: ${{ secrets.SCRAPE_PROXY_LIST_URL }}
+      SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
+      SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-audit --no-fund
+      - name: Probe proxies against real Supercharger pages
+        run: npm run scrape:proxy-test
