@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-12T11:00:35.614Z",
-  "requestedLimit": 300,
+  "generatedAt": "2026-07-12T11:30:19.325Z",
+  "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -43,9 +43,7 @@
       "OR",
       "PA",
       "PR",
-      "RI",
-      "SC",
-      "SD"
+      "RI"
     ],
     "countries": [],
     "nearby": {
