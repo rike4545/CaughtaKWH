@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T23:09:50.674Z",
+  "generatedAt": "2026-07-15T00:03:23.182Z",
   "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
@@ -40,10 +40,10 @@
   },
   "scope": {
     "states": [
-      "PR",
       "RI",
       "SC",
-      "SD"
+      "SD",
+      "TN"
     ],
     "countries": [],
     "nearby": {
