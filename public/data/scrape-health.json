@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T23:47:48.853Z",
+  "generatedAt": "2026-07-17T01:28:14.412Z",
   "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
@@ -40,10 +40,10 @@
   },
   "scope": {
     "states": [
-      "SC",
       "SD",
       "TN",
-      "TX"
+      "TX",
+      "UT"
     ],
     "countries": [],
     "nearby": {
