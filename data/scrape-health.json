@@ -1,24 +1,32 @@
 {
-  "generatedAt": "2026-07-22T18:55:27.743Z",
-  "requestedLimit": 100,
-  "inScopeStations": 0,
-  "attempted": 0,
+  "generatedAt": "2026-07-22T19:41:12.786Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 0,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
-  "attemptedStationIds": [],
-  "blockedStationIds": [],
+  "cooldownSkipped": 7,
+  "attemptedStationIds": [
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
+  ],
+  "blockedStationIds": [
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
+  ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 0,
-    "requestAttempts": 0,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": null,
+    "averageRequestMs": 47,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -31,7 +39,7 @@
   "circuitBreaker": {
     "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 0
+    "consecutiveBlocks": 3
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -39,17 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "VT",
-      "WA",
-      "WI",
-      "WV"
-    ],
+    "states": [],
     "countries": [],
-    "nearby": {
-      "label": "0,0",
-      "radiusMiles": 150
-    },
-    "needsHistory": true
+    "nearby": null,
+    "needsHistory": false
   }
 }
