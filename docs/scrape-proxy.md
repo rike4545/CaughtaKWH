@@ -77,15 +77,31 @@ proxy often still returns `access_controlled` on Tesla. Free lists are good for
 
 ## Verifying
 
-After a run with the secret set, check a recently attempted station in
-`data/stations.json`:
+**Don't wait for a scheduled scrape to find out if your proxy works.** Connecting
+to a proxy proves nothing about Akamai — a proxy can forward requests fine and
+still be denied on every tesla.com page. Use the proxy doctor to test the real
+thing directly:
+
+- **One click:** Actions tab → **Proxy Doctor** → *Run workflow*. It reads the
+  same `SCRAPE_PROXY*` secrets, fetches a sample of real Supercharger pages
+  through each configured proxy, and prints a PASS/BLOCKED verdict per route. The
+  run goes **red** when proxies are set but none gets past Akamai, so you get an
+  unambiguous signal.
+- **Locally:** `npm run scrape:proxy-test` (set `SCRAPE_PROXY` in your shell
+  first). Tunables: `PROXY_TEST_SAMPLE` (pages per proxy, default 6),
+  `PROXY_TEST_DELAY_MS`, `PROXY_TEST_INCLUDE_DIRECT`.
+
+A `PASS` means that proxy returned usable Supercharger pages (and, for priced
+stations, extracted the embedded pricing) — the scraper will widen coverage
+through it. `BLOCKED` means Akamai is denying that IP; try a residential pool.
+Running it with no proxy configured shows direct GitHub-Actions egress getting
+blocked, which is the baseline a proxy has to beat.
+
+You can also spot-check after a scheduled run via `data/stations.json`:
 
 - `lastScrapeResult: "access_controlled"` → still being blocked (proxy IP is
   also flagged, or the proxy isn't being applied).
 - `lastSuccessfulScrapeAt` populated, or `lastPriceCandidateCount > 0` → working.
-
-If it's still blocked, try a different proxy pool (ideally residential) before
-assuming a code issue.
 
 ## Cost and etiquette
 
