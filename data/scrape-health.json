@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T23:41:49.304Z",
+  "generatedAt": "2026-07-25T01:08:21.753Z",
   "requestedLimit": 100,
   "inScopeStations": 0,
   "attempted": 0,
@@ -40,10 +40,10 @@
   },
   "scope": {
     "states": [
-      "WI",
       "WV",
       "WY",
-      "AK"
+      "AK",
+      "AL"
     ],
     "countries": [],
     "nearby": {
