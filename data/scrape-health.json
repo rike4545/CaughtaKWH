@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-26T07:17:26.293Z",
-  "requestedLimit": 100,
+  "generatedAt": "2026-07-26T08:38:40.915Z",
+  "requestedLimit": 10,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -9,7 +9,7 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 10,
   "attemptedStationIds": [],
   "blockedStationIds": [],
   "transientFailureStationIds": [],
@@ -39,17 +39,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "WY",
-      "AK",
-      "AL",
-      "AR"
-    ],
+    "states": [],
     "countries": [],
-    "nearby": {
-      "label": "0,0",
-      "radiusMiles": 150
-    },
-    "needsHistory": true
+    "nearby": null,
+    "needsHistory": false
   }
 }
