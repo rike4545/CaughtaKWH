@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-26T08:01:37.046Z",
-  "totalStations": 3107,
+  "generatedAt": "2026-07-26T12:50:02.521Z",
+  "totalStations": 3108,
   "needsCount": 200,
   "stations": [
     {
@@ -44,8 +44,8 @@
       "name": "Lost Hills, CA - Tesla Oasis",
       "city": "Lost Hills",
       "state": "CA",
-      "lat": 35.618181,
-      "lng": -119.638431,
+      "lat": 35.617394,
+      "lng": -119.64121,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
