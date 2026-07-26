@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-26T10:59:25.327Z",
-  "requestedLimit": 100,
+  "generatedAt": "2026-07-26T11:09:29.456Z",
+  "requestedLimit": 300,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -43,7 +43,9 @@
       "WY",
       "AK",
       "AL",
-      "AR"
+      "AR",
+      "AZ",
+      "CA"
     ],
     "countries": [],
     "nearby": {
