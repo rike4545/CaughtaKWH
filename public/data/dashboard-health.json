@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-26T12:41:49.013Z",
+  "generatedAt": "2026-07-27T13:55:51.667Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
@@ -127,7 +127,7 @@
       "state": "NY",
       "city": "Lake Grove",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-07-23T16:44:44.870Z",
+      "lastAttemptedAt": "2026-07-26T19:32:34.171Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 1265
