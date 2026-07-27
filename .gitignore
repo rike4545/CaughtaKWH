@@ -4,4 +4,8 @@ dist/
 .DS_Store
 .env
 caughtakwh-agents.patch
-.claude/
+# Ignore local Claude cruft, but track shared project skills so every
+# session/contributor gets them. Use .claude/* (not .claude/) so git still
+# descends into the directory and honors the negation below.
+.claude/*
+!.claude/skills/
