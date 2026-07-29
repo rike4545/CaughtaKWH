@@ -51032,12 +51032,12 @@
     },
     "superchargeInfoMatchedAt": "2026-07-26",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-07-29T14:37:29.679Z",
-    "lastBlockedAt": "2026-07-29T14:37:29.679Z",
+    "lastAttemptedAt": "2026-07-29T20:47:55.884Z",
+    "lastBlockedAt": "2026-07-29T20:47:55.884Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-07-29T20:37:29.679Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-07-30T08:47:55.884Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -51047,7 +51047,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 158,
+        "durationMs": 150,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -51061,7 +51061,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 158
+      "averageRequestMs": 150
     },
     "observationPriorityScore": 823
   },
@@ -63668,7 +63668,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.57,
+    "observationPriorityScore": 607,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 10000,
@@ -63694,7 +63694,39 @@
       "tpc": 40,
       "nacs": 0
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-29T20:47:55.884Z",
+    "lastBlockedAt": "2026-07-29T20:47:55.884Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-30T02:47:55.884Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/kettlemancitysupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 55,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 55
+    }
   },
   {
     "id": "KettlemanCityCAsupercharger",
@@ -97387,12 +97419,12 @@
     },
     "superchargeInfoMatchedAt": "2026-07-26",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-07-29T14:37:29.679Z",
-    "lastBlockedAt": "2026-07-29T14:37:29.679Z",
+    "lastAttemptedAt": "2026-07-29T20:47:55.884Z",
+    "lastBlockedAt": "2026-07-29T20:47:55.884Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-07-29T20:37:29.679Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-07-30T08:47:55.884Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -97402,7 +97434,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 60,
+        "durationMs": 48,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97416,7 +97448,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 60
+      "averageRequestMs": 48
     },
     "observationPriorityScore": 823
   },

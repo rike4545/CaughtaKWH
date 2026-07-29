@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T19:57:53.381Z",
+  "generatedAt": "2026-07-29T20:47:55.884Z",
   "requestedLimit": 100,
   "inScopeStations": 1091,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 12,
   "attemptedStationIds": [
-    "33519",
-    "indiocaliforniasupercharger",
-    "irvinecamainstreetsupercharger"
+    "401824",
+    "402202",
+    "kettlemancitysupercharger"
   ],
   "blockedStationIds": [
-    "33519",
-    "indiocaliforniasupercharger",
-    "irvinecamainstreetsupercharger"
+    "401824",
+    "402202",
+    "kettlemancitysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 61,
+    "averageRequestMs": 84,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
