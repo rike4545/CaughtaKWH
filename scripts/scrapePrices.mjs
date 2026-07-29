@@ -28,8 +28,16 @@ const SCRAPE_STATES = splitEnvList(process.env.SCRAPE_STATES || process.env.SCRA
 const SCRAPE_COUNTRIES = splitEnvList(process.env.SCRAPE_COUNTRIES || process.env.SCRAPE_COUNTRY);
 const SCRAPE_STATION_IDS = splitEnvList(process.env.SCRAPE_STATION_IDS || process.env.SCRAPE_STATION_ID);
 const SCRAPE_ZIP = String(process.env.SCRAPE_ZIP || '').trim();
-const SCRAPE_LAT = Number(process.env.SCRAPE_LAT);
-const SCRAPE_LNG = Number(process.env.SCRAPE_LNG);
+// Number('') is 0 and Number.isFinite(0) is true, so an unset SCRAPE_LAT/LNG — the workflow passes
+// '' on scheduled runs — would otherwise become a real origin at 0,0 (the null island in the
+// Atlantic). The nearby-distance filter then drops every US station and the run scrapes nothing.
+// Treat blank/whitespace as "not provided" (NaN) so the scope falls through to states/all instead.
+const parseCoord = value => {
+  const raw = String(value ?? '').trim();
+  return raw === '' ? NaN : Number(raw);
+};
+const SCRAPE_LAT = parseCoord(process.env.SCRAPE_LAT);
+const SCRAPE_LNG = parseCoord(process.env.SCRAPE_LNG);
 const SCRAPE_RADIUS_MILES = Number(process.env.SCRAPE_RADIUS_MILES || 150);
 const SCRAPE_ROTATE_STATES = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_ROTATE_STATES || '').toLowerCase());
 const SCRAPE_ROTATION_COUNT = Math.max(1, Number(process.env.SCRAPE_ROTATION_COUNT || 1));
@@ -144,7 +152,10 @@ function rotatedStatesForToday(allStations, date) {
 }
 
 async function scrapeScope() {
-  const origin = Number.isFinite(SCRAPE_LAT) && Number.isFinite(SCRAPE_LNG)
+  // Require both coords finite and not the 0,0 null island (never a real Supercharger origin).
+  const hasCoordOrigin = Number.isFinite(SCRAPE_LAT) && Number.isFinite(SCRAPE_LNG)
+    && !(SCRAPE_LAT === 0 && SCRAPE_LNG === 0);
+  const origin = hasCoordOrigin
     ? { label: `${SCRAPE_LAT},${SCRAPE_LNG}`, lat: SCRAPE_LAT, lng: SCRAPE_LNG }
     : SCRAPE_ZIP
       ? await geocodeZip(SCRAPE_ZIP)
