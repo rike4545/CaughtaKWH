@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T17:34:46.757Z",
+  "generatedAt": "2026-07-29T18:38:31.452Z",
   "requestedLimit": 100,
-  "inScopeStations": 1097,
+  "inScopeStations": 1094,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "26996",
-    "BarstowCASupercharger2",
-    "coalingacasupercharger"
+    "21022",
+    "30659",
+    "firebaughsupercharger"
   ],
   "blockedStationIds": [
-    "26996",
-    "BarstowCASupercharger2",
-    "coalingacasupercharger"
+    "21022",
+    "30659",
+    "firebaughsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 74,
+    "averageRequestMs": 92,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
