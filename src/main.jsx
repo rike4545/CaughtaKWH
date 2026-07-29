@@ -595,30 +595,40 @@ function App() {
             </div>
           </div>
           {(() => {
-            // Lead with one real, honestly-labeled price: the freshest current member observation,
-            // else the most recently observed station. Falls back to the mission panel if we have none.
-            const feat = cheapest || [...memberPreds].filter(item => item.latestObservedAt).sort((a, b) => new Date(b.latestObservedAt) - new Date(a.latestObservedAt))[0];
-            if (!feat) {
+            // Lead with the visitor's OWN charger whenever we know where they are — the station they
+            // selected, else the nearest to their ZIP / location. Only when no location is known do we
+            // fall back to one honestly-labeled example (the freshest/cheapest current observation).
+            // This keeps the hero from always showing the pilot station regardless of where you are.
+            const nearest = nearbyList[0] || null;
+            const yourStation = selected || nearest || null;
+            const example = cheapest || [...memberPreds].filter(item => item.latestObservedAt).sort((a, b) => new Date(b.latestObservedAt) - new Date(a.latestObservedAt))[0];
+            const st = yourStation || (example ? stations.find(item => item.id === example.stationId) : null);
+            if (!st) {
               return <div className="heroPanel">
                 <strong>Why this matters</strong>
                 <p>Without posted prices, drivers can't comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH builds the public price record Tesla doesn't provide.</p>
                 <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
               </div>;
             }
-            const st = stations.find(item => item.id === feat.stationId) || {};
-            const non = predictions.find(item => item.stationId === feat.stationId && item.membershipType === 'non_member');
-            const fresh = isCurrentPrediction(feat);
-            const spread = non?.latestObservedPrice && feat.latestObservedPrice ? Math.round((non.latestObservedPrice / feat.latestObservedPrice - 1) * 100) : null;
-            return <aside className="liveCard" aria-label="Example observed price">
+            const member = predictions.find(item => item.stationId === st.id && item.membershipType === 'member');
+            const non = predictions.find(item => item.stationId === st.id && item.membershipType === 'non_member');
+            const fresh = member ? isCurrentPrediction(member) : false;
+            const spread = non?.latestObservedPrice && member?.latestObservedPrice ? Math.round((non.latestObservedPrice / member.latestObservedPrice - 1) * 100) : null;
+            const tag = yourStation
+              ? (selected ? 'Your selected charger' : originMode === 'near-me' ? 'Nearest to you' : `Nearest to ${origin?.zip || 'you'}`)
+              : 'Example observed price';
+            return <aside className="liveCard" aria-label={tag}>
+              <div className="liveCardTag">{tag}</div>
               <div className="liveTop">
-                <div className="liveName">{st.name || feat.stationId}<span>{[st.city, st.state].filter(Boolean).join(', ') || 'United States'}{st.stalls ? ` · ${st.stalls} stalls` : ''}{st.maxKw ? ` · up to ${st.maxKw} kW` : ''}</span></div>
-                <span className={fresh ? 'freshPill ok' : 'freshPill'}><span className="freshDot" aria-hidden="true"/>{feat.latestObservedAt ? freshnessLabel(feat.latestObservedAt) : 'No recent price'}</span>
+                <div className="liveName">{st.name || st.id}<span>{[st.city, st.state].filter(Boolean).join(', ') || 'United States'}{typeof st.distanceMiles === 'number' ? ` · ${distance(st.distanceMiles)}` : ''}{st.stalls ? ` · ${st.stalls} stalls` : ''}</span></div>
+                <span className={fresh ? 'freshPill ok' : 'freshPill'}><span className="freshDot" aria-hidden="true"/>{member?.latestObservedAt ? freshnessLabel(member.latestObservedAt) : 'No price captured yet'}</span>
               </div>
               <div className="liveRates">
-                <div className="liveRate m"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Tesla / member</span><div className="liveBig">{money(feat.latestObservedPrice)}<small>/kWh</small></div></div>
+                <div className="liveRate m"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Tesla / member</span><div className="liveBig">{money(member?.latestObservedPrice)}<small>/kWh</small></div></div>
                 <div className="liveRate n"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Non-Tesla</span><div className="liveBig">{non?.latestObservedPrice != null ? money(non.latestObservedPrice) : '—'}<small>/kWh</small></div>{spread != null && <div className="liveSub">{spread}% more than member</div>}</div>
               </div>
-              <button className="liveCardCta" onClick={() => { setSelectedId(feat.stationId); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }}>See this charger<ArrowRight size={15}/></button>
+              {yourStation && member?.latestObservedPrice == null && <p className="liveEmptyNote">No public price captured here yet. Open it to run a live check or report what you paid.</p>}
+              <button className="liveCardCta" onClick={() => { setSelectedId(st.id); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }}>See this charger<ArrowRight size={15}/></button>
             </aside>;
           })()}
         </header>}
