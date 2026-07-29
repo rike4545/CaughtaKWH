@@ -46801,7 +46801,7 @@
     "lastScrapeHadAvailability": true,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 497.37,
+    "observationPriorityScore": 624,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -46824,7 +46824,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-29T14:37:29.679Z",
+    "lastBlockedAt": "2026-07-29T14:37:29.679Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-29T20:37:29.679Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/404914",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 59,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 59
+    }
   },
   {
     "id": "4002052",
@@ -50678,7 +50710,40 @@
       "ccs1": 8,
       "multi": 8
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-29T14:37:29.679Z",
+    "lastBlockedAt": "2026-07-29T14:37:29.679Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-29T20:37:29.679Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/401824",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 158,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 158
+    },
+    "observationPriorityScore": 823
   },
   {
     "id": "greenriversupercharger",
@@ -96936,7 +97001,40 @@
       "ccs1": 8,
       "multi": 8
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-29T14:37:29.679Z",
+    "lastBlockedAt": "2026-07-29T14:37:29.679Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-29T20:37:29.679Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/402202",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 60,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 60
+    },
+    "observationPriorityScore": 823
   },
   {
     "id": "33591",
