@@ -59837,7 +59837,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 184,
+        "durationMs": 79,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -59847,16 +59847,16 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-07-26T03:52:27.387Z",
-    "lastBlockedAt": "2026-07-26T03:52:27.387Z",
-    "consecutiveBlockedAttempts": 14,
+    "lastAttemptedAt": "2026-07-29T09:06:44.331Z",
+    "lastBlockedAt": "2026-07-29T09:06:44.331Z",
+    "consecutiveBlockedAttempts": 15,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-07-29T03:52:27.387Z",
+    "nextScrapeEligibleAt": "2026-08-01T09:06:44.331Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 184
+      "averageRequestMs": 79
     }
   },
   {
