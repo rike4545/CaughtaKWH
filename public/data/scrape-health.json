@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-29T12:17:04.855Z",
-  "requestedLimit": 100,
+  "generatedAt": "2026-07-29T14:29:22.917Z",
+  "requestedLimit": 10,
   "inScopeStations": 0,
   "attempted": 0,
   "validPages": 0,
@@ -9,7 +9,7 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 10,
   "attemptedStationIds": [],
   "blockedStationIds": [],
   "transientFailureStationIds": [],
@@ -23,8 +23,8 @@
     "retryDelayMs": 750,
     "proxyConfigured": false,
     "proxyPool": {
-      "candidates": 0,
-      "tried": 0,
+      "candidates": 1,
+      "tried": 1,
       "activeHost": null
     }
   },
@@ -39,17 +39,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "AR",
-      "AZ",
-      "CA",
-      "CO"
-    ],
+    "states": [],
     "countries": [],
-    "nearby": {
-      "label": "0,0",
-      "radiusMiles": 150
-    },
-    "needsHistory": true
+    "nearby": null,
+    "needsHistory": false
   }
 }
