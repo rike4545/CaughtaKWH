@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T14:37:29.679Z",
+  "generatedAt": "2026-07-29T16:07:33.388Z",
   "requestedLimit": 100,
-  "inScopeStations": 1103,
+  "inScopeStations": 1100,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "401824",
-    "402202",
-    "404914"
+    "ArroyoGrandeCAsupercharger",
+    "bakercasupercharger",
+    "30569"
   ],
   "blockedStationIds": [
-    "401824",
-    "402202",
-    "404914"
+    "ArroyoGrandeCAsupercharger",
+    "bakercasupercharger",
+    "30569"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 92,
+    "averageRequestMs": 125,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
