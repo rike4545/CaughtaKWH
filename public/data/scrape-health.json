@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T22:47:06.795Z",
+  "generatedAt": "2026-07-29T23:52:29.451Z",
   "requestedLimit": 100,
   "inScopeStations": 1088,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "25874",
-    "34294",
-    "pasoroblessupercharger"
+    "27430",
+    "sanclementesupercharger",
+    "sdmissionvalleysupercharger"
   ],
   "blockedStationIds": [
-    "25874",
-    "34294",
-    "pasoroblessupercharger"
+    "27430",
+    "sanclementesupercharger",
+    "sdmissionvalleysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 101,
+    "averageRequestMs": 128,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
