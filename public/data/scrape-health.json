@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T19:40:48.456Z",
-  "requestedLimit": 10,
-  "inScopeStations": 3,
+  "generatedAt": "2026-07-29T19:57:53.381Z",
+  "requestedLimit": 100,
+  "inScopeStations": 1091,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 7,
+  "cooldownSkipped": 12,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "33519",
+    "indiocaliforniasupercharger",
+    "irvinecamainstreetsupercharger"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "33519",
+    "indiocaliforniasupercharger",
+    "irvinecamainstreetsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 77,
+    "averageRequestMs": 61,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DC",
+      "DE",
+      "FL"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
