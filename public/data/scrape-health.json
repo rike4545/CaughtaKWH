@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T04:25:58.579Z",
+  "generatedAt": "2026-07-30T07:07:51.696Z",
   "requestedLimit": 100,
-  "inScopeStations": 1167,
+  "inScopeStations": 1170,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 11,
+  "cooldownSkipped": 8,
   "attemptedStationIds": [
-    "15162",
-    "SantaNellaCASupercharger",
-    "shermanoakscasupercharger"
+    "ArvinCAsupercharger",
+    "34733",
+    "26999"
   ],
   "blockedStationIds": [
-    "15162",
-    "SantaNellaCASupercharger",
-    "shermanoakscasupercharger"
+    "ArvinCAsupercharger",
+    "34733",
+    "26999"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 90,
+    "averageRequestMs": 84,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
