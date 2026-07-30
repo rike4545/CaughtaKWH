@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T16:57:07.841Z",
+  "generatedAt": "2026-07-30T18:10:47.331Z",
   "requestedLimit": 100,
   "inScopeStations": 1167,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 11,
   "attemptedStationIds": [
-    "31053",
-    "santaclaritacaliforniasupercharger",
-    "57584"
+    "palladiofolsomsupercharger",
+    "17769",
+    "31212"
   ],
   "blockedStationIds": [
-    "31053",
-    "santaclaritacaliforniasupercharger",
-    "57584"
+    "palladiofolsomsupercharger",
+    "17769",
+    "31212"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
