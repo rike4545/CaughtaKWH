@@ -112061,7 +112061,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 453.26,
+    "observationPriorityScore": 595,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 9100,
@@ -112087,7 +112087,39 @@
     "plugTypes": {
       "nacs": 28
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-30T21:57:55.727Z",
+    "lastBlockedAt": "2026-07-30T21:57:55.727Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-31T03:57:55.727Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/45419",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 158,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 158
+    }
   },
   {
     "id": "58252",
@@ -114143,7 +114175,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 453.63,
+    "observationPriorityScore": 595,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 7000,
@@ -114166,7 +114198,39 @@
       "tpc": 0,
       "nacs": 28
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-30T21:57:55.727Z",
+    "lastBlockedAt": "2026-07-30T21:57:55.727Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-31T03:57:55.727Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/SanBrunoCAsupercharger2",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 92,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 92
+    }
   },
   {
     "id": "SanBrunoCAsupercharger",
@@ -118281,7 +118345,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 454.66,
+    "observationPriorityScore": 595,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 9100,
@@ -118309,7 +118373,39 @@
     "plugTypes": {
       "nacs": 28
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-30T21:57:55.727Z",
+    "lastBlockedAt": "2026-07-30T21:57:55.727Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-31T03:57:55.727Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/29378",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 86,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 86
+    }
   },
   {
     "id": "santaanacaeast5thstsupercharger",

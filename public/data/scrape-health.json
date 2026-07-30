@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T20:54:10.691Z",
+  "generatedAt": "2026-07-30T21:57:55.727Z",
   "requestedLimit": 100,
   "inScopeStations": 1164,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 14,
   "attemptedStationIds": [
-    "FortValleyGAQ322",
-    "4009311",
-    "27261"
+    "45419",
+    "SanBrunoCAsupercharger2",
+    "29378"
   ],
   "blockedStationIds": [
-    "FortValleyGAQ322",
-    "4009311",
-    "27261"
+    "45419",
+    "SanBrunoCAsupercharger2",
+    "29378"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 84,
+    "averageRequestMs": 112,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
