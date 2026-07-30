@@ -1,13 +1,13 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-07-29T13:19:30.037Z
+Generated: 2026-07-30T13:11:29.187Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
 - Stations: 3108
-- Checked by scraper: 3091 (99.45%)
-- Latest attempts blocked by access controls: 10
+- Checked by scraper: 3055 (98.29%)
+- Latest attempts blocked by access controls: 48
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
@@ -28,10 +28,10 @@ Generated: 2026-07-29T13:19:30.037Z
 ## Station Refresh Targets
 
 - Lake Grove, NY (LakeGroveNYsupercharger) · access_controlled
-- Fullerton, CA - S Harbor Blvd (404914) · not_checked
-- Santa Monica, CA (15162) · not_checked
-- San Clemente, CA (sanclementesupercharger) · not_checked
-- Madisonville, TX (madisonvilletxsupercharger) · not_checked
+- Greeley, CO (401824) · access_controlled
+- Pagosa Springs, CO (402202) · access_controlled
+- Fullerton, CA - S Harbor Blvd (404914) · access_controlled
+- Arroyo Grande, CA - W Branch Rd (ArroyoGrandeCAsupercharger) · access_controlled
 
 ## Improvement Queue
 
