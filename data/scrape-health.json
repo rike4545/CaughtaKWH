@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T23:52:29.451Z",
+  "generatedAt": "2026-07-30T01:18:05.820Z",
   "requestedLimit": 100,
-  "inScopeStations": 1088,
+  "inScopeStations": 1163,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "27430",
-    "sanclementesupercharger",
-    "sdmissionvalleysupercharger"
+    "16169",
+    "27558",
+    "sanmateocahillsdaleblvdsupercharger"
   ],
   "blockedStationIds": [
-    "27430",
-    "sanclementesupercharger",
-    "sdmissionvalleysupercharger"
+    "16169",
+    "27558",
+    "sanmateocahillsdaleblvdsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 128,
+    "averageRequestMs": 54,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "AR",
       "AZ",
       "CA",
       "CO",
       "CT",
       "DC",
       "DE",
-      "FL"
+      "FL",
+      "GA"
     ],
     "countries": [],
     "nearby": null,
