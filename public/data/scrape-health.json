@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T11:32:19.462Z",
+  "generatedAt": "2026-07-30T13:12:53.868Z",
   "requestedLimit": 100,
   "inScopeStations": 1172,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "58505",
-    "28541",
-    "SanFranciscoCAsupercharger2"
+    "DaytonaBeachFLQ322",
+    "34630",
+    "gardengroveca12891harborblvd"
   ],
   "blockedStationIds": [
-    "58505",
-    "28541",
-    "SanFranciscoCAsupercharger2"
+    "DaytonaBeachFLQ322",
+    "34630",
+    "gardengroveca12891harborblvd"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 142,
+    "averageRequestMs": 57,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
