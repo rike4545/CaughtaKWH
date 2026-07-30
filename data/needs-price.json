@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T13:20:08.128Z",
+  "generatedAt": "2026-07-30T19:04:34.752Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -482,6 +482,114 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=gardengroveca12891harborblvd"
+    },
+    {
+      "id": "27763",
+      "name": "Hawaiian Gardens, CA",
+      "city": "Hawaiian Gardens",
+      "state": "CA",
+      "lat": 33.831695,
+      "lng": -118.078798,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27763"
+    },
+    {
+      "id": "34816",
+      "name": "Inglewood, CA - W Imperial Hwy",
+      "city": "Inglewood",
+      "state": "CA",
+      "lat": 33.930765,
+      "lng": -118.327707,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=34816"
+    },
+    {
+      "id": "7187",
+      "name": "Mountain View, CA - Grant Rd",
+      "city": "Mountain View",
+      "state": "CA",
+      "lat": 37.378052,
+      "lng": -122.077578,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=7187"
+    },
+    {
+      "id": "31053",
+      "name": "San Jose, CA - Bernal Rd",
+      "city": "San Jose",
+      "state": "CA",
+      "lat": 37.230783,
+      "lng": -121.774513,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31053"
+    },
+    {
+      "id": "santaclaritacaliforniasupercharger",
+      "name": "Santa Clarita, CA",
+      "city": "Santa Clarita",
+      "state": "CA",
+      "lat": 34.431041,
+      "lng": -118.554319,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=santaclaritacaliforniasupercharger"
+    },
+    {
+      "id": "57584",
+      "name": "Agoura Hills, CA",
+      "city": "Agoura Hills",
+      "state": "CA",
+      "lat": 34.14341,
+      "lng": -118.753678,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=57584"
+    },
+    {
+      "id": "palladiofolsomsupercharger",
+      "name": "Folsom, CA - Palladio Pkwy",
+      "city": "Folsom",
+      "state": "CA",
+      "lat": 38.647199,
+      "lng": -121.118344,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=palladiofolsomsupercharger"
+    },
+    {
+      "id": "17769",
+      "name": "Miami, FL - SW 124th Ave",
+      "city": "Miami",
+      "state": "FL",
+      "lat": 25.689406,
+      "lng": -80.393785,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=17769"
+    },
+    {
+      "id": "31212",
+      "name": "Buena Park, CA - Knott Ave",
+      "city": "Buena Park",
+      "state": "CA",
+      "lat": 33.834319,
+      "lng": -118.009122,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31212"
     },
     {
       "id": "madisonvilletxsupercharger",
@@ -2294,114 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4008818"
-    },
-    {
-      "id": "20978",
-      "name": "Pasadena, CA - E Colorado Blvd",
-      "city": "Pasadena",
-      "state": "CA",
-      "lat": 34.145812,
-      "lng": -118.078351,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20978"
-    },
-    {
-      "id": "tumwaterwasupercharger",
-      "name": "Tumwater, WA",
-      "city": "Tumwater",
-      "state": "WA",
-      "lat": 46.952944,
-      "lng": -122.935111,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=tumwaterwasupercharger"
-    },
-    {
-      "id": "26144",
-      "name": "Chatsworth, CA",
-      "city": "Chatsworth",
-      "state": "CA",
-      "lat": 34.23802,
-      "lng": -118.589407,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26144"
-    },
-    {
-      "id": "houstonsupercharger",
-      "name": "Houston, TX - 9633 Westheimer Rd (SC)",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.73599,
-      "lng": -95.538389,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=houstonsupercharger"
-    },
-    {
-      "id": "charltonmasupercharger",
-      "name": "Charlton, MA - Westbound",
-      "city": "Charlton",
-      "state": "MA",
-      "lat": 42.156788,
-      "lng": -71.962909,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=charltonmasupercharger"
-    },
-    {
-      "id": "58769",
-      "name": "Houston, TX - 3333 Telephone Rd",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.71244,
-      "lng": -95.31473,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58769"
-    },
-    {
-      "id": "PasadenaCASupercharger22",
-      "name": "Pasadena, CA - 3363 E Foothill Blvd",
-      "city": "Pasadena",
-      "state": "CA",
-      "lat": 34.153571,
-      "lng": -118.081718,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=PasadenaCASupercharger22"
-    },
-    {
-      "id": "29095",
-      "name": "Tully, NY",
-      "city": "Tully",
-      "state": "NY",
-      "lat": 42.800041,
-      "lng": -76.121849,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=29095"
-    },
-    {
-      "id": "parsippanysupercharger",
-      "name": "Parsippany, NJ",
-      "city": "Parsippany",
-      "state": "NJ",
-      "lat": 40.850095,
-      "lng": -74.350835,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=parsippanysupercharger"
     }
   ]
 }
