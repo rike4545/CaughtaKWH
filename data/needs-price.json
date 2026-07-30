@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T18:46:55.999Z",
+  "generatedAt": "2026-07-30T01:09:37.900Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -136,16 +136,136 @@
       "reportUrl": "report.html?station=firebaughsupercharger"
     },
     {
-      "id": "15162",
-      "name": "Santa Monica, CA",
-      "city": "Santa Monica",
-      "state": "CA",
-      "lat": 34.024585,
-      "lng": -118.485771,
+      "id": "33519",
+      "name": "Fort Pierce, FL - Peters Rd",
+      "city": "Fort Pierce",
+      "state": "FL",
+      "lat": 27.415581,
+      "lng": -80.393428,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=15162"
+      "reportUrl": "report.html?station=33519"
+    },
+    {
+      "id": "indiocaliforniasupercharger",
+      "name": "Indio, CA",
+      "city": "Indio",
+      "state": "CA",
+      "lat": 33.741484,
+      "lng": -116.215019,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=indiocaliforniasupercharger"
+    },
+    {
+      "id": "irvinecamainstreetsupercharger",
+      "name": "Irvine, CA - Main St",
+      "city": "Irvine",
+      "state": "CA",
+      "lat": 33.684357,
+      "lng": -117.851746,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=irvinecamainstreetsupercharger"
+    },
+    {
+      "id": "kettlemancitysupercharger",
+      "name": "Kettleman City, CA",
+      "city": "Kettleman City",
+      "state": "CA",
+      "lat": 35.987651,
+      "lng": -119.962336,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=kettlemancitysupercharger"
+    },
+    {
+      "id": "KettlemanCityCAsupercharger",
+      "name": "Kettleman City, CA - Bernard Dr",
+      "city": "Kettleman City",
+      "state": "CA",
+      "lat": 35.9861622,
+      "lng": -119.957565,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=KettlemanCityCAsupercharger"
+    },
+    {
+      "id": "26139",
+      "name": "Los Angeles, CA - Tesla Diner",
+      "city": "Los Angeles",
+      "state": "CA",
+      "lat": 34.091225,
+      "lng": -118.342211,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26139"
+    },
+    {
+      "id": "14525",
+      "name": "Los Angeles, CA - Venice Blvd",
+      "city": "Los Angeles",
+      "state": "CA",
+      "lat": 34.027942,
+      "lng": -118.393968,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=14525"
+    },
+    {
+      "id": "25874",
+      "name": "Lost Hills, CA - Tesla Oasis",
+      "city": "Lost Hills",
+      "state": "CA",
+      "lat": 35.617394,
+      "lng": -119.64121,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=25874"
+    },
+    {
+      "id": "34294",
+      "name": "Montebello, CA - N Wilcox Ave",
+      "city": "Montebello",
+      "state": "CA",
+      "lat": 34.031008,
+      "lng": -118.126132,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=34294"
+    },
+    {
+      "id": "pasoroblessupercharger",
+      "name": "Paso Robles, CA - Golden Hill Rd",
+      "city": "Paso Robles",
+      "state": "CA",
+      "lat": 35.645482,
+      "lng": -120.660047,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=pasoroblessupercharger"
+    },
+    {
+      "id": "27430",
+      "name": "Redding, CA - Hilltop Dr",
+      "city": "Redding",
+      "state": "CA",
+      "lat": 40.578643,
+      "lng": -122.359162,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27430"
     },
     {
       "id": "sanclementesupercharger",
@@ -160,6 +280,30 @@
       "reportUrl": "report.html?station=sanclementesupercharger"
     },
     {
+      "id": "sdmissionvalleysupercharger",
+      "name": "San Diego, CA - Friars Rd",
+      "city": "San Diego",
+      "state": "CA",
+      "lat": 32.769144,
+      "lng": -117.166271,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=sdmissionvalleysupercharger"
+    },
+    {
+      "id": "15162",
+      "name": "Santa Monica, CA",
+      "city": "Santa Monica",
+      "state": "CA",
+      "lat": 34.024585,
+      "lng": -118.485771,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=15162"
+    },
+    {
       "id": "madisonvilletxsupercharger",
       "name": "Madisonville, TX",
       "city": "Madisonville",
@@ -170,18 +314,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=madisonvilletxsupercharger"
-    },
-    {
-      "id": "25874",
-      "name": "Lost Hills, CA - Tesla Oasis",
-      "city": "Lost Hills",
-      "state": "CA",
-      "lat": 35.617394,
-      "lng": -119.64121,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=25874"
     },
     {
       "id": "BaytownTXSupercharger",
@@ -1840,18 +1972,6 @@
       "reportUrl": "report.html?station=26970"
     },
     {
-      "id": "pasoroblessupercharger",
-      "name": "Paso Robles, CA - Golden Hill Rd",
-      "city": "Paso Robles",
-      "state": "CA",
-      "lat": 35.645482,
-      "lng": -120.660047,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=pasoroblessupercharger"
-    },
-    {
       "id": "tustincaliforniasupercharger",
       "name": "Tustin, CA",
       "city": "Tustin",
@@ -2282,126 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=32157"
-    },
-    {
-      "id": "centennialcosupercharger",
-      "name": "Centennial, CO",
-      "city": "Englewood",
-      "state": "CO",
-      "lat": 39.567218,
-      "lng": -104.877928,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=centennialcosupercharger"
-    },
-    {
-      "id": "406157",
-      "name": "Hollywood, FL",
-      "city": "Hollywood",
-      "state": "FL",
-      "lat": 26.042305,
-      "lng": -80.209016,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=406157"
-    },
-    {
-      "id": "425863",
-      "name": "Paramus, NJ - Rt 4",
-      "city": "Paramus",
-      "state": "NJ",
-      "lat": 40.925588,
-      "lng": -74.087738,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=425863"
-    },
-    {
-      "id": "TruckeeCAsupercharger",
-      "name": "Truckee, CA - Soaring Way",
-      "city": "Truckee",
-      "state": "CA",
-      "lat": 39.319501,
-      "lng": -120.155831,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=TruckeeCAsupercharger"
-    },
-    {
-      "id": "31808",
-      "name": "Paramus, NJ - NJ-17",
-      "city": "Paramus",
-      "state": "NJ",
-      "lat": 40.955391,
-      "lng": -74.07467,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=31808"
-    },
-    {
-      "id": "32552",
-      "name": "Celebration, FL - Future Way",
-      "city": "Kissimmee",
-      "state": "FL",
-      "lat": 28.302951,
-      "lng": -81.568678,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32552"
-    },
-    {
-      "id": "18586",
-      "name": "Hollister, CA - Airline Hwy",
-      "city": "Hollister",
-      "state": "CA",
-      "lat": 36.837926,
-      "lng": -121.391328,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=18586"
-    },
-    {
-      "id": "4006752",
-      "name": "Truckee, CA - Deerfield Dr",
-      "city": "Truckee",
-      "state": "CA",
-      "lat": 39.322829,
-      "lng": -120.225771,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4006752"
-    },
-    {
-      "id": "58811",
-      "name": "Cedar Park, TX - E Whitestone Blvd",
-      "city": "Cedar Park",
-      "state": "TX",
-      "lat": 30.533771,
-      "lng": -97.784274,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58811"
-    },
-    {
-      "id": "4160",
-      "name": "Paramus, NJ - Bergen Town Center",
-      "city": "Paramus",
-      "state": "NJ",
-      "lat": 40.912759,
-      "lng": -74.057512,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4160"
     }
   ]
 }
