@@ -2255,7 +2255,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 454.24,
+    "observationPriorityScore": 598,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 10075,
@@ -2279,7 +2279,39 @@
     "plugTypes": {
       "nacs": 31
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-30T16:57:07.841Z",
+    "lastBlockedAt": "2026-07-30T16:57:07.841Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-30T22:57:07.841Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/57584",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 36,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 36
+    }
   },
   {
     "id": "AguadillaPRsupercharger",
@@ -115902,7 +115934,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 454.18,
+    "observationPriorityScore": 599,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 10400,
@@ -115928,7 +115960,39 @@
     "plugTypes": {
       "nacs": 32
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-30T16:57:07.841Z",
+    "lastBlockedAt": "2026-07-30T16:57:07.841Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-30T22:57:07.841Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/31053",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 100,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 100
+    }
   },
   {
     "id": "sjblossomhillsupercharger",
@@ -118204,7 +118268,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 454.72,
+    "observationPriorityScore": 599,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 8000,
@@ -118228,7 +118292,39 @@
       "tpc": 32,
       "nacs": 0
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-07-30T16:57:07.841Z",
+    "lastBlockedAt": "2026-07-30T16:57:07.841Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-07-30T22:57:07.841Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/santaclaritacaliforniasupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 38,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 38
+    }
   },
   {
     "id": "26178",
