@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T01:09:37.900Z",
+  "generatedAt": "2026-07-30T08:01:15.494Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -292,6 +292,42 @@
       "reportUrl": "report.html?station=sdmissionvalleysupercharger"
     },
     {
+      "id": "16169",
+      "name": "San Diego, CA - Rio San Diego Dr",
+      "city": "San Diego",
+      "state": "CA",
+      "lat": 32.776448,
+      "lng": -117.143861,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=16169"
+    },
+    {
+      "id": "27558",
+      "name": "San Jose, CA - Aborn Sq",
+      "city": "San Jose",
+      "state": "CA",
+      "lat": 37.313078,
+      "lng": -121.808399,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27558"
+    },
+    {
+      "id": "sanmateocahillsdaleblvdsupercharger",
+      "name": "San Mateo, CA - Hillsdale Blvd",
+      "city": "San Mateo",
+      "state": "CA",
+      "lat": 37.533306,
+      "lng": -122.327472,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=sanmateocahillsdaleblvdsupercharger"
+    },
+    {
       "id": "15162",
       "name": "Santa Monica, CA",
       "city": "Santa Monica",
@@ -302,6 +338,66 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=15162"
+    },
+    {
+      "id": "SantaNellaCASupercharger",
+      "name": "Santa Nella, CA",
+      "city": "Santa Nella",
+      "state": "CA",
+      "lat": 37.100209,
+      "lng": -121.012011,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=SantaNellaCASupercharger"
+    },
+    {
+      "id": "shermanoakscasupercharger",
+      "name": "Sherman Oaks, CA - Ventura Blvd",
+      "city": "Sherman Oaks",
+      "state": "CA",
+      "lat": 34.156902,
+      "lng": -118.467539,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=shermanoakscasupercharger"
+    },
+    {
+      "id": "ArvinCAsupercharger",
+      "name": "Tejon Ranch, CA - Outlets at Tejon Pkwy",
+      "city": "Arvin",
+      "state": "CA",
+      "lat": 34.985959,
+      "lng": -118.94385,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=ArvinCAsupercharger"
+    },
+    {
+      "id": "34733",
+      "name": "Upland, CA - Arrow Route",
+      "city": "Upland",
+      "state": "CA",
+      "lat": 34.099341,
+      "lng": -117.700438,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=34733"
+    },
+    {
+      "id": "26999",
+      "name": "Yermo, CA - Sunrise Canyon Rd",
+      "city": "Yermo",
+      "state": "CA",
+      "lat": 34.919528,
+      "lng": -116.769185,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26999"
     },
     {
       "id": "madisonvilletxsupercharger",
@@ -2306,102 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=TukwilaWAsupercharger"
-    },
-    {
-      "id": "33772",
-      "name": "Homestead, FL",
-      "city": "Homestead",
-      "state": "FL",
-      "lat": 25.476486,
-      "lng": -80.435271,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33772"
-    },
-    {
-      "id": "centervilletxsupercharger",
-      "name": "Centerville, TX",
-      "city": "Centerville",
-      "state": "TX",
-      "lat": 31.259675,
-      "lng": -95.985156,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=centervilletxsupercharger"
-    },
-    {
-      "id": "412210",
-      "name": "Holyoke, MA",
-      "city": "Holyoke",
-      "state": "MA",
-      "lat": 42.172375,
-      "lng": -72.639481,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=412210"
-    },
-    {
-      "id": "ParishNYQ322",
-      "name": "Parish, NY",
-      "city": "Parish",
-      "state": "NY",
-      "lat": 43.408589,
-      "lng": -76.114268,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=ParishNYQ322"
-    },
-    {
-      "id": "36132",
-      "name": "Tukwila, WA - Southcenter Pkwy",
-      "city": "Tukwila",
-      "state": "WA",
-      "lat": 47.44738,
-      "lng": -122.263652,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=36132"
-    },
-    {
-      "id": "19146",
-      "name": "Paris, TX",
-      "city": "Paris",
-      "state": "TX",
-      "lat": 33.672935,
-      "lng": -95.520337,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19146"
-    },
-    {
-      "id": "19359",
-      "name": "Tucker, GA",
-      "city": "Tucker",
-      "state": "GA",
-      "lat": 33.852378,
-      "lng": -84.207439,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19359"
-    },
-    {
-      "id": "32157",
-      "name": "Hollywood, FL - S State Rd 7",
-      "city": "Hollywood",
-      "state": "FL",
-      "lat": 26.009483,
-      "lng": -80.20862,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32157"
     }
   ]
 }
