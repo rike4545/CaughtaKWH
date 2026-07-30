@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T08:01:15.494Z",
+  "generatedAt": "2026-07-30T13:20:08.128Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -398,6 +398,90 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=26999"
+    },
+    {
+      "id": "33672",
+      "name": "West Palm Beach, FL - 6060 Okeechobee Blvd",
+      "city": "West Palm Beach",
+      "state": "FL",
+      "lat": 26.706227,
+      "lng": -80.135974,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=33672"
+    },
+    {
+      "id": "58505",
+      "name": "Lebec, CA",
+      "city": "Lebec",
+      "state": "CA",
+      "lat": 34.816622,
+      "lng": -118.884526,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58505"
+    },
+    {
+      "id": "28541",
+      "name": "Tustin, CA - Franklin Ave",
+      "city": "Tustin",
+      "state": "CA",
+      "lat": 33.716605,
+      "lng": -117.810303,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=28541"
+    },
+    {
+      "id": "SanFranciscoCAsupercharger2",
+      "name": "San Francisco, CA - Geary Blvd",
+      "city": "San Francisco",
+      "state": "CA",
+      "lat": 37.78205,
+      "lng": -122.446981,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=SanFranciscoCAsupercharger2"
+    },
+    {
+      "id": "DaytonaBeachFLQ322",
+      "name": "Daytona Beach, FL - Gateway North Dr",
+      "city": "Daytona Beach",
+      "state": "FL",
+      "lat": 29.223265,
+      "lng": -81.09972,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=DaytonaBeachFLQ322"
+    },
+    {
+      "id": "34630",
+      "name": "Fresno, CA - N Chestnut Ave",
+      "city": "Fresno",
+      "state": "CA",
+      "lat": 36.813378,
+      "lng": -119.735649,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=34630"
+    },
+    {
+      "id": "gardengroveca12891harborblvd",
+      "name": "Garden Grove, CA",
+      "city": "Garden Grove",
+      "state": "CA",
+      "lat": 33.777493,
+      "lng": -117.918792,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=gardengroveca12891harborblvd"
     },
     {
       "id": "madisonvilletxsupercharger",
@@ -1984,18 +2068,6 @@
       "reportUrl": "report.html?station=436107"
     },
     {
-      "id": "28541",
-      "name": "Tustin, CA - Franklin Ave",
-      "city": "Tustin",
-      "state": "CA",
-      "lat": 33.716605,
-      "lng": -117.810303,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=28541"
-    },
-    {
       "id": "29307",
       "name": "Paso Robles, CA - Riverside Ave",
       "city": "Paso Robles",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=parsippanysupercharger"
-    },
-    {
-      "id": "charltonmaebsupercharger",
-      "name": "Charlton, MA - Eastbound",
-      "city": "Charlton",
-      "state": "MA",
-      "lat": 42.139201,
-      "lng": -72.025772,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=charltonmaebsupercharger"
-    },
-    {
-      "id": "35665",
-      "name": "Houston, TX - 12523 Westheimer Rd",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.734383,
-      "lng": -95.605593,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=35665"
-    },
-    {
-      "id": "26248",
-      "name": "Tulalip Bay, WA",
-      "city": "Tulalip",
-      "state": "WA",
-      "lat": 48.0955713,
-      "lng": -122.1884739,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26248"
-    },
-    {
-      "id": "19568",
-      "name": "Champlain, NY",
-      "city": "Champlain",
-      "state": "NY",
-      "lat": 44.978988,
-      "lng": -73.445349,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19568"
-    },
-    {
-      "id": "33580",
-      "name": "Parma, OH",
-      "city": "Parma",
-      "state": "OH",
-      "lat": 41.360848,
-      "lng": -81.686812,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33580"
-    },
-    {
-      "id": "TukwilaWAsupercharger",
-      "name": "Tukwila, WA - Strander Blvd",
-      "city": "Tukwila",
-      "state": "WA",
-      "lat": 47.455273,
-      "lng": -122.256631,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=TukwilaWAsupercharger"
     }
   ]
 }
