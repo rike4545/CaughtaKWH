@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T18:10:47.331Z",
+  "generatedAt": "2026-07-30T19:48:28.256Z",
   "requestedLimit": 100,
   "inScopeStations": 1167,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 11,
   "attemptedStationIds": [
-    "palladiofolsomsupercharger",
-    "17769",
-    "31212"
+    "4006656",
+    "cupertinocastevenscreekblvdsupercharger",
+    "26790"
   ],
   "blockedStationIds": [
-    "palladiofolsomsupercharger",
-    "17769",
-    "31212"
+    "4006656",
+    "cupertinocastevenscreekblvdsupercharger",
+    "26790"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 48,
+    "averageRequestMs": 130,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
