@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T08:26:01.608Z",
+  "generatedAt": "2026-07-31T13:23:09.460Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -844,6 +844,90 @@
       "reportUrl": "report.html?station=406157"
     },
     {
+      "id": "4005755",
+      "name": "Huntington Beach, CA",
+      "city": "Huntington Beach",
+      "state": "CA",
+      "lat": 33.715967,
+      "lng": -118.007528,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4005755"
+    },
+    {
+      "id": "26461",
+      "name": "Lake Forest, CA - Muirlands Blvd",
+      "city": "Lake Forest",
+      "state": "CA",
+      "lat": 33.629413,
+      "lng": -117.705886,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26461"
+    },
+    {
+      "id": "31872",
+      "name": "Livermore, CA - N Vasco Rd",
+      "city": "Livermore",
+      "state": "CA",
+      "lat": 37.718152,
+      "lng": -121.725396,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31872"
+    },
+    {
+      "id": "15383",
+      "name": "Mission Viejo, CA - Crown Valley Pkwy",
+      "city": "Mission Viejo",
+      "state": "CA",
+      "lat": 33.5607,
+      "lng": -117.672028,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=15383"
+    },
+    {
+      "id": "NorthridgeCAsupercharger",
+      "name": "Northridge, CA",
+      "city": "Northridge",
+      "state": "CA",
+      "lat": 34.23471,
+      "lng": -118.55287,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=NorthridgeCAsupercharger"
+    },
+    {
+      "id": "413725",
+      "name": "Oceanside, CA - Vista Way",
+      "city": "Oceanside",
+      "state": "CA",
+      "lat": 33.182005,
+      "lng": -117.342686,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=413725"
+    },
+    {
+      "id": "20758",
+      "name": "Ontario, CA - Mills Cir",
+      "city": "Ontario",
+      "state": "CA",
+      "lat": 34.071718,
+      "lng": -117.556166,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20758"
+    },
+    {
       "id": "madisonvilletxsupercharger",
       "name": "Madisonville, TX",
       "city": "Madisonville",
@@ -890,18 +974,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=palmspinrgscaliforniasupercharger"
-    },
-    {
-      "id": "413725",
-      "name": "Oceanside, CA - Vista Way",
-      "city": "Oceanside",
-      "state": "CA",
-      "lat": 33.182005,
-      "lng": -117.342686,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=413725"
     },
     {
       "id": "wacotxsupercharger",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=pattersoncaspenodrsupercharger"
-    },
-    {
-      "id": "TustinCAQ322",
-      "name": "Tustin, CA - Red Hill Ave",
-      "city": "Tustin",
-      "state": "CA",
-      "lat": 33.727381,
-      "lng": -117.821821,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=TustinCAQ322"
-    },
-    {
-      "id": "31014",
-      "name": "Chino, CA - Central Ave",
-      "city": "Chino",
-      "state": "CA",
-      "lat": 34.033253,
-      "lng": -117.690272,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=31014"
-    },
-    {
-      "id": "36231",
-      "name": "Houston, TX - Telephone Rd",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.675543,
-      "lng": -95.290564,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=36231"
-    },
-    {
-      "id": "chinohillsupercharger",
-      "name": "Chino Hills, CA",
-      "city": "Chino Hills",
-      "state": "CA",
-      "lat": 34.002163,
-      "lng": -117.731326,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=chinohillsupercharger"
-    },
-    {
-      "id": "26635",
-      "name": "Houston, TX - Queensbury Lane",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.77892,
-      "lng": -95.5592,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26635"
-    },
-    {
-      "id": "436107",
-      "name": "Patterson, CA - Rogers Rd",
-      "city": "Patterson",
-      "state": "CA",
-      "lat": 37.465038,
-      "lng": -121.174371,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=436107"
     }
   ]
 }
