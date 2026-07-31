@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T11:39:00.936Z",
+  "generatedAt": "2026-07-31T13:18:05.163Z",
   "requestedLimit": 100,
   "inScopeStations": 1116,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "401824",
-    "402202",
-    "15383"
+    "NorthridgeCAsupercharger",
+    "413725",
+    "20758"
   ],
   "blockedStationIds": [
-    "401824",
-    "402202",
-    "15383"
+    "NorthridgeCAsupercharger",
+    "413725",
+    "20758"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 91,
+    "averageRequestMs": 90,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
