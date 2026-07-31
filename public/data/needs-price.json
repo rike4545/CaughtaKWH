@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T13:23:09.460Z",
+  "generatedAt": "2026-07-31T19:01:47.085Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -928,6 +928,114 @@
       "reportUrl": "report.html?station=20758"
     },
     {
+      "id": "20788",
+      "name": "Ontario, CA - Vineyard Ave",
+      "city": "Ontario",
+      "state": "CA",
+      "lat": 34.029757,
+      "lng": -117.612147,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20788"
+    },
+    {
+      "id": "palmspinrgscaliforniasupercharger",
+      "name": "Palm Springs, CA",
+      "city": "Palm Springs",
+      "state": "CA",
+      "lat": 33.824931,
+      "lng": -116.548824,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=palmspinrgscaliforniasupercharger"
+    },
+    {
+      "id": "18845",
+      "name": "Palmdale, CA - 10th St W",
+      "city": "Palmdale",
+      "state": "CA",
+      "lat": 34.602239,
+      "lng": -118.146111,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=18845"
+    },
+    {
+      "id": "436107",
+      "name": "Patterson, CA - Rogers Rd",
+      "city": "Patterson",
+      "state": "CA",
+      "lat": 37.465038,
+      "lng": -121.174371,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=436107"
+    },
+    {
+      "id": "35956",
+      "name": "Pleasanton, CA - Hopyard Rd",
+      "city": "Pleasanton",
+      "state": "CA",
+      "lat": 37.676517,
+      "lng": -121.895761,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=35956"
+    },
+    {
+      "id": "31297",
+      "name": "Pomona, CA - Rio Rancho Rd",
+      "city": "Pomona",
+      "state": "CA",
+      "lat": 34.028645,
+      "lng": -117.760285,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31297"
+    },
+    {
+      "id": "29080",
+      "name": "Roseville, CA - Freedom Way",
+      "city": "Roseville",
+      "state": "CA",
+      "lat": 38.792458,
+      "lng": -121.298228,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=29080"
+    },
+    {
+      "id": "4009002",
+      "name": "Sacramento, CA - Florin Rd",
+      "city": "Sacramento",
+      "state": "CA",
+      "lat": 38.496947,
+      "lng": -121.432194,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4009002"
+    },
+    {
+      "id": "sandiegocacarmelmountainrdsupercharger",
+      "name": "San Diego, CA - Carmel Mountain Rd",
+      "city": "San Diego",
+      "state": "CA",
+      "lat": 32.920824,
+      "lng": -117.21491,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=sandiegocacarmelmountainrdsupercharger"
+    },
+    {
       "id": "madisonvilletxsupercharger",
       "name": "Madisonville, TX",
       "city": "Madisonville",
@@ -962,18 +1070,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=valleystreamnewyorksupercharger"
-    },
-    {
-      "id": "palmspinrgscaliforniasupercharger",
-      "name": "Palm Springs, CA",
-      "city": "Palm Springs",
-      "state": "CA",
-      "lat": 33.824931,
-      "lng": -116.548824,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=palmspinrgscaliforniasupercharger"
     },
     {
       "id": "wacotxsupercharger",
@@ -2306,102 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=18987"
-    },
-    {
-      "id": "HoustonTXsupercharger",
-      "name": "Houston, TX - Westheimer Rd",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.737131,
-      "lng": -95.464608,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=HoustonTXsupercharger"
-    },
-    {
-      "id": "PembrokePinesFLSupercharger22",
-      "name": "Pembroke Pines, FL - S Hiatus Rd",
-      "city": "Pembroke Pines",
-      "state": "FL",
-      "lat": 25.994288,
-      "lng": -80.296384,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=PembrokePinesFLSupercharger22"
-    },
-    {
-      "id": "TyngsboroughMAsupercharger",
-      "name": "Tyngsborough, MA",
-      "city": "Tyngsborough",
-      "state": "MA",
-      "lat": 42.697265,
-      "lng": -71.43988,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=TyngsboroughMAsupercharger"
-    },
-    {
-      "id": "407535",
-      "name": "Pembroke Park, FL",
-      "city": "Pembroke Park",
-      "state": "FL",
-      "lat": 25.984969,
-      "lng": -80.174963,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407535"
-    },
-    {
-      "id": "31523",
-      "name": "Chino, CA",
-      "city": "Chino",
-      "state": "CA",
-      "lat": 33.957375,
-      "lng": -117.623658,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=31523"
-    },
-    {
-      "id": "407108",
-      "name": "Houston, TX - Weslayan St",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.722677,
-      "lng": -95.442928,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407108"
-    },
-    {
-      "id": "27055",
-      "name": "Tyler, TX",
-      "city": "Tyler",
-      "state": "TX",
-      "lat": 32.440678,
-      "lng": -95.137045,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=27055"
-    },
-    {
-      "id": "pattersoncaspenodrsupercharger",
-      "name": "Patterson, CA - Speno Dr",
-      "city": "Patterson",
-      "state": "CA",
-      "lat": 37.466496,
-      "lng": -121.174403,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=pattersoncaspenodrsupercharger"
     }
   ]
 }
