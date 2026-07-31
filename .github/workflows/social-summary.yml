@@ -22,7 +22,7 @@ jobs:
       MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE || 'https://mastodon.social' }}
       SOCIAL_FORCE_SUMMARY: ${{ github.event.inputs.force || 'false' }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: main
           persist-credentials: true
