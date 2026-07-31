@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T01:22:47.864Z",
+  "generatedAt": "2026-07-31T08:26:01.608Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -772,6 +772,78 @@
       "reportUrl": "report.html?station=26179"
     },
     {
+      "id": "29142",
+      "name": "Camarillo, CA - E Daily Dr",
+      "city": "Camarillo",
+      "state": "CA",
+      "lat": 34.21838,
+      "lng": -119.045549,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=29142"
+    },
+    {
+      "id": "426462",
+      "name": "Citrus Heights, CA",
+      "city": "Citrus Heights",
+      "state": "CA",
+      "lat": 38.709192,
+      "lng": -121.313731,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=426462"
+    },
+    {
+      "id": "DiamondBarCASupercharger",
+      "name": "Diamond Bar, CA",
+      "city": "Diamond Bar",
+      "state": "CA",
+      "lat": 33.97577,
+      "lng": -117.838484,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=DiamondBarCASupercharger"
+    },
+    {
+      "id": "elcentrosupercharger",
+      "name": "El Centro, CA",
+      "city": "El Centro",
+      "state": "CA",
+      "lat": 32.760837,
+      "lng": -115.532486,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=elcentrosupercharger"
+    },
+    {
+      "id": "granadahillscaliforniasupercharger",
+      "name": "Granada Hills, CA",
+      "city": "Granada Hills",
+      "state": "CA",
+      "lat": 34.266234,
+      "lng": -118.526633,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=granadahillscaliforniasupercharger"
+    },
+    {
+      "id": "406157",
+      "name": "Hollywood, FL",
+      "city": "Hollywood",
+      "state": "FL",
+      "lat": 26.042305,
+      "lng": -80.209016,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=406157"
+    },
+    {
       "id": "madisonvilletxsupercharger",
       "name": "Madisonville, TX",
       "city": "Madisonville",
@@ -830,30 +902,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=413725"
-    },
-    {
-      "id": "elcentrosupercharger",
-      "name": "El Centro, CA",
-      "city": "El Centro",
-      "state": "CA",
-      "lat": 32.760837,
-      "lng": -115.532486,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=elcentrosupercharger"
-    },
-    {
-      "id": "426462",
-      "name": "Citrus Heights, CA",
-      "city": "Citrus Heights",
-      "state": "CA",
-      "lat": 38.709192,
-      "lng": -121.313731,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=426462"
     },
     {
       "id": "wacotxsupercharger",
@@ -2354,54 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=436107"
-    },
-    {
-      "id": "29307",
-      "name": "Paso Robles, CA - Riverside Ave",
-      "city": "Paso Robles",
-      "state": "CA",
-      "lat": 35.626748,
-      "lng": -120.68734,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=29307"
-    },
-    {
-      "id": "TustinCASupercharger10",
-      "name": "Tustin, CA - Flight Way",
-      "city": "Tustin",
-      "state": "CA",
-      "lat": 33.704288,
-      "lng": -117.836881,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=TustinCASupercharger10"
-    },
-    {
-      "id": "ChicopeeMASupercharger",
-      "name": "Chicopee, MA",
-      "city": "Chicopee",
-      "state": "MA",
-      "lat": 42.174804,
-      "lng": -72.578159,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=ChicopeeMASupercharger"
-    },
-    {
-      "id": "HoustonTX1Q42022",
-      "name": "Houston, TX - Piping Rock Ln",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.740616,
-      "lng": -95.645801,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=HoustonTX1Q42022"
     }
   ]
 }
