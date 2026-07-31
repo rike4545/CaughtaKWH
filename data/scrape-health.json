@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-30T23:00:20.719Z",
+  "generatedAt": "2026-07-31T00:03:16.999Z",
   "requestedLimit": 100,
-  "inScopeStations": 1164,
+  "inScopeStations": 1107,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 14,
+  "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "412956",
-    "29107",
-    "BeaumontCAQ322"
+    "20533",
+    "BreaCASupercharger2",
+    "26179"
   ],
   "blockedStationIds": [
-    "412956",
-    "29107",
-    "BeaumontCAQ322"
+    "20533",
+    "BreaCASupercharger2",
+    "26179"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 55,
+    "averageRequestMs": 49,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "AZ",
       "CA",
       "CO",
       "CT",
       "DC",
       "DE",
       "FL",
-      "GA"
+      "GA",
+      "HI"
     ],
     "countries": [],
     "nearby": null,
