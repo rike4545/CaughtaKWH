@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T00:03:16.999Z",
+  "generatedAt": "2026-07-31T03:47:19.430Z",
   "requestedLimit": 100,
-  "inScopeStations": 1107,
+  "inScopeStations": 1111,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 15,
+  "cooldownSkipped": 11,
   "attemptedStationIds": [
-    "20533",
-    "BreaCASupercharger2",
-    "26179"
+    "29142",
+    "426462",
+    "DiamondBarCASupercharger"
   ],
   "blockedStationIds": [
-    "20533",
-    "BreaCASupercharger2",
-    "26179"
+    "29142",
+    "426462",
+    "DiamondBarCASupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 49,
+    "averageRequestMs": 51,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
