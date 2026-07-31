@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T17:10:24.271Z",
+  "generatedAt": "2026-07-31T18:43:05.491Z",
   "requestedLimit": 100,
-  "inScopeStations": 1113,
+  "inScopeStations": 1111,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 11,
   "attemptedStationIds": [
-    "436107",
-    "35956",
-    "31297"
+    "29080",
+    "4009002",
+    "sandiegocacarmelmountainrdsupercharger"
   ],
   "blockedStationIds": [
-    "436107",
-    "35956",
-    "31297"
+    "29080",
+    "4009002",
+    "sandiegocacarmelmountainrdsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 106,
+    "averageRequestMs": 159,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
