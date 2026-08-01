@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T07:56:05.299Z",
+  "generatedAt": "2026-08-01T12:46:43.239Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -1288,6 +1288,114 @@
       "reportUrl": "report.html?station=59222"
     },
     {
+      "id": "407484",
+      "name": "Pompano Beach, FL",
+      "city": "Pompano Beach",
+      "state": "FL",
+      "lat": 26.27553,
+      "lng": -80.152819,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=407484"
+    },
+    {
+      "id": "32949",
+      "name": "St. Petersburg, FL - 25th St N",
+      "city": "St. Petersburg",
+      "state": "FL",
+      "lat": 27.793339,
+      "lng": -82.666714,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32949"
+    },
+    {
+      "id": "407679",
+      "name": "Stuart, FL - SW Lost River Rd",
+      "city": "Stuart",
+      "state": "FL",
+      "lat": 27.111067,
+      "lng": -80.25928,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=407679"
+    },
+    {
+      "id": "2251",
+      "name": "Atlanta, GA",
+      "city": "Atlanta",
+      "state": "GA",
+      "lat": 33.793808,
+      "lng": -84.397203,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=2251"
+    },
+    {
+      "id": "59214",
+      "name": "[Wawa] Alachua, FL - NW US Hwy 441",
+      "city": "Alachua",
+      "state": "FL",
+      "lat": 29.804109,
+      "lng": -82.52707,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=59214"
+    },
+    {
+      "id": "BoyntonBeachFLSupercharger",
+      "name": "Boynton Beach, FL",
+      "city": "Boynton Beach",
+      "state": "FL",
+      "lat": 26.533567,
+      "lng": -80.089394,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=BoyntonBeachFLSupercharger"
+    },
+    {
+      "id": "19280",
+      "name": "Covington, GA",
+      "city": "Covington",
+      "state": "GA",
+      "lat": 33.608864,
+      "lng": -83.825879,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19280"
+    },
+    {
+      "id": "45383",
+      "name": "Delray Beach, FL - W Atlantic Ave",
+      "city": "Delray Beach",
+      "state": "FL",
+      "lat": 26.45468,
+      "lng": -80.161252,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=45383"
+    },
+    {
+      "id": "EllentonFLQ322",
+      "name": "Ellenton, FL",
+      "city": "Ellenton",
+      "state": "FL",
+      "lat": 27.537933,
+      "lng": -82.507363,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=EllentonFLQ322"
+    },
+    {
       "id": "madisonvilletxsupercharger",
       "name": "Madisonville, TX",
       "city": "Madisonville",
@@ -1346,18 +1454,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=santarosacasupercharger"
-    },
-    {
-      "id": "407484",
-      "name": "Pompano Beach, FL",
-      "city": "Pompano Beach",
-      "state": "FL",
-      "lat": 26.27553,
-      "lng": -80.152819,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407484"
     },
     {
       "id": "20325",
@@ -2306,102 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=35702"
-    },
-    {
-      "id": "freeholdnjsupercharger",
-      "name": "Freehold, NJ",
-      "city": "Freehold",
-      "state": "NJ",
-      "lat": 40.238319,
-      "lng": -74.228021,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=freeholdnjsupercharger"
-    },
-    {
-      "id": "entiatwasupercharger",
-      "name": "Entiat, WA",
-      "city": "Entiat",
-      "state": "WA",
-      "lat": 47.684662,
-      "lng": -120.206959,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=entiatwasupercharger"
-    },
-    {
-      "id": "DunniganCAQ322",
-      "name": "Dunnigan, CA",
-      "city": "Dunnigan",
-      "state": "CA",
-      "lat": 38.862861,
-      "lng": -121.951538,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=DunniganCAQ322"
-    },
-    {
-      "id": "4007413",
-      "name": "Naperville, IL",
-      "city": "Naperville",
-      "state": "IL",
-      "lat": 41.714714,
-      "lng": -88.206378,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4007413"
-    },
-    {
-      "id": "Deltonaflsupercharger",
-      "name": "Deltona, FL",
-      "city": "Deltona",
-      "state": "FL",
-      "lat": 28.9498974,
-      "lng": -81.2508045,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=Deltonaflsupercharger"
-    },
-    {
-      "id": "DetroitMIsupercharger",
-      "name": "Detroit, MI",
-      "city": "Detroit",
-      "state": "MI",
-      "lat": 42.4452,
-      "lng": -83.117932,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=DetroitMIsupercharger"
-    },
-    {
-      "id": "deerfieldbeachsupercharger",
-      "name": "Deerfield Beach, FL",
-      "city": "Deerfield Beach",
-      "state": "FL",
-      "lat": 26.317736,
-      "lng": -80.119643,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=deerfieldbeachsupercharger"
-    },
-    {
-      "id": "copiaguenysupercharger",
-      "name": "Copiague, NY",
-      "city": "Copiague",
-      "state": "NY",
-      "lat": 40.688444,
-      "lng": -73.4055,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=copiaguenysupercharger"
     }
   ]
 }
