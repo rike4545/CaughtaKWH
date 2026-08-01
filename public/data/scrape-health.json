@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T10:54:33.044Z",
+  "generatedAt": "2026-08-01T11:54:38.552Z",
   "requestedLimit": 100,
-  "inScopeStations": 474,
+  "inScopeStations": 471,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 8,
+  "cooldownSkipped": 11,
   "attemptedStationIds": [
-    "2251",
-    "59214",
-    "BoyntonBeachFLSupercharger"
+    "19280",
+    "45383",
+    "EllentonFLQ322"
   ],
   "blockedStationIds": [
-    "2251",
-    "59214",
-    "BoyntonBeachFLSupercharger"
+    "19280",
+    "45383",
+    "EllentonFLQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 87,
+    "averageRequestMs": 75,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
