@@ -97493,7 +97493,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.16,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 5000,
@@ -97519,7 +97519,39 @@
     "plugTypes": {
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-01T07:12:11.854Z",
+    "lastBlockedAt": "2026-08-01T07:12:11.854Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-01T13:12:11.854Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/4006805",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 63,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 63
+    }
   },
   {
     "id": "58919",
@@ -97866,7 +97898,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.27,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 6500,
@@ -97892,7 +97924,39 @@
     "plugTypes": {
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-01T07:12:11.854Z",
+    "lastBlockedAt": "2026-08-01T07:12:11.854Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-01T13:12:11.854Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/34107",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 25,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 25
+    }
   },
   {
     "id": "58978",
@@ -102792,7 +102856,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.13,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 6500,
@@ -102819,7 +102883,39 @@
     "plugTypes": {
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-01T07:12:11.854Z",
+    "lastBlockedAt": "2026-08-01T07:12:11.854Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-01T13:12:11.854Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/59222",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 28,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 28
+    }
   },
   {
     "id": "11406",
