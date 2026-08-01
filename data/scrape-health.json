@@ -1,32 +1,24 @@
 {
-  "generatedAt": "2026-08-01T07:12:11.854Z",
-  "requestedLimit": 100,
-  "inScopeStations": 477,
-  "attempted": 3,
+  "generatedAt": "2026-08-01T08:33:07.317Z",
+  "requestedLimit": 10,
+  "inScopeStations": 0,
+  "attempted": 0,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 0,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 5,
-  "attemptedStationIds": [
-    "4006805",
-    "34107",
-    "59222"
-  ],
-  "blockedStationIds": [
-    "4006805",
-    "34107",
-    "59222"
-  ],
+  "cooldownSkipped": 10,
+  "attemptedStationIds": [],
+  "blockedStationIds": [],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 0,
+    "requestAttempts": 0,
     "retries": 0,
-    "averageRequestMs": 39,
+    "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +29,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 0
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +39,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "CO",
-      "CT",
-      "DC",
-      "DE",
-      "FL",
-      "GA",
-      "HI",
-      "IA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }

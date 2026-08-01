@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-01T01:24:04.367Z",
+  "generatedAt": "2026-08-01T07:56:05.299Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -1216,6 +1216,78 @@
       "reportUrl": "report.html?station=407626"
     },
     {
+      "id": "26440",
+      "name": "Miami, FL - SW 136th St",
+      "city": "Miami",
+      "state": "FL",
+      "lat": 25.646391,
+      "lng": -80.337976,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26440"
+    },
+    {
+      "id": "435458",
+      "name": "Ocala, FL - SW College Rd",
+      "city": "Ocala",
+      "state": "FL",
+      "lat": 29.173869,
+      "lng": -82.158118,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=435458"
+    },
+    {
+      "id": "58911",
+      "name": "Ocoee, FL - W Colonial Dr",
+      "city": "Ocoee",
+      "state": "FL",
+      "lat": 28.553479,
+      "lng": -81.519969,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58911"
+    },
+    {
+      "id": "4006805",
+      "name": "Orlando, FL - Eagle Watch Dr",
+      "city": "Orlando",
+      "state": "FL",
+      "lat": 28.460949,
+      "lng": -81.308287,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4006805"
+    },
+    {
+      "id": "34107",
+      "name": "Orlando, FL - Town Center Blvd",
+      "city": "Orlando",
+      "state": "FL",
+      "lat": 28.369498,
+      "lng": -81.405813,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=34107"
+    },
+    {
+      "id": "59222",
+      "name": "Pinellas Park, FL - US Hwy 19 N",
+      "city": "Pinellas Park",
+      "state": "FL",
+      "lat": 27.837153,
+      "lng": -82.683432,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=59222"
+    },
+    {
       "id": "madisonvilletxsupercharger",
       "name": "Madisonville, TX",
       "city": "Madisonville",
@@ -1286,18 +1358,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=407484"
-    },
-    {
-      "id": "58911",
-      "name": "Ocoee, FL - W Colonial Dr",
-      "city": "Ocoee",
-      "state": "FL",
-      "lat": 28.553479,
-      "lng": -81.519969,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58911"
     },
     {
       "id": "20325",
@@ -2342,66 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=copiaguenysupercharger"
-    },
-    {
-      "id": "clearwaterflsupercharger",
-      "name": "Clearwater, FL",
-      "city": "Clearwater",
-      "state": "FL",
-      "lat": 28.013295,
-      "lng": -82.736244,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=clearwaterflsupercharger"
-    },
-    {
-      "id": "36089",
-      "name": "Cathedral City, CA",
-      "city": "Cathedral City",
-      "state": "CA",
-      "lat": 33.825097,
-      "lng": -116.459565,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=36089"
-    },
-    {
-      "id": "20657",
-      "name": "Burlington, NC - Garden Rd",
-      "city": "Burlington",
-      "state": "NC",
-      "lat": 36.070093,
-      "lng": -79.499444,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20657"
-    },
-    {
-      "id": "BrewsterNYsupercharger",
-      "name": "Brewster, NY",
-      "city": "Brewster",
-      "state": "NY",
-      "lat": 41.39169,
-      "lng": -73.595175,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=BrewsterNYsupercharger"
-    },
-    {
-      "id": "425021",
-      "name": "Bakersfield, CA - Coffee Rd",
-      "city": "Bakersfield",
-      "state": "CA",
-      "lat": 35.400275,
-      "lng": -119.091711,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=425021"
     }
   ]
 }
