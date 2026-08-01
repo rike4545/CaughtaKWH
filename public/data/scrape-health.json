@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-31T23:30:57.716Z",
+  "generatedAt": "2026-08-01T01:11:22.582Z",
   "requestedLimit": 100,
-  "inScopeStations": 1108,
+  "inScopeStations": 477,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 14,
+  "cooldownSkipped": 5,
   "attemptedStationIds": [
-    "16415",
-    "27178",
-    "404356"
+    "32554",
+    "426107",
+    "407626"
   ],
   "blockedStationIds": [
-    "16415",
-    "27178",
-    "404356"
+    "32554",
+    "426107",
+    "407626"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 83,
+    "averageRequestMs": 152,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "CA",
       "CO",
       "CT",
       "DC",
       "DE",
       "FL",
       "GA",
-      "HI"
+      "HI",
+      "IA"
     ],
     "countries": [],
     "nearby": null,
