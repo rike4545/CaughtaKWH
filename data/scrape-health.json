@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T20:39:21.553Z",
+  "generatedAt": "2026-08-01T21:33:47.053Z",
   "requestedLimit": 100,
-  "inScopeStations": 465,
+  "inScopeStations": 462,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 17,
+  "cooldownSkipped": 20,
   "attemptedStationIds": [
-    "33701",
-    "412005",
-    "407814"
+    "BocaRatonFLsupercharger",
+    "brooksvilleflsupercharger",
+    "32551"
   ],
   "blockedStationIds": [
-    "33701",
-    "412005",
-    "407814"
+    "BocaRatonFLsupercharger",
+    "brooksvilleflsupercharger",
+    "32551"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 73,
+    "averageRequestMs": 54,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
