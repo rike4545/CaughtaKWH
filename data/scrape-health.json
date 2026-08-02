@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-02T11:53:24.171Z",
+  "generatedAt": "2026-08-02T12:54:40.909Z",
   "requestedLimit": 100,
-  "inScopeStations": 423,
+  "inScopeStations": 420,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 12,
+  "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "27075",
-    "58956",
-    "33802"
+    "MiamiFL1Q322",
+    "36084",
+    "33866"
   ],
   "blockedStationIds": [
-    "27075",
-    "58956",
-    "33802"
+    "MiamiFL1Q322",
+    "36084",
+    "33866"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 104,
+    "averageRequestMs": 97,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
