@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T19:50:37.814Z",
+  "generatedAt": "2026-08-02T20:41:56.219Z",
   "requestedLimit": 100,
   "inScopeStations": 420,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "RockledgeFLsupercharger",
-    "32838",
-    "18295"
+    "457902",
+    "59035",
+    "StAugustineFLSupercharger"
   ],
   "blockedStationIds": [
-    "RockledgeFLsupercharger",
-    "32838",
-    "18295"
+    "457902",
+    "59035",
+    "StAugustineFLSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 84,
+    "averageRequestMs": 170,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
