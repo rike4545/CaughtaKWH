@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T20:41:56.219Z",
+  "generatedAt": "2026-08-02T21:34:58.237Z",
   "requestedLimit": 100,
   "inScopeStations": 420,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "457902",
-    "59035",
-    "StAugustineFLSupercharger"
+    "19569",
+    "33787",
+    "33786"
   ],
   "blockedStationIds": [
-    "457902",
-    "59035",
-    "StAugustineFLSupercharger"
+    "19569",
+    "33787",
+    "33786"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 170,
+    "averageRequestMs": 168,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
