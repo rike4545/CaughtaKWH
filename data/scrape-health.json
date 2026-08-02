@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-02T11:07:16.708Z",
-  "requestedLimit": 300,
-  "inScopeStations": 391,
+  "generatedAt": "2026-08-02T11:53:24.171Z",
+  "requestedLimit": 100,
+  "inScopeStations": 423,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 12,
   "attemptedStationIds": [
-    "27374",
-    "59202",
-    "59032"
+    "27075",
+    "58956",
+    "33802"
   ],
   "blockedStationIds": [
-    "27374",
-    "59202",
-    "59032"
+    "27075",
+    "58956",
+    "33802"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 101,
+    "averageRequestMs": 104,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,7 +53,9 @@
       "DE",
       "FL",
       "GA",
-      "HI"
+      "HI",
+      "IA",
+      "ID"
     ],
     "countries": [],
     "nearby": null,
