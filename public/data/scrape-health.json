@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T17:42:44.325Z",
+  "generatedAt": "2026-08-02T18:40:17.923Z",
   "requestedLimit": 100,
   "inScopeStations": 420,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "OrlandoFLMilleniasupercharger",
-    "58978",
-    "17696"
+    "59234",
+    "32952",
+    "412110"
   ],
   "blockedStationIds": [
-    "OrlandoFLMilleniasupercharger",
-    "58978",
-    "17696"
+    "59234",
+    "32952",
+    "412110"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 175,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
