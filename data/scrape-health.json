@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-01T23:38:12.311Z",
+  "generatedAt": "2026-08-02T01:12:58.878Z",
   "requestedLimit": 100,
-  "inScopeStations": 462,
+  "inScopeStations": 420,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 20,
+  "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "32552",
-    "19276",
-    "27021"
+    "DavenportFLsupercharger",
+    "59134",
+    "daytonabeachsupercharger"
   ],
   "blockedStationIds": [
-    "32552",
-    "19276",
-    "27021"
+    "DavenportFLsupercharger",
+    "59134",
+    "daytonabeachsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 82,
+    "averageRequestMs": 87,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "CO",
       "CT",
       "DC",
       "DE",
       "FL",
       "GA",
       "HI",
-      "IA"
+      "IA",
+      "ID"
     ],
     "countries": [],
     "nearby": null,
