@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T01:21:31.274Z",
+  "generatedAt": "2026-08-02T07:58:23.870Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -1828,6 +1828,78 @@
       "reportUrl": "report.html?station=daytonabeachsupercharger"
     },
     {
+      "id": "59183",
+      "name": "DeLand, FL",
+      "city": "DeLand",
+      "state": "FL",
+      "lat": 28.998441,
+      "lng": -81.303882,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=59183"
+    },
+    {
+      "id": "31172",
+      "name": "Destin, FL - US-98",
+      "city": "Destin",
+      "state": "FL",
+      "lat": 30.390504,
+      "lng": -86.479102,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31172"
+    },
+    {
+      "id": "fortmyersflgulfcoastmainstreetsupercharger",
+      "name": "Fort Myers, FL - Gulf Coast Main St",
+      "city": "Fort Myers",
+      "state": "FL",
+      "lat": 26.488531,
+      "lng": -81.787028,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=fortmyersflgulfcoastmainstreetsupercharger"
+    },
+    {
+      "id": "33465",
+      "name": "Gainesville, FL - SW Archer Rd",
+      "city": "Gainesville",
+      "state": "FL",
+      "lat": 29.616469,
+      "lng": -82.389788,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=33465"
+    },
+    {
+      "id": "27023",
+      "name": "Gulf Breeze, FL",
+      "city": "Gulf Breeze",
+      "state": "FL",
+      "lat": 30.389314,
+      "lng": -87.062227,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27023"
+    },
+    {
+      "id": "HialeahFLSupercharger",
+      "name": "Hialeah, FL",
+      "city": "Miami Gardens",
+      "state": "FL",
+      "lat": 25.942859,
+      "lng": -80.344869,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=HialeahFLSupercharger"
+    },
+    {
       "id": "madisonvilletxsupercharger",
       "name": "Madisonville, TX",
       "city": "Madisonville",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=401263"
-    },
-    {
-      "id": "GrapevineTXsupercharger",
-      "name": "Grapevine, TX",
-      "city": "Grapevine",
-      "state": "TX",
-      "lat": 32.941942,
-      "lng": -97.065861,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=GrapevineTXsupercharger"
-    },
-    {
-      "id": "33475",
-      "name": "Foxborough, MA",
-      "city": "Foxborough",
-      "state": "MA",
-      "lat": 42.038787,
-      "lng": -71.24038,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33475"
-    },
-    {
-      "id": "34128",
-      "name": "Folsom, CA - Prairie City Rd",
-      "city": "Folsom",
-      "state": "CA",
-      "lat": 38.648802,
-      "lng": -121.164568,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=34128"
-    },
-    {
-      "id": "fishkillnysupercharger",
-      "name": "Fishkill, NY",
-      "city": "Fishkill",
-      "state": "NY",
-      "lat": 41.52727858284335,
-      "lng": -73.893152475357,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=fishkillnysupercharger"
-    },
-    {
-      "id": "20928",
-      "name": "Eureka, CA - 4th St",
-      "city": "Eureka",
-      "state": "CA",
-      "lat": 40.806071,
-      "lng": -124.14587,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20928"
-    },
-    {
-      "id": "400167",
-      "name": "Elmira, NY",
-      "city": "Elmira",
-      "state": "NY",
-      "lat": 42.158897,
-      "lng": -76.863334,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=400167"
     }
   ]
 }
