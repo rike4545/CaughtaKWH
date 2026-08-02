@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T14:22:51.825Z",
+  "generatedAt": "2026-08-02T15:34:33.015Z",
   "requestedLimit": 100,
   "inScopeStations": 420,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 15,
   "attemptedStationIds": [
-    "32156",
-    "NorthMiamiBeachFLSupercharger",
-    "32158"
+    "59220",
+    "ochopeeflsupercharger",
+    "58967"
   ],
   "blockedStationIds": [
-    "32156",
-    "NorthMiamiBeachFLSupercharger",
-    "32158"
+    "59220",
+    "ochopeeflsupercharger",
+    "58967"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 194,
+    "averageRequestMs": 77,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
