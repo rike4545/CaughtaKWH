@@ -34560,7 +34560,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 453.17,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -34585,7 +34585,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-02T04:36:34.384Z",
+    "lastBlockedAt": "2026-08-02T04:36:34.384Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-02T10:36:34.384Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/59183",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 100,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 100
+    }
   },
   {
     "id": "delraybeachflsupercharger",
@@ -35433,7 +35465,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 453.25,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -35462,7 +35494,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-02T04:36:34.384Z",
+    "lastBlockedAt": "2026-08-02T04:36:34.384Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-02T10:36:34.384Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/31172",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 41,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 41
+    }
   },
   {
     "id": "detroitlakesupercharger",
@@ -45858,7 +45922,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.1,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -45882,7 +45946,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-07-26"
+    "superchargeInfoMatchedAt": "2026-07-26",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-02T04:36:34.384Z",
+    "lastBlockedAt": "2026-08-02T04:36:34.384Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-02T10:36:34.384Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/fortmyersflgulfcoastmainstreetsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 56,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 56
+    }
   },
   {
     "id": "forepierceflsupercharger",
