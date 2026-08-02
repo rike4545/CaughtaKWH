@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-02T04:36:34.384Z",
+  "generatedAt": "2026-08-02T07:15:40.252Z",
   "requestedLimit": 100,
-  "inScopeStations": 429,
+  "inScopeStations": 432,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "59183",
-    "31172",
-    "fortmyersflgulfcoastmainstreetsupercharger"
+    "33465",
+    "27023",
+    "HialeahFLSupercharger"
   ],
   "blockedStationIds": [
-    "59183",
-    "31172",
-    "fortmyersflgulfcoastmainstreetsupercharger"
+    "33465",
+    "27023",
+    "HialeahFLSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 66,
+    "averageRequestMs": 46,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
