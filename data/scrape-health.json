@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T22:32:04.634Z",
+  "generatedAt": "2026-08-03T23:45:16.727Z",
   "requestedLimit": 100,
   "inScopeStations": 459,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 12,
   "attemptedStationIds": [
-    "26924",
-    "CrestviewFLsupercharger",
-    "CrystalRiverFLsupercharger"
+    "CutlerBayFLsupercharger",
+    "DavieFLsupercharger",
+    "32525"
   ],
   "blockedStationIds": [
-    "26924",
-    "CrestviewFLsupercharger",
-    "CrystalRiverFLsupercharger"
+    "CutlerBayFLsupercharger",
+    "DavieFLsupercharger",
+    "32525"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 170,
+    "averageRequestMs": 53,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
