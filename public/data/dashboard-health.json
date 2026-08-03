@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-02T12:39:41.022Z",
+  "generatedAt": "2026-08-03T13:59:20.168Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
-    "checkedStations": 2922,
-    "checkedPct": 94.02,
+    "checkedStations": 2879,
+    "checkedPct": 92.63,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 181,
+    "blockedStations": 225,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -38,14 +38,14 @@
     {
       "state": "FL",
       "stations": 244,
-      "checked": 168,
+      "checked": 129,
       "priced": 0,
       "usable": 0,
       "stale": 244,
-      "checkedPct": 68.85,
+      "checkedPct": 52.87,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 119774.04
+      "priorityScore": 124608.19
     },
     {
       "state": "TX",
@@ -155,6 +155,17 @@
       "priorityScore": 823
     },
     {
+      "id": "rosemontillinoissupercharger",
+      "name": "Rosemont, IL",
+      "state": "IL",
+      "city": "Rosemont",
+      "lastScrapedAt": null,
+      "lastAttemptedAt": "2026-08-03T08:19:21.399Z",
+      "blocked": true,
+      "lastScrapeResult": "access_controlled",
+      "priorityScore": 800
+    },
+    {
       "id": "404914",
       "name": "Fullerton, CA - S Harbor Blvd",
       "state": "CA",
@@ -214,17 +225,6 @@
       "name": "Barstow, CA - Tanger Way",
       "state": "CA",
       "city": "Barstow",
-      "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-07-29T17:34:46.757Z",
-      "blocked": true,
-      "lastScrapeResult": "access_controlled",
-      "priorityScore": 607
-    },
-    {
-      "id": "coalingacasupercharger",
-      "name": "Coalinga, CA",
-      "state": "CA",
-      "city": "Coalinga",
       "lastScrapedAt": null,
       "lastAttemptedAt": "2026-07-29T17:34:46.757Z",
       "blocked": true,
