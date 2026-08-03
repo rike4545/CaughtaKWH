@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T16:40:01.923Z",
+  "generatedAt": "2026-08-03T18:24:16.947Z",
   "requestedLimit": 100,
   "inScopeStations": 464,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "472503",
-    "ApopkaFLSupercharger",
-    "ArcadiaFLSupercharger"
+    "59090",
+    "5274",
+    "BigPineKeyFLSupercharger"
   ],
   "blockedStationIds": [
-    "472503",
-    "ApopkaFLSupercharger",
-    "ArcadiaFLSupercharger"
+    "59090",
+    "5274",
+    "BigPineKeyFLSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 123,
+    "averageRequestMs": 46,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
