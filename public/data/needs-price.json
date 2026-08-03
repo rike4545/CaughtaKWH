@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-02T18:47:31.835Z",
+  "generatedAt": "2026-08-03T01:22:32.568Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -26,6 +26,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=402202"
+    },
+    {
+      "id": "rosemontillinoissupercharger",
+      "name": "Rosemont, IL",
+      "city": "Rosemont",
+      "state": "IL",
+      "lat": 41.97509,
+      "lng": -87.8665,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=rosemontillinoissupercharger"
     },
     {
       "id": "ArroyoGrandeCAsupercharger",
@@ -626,6 +638,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=26790"
+    },
+    {
+      "id": "58957",
+      "name": "Des Plaines, IL",
+      "city": "Des Plaines",
+      "state": "IL",
+      "lat": 41.999145,
+      "lng": -87.884108,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58957"
     },
     {
       "id": "FortValleyGAQ322",
@@ -2260,148 +2284,124 @@
       "reportUrl": "report.html?station=412110"
     },
     {
-      "id": "madisonvilletxsupercharger",
-      "name": "Madisonville, TX",
-      "city": "Madisonville",
-      "state": "TX",
-      "lat": 30.966224,
-      "lng": -95.879546,
+      "id": "RockledgeFLsupercharger",
+      "name": "Rockledge, FL",
+      "city": "Rockledge",
+      "state": "FL",
+      "lat": 28.26721,
+      "lng": -80.71842,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=madisonvilletxsupercharger"
+      "reportUrl": "report.html?station=RockledgeFLsupercharger"
     },
     {
-      "id": "BaytownTXSupercharger",
-      "name": "Baytown, TX",
-      "city": "Baytown",
-      "state": "TX",
-      "lat": 29.801587,
-      "lng": -94.997897,
+      "id": "32838",
+      "name": "Saint Johns, FL",
+      "city": "St Johns",
+      "state": "FL",
+      "lat": 30.103423,
+      "lng": -81.483657,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=BaytownTXSupercharger"
+      "reportUrl": "report.html?station=32838"
     },
     {
-      "id": "valleystreamnewyorksupercharger",
-      "name": "Valley Stream, NY",
-      "city": "Valley Stream",
-      "state": "NY",
-      "lat": 40.66402,
-      "lng": -73.7251,
+      "id": "18295",
+      "name": "Sanford, FL",
+      "city": "Sanford",
+      "state": "FL",
+      "lat": 28.799264,
+      "lng": -81.338224,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=valleystreamnewyorksupercharger"
+      "reportUrl": "report.html?station=18295"
     },
     {
-      "id": "wacotxsupercharger",
-      "name": "Waco, TX",
-      "city": "Bellmead",
-      "state": "TX",
-      "lat": 31.58224,
-      "lng": -97.10915,
+      "id": "457902",
+      "name": "Sarasota, FL - Cattlemen Rd",
+      "city": "Sarasota",
+      "state": "FL",
+      "lat": 27.292902,
+      "lng": -82.451667,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=wacotxsupercharger"
+      "reportUrl": "report.html?station=457902"
     },
     {
-      "id": "santarosacasupercharger",
-      "name": "Santa Rosa, CA",
-      "city": "Santa Rosa",
-      "state": "CA",
-      "lat": 38.459554,
-      "lng": -122.73023,
+      "id": "59035",
+      "name": "Seffner, FL",
+      "city": "Seffner",
+      "state": "FL",
+      "lat": 27.980567,
+      "lng": -82.302682,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=santarosacasupercharger"
+      "reportUrl": "report.html?station=59035"
     },
     {
-      "id": "20325",
-      "name": "East Palo Alto, CA - 1700 E Bayshore Rd",
-      "city": "East Palo Alto",
-      "state": "CA",
-      "lat": 37.460392,
-      "lng": -122.138404,
+      "id": "StAugustineFLSupercharger",
+      "name": "St. Augustine, FL - 2222 FL-16",
+      "city": "St. Augustine",
+      "state": "FL",
+      "lat": 29.916767,
+      "lng": -81.403482,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20325"
+      "reportUrl": "report.html?station=StAugustineFLSupercharger"
     },
     {
-      "id": "20521",
-      "name": "Carteret, NJ",
-      "city": "Carteret",
-      "state": "NJ",
-      "lat": 40.588548,
-      "lng": -74.227019,
+      "id": "19569",
+      "name": "Stamford, CT - Greyrock Pl",
+      "city": "Stamford",
+      "state": "CT",
+      "lat": 41.053189,
+      "lng": -73.537853,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20521"
+      "reportUrl": "report.html?station=19569"
     },
     {
-      "id": "beaumontcasupercharger",
-      "name": "Beaumont, CA",
-      "city": "Beaumont",
-      "state": "CA",
-      "lat": 33.922692,
-      "lng": -116.951989,
+      "id": "33787",
+      "name": "Tallahassee, FL - Apalachee Pkwy",
+      "city": "Tallahassee",
+      "state": "FL",
+      "lat": 30.43144,
+      "lng": -84.244544,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=beaumontcasupercharger"
+      "reportUrl": "report.html?station=33787"
     },
     {
-      "id": "58767",
-      "name": "Austin, TX - Spirit of Texas Dr",
-      "city": "Austin",
-      "state": "TX",
-      "lat": 30.210532,
-      "lng": -97.666642,
+      "id": "33786",
+      "name": "Tallahassee, FL - Thomasville Rd",
+      "city": "Tallahassee",
+      "state": "FL",
+      "lat": 30.504362,
+      "lng": -84.251479,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58767"
+      "reportUrl": "report.html?station=33786"
     },
     {
-      "id": "13326",
-      "name": "Salinas, CA - Northridge Dr",
-      "city": "Salinas",
-      "state": "CA",
-      "lat": 36.715875,
-      "lng": -121.655414,
+      "id": "33783",
+      "name": "Tallahassee, FL - W Pensacola St",
+      "city": "Tallahassee",
+      "state": "FL",
+      "lat": 30.441476,
+      "lng": -84.319677,
       "observations": 0,
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=13326"
-    },
-    {
-      "id": "woodbridgesupercharger",
-      "name": "Woodbridge, NJ",
-      "city": "Woodbridge",
-      "state": "NJ",
-      "lat": 40.535862,
-      "lng": -74.297271,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=woodbridgesupercharger"
-    },
-    {
-      "id": "442164",
-      "name": "Spring, TX - Cypresswood Dr",
-      "city": "Spring",
-      "state": "TX",
-      "lat": 30.050787,
-      "lng": -95.436081,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=442164"
+      "reportUrl": "report.html?station=33783"
     }
   ]
 }
