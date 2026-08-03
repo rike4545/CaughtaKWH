@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-03T20:07:04.099Z",
+  "generatedAt": "2026-08-03T21:18:56.735Z",
   "requestedLimit": 100,
-  "inScopeStations": 461,
+  "inScopeStations": 462,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 10,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "canoecreekflfloridaturnpikeserviceplsupercharger",
-    "27479",
-    "20623"
+    "rosemontillinoissupercharger",
+    "clearwaterflsupercharger",
+    "18931"
   ],
   "blockedStationIds": [
-    "canoecreekflfloridaturnpikeserviceplsupercharger",
-    "27479",
-    "20623"
+    "rosemontillinoissupercharger",
+    "clearwaterflsupercharger",
+    "18931"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 65,
+    "averageRequestMs": 92,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
