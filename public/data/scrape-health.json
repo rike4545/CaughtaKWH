@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-03T04:46:38.627Z",
+  "generatedAt": "2026-08-03T08:19:21.399Z",
   "requestedLimit": 100,
-  "inScopeStations": 465,
+  "inScopeStations": 468,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "32487",
-    "58909",
-    "WinterParkFLsupercharger"
+    "rosemontillinoissupercharger",
+    "438440",
+    "DuluthGASupercharger"
   ],
   "blockedStationIds": [
-    "32487",
-    "58909",
-    "WinterParkFLsupercharger"
+    "rosemontillinoissupercharger",
+    "438440",
+    "DuluthGASupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 113,
+    "averageRequestMs": 75,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
