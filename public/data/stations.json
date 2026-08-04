@@ -69703,7 +69703,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.88,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -69728,7 +69728,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-04T18:01:46.798Z",
+    "lastBlockedAt": "2026-08-04T18:01:46.798Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-05T00:01:46.798Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/29189",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 175,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 175
+    }
   },
   {
     "id": "LakeDeltonWISupercharger",
@@ -70300,7 +70332,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.94,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -70325,7 +70357,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-04T18:01:46.798Z",
+    "lastBlockedAt": "2026-08-04T18:01:46.798Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-05T00:01:46.798Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/27177",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 94,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 94
+    }
   },
   {
     "id": "26742",
@@ -70679,7 +70743,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.98,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -70704,7 +70768,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-04T18:01:46.798Z",
+    "lastBlockedAt": "2026-08-04T18:01:46.798Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-05T00:01:46.798Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/LamontFLSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 102,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 102
+    }
   },
   {
     "id": "2619",
