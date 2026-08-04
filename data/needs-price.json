@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T19:13:15.037Z",
+  "generatedAt": "2026-08-04T01:13:28.994Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -2020,6 +2020,18 @@
       "reportUrl": "report.html?station=59202"
     },
     {
+      "id": "lafayettesupercharger",
+      "name": "Lafayette, IN",
+      "city": "Lafayette",
+      "state": "IN",
+      "lat": 40.416187,
+      "lng": -86.814084,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=lafayettesupercharger"
+    },
+    {
       "id": "59032",
       "name": "Lake City, FL - US-41",
       "city": "Lake City",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=33786"
-    },
-    {
-      "id": "33783",
-      "name": "Tallahassee, FL - W Pensacola St",
-      "city": "Tallahassee",
-      "state": "FL",
-      "lat": 30.441476,
-      "lng": -84.319677,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33783"
     }
   ]
 }
