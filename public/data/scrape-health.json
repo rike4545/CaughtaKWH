@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-04T07:10:49.869Z",
-  "requestedLimit": 100,
-  "inScopeStations": 513,
+  "generatedAt": "2026-08-04T08:52:08.665Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 4,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "35537",
-    "437804",
-    "fortlauderdaleflsupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "blockedStationIds": [
-    "35537",
-    "437804",
-    "fortlauderdaleflsupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 97,
+    "averageRequestMs": 88,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "DE",
-      "FL",
-      "GA",
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
