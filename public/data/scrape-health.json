@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-03T23:45:16.727Z",
+  "generatedAt": "2026-08-04T01:07:28.785Z",
   "requestedLimit": 100,
-  "inScopeStations": 459,
+  "inScopeStations": 505,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 12,
   "attemptedStationIds": [
-    "CutlerBayFLsupercharger",
-    "DavieFLsupercharger",
-    "32525"
+    "lafayettesupercharger",
+    "terrehautesupercharger",
+    "merrillvilleinsupercharger"
   ],
   "blockedStationIds": [
-    "CutlerBayFLsupercharger",
-    "DavieFLsupercharger",
-    "32525"
+    "lafayettesupercharger",
+    "terrehautesupercharger",
+    "merrillvilleinsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 53,
+    "averageRequestMs": 63,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "DC",
       "DE",
       "FL",
       "GA",
       "HI",
       "IA",
       "ID",
-      "IL"
+      "IL",
+      "IN"
     ],
     "countries": [],
     "nearby": null,
