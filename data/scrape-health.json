@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-04T04:28:08.863Z",
+  "generatedAt": "2026-08-04T07:10:49.869Z",
   "requestedLimit": 100,
-  "inScopeStations": 507,
+  "inScopeStations": 513,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 10,
+  "cooldownSkipped": 4,
   "attemptedStationIds": [
-    "deerfieldbeachsupercharger",
-    "Deltonaflsupercharger",
-    "DoralFLSupercharger"
+    "35537",
+    "437804",
+    "fortlauderdaleflsupercharger"
   ],
   "blockedStationIds": [
-    "deerfieldbeachsupercharger",
-    "Deltonaflsupercharger",
-    "DoralFLSupercharger"
+    "35537",
+    "437804",
+    "fortlauderdaleflsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 68,
+    "averageRequestMs": 97,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
