@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-04T11:54:07.449Z",
+  "generatedAt": "2026-08-04T13:53:30.773Z",
   "requestedLimit": 100,
   "inScopeStations": 510,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "HallandaleBeachFLSupercharger",
-    "59086",
-    "457853"
+    "jacksonvilleflchaffeeroadsupercharger",
+    "jacksonvilleflwilsonboulevardsupercharger",
+    "JasperFLSupercharger"
   ],
   "blockedStationIds": [
-    "HallandaleBeachFLSupercharger",
-    "59086",
-    "457853"
+    "jacksonvilleflchaffeeroadsupercharger",
+    "jacksonvilleflwilsonboulevardsupercharger",
+    "JasperFLSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 105,
+    "averageRequestMs": 70,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
