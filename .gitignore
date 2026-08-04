@@ -9,3 +9,4 @@ caughtakwh-agents.patch
 # descends into the directory and honors the negation below.
 .claude/*
 !.claude/skills/
+!.claude/commands/
