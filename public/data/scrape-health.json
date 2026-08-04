@@ -1,32 +1,28 @@
 {
-  "generatedAt": "2026-08-04T09:49:12.621Z",
-  "requestedLimit": 100,
-  "inScopeStations": 510,
-  "attempted": 3,
+  "generatedAt": "2026-08-04T11:33:03.528Z",
+  "requestedLimit": 10,
+  "inScopeStations": 1,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 7,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "fortlauderdaleflpowerlinerdsupercharger",
-    "forepierceflsupercharger",
-    "27216"
+    "islandiasupercharger"
   ],
   "blockedStationIds": [
-    "fortlauderdaleflpowerlinerdsupercharger",
-    "forepierceflsupercharger",
-    "27216"
+    "islandiasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 143,
+    "averageRequestMs": 137,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +33,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +43,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "DE",
-      "FL",
-      "GA",
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
