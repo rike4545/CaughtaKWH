@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-03T13:59:20.168Z",
+  "generatedAt": "2026-08-04T13:19:56.862Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
-    "checkedStations": 2879,
-    "checkedPct": 92.63,
+    "checkedStations": 2844,
+    "checkedPct": 91.51,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 225,
+    "blockedStations": 260,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -38,14 +38,14 @@
     {
       "state": "FL",
       "stations": 244,
-      "checked": 129,
+      "checked": 100,
       "priced": 0,
       "usable": 0,
       "stale": 244,
-      "checkedPct": 52.87,
+      "checkedPct": 40.98,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 124608.19
+      "priorityScore": 128122.47
     },
     {
       "state": "TX",
@@ -160,7 +160,7 @@
       "state": "IL",
       "city": "Rosemont",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-03T08:19:21.399Z",
+      "lastAttemptedAt": "2026-08-03T21:18:56.735Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 800
