@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-04T23:29:51.131Z",
+  "generatedAt": "2026-08-05T00:54:47.069Z",
   "requestedLimit": 100,
-  "inScopeStations": 505,
+  "inScopeStations": 506,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 12,
   "attemptedStationIds": [
-    "miami24thsupercharger",
-    "26393",
-    "michigancityinsupercharger"
+    "missionkssupercharger",
+    "410455",
+    "4007413"
   ],
   "blockedStationIds": [
-    "miami24thsupercharger",
-    "26393",
-    "michigancityinsupercharger"
+    "missionkssupercharger",
+    "410455",
+    "4007413"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 167,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "DE",
       "FL",
       "GA",
       "HI",
       "IA",
       "ID",
       "IL",
-      "IN"
+      "IN",
+      "KS"
     ],
     "countries": [],
     "nearby": null,
