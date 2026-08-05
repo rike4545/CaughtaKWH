@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T11:34:34.201Z",
+  "generatedAt": "2026-08-05T13:19:49.855Z",
   "requestedLimit": 100,
   "inScopeStations": 511,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "OrlandoFLPalmPkwysupercharger",
-    "palmcoastsupercharger",
-    "destinfloridasupercharger"
+    "PembrokePinesFLSupercharger22",
+    "PerryFLsupercharger",
+    "peruillinoissupercharger"
   ],
   "blockedStationIds": [
-    "OrlandoFLPalmPkwysupercharger",
-    "palmcoastsupercharger",
-    "destinfloridasupercharger"
+    "PembrokePinesFLSupercharger22",
+    "PerryFLsupercharger",
+    "peruillinoissupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 99,
+    "averageRequestMs": 161,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
