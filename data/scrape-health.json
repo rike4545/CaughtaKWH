@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T08:59:48.339Z",
-  "requestedLimit": 10,
-  "inScopeStations": 3,
+  "generatedAt": "2026-08-05T09:15:58.274Z",
+  "requestedLimit": 100,
+  "inScopeStations": 511,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "26660",
-    "NorthBabylonNYSupercharger",
-    "shirleynysupercharger"
+    "20815",
+    "29041",
+    "417433"
   ],
   "blockedStationIds": [
-    "26660",
-    "NorthBabylonNYSupercharger",
-    "shirleynysupercharger"
+    "20815",
+    "29041",
+    "417433"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 105,
+    "averageRequestMs": 144,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "FL",
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
