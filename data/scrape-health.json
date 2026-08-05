@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T20:20:06.923Z",
+  "generatedAt": "2026-08-05T21:40:09.125Z",
   "requestedLimit": 100,
   "inScopeStations": 508,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 10,
   "attemptedStationIds": [
-    "59496",
-    "StuartFLSupercharger",
-    "20468"
+    "20028",
+    "tampafloridasupercharger3",
+    "TampaFLSupercharger5"
   ],
   "blockedStationIds": [
-    "59496",
-    "StuartFLSupercharger",
-    "20468"
+    "20028",
+    "tampafloridasupercharger3",
+    "TampaFLSupercharger5"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 150,
+    "averageRequestMs": 97,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
