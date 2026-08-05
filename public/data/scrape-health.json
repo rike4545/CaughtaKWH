@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T22:40:58.173Z",
+  "generatedAt": "2026-08-05T23:36:00.833Z",
   "requestedLimit": 100,
   "inScopeStations": 505,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 13,
   "attemptedStationIds": [
-    "33697",
-    "VeniceFLsupercharger",
-    "verobeachsupercharger"
+    "18738",
+    "westdesmoinessupercharger",
+    "westpalmbeachflturnpikeserviceplazasupercharger"
   ],
   "blockedStationIds": [
-    "33697",
-    "VeniceFLsupercharger",
-    "verobeachsupercharger"
+    "18738",
+    "westdesmoinessupercharger",
+    "westpalmbeachflturnpikeserviceplazasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 48,
+    "averageRequestMs": 54,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
