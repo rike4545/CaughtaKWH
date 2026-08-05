@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T17:08:37.192Z",
+  "generatedAt": "2026-08-05T18:47:01.314Z",
   "requestedLimit": 100,
   "inScopeStations": 508,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 10,
   "attemptedStationIds": [
-    "RiverviewFLSupercharger2",
-    "SarasotaFLSupercharger",
-    "SebastianFLSupercharger"
+    "19353",
+    "saintpetersburgflsupercharger",
+    "414054"
   ],
   "blockedStationIds": [
-    "RiverviewFLSupercharger2",
-    "SarasotaFLSupercharger",
-    "SebastianFLSupercharger"
+    "19353",
+    "saintpetersburgflsupercharger",
+    "414054"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 43,
+    "averageRequestMs": 41,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
