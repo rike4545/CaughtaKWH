@@ -24,6 +24,13 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # How long deploy-pages waits for the Pages backend before it aborts *and cancels the
+      # deployment it created*. Deploys usually settle in seconds, but the queue is bursty
+      # and has taken 3+ minutes; the stock 10-minute cap aborted a still-queued deploy on
+      # 2026-08-06. 15 minutes rides out that congestion and still fits inside the cadence
+      # above, so a slow deploy can't pile runs up behind it.
+      PAGES_DEPLOY_TIMEOUT_MS: '900000'
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -45,9 +52,53 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@v5
         continue-on-error: true
+        with:
+          timeout: ${{ env.PAGES_DEPLOY_TIMEOUT_MS }}
+
+      # A retry only helps when the first attempt left no deployment behind. Pages keys a
+      # deployment by commit SHA, and deploy-pages cancels the deployment it created
+      # whenever it gives up (timeout, or too many status-read errors) -- so re-deploying
+      # this SHA reads that cancelled record straight back and dies with "Deployment
+      # cancelled." in seconds, converting a slow deploy into a failed one. Ask Pages what
+      # state the SHA is really in, and skip the retry only on a confirmed cancel; anything
+      # unreadable stays retryable so this can never make a recoverable run worse.
+      - name: Check whether a retry can still succeed
+        id: triage
+        if: steps.deploy.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          code=$(curl -sS -o status.json -w '%{http_code}' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/pages/deployments/$GITHUB_SHA/status" \
+            || echo 000)
+          state=$(jq -r '.status // empty' status.json 2>/dev/null || true)
+          echo "Pages returned HTTP $code, deployment status '${state:-unknown}' for $GITHUB_SHA"
+          if [ "$code" = "200" ] && [ "$state" = "deployment_cancelled" ]; then
+            echo 'Deployment already cancelled -- redeploying this SHA cannot succeed.'
+            echo 'retry=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'No cancelled deployment recorded for this SHA -- retry is worth a shot.'
+            echo 'retry=true' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Wait before retrying a transient Pages failure
-        if: steps.deploy.outcome == 'failure'
+        if: steps.triage.outputs.retry == 'true'
         run: sleep 45
+
       - name: Retry Pages deploy
-        if: steps.deploy.outcome == 'failure'
+        if: steps.triage.outputs.retry == 'true'
         uses: actions/deploy-pages@v5
+        with:
+          timeout: ${{ env.PAGES_DEPLOY_TIMEOUT_MS }}
+
+      # Nothing published and no retry was possible. Fail loudly rather than leaving a green
+      # check on a run that never deployed -- but say plainly that it self-heals, because the
+      # next scheduled run deploys a newer commit (a fresh SHA, so a fresh deployment).
+      - name: Report an unrecoverable Pages deploy
+        if: steps.triage.outputs.retry == 'false'
+        run: |
+          echo "::error::Pages deployment for $GITHUB_SHA was cancelled after deploy-pages stopped waiting on the backend queue. Redeploying the same commit cannot succeed; the next scheduled run will publish the newest commit."
+          exit 1
