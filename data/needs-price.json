@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T19:07:53.971Z",
+  "generatedAt": "2026-08-06T01:12:44.936Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -1432,6 +1432,18 @@
       "reportUrl": "report.html?station=EsteroFLSupercharger"
     },
     {
+      "id": "florencesupercharger",
+      "name": "Florence, KY - Houston Rd",
+      "city": "Florence",
+      "state": "KY",
+      "lat": 39.011489,
+      "lng": -84.640279,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=florencesupercharger"
+    },
+    {
       "id": "FortLauderdaleFLSupercharger20",
       "name": "Fort Lauderdale, FL - East Sunrise Blvd",
       "city": "Fort Lauderdale",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=33787"
-    },
-    {
-      "id": "33786",
-      "name": "Tallahassee, FL - Thomasville Rd",
-      "city": "Tallahassee",
-      "state": "FL",
-      "lat": 30.504362,
-      "lng": -84.251479,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33786"
     }
   ]
 }
