@@ -17,6 +17,28 @@ export function transportSignal(status) {
   return 'http_error';
 }
 
+// Decides what the fetch-first path should do when Tesla refuses it.
+//
+// A 429 is Tesla asking us to slow down: there is no challenge to solve, so stop and let the
+// cooldown do its job. A 403 or an Akamai interstitial is a JavaScript challenge, which a
+// plain HTTPS request can never pass -- only the Playwright path can. Abandoning the station
+// there wastes the browser fallback entirely, so escalate to it instead.
+export function classifyFetchBlock({
+  blocked = false,
+  rateLimited = false,
+  status = 0,
+  browserRetryEnabled = true
+} = {}) {
+  const isBlocked = Boolean(blocked) || isAccessControlStatus(status);
+  const isRateLimited = Boolean(rateLimited) || Number(status) === 429;
+  return {
+    blocked: isBlocked,
+    rateLimited: isRateLimited,
+    escalateToBrowser: isBlocked && !isRateLimited && Boolean(browserRetryEnabled),
+    outcomeMessage: isRateLimited ? 'tesla_rate_limited' : 'tesla_access_controlled'
+  };
+}
+
 export async function fetchHtmlWithRetry(url, {
   headers = {},
   fetchImpl = fetch,
