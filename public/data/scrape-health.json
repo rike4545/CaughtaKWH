@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-06T04:27:59.090Z",
+  "generatedAt": "2026-08-06T07:13:44.371Z",
   "requestedLimit": 100,
-  "inScopeStations": 287,
+  "inScopeStations": 289,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 4,
   "attemptedStationIds": [
-    "59088",
-    "429515",
-    "bolingbrooksupercharger"
+    "33728",
+    "27255",
+    "burrridgeilsupercharger2"
   ],
   "blockedStationIds": [
-    "59088",
-    "429515",
-    "bolingbrooksupercharger"
+    "33728",
+    "27255",
+    "burrridgeilsupercharger2"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 88,
+    "averageRequestMs": 72,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
