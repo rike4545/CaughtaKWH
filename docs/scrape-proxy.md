@@ -103,6 +103,28 @@ You can also spot-check after a scheduled run via `data/stations.json`:
   also flagged, or the proxy isn't being applied).
 - `lastSuccessfulScrapeAt` populated, or `lastPriceCandidateCount > 0` → working.
 
+## What happens when a fetch is challenged
+
+The scraper tries a plain HTTPS request first, because Tesla's SSR pages embed
+pricing in `__NEXT_DATA__` and that path is far cheaper than a browser. When that
+request is refused, the response decides what happens next:
+
+| Response | Behaviour |
+| --- | --- |
+| `403`, or an Akamai interstitial (sometimes served as `200`) | A JavaScript challenge — `fetch` can never pass one. The station **escalates to the Playwright fallback**, which runs the stealth patches and can execute the challenge. If the browser is blocked too, the station records `access_controlled` as before. |
+| `429` | Tesla asking us to slow down. There is nothing to solve, so the station stops immediately and the cooldown takes over — retrying through a browser would only make it worse. |
+
+Set `BLOCKED_FETCH_BROWSER_RETRY=false` to disable the escalation and go back to
+abandoning a station the moment the fetch path sees a challenge. Worth doing if
+the browser is being blocked just as often as `fetch` and you would rather not
+spend runner time finding that out each run.
+
+Each run records the outcome in `data/scrape-health.json` under `transport`:
+`blockedFetchEscalations` counts the stations handed to the browser. **Compare it
+against `blocked`** — if the two track each other one-to-one, escalation is not
+clearing anything and the block is at the network level, which is a proxy problem
+rather than a fingerprint one.
+
 ## Cost and etiquette
 
 Scrapes are rate-limited (`SCRAPE_DELAY_MS`) and capped per run
