@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-05T13:17:51.630Z",
+  "generatedAt": "2026-08-06T13:13:28.345Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
-    "checkedStations": 2809,
-    "checkedPct": 90.38,
+    "checkedStations": 2770,
+    "checkedPct": 89.12,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 295,
+    "blockedStations": 334,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -38,14 +38,14 @@
     {
       "state": "FL",
       "stations": 244,
-      "checked": 68,
+      "checked": 47,
       "priced": 0,
       "usable": 0,
       "stale": 244,
-      "checkedPct": 27.87,
+      "checkedPct": 19.26,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 131959.3
+      "priorityScore": 134480.69
     },
     {
       "state": "TX",
