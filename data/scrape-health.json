@@ -1,32 +1,24 @@
 {
-  "generatedAt": "2026-08-06T01:02:32.795Z",
-  "requestedLimit": 100,
-  "inScopeStations": 290,
-  "attempted": 3,
+  "generatedAt": "2026-08-06T03:33:06.588Z",
+  "requestedLimit": 10,
+  "inScopeStations": 0,
+  "attempted": 0,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 0,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 3,
-  "attemptedStationIds": [
-    "florencesupercharger",
-    "lexingtonkysupercharger",
-    "AshburnGAQ322"
-  ],
-  "blockedStationIds": [
-    "florencesupercharger",
-    "lexingtonkysupercharger",
-    "AshburnGAQ322"
-  ],
+  "cooldownSkipped": 10,
+  "attemptedStationIds": [],
+  "blockedStationIds": [],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 0,
+    "requestAttempts": 0,
     "retries": 0,
-    "averageRequestMs": 86,
+    "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +29,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 0
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +39,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "GA",
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS",
-      "KY"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
