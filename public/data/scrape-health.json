@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-05T23:36:00.833Z",
+  "generatedAt": "2026-08-06T01:02:32.795Z",
   "requestedLimit": 100,
-  "inScopeStations": 505,
+  "inScopeStations": 290,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 13,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "18738",
-    "westdesmoinessupercharger",
-    "westpalmbeachflturnpikeserviceplazasupercharger"
+    "florencesupercharger",
+    "lexingtonkysupercharger",
+    "AshburnGAQ322"
   ],
   "blockedStationIds": [
-    "18738",
-    "westdesmoinessupercharger",
-    "westpalmbeachflturnpikeserviceplazasupercharger"
+    "florencesupercharger",
+    "lexingtonkysupercharger",
+    "AshburnGAQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 54,
+    "averageRequestMs": 86,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "FL",
       "GA",
       "HI",
       "IA",
       "ID",
       "IL",
       "IN",
-      "KS"
+      "KS",
+      "KY"
     ],
     "countries": [],
     "nearby": null,
