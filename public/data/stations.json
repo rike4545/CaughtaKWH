@@ -15435,7 +15435,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.89,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -15460,7 +15460,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-07T09:49:07.013Z",
+    "lastBlockedAt": "2026-08-07T09:49:07.013Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-07T15:49:07.013Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/35857",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 92,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 92
+    }
   },
   {
     "id": "bloomingtonsupercharger",
@@ -15525,7 +15557,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.91,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -15549,7 +15581,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-07T09:49:07.013Z",
+    "lastBlockedAt": "2026-08-07T09:49:07.013Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-07T15:49:07.013Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/26931",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 35,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 35
+    }
   },
   {
     "id": "BloomingtonMNsupercharger",
@@ -16247,7 +16311,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.06,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -16274,7 +16338,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-07T09:49:07.013Z",
+    "lastBlockedAt": "2026-08-07T09:49:07.013Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-07T15:49:07.013Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19339",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 33,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 33
+    }
   },
   {
     "id": "bostonsouthsupercharger",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T08:47:19.961Z",
+  "generatedAt": "2026-08-07T09:49:07.013Z",
   "requestedLimit": 100,
   "inScopeStations": 215,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 13,
   "attemptedStationIds": [
-    "AlgonquinILSupercharger",
-    "aurorail59supercharger",
-    "18325"
+    "35857",
+    "26931",
+    "19339"
   ],
   "blockedStationIds": [
-    "AlgonquinILSupercharger",
-    "aurorail59supercharger",
-    "18325"
+    "35857",
+    "26931",
+    "19339"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 76,
+    "averageRequestMs": 53,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
