@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T00:35:47.412Z",
+  "generatedAt": "2026-08-07T03:37:22.034Z",
   "requestedLimit": 100,
-  "inScopeStations": 228,
+  "inScopeStations": 225,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "rosemontillinoissupercharger",
-    "lafayettelasupercharger",
-    "MetairieLAsupercharger"
+    "27031",
+    "IowaLAQ322",
+    "59028"
   ],
   "blockedStationIds": [
-    "rosemontillinoissupercharger",
-    "lafayettelasupercharger",
-    "MetairieLAsupercharger"
+    "27031",
+    "IowaLAQ322",
+    "59028"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 75,
+    "averageRequestMs": 74,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

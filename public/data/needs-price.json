@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-06T22:43:06.022Z",
+  "generatedAt": "2026-08-07T01:55:40.482Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -2044,6 +2044,18 @@
       "reportUrl": "report.html?station=lafayettesupercharger"
     },
     {
+      "id": "lafayettelasupercharger",
+      "name": "Lafayette, LA",
+      "city": "Lafayette",
+      "state": "LA",
+      "lat": 30.26645,
+      "lng": -91.992688,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=lafayettelasupercharger"
+    },
+    {
       "id": "59032",
       "name": "Lake City, FL - US-41",
       "city": "Lake City",
@@ -2090,6 +2102,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=33802"
+    },
+    {
+      "id": "MetairieLAsupercharger",
+      "name": "Metairie, LA",
+      "city": "Metairie",
+      "state": "LA",
+      "lat": 30.001475,
+      "lng": -90.124661,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=MetairieLAsupercharger"
     },
     {
       "id": "MiamiFL1Q322",
@@ -2378,30 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=StAugustineFLSupercharger"
-    },
-    {
-      "id": "19569",
-      "name": "Stamford, CT - Greyrock Pl",
-      "city": "Stamford",
-      "state": "CT",
-      "lat": 41.053189,
-      "lng": -73.537853,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19569"
-    },
-    {
-      "id": "33787",
-      "name": "Tallahassee, FL - Apalachee Pkwy",
-      "city": "Tallahassee",
-      "state": "FL",
-      "lat": 30.43144,
-      "lng": -84.244544,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33787"
     }
   ]
 }
