@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T14:38:06.089Z",
+  "generatedAt": "2026-08-07T15:33:08.412Z",
   "requestedLimit": 100,
   "inScopeStations": 209,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 19,
   "attemptedStationIds": [
-    "evanstonilsupercharger",
-    "26713",
-    "FairOaksINsupercharger"
+    "33717",
+    "FortWayneINSupercharger",
+    "27421"
   ],
   "blockedStationIds": [
-    "evanstonilsupercharger",
-    "26713",
-    "FairOaksINsupercharger"
+    "33717",
+    "FortWayneINSupercharger",
+    "27421"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 46,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
