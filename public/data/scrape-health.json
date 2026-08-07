@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T10:40:58.013Z",
+  "generatedAt": "2026-08-07T11:29:51.598Z",
   "requestedLimit": 100,
   "inScopeStations": 212,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "26591",
-    "buffalogrovesupercharger",
-    "400274"
+    "27264",
+    "18631",
+    "ChicagoILBucktownsupercharger"
   ],
   "blockedStationIds": [
-    "26591",
-    "buffalogrovesupercharger",
-    "400274"
+    "27264",
+    "18631",
+    "ChicagoILBucktownsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 40,
+    "averageRequestMs": 89,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
