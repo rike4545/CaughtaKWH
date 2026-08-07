@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-06T13:13:28.345Z",
+  "generatedAt": "2026-08-07T12:25:39.309Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
-    "checkedStations": 2770,
-    "checkedPct": 89.12,
+    "checkedStations": 2738,
+    "checkedPct": 88.1,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 334,
+    "blockedStations": 366,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -160,7 +160,7 @@
       "state": "IL",
       "city": "Rosemont",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-04T22:20:39.593Z",
+      "lastAttemptedAt": "2026-08-07T00:35:47.412Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 800
