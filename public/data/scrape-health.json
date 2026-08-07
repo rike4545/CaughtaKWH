@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T16:41:22.046Z",
+  "generatedAt": "2026-08-07T17:30:51.872Z",
   "requestedLimit": 100,
   "inScopeStations": 212,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "18772",
-    "HighlandParkILsupercharger",
-    "17626"
+    "IndianapolisINSupercharger",
+    "27082",
+    "26953"
   ],
   "blockedStationIds": [
-    "18772",
-    "HighlandParkILsupercharger",
-    "17626"
+    "IndianapolisINSupercharger",
+    "27082",
+    "26953"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 73,
+    "averageRequestMs": 100,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
