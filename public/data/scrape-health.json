@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T22:53:10.064Z",
+  "generatedAt": "2026-08-07T23:23:47.623Z",
   "requestedLimit": 100,
-  "inScopeStations": 206,
+  "inScopeStations": 203,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 22,
+  "cooldownSkipped": 25,
   "attemptedStationIds": [
-    "OswegoILSupercharger",
-    "26805",
-    "26581"
+    "33460",
+    "rockfordilmcfarlandrdsupercharger",
+    "33731"
   ],
   "blockedStationIds": [
-    "OswegoILSupercharger",
-    "26805",
-    "26581"
+    "33460",
+    "rockfordilmcfarlandrdsupercharger",
+    "33731"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 80,
+    "averageRequestMs": 93,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
