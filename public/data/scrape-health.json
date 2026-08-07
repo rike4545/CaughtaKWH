@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T22:04:17.144Z",
+  "generatedAt": "2026-08-07T22:53:10.064Z",
   "requestedLimit": 100,
   "inScopeStations": 206,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 22,
   "attemptedStationIds": [
-    "27272",
-    "18709",
-    "OrlandParkILSupercharger"
+    "OswegoILSupercharger",
+    "26805",
+    "26581"
   ],
   "blockedStationIds": [
-    "27272",
-    "18709",
-    "OrlandParkILSupercharger"
+    "OswegoILSupercharger",
+    "26805",
+    "26581"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 59,
+    "averageRequestMs": 80,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
