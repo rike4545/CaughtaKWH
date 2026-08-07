@@ -1,28 +1,32 @@
 {
-  "generatedAt": "2026-08-07T13:36:11.869Z",
-  "requestedLimit": 10,
-  "inScopeStations": 1,
-  "attempted": 1,
+  "generatedAt": "2026-08-07T14:38:06.089Z",
+  "requestedLimit": 100,
+  "inScopeStations": 209,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 1,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 19,
   "attemptedStationIds": [
-    "islandiasupercharger"
+    "evanstonilsupercharger",
+    "26713",
+    "FairOaksINsupercharger"
   ],
   "blockedStationIds": [
-    "islandiasupercharger"
+    "evanstonilsupercharger",
+    "26713",
+    "FairOaksINsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 1,
-    "requestAttempts": 1,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 234,
+    "averageRequestMs": 60,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -33,9 +37,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 1
+    "consecutiveBlocks": 3
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -43,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
