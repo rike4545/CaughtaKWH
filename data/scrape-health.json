@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T05:21:44.576Z",
+  "generatedAt": "2026-08-07T06:40:07.575Z",
   "requestedLimit": 100,
-  "inScopeStations": 222,
+  "inScopeStations": 221,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "59008",
-    "northaurorasupercharger",
-    "434110"
+    "34157",
+    "18721",
+    "coeurdaleneidsupercharger"
   ],
   "blockedStationIds": [
-    "59008",
-    "northaurorasupercharger",
-    "434110"
+    "34157",
+    "18721",
+    "coeurdaleneidsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 101,
+    "averageRequestMs": 97,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
