@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T07:56:32.600Z",
+  "generatedAt": "2026-08-07T08:47:19.961Z",
   "requestedLimit": 100,
-  "inScopeStations": 218,
+  "inScopeStations": 215,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 10,
+  "cooldownSkipped": 13,
   "attemptedStationIds": [
-    "londonkysupercharger",
-    "AbileneKSQ322",
-    "458403"
+    "AlgonquinILSupercharger",
+    "aurorail59supercharger",
+    "18325"
   ],
   "blockedStationIds": [
-    "londonkysupercharger",
-    "AbileneKSQ322",
-    "458403"
+    "AlgonquinILSupercharger",
+    "aurorail59supercharger",
+    "18325"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 46,
+    "averageRequestMs": 76,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
