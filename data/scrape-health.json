@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-07T12:09:00.433Z",
+  "generatedAt": "2026-08-07T13:35:02.942Z",
   "requestedLimit": 100,
   "inScopeStations": 209,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 19,
   "attemptedStationIds": [
-    "ChicagoILSupercharger",
-    "33727",
-    "27038"
+    "26937",
+    "18655",
+    "ElginILSupercharger"
   ],
   "blockedStationIds": [
-    "ChicagoILSupercharger",
-    "33727",
-    "27038"
+    "26937",
+    "18655",
+    "ElginILSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 90,
+    "averageRequestMs": 84,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

@@ -40592,7 +40592,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.26,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -40615,7 +40615,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-07T13:35:02.942Z",
+    "lastBlockedAt": "2026-08-07T13:35:02.942Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-07T19:35:02.942Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/26937",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 107,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 107
+    }
   },
   {
     "id": "effinghamilsupercharger",
@@ -40679,7 +40711,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.02,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -40702,7 +40734,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-07T13:35:02.942Z",
+    "lastBlockedAt": "2026-08-07T13:35:02.942Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-07T19:35:02.942Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/18655",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 95,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 95
+    }
   },
   {
     "id": "eggharbortownsupercharger",
@@ -41621,7 +41685,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.08,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -41644,7 +41708,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-07T13:35:02.942Z",
+    "lastBlockedAt": "2026-08-07T13:35:02.942Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-07T19:35:02.942Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/ElginILSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 49,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 49
+    }
   },
   {
     "id": "elizabethnjsupercharger",
