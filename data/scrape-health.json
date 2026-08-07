@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T11:29:51.598Z",
+  "generatedAt": "2026-08-07T12:09:00.433Z",
   "requestedLimit": 100,
-  "inScopeStations": 212,
+  "inScopeStations": 209,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 16,
+  "cooldownSkipped": 19,
   "attemptedStationIds": [
-    "27264",
-    "18631",
-    "ChicagoILBucktownsupercharger"
+    "ChicagoILSupercharger",
+    "33727",
+    "27038"
   ],
   "blockedStationIds": [
-    "27264",
-    "18631",
-    "ChicagoILBucktownsupercharger"
+    "ChicagoILSupercharger",
+    "33727",
+    "27038"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 89,
+    "averageRequestMs": 90,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
