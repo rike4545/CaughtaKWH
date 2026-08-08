@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-07T23:54:55.043Z",
+  "generatedAt": "2026-08-08T00:45:48.329Z",
   "requestedLimit": 100,
-  "inScopeStations": 203,
+  "inScopeStations": 258,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 25,
   "attemptedStationIds": [
-    "33736",
-    "SouthBarringtonILSupercharger",
-    "33734"
+    "35205",
+    "auburnmasupercharger",
+    "braintreesupercharger"
   ],
   "blockedStationIds": [
-    "33736",
-    "SouthBarringtonILSupercharger",
-    "33734"
+    "35205",
+    "auburnmasupercharger",
+    "braintreesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 112,
+    "averageRequestMs": 75,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "HI",
       "IA",
       "ID",
       "IL",
       "IN",
       "KS",
       "KY",
-      "LA"
+      "LA",
+      "MA"
     ],
     "countries": [],
     "nearby": null,
