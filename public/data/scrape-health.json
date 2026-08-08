@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T20:01:11.130Z",
+  "generatedAt": "2026-08-08T20:46:00.458Z",
   "requestedLimit": 100,
   "inScopeStations": 249,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 34,
   "attemptedStationIds": [
-    "HoweINsupercharger",
-    "howeINgenestrattontravelplaza",
-    "IowaCityIASupercharger"
+    "458505",
+    "kokomoinsupercharger",
+    "33720"
   ],
   "blockedStationIds": [
-    "HoweINsupercharger",
-    "howeINgenestrattontravelplaza",
-    "IowaCityIASupercharger"
+    "458505",
+    "kokomoinsupercharger",
+    "33720"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 102,
+    "averageRequestMs": 81,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
