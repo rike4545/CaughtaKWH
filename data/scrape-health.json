@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T17:29:02.061Z",
+  "generatedAt": "2026-08-08T17:57:25.675Z",
   "requestedLimit": 100,
   "inScopeStations": 255,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "DwightILsupercharger",
-    "ElDoradoKSSupercharger",
-    "ElizabethtownKYSupercharger"
+    "30743",
+    "elkhartingeorgecraigtravelplazasupercharger",
+    "elkhartinhenryschrickertravelplazasupercharger"
   ],
   "blockedStationIds": [
-    "DwightILsupercharger",
-    "ElDoradoKSSupercharger",
-    "ElizabethtownKYSupercharger"
+    "30743",
+    "elkhartingeorgecraigtravelplazasupercharger",
+    "elkhartinhenryschrickertravelplazasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 83,
+    "averageRequestMs": 95,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
