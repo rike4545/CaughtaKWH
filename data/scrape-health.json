@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-08T20:46:00.458Z",
+  "generatedAt": "2026-08-08T21:18:43.106Z",
   "requestedLimit": 100,
-  "inScopeStations": 249,
+  "inScopeStations": 252,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 34,
+  "cooldownSkipped": 31,
   "attemptedStationIds": [
-    "458505",
-    "kokomoinsupercharger",
-    "33720"
+    "louisvillekytowncenterdrivesupercharger",
+    "430106",
+    "MarionILsupercharger"
   ],
   "blockedStationIds": [
-    "458505",
-    "kokomoinsupercharger",
-    "33720"
+    "louisvillekytowncenterdrivesupercharger",
+    "430106",
+    "MarionILsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 92,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
