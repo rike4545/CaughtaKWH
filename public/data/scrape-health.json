@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T19:06:39.883Z",
+  "generatedAt": "2026-08-08T19:42:06.986Z",
   "requestedLimit": 100,
   "inScopeStations": 252,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 31,
   "attemptedStationIds": [
-    "27530",
-    "Gilmanilsupercharger",
-    "33749"
+    "58999",
+    "GrinnellIASupercharger",
+    "haubstadtinsupercharger"
   ],
   "blockedStationIds": [
-    "27530",
-    "Gilmanilsupercharger",
-    "33749"
+    "58999",
+    "GrinnellIASupercharger",
+    "haubstadtinsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 54,
+    "averageRequestMs": 97,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
