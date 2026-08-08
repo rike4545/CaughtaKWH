@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T22:16:26.139Z",
+  "generatedAt": "2026-08-08T22:53:40.797Z",
   "requestedLimit": 100,
   "inScopeStations": 249,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 34,
   "attemptedStationIds": [
-    "19135",
-    "27482",
-    "NatchitochesLASupercharger"
+    "northbrookilsupercharger",
+    "27529",
+    "OakBrookILsupercharger"
   ],
   "blockedStationIds": [
-    "19135",
-    "27482",
-    "NatchitochesLASupercharger"
+    "northbrookilsupercharger",
+    "27529",
+    "OakBrookILsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 102,
+    "averageRequestMs": 151,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
