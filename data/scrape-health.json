@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T11:19:20.701Z",
+  "generatedAt": "2026-08-08T11:51:03.826Z",
   "requestedLimit": 100,
   "inScopeStations": 258,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 25,
   "attemptedStationIds": [
-    "LenoxMASupercharger",
-    "6928",
-    "437903"
+    "newtonMAsupercharger",
+    "424512",
+    "reveremasupercharger"
   ],
   "blockedStationIds": [
-    "LenoxMASupercharger",
-    "6928",
-    "437903"
+    "newtonMAsupercharger",
+    "424512",
+    "reveremasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 62,
+    "averageRequestMs": 89,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
