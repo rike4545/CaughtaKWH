@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T16:59:41.828Z",
+  "generatedAt": "2026-08-08T17:29:02.061Z",
   "requestedLimit": 100,
   "inScopeStations": 255,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "CollinsvilleILsupercharger",
-    "18784",
-    "DesMoinesIASupercharger"
+    "DwightILsupercharger",
+    "ElDoradoKSSupercharger",
+    "ElizabethtownKYSupercharger"
   ],
   "blockedStationIds": [
-    "CollinsvilleILsupercharger",
-    "18784",
-    "DesMoinesIASupercharger"
+    "DwightILsupercharger",
+    "ElDoradoKSSupercharger",
+    "ElizabethtownKYSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 52,
+    "averageRequestMs": 83,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
