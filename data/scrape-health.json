@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T15:52:53.772Z",
+  "generatedAt": "2026-08-08T16:18:47.103Z",
   "requestedLimit": 100,
   "inScopeStations": 255,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "bloomingtonsupercharger",
-    "18995",
-    "burleyidsupercharger"
+    "18712",
+    "CedarRapidsIASupercharger",
+    "18751"
   ],
   "blockedStationIds": [
-    "bloomingtonsupercharger",
-    "18995",
-    "burleyidsupercharger"
+    "18712",
+    "CedarRapidsIASupercharger",
+    "18751"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 54,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
