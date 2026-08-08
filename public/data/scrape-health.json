@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T10:06:18.153Z",
+  "generatedAt": "2026-08-08T10:49:36.940Z",
   "requestedLimit": 100,
   "inScopeStations": 261,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 22,
   "attemptedStationIds": [
-    "charltonmaebsupercharger",
-    "charltonmasupercharger",
-    "EastTempletonMASupercharger"
+    "FreetownMAQ322",
+    "gloucesterMAsupercharger",
+    "greatbarringtonmasupercharger"
   ],
   "blockedStationIds": [
-    "charltonmaebsupercharger",
-    "charltonmasupercharger",
-    "EastTempletonMASupercharger"
+    "FreetownMAQ322",
+    "gloucesterMAsupercharger",
+    "greatbarringtonmasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 65,
+    "averageRequestMs": 150,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
