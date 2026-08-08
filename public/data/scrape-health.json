@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T22:53:40.797Z",
+  "generatedAt": "2026-08-08T23:17:16.331Z",
   "requestedLimit": 100,
   "inScopeStations": 249,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 34,
   "attemptedStationIds": [
-    "northbrookilsupercharger",
-    "27529",
-    "OakBrookILsupercharger"
+    "27039",
+    "PeoriaILsupercharger",
+    "30735"
   ],
   "blockedStationIds": [
-    "northbrookilsupercharger",
-    "27529",
-    "OakBrookILsupercharger"
+    "27039",
+    "PeoriaILsupercharger",
+    "30735"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 151,
+    "averageRequestMs": 39,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
