@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-08T06:28:14.192Z",
+  "generatedAt": "2026-08-08T12:19:29.216Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -2296,6 +2296,30 @@
       "reportUrl": "report.html?station=27075"
     },
     {
+      "id": "32420",
+      "name": "Lawrence, MA",
+      "city": "Lawrence",
+      "state": "MA",
+      "lat": 42.68723,
+      "lng": -71.14591,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32420"
+    },
+    {
+      "id": "LittletonMAsupercharger",
+      "name": "Littleton, MA",
+      "city": "Littleton",
+      "state": "MA",
+      "lat": 42.553135,
+      "lng": -71.473819,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=LittletonMAsupercharger"
+    },
+    {
       "id": "58956",
       "name": "Longwood, FL",
       "city": "Longwood",
@@ -2308,6 +2332,30 @@
       "reportUrl": "report.html?station=58956"
     },
     {
+      "id": "30752",
+      "name": "Lowell, MA",
+      "city": "Lowell",
+      "state": "MA",
+      "lat": 42.616102,
+      "lng": -71.324464,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=30752"
+    },
+    {
+      "id": "35698",
+      "name": "Lynnfield, MA - US-1",
+      "city": "Lynnfield",
+      "state": "MA",
+      "lat": 42.505037,
+      "lng": -71.015444,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=35698"
+    },
+    {
       "id": "33802",
       "name": "Marathon, FL - Overseas Hwy",
       "city": "Marathon",
@@ -2318,6 +2366,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=33802"
+    },
+    {
+      "id": "424265",
+      "name": "Marlborough, MA",
+      "city": "Marlborough",
+      "state": "MA",
+      "lat": 42.359646,
+      "lng": -71.606139,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=424265"
     },
     {
       "id": "MetairieLAsupercharger",
@@ -2342,66 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=MiamiFL1Q322"
-    },
-    {
-      "id": "36084",
-      "name": "Morrow, GA",
-      "city": "Morrow",
-      "state": "GA",
-      "lat": 33.5769,
-      "lng": -84.354123,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=36084"
-    },
-    {
-      "id": "33866",
-      "name": "Naples, FL - Premier Way",
-      "city": "Naples",
-      "state": "FL",
-      "lat": 26.21263,
-      "lng": -81.790767,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33866"
-    },
-    {
-      "id": "32156",
-      "name": "Naples, FL - Tamiami Trail E",
-      "city": "Naples",
-      "state": "FL",
-      "lat": 26.064794,
-      "lng": -81.702596,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32156"
-    },
-    {
-      "id": "NorthMiamiBeachFLSupercharger",
-      "name": "North Miami Beach, FL",
-      "city": "North Miami Beac",
-      "state": "FL",
-      "lat": 25.906606,
-      "lng": -80.157279,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=NorthMiamiBeachFLSupercharger"
-    },
-    {
-      "id": "32158",
-      "name": "Oakland Park, FL",
-      "city": "Oakland Park",
-      "state": "FL",
-      "lat": 26.166146,
-      "lng": -80.164885,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32158"
     }
   ]
 }

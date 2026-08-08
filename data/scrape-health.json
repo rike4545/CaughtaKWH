@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-08T11:51:03.826Z",
+  "generatedAt": "2026-08-08T12:22:51.321Z",
   "requestedLimit": 100,
-  "inScopeStations": 258,
+  "inScopeStations": 255,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 25,
+  "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "newtonMAsupercharger",
-    "424512",
-    "reveremasupercharger"
+    "32421",
+    "seekonksupercharger",
+    "26666"
   ],
   "blockedStationIds": [
-    "newtonMAsupercharger",
-    "424512",
-    "reveremasupercharger"
+    "32421",
+    "seekonksupercharger",
+    "26666"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 89,
+    "averageRequestMs": 128,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
