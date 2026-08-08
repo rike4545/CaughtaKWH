@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-08T04:48:10.555Z",
+  "generatedAt": "2026-08-08T05:34:16.688Z",
   "requestedLimit": 100,
-  "inScopeStations": 264,
+  "inScopeStations": 267,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 19,
+  "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "DartmouthMASupercharger",
-    "26734",
-    "33475"
+    "34871",
+    "26743",
+    "FranklinMAsupercharger"
   ],
   "blockedStationIds": [
-    "DartmouthMASupercharger",
-    "26734",
-    "33475"
+    "34871",
+    "26743",
+    "FranklinMAsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 145,
+    "averageRequestMs": 96,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
