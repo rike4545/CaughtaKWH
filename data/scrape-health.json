@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T10:02:31.936Z",
-  "requestedLimit": 100,
-  "inScopeStations": 313,
+  "generatedAt": "2026-08-09T10:16:05.875Z",
+  "requestedLimit": 300,
+  "inScopeStations": 201,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 22,
+  "cooldownSkipped": 1,
   "attemptedStationIds": [
-    "19540",
-    "19530",
-    "BelAirMDSupercharger"
+    "461255",
+    "RochelleILsupercharger",
+    "RollingPrairieINsupercharger"
   ],
   "blockedStationIds": [
-    "19540",
-    "19530",
-    "BelAirMDSupercharger"
+    "461255",
+    "RochelleILsupercharger",
+    "RollingPrairieINsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 73,
+    "averageRequestMs": 82,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,9 +53,7 @@
       "IN",
       "KS",
       "KY",
-      "LA",
-      "MA",
-      "MD"
+      "LA"
     ],
     "countries": [],
     "nearby": null,
