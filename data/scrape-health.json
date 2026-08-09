@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T23:19:15.704Z",
+  "generatedAt": "2026-08-09T23:55:15.622Z",
   "requestedLimit": 100,
   "inScopeStations": 304,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 31,
   "attemptedStationIds": [
-    "skokiesupercharger",
-    "westspringfieldsupercharger",
-    "chicagoiloharesupercharger"
+    "chicagosouthcanalsupercharger",
+    "gaithersburgsupercharger",
+    "indianapolisdowntownsupercharger"
   ],
   "blockedStationIds": [
-    "skokiesupercharger",
-    "westspringfieldsupercharger",
-    "chicagoiloharesupercharger"
+    "chicagosouthcanalsupercharger",
+    "gaithersburgsupercharger",
+    "indianapolisdowntownsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 51,
+    "averageRequestMs": 88,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
