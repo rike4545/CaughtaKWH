@@ -13513,7 +13513,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.54,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -13538,7 +13538,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-09T05:16:52.423Z",
+    "lastBlockedAt": "2026-08-09T05:16:52.423Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-09T11:16:52.423Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BeltsvilleMDSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 75,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 75
+    }
   },
   {
     "id": "BemidjiMNsupercharger",
@@ -14247,7 +14279,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.7,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -14272,7 +14304,39 @@
       "tpc": 12,
       "nacs": 0
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-09T05:16:52.423Z",
+    "lastBlockedAt": "2026-08-09T05:16:52.423Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-09T11:16:52.423Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BethesdaMDSupercharger22",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 37,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 37
+    }
   },
   {
     "id": "18325",
@@ -26547,7 +26611,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.7,
+    "observationPriorityScore": 567,
     "superchargeInfoId": 4233,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2022-07-05",
@@ -26563,7 +26627,39 @@
       "tpc": 12,
       "nacs": 0
     },
-    "superchargeInfoMatchedAt": "2026-08-02"
+    "superchargeInfoMatchedAt": "2026-08-02",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-09T05:16:52.423Z",
+    "lastBlockedAt": "2026-08-09T05:16:52.423Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-09T11:16:52.423Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/ChevyChaseMDsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 36,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 36
+    }
   },
   {
     "id": "cheyennesupercharger",
