@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T19:30:13.018Z",
+  "generatedAt": "2026-08-09T19:58:13.647Z",
   "requestedLimit": 100,
-  "inScopeStations": 307,
+  "inScopeStations": 304,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 28,
+  "cooldownSkipped": 31,
   "attemptedStationIds": [
-    "13542",
-    "481358",
-    "481210"
+    "19546",
+    "19127",
+    "framinghammasupercharger"
   ],
   "blockedStationIds": [
-    "13542",
-    "481358",
-    "481210"
+    "19546",
+    "19127",
+    "framinghammasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 94,
+    "averageRequestMs": 136,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
