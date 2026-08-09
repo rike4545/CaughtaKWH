@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T11:19:51.473Z",
+  "generatedAt": "2026-08-09T11:52:40.049Z",
   "requestedLimit": 100,
-  "inScopeStations": 310,
+  "inScopeStations": 307,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 25,
+  "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "26846",
-    "17301",
-    "eastonmdsupercharger"
+    "33689",
+    "EdgewaterMDsupercharger",
+    "FrederickMDSupercharger2"
   ],
   "blockedStationIds": [
-    "26846",
-    "17301",
-    "eastonmdsupercharger"
+    "33689",
+    "EdgewaterMDsupercharger",
+    "FrederickMDSupercharger2"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 121,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
