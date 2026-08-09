@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T00:40:43.399Z",
+  "generatedAt": "2026-08-09T06:33:17.690Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -26,6 +26,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=402202"
+    },
+    {
+      "id": "13542",
+      "name": "Halethorpe, MD",
+      "city": "Halethorpe",
+      "state": "MD",
+      "lat": 39.246301,
+      "lng": -76.673518,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=13542"
     },
     {
       "id": "rosemontillinoissupercharger",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=MetairieLAsupercharger"
-    },
-    {
-      "id": "MiamiFL1Q322",
-      "name": "Miami, FL - Bird Rd",
-      "city": "Miami",
-      "state": "FL",
-      "lat": 25.732331,
-      "lng": -80.306178,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=MiamiFL1Q322"
     }
   ]
 }
