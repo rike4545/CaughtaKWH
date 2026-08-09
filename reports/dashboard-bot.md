@@ -1,13 +1,13 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-08-08T11:57:58.281Z
+Generated: 2026-08-09T11:59:35.820Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
 - Stations: 3108
-- Checked by scraper: 2654 (85.39%)
-- Latest attempts blocked by access controls: 450
+- Checked by scraper: 2551 (82.08%)
+- Latest attempts blocked by access controls: 554
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
@@ -30,8 +30,8 @@ Generated: 2026-08-08T11:57:58.281Z
 - Lake Grove, NY (LakeGroveNYsupercharger) · access_controlled
 - Greeley, CO (401824) · access_controlled
 - Pagosa Springs, CO (402202) · access_controlled
+- Halethorpe, MD (13542) · access_controlled
 - Rosemont, IL (rosemontillinoissupercharger) · access_controlled
-- Fullerton, CA - S Harbor Blvd (404914) · access_controlled
 
 ## Improvement Queue
 
