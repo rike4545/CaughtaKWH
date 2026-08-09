@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T16:20:34.021Z",
+  "generatedAt": "2026-08-09T17:02:12.670Z",
   "requestedLimit": 100,
   "inScopeStations": 306,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 29,
   "attemptedStationIds": [
-    "urbanamdsupercharger",
-    "26590",
-    "veedersburginsupercharger"
+    "WaldorfMDsupercharger",
+    "WashingtonINQ322",
+    "459905"
   ],
   "blockedStationIds": [
-    "urbanamdsupercharger",
-    "26590",
-    "veedersburginsupercharger"
+    "WaldorfMDsupercharger",
+    "WashingtonINQ322",
+    "459905"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 56,
+    "averageRequestMs": 170,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
