@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T22:02:36.024Z",
+  "generatedAt": "2026-08-09T22:47:31.318Z",
   "requestedLimit": 100,
   "inScopeStations": 304,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 31,
   "attemptedStationIds": [
-    "chestnuthillsupercharger",
-    "dedham",
-    "hudsonmasupercharger"
+    "leominstersupercharger",
+    "mansfieldsupercharger",
+    "sagamorebeachsupercharger"
   ],
   "blockedStationIds": [
-    "chestnuthillsupercharger",
-    "dedham",
-    "hudsonmasupercharger"
+    "leominstersupercharger",
+    "mansfieldsupercharger",
+    "sagamorebeachsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 68,
+    "averageRequestMs": 62,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
