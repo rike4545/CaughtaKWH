@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T14:50:27.237Z",
+  "generatedAt": "2026-08-09T15:20:15.881Z",
   "requestedLimit": 100,
-  "inScopeStations": 306,
+  "inScopeStations": 303,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 29,
+  "cooldownSkipped": 32,
   "attemptedStationIds": [
-    "18660",
-    "RustonLASupercharger",
-    "SalisburyMDSupercharger"
+    "ShelbyvilleINSupercharger",
+    "SpeedwayINsupercharger",
+    "27069"
   ],
   "blockedStationIds": [
-    "18660",
-    "RustonLASupercharger",
-    "SalisburyMDSupercharger"
+    "ShelbyvilleINSupercharger",
+    "SpeedwayINsupercharger",
+    "27069"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 38,
+    "averageRequestMs": 60,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
