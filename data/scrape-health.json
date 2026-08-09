@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T15:54:49.316Z",
+  "generatedAt": "2026-08-09T16:20:34.021Z",
   "requestedLimit": 100,
-  "inScopeStations": 303,
+  "inScopeStations": 306,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 32,
+  "cooldownSkipped": 29,
   "attemptedStationIds": [
-    "TopekaKSSupercharger",
-    "TowsonMDsupercharger",
-    "UrbanaILSupercharger"
+    "urbanamdsupercharger",
+    "26590",
+    "veedersburginsupercharger"
   ],
   "blockedStationIds": [
-    "TopekaKSSupercharger",
-    "TowsonMDsupercharger",
-    "UrbanaILSupercharger"
+    "urbanamdsupercharger",
+    "26590",
+    "veedersburginsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 141,
+    "averageRequestMs": 56,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
