@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-09T05:16:52.423Z",
+  "generatedAt": "2026-08-09T06:05:06.682Z",
   "requestedLimit": 100,
-  "inScopeStations": 319,
+  "inScopeStations": 322,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 16,
+  "cooldownSkipped": 13,
   "attemptedStationIds": [
-    "BeltsvilleMDSupercharger",
-    "BethesdaMDSupercharger22",
-    "ChevyChaseMDsupercharger"
+    "20029",
+    "26836",
+    "33863"
   ],
   "blockedStationIds": [
-    "BeltsvilleMDSupercharger",
-    "BethesdaMDSupercharger22",
-    "ChevyChaseMDsupercharger"
+    "20029",
+    "26836",
+    "33863"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 49,
+    "averageRequestMs": 85,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
