@@ -28,7 +28,7 @@
     },
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 447.58,
+    "observationPriorityScore": 559,
     "superchargeInfoId": 10853,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2026-04-03",
@@ -43,7 +43,39 @@
     "plugTypes": {
       "nacs": 4
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-09T18:58:37.161Z",
+    "lastBlockedAt": "2026-08-09T18:58:37.161Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-10T00:58:37.161Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/403969",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 87,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 87
+    }
   },
   {
     "id": "481260",
@@ -125,7 +157,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 447.59,
+    "observationPriorityScore": 559,
     "superchargeInfoId": 10947,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2026-02-17",
@@ -144,7 +176,39 @@
       "ccs1": 4,
       "multi": 4
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-09T18:58:37.161Z",
+    "lastBlockedAt": "2026-08-09T18:58:37.161Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-10T00:58:37.161Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/485163",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 103,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 103
+    }
   },
   {
     "id": "481358",
@@ -11195,7 +11259,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.22,
+    "observationPriorityScore": 560,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1250,
@@ -11220,7 +11284,39 @@
       "tpc": 0,
       "nacs": 5
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-09T18:58:37.161Z",
+    "lastBlockedAt": "2026-08-09T18:58:37.161Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-10T00:58:37.161Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/elkridgemdsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 96,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 96
+    }
   },
   {
     "id": "bandonsupercharger",
