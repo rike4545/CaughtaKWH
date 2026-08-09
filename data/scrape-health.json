@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T11:52:40.049Z",
+  "generatedAt": "2026-08-09T12:25:14.096Z",
   "requestedLimit": 100,
   "inScopeStations": 307,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "33689",
-    "EdgewaterMDsupercharger",
-    "FrederickMDSupercharger2"
+    "32677",
+    "hagerstownmdventuredrivesupercharger",
+    "34290"
   ],
   "blockedStationIds": [
-    "33689",
-    "EdgewaterMDsupercharger",
-    "FrederickMDSupercharger2"
+    "32677",
+    "hagerstownmdventuredrivesupercharger",
+    "34290"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 121,
+    "averageRequestMs": 44,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
