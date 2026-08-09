@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-09T19:58:13.647Z",
+  "generatedAt": "2026-08-09T20:26:57.346Z",
   "requestedLimit": 100,
   "inScopeStations": 304,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 31,
   "attemptedStationIds": [
-    "19546",
-    "19127",
-    "framinghammasupercharger"
+    "hadleymasupercharger",
+    "lynnfieldsupercharger",
+    "orleansmasupercharger"
   ],
   "blockedStationIds": [
-    "19546",
-    "19127",
-    "framinghammasupercharger"
+    "hadleymasupercharger",
+    "lynnfieldsupercharger",
+    "orleansmasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 136,
+    "averageRequestMs": 45,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
