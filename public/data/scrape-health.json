@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-10T10:35:09.270Z",
-  "requestedLimit": 10,
-  "inScopeStations": 3,
+  "generatedAt": "2026-08-10T10:47:40.917Z",
+  "requestedLimit": 100,
+  "inScopeStations": 328,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 7,
+  "cooldownSkipped": 14,
   "attemptedStationIds": [
-    "MelvilleNYsupercharger",
-    "HauppaugeNYsupercharger",
-    "56490"
+    "northhalstedsupercharger",
+    "colbykssupercharger",
+    "evergreenparksupercharger"
   ],
   "blockedStationIds": [
-    "MelvilleNYsupercharger",
-    "HauppaugeNYsupercharger",
-    "56490"
+    "northhalstedsupercharger",
+    "colbykssupercharger",
+    "evergreenparksupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 95,
+    "averageRequestMs": 100,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "IL",
+      "IN",
+      "KS",
+      "KY",
+      "LA",
+      "MA",
+      "MD",
+      "ME"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
