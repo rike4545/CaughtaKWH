@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T16:41:31.371Z",
+  "generatedAt": "2026-08-10T17:33:56.651Z",
   "requestedLimit": 100,
   "inScopeStations": 322,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 20,
   "attemptedStationIds": [
-    "northbroadwaysupercharger",
-    "countryclubhillssupercharger",
-    "freeportsupercharger"
+    "hanoverndsupercharger",
+    "indianapolissupercharger",
+    "nkennebunkmesupercharger"
   ],
   "blockedStationIds": [
-    "northbroadwaysupercharger",
-    "countryclubhillssupercharger",
-    "freeportsupercharger"
+    "hanoverndsupercharger",
+    "indianapolissupercharger",
+    "nkennebunkmesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 97,
+    "averageRequestMs": 50,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
