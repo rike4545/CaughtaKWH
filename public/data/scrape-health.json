@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-10T09:45:21.155Z",
-  "requestedLimit": 100,
-  "inScopeStations": 331,
+  "generatedAt": "2026-08-10T10:35:09.270Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 11,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "portlandmesupercharger",
-    "carmelinsupercharger",
-    "chicagoneweastsidesupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "blockedStationIds": [
-    "portlandmesupercharger",
-    "carmelinsupercharger",
-    "chicagoneweastsidesupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 53,
+    "averageRequestMs": 95,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "IL",
-      "IN",
-      "KS",
-      "KY",
-      "LA",
-      "MA",
-      "MD",
-      "ME"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
