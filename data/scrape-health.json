@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T13:55:47.620Z",
+  "generatedAt": "2026-08-10T14:49:33.864Z",
   "requestedLimit": 100,
   "inScopeStations": 325,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 17,
   "attemptedStationIds": [
-    "grasonvillesupercharger",
-    "aberdeensupercharger",
-    "alexandrialasupercharger"
+    "augustamesupercharger",
+    "baileyvillesupercharger",
+    "baltimoremdmchenrysupercharger"
   ],
   "blockedStationIds": [
-    "grasonvillesupercharger",
-    "aberdeensupercharger",
-    "alexandrialasupercharger"
+    "augustamesupercharger",
+    "baileyvillesupercharger",
+    "baltimoremdmchenrysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 49,
+    "averageRequestMs": 106,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
