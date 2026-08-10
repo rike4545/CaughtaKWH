@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-09T11:59:35.820Z",
+  "generatedAt": "2026-08-10T12:27:34.537Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
-    "checkedStations": 2551,
-    "checkedPct": 82.08,
+    "checkedStations": 2469,
+    "checkedPct": 79.44,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 554,
+    "blockedStations": 636,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -160,7 +160,7 @@
       "state": "MD",
       "city": "Halethorpe",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-09T07:13:11.443Z",
+      "lastAttemptedAt": "2026-08-09T19:30:13.018Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 822
@@ -171,7 +171,7 @@
       "state": "IL",
       "city": "Rosemont",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-07T00:35:47.412Z",
+      "lastAttemptedAt": "2026-08-10T00:51:50.736Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 800
