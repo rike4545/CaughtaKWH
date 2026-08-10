@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T10:47:40.917Z",
+  "generatedAt": "2026-08-10T11:40:49.706Z",
   "requestedLimit": 100,
   "inScopeStations": 328,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 14,
   "attemptedStationIds": [
-    "northhalstedsupercharger",
-    "colbykssupercharger",
-    "evergreenparksupercharger"
+    "fishersinsupercharger",
+    "fortwaynesupercharger",
+    "frederickmdsupercharger"
   ],
   "blockedStationIds": [
-    "northhalstedsupercharger",
-    "colbykssupercharger",
-    "evergreenparksupercharger"
+    "fishersinsupercharger",
+    "fortwaynesupercharger",
+    "frederickmdsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 100,
+    "averageRequestMs": 69,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
