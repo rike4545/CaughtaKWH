@@ -1837,7 +1837,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 417.33,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1200,
@@ -1861,7 +1861,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-10T13:55:47.620Z",
+    "lastBlockedAt": "2026-08-10T13:55:47.620Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-10T19:55:47.620Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/aberdeensupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 44,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 44
+    }
   },
   {
     "id": "AbingdonMDsupercharger2",
@@ -3522,7 +3554,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 417.4,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1200,
@@ -3549,7 +3581,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-10T13:55:47.620Z",
+    "lastBlockedAt": "2026-08-10T13:55:47.620Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-10T19:55:47.620Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/alexandrialasupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 31,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 31
+    }
   },
   {
     "id": "alexandriamnsupercharger",
@@ -58000,7 +58064,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 417.6,
+    "observationPriorityScore": 539,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1350,
@@ -58024,7 +58088,39 @@
     "plugTypes": {
       "tpc": 9
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-10T13:55:47.620Z",
+    "lastBlockedAt": "2026-08-10T13:55:47.620Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-10T19:55:47.620Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/grasonvillesupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 71,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 71
+    }
   },
   {
     "id": "32677",
