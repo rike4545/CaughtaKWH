@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-10T20:20:49.557Z",
+  "generatedAt": "2026-08-10T21:08:43.008Z",
   "requestedLimit": 100,
   "inScopeStations": 323,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 19,
   "attemptedStationIds": [
-    "monroesupercharger",
-    "mtvernonsupercharger",
-    "normalillinoissupercharger"
+    "bethesdamdsupercharger",
+    "olathekansascitysupercharger",
+    "riverdaleparkmdsupercharger"
   ],
   "blockedStationIds": [
-    "monroesupercharger",
-    "mtvernonsupercharger",
-    "normalillinoissupercharger"
+    "bethesdamdsupercharger",
+    "olathekansascitysupercharger",
+    "riverdaleparkmdsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 57,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

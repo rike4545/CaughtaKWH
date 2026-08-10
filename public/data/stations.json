@@ -104840,7 +104840,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 415.05,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 576,
@@ -104866,7 +104866,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-10T21:08:43.008Z",
+    "lastBlockedAt": "2026-08-10T21:08:43.008Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-11T03:08:43.008Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/bethesdamdsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 78,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 78
+    }
   },
   {
     "id": "NorthBranchMNQ322",
@@ -108602,7 +108634,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 415.84,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1200,
@@ -108630,7 +108662,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-10T21:08:43.008Z",
+    "lastBlockedAt": "2026-08-10T21:08:43.008Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-11T03:08:43.008Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/olathekansascitysupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 34,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 34
+    }
   },
   {
     "id": "OldBridgeNJSupercharger",
@@ -124241,7 +124305,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 416.27,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 576,
@@ -124266,7 +124330,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-10T21:08:43.008Z",
+    "lastBlockedAt": "2026-08-10T21:08:43.008Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-11T03:08:43.008Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/riverdaleparkmdsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 33,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 33
+    }
   },
   {
     "id": "442207",
