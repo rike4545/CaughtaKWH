@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-11T05:32:59.746Z",
+  "generatedAt": "2026-08-11T06:32:47.450Z",
   "requestedLimit": 100,
-  "inScopeStations": 294,
+  "inScopeStations": 293,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 12,
+  "cooldownSkipped": 13,
   "attemptedStationIds": [
-    "northvillemisupercharger",
-    "18718",
-    "26733"
+    "YpsilantiMISupercharger",
+    "EscanabaMIsupercharger",
+    "34255"
   ],
   "blockedStationIds": [
-    "northvillemisupercharger",
-    "18718",
-    "26733"
+    "YpsilantiMISupercharger",
+    "EscanabaMIsupercharger",
+    "34255"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 109,
+    "averageRequestMs": 101,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
