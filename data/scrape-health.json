@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T17:37:28.529Z",
+  "generatedAt": "2026-08-11T18:32:19.364Z",
   "requestedLimit": 100,
   "inScopeStations": 290,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "jackmanmesupercharger",
-    "walkermisupercharger",
-    "35205"
+    "auburnmasupercharger",
+    "braintreesupercharger",
+    "florencesupercharger"
   ],
   "blockedStationIds": [
-    "jackmanmesupercharger",
-    "walkermisupercharger",
-    "35205"
+    "auburnmasupercharger",
+    "braintreesupercharger",
+    "florencesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 132,
+    "averageRequestMs": 60,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
