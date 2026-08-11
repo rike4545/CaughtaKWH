@@ -1,7 +1,7 @@
 # CaughtaKWH Agent Suite
 
 A set of self-healing and self-improving automation agents that fit the existing
-`scripts/*.mjs` + `.github/workflows/` structure. They use only Node 18+ built-ins
+`scripts/*.mjs` + `.github/workflows/` structure. They use only Node 24 built-ins
 plus Playwright (already in the project), and the `GITHUB_TOKEN` that Actions
 provides automatically — no extra secrets or services required.
 
@@ -73,9 +73,9 @@ opening issues, so they're useful locally too.
 
 ## A deliberate boundary
 
-These agents make the pipeline resilient to *legitimate breakage* — transient
-errors, page-layout changes, and data corruption. They intentionally do **not**
-try to defeat anti-bot or access-control measures. If a page returns a challenge
-or sustained block, the agents report it and stop rather than escalate an arms
-race. That keeps a public, Tesla-adjacent project on defensible footing and
-avoids ToS/legal exposure that would threaten the project itself.
+See **The deliberate boundary** in `AGENTS.md` — the canonical statement. In
+short: these agents recover from legitimate breakage (transient errors,
+page-layout changes, data corruption) and stop at access controls rather than
+escalate an arms race. Beyond keeping a public, Tesla-adjacent project on
+defensible footing, that avoids the ToS and legal exposure that would threaten
+the project itself.
