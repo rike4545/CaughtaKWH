@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T16:31:48.217Z",
+  "generatedAt": "2026-08-11T17:37:28.529Z",
   "requestedLimit": 100,
   "inScopeStations": 290,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "medwaymesupercharger",
-    "mishawakasupercharger",
-    "salinasupercharger"
+    "jackmanmesupercharger",
+    "walkermisupercharger",
+    "35205"
   ],
   "blockedStationIds": [
-    "medwaymesupercharger",
-    "mishawakasupercharger",
-    "salinasupercharger"
+    "jackmanmesupercharger",
+    "walkermisupercharger",
+    "35205"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 87,
+    "averageRequestMs": 132,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
