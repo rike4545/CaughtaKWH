@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-11T07:51:42.498Z",
+  "generatedAt": "2026-08-11T08:42:27.352Z",
   "requestedLimit": 100,
-  "inScopeStations": 293,
+  "inScopeStations": 290,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 13,
+  "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "mackinawcitymisupercharger",
-    "MarquetteMIsupercharger",
-    "31983"
+    "PortageMIsupercharger",
+    "SaultSteMarieMIsupercharger",
+    "BadAxeMISupercharger"
   ],
   "blockedStationIds": [
-    "mackinawcitymisupercharger",
-    "MarquetteMIsupercharger",
-    "31983"
+    "PortageMIsupercharger",
+    "SaultSteMarieMIsupercharger",
+    "BadAxeMISupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 69,
+    "averageRequestMs": 136,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
