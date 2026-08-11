@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-11T11:27:17.625Z",
+  "generatedAt": "2026-08-11T12:06:07.982Z",
   "requestedLimit": 100,
   "inScopeStations": 287,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 19,
   "attemptedStationIds": [
-    "swartzcreekmisupercharger",
-    "traversecitysupercharger",
-    "annarborsupercharger"
+    "auburnhillsmisupercharger",
+    "baycitysupercharger",
+    "cadillacsupercharger"
   ],
   "blockedStationIds": [
-    "swartzcreekmisupercharger",
-    "traversecitysupercharger",
-    "annarborsupercharger"
+    "auburnhillsmisupercharger",
+    "baycitysupercharger",
+    "cadillacsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 69,
+    "averageRequestMs": 144,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
