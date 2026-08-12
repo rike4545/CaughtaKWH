@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T11:09:17.088Z",
+  "generatedAt": "2026-08-12T11:56:34.076Z",
   "requestedLimit": 100,
-  "inScopeStations": 276,
+  "inScopeStations": 275,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 15,
+  "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "saintpetermnsupercharger",
-    "13740",
-    "TwoHarborsMNQ322"
+    "33476",
+    "18644",
+    "baxtersupercharger"
   ],
   "blockedStationIds": [
-    "saintpetermnsupercharger",
-    "13740",
-    "TwoHarborsMNQ322"
+    "33476",
+    "18644",
+    "baxtersupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 52,
+    "averageRequestMs": 63,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
