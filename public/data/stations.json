@@ -145948,7 +145948,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.84,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -145972,7 +145972,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-12T11:09:17.088Z",
+    "lastBlockedAt": "2026-08-12T11:09:17.088Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-12T17:09:17.088Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/saintpetermnsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 70,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 70
+    }
   },
   {
     "id": "saintpetersburgflsupercharger",
@@ -152251,7 +152283,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.14,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -152274,7 +152306,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-12T11:09:17.088Z",
+    "lastBlockedAt": "2026-08-12T11:09:17.088Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-12T17:09:17.088Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/13740",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 34,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 34
+    }
   },
   {
     "id": "toledosupercharger",
@@ -155204,7 +155268,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.43,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -155227,7 +155291,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-12T11:09:17.088Z",
+    "lastBlockedAt": "2026-08-12T11:09:17.088Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-12T17:09:17.088Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/TwoHarborsMNsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 53,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 53
+    }
   },
   {
     "id": "27055",
