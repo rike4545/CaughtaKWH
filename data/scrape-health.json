@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T14:12:05.856Z",
+  "generatedAt": "2026-08-12T15:12:52.697Z",
   "requestedLimit": 100,
   "inScopeStations": 275,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "robbinsdalemnsupercharger",
-    "rochestermnsupercharger",
-    "sherburnmnsupercharger"
+    "worthingtonsupercharger",
+    "duluthsupercharger",
+    "35205"
   ],
   "blockedStationIds": [
-    "robbinsdalemnsupercharger",
-    "rochestermnsupercharger",
-    "sherburnmnsupercharger"
+    "worthingtonsupercharger",
+    "duluthsupercharger",
+    "35205"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 77,
+    "averageRequestMs": 98,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

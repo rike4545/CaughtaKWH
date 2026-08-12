@@ -23950,12 +23950,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-09",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-11T17:37:28.529Z",
-    "lastBlockedAt": "2026-08-11T17:37:28.529Z",
+    "lastAttemptedAt": "2026-08-12T15:12:52.697Z",
+    "lastBlockedAt": "2026-08-12T15:12:52.697Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 2,
-    "blockCooldownHours": 12,
-    "nextScrapeEligibleAt": "2026-08-12T05:37:28.529Z",
+    "consecutiveBlockedAttempts": 3,
+    "blockCooldownHours": 24,
+    "nextScrapeEligibleAt": "2026-08-13T15:12:52.697Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -23965,7 +23965,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 102,
+        "durationMs": 62,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -23979,7 +23979,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 102
+      "averageRequestMs": 62
     }
   },
   {
@@ -42079,7 +42079,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 417.16,
+    "observationPriorityScore": 534,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 600,
@@ -42101,7 +42101,39 @@
     "plugTypes": {
       "tpc": 4
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-12T15:12:52.697Z",
+    "lastBlockedAt": "2026-08-12T15:12:52.697Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-12T21:12:52.697Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/duluthsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 86,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 86
+    }
   },
   {
     "id": "DunniganCAQ322",
@@ -166646,7 +166678,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 417.67,
+    "observationPriorityScore": 536,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 720,
@@ -166670,7 +166702,39 @@
     "plugTypes": {
       "tpc": 6
     },
-    "superchargeInfoMatchedAt": "2026-08-09"
+    "superchargeInfoMatchedAt": "2026-08-09",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-12T15:12:52.697Z",
+    "lastBlockedAt": "2026-08-12T15:12:52.697Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-12T21:12:52.697Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/worthingtonsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 145,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 145
+    }
   },
   {
     "id": "18644",
