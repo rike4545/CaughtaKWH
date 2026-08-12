@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-11T12:26:45.918Z",
+  "generatedAt": "2026-08-12T12:27:57.247Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
-    "checkedStations": 2395,
-    "checkedPct": 77.06,
+    "checkedStations": 2354,
+    "checkedPct": 75.74,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 710,
+    "blockedStations": 751,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
