@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T08:59:22.486Z",
+  "generatedAt": "2026-08-12T10:02:28.630Z",
   "requestedLimit": 100,
-  "inScopeStations": 267,
+  "inScopeStations": 270,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 24,
+  "cooldownSkipped": 21,
   "attemptedStationIds": [
-    "MonticelloMNSupercharger",
-    "NorthBranchMNQ322",
-    "26806"
+    "18690",
+    "stlouisparksupercharger",
+    "59012"
   ],
   "blockedStationIds": [
-    "MonticelloMNSupercharger",
-    "NorthBranchMNQ322",
-    "26806"
+    "18690",
+    "stlouisparksupercharger",
+    "59012"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 41,
+    "averageRequestMs": 49,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
