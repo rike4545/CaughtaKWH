@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T03:09:12.074Z",
+  "generatedAt": "2026-08-12T04:58:33.856Z",
   "requestedLimit": 100,
-  "inScopeStations": 266,
+  "inScopeStations": 263,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 25,
+  "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "MapleGroveMNsupercharger",
-    "18764",
-    "26501"
+    "StPaulMNsupercharger",
+    "minneapolissupercharger",
+    "alexandriamnsupercharger"
   ],
   "blockedStationIds": [
-    "MapleGroveMNsupercharger",
-    "18764",
-    "26501"
+    "StPaulMNsupercharger",
+    "minneapolissupercharger",
+    "alexandriamnsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 90,
+    "averageRequestMs": 99,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
