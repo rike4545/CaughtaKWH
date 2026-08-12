@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T23:08:22.007Z",
+  "generatedAt": "2026-08-12T23:56:07.094Z",
   "requestedLimit": 100,
-  "inScopeStations": 266,
+  "inScopeStations": 263,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 25,
+  "cooldownSkipped": 28,
   "attemptedStationIds": [
-    "424265",
-    "MetairieLAsupercharger",
-    "19574"
+    "26675",
+    "26783",
+    "26672"
   ],
   "blockedStationIds": [
-    "424265",
-    "MetairieLAsupercharger",
-    "19574"
+    "26675",
+    "26783",
+    "26672"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 70,
+    "averageRequestMs": 91,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
