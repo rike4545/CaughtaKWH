@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-12T11:56:34.076Z",
+  "generatedAt": "2026-08-12T12:46:20.745Z",
   "requestedLimit": 100,
   "inScopeStations": 275,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "33476",
-    "18644",
-    "baxtersupercharger"
+    "clearwatersupercharger",
+    "hinckleysupercharger",
+    "oakdalesupercharger"
   ],
   "blockedStationIds": [
-    "33476",
-    "18644",
-    "baxtersupercharger"
+    "clearwatersupercharger",
+    "hinckleysupercharger",
+    "oakdalesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 63,
+    "averageRequestMs": 93,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
