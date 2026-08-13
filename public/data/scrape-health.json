@@ -1,32 +1,28 @@
 {
-  "generatedAt": "2026-08-13T15:37:29.025Z",
-  "requestedLimit": 100,
-  "inScopeStations": 269,
-  "attempted": 3,
+  "generatedAt": "2026-08-13T16:08:14.247Z",
+  "requestedLimit": 10,
+  "inScopeStations": 1,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 36,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "stcharlesmosupercharger",
-    "35205",
-    "LittletonMAsupercharger"
+    "islandiasupercharger"
   ],
   "blockedStationIds": [
-    "stcharlesmosupercharger",
-    "35205",
-    "LittletonMAsupercharger"
+    "islandiasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 40,
+    "averageRequestMs": 131,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +33,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +43,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "KY",
-      "LA",
-      "MA",
-      "MD",
-      "ME",
-      "MI",
-      "MN",
-      "MO"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
