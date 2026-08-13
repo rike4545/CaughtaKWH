@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T14:42:37.500Z",
+  "generatedAt": "2026-08-13T15:37:29.025Z",
   "requestedLimit": 100,
-  "inScopeStations": 268,
+  "inScopeStations": 269,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 37,
+  "cooldownSkipped": 36,
   "attemptedStationIds": [
-    "osagebeachsupercharger",
-    "rollasupercharger",
-    "bethanysupercharger"
+    "stcharlesmosupercharger",
+    "35205",
+    "LittletonMAsupercharger"
   ],
   "blockedStationIds": [
-    "osagebeachsupercharger",
-    "rollasupercharger",
-    "bethanysupercharger"
+    "stcharlesmosupercharger",
+    "35205",
+    "LittletonMAsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 96,
+    "averageRequestMs": 40,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
