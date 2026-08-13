@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-13T12:05:43.433Z",
+  "generatedAt": "2026-08-13T13:42:08.420Z",
   "requestedLimit": 100,
   "inScopeStations": 268,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 37,
   "attemptedStationIds": [
-    "stcharlessupercharger",
-    "mehlvillemosupercharger",
-    "springfieldmosupercharger"
+    "columbiasupercharger",
+    "kansascitysupercharger",
+    "minersupercharger"
   ],
   "blockedStationIds": [
-    "stcharlessupercharger",
-    "mehlvillemosupercharger",
-    "springfieldmosupercharger"
+    "columbiasupercharger",
+    "kansascitysupercharger",
+    "minersupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 64,
+    "averageRequestMs": 94,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
