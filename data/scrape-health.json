@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T21:10:45.188Z",
+  "generatedAt": "2026-08-13T21:59:59.794Z",
   "requestedLimit": 100,
-  "inScopeStations": 283,
+  "inScopeStations": 284,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 22,
+  "cooldownSkipped": 21,
   "attemptedStationIds": [
-    "FranklinMAsupercharger",
-    "HanoverMASupercharger",
-    "412210"
+    "hyannismasupercharger",
+    "lafayettelasupercharger",
+    "32420"
   ],
   "blockedStationIds": [
-    "FranklinMAsupercharger",
-    "HanoverMASupercharger",
-    "412210"
+    "hyannismasupercharger",
+    "lafayettelasupercharger",
+    "32420"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 86,
+    "averageRequestMs": 109,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
