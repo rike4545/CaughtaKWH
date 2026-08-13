@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T05:21:31.517Z",
+  "generatedAt": "2026-08-13T06:53:26.691Z",
   "requestedLimit": 100,
-  "inScopeStations": 268,
+  "inScopeStations": 265,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 37,
+  "cooldownSkipped": 40,
   "attemptedStationIds": [
-    "26712",
-    "BrentwoodMOsupercharger",
-    "18731"
+    "ColumbiaMOSupercharger",
+    "saintlouismosupercharger",
+    "26521"
   ],
   "blockedStationIds": [
-    "26712",
-    "BrentwoodMOsupercharger",
-    "18731"
+    "ColumbiaMOSupercharger",
+    "saintlouismosupercharger",
+    "26521"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 49,
+    "averageRequestMs": 38,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
