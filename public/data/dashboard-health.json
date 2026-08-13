@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-12T12:27:57.247Z",
+  "generatedAt": "2026-08-13T12:29:03.589Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3108,
-    "checkedStations": 2354,
-    "checkedPct": 75.74,
+    "checkedStations": 2319,
+    "checkedPct": 74.61,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 751,
+    "blockedStations": 786,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -160,7 +160,7 @@
       "state": "MD",
       "city": "Halethorpe",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-10T19:39:17.706Z",
+      "lastAttemptedAt": "2026-08-12T20:07:47.835Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 822
