@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T16:32:32.397Z",
+  "generatedAt": "2026-08-13T17:38:46.318Z",
   "requestedLimit": 100,
-  "inScopeStations": 269,
+  "inScopeStations": 275,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 36,
+  "cooldownSkipped": 30,
   "attemptedStationIds": [
-    "auburnmasupercharger",
-    "braintreesupercharger",
-    "florencesupercharger"
+    "leemasupercharger",
+    "417090",
+    "SomervilleMAsupercharger"
   ],
   "blockedStationIds": [
-    "auburnmasupercharger",
-    "braintreesupercharger",
-    "florencesupercharger"
+    "leemasupercharger",
+    "417090",
+    "SomervilleMAsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 52,
+    "averageRequestMs": 143,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
