@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T17:38:46.318Z",
+  "generatedAt": "2026-08-13T18:34:26.858Z",
   "requestedLimit": 100,
-  "inScopeStations": 275,
+  "inScopeStations": 278,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 30,
+  "cooldownSkipped": 27,
   "attemptedStationIds": [
-    "leemasupercharger",
-    "417090",
-    "SomervilleMAsupercharger"
+    "BurlingtonMAsupercharger",
+    "ChicopeeMASupercharger",
+    "15555"
   ],
   "blockedStationIds": [
-    "leemasupercharger",
-    "417090",
-    "SomervilleMAsupercharger"
+    "BurlingtonMAsupercharger",
+    "ChicopeeMASupercharger",
+    "15555"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 143,
+    "averageRequestMs": 137,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
