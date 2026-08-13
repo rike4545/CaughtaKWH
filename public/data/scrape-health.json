@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T08:10:26.604Z",
+  "generatedAt": "2026-08-13T09:23:41.200Z",
   "requestedLimit": 100,
-  "inScopeStations": 265,
+  "inScopeStations": 262,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 40,
+  "cooldownSkipped": 43,
   "attemptedStationIds": [
-    "CapeGiradeauMOSupercharger",
-    "33454",
-    "ConcordiaMOsupercharger"
+    "26956",
+    "hannibalsupercharger",
+    "JoplinMOsupercharger"
   ],
   "blockedStationIds": [
-    "CapeGiradeauMOSupercharger",
-    "33454",
-    "ConcordiaMOsupercharger"
+    "26956",
+    "hannibalsupercharger",
+    "JoplinMOsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
