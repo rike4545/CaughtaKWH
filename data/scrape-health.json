@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T21:41:13.338Z",
+  "generatedAt": "2026-08-14T21:57:09.375Z",
   "requestedLimit": 100,
   "inScopeStations": 227,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 73,
   "attemptedStationIds": [
-    "19339",
-    "BrentwoodMOsupercharger",
-    "18753"
+    "438052",
+    "charltonmaebsupercharger",
+    "charltonmasupercharger"
   ],
   "blockedStationIds": [
-    "19339",
-    "BrentwoodMOsupercharger",
-    "18753"
+    "438052",
+    "charltonmaebsupercharger",
+    "charltonmasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 65,
+    "averageRequestMs": 55,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
