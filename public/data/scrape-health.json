@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-13T23:23:16.344Z",
+  "generatedAt": "2026-08-14T00:04:55.866Z",
   "requestedLimit": 100,
-  "inScopeStations": 278,
+  "inScopeStations": 271,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 27,
+  "cooldownSkipped": 29,
   "attemptedStationIds": [
-    "19574",
-    "26675",
-    "26783"
+    "27037",
+    "DIbervilleMSsupercharger",
+    "452860"
   ],
   "blockedStationIds": [
-    "19574",
-    "26675",
-    "26783"
+    "27037",
+    "DIbervilleMSsupercharger",
+    "452860"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 59,
+    "averageRequestMs": 76,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "KY",
       "LA",
       "MA",
       "MD",
       "ME",
       "MI",
       "MN",
-      "MO"
+      "MO",
+      "MS"
     ],
     "countries": [],
     "nearby": null,
