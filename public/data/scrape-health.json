@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T00:04:55.866Z",
+  "generatedAt": "2026-08-14T02:42:54.495Z",
   "requestedLimit": 100,
-  "inScopeStations": 271,
+  "inScopeStations": 268,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 29,
+  "cooldownSkipped": 32,
   "attemptedStationIds": [
-    "27037",
-    "DIbervilleMSsupercharger",
-    "452860"
+    "33794",
+    "VicksburgMSQ322",
+    "437063"
   ],
   "blockedStationIds": [
-    "27037",
-    "DIbervilleMSsupercharger",
-    "452860"
+    "33794",
+    "VicksburgMSQ322",
+    "437063"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 76,
+    "averageRequestMs": 106,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
