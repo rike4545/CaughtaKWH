@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T22:14:46.167Z",
+  "generatedAt": "2026-08-14T22:40:39.293Z",
   "requestedLimit": 100,
   "inScopeStations": 224,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 76,
   "attemptedStationIds": [
-    "18642",
-    "18731",
-    "ChevyChaseMDsupercharger"
+    "DetroitMIsupercharger",
+    "EastTempletonMASupercharger",
+    "FreetownMAQ322"
   ],
   "blockedStationIds": [
-    "18642",
-    "18731",
-    "ChevyChaseMDsupercharger"
+    "DetroitMIsupercharger",
+    "EastTempletonMASupercharger",
+    "FreetownMAQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 116,
+    "averageRequestMs": 173,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
