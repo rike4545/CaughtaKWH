@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T14:36:36.749Z",
+  "generatedAt": "2026-08-14T15:28:17.429Z",
   "requestedLimit": 100,
-  "inScopeStations": 252,
+  "inScopeStations": 249,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 48,
+  "cooldownSkipped": 51,
   "attemptedStationIds": [
-    "32421",
-    "seekonksupercharger",
-    "26666"
+    "AnnapolisMDQ42022",
+    "33849",
+    "416955"
   ],
   "blockedStationIds": [
-    "32421",
-    "seekonksupercharger",
-    "26666"
+    "AnnapolisMDQ42022",
+    "33849",
+    "416955"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 65,
+    "averageRequestMs": 77,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
