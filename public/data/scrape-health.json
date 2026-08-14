@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T05:53:43.122Z",
+  "generatedAt": "2026-08-14T07:05:32.647Z",
   "requestedLimit": 100,
   "inScopeStations": 262,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 38,
   "attemptedStationIds": [
-    "hattiesburgsupercharger",
-    "mccombmssupercharger",
-    "meridiansupercharger"
+    "pearlsupercharger",
+    "tupelomssupercharger",
+    "27037"
   ],
   "blockedStationIds": [
-    "hattiesburgsupercharger",
-    "mccombmssupercharger",
-    "meridiansupercharger"
+    "pearlsupercharger",
+    "tupelomssupercharger",
+    "27037"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 125,
+    "averageRequestMs": 63,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
