@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T22:57:32.726Z",
+  "generatedAt": "2026-08-14T23:15:31.092Z",
   "requestedLimit": 100,
-  "inScopeStations": 224,
+  "inScopeStations": 221,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 76,
+  "cooldownSkipped": 79,
   "attemptedStationIds": [
-    "35698",
-    "424265",
-    "MetairieLAsupercharger"
+    "ColumbiaMOSupercharger",
+    "DIbervilleMSsupercharger",
+    "18715"
   ],
   "blockedStationIds": [
-    "35698",
-    "424265",
-    "MetairieLAsupercharger"
+    "ColumbiaMOSupercharger",
+    "DIbervilleMSsupercharger",
+    "18715"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 77,
+    "averageRequestMs": 72,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
