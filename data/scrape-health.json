@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T08:35:54.574Z",
+  "generatedAt": "2026-08-14T09:41:29.163Z",
   "requestedLimit": 100,
   "inScopeStations": 259,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 41,
   "attemptedStationIds": [
-    "26672",
-    "TyngsboroughMAsupercharger",
-    "WoburnMAsupercharger"
+    "438052",
+    "charltonmaebsupercharger",
+    "charltonmasupercharger"
   ],
   "blockedStationIds": [
-    "26672",
-    "TyngsboroughMAsupercharger",
-    "WoburnMAsupercharger"
+    "438052",
+    "charltonmaebsupercharger",
+    "charltonmasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 81,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
