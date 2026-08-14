@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T21:57:09.375Z",
+  "generatedAt": "2026-08-14T22:14:46.167Z",
   "requestedLimit": 100,
-  "inScopeStations": 227,
+  "inScopeStations": 224,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 73,
+  "cooldownSkipped": 76,
   "attemptedStationIds": [
-    "438052",
-    "charltonmaebsupercharger",
-    "charltonmasupercharger"
+    "18642",
+    "18731",
+    "ChevyChaseMDsupercharger"
   ],
   "blockedStationIds": [
-    "438052",
-    "charltonmaebsupercharger",
-    "charltonmasupercharger"
+    "18642",
+    "18731",
+    "ChevyChaseMDsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 55,
+    "averageRequestMs": 116,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
