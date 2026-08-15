@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T14:36:50.564Z",
+  "generatedAt": "2026-08-15T14:57:00.194Z",
   "requestedLimit": 100,
-  "inScopeStations": 194,
+  "inScopeStations": 191,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 106,
+  "cooldownSkipped": 109,
   "attemptedStationIds": [
-    "33688",
-    "VicksburgMSQ322",
-    "WatervilleMEQ322"
+    "YpsilantiMISupercharger",
+    "18952",
+    "minneapolissupercharger"
   ],
   "blockedStationIds": [
-    "33688",
-    "VicksburgMSQ322",
-    "WatervilleMEQ322"
+    "YpsilantiMISupercharger",
+    "18952",
+    "minneapolissupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 130,
+    "averageRequestMs": 78,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
