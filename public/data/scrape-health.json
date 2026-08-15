@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T11:32:12.464Z",
+  "generatedAt": "2026-08-15T11:54:45.244Z",
   "requestedLimit": 100,
-  "inScopeStations": 215,
+  "inScopeStations": 212,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 85,
+  "cooldownSkipped": 88,
   "attemptedStationIds": [
-    "ColumbiaMOSupercharger",
-    "DIbervilleMSsupercharger",
-    "18715"
+    "59229",
+    "MapleGroveMNsupercharger",
+    "18764"
   ],
   "blockedStationIds": [
-    "ColumbiaMOSupercharger",
-    "DIbervilleMSsupercharger",
-    "18715"
+    "59229",
+    "MapleGroveMNsupercharger",
+    "18764"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 59,
+    "averageRequestMs": 41,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
