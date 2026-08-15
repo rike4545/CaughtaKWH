@@ -1,6 +1,6 @@
 {
   "version": "caughtakwh-pricing-nn-v1",
-  "generatedAt": "2026-08-15T22:55:56.203Z",
+  "generatedAt": "2026-08-15T23:10:50.623Z",
   "status": "experimental",
   "reason": "Holdout quality passed; more stations and price history are needed before blending.",
   "library": "synaptic@1.1.4",
