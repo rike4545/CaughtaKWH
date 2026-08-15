@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T17:15:54.794Z",
+  "generatedAt": "2026-08-15T17:42:00.101Z",
   "requestedLimit": 100,
   "inScopeStations": 173,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 127,
   "attemptedStationIds": [
-    "CaliforniaMDsupercharger",
-    "26846",
-    "CapeGiradeauMOSupercharger"
+    "leemasupercharger",
+    "417090",
+    "SomervilleMAsupercharger"
   ],
   "blockedStationIds": [
-    "CaliforniaMDsupercharger",
-    "26846",
-    "CapeGiradeauMOSupercharger"
+    "leemasupercharger",
+    "417090",
+    "SomervilleMAsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 75,
+    "averageRequestMs": 52,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
