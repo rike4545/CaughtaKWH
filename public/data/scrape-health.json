@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T12:59:52.731Z",
+  "generatedAt": "2026-08-15T13:29:56.886Z",
   "requestedLimit": 100,
-  "inScopeStations": 206,
+  "inScopeStations": 203,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 94,
+  "cooldownSkipped": 97,
   "attemptedStationIds": [
-    "26861",
-    "northvillemisupercharger",
-    "26501"
+    "19533",
+    "32488",
+    "34256"
   ],
   "blockedStationIds": [
-    "26861",
-    "northvillemisupercharger",
-    "26501"
+    "19533",
+    "32488",
+    "34256"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 116,
+    "averageRequestMs": 82,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
