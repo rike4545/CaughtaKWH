@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T16:38:21.263Z",
+  "generatedAt": "2026-08-15T16:58:02.389Z",
   "requestedLimit": 100,
-  "inScopeStations": 179,
+  "inScopeStations": 176,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 121,
+  "cooldownSkipped": 124,
   "attemptedStationIds": [
-    "auburnmasupercharger",
-    "braintreesupercharger",
-    "BowieMDsupercharger"
+    "34179",
+    "26521",
+    "19008"
   ],
   "blockedStationIds": [
-    "auburnmasupercharger",
-    "braintreesupercharger",
-    "BowieMDsupercharger"
+    "34179",
+    "26521",
+    "19008"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 159,
+    "averageRequestMs": 45,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
