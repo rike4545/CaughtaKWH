@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T03:02:26.468Z",
+  "generatedAt": "2026-08-15T03:51:20.084Z",
   "requestedLimit": 100,
   "inScopeStations": 226,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 74,
   "attemptedStationIds": [
-    "greatfallssupercharger",
-    "helenasupercharger",
-    "19096"
+    "19030",
+    "milescitymtsupercharger",
+    "bigskymtsupercharger"
   ],
   "blockedStationIds": [
-    "greatfallssupercharger",
-    "helenasupercharger",
-    "19096"
+    "19030",
+    "milescitymtsupercharger",
+    "bigskymtsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 99,
+    "averageRequestMs": 144,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
