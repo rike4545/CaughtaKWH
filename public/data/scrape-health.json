@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T22:09:14.664Z",
+  "generatedAt": "2026-08-15T22:35:25.335Z",
   "requestedLimit": 100,
-  "inScopeStations": 156,
+  "inScopeStations": 153,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 144,
+  "cooldownSkipped": 147,
   "attemptedStationIds": [
-    "hyannismasupercharger",
-    "32420",
-    "438052"
+    "charltonmaebsupercharger",
+    "charltonmasupercharger",
+    "18665"
   ],
   "blockedStationIds": [
-    "hyannismasupercharger",
-    "32420",
-    "438052"
+    "charltonmaebsupercharger",
+    "charltonmasupercharger",
+    "18665"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 61,
+    "averageRequestMs": 141,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
