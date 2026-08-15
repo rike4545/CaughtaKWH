@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T07:44:41.704Z",
+  "generatedAt": "2026-08-15T07:59:33.897Z",
   "requestedLimit": 100,
   "inScopeStations": 213,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 87,
   "attemptedStationIds": [
-    "439552",
-    "33466",
-    "34158"
+    "32161",
+    "salisburysupercharger",
+    "27325"
   ],
   "blockedStationIds": [
-    "439552",
-    "33466",
-    "34158"
+    "32161",
+    "salisburysupercharger",
+    "27325"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 70,
+    "averageRequestMs": 85,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
