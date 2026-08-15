@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T15:34:35.308Z",
+  "generatedAt": "2026-08-15T15:54:39.608Z",
   "requestedLimit": 100,
-  "inScopeStations": 185,
+  "inScopeStations": 183,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 115,
+  "cooldownSkipped": 117,
   "attemptedStationIds": [
-    "alexandriamnsupercharger",
-    "19540",
-    "19530"
+    "35205",
+    "34866",
+    "BelAirMDSupercharger"
   ],
   "blockedStationIds": [
-    "alexandriamnsupercharger",
-    "19540",
-    "19530"
+    "35205",
+    "34866",
+    "BelAirMDSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 78,
+    "averageRequestMs": 101,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
