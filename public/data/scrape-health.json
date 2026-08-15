@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T20:57:21.982Z",
+  "generatedAt": "2026-08-15T21:14:11.887Z",
   "requestedLimit": 100,
   "inScopeStations": 158,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 142,
   "attemptedStationIds": [
-    "TyngsboroughMAsupercharger",
-    "WoburnMAsupercharger",
-    "FrederickMDSupercharger2"
+    "FranklinMAsupercharger",
+    "HanoverMASupercharger",
+    "412210"
   ],
   "blockedStationIds": [
-    "TyngsboroughMAsupercharger",
-    "WoburnMAsupercharger",
-    "FrederickMDSupercharger2"
+    "FranklinMAsupercharger",
+    "HanoverMASupercharger",
+    "412210"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 134,
+    "averageRequestMs": 95,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
