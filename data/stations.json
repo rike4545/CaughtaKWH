@@ -44004,12 +44004,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-09",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-09T11:52:40.049Z",
-    "lastBlockedAt": "2026-08-09T11:52:40.049Z",
+    "lastAttemptedAt": "2026-08-15T19:13:43.202Z",
+    "lastBlockedAt": "2026-08-15T19:13:43.202Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-08-09T17:52:40.049Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-08-16T07:13:43.202Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -44019,7 +44019,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 272,
+        "durationMs": 29,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -44033,7 +44033,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 272
+      "averageRequestMs": 29
     }
   },
   {
@@ -44388,12 +44388,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-09",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-09T11:52:40.049Z",
-    "lastBlockedAt": "2026-08-09T11:52:40.049Z",
+    "lastAttemptedAt": "2026-08-15T19:13:43.202Z",
+    "lastBlockedAt": "2026-08-15T19:13:43.202Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-08-09T17:52:40.049Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-08-16T07:13:43.202Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -44403,7 +44403,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 43,
+        "durationMs": 35,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -44417,7 +44417,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 43
+      "averageRequestMs": 35
     }
   },
   {
@@ -117373,12 +117373,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-09",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-14T19:11:06.326Z",
-    "lastBlockedAt": "2026-08-14T19:11:06.326Z",
+    "lastAttemptedAt": "2026-08-15T19:13:43.202Z",
+    "lastBlockedAt": "2026-08-15T19:13:43.202Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 3,
-    "blockCooldownHours": 24,
-    "nextScrapeEligibleAt": "2026-08-15T19:11:06.326Z",
+    "consecutiveBlockedAttempts": 4,
+    "blockCooldownHours": 48,
+    "nextScrapeEligibleAt": "2026-08-17T19:13:43.202Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -117388,7 +117388,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 152,
+        "durationMs": 70,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -117402,7 +117402,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 152
+      "averageRequestMs": 70
     }
   },
   {
