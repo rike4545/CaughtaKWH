@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T13:51:57.119Z",
+  "generatedAt": "2026-08-15T14:11:49.331Z",
   "requestedLimit": 100,
-  "inScopeStations": 200,
+  "inScopeStations": 197,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 100,
+  "cooldownSkipped": 103,
   "attemptedStationIds": [
-    "32711",
-    "saintlouismosupercharger",
-    "StPaulMNsupercharger"
+    "33470",
+    "18718",
+    "26733"
   ],
   "blockedStationIds": [
-    "32711",
-    "saintlouismosupercharger",
-    "StPaulMNsupercharger"
+    "33470",
+    "18718",
+    "26733"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 53,
+    "averageRequestMs": 79,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
