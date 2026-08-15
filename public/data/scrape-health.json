@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T09:41:13.931Z",
+  "generatedAt": "2026-08-15T09:57:05.551Z",
   "requestedLimit": 100,
   "inScopeStations": 216,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 84,
   "attemptedStationIds": [
-    "BentonHarborMIsupercharger",
-    "BethesdaMDSupercharger22",
-    "32354"
+    "BrentwoodMOsupercharger",
+    "18753",
+    "18665"
   ],
   "blockedStationIds": [
-    "BentonHarborMIsupercharger",
-    "BethesdaMDSupercharger22",
-    "32354"
+    "BrentwoodMOsupercharger",
+    "18753",
+    "18665"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 120,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
