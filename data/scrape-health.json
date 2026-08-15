@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T19:13:43.202Z",
+  "generatedAt": "2026-08-15T19:33:25.804Z",
   "requestedLimit": 100,
-  "inScopeStations": 165,
+  "inScopeStations": 162,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 135,
+  "cooldownSkipped": 138,
   "attemptedStationIds": [
-    "27037",
-    "33689",
-    "EdgewaterMDsupercharger"
+    "BarHarborMEsupercharger",
+    "EscanabaMIsupercharger",
+    "FalmouthMESupercharger"
   ],
   "blockedStationIds": [
-    "27037",
-    "33689",
-    "EdgewaterMDsupercharger"
+    "BarHarborMEsupercharger",
+    "EscanabaMIsupercharger",
+    "FalmouthMESupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 45,
+    "averageRequestMs": 128,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
