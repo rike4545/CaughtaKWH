@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T20:09:34.324Z",
+  "generatedAt": "2026-08-15T20:36:14.161Z",
   "requestedLimit": 100,
-  "inScopeStations": 160,
+  "inScopeStations": 159,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 140,
+  "cooldownSkipped": 141,
   "attemptedStationIds": [
-    "13542",
-    "FarmingtonMEsupercharger",
-    "26956"
+    "34871",
+    "26743",
+    "18662"
   ],
   "blockedStationIds": [
-    "13542",
-    "FarmingtonMEsupercharger",
-    "26956"
+    "34871",
+    "26743",
+    "18662"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 42,
+    "averageRequestMs": 56,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
