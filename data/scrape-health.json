@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T05:59:39.167Z",
+  "generatedAt": "2026-08-15T06:36:36.987Z",
   "requestedLimit": 100,
   "inScopeStations": 214,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 86,
   "attemptedStationIds": [
-    "424512",
-    "reveremasupercharger",
-    "32421"
+    "seekonksupercharger",
+    "26666",
+    "AnnapolisMDQ42022"
   ],
   "blockedStationIds": [
-    "424512",
-    "reveremasupercharger",
-    "32421"
+    "seekonksupercharger",
+    "26666",
+    "AnnapolisMDQ42022"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 83,
+    "averageRequestMs": 57,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
