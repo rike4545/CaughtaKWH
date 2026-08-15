@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T16:58:02.389Z",
+  "generatedAt": "2026-08-15T17:15:54.794Z",
   "requestedLimit": 100,
-  "inScopeStations": 176,
+  "inScopeStations": 173,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 124,
+  "cooldownSkipped": 127,
   "attemptedStationIds": [
-    "34179",
-    "26521",
-    "19008"
+    "CaliforniaMDsupercharger",
+    "26846",
+    "CapeGiradeauMOSupercharger"
   ],
   "blockedStationIds": [
-    "34179",
-    "26521",
-    "19008"
+    "CaliforniaMDsupercharger",
+    "26846",
+    "CapeGiradeauMOSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 45,
+    "averageRequestMs": 75,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
