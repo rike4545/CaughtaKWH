@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T08:26:50.737Z",
+  "generatedAt": "2026-08-15T08:52:10.983Z",
   "requestedLimit": 100,
-  "inScopeStations": 215,
+  "inScopeStations": 213,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 85,
+  "cooldownSkipped": 87,
   "attemptedStationIds": [
-    "stjosephmosupercharger",
-    "33777",
-    "2350"
+    "26672",
+    "baltimoresupercharger",
+    "18675"
   ],
   "blockedStationIds": [
-    "stjosephmosupercharger",
-    "33777",
-    "2350"
+    "26672",
+    "baltimoresupercharger",
+    "18675"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 55,
+    "averageRequestMs": 178,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
