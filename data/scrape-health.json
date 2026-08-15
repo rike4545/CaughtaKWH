@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T11:54:45.244Z",
+  "generatedAt": "2026-08-15T12:15:26.512Z",
   "requestedLimit": 100,
-  "inScopeStations": 212,
+  "inScopeStations": 209,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 88,
+  "cooldownSkipped": 91,
   "attemptedStationIds": [
-    "59229",
-    "MapleGroveMNsupercharger",
-    "18764"
+    "33794",
+    "19130",
+    "33751"
   ],
   "blockedStationIds": [
-    "59229",
-    "MapleGroveMNsupercharger",
-    "18764"
+    "33794",
+    "19130",
+    "33751"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 41,
+    "averageRequestMs": 82,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
