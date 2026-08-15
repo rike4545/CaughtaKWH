@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T04:20:06.415Z",
+  "generatedAt": "2026-08-15T04:53:43.802Z",
   "requestedLimit": 100,
-  "inScopeStations": 225,
+  "inScopeStations": 222,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 75,
+  "cooldownSkipped": 78,
   "attemptedStationIds": [
-    "limamtsupercharger",
-    "westyellowstonesupercharger",
-    "buttesupercharger"
+    "missoulasupercharger",
+    "bigtimbersupercharger",
+    "billingssupercharger"
   ],
   "blockedStationIds": [
-    "limamtsupercharger",
-    "westyellowstonesupercharger",
-    "buttesupercharger"
+    "missoulasupercharger",
+    "bigtimbersupercharger",
+    "billingssupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 66,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
