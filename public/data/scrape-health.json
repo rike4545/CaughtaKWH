@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T15:54:39.608Z",
+  "generatedAt": "2026-08-15T16:11:13.381Z",
   "requestedLimit": 100,
-  "inScopeStations": 183,
+  "inScopeStations": 180,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 117,
+  "cooldownSkipped": 120,
   "attemptedStationIds": [
-    "35205",
-    "34866",
-    "BelAirMDSupercharger"
+    "18998",
+    "BemidjiMNsupercharger",
+    "26497"
   ],
   "blockedStationIds": [
-    "35205",
-    "34866",
-    "BelAirMDSupercharger"
+    "18998",
+    "BemidjiMNsupercharger",
+    "26497"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 101,
+    "averageRequestMs": 63,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
