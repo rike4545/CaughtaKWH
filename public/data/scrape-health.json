@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T08:52:10.983Z",
+  "generatedAt": "2026-08-15T09:15:34.946Z",
   "requestedLimit": 100,
-  "inScopeStations": 213,
+  "inScopeStations": 217,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 87,
+  "cooldownSkipped": 83,
   "attemptedStationIds": [
-    "26672",
-    "baltimoresupercharger",
-    "18675"
+    "32750",
+    "26712",
+    "BeltsvilleMDSupercharger"
   ],
   "blockedStationIds": [
-    "26672",
-    "baltimoresupercharger",
-    "18675"
+    "32750",
+    "26712",
+    "BeltsvilleMDSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 178,
+    "averageRequestMs": 99,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
