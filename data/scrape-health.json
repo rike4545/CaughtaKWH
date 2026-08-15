@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T10:14:52.514Z",
+  "generatedAt": "2026-08-15T10:39:00.798Z",
   "requestedLimit": 100,
   "inScopeStations": 216,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 84,
   "attemptedStationIds": [
-    "18642",
-    "18731",
-    "ChevyChaseMDsupercharger"
+    "20029",
+    "26836",
+    "33863"
   ],
   "blockedStationIds": [
-    "18642",
-    "18731",
-    "ChevyChaseMDsupercharger"
+    "20029",
+    "26836",
+    "33863"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 44,
+    "averageRequestMs": 130,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
