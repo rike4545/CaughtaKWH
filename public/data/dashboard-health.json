@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-15T11:52:00.552Z",
+  "generatedAt": "2026-08-16T11:52:34.641Z",
   "scope": "United States Superchargers first",
   "summary": {
-    "stationCount": 3108,
-    "checkedStations": 2278,
-    "checkedPct": 73.29,
+    "stationCount": 3110,
+    "checkedStations": 2215,
+    "checkedPct": 71.22,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 827,
+    "blockedStations": 890,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -16,7 +16,7 @@
     "strongHistoryStations": 0,
     "strongHistoryPct": 0,
     "freshPriceStations": 0,
-    "staleOrUncheckedStations": 3108,
+    "staleOrUncheckedStations": 3110,
     "coordinatePct": 100,
     "addressPct": 100,
     "historyFiles": 2,
@@ -25,12 +25,12 @@
   "statePriorities": [
     {
       "state": "CA",
-      "stations": 659,
+      "stations": 660,
       "checked": 573,
       "priced": 0,
       "usable": 0,
-      "stale": 659,
-      "checkedPct": 86.95,
+      "stale": 660,
+      "checkedPct": 86.82,
       "pricedPct": 0,
       "usablePct": 0,
       "priorityScore": 308776.09
@@ -85,12 +85,12 @@
     },
     {
       "state": "NJ",
-      "stations": 107,
+      "stations": 108,
       "checked": 107,
       "priced": 0,
       "usable": 0,
-      "stale": 107,
-      "checkedPct": 100,
+      "stale": 108,
+      "checkedPct": 99.07,
       "pricedPct": 0,
       "usablePct": 0,
       "priorityScore": 48285.3
@@ -110,14 +110,14 @@
     {
       "state": "NC",
       "stations": 90,
-      "checked": 90,
+      "checked": 27,
       "priced": 0,
       "usable": 0,
       "stale": 90,
-      "checkedPct": 100,
+      "checkedPct": 30,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 39413.32
+      "priorityScore": 47359.28
     }
   ],
   "refreshTargets": [
@@ -160,7 +160,7 @@
       "state": "MD",
       "city": "Halethorpe",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-12T20:07:47.835Z",
+      "lastAttemptedAt": "2026-08-15T20:09:34.324Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 822
@@ -236,7 +236,7 @@
     {
       "title": "Grow repeated observations",
       "status": "needs_data",
-      "detail": "0 of 3108 US stations have usable price history. A station becomes usable after at least 3 recent price observations."
+      "detail": "0 of 3110 US stations have usable price history. A station becomes usable after at least 3 recent price observations."
     },
     {
       "title": "Keep fresh data visible",
@@ -246,7 +246,7 @@
     {
       "title": "Prioritize slow Tesla pages",
       "status": "active",
-      "detail": "3108 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time."
+      "detail": "3110 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time."
     },
     {
       "title": "Add local power context state by state",
