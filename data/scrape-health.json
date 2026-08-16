@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T10:37:50.775Z",
+  "generatedAt": "2026-08-16T10:57:06.057Z",
   "requestedLimit": 100,
-  "inScopeStations": 272,
+  "inScopeStations": 269,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 56,
+  "cooldownSkipped": 59,
   "attemptedStationIds": [
-    "32786",
-    "ChapelHillNCSupercharger",
-    "ArchdaleNCsupercharger"
+    "27360",
+    "AshevilleNCsupercharger",
+    "BensonNCSupercharger"
   ],
   "blockedStationIds": [
-    "32786",
-    "ChapelHillNCSupercharger",
-    "ArchdaleNCsupercharger"
+    "27360",
+    "AshevilleNCsupercharger",
+    "BensonNCSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 40,
+    "averageRequestMs": 58,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
