@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T07:06:45.814Z",
+  "generatedAt": "2026-08-16T07:42:49.672Z",
   "requestedLimit": 100,
-  "inScopeStations": 249,
+  "inScopeStations": 254,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 79,
+  "cooldownSkipped": 74,
   "attemptedStationIds": [
-    "19295",
-    "32774",
-    "33584"
+    "33847",
+    "33844",
+    "LelandNCSupercharger"
   ],
   "blockedStationIds": [
-    "19295",
-    "32774",
-    "33584"
+    "33847",
+    "33844",
+    "LelandNCSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 107,
+    "averageRequestMs": 62,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
