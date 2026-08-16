@@ -6408,6 +6408,12 @@
     "state": "NC"
   },
   {
+    "id": "goletacasupercharger",
+    "name": "Goleta, CA",
+    "city": "Goleta",
+    "state": "CA"
+  },
+  {
     "id": "27031",
     "name": "Gonzales, LA",
     "city": "Gonzales",
@@ -18434,6 +18440,12 @@
   {
     "id": "WoodcliffLakeNJsupercharger",
     "name": "Woodcliff Lake, NJ",
+    "city": "Woodcliff Lake",
+    "state": "NJ"
+  },
+  {
+    "id": "457753",
+    "name": "Woodcliff Lake, NJ - Chestnut Ridge Rd",
     "city": "Woodcliff Lake",
     "state": "NJ"
   },
