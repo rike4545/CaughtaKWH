@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T10:57:06.057Z",
+  "generatedAt": "2026-08-16T11:13:27.161Z",
   "requestedLimit": 100,
   "inScopeStations": 269,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 59,
   "attemptedStationIds": [
-    "27360",
-    "AshevilleNCsupercharger",
-    "BensonNCSupercharger"
+    "ColfaxNCsupercharger",
+    "GarnerNCSupercharger",
+    "goldsboroncsupercharger"
   ],
   "blockedStationIds": [
-    "27360",
-    "AshevilleNCsupercharger",
-    "BensonNCSupercharger"
+    "ColfaxNCsupercharger",
+    "GarnerNCSupercharger",
+    "goldsboroncsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 41,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
