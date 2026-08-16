@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T07:42:49.672Z",
+  "generatedAt": "2026-08-16T07:59:29.495Z",
   "requestedLimit": 100,
   "inScopeStations": 254,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 74,
   "attemptedStationIds": [
-    "33847",
-    "33844",
-    "LelandNCSupercharger"
+    "32493",
+    "412367",
+    "mooresvillencsupercharger"
   ],
   "blockedStationIds": [
-    "33847",
-    "33844",
-    "LelandNCSupercharger"
+    "32493",
+    "412367",
+    "mooresvillencsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 62,
+    "averageRequestMs": 126,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
