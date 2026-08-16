@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T13:06:37.553Z",
+  "generatedAt": "2026-08-16T13:41:53.295Z",
   "requestedLimit": 100,
   "inScopeStations": 269,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 59,
   "attemptedStationIds": [
-    "newbernncsupercharger",
-    "SilerCityNCsupercharger",
-    "4008954"
+    "27359",
+    "ThomasvilleNCSupercharger",
+    "fayettevillencsupercharger"
   ],
   "blockedStationIds": [
-    "newbernncsupercharger",
-    "SilerCityNCsupercharger",
-    "4008954"
+    "27359",
+    "ThomasvilleNCSupercharger",
+    "fayettevillencsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 69,
+    "averageRequestMs": 86,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
