@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T07:59:29.495Z",
+  "generatedAt": "2026-08-16T08:27:10.232Z",
   "requestedLimit": 100,
-  "inScopeStations": 254,
+  "inScopeStations": 262,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 74,
+  "cooldownSkipped": 66,
   "attemptedStationIds": [
-    "32493",
-    "412367",
-    "mooresvillencsupercharger"
+    "27339",
+    "27346",
+    "27349"
   ],
   "blockedStationIds": [
-    "32493",
-    "412367",
-    "mooresvillencsupercharger"
+    "27339",
+    "27346",
+    "27349"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 126,
+    "averageRequestMs": 66,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
