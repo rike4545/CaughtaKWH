@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T18:12:15.499Z",
+  "generatedAt": "2026-08-16T18:45:31.638Z",
   "requestedLimit": 100,
   "inScopeStations": 263,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 65,
   "attemptedStationIds": [
-    "stjosephmosupercharger",
-    "33586",
-    "33777"
+    "2350",
+    "ashevillesupercharger",
+    "ashevillencthetfordstsupercharger"
   ],
   "blockedStationIds": [
-    "stjosephmosupercharger",
-    "33586",
-    "33777"
+    "2350",
+    "ashevillesupercharger",
+    "ashevillencthetfordstsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 88,
+    "averageRequestMs": 71,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
