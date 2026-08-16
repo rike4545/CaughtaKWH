@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-15T23:54:31.225Z",
+  "generatedAt": "2026-08-16T00:35:58.029Z",
   "requestedLimit": 100,
-  "inScopeStations": 153,
+  "inScopeStations": 230,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 147,
+  "cooldownSkipped": 98,
   "attemptedStationIds": [
-    "18698",
-    "59230",
-    "LansingMISupercharger"
+    "HalifaxNCQ42022",
+    "caryncbassprolanesupercharger",
+    "CharlotteNCsupercharger"
   ],
   "blockedStationIds": [
-    "18698",
-    "59230",
-    "LansingMISupercharger"
+    "HalifaxNCQ42022",
+    "caryncbassprolanesupercharger",
+    "CharlotteNCsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 76,
+    "averageRequestMs": 62,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "MA",
       "MD",
       "ME",
       "MI",
       "MN",
       "MO",
       "MS",
-      "MT"
+      "MT",
+      "NC"
     ],
     "countries": [],
     "nearby": null,
