@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T22:55:18.071Z",
+  "generatedAt": "2026-08-16T23:09:53.008Z",
   "requestedLimit": 100,
-  "inScopeStations": 250,
+  "inScopeStations": 247,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 78,
+  "cooldownSkipped": 81,
   "attemptedStationIds": [
-    "18665",
-    "32493",
-    "412367"
+    "33794",
+    "19130",
+    "33751"
   ],
   "blockedStationIds": [
-    "18665",
-    "32493",
-    "412367"
+    "33794",
+    "19130",
+    "33751"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
