@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T23:09:53.008Z",
+  "generatedAt": "2026-08-16T23:32:10.960Z",
   "requestedLimit": 100,
   "inScopeStations": 247,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 81,
   "attemptedStationIds": [
-    "33794",
-    "19130",
-    "33751"
+    "20029",
+    "26836",
+    "33863"
   ],
   "blockedStationIds": [
-    "33794",
-    "19130",
-    "33751"
+    "20029",
+    "26836",
+    "33863"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 49,
+    "averageRequestMs": 120,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
