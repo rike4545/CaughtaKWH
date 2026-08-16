@@ -1,32 +1,28 @@
 {
-  "generatedAt": "2026-08-16T18:45:31.638Z",
-  "requestedLimit": 100,
-  "inScopeStations": 263,
-  "attempted": 3,
+  "generatedAt": "2026-08-16T18:46:35.713Z",
+  "requestedLimit": 10,
+  "inScopeStations": 1,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 65,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "2350",
-    "ashevillesupercharger",
-    "ashevillencthetfordstsupercharger"
+    "islandiasupercharger"
   ],
   "blockedStationIds": [
-    "2350",
-    "ashevillesupercharger",
-    "ashevillencthetfordstsupercharger"
+    "islandiasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 71,
+    "averageRequestMs": 126,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +33,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +43,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "MD",
-      "ME",
-      "MI",
-      "MN",
-      "MO",
-      "MS",
-      "MT",
-      "NC"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
