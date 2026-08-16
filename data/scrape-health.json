@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T08:27:10.232Z",
+  "generatedAt": "2026-08-16T08:55:04.300Z",
   "requestedLimit": 100,
   "inScopeStations": 262,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 66,
   "attemptedStationIds": [
-    "27339",
-    "27346",
-    "27349"
+    "33576",
+    "oldfortncsupercharger",
+    "rockinghamncsupercharger"
   ],
   "blockedStationIds": [
-    "27339",
-    "27346",
-    "27349"
+    "33576",
+    "oldfortncsupercharger",
+    "rockinghamncsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 66,
+    "averageRequestMs": 54,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
