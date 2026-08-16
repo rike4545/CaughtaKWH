@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T16:42:30.588Z",
+  "generatedAt": "2026-08-16T16:59:31.129Z",
   "requestedLimit": 100,
   "inScopeStations": 266,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 62,
   "attemptedStationIds": [
-    "416955",
-    "BloomingtonMNsupercharger",
-    "439552"
+    "33466",
+    "19271",
+    "402215"
   ],
   "blockedStationIds": [
-    "416955",
-    "BloomingtonMNsupercharger",
-    "439552"
+    "33466",
+    "19271",
+    "402215"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 78,
+    "averageRequestMs": 100,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
