@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T02:09:45.210Z",
+  "generatedAt": "2026-08-16T03:10:59.018Z",
   "requestedLimit": 100,
-  "inScopeStations": 236,
+  "inScopeStations": 242,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 92,
+  "cooldownSkipped": 86,
   "attemptedStationIds": [
-    "32527",
-    "raleighsupercharger",
-    "32553"
+    "20657",
+    "OxfordNCSupercharger",
+    "19349"
   ],
   "blockedStationIds": [
-    "32527",
-    "raleighsupercharger",
-    "32553"
+    "20657",
+    "OxfordNCSupercharger",
+    "19349"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 105,
+    "averageRequestMs": 74,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
