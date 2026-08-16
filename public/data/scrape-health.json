@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T21:11:15.470Z",
+  "generatedAt": "2026-08-16T21:33:03.711Z",
   "requestedLimit": 100,
   "inScopeStations": 260,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 68,
   "attemptedStationIds": [
-    "DIbervilleMSsupercharger",
-    "DurhamNCsupercharger",
-    "27356"
+    "18715",
+    "409613",
+    "19295"
   ],
   "blockedStationIds": [
-    "DIbervilleMSsupercharger",
-    "DurhamNCsupercharger",
-    "27356"
+    "18715",
+    "409613",
+    "19295"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 72,
+    "averageRequestMs": 50,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
