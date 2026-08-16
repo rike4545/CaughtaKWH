@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T05:25:11.338Z",
+  "generatedAt": "2026-08-16T05:51:00.736Z",
   "requestedLimit": 100,
-  "inScopeStations": 248,
+  "inScopeStations": 245,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 80,
+  "cooldownSkipped": 83,
   "attemptedStationIds": [
-    "ashevillencthetfordstsupercharger",
-    "413979",
-    "BooneNCQ322"
+    "26293",
+    "411061",
+    "ClemmonsNCQ322"
   ],
   "blockedStationIds": [
-    "ashevillencthetfordstsupercharger",
-    "413979",
-    "BooneNCQ322"
+    "26293",
+    "411061",
+    "ClemmonsNCQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 71,
+    "averageRequestMs": 120,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
