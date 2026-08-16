@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T20:56:14.483Z",
+  "generatedAt": "2026-08-16T21:11:15.470Z",
   "requestedLimit": 100,
   "inScopeStations": 260,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 68,
   "attemptedStationIds": [
-    "ChevyChaseMDsupercharger",
-    "ClemmonsNCQ322",
-    "ColumbiaMOSupercharger"
+    "DIbervilleMSsupercharger",
+    "DurhamNCsupercharger",
+    "27356"
   ],
   "blockedStationIds": [
-    "ChevyChaseMDsupercharger",
-    "ClemmonsNCQ322",
-    "ColumbiaMOSupercharger"
+    "DIbervilleMSsupercharger",
+    "DurhamNCsupercharger",
+    "27356"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 62,
+    "averageRequestMs": 72,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
