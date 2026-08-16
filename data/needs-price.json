@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-16T00:28:45.414Z",
+  "generatedAt": "2026-08-16T06:17:16.931Z",
   "totalStations": 3108,
   "needsCount": 200,
   "stations": [
@@ -674,6 +674,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=FortValleyGAQ322"
+    },
+    {
+      "id": "HalifaxNCQ42022",
+      "name": "Halifax, NC",
+      "city": "Halifax",
+      "state": "NC",
+      "lat": 36.36593,
+      "lng": -77.673915,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=HalifaxNCQ42022"
     },
     {
       "id": "4009311",
@@ -1876,6 +1888,18 @@
       "reportUrl": "report.html?station=58755"
     },
     {
+      "id": "caryncbassprolanesupercharger",
+      "name": "Cary, NC - Bass Pro Ln",
+      "city": "Cary",
+      "state": "NC",
+      "lat": 35.831585,
+      "lng": -78.769044,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=caryncbassprolanesupercharger"
+    },
+    {
       "id": "33746",
       "name": "Casselberry, FL",
       "city": "Casselberry",
@@ -1898,6 +1922,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=32552"
+    },
+    {
+      "id": "CharlotteNCsupercharger",
+      "name": "Charlotte, NC - Northlake Centre Pkwy",
+      "city": "North Charlotte",
+      "state": "NC",
+      "lat": 35.34726,
+      "lng": -80.85921,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=CharlotteNCsupercharger"
     },
     {
       "id": "ChicopeeMASupercharger",
@@ -2176,6 +2212,18 @@
       "reportUrl": "report.html?station=33772"
     },
     {
+      "id": "32527",
+      "name": "Hope Mills, NC",
+      "city": "Hope Mills",
+      "state": "NC",
+      "lat": 34.936913,
+      "lng": -78.922576,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32527"
+    },
+    {
       "id": "hyannismasupercharger",
       "name": "Hyannis, MA",
       "city": "Hyannis",
@@ -2354,54 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=30752"
-    },
-    {
-      "id": "35698",
-      "name": "Lynnfield, MA - US-1",
-      "city": "Lynnfield",
-      "state": "MA",
-      "lat": 42.505037,
-      "lng": -71.015444,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=35698"
-    },
-    {
-      "id": "33802",
-      "name": "Marathon, FL - Overseas Hwy",
-      "city": "Marathon",
-      "state": "FL",
-      "lat": 24.725942,
-      "lng": -81.048253,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33802"
-    },
-    {
-      "id": "424265",
-      "name": "Marlborough, MA",
-      "city": "Marlborough",
-      "state": "MA",
-      "lat": 42.359646,
-      "lng": -71.606139,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=424265"
-    },
-    {
-      "id": "MetairieLAsupercharger",
-      "name": "Metairie, LA",
-      "city": "Metairie",
-      "state": "LA",
-      "lat": 30.001475,
-      "lng": -90.124661,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=MetairieLAsupercharger"
     }
   ]
 }
