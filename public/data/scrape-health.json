@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T11:13:27.161Z",
+  "generatedAt": "2026-08-16T11:33:35.264Z",
   "requestedLimit": 100,
-  "inScopeStations": 269,
+  "inScopeStations": 272,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 59,
+  "cooldownSkipped": 56,
   "attemptedStationIds": [
-    "ColfaxNCsupercharger",
-    "GarnerNCSupercharger",
-    "goldsboroncsupercharger"
+    "GreenvilleNCSupercharger",
+    "JacksonvilleNCSupercharger",
+    "KernersvilleNCSupercharger"
   ],
   "blockedStationIds": [
-    "ColfaxNCsupercharger",
-    "GarnerNCSupercharger",
-    "goldsboroncsupercharger"
+    "GreenvilleNCSupercharger",
+    "JacksonvilleNCSupercharger",
+    "KernersvilleNCSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 41,
+    "averageRequestMs": 81,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
