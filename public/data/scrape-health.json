@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T22:09:50.012Z",
+  "generatedAt": "2026-08-16T22:34:16.160Z",
   "requestedLimit": 100,
-  "inScopeStations": 255,
+  "inScopeStations": 252,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 73,
+  "cooldownSkipped": 76,
   "attemptedStationIds": [
-    "32354",
-    "59229",
-    "33844"
+    "LelandNCSupercharger",
+    "MapleGroveMNsupercharger",
+    "18764"
   ],
   "blockedStationIds": [
-    "32354",
-    "59229",
-    "33844"
+    "LelandNCSupercharger",
+    "MapleGroveMNsupercharger",
+    "18764"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 38,
+    "averageRequestMs": 90,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
