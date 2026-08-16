@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T10:12:14.312Z",
+  "generatedAt": "2026-08-16T10:37:50.775Z",
   "requestedLimit": 100,
-  "inScopeStations": 269,
+  "inScopeStations": 272,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 59,
+  "cooldownSkipped": 56,
   "attemptedStationIds": [
-    "32814",
-    "WinstonSalemNCSupercharger",
-    "CharlotteNCQ322"
+    "32786",
+    "ChapelHillNCSupercharger",
+    "ArchdaleNCsupercharger"
   ],
   "blockedStationIds": [
-    "32814",
-    "WinstonSalemNCSupercharger",
-    "CharlotteNCQ322"
+    "32786",
+    "ChapelHillNCSupercharger",
+    "ArchdaleNCsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 79,
+    "averageRequestMs": 40,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
