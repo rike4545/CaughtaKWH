@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-16T09:59:52.556Z",
-  "requestedLimit": 300,
-  "inScopeStations": 199,
+  "generatedAt": "2026-08-16T10:12:14.312Z",
+  "requestedLimit": 100,
+  "inScopeStations": 269,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 19,
+  "cooldownSkipped": 59,
   "attemptedStationIds": [
-    "26949",
-    "AnnapolisMDQ42022",
-    "33849"
+    "32814",
+    "WinstonSalemNCSupercharger",
+    "CharlotteNCQ322"
   ],
   "blockedStationIds": [
-    "26949",
-    "AnnapolisMDQ42022",
-    "33849"
+    "32814",
+    "WinstonSalemNCSupercharger",
+    "CharlotteNCQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 68,
+    "averageRequestMs": 79,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,7 +53,9 @@
       "MI",
       "MN",
       "MO",
-      "MS"
+      "MS",
+      "MT",
+      "NC"
     ],
     "countries": [],
     "nearby": null,
