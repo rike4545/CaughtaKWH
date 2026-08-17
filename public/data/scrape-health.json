@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T05:20:02.039Z",
+  "generatedAt": "2026-08-17T05:57:15.521Z",
   "requestedLimit": 100,
   "inScopeStations": 198,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 66,
   "attemptedStationIds": [
-    "20657",
-    "OxfordNCSupercharger",
-    "19349"
+    "19271",
+    "402215",
+    "417922"
   ],
   "blockedStationIds": [
-    "20657",
-    "OxfordNCSupercharger",
-    "19349"
+    "19271",
+    "402215",
+    "417922"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 67,
+    "averageRequestMs": 70,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
