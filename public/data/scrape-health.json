@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T14:50:58.392Z",
+  "generatedAt": "2026-08-17T15:15:16.624Z",
   "requestedLimit": 100,
-  "inScopeStations": 179,
+  "inScopeStations": 176,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 85,
+  "cooldownSkipped": 88,
   "attemptedStationIds": [
-    "32815",
-    "VicksburgMSQ322",
-    "19376"
+    "warsawncnc24supercharger",
+    "WatervilleMEQ322",
+    "27332"
   ],
   "blockedStationIds": [
-    "32815",
-    "VicksburgMSQ322",
-    "19376"
+    "warsawncnc24supercharger",
+    "WatervilleMEQ322",
+    "27332"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 127,
+    "averageRequestMs": 76,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
