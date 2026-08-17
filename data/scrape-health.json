@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-17T04:00:33.872Z",
+  "generatedAt": "2026-08-17T04:40:51.904Z",
   "requestedLimit": 100,
   "inScopeStations": 197,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 67,
   "attemptedStationIds": [
-    "HalifaxNCQ42022",
-    "caryncbassprolanesupercharger",
-    "CharlotteNCsupercharger"
+    "32527",
+    "raleighsupercharger",
+    "32553"
   ],
   "blockedStationIds": [
-    "HalifaxNCQ42022",
-    "caryncbassprolanesupercharger",
-    "CharlotteNCsupercharger"
+    "32527",
+    "raleighsupercharger",
+    "32553"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 57,
+    "averageRequestMs": 104,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
