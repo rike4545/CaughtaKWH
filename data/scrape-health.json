@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T19:05:18.955Z",
+  "generatedAt": "2026-08-17T19:38:15.976Z",
   "requestedLimit": 100,
-  "inScopeStations": 152,
+  "inScopeStations": 150,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 112,
+  "cooldownSkipped": 114,
   "attemptedStationIds": [
-    "ColfaxNCsupercharger",
-    "33454",
-    "ConcordiaMOsupercharger"
+    "27037",
+    "437063",
+    "dickinsonndsupercharger"
   ],
   "blockedStationIds": [
-    "ColfaxNCsupercharger",
-    "33454",
-    "ConcordiaMOsupercharger"
+    "27037",
+    "437063",
+    "dickinsonndsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 71,
+    "averageRequestMs": 85,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
