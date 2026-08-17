@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T16:52:05.582Z",
+  "generatedAt": "2026-08-17T17:16:20.516Z",
   "requestedLimit": 100,
-  "inScopeStations": 164,
+  "inScopeStations": 161,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 100,
+  "cooldownSkipped": 103,
   "attemptedStationIds": [
-    "27360",
-    "AshevilleNCsupercharger",
-    "34866"
+    "18998",
+    "BemidjiMNsupercharger",
+    "BensonNCSupercharger"
   ],
   "blockedStationIds": [
-    "27360",
-    "AshevilleNCsupercharger",
-    "34866"
+    "18998",
+    "BemidjiMNsupercharger",
+    "BensonNCSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 56,
+    "averageRequestMs": 53,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
