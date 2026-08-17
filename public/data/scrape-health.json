@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T21:58:39.215Z",
+  "generatedAt": "2026-08-17T22:20:19.390Z",
   "requestedLimit": 100,
-  "inScopeStations": 133,
+  "inScopeStations": 130,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 131,
+  "cooldownSkipped": 134,
   "attemptedStationIds": [
-    "26942",
-    "33553",
-    "helenasupercharger"
+    "JacksonvilleNCSupercharger",
+    "jamestownndsupercharger",
+    "JoplinMOsupercharger"
   ],
   "blockedStationIds": [
-    "26942",
-    "33553",
-    "helenasupercharger"
+    "JacksonvilleNCSupercharger",
+    "jamestownndsupercharger",
+    "JoplinMOsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 82,
+    "averageRequestMs": 147,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
