@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T11:58:00.568Z",
+  "generatedAt": "2026-08-17T12:33:51.476Z",
   "requestedLimit": 100,
-  "inScopeStations": 194,
+  "inScopeStations": 191,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 70,
+  "cooldownSkipped": 73,
   "attemptedStationIds": [
-    "27349",
-    "33576",
-    "northvillemisupercharger"
+    "oldfortncsupercharger",
+    "26501",
+    "32488"
   ],
   "blockedStationIds": [
-    "27349",
-    "33576",
-    "northvillemisupercharger"
+    "oldfortncsupercharger",
+    "26501",
+    "32488"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 82,
+    "averageRequestMs": 66,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
