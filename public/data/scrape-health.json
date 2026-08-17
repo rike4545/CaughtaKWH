@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T19:57:23.340Z",
+  "generatedAt": "2026-08-17T20:18:08.577Z",
   "requestedLimit": 100,
-  "inScopeStations": 147,
+  "inScopeStations": 144,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 117,
+  "cooldownSkipped": 120,
   "attemptedStationIds": [
-    "BarHarborMEsupercharger",
-    "EscanabaMIsupercharger",
-    "FalmouthMESupercharger"
+    "fargondsupercharger",
+    "FarmingtonMEsupercharger",
+    "26956"
   ],
   "blockedStationIds": [
-    "BarHarborMEsupercharger",
-    "EscanabaMIsupercharger",
-    "FalmouthMESupercharger"
+    "fargondsupercharger",
+    "FarmingtonMEsupercharger",
+    "26956"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 74,
+    "averageRequestMs": 43,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
