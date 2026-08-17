@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-17T02:08:03.042Z",
+  "generatedAt": "2026-08-17T03:11:03.646Z",
   "requestedLimit": 100,
-  "inScopeStations": 197,
+  "inScopeStations": 194,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 67,
+  "cooldownSkipped": 70,
   "attemptedStationIds": [
-    "fargondsupercharger",
-    "grandforkssupercharger",
-    "jamestownndsupercharger"
+    "26469",
+    "18698",
+    "LansingMISupercharger"
   ],
   "blockedStationIds": [
-    "fargondsupercharger",
-    "grandforkssupercharger",
-    "jamestownndsupercharger"
+    "26469",
+    "18698",
+    "LansingMISupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 120,
+    "averageRequestMs": 162,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
