@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-18T23:12:07.374Z",
+  "generatedAt": "2026-08-18T23:34:21.770Z",
   "requestedLimit": 100,
-  "inScopeStations": 198,
+  "inScopeStations": 195,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 54,
+  "cooldownSkipped": 57,
   "attemptedStationIds": [
-    "18675",
-    "26712",
-    "BentonHarborMIsupercharger"
+    "32354",
+    "BrentwoodMOsupercharger",
+    "18753"
   ],
   "blockedStationIds": [
-    "18675",
-    "26712",
-    "BentonHarborMIsupercharger"
+    "32354",
+    "BrentwoodMOsupercharger",
+    "18753"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 65,
+    "averageRequestMs": 129,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
