@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-18T14:05:15.467Z",
+  "generatedAt": "2026-08-18T14:49:28.654Z",
   "requestedLimit": 100,
-  "inScopeStations": 166,
+  "inScopeStations": 169,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 86,
+  "cooldownSkipped": 83,
   "attemptedStationIds": [
-    "26293",
-    "411061",
-    "ClemmonsNCQ322"
+    "DurhamNCsupercharger",
+    "27356",
+    "409613"
   ],
   "blockedStationIds": [
-    "26293",
-    "411061",
-    "ClemmonsNCQ322"
+    "DurhamNCsupercharger",
+    "27356",
+    "409613"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
