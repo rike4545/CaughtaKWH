@@ -4,7 +4,7 @@ import { ProxyAgent, setGlobalDispatcher } from 'undici';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import { validateCapturedPrices } from './pricingNeuralNetwork.mjs';
 import { isScrapeEligible, nextBlockedState, successfulScrapeState } from './scrapePolicy.mjs';
-import { fetchHtmlWithRetry, isAccessControlStatus, isTransientStatus, summarizeTransport, transportSignal } from './scrapeTransport.mjs';
+import { classifyFetchBlock, fetchHtmlWithRetry, isAccessControlStatus, isTransientStatus, summarizeTransport, transportSignal } from './scrapeTransport.mjs';
 import { gatherProxyCandidates, parseProxy, checkProxy } from './proxyPool.mjs';
 import {
   classifySiteContent,
@@ -49,6 +49,10 @@ const BLOCK_COOLDOWN_MAX_HOURS = Math.max(BLOCK_COOLDOWN_BASE_HOURS, Number(proc
 const SCRAPE_IGNORE_COOLDOWN = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_IGNORE_COOLDOWN || '').toLowerCase());
 const FETCH_MAX_ATTEMPTS = Math.max(1, Number(process.env.FETCH_MAX_ATTEMPTS || 2));
 const FETCH_RETRY_DELAY_MS = Math.max(0, Number(process.env.FETCH_RETRY_DELAY_MS || 750));
+// Akamai's challenge is a JS interstitial, which plain `fetch` can never solve — that's what
+// the Playwright fallback and its stealth patches exist for. Set to false to go back to
+// abandoning a station the moment the fetch path sees a challenge.
+const BLOCKED_FETCH_BROWSER_RETRY = !['0', 'false', 'no'].includes(String(process.env.BLOCKED_FETCH_BROWSER_RETRY ?? 'true').toLowerCase());
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
 
@@ -228,9 +232,19 @@ async function scrapeOne(context, station) {
       via: 'fetch'
     };
 
-    if (fetchSite.blocked || isAccessControlStatus(fetched.status)) {
+    // A rate limit stops the station; a JS challenge escalates to the browser that can solve
+    // it. If Playwright is blocked too, its own check below raises access_control as before.
+    const fetchBlock = classifyFetchBlock({
+      blocked: fetchSite.blocked,
+      rateLimited: fetchSite.rateLimited,
+      status: fetched.status,
+      browserRetryEnabled: BLOCKED_FETCH_BROWSER_RETRY
+    });
+    const escalateToBrowser = fetchBlock.escalateToBrowser;
+
+    if (fetchBlock.blocked && !escalateToBrowser) {
       attempts.push(fetchAttempt);
-      throw scrapeError('access_control', attempts, fetchSite.rateLimited ? 'tesla_rate_limited' : 'tesla_access_controlled');
+      throw scrapeError('access_control', attempts, fetchBlock.outcomeMessage);
     }
     if (fetchSite.pageNotFound || fetched.status === 410) {
       attempts.push({ ...fetchAttempt, contentSignal: 'not_found' });
@@ -240,12 +254,15 @@ async function scrapeOne(context, station) {
       attempts.push({ ...fetchAttempt, contentSignal: 'transient_failure', error: fetched.error });
       continue;
     }
-    if (fetched.status >= 400) {
+    // 403 is >= 400, so this guard would otherwise swallow the very case we mean to escalate.
+    if (fetched.status >= 400 && !escalateToBrowser) {
       attempts.push({ ...fetchAttempt, contentSignal: 'http_error', error: fetched.error });
       continue;
     }
 
-    if (fetched.status === 200 && fetched.html) {
+    // Akamai sometimes serves its interstitial with a 200, so skip content extraction when
+    // we already know this body is a challenge rather than a location page.
+    if (fetched.status === 200 && fetched.html && !escalateToBrowser) {
       const nextData = fetchSite.validTeslaLocation ? extractNextData(fetched.html) : null;
       if (nextData) {
         const prices = {
@@ -274,9 +291,15 @@ async function scrapeOne(context, station) {
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
       }
     }
-    attempts.push(fetchAttempt);
+    if (escalateToBrowser) {
+      attempts.push({ ...fetchAttempt, contentSignal: fetchSite.contentSignal || 'access_controlled' });
+      blockedFetchEscalations++;
+    } else {
+      attempts.push(fetchAttempt);
+    }
 
-    // --- Playwright fallback: needed when the page requires JS rendering.
+    // --- Playwright fallback: needed when the page requires JS rendering, and the only path
+    // that can clear an Akamai JS challenge the fetch above ran into.
     const page = await context.newPage();
     try {
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -517,6 +540,10 @@ let failed = 0;
 let transientFailures = 0;
 let unusableCandidates = 0;
 let validPages = 0;
+// How many stations the fetch path handed to the browser after hitting a challenge. Compare
+// against `blocked` to see whether escalating is actually clearing challenges or just burning
+// runner time — if these track each other 1:1, the browser is being blocked too.
+let blockedFetchEscalations = 0;
 let consecutiveBlocked = 0;
 let circuitOpened = false;
 const attemptedStationIds = [];
@@ -638,6 +665,8 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
     ...summarizeTransport(runAttempts),
     fetchMaxAttempts: FETCH_MAX_ATTEMPTS,
     retryDelayMs: FETCH_RETRY_DELAY_MS,
+    blockedFetchBrowserRetry: BLOCKED_FETCH_BROWSER_RETRY,
+    blockedFetchEscalations,
     proxyConfigured: Boolean(proxyConfig),
     proxyPool: {
       candidates: proxyCandidates.length,
