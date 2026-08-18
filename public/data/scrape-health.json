@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-18T22:46:29.440Z",
+  "generatedAt": "2026-08-18T23:12:07.374Z",
   "requestedLimit": 100,
-  "inScopeStations": 200,
+  "inScopeStations": 198,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 52,
+  "cooldownSkipped": 54,
   "attemptedStationIds": [
-    "27325",
-    "stjosephmosupercharger",
-    "2350"
+    "18675",
+    "26712",
+    "BentonHarborMIsupercharger"
   ],
   "blockedStationIds": [
-    "27325",
-    "stjosephmosupercharger",
-    "2350"
+    "18675",
+    "26712",
+    "BentonHarborMIsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 101,
+    "averageRequestMs": 65,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
