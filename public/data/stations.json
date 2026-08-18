@@ -86618,7 +86618,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.1,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -86643,7 +86643,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-18T08:21:54.347Z",
+    "lastBlockedAt": "2026-08-18T08:21:54.347Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-18T14:21:54.347Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/18688",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 69,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 69
+    }
   },
   {
     "id": "lincolnnhsupercharger",
@@ -109824,7 +109856,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 442.3,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -109852,7 +109884,39 @@
       "ccs1": 8,
       "multi": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-18T08:21:54.347Z",
+    "lastBlockedAt": "2026-08-18T08:21:54.347Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-18T14:21:54.347Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/33525",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 28,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 28
+    }
   },
   {
     "id": "norfolksupercharger",
@@ -111744,7 +111808,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 442.56,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -111769,7 +111833,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-18T08:21:54.347Z",
+    "lastBlockedAt": "2026-08-18T08:21:54.347Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-18T14:21:54.347Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/NorthPlatteNESupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 27,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 27
+    }
   },
   {
     "id": "NorthRichlandHillsTXQ322",
