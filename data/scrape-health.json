@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-19T22:06:03.881Z",
+  "generatedAt": "2026-08-19T22:20:34.120Z",
   "requestedLimit": 100,
-  "inScopeStations": 162,
+  "inScopeStations": 159,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 69,
+  "cooldownSkipped": 72,
   "attemptedStationIds": [
-    "rockinghamncsupercharger",
-    "19578",
-    "27368"
+    "SanfordNCQ322",
+    "405805",
+    "saintlouismosupercharger"
   ],
   "blockedStationIds": [
-    "rockinghamncsupercharger",
-    "19578",
-    "27368"
+    "SanfordNCQ322",
+    "405805",
+    "saintlouismosupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 61,
+    "averageRequestMs": 89,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
