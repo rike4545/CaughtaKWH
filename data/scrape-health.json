@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-19T15:04:49.278Z",
+  "generatedAt": "2026-08-19T15:21:33.273Z",
   "requestedLimit": 100,
-  "inScopeStations": 168,
+  "inScopeStations": 165,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 63,
+  "cooldownSkipped": 66,
   "attemptedStationIds": [
-    "27346",
-    "27349",
-    "33576"
+    "oldfortncsupercharger",
+    "18635",
+    "26501"
   ],
   "blockedStationIds": [
-    "27346",
-    "27349",
-    "33576"
+    "oldfortncsupercharger",
+    "18635",
+    "26501"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 124,
+    "averageRequestMs": 58,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
