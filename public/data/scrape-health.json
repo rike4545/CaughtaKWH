@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-19T05:47:03.753Z",
+  "generatedAt": "2026-08-19T06:03:49.946Z",
   "requestedLimit": 100,
-  "inScopeStations": 163,
+  "inScopeStations": 160,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 68,
+  "cooldownSkipped": 71,
   "attemptedStationIds": [
-    "rochesternhsupercharger",
-    "seabrooksupercharger",
-    "DIbervilleMSsupercharger"
+    "18715",
+    "18665",
+    "26942"
   ],
   "blockedStationIds": [
-    "rochesternhsupercharger",
-    "seabrooksupercharger",
-    "DIbervilleMSsupercharger"
+    "18715",
+    "18665",
+    "26942"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 52,
+    "averageRequestMs": 50,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
