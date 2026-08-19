@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-19T23:13:03.871Z",
+  "generatedAt": "2026-08-19T23:35:18.253Z",
   "requestedLimit": 100,
-  "inScopeStations": 157,
+  "inScopeStations": 154,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 74,
+  "cooldownSkipped": 77,
   "attemptedStationIds": [
-    "33794",
-    "19130",
-    "33470"
+    "32815",
+    "VicksburgMSQ322",
+    "19376"
   ],
   "blockedStationIds": [
-    "33794",
-    "19130",
-    "33470"
+    "32815",
+    "VicksburgMSQ322",
+    "19376"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 99,
+    "averageRequestMs": 95,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
