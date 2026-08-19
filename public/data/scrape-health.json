@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-19T22:20:34.120Z",
+  "generatedAt": "2026-08-19T22:47:40.783Z",
   "requestedLimit": 100,
-  "inScopeStations": 159,
+  "inScopeStations": 158,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 72,
+  "cooldownSkipped": 73,
   "attemptedStationIds": [
-    "SanfordNCQ322",
-    "405805",
-    "saintlouismosupercharger"
+    "MapleGroveMNsupercharger",
+    "18764",
+    "StPaulMNsupercharger"
   ],
   "blockedStationIds": [
-    "SanfordNCQ322",
-    "405805",
-    "saintlouismosupercharger"
+    "MapleGroveMNsupercharger",
+    "18764",
+    "StPaulMNsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 89,
+    "averageRequestMs": 49,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
