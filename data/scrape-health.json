@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-18T23:56:05.590Z",
+  "generatedAt": "2026-08-19T00:36:22.539Z",
   "requestedLimit": 100,
-  "inScopeStations": 194,
+  "inScopeStations": 181,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 58,
+  "cooldownSkipped": 50,
   "attemptedStationIds": [
-    "18642",
-    "18731",
-    "ColumbiaMOSupercharger"
+    "westlebanonsupercharger",
+    "ConcordNHSupercharger",
+    "32502"
   ],
   "blockedStationIds": [
-    "18642",
-    "18731",
-    "ColumbiaMOSupercharger"
+    "westlebanonsupercharger",
+    "ConcordNHSupercharger",
+    "32502"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 98,
+    "averageRequestMs": 55,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "MI",
       "MN",
       "MO",
       "MS",
       "MT",
       "NC",
       "ND",
-      "NE"
+      "NE",
+      "NH"
     ],
     "countries": [],
     "nearby": null,
