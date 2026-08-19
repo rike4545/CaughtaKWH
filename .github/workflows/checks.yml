@@ -1,0 +1,31 @@
+# Fast, dependency-free checks. Until now the test:* scripts existed but ran
+# nowhere in CI, so nothing caught the toolchain drift they now guard against.
+#
+# These three tests import only node built-ins and local scripts/, so this job
+# needs no `npm ci` and finishes in seconds. Adding a test that needs packages
+# (e.g. test:neural, which needs synaptic) means adding an install step first.
+name: Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Toolchain (workflows + docs agree with engines.node)
+        run: npm run test:toolchain
+      - name: Scrape block policy
+        run: npm run test:scrape-policy
+      - name: Scrape transport
+        run: npm run test:scrape-transport
