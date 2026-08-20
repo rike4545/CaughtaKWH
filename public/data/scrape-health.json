@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T19:09:06.018Z",
+  "generatedAt": "2026-08-20T19:47:40.238Z",
   "requestedLimit": 100,
-  "inScopeStations": 241,
+  "inScopeStations": 242,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 63,
+  "cooldownSkipped": 62,
   "attemptedStationIds": [
-    "457753",
-    "438003",
-    "400651"
+    "26763",
+    "SouthRiverNJSupercharger",
+    "springfieldnjclevelandplacesupercharger"
   ],
   "blockedStationIds": [
-    "457753",
-    "438003",
-    "400651"
+    "26763",
+    "SouthRiverNJSupercharger",
+    "springfieldnjclevelandplacesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 210,
+    "averageRequestMs": 97,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
