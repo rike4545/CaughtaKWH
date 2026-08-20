@@ -1,13 +1,13 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-08-19T11:55:52.879Z
+Generated: 2026-08-20T11:57:15.183Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
 - Stations: 3110
-- Checked by scraper: 2150 (69.13%)
-- Latest attempts blocked by access controls: 955
+- Checked by scraper: 2101 (67.56%)
+- Latest attempts blocked by access controls: 1005
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
@@ -28,10 +28,10 @@ Generated: 2026-08-19T11:55:52.879Z
 ## Station Refresh Targets
 
 - Lake Grove, NY (LakeGroveNYsupercharger) · access_controlled
+- Woodcliff Lake, NJ - Chestnut Ridge Rd (457753) · access_controlled
 - Greeley, CO (401824) · access_controlled
 - Pagosa Springs, CO (402202) · access_controlled
 - Halethorpe, MD (13542) · access_controlled
-- Rosemont, IL (rosemontillinoissupercharger) · access_controlled
 
 ## Improvement Queue
 
