@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T16:58:11.372Z",
+  "generatedAt": "2026-08-20T17:23:50.851Z",
   "requestedLimit": 100,
   "inScopeStations": 243,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 61,
   "attemptedStationIds": [
-    "59149",
-    "14427",
-    "malaganjsupercharger"
+    "mapleshadenjsupercharger",
+    "MonroeTownshipNJSupercharger",
+    "20627"
   ],
   "blockedStationIds": [
-    "59149",
-    "14427",
-    "malaganjsupercharger"
+    "mapleshadenjsupercharger",
+    "MonroeTownshipNJSupercharger",
+    "20627"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 134,
+    "averageRequestMs": 58,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
