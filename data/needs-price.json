@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T06:21:31.271Z",
+  "generatedAt": "2026-08-20T12:19:15.315Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -2080,6 +2080,18 @@
       "reportUrl": "report.html?station=33701"
     },
     {
+      "id": "AvenelNJSupercharger",
+      "name": "Avenel, NJ",
+      "city": "Avenel",
+      "state": "NJ",
+      "lat": 40.576793,
+      "lng": -74.287572,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=AvenelNJSupercharger"
+    },
+    {
       "id": "412005",
       "name": "Babcock Ranch, FL",
       "city": "Babcock Ranch",
@@ -2102,6 +2114,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=407814"
+    },
+    {
+      "id": "36222",
+      "name": "Berkeley Heights, NJ",
+      "city": "Berkeley Heights",
+      "state": "NJ",
+      "lat": 40.662013,
+      "lng": -74.416953,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=36222"
     },
     {
       "id": "BocaRatonFLsupercharger",
@@ -2176,6 +2200,18 @@
       "reportUrl": "report.html?station=58755"
     },
     {
+      "id": "34939",
+      "name": "Carneys Point, NJ",
+      "city": "Carneys Point",
+      "state": "NJ",
+      "lat": 39.685164,
+      "lng": -75.483439,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=34939"
+    },
+    {
       "id": "caryncbassprolanesupercharger",
       "name": "Cary, NC - Bass Pro Ln",
       "city": "Cary",
@@ -2236,6 +2272,18 @@
       "reportUrl": "report.html?station=ChicopeeMASupercharger"
     },
     {
+      "id": "20974",
+      "name": "Clinton, NJ",
+      "city": "Clinton",
+      "state": "NJ",
+      "lat": 40.633853,
+      "lng": -74.937703,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20974"
+    },
+    {
       "id": "19276",
       "name": "Cocoa, FL",
       "city": "Cocoa",
@@ -2246,6 +2294,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=19276"
+    },
+    {
+      "id": "CranfordNJSupercharger",
+      "name": "Cranford, NJ",
+      "city": "Cranford",
+      "state": "NJ",
+      "lat": 40.658207,
+      "lng": -74.287872,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=CranfordNJSupercharger"
     },
     {
       "id": "27021",
@@ -2342,66 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=59183"
-    },
-    {
-      "id": "31172",
-      "name": "Destin, FL - US-98",
-      "city": "Destin",
-      "state": "FL",
-      "lat": 30.390504,
-      "lng": -86.479102,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=31172"
-    },
-    {
-      "id": "fortmyersflgulfcoastmainstreetsupercharger",
-      "name": "Fort Myers, FL - Gulf Coast Main St",
-      "city": "Fort Myers",
-      "state": "FL",
-      "lat": 26.488531,
-      "lng": -81.787028,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=fortmyersflgulfcoastmainstreetsupercharger"
-    },
-    {
-      "id": "33475",
-      "name": "Foxborough, MA",
-      "city": "Foxborough",
-      "state": "MA",
-      "lat": 42.038787,
-      "lng": -71.24038,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33475"
-    },
-    {
-      "id": "34871",
-      "name": "Framingham, MA - Concord St",
-      "city": "Framingham",
-      "state": "MA",
-      "lat": 42.30519,
-      "lng": -71.403475,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=34871"
-    },
-    {
-      "id": "26743",
-      "name": "Framingham, MA - Worcester Rd",
-      "city": "Framingham",
-      "state": "MA",
-      "lat": 42.297652,
-      "lng": -71.399414,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26743"
     }
   ]
 }
