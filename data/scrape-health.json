@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T23:15:36.892Z",
+  "generatedAt": "2026-08-20T23:41:15.097Z",
   "requestedLimit": 100,
-  "inScopeStations": 239,
+  "inScopeStations": 241,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 65,
+  "cooldownSkipped": 63,
   "attemptedStationIds": [
-    "EastRutherfordNJSupercharger",
-    "4007754",
-    "402407"
+    "HalifaxNCQ42022",
+    "UnionCityNJsupercharger",
+    "20521"
   ],
   "blockedStationIds": [
-    "EastRutherfordNJSupercharger",
-    "4007754",
-    "402407"
+    "HalifaxNCQ42022",
+    "UnionCityNJsupercharger",
+    "20521"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 68,
+    "averageRequestMs": 95,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
