@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T17:53:15.042Z",
+  "generatedAt": "2026-08-20T18:21:26.752Z",
   "requestedLimit": 100,
-  "inScopeStations": 243,
+  "inScopeStations": 240,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 61,
+  "cooldownSkipped": 64,
   "attemptedStationIds": [
-    "NorthBergenNJQ322",
-    "OldBridgeNJSupercharger",
-    "409196"
+    "31808",
+    "4008208",
+    "PerthAmboyNJQ322"
   ],
   "blockedStationIds": [
-    "NorthBergenNJQ322",
-    "OldBridgeNJSupercharger",
-    "409196"
+    "31808",
+    "4008208",
+    "PerthAmboyNJQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 57,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
