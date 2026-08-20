@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T13:24:29.667Z",
+  "generatedAt": "2026-08-20T14:06:32.230Z",
   "requestedLimit": 100,
-  "inScopeStations": 225,
+  "inScopeStations": 231,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 79,
+  "cooldownSkipped": 73,
   "attemptedStationIds": [
-    "AugustaNJQ322",
-    "59145",
-    "26760"
+    "BridgewaterNJsupercharger",
+    "cherryhillnjhaddonfieldroadsupercharger",
+    "clarksburgnjsupercharger"
   ],
   "blockedStationIds": [
-    "AugustaNJQ322",
-    "59145",
-    "26760"
+    "BridgewaterNJsupercharger",
+    "cherryhillnjhaddonfieldroadsupercharger",
+    "clarksburgnjsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
