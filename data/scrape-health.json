@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T14:06:32.230Z",
+  "generatedAt": "2026-08-20T14:52:35.593Z",
   "requestedLimit": 100,
-  "inScopeStations": 231,
+  "inScopeStations": 234,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 73,
+  "cooldownSkipped": 70,
   "attemptedStationIds": [
-    "BridgewaterNJsupercharger",
-    "cherryhillnjhaddonfieldroadsupercharger",
-    "clarksburgnjsupercharger"
+    "ColumbiaNJsupercharger",
+    "19525",
+    "EdisonNJSupercharger2"
   ],
   "blockedStationIds": [
-    "BridgewaterNJsupercharger",
-    "cherryhillnjhaddonfieldroadsupercharger",
-    "clarksburgnjsupercharger"
+    "ColumbiaNJsupercharger",
+    "19525",
+    "EdisonNJSupercharger2"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 47,
+    "averageRequestMs": 145,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
