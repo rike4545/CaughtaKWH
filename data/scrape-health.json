@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T07:04:00.209Z",
-  "requestedLimit": 100,
-  "inScopeStations": 212,
+  "generatedAt": "2026-08-20T07:04:59.103Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 92,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "457753",
-    "AvenelNJSupercharger",
-    "36222"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
-    "457753",
-    "AvenelNJSupercharger",
-    "36222"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 45,
+    "averageRequestMs": 204,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "MO",
-      "MS",
-      "MT",
-      "NC",
-      "ND",
-      "NE",
-      "NH",
-      "NJ"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
