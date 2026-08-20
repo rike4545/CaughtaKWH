@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T06:02:42.538Z",
+  "generatedAt": "2026-08-20T07:04:00.209Z",
   "requestedLimit": 100,
   "inScopeStations": 212,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 92,
   "attemptedStationIds": [
-    "tintonfallssupercharger",
-    "woodbridgesupercharger",
-    "27521"
+    "457753",
+    "AvenelNJSupercharger",
+    "36222"
   ],
   "blockedStationIds": [
-    "tintonfallssupercharger",
-    "woodbridgesupercharger",
-    "27521"
+    "457753",
+    "AvenelNJSupercharger",
+    "36222"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 118,
+    "averageRequestMs": 45,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
