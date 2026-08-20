@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T20:01:30.984Z",
+  "generatedAt": "2026-08-20T20:43:47.709Z",
   "requestedLimit": 100,
   "inScopeStations": 239,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 65,
   "attemptedStationIds": [
-    "westamptonnjrancocasrdsupercharger",
-    "WoodcliffLakeNJsupercharger",
-    "jerseycitymalldrsupercharger"
+    "eastbrunswickstateroute18supercharger",
+    "capemaynjsupercharger",
+    "deptfordnjsupercharger"
   ],
   "blockedStationIds": [
-    "westamptonnjrancocasrdsupercharger",
-    "WoodcliffLakeNJsupercharger",
-    "jerseycitymalldrsupercharger"
+    "eastbrunswickstateroute18supercharger",
+    "capemaynjsupercharger",
+    "deptfordnjsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 70,
+    "averageRequestMs": 111,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
