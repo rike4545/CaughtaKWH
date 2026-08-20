@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T23:41:15.097Z",
+  "generatedAt": "2026-08-20T23:58:13.888Z",
   "requestedLimit": 100,
-  "inScopeStations": 241,
+  "inScopeStations": 244,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 63,
+  "cooldownSkipped": 60,
   "attemptedStationIds": [
-    "HalifaxNCQ42022",
-    "UnionCityNJsupercharger",
-    "20521"
+    "4008968",
+    "LittleFerryNJQ322",
+    "34872"
   ],
   "blockedStationIds": [
-    "HalifaxNCQ42022",
-    "UnionCityNJsupercharger",
-    "20521"
+    "4008968",
+    "LittleFerryNJQ322",
+    "34872"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 95,
+    "averageRequestMs": 94,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
