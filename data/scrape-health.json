@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T16:20:49.796Z",
+  "generatedAt": "2026-08-20T16:58:11.372Z",
   "requestedLimit": 100,
   "inScopeStations": 243,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 61,
   "attemptedStationIds": [
-    "26120",
-    "LodiNJsupercharger",
-    "407772"
+    "59149",
+    "14427",
+    "malaganjsupercharger"
   ],
   "blockedStationIds": [
-    "26120",
-    "LodiNJsupercharger",
-    "407772"
+    "59149",
+    "14427",
+    "malaganjsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 51,
+    "averageRequestMs": 134,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
