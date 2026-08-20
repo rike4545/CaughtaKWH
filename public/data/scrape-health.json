@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T17:23:50.851Z",
+  "generatedAt": "2026-08-20T17:53:15.042Z",
   "requestedLimit": 100,
   "inScopeStations": 243,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 61,
   "attemptedStationIds": [
-    "mapleshadenjsupercharger",
-    "MonroeTownshipNJSupercharger",
-    "20627"
+    "NorthBergenNJQ322",
+    "OldBridgeNJSupercharger",
+    "409196"
   ],
   "blockedStationIds": [
-    "mapleshadenjsupercharger",
-    "MonroeTownshipNJSupercharger",
-    "20627"
+    "NorthBergenNJQ322",
+    "OldBridgeNJSupercharger",
+    "409196"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 81,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

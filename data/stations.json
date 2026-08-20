@@ -112996,7 +112996,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.52,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -113020,7 +113020,39 @@
       "ccs1": 8,
       "multi": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-20T17:53:15.042Z",
+    "lastBlockedAt": "2026-08-20T17:53:15.042Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-20T23:53:15.042Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/NorthBergenNJsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 160,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 160
+    }
   },
   {
     "id": "19498",
@@ -117252,7 +117284,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.95,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -117275,7 +117307,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-20T17:53:15.042Z",
+    "lastBlockedAt": "2026-08-20T17:53:15.042Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-20T23:53:15.042Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/OldBridgeNJSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 51,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 51
+    }
   },
   {
     "id": "409196",
@@ -117296,7 +117360,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.97,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2600,
@@ -117323,7 +117387,39 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-20T17:53:15.042Z",
+    "lastBlockedAt": "2026-08-20T17:53:15.042Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-20T23:53:15.042Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/409196",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 33,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 33
+    }
   },
   {
     "id": "oldfortncsupercharger",
