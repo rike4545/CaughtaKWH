@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T19:47:40.238Z",
+  "generatedAt": "2026-08-20T20:01:30.984Z",
   "requestedLimit": 100,
-  "inScopeStations": 242,
+  "inScopeStations": 239,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 62,
+  "cooldownSkipped": 65,
   "attemptedStationIds": [
-    "26763",
-    "SouthRiverNJSupercharger",
-    "springfieldnjclevelandplacesupercharger"
+    "westamptonnjrancocasrdsupercharger",
+    "WoodcliffLakeNJsupercharger",
+    "jerseycitymalldrsupercharger"
   ],
   "blockedStationIds": [
-    "26763",
-    "SouthRiverNJSupercharger",
-    "springfieldnjclevelandplacesupercharger"
+    "westamptonnjrancocasrdsupercharger",
+    "WoodcliffLakeNJsupercharger",
+    "jerseycitymalldrsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 97,
+    "averageRequestMs": 70,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
