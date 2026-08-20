@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T22:51:22.311Z",
+  "generatedAt": "2026-08-20T23:15:36.892Z",
   "requestedLimit": 100,
   "inScopeStations": 239,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 65,
   "attemptedStationIds": [
-    "hamiltontownshipnjsupercharger",
-    "jerseycitynjsupercharger",
-    "406608"
+    "EastRutherfordNJSupercharger",
+    "4007754",
+    "402407"
   ],
   "blockedStationIds": [
-    "hamiltontownshipnjsupercharger",
-    "jerseycitynjsupercharger",
-    "406608"
+    "EastRutherfordNJSupercharger",
+    "4007754",
+    "402407"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 80,
+    "averageRequestMs": 68,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
