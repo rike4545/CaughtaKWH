@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-20T15:55:41.955Z",
+  "generatedAt": "2026-08-20T16:20:49.796Z",
   "requestedLimit": 100,
-  "inScopeStations": 240,
+  "inScopeStations": 243,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 64,
+  "cooldownSkipped": 61,
   "attemptedStationIds": [
-    "freeholdnjsupercharger",
-    "4006009",
-    "14696"
+    "26120",
+    "LodiNJsupercharger",
+    "407772"
   ],
   "blockedStationIds": [
-    "freeholdnjsupercharger",
-    "4006009",
-    "14696"
+    "26120",
+    "LodiNJsupercharger",
+    "407772"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 82,
+    "averageRequestMs": 51,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
