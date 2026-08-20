@@ -125435,7 +125435,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.11,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2600,
@@ -125458,7 +125458,39 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-20T19:09:06.018Z",
+    "lastBlockedAt": "2026-08-20T19:09:06.018Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-21T01:09:06.018Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/438003",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 110,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 110
+    }
   },
   {
     "id": "pinellasparksupercharger",
@@ -137994,7 +138026,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 453.35,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -138020,7 +138052,39 @@
       "ccs1": 8,
       "multi": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-20T19:09:06.018Z",
+    "lastBlockedAt": "2026-08-20T19:09:06.018Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-21T01:09:06.018Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/400651",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 118,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 118
+    }
   },
   {
     "id": "sagamorebeachsupercharger",
@@ -175210,12 +175274,12 @@
     "lng": -74.072093,
     "lastDiscoveredAt": "2026-08-16T09:59:47.582Z",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-20T07:04:00.209Z",
-    "lastBlockedAt": "2026-08-20T07:04:00.209Z",
+    "lastAttemptedAt": "2026-08-20T19:09:06.018Z",
+    "lastBlockedAt": "2026-08-20T19:09:06.018Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 2,
-    "blockCooldownHours": 12,
-    "nextScrapeEligibleAt": "2026-08-20T19:04:00.209Z",
+    "consecutiveBlockedAttempts": 3,
+    "blockCooldownHours": 24,
+    "nextScrapeEligibleAt": "2026-08-21T19:09:06.018Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -175225,7 +175289,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 74,
+        "durationMs": 403,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -175239,7 +175303,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 74
+      "averageRequestMs": 403
     },
     "observationPriorityScore": 843
   },
