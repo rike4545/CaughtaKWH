@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T20:58:17.238Z",
+  "generatedAt": "2026-08-21T21:19:45.541Z",
   "requestedLimit": 100,
   "inScopeStations": 218,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 74,
   "attemptedStationIds": [
-    "clarksburgnjsupercharger",
-    "ColumbiaNJsupercharger",
-    "19525"
+    "437003",
+    "4160",
+    "407479"
   ],
   "blockedStationIds": [
-    "clarksburgnjsupercharger",
-    "ColumbiaNJsupercharger",
-    "19525"
+    "437003",
+    "4160",
+    "407479"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 70,
+    "averageRequestMs": 53,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
