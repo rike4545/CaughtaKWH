@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T21:45:28.057Z",
+  "generatedAt": "2026-08-21T22:00:23.802Z",
   "requestedLimit": 100,
   "inScopeStations": 215,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 77,
   "attemptedStationIds": [
-    "EdisonNJSupercharger2",
-    "26620",
-    "ElwoodNJSupercharger"
+    "442207",
+    "tintonfallssupercharger",
+    "woodbridgesupercharger"
   ],
   "blockedStationIds": [
-    "EdisonNJSupercharger2",
-    "26620",
-    "ElwoodNJSupercharger"
+    "442207",
+    "tintonfallssupercharger",
+    "woodbridgesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 94,
+    "averageRequestMs": 101,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
