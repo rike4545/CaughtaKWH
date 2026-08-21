@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T10:23:26.989Z",
+  "generatedAt": "2026-08-21T10:54:51.702Z",
   "requestedLimit": 100,
-  "inScopeStations": 245,
+  "inScopeStations": 243,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 47,
+  "cooldownSkipped": 49,
   "attemptedStationIds": [
-    "27521",
-    "AvenelNJSupercharger",
-    "36222"
+    "406608",
+    "34939",
+    "caryncbassprolanesupercharger"
   ],
   "blockedStationIds": [
-    "27521",
-    "AvenelNJSupercharger",
-    "36222"
+    "406608",
+    "34939",
+    "caryncbassprolanesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 48,
+    "averageRequestMs": 99,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
