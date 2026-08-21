@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T00:30:21.708Z",
+  "generatedAt": "2026-08-21T06:21:23.309Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -38,6 +38,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=402202"
+    },
+    {
+      "id": "santarosanmsupercharger",
+      "name": "Santa Rosa, NM",
+      "city": "Santa Rosa",
+      "state": "NM",
+      "lat": 34.947013,
+      "lng": -104.647997,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=santarosanmsupercharger"
     },
     {
       "id": "13542",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=26734"
-    },
-    {
-      "id": "59183",
-      "name": "DeLand, FL",
-      "city": "DeLand",
-      "state": "FL",
-      "lat": 28.998441,
-      "lng": -81.303882,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59183"
     }
   ]
 }
