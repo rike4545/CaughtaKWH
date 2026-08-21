@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T04:21:49.773Z",
+  "generatedAt": "2026-08-21T05:00:52.836Z",
   "requestedLimit": 100,
-  "inScopeStations": 254,
+  "inScopeStations": 256,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 38,
+  "cooldownSkipped": 36,
   "attemptedStationIds": [
-    "ClaytonNMsupercharger",
-    "19056",
-    "gallupsupercharger"
+    "19179",
+    "SoccoroNMsupercharger",
+    "412372"
   ],
   "blockedStationIds": [
-    "ClaytonNMsupercharger",
-    "19056",
-    "gallupsupercharger"
+    "19179",
+    "SoccoroNMsupercharger",
+    "412372"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 99,
+    "averageRequestMs": 139,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

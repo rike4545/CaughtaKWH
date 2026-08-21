@@ -146023,7 +146023,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 444.76,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2600,
@@ -146046,7 +146046,39 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-21T05:00:52.836Z",
+    "lastBlockedAt": "2026-08-21T05:00:52.836Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-21T11:00:52.836Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19179",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 231,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 231
+    }
   },
   {
     "id": "santamariacasupercharger",
@@ -151276,7 +151308,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.37,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -151304,7 +151336,39 @@
       "nacs": 8
     },
     "superchargeInfoMatchedAt": "2026-08-16",
-    "facilityName": "Best Western"
+    "facilityName": "Best Western",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-21T05:00:52.836Z",
+    "lastBlockedAt": "2026-08-21T05:00:52.836Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-21T11:00:52.836Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/SoccoroNMsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 105,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 105
+    }
   },
   {
     "id": "34612",
@@ -160038,7 +160102,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.22,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2600,
@@ -160064,7 +160128,39 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-21T05:00:52.836Z",
+    "lastBlockedAt": "2026-08-21T05:00:52.836Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-21T11:00:52.836Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/412372",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 81,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 81
+    }
   },
   {
     "id": "tappahannockvasupercharger",
