@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T22:26:06.312Z",
+  "generatedAt": "2026-08-21T22:48:02.640Z",
   "requestedLimit": 100,
-  "inScopeStations": 215,
+  "inScopeStations": 212,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 77,
+  "cooldownSkipped": 80,
   "attemptedStationIds": [
-    "27521",
-    "AvenelNJSupercharger",
-    "36222"
+    "FlemingtonNJsupercharger",
+    "freeholdnjsupercharger",
+    "4006009"
   ],
   "blockedStationIds": [
-    "27521",
-    "AvenelNJSupercharger",
-    "36222"
+    "FlemingtonNJsupercharger",
+    "freeholdnjsupercharger",
+    "4006009"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 131,
+    "averageRequestMs": 53,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
