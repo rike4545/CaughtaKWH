@@ -1,24 +1,32 @@
 {
-  "generatedAt": "2026-08-21T15:46:14.228Z",
-  "requestedLimit": 10,
-  "inScopeStations": 0,
-  "attempted": 0,
+  "generatedAt": "2026-08-21T15:55:45.910Z",
+  "requestedLimit": 100,
+  "inScopeStations": 242,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 0,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 10,
-  "attemptedStationIds": [],
-  "blockedStationIds": [],
+  "cooldownSkipped": 50,
+  "attemptedStationIds": [
+    "19516",
+    "453502",
+    "4006212"
+  ],
+  "blockedStationIds": [
+    "19516",
+    "453502",
+    "4006212"
+  ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 0,
-    "requestAttempts": 0,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": null,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -29,9 +37,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 0
+    "consecutiveBlocks": 3
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -39,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "MS",
+      "MT",
+      "NC",
+      "ND",
+      "NE",
+      "NH",
+      "NJ",
+      "NM"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
