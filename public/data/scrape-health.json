@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T11:15:51.916Z",
+  "generatedAt": "2026-08-21T11:48:46.461Z",
   "requestedLimit": 100,
-  "inScopeStations": 246,
+  "inScopeStations": 248,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 46,
+  "cooldownSkipped": 44,
   "attemptedStationIds": [
-    "EastRutherfordNJSupercharger",
-    "4007754",
-    "402407"
+    "UnionCityNJsupercharger",
+    "20521",
+    "CharlotteNCsupercharger"
   ],
   "blockedStationIds": [
-    "EastRutherfordNJSupercharger",
-    "4007754",
-    "402407"
+    "UnionCityNJsupercharger",
+    "20521",
+    "CharlotteNCsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 67,
+    "averageRequestMs": 139,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
