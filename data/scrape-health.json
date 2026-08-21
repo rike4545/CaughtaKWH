@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T19:35:07.840Z",
+  "generatedAt": "2026-08-21T19:55:08.667Z",
   "requestedLimit": 100,
-  "inScopeStations": 224,
+  "inScopeStations": 221,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 68,
+  "cooldownSkipped": 71,
   "attemptedStationIds": [
-    "457753",
-    "santarosanmsupercharger",
-    "4008768"
+    "BridgewaterNJsupercharger",
+    "20657",
+    "cherryhillnjhaddonfieldroadsupercharger"
   ],
   "blockedStationIds": [
-    "457753",
-    "santarosanmsupercharger",
-    "4008768"
+    "BridgewaterNJsupercharger",
+    "20657",
+    "cherryhillnjhaddonfieldroadsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 61,
+    "averageRequestMs": 164,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
