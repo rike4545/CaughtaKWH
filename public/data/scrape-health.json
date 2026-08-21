@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T10:54:51.702Z",
+  "generatedAt": "2026-08-21T11:15:51.916Z",
   "requestedLimit": 100,
-  "inScopeStations": 243,
+  "inScopeStations": 246,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 49,
+  "cooldownSkipped": 46,
   "attemptedStationIds": [
-    "406608",
-    "34939",
-    "caryncbassprolanesupercharger"
+    "EastRutherfordNJSupercharger",
+    "4007754",
+    "402407"
   ],
   "blockedStationIds": [
-    "406608",
-    "34939",
-    "caryncbassprolanesupercharger"
+    "EastRutherfordNJSupercharger",
+    "4007754",
+    "402407"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 99,
+    "averageRequestMs": 67,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
