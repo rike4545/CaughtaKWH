@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T20:37:06.749Z",
+  "generatedAt": "2026-08-22T20:57:45.988Z",
   "requestedLimit": 100,
   "inScopeStations": 256,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 88,
   "attemptedStationIds": [
-    "59126",
-    "36228",
-    "19511"
+    "edisonsupercharger",
+    "elizabethnjsupercharger",
+    "406305"
   ],
   "blockedStationIds": [
-    "59126",
-    "36228",
-    "19511"
+    "edisonsupercharger",
+    "elizabethnjsupercharger",
+    "406305"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 122,
+    "averageRequestMs": 41,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
