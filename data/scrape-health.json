@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T23:33:55.389Z",
+  "generatedAt": "2026-08-22T23:55:13.945Z",
   "requestedLimit": 100,
-  "inScopeStations": 243,
+  "inScopeStations": 240,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 101,
+  "cooldownSkipped": 104,
   "attemptedStationIds": [
-    "34939",
-    "409196",
-    "OxfordNCSupercharger"
+    "31808",
+    "4008208",
+    "PerthAmboyNJQ322"
   ],
   "blockedStationIds": [
-    "34939",
-    "409196",
-    "OxfordNCSupercharger"
+    "31808",
+    "4008208",
+    "PerthAmboyNJQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 75,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
