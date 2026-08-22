@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T07:42:56.712Z",
+  "generatedAt": "2026-08-22T07:59:52.988Z",
   "requestedLimit": 100,
-  "inScopeStations": 262,
+  "inScopeStations": 261,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 82,
+  "cooldownSkipped": 83,
   "attemptedStationIds": [
-    "412623",
-    "58327",
-    "26343"
+    "20692",
+    "lasvegasnveastsaharaavesupercharger",
+    "463680"
   ],
   "blockedStationIds": [
-    "412623",
-    "58327",
-    "26343"
+    "20692",
+    "lasvegasnveastsaharaavesupercharger",
+    "463680"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 145,
+    "averageRequestMs": 66,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
