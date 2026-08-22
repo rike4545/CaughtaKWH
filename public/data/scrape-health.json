@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T16:57:41.794Z",
+  "generatedAt": "2026-08-22T17:15:36.464Z",
   "requestedLimit": 100,
   "inScopeStations": 272,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 72,
   "attemptedStationIds": [
-    "34052",
-    "425863",
-    "parsippanysupercharger"
+    "15015",
+    "17349",
+    "31888"
   ],
   "blockedStationIds": [
-    "34052",
-    "425863",
-    "parsippanysupercharger"
+    "15015",
+    "17349",
+    "31888"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 57,
+    "averageRequestMs": 143,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
