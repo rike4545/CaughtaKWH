@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T11:55:48.449Z",
+  "generatedAt": "2026-08-22T12:17:09.152Z",
   "requestedLimit": 100,
   "inScopeStations": 272,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 72,
   "attemptedStationIds": [
-    "renovirginiastsupercharger",
-    "lovelocknvsupercharger",
-    "lasvegastivolisupercharger"
+    "406608",
+    "EastRutherfordNJSupercharger",
+    "4007754"
   ],
   "blockedStationIds": [
-    "renovirginiastsupercharger",
-    "lovelocknvsupercharger",
-    "lasvegastivolisupercharger"
+    "406608",
+    "EastRutherfordNJSupercharger",
+    "4007754"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 61,
+    "averageRequestMs": 163,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
