@@ -1,6 +1,6 @@
 # Pricing Neural Model
 
-Generated: 2026-08-22T10:38:31.280Z
+Generated: 2026-08-22T10:57:15.377Z
 
 - Status: **experimental**
 - Reason: Holdout quality passed; more stations and price history are needed before blending.
