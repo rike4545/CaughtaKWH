@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T00:27:05.066Z",
+  "generatedAt": "2026-08-22T06:16:54.785Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -760,6 +760,30 @@
       "reportUrl": "report.html?station=HalifaxNCQ42022"
     },
     {
+      "id": "27158",
+      "name": "Jean, NV",
+      "city": "Jean",
+      "state": "NV",
+      "lat": 35.780604,
+      "lng": -115.332542,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27158"
+    },
+    {
+      "id": "27157",
+      "name": "Las Vegas, NV - Arroyo Crossing Pkwy",
+      "city": "Las Vegas",
+      "state": "NV",
+      "lat": 36.062246,
+      "lng": -115.251828,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27157"
+    },
+    {
       "id": "4009311",
       "name": "Livermore, CA - Livermore Outlets Dr",
       "city": "Livermore",
@@ -770,6 +794,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4009311"
+    },
+    {
+      "id": "primmnvsupercharger",
+      "name": "Primm, NV",
+      "city": "Primm",
+      "state": "NV",
+      "lat": 35.610687,
+      "lng": -115.388028,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=primmnvsupercharger"
     },
     {
       "id": "27261",
@@ -1756,6 +1792,42 @@
       "reportUrl": "report.html?station=18930"
     },
     {
+      "id": "410902",
+      "name": "Las Vegas, NV - 3528 S Maryland Pkwy",
+      "city": "Las Vegas",
+      "state": "NV",
+      "lat": 36.125665,
+      "lng": -115.134614,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=410902"
+    },
+    {
+      "id": "25857",
+      "name": "Las Vegas, NV - 7400 Las Vegas Blvd S",
+      "city": "Las Vegas",
+      "state": "NV",
+      "lat": 36.056634,
+      "lng": -115.170356,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=25857"
+    },
+    {
+      "id": "401360",
+      "name": "Las Vegas, NV - E Twain Ave",
+      "city": "Las Vegas",
+      "state": "NV",
+      "lat": 36.121716,
+      "lng": -115.145235,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=401360"
+    },
+    {
       "id": "leemasupercharger",
       "name": "Lee, MA",
       "city": "Lee",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=27021"
-    },
-    {
-      "id": "15555",
-      "name": "Danvers, MA",
-      "city": "Danvers",
-      "state": "MA",
-      "lat": 42.585318,
-      "lng": -70.96587,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=15555"
-    },
-    {
-      "id": "DartmouthMASupercharger",
-      "name": "Dartmouth, MA",
-      "city": "Dartmouth",
-      "state": "MA",
-      "lat": 41.64067,
-      "lng": -70.995723,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=DartmouthMASupercharger"
-    },
-    {
-      "id": "DavenportFLsupercharger",
-      "name": "Davenport, FL",
-      "city": "Davenport",
-      "state": "FL",
-      "lat": 28.258509,
-      "lng": -81.590088,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=DavenportFLsupercharger"
-    },
-    {
-      "id": "59134",
-      "name": "Davie, FL - Stirling Rd",
-      "city": "Davie",
-      "state": "FL",
-      "lat": 26.045333,
-      "lng": -80.231079,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59134"
-    },
-    {
-      "id": "daytonabeachsupercharger",
-      "name": "Daytona Beach, FL",
-      "city": "Daytona Beach",
-      "state": "FL",
-      "lat": 29.183299,
-      "lng": -81.078877,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=daytonabeachsupercharger"
-    },
-    {
-      "id": "26734",
-      "name": "Dedham, MA - Providence Hwy",
-      "city": "Dedham",
-      "state": "MA",
-      "lat": 42.260254,
-      "lng": -71.168939,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26734"
     }
   ]
 }
