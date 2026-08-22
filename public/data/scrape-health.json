@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T17:36:47.464Z",
+  "generatedAt": "2026-08-22T17:56:32.480Z",
   "requestedLimit": 100,
   "inScopeStations": 272,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 72,
   "attemptedStationIds": [
-    "404653",
-    "26776",
-    "19245"
+    "19499",
+    "AugustaNJQ322",
+    "59145"
   ],
   "blockedStationIds": [
-    "404653",
-    "26776",
-    "19245"
+    "19499",
+    "AugustaNJQ322",
+    "59145"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 48,
+    "averageRequestMs": 95,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
