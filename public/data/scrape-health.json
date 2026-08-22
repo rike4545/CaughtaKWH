@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T03:05:27.396Z",
+  "generatedAt": "2026-08-22T03:53:30.516Z",
   "requestedLimit": 100,
   "inScopeStations": 262,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 82,
   "attemptedStationIds": [
-    "25858",
-    "lasvegaslinqsupercharger",
-    "404159"
+    "4005711",
+    "31888",
+    "401803"
   ],
   "blockedStationIds": [
-    "25858",
-    "lasvegaslinqsupercharger",
-    "404159"
+    "4005711",
+    "31888",
+    "401803"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 74,
+    "averageRequestMs": 129,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
