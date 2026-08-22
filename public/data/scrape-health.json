@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T14:38:06.256Z",
+  "generatedAt": "2026-08-22T14:56:29.767Z",
   "requestedLimit": 100,
-  "inScopeStations": 275,
+  "inScopeStations": 272,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 69,
+  "cooldownSkipped": 72,
   "attemptedStationIds": [
-    "20974",
-    "CranfordNJSupercharger",
-    "453452"
+    "32055",
+    "424861",
+    "35810"
   ],
   "blockedStationIds": [
-    "20974",
-    "CranfordNJSupercharger",
-    "453452"
+    "32055",
+    "424861",
+    "35810"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 133,
+    "averageRequestMs": 138,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
