@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T13:57:33.047Z",
+  "generatedAt": "2026-08-22T14:14:54.605Z",
   "requestedLimit": 100,
   "inScopeStations": 275,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 69,
   "attemptedStationIds": [
-    "4008968",
-    "LittleFerryNJQ322",
-    "34872"
+    "410902",
+    "25857",
+    "401360"
   ],
   "blockedStationIds": [
-    "4008968",
-    "LittleFerryNJQ322",
-    "34872"
+    "410902",
+    "25857",
+    "401360"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 64,
+    "averageRequestMs": 251,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
