@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T11:14:23.588Z",
+  "generatedAt": "2026-08-22T11:35:03.894Z",
   "requestedLimit": 100,
-  "inScopeStations": 264,
+  "inScopeStations": 267,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 80,
+  "cooldownSkipped": 77,
   "attemptedStationIds": [
-    "beattysupercharger",
-    "hawthornesupercharger",
-    "tonopahsupercharger22"
+    "elkonvsupercharger",
+    "gardnervillesupercharger",
+    "lasvegassupercharger"
   ],
   "blockedStationIds": [
-    "beattysupercharger",
-    "hawthornesupercharger",
-    "tonopahsupercharger22"
+    "elkonvsupercharger",
+    "gardnervillesupercharger",
+    "lasvegassupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 84,
+    "averageRequestMs": 78,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
