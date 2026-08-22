@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T13:42:05.688Z",
+  "generatedAt": "2026-08-22T13:57:33.047Z",
   "requestedLimit": 100,
   "inScopeStations": 275,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 69,
   "attemptedStationIds": [
-    "primmnvsupercharger",
-    "UnionCityNJsupercharger",
-    "20521"
+    "4008968",
+    "LittleFerryNJQ322",
+    "34872"
   ],
   "blockedStationIds": [
-    "primmnvsupercharger",
-    "UnionCityNJsupercharger",
-    "20521"
+    "4008968",
+    "LittleFerryNJQ322",
+    "34872"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 66,
+    "averageRequestMs": 64,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
