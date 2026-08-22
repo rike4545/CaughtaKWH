@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T08:57:07.510Z",
+  "generatedAt": "2026-08-22T09:20:03.527Z",
   "requestedLimit": 100,
-  "inScopeStations": 258,
+  "inScopeStations": 261,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 86,
+  "cooldownSkipped": 83,
   "attemptedStationIds": [
-    "27584",
-    "438766",
-    "lasvegasnvgrandcentralparkwaysupercharger"
+    "29515",
+    "26344",
+    "LasVegasNVSupercharger22"
   ],
   "blockedStationIds": [
-    "27584",
-    "438766",
-    "lasvegasnvgrandcentralparkwaysupercharger"
+    "29515",
+    "26344",
+    "LasVegasNVSupercharger22"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 54,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
