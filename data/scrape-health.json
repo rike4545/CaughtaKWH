@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T23:57:38.638Z",
+  "generatedAt": "2026-08-22T00:53:02.574Z",
   "requestedLimit": 100,
-  "inScopeStations": 207,
+  "inScopeStations": 260,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 85,
+  "cooldownSkipped": 84,
   "attemptedStationIds": [
-    "14427",
-    "malaganjsupercharger",
-    "mapleshadenjsupercharger"
+    "27158",
+    "27157",
+    "primmnvsupercharger"
   ],
   "blockedStationIds": [
-    "14427",
-    "malaganjsupercharger",
-    "mapleshadenjsupercharger"
+    "27158",
+    "27157",
+    "primmnvsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 51,
+    "averageRequestMs": 74,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "MS",
       "MT",
       "NC",
       "ND",
       "NE",
       "NH",
       "NJ",
-      "NM"
+      "NM",
+      "NV"
     ],
     "countries": [],
     "nearby": null,
