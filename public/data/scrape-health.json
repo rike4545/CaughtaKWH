@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T14:56:29.767Z",
+  "generatedAt": "2026-08-22T15:11:40.168Z",
   "requestedLimit": 100,
   "inScopeStations": 272,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 72,
   "attemptedStationIds": [
-    "32055",
-    "424861",
-    "35810"
+    "3520",
+    "25858",
+    "HowellTownshipNJQ322"
   ],
   "blockedStationIds": [
-    "32055",
-    "424861",
-    "35810"
+    "3520",
+    "25858",
+    "HowellTownshipNJQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 138,
+    "averageRequestMs": 74,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

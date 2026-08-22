@@ -68741,12 +68741,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-16",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-21T14:51:23.184Z",
-    "lastBlockedAt": "2026-08-21T14:51:23.184Z",
+    "lastAttemptedAt": "2026-08-22T15:11:40.168Z",
+    "lastBlockedAt": "2026-08-22T15:11:40.168Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 2,
-    "blockCooldownHours": 12,
-    "nextScrapeEligibleAt": "2026-08-22T02:51:23.184Z",
+    "consecutiveBlockedAttempts": 3,
+    "blockCooldownHours": 24,
+    "nextScrapeEligibleAt": "2026-08-23T15:11:40.168Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -68756,7 +68756,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 66,
+        "durationMs": 156,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -68770,7 +68770,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 66
+      "averageRequestMs": 156
     }
   },
   {
@@ -69269,12 +69269,12 @@
     "facilityName": "M Resort Spa Casino",
     "plugshareId": 539250,
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-22T03:05:27.396Z",
-    "lastBlockedAt": "2026-08-22T03:05:27.396Z",
+    "lastAttemptedAt": "2026-08-22T15:11:40.168Z",
+    "lastBlockedAt": "2026-08-22T15:11:40.168Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-08-22T09:05:27.396Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-08-23T03:11:40.168Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -69284,7 +69284,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 78,
+        "durationMs": 31,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -69298,7 +69298,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 78
+      "averageRequestMs": 31
     }
   },
   {
@@ -73052,12 +73052,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-16",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-21T14:51:23.184Z",
-    "lastBlockedAt": "2026-08-21T14:51:23.184Z",
+    "lastAttemptedAt": "2026-08-22T15:11:40.168Z",
+    "lastBlockedAt": "2026-08-22T15:11:40.168Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 2,
-    "blockCooldownHours": 12,
-    "nextScrapeEligibleAt": "2026-08-22T02:51:23.184Z",
+    "consecutiveBlockedAttempts": 3,
+    "blockCooldownHours": 24,
+    "nextScrapeEligibleAt": "2026-08-23T15:11:40.168Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -73067,7 +73067,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 33,
+        "durationMs": 36,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -73081,7 +73081,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 33
+      "averageRequestMs": 36
     }
   },
   {
