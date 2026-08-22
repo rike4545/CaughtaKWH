@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-22T10:12:11.449Z",
+  "generatedAt": "2026-08-22T10:38:22.946Z",
   "requestedLimit": 100,
   "inScopeStations": 261,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 83,
   "attemptedStationIds": [
-    "33591",
-    "19194",
-    "wellsnvsupercharger"
+    "winnemuccanvsupercharger",
+    "29289",
+    "statelinenvsupercharger"
   ],
   "blockedStationIds": [
-    "33591",
-    "19194",
-    "wellsnvsupercharger"
+    "winnemuccanvsupercharger",
+    "29289",
+    "statelinenvsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 98,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
