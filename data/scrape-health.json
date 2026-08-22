@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T18:54:33.991Z",
+  "generatedAt": "2026-08-22T19:14:54.907Z",
   "requestedLimit": 100,
-  "inScopeStations": 266,
+  "inScopeStations": 263,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 78,
+  "cooldownSkipped": 81,
   "attemptedStationIds": [
-    "clarksburgnjsupercharger",
-    "ColumbiaNJsupercharger",
-    "19525"
+    "EdisonNJSupercharger2",
+    "26620",
+    "ElwoodNJSupercharger"
   ],
   "blockedStationIds": [
-    "clarksburgnjsupercharger",
-    "ColumbiaNJsupercharger",
-    "19525"
+    "EdisonNJSupercharger2",
+    "26620",
+    "ElwoodNJSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 131,
+    "averageRequestMs": 76,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
