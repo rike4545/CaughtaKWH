@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-22T05:49:54.413Z",
+  "generatedAt": "2026-08-22T06:19:55.387Z",
   "requestedLimit": 100,
-  "inScopeStations": 261,
+  "inScopeStations": 260,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 83,
+  "cooldownSkipped": 84,
   "attemptedStationIds": [
-    "31091",
-    "402609",
-    "westwendovernvsupercharger"
+    "FernleyNVQ322",
+    "19111",
+    "27454"
   ],
   "blockedStationIds": [
-    "31091",
-    "402609",
-    "westwendovernvsupercharger"
+    "FernleyNVQ322",
+    "19111",
+    "27454"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 160,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
