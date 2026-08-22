@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-21T11:57:28.772Z",
+  "generatedAt": "2026-08-22T11:53:22.628Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3110,
-    "checkedStations": 2022,
-    "checkedPct": 65.02,
+    "checkedStations": 1959,
+    "checkedPct": 62.99,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1085,
+    "blockedStations": 1148,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -138,7 +138,7 @@
       "state": "NJ",
       "city": "Woodcliff Lake",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-20T19:09:06.018Z",
+      "lastAttemptedAt": "2026-08-21T19:35:07.840Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 843
@@ -171,7 +171,7 @@
       "state": "NM",
       "city": "Santa Rosa",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-21T07:15:27.267Z",
+      "lastAttemptedAt": "2026-08-21T19:35:07.840Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 823
