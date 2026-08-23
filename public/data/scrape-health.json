@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T17:21:44.539Z",
+  "generatedAt": "2026-08-23T17:42:40.358Z",
   "requestedLimit": 100,
-  "inScopeStations": 331,
+  "inScopeStations": 334,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 117,
+  "cooldownSkipped": 114,
   "attemptedStationIds": [
-    "salamancasupercharger",
-    "southamptonsupercharger",
-    "syracusesupercharger"
+    "uticanysupercharger",
+    "victornysupercharger",
+    "waterloonysupercharger"
   ],
   "blockedStationIds": [
-    "salamancasupercharger",
-    "southamptonsupercharger",
-    "syracusesupercharger"
+    "uticanysupercharger",
+    "victornysupercharger",
+    "waterloonysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 57,
+    "averageRequestMs": 107,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
