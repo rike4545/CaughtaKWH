@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T09:49:24.420Z",
-  "requestedLimit": 100,
-  "inScopeStations": 314,
+  "generatedAt": "2026-08-23T10:00:59.752Z",
+  "requestedLimit": 300,
+  "inScopeStations": 166,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 134,
+  "cooldownSkipped": 92,
   "attemptedStationIds": [
-    "OneidaDelivery",
-    "18391",
-    "487202"
+    "438003",
+    "400651",
+    "26763"
   ],
   "blockedStationIds": [
-    "OneidaDelivery",
-    "18391",
-    "487202"
+    "438003",
+    "400651",
+    "26763"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 94,
+    "averageRequestMs": 77,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,9 +53,7 @@
       "NE",
       "NH",
       "NJ",
-      "NM",
-      "NV",
-      "NY"
+      "NM"
     ],
     "countries": [],
     "nearby": null,
