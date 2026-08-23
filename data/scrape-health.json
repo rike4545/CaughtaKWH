@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T07:30:08.252Z",
+  "generatedAt": "2026-08-23T07:56:48.505Z",
   "requestedLimit": 100,
-  "inScopeStations": 321,
+  "inScopeStations": 318,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 127,
+  "cooldownSkipped": 130,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "34019",
-    "16541"
+    "26680",
+    "4004804",
+    "20251"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "34019",
-    "16541"
+    "26680",
+    "4004804",
+    "20251"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 57,
+    "averageRequestMs": 51,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
