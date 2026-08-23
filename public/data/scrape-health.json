@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T10:37:51.480Z",
+  "generatedAt": "2026-08-23T10:57:30.976Z",
   "requestedLimit": 100,
-  "inScopeStations": 308,
+  "inScopeStations": 309,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 140,
+  "cooldownSkipped": 139,
   "attemptedStationIds": [
-    "copiaguenysupercharger",
-    "4005002",
-    "19601"
+    "4008209",
+    "20491",
+    "HancockNYSupercharger"
   ],
   "blockedStationIds": [
-    "copiaguenysupercharger",
-    "4005002",
-    "19601"
+    "4008209",
+    "20491",
+    "HancockNYSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 167,
+    "averageRequestMs": 78,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
