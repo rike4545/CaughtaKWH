@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T16:42:48.593Z",
+  "generatedAt": "2026-08-23T17:00:31.482Z",
   "requestedLimit": 100,
-  "inScopeStations": 326,
+  "inScopeStations": 329,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 122,
+  "cooldownSkipped": 119,
   "attemptedStationIds": [
-    "middletownnysupercharger",
-    "newrochellesupercharger",
-    "plainviewsupercharger"
+    "plattsburghsupercharger",
+    "queensburysupercharger",
+    "roscoenysupercharger"
   ],
   "blockedStationIds": [
-    "middletownnysupercharger",
-    "newrochellesupercharger",
-    "plainviewsupercharger"
+    "plattsburghsupercharger",
+    "queensburysupercharger",
+    "roscoenysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 176,
+    "averageRequestMs": 64,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
