@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T21:55:57.489Z",
+  "generatedAt": "2026-08-23T22:10:47.080Z",
   "requestedLimit": 100,
-  "inScopeStations": 347,
+  "inScopeStations": 350,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 101,
+  "cooldownSkipped": 98,
   "attemptedStationIds": [
-    "18505",
-    "CarlePlaceNYsupercharger",
-    "405103"
+    "20974",
+    "CranfordNJSupercharger",
+    "DobbsFerryNYSupercharger"
   ],
   "blockedStationIds": [
-    "18505",
-    "CarlePlaceNYsupercharger",
-    "405103"
+    "20974",
+    "CranfordNJSupercharger",
+    "DobbsFerryNYSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 88,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
