@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T10:57:30.976Z",
+  "generatedAt": "2026-08-23T11:15:05.113Z",
   "requestedLimit": 100,
-  "inScopeStations": 309,
+  "inScopeStations": 312,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 139,
+  "cooldownSkipped": 136,
   "attemptedStationIds": [
-    "4008209",
-    "20491",
-    "HancockNYSupercharger"
+    "hudsonnysupercharger",
+    "lakeplacidnewyorksupercharger",
+    "26640"
   ],
   "blockedStationIds": [
-    "4008209",
-    "20491",
-    "HancockNYSupercharger"
+    "hudsonnysupercharger",
+    "lakeplacidnewyorksupercharger",
+    "26640"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 78,
+    "averageRequestMs": 82,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
