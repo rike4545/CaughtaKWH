@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T00:29:30.742Z",
+  "generatedAt": "2026-08-23T06:18:31.700Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -880,6 +880,18 @@
       "reportUrl": "report.html?station=29107"
     },
     {
+      "id": "428013",
+      "name": "Bronx, NY - East Gun Hill Rd",
+      "city": "Bronx",
+      "state": "NY",
+      "lat": 40.863621,
+      "lng": -73.833859,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=428013"
+    },
+    {
       "id": "BeaumontCAQ322",
       "name": "Beaumont, CA - Oak Valley Village Cir",
       "city": "Beaumont",
@@ -950,6 +962,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=426462"
+    },
+    {
+      "id": "437658",
+      "name": "Clifton Park, NY",
+      "city": "Clifton Park",
+      "state": "NY",
+      "lat": 42.860457,
+      "lng": -73.778395,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=437658"
     },
     {
       "id": "DiamondBarCASupercharger",
@@ -1288,6 +1312,18 @@
       "reportUrl": "report.html?station=451002"
     },
     {
+      "id": "valleystreamnewyorksupercharger",
+      "name": "Valley Stream, NY",
+      "city": "Valley Stream",
+      "state": "NY",
+      "lat": 40.66402,
+      "lng": -73.7251,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=valleystreamnewyorksupercharger"
+    },
+    {
       "id": "WestCovinaCAQ42022",
       "name": "West Covina, CA - E Eastland Center Dr",
       "city": "West Covina",
@@ -1348,6 +1384,30 @@
       "reportUrl": "report.html?station=404356"
     },
     {
+      "id": "441119",
+      "name": "Brooklyn, NY - 8923 Bay Pkwy",
+      "city": "Brooklyn",
+      "state": "NY",
+      "lat": 40.594654,
+      "lng": -73.998572,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=441119"
+    },
+    {
+      "id": "7951",
+      "name": "Brooklyn, NY - Bay Pkwy",
+      "city": "Brooklyn",
+      "state": "NY",
+      "lat": 40.594639,
+      "lng": -73.999969,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=7951"
+    },
+    {
       "id": "35205",
       "name": "Canton, MA",
       "city": "Canton",
@@ -1396,6 +1456,18 @@
       "reportUrl": "report.html?station=426107"
     },
     {
+      "id": "GardenCityNYSupercharger",
+      "name": "Garden City, NY",
+      "city": "Garden City",
+      "state": "NY",
+      "lat": 40.7416044,
+      "lng": -73.6129391,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=GardenCityNYSupercharger"
+    },
+    {
       "id": "4008968",
       "name": "Hackensack, NJ - W Pleasantview Ave",
       "city": "Hackensack",
@@ -1406,6 +1478,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4008968"
+    },
+    {
+      "id": "428917",
+      "name": "Inwood, NY",
+      "city": "Inwood",
+      "state": "NY",
+      "lat": 40.623175,
+      "lng": -73.742629,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=428917"
     },
     {
       "id": "LittleFerryNJQ322",
@@ -1442,6 +1526,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=26440"
+    },
+    {
+      "id": "424060",
+      "name": "North New Hyde Park, NY",
+      "city": "North New Hyde Park",
+      "state": "NY",
+      "lat": 40.750893,
+      "lng": -73.674394,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=424060"
     },
     {
       "id": "435458",
@@ -1526,6 +1622,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=407484"
+    },
+    {
+      "id": "425005",
+      "name": "Queens, NY - Springfield Blvd",
+      "city": "Queens",
+      "state": "NY",
+      "lat": 40.680009,
+      "lng": -73.75382,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=425005"
     },
     {
       "id": "32949",
@@ -1634,6 +1742,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=braintreesupercharger"
+    },
+    {
+      "id": "19568",
+      "name": "Champlain, NY",
+      "city": "Champlain",
+      "state": "NY",
+      "lat": 44.978988,
+      "lng": -73.445349,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19568"
     },
     {
       "id": "36228",
@@ -1754,6 +1874,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=FortLauderdaleFLSupercharger20"
+    },
+    {
+      "id": "30775",
+      "name": "Garden City, NY - Stewart Ave",
+      "city": "Garden City",
+      "state": "NY",
+      "lat": 40.731449,
+      "lng": -73.609471,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=30775"
     },
     {
       "id": "20901",
@@ -1924,6 +2056,18 @@
       "reportUrl": "report.html?station=437003"
     },
     {
+      "id": "26671",
+      "name": "Newburgh, NY - NY-300",
+      "city": "Newburgh",
+      "state": "NY",
+      "lat": 41.51768,
+      "lng": -74.069717,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26671"
+    },
+    {
       "id": "59033",
       "name": "Orlando, FL - 7105 Palm Pkwy",
       "city": "Orlando",
@@ -1958,6 +2102,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=25969"
+    },
+    {
+      "id": "4005560",
+      "name": "Painted Post, NY",
+      "city": "Painted Post",
+      "state": "NY",
+      "lat": 42.153785,
+      "lng": -77.104896,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4005560"
     },
     {
       "id": "25796",
@@ -2030,6 +2186,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=442207"
+    },
+    {
+      "id": "424174",
+      "name": "Saugerties, NY",
+      "city": "Saugerties",
+      "state": "NY",
+      "lat": 42.080457,
+      "lng": -73.95984,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=424174"
     },
     {
       "id": "SomervilleMAsupercharger",
@@ -2140,6 +2308,18 @@
       "reportUrl": "report.html?station=AlachuaFLsupercharger"
     },
     {
+      "id": "26639",
+      "name": "Albany, NY - Central Ave",
+      "city": "Albany",
+      "state": "NY",
+      "lat": 42.699213,
+      "lng": -73.810411,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26639"
+    },
+    {
       "id": "27521",
       "name": "Allamuchy, NJ",
       "city": "Hackettstown",
@@ -2200,6 +2380,18 @@
       "reportUrl": "report.html?station=407814"
     },
     {
+      "id": "BataviaNYQ322",
+      "name": "Batavia, NY",
+      "city": "Batavia",
+      "state": "NY",
+      "lat": 43.017313,
+      "lng": -78.201531,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=BataviaNYQ322"
+    },
+    {
       "id": "36222",
       "name": "Berkeley Heights, NJ",
       "city": "Berkeley Heights",
@@ -2210,198 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=36222"
-    },
-    {
-      "id": "BocaRatonFLsupercharger",
-      "name": "Boca Raton, FL",
-      "city": "Boca Raton",
-      "state": "FL",
-      "lat": 26.36496,
-      "lng": -80.133209,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=BocaRatonFLsupercharger"
-    },
-    {
-      "id": "brooksvilleflsupercharger",
-      "name": "Brooksville, FL",
-      "city": "Brooksville",
-      "state": "FL",
-      "lat": 28.522686,
-      "lng": -82.229984,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=brooksvilleflsupercharger"
-    },
-    {
-      "id": "32551",
-      "name": "Brooksville, FL - Cortez Blvd",
-      "city": "Broksville",
-      "state": "FL",
-      "lat": 28.534742,
-      "lng": -82.507923,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32551"
-    },
-    {
-      "id": "brunswickgasupercharger",
-      "name": "Brunswick, GA",
-      "city": "Brunswick",
-      "state": "GA",
-      "lat": 31.245874,
-      "lng": -81.501667,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=brunswickgasupercharger"
-    },
-    {
-      "id": "BurlingtonMAsupercharger",
-      "name": "Burlington, MA",
-      "city": "Burlington",
-      "state": "MA",
-      "lat": 42.4836,
-      "lng": -71.2164,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=BurlingtonMAsupercharger"
-    },
-    {
-      "id": "58755",
-      "name": "Cape Canaveral, FL",
-      "city": "Cape Canaveral",
-      "state": "FL",
-      "lat": 28.395384,
-      "lng": -80.610498,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58755"
-    },
-    {
-      "id": "34939",
-      "name": "Carneys Point, NJ",
-      "city": "Carneys Point",
-      "state": "NJ",
-      "lat": 39.685164,
-      "lng": -75.483439,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=34939"
-    },
-    {
-      "id": "caryncbassprolanesupercharger",
-      "name": "Cary, NC - Bass Pro Ln",
-      "city": "Cary",
-      "state": "NC",
-      "lat": 35.831585,
-      "lng": -78.769044,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=caryncbassprolanesupercharger"
-    },
-    {
-      "id": "33746",
-      "name": "Casselberry, FL",
-      "city": "Casselberry",
-      "state": "FL",
-      "lat": 28.683939,
-      "lng": -81.333559,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33746"
-    },
-    {
-      "id": "32552",
-      "name": "Celebration, FL - Future Way",
-      "city": "Kissimmee",
-      "state": "FL",
-      "lat": 28.302951,
-      "lng": -81.568678,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32552"
-    },
-    {
-      "id": "CharlotteNCsupercharger",
-      "name": "Charlotte, NC - Northlake Centre Pkwy",
-      "city": "North Charlotte",
-      "state": "NC",
-      "lat": 35.34726,
-      "lng": -80.85921,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=CharlotteNCsupercharger"
-    },
-    {
-      "id": "ChicopeeMASupercharger",
-      "name": "Chicopee, MA",
-      "city": "Chicopee",
-      "state": "MA",
-      "lat": 42.174804,
-      "lng": -72.578159,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=ChicopeeMASupercharger"
-    },
-    {
-      "id": "20974",
-      "name": "Clinton, NJ",
-      "city": "Clinton",
-      "state": "NJ",
-      "lat": 40.633853,
-      "lng": -74.937703,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20974"
-    },
-    {
-      "id": "19276",
-      "name": "Cocoa, FL",
-      "city": "Cocoa",
-      "state": "FL",
-      "lat": 28.355525,
-      "lng": -80.741754,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19276"
-    },
-    {
-      "id": "CranfordNJSupercharger",
-      "name": "Cranford, NJ",
-      "city": "Cranford",
-      "state": "NJ",
-      "lat": 40.658207,
-      "lng": -74.287872,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=CranfordNJSupercharger"
-    },
-    {
-      "id": "27021",
-      "name": "Crestview, FL - Cracker Barrel Dr",
-      "city": "Crestview",
-      "state": "FL",
-      "lat": 30.724613,
-      "lng": -86.571885,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=27021"
     }
   ]
 }
