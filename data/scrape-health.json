@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T23:33:47.432Z",
+  "generatedAt": "2026-08-23T23:55:24.218Z",
   "requestedLimit": 100,
-  "inScopeStations": 352,
+  "inScopeStations": 353,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 96,
+  "cooldownSkipped": 95,
   "attemptedStationIds": [
-    "35810",
-    "417106",
-    "3520"
+    "HalifaxNCQ42022",
+    "25858",
+    "34019"
   ],
   "blockedStationIds": [
-    "35810",
-    "417106",
-    "3520"
+    "HalifaxNCQ42022",
+    "25858",
+    "34019"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 62,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
