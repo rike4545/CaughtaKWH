@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T06:01:17.078Z",
+  "generatedAt": "2026-08-23T06:58:26.142Z",
   "requestedLimit": 100,
   "inScopeStations": 321,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 127,
   "attemptedStationIds": [
-    "400167",
-    "414274",
-    "fishkillnysupercharger"
+    "FredoniaNYQ322",
+    "26645",
+    "417106"
   ],
   "blockedStationIds": [
-    "400167",
-    "414274",
-    "fishkillnysupercharger"
+    "FredoniaNYQ322",
+    "26645",
+    "417106"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 57,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
