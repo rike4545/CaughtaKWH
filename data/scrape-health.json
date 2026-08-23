@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T00:37:19.264Z",
-  "requestedLimit": 100,
-  "inScopeStations": 334,
+  "generatedAt": "2026-08-23T01:58:07.602Z",
+  "requestedLimit": 10,
+  "inScopeStations": 4,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 114,
+  "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "428013",
-    "437658",
-    "valleystreamnewyorksupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "blockedStationIds": [
-    "428013",
-    "437658",
-    "valleystreamnewyorksupercharger"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 93,
+    "averageRequestMs": 145,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NC",
-      "ND",
-      "NE",
-      "NH",
-      "NJ",
-      "NM",
-      "NV",
-      "NY"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
