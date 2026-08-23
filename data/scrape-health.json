@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T18:47:55.802Z",
+  "generatedAt": "2026-08-23T19:14:37.572Z",
   "requestedLimit": 100,
-  "inScopeStations": 337,
+  "inScopeStations": 340,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 111,
+  "cooldownSkipped": 108,
   "attemptedStationIds": [
-    "ny59allenstsupercharger",
-    "nyeast47thstreetsupercharger",
-    "nywest75streetsupercharger"
+    "newyorkmottstsupercharger",
+    "27158",
+    "27157"
   ],
   "blockedStationIds": [
-    "ny59allenstsupercharger",
-    "nyeast47thstreetsupercharger",
-    "nywest75streetsupercharger"
+    "newyorkmottstsupercharger",
+    "27158",
+    "27157"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 103,
+    "averageRequestMs": 76,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
