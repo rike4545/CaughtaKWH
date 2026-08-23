@@ -1,32 +1,28 @@
 {
-  "generatedAt": "2026-08-23T03:14:47.903Z",
-  "requestedLimit": 100,
-  "inScopeStations": 333,
-  "attempted": 3,
+  "generatedAt": "2026-08-23T03:58:24.175Z",
+  "requestedLimit": 10,
+  "inScopeStations": 1,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 115,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "428917",
-    "424060",
-    "425005"
+    "islandiasupercharger"
   ],
   "blockedStationIds": [
-    "428917",
-    "424060",
-    "425005"
+    "islandiasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 45,
+    "averageRequestMs": 454,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +33,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +43,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NC",
-      "ND",
-      "NE",
-      "NH",
-      "NJ",
-      "NM",
-      "NV",
-      "NY"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
