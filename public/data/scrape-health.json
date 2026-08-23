@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T22:35:46.212Z",
+  "generatedAt": "2026-08-23T22:56:07.680Z",
   "requestedLimit": 100,
   "inScopeStations": 350,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 98,
   "attemptedStationIds": [
-    "EastHamptonNYSupercharger",
-    "453452",
-    "32055"
+    "400167",
+    "414274",
+    "fishkillnysupercharger"
   ],
   "blockedStationIds": [
-    "EastHamptonNYSupercharger",
-    "453452",
-    "32055"
+    "400167",
+    "414274",
+    "fishkillnysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 168,
+    "averageRequestMs": 65,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
