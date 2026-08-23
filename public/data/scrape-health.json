@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T19:34:46.886Z",
+  "generatedAt": "2026-08-23T19:53:54.511Z",
   "requestedLimit": 100,
-  "inScopeStations": 340,
+  "inScopeStations": 344,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 108,
+  "cooldownSkipped": 104,
   "attemptedStationIds": [
-    "primmnvsupercharger",
-    "428013",
-    "437658"
+    "457753",
+    "valleystreamnewyorksupercharger",
+    "425005"
   ],
   "blockedStationIds": [
-    "primmnvsupercharger",
-    "428013",
-    "437658"
+    "457753",
+    "valleystreamnewyorksupercharger",
+    "425005"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 79,
+    "averageRequestMs": 57,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
