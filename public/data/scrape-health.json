@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T05:42:20.778Z",
+  "generatedAt": "2026-08-23T06:01:17.078Z",
   "requestedLimit": 100,
-  "inScopeStations": 324,
+  "inScopeStations": 321,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 124,
+  "cooldownSkipped": 127,
   "attemptedStationIds": [
-    "405103",
-    "DobbsFerryNYSupercharger",
-    "EastHamptonNYSupercharger"
+    "400167",
+    "414274",
+    "fishkillnysupercharger"
   ],
   "blockedStationIds": [
-    "405103",
-    "DobbsFerryNYSupercharger",
-    "EastHamptonNYSupercharger"
+    "400167",
+    "414274",
+    "fishkillnysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 57,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
