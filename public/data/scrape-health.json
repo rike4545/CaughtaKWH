@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T11:35:01.800Z",
+  "generatedAt": "2026-08-23T11:56:20.004Z",
   "requestedLimit": 100,
-  "inScopeStations": 310,
+  "inScopeStations": 313,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 138,
+  "cooldownSkipped": 135,
   "attemptedStationIds": [
-    "maltanysupercharger",
-    "massapequanysupercharger",
-    "montauknysupercharger"
+    "NewPaltzNYSupercharger",
+    "26648",
+    "oneontanysupercharger"
   ],
   "blockedStationIds": [
-    "maltanysupercharger",
-    "massapequanysupercharger",
-    "montauknysupercharger"
+    "NewPaltzNYSupercharger",
+    "26648",
+    "oneontanysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 75,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
