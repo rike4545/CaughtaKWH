@@ -13034,7 +13034,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.28,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -13060,7 +13060,39 @@
       "ccs1": 12,
       "multi": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-23T05:06:32.025Z",
+    "lastBlockedAt": "2026-08-23T05:06:32.025Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-23T11:06:32.025Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BataviaNYsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 104,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 104
+    }
   },
   {
     "id": "batonrougelasupercharger",
@@ -22240,7 +22272,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.87,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -22269,7 +22301,39 @@
       "ccs1": 12,
       "multi": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-23T05:06:32.025Z",
+    "lastBlockedAt": "2026-08-23T05:06:32.025Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-23T11:06:32.025Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/18505",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 36,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 36
+    }
   },
   {
     "id": "brooklyn12thstreetsupercharger",
@@ -25961,7 +26025,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.35,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -25984,7 +26048,39 @@
       "tpc": 12,
       "nacs": 0
     },
-    "superchargeInfoMatchedAt": "2026-08-16"
+    "superchargeInfoMatchedAt": "2026-08-16",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-23T05:06:32.025Z",
+    "lastBlockedAt": "2026-08-23T05:06:32.025Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-23T11:06:32.025Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/CarlePlaceNYsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 50,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 50
+    }
   },
   {
     "id": "405103",
