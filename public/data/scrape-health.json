@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T15:56:05.138Z",
+  "generatedAt": "2026-08-23T16:13:53.467Z",
   "requestedLimit": 100,
-  "inScopeStations": 321,
+  "inScopeStations": 324,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 127,
+  "cooldownSkipped": 124,
   "attemptedStationIds": [
-    "queensnysupercharger",
-    "binghamtonsupercharger",
-    "buffalosupercharger"
+    "clintoncornerasupercharger",
+    "ithacanysupercharger",
+    "kingstonnysupercharger"
   ],
   "blockedStationIds": [
-    "queensnysupercharger",
-    "binghamtonsupercharger",
-    "buffalosupercharger"
+    "clintoncornerasupercharger",
+    "ithacanysupercharger",
+    "kingstonnysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 97,
+    "averageRequestMs": 90,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
