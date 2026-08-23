@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T07:56:48.505Z",
+  "generatedAt": "2026-08-23T08:19:57.862Z",
   "requestedLimit": 100,
-  "inScopeStations": 318,
+  "inScopeStations": 320,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 130,
+  "cooldownSkipped": 128,
   "attemptedStationIds": [
-    "26680",
-    "4004804",
-    "20251"
+    "ManorvilleNYsupercharger",
+    "melvillenywaltwhitmanroadsupercharger",
+    "4005352"
   ],
   "blockedStationIds": [
-    "26680",
-    "4004804",
-    "20251"
+    "ManorvilleNYsupercharger",
+    "melvillenywaltwhitmanroadsupercharger",
+    "4005352"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 51,
+    "averageRequestMs": 167,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
