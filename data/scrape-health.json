@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T13:59:50.028Z",
+  "generatedAt": "2026-08-23T14:22:19.959Z",
   "requestedLimit": 100,
   "inScopeStations": 315,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 133,
   "attemptedStationIds": [
-    "30858",
-    "12886",
-    "chestertownsupercharger"
+    "PotsdamNYQ322",
+    "guilderlandsupercharger",
+    "westnyacknysupercharger"
   ],
   "blockedStationIds": [
-    "30858",
-    "12886",
-    "chestertownsupercharger"
+    "PotsdamNYQ322",
+    "guilderlandsupercharger",
+    "westnyacknysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 47,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
