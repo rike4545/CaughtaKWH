@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T14:46:14.515Z",
+  "generatedAt": "2026-08-23T15:11:34.122Z",
   "requestedLimit": 100,
-  "inScopeStations": 315,
+  "inScopeStations": 318,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 133,
+  "cooldownSkipped": 130,
   "attemptedStationIds": [
-    "yonkerssupercharger",
-    "bronxnysupercharger",
-    "brooklynatlanticsupercharger"
+    "ossiningnewyorksupercharger",
+    "statenislandveteransrdsupercharger",
+    "yorktownheightssupercharger"
   ],
   "blockedStationIds": [
-    "yonkerssupercharger",
-    "bronxnysupercharger",
-    "brooklynatlanticsupercharger"
+    "ossiningnewyorksupercharger",
+    "statenislandveteransrdsupercharger",
+    "yorktownheightssupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 51,
+    "averageRequestMs": 78,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
