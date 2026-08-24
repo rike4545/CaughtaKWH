@@ -87636,12 +87636,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-23T20:56:50.764Z",
-    "lastBlockedAt": "2026-08-23T20:56:50.764Z",
+    "lastAttemptedAt": "2026-08-24T21:50:27.812Z",
+    "lastBlockedAt": "2026-08-24T21:50:27.812Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 3,
-    "blockCooldownHours": 24,
-    "nextScrapeEligibleAt": "2026-08-24T20:56:50.764Z",
+    "consecutiveBlockedAttempts": 4,
+    "blockCooldownHours": 48,
+    "nextScrapeEligibleAt": "2026-08-26T21:50:27.812Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -87651,7 +87651,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 46,
+        "durationMs": 189,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -87665,7 +87665,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 46
+      "averageRequestMs": 189
     }
   },
   {
@@ -87794,12 +87794,12 @@
     "facilityName": "Las Vegas South Premium Outlets",
     "plugshareId": 539249,
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-23T20:56:50.764Z",
-    "lastBlockedAt": "2026-08-23T20:56:50.764Z",
+    "lastAttemptedAt": "2026-08-24T21:50:27.812Z",
+    "lastBlockedAt": "2026-08-24T21:50:27.812Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 3,
-    "blockCooldownHours": 24,
-    "nextScrapeEligibleAt": "2026-08-24T20:56:50.764Z",
+    "consecutiveBlockedAttempts": 4,
+    "blockCooldownHours": 48,
+    "nextScrapeEligibleAt": "2026-08-26T21:50:27.812Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -87809,7 +87809,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 45,
+        "durationMs": 67,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -87823,7 +87823,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 45
+      "averageRequestMs": 67
     }
   },
   {
@@ -88182,12 +88182,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-23T21:13:43.235Z",
-    "lastBlockedAt": "2026-08-23T21:13:43.235Z",
+    "lastAttemptedAt": "2026-08-24T21:50:27.812Z",
+    "lastBlockedAt": "2026-08-24T21:50:27.812Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 3,
-    "blockCooldownHours": 24,
-    "nextScrapeEligibleAt": "2026-08-24T21:13:43.235Z",
+    "consecutiveBlockedAttempts": 4,
+    "blockCooldownHours": 48,
+    "nextScrapeEligibleAt": "2026-08-26T21:50:27.812Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -88197,7 +88197,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 150,
+        "durationMs": 53,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -88211,7 +88211,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 150
+      "averageRequestMs": 53
     }
   },
   {
