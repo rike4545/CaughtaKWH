@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T13:41:48.106Z",
+  "generatedAt": "2026-08-24T14:24:20.455Z",
   "requestedLimit": 100,
-  "inScopeStations": 344,
+  "inScopeStations": 349,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 72,
+  "cooldownSkipped": 67,
   "attemptedStationIds": [
-    "toledosupercharger",
-    "cambridgeohsupercharger",
-    "daytonsupercharger"
+    "grovecityohsupercharger",
+    "limasupercharger",
+    "maumeesupercharger"
   ],
   "blockedStationIds": [
-    "toledosupercharger",
-    "cambridgeohsupercharger",
-    "daytonsupercharger"
+    "grovecityohsupercharger",
+    "limasupercharger",
+    "maumeesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 52,
+    "averageRequestMs": 69,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
