@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T18:04:12.333Z",
+  "generatedAt": "2026-08-24T18:57:05.125Z",
   "requestedLimit": 100,
   "inScopeStations": 349,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 67,
   "attemptedStationIds": [
-    "20521",
-    "GardenCityNYSupercharger",
-    "4008968"
+    "428917",
+    "LittleFerryNJQ322",
+    "424060"
   ],
   "blockedStationIds": [
-    "20521",
-    "GardenCityNYSupercharger",
-    "4008968"
+    "428917",
+    "LittleFerryNJQ322",
+    "424060"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 109,
+    "averageRequestMs": 101,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
