@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T20:17:10.788Z",
+  "generatedAt": "2026-08-24T20:55:27.584Z",
   "requestedLimit": 100,
-  "inScopeStations": 348,
+  "inScopeStations": 351,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 68,
+  "cooldownSkipped": 65,
   "attemptedStationIds": [
-    "santarosanmsupercharger",
-    "4008768",
-    "26671"
+    "59126",
+    "36228",
+    "19511"
   ],
   "blockedStationIds": [
-    "santarosanmsupercharger",
-    "4008768",
-    "26671"
+    "59126",
+    "36228",
+    "19511"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 97,
+    "averageRequestMs": 64,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
