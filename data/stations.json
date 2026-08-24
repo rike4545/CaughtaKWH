@@ -34094,7 +34094,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.1,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -34118,7 +34118,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-24T03:14:47.802Z",
+    "lastBlockedAt": "2026-08-24T03:14:47.802Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-24T09:14:47.802Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/33713",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 216,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 216
+    }
   },
   {
     "id": "27109",
@@ -36321,7 +36353,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.17,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -36344,7 +36376,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-24T03:14:47.802Z",
+    "lastBlockedAt": "2026-08-24T03:14:47.802Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-24T09:14:47.802Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/18682",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 90,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 90
+    }
   },
   {
     "id": "18647",
@@ -38189,7 +38253,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.4,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -38212,7 +38276,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-24T03:14:47.802Z",
+    "lastBlockedAt": "2026-08-24T03:14:47.802Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-24T09:14:47.802Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/59020",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 97,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 97
+    }
   },
   {
     "id": "12751",

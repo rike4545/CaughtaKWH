@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T02:11:10.693Z",
+  "generatedAt": "2026-08-24T03:14:47.802Z",
   "requestedLimit": 100,
-  "inScopeStations": 333,
+  "inScopeStations": 330,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 83,
+  "cooldownSkipped": 86,
   "attemptedStationIds": [
-    "27491",
-    "BeavercreekOHSupercharger",
-    "26731"
+    "33713",
+    "18682",
+    "59020"
   ],
   "blockedStationIds": [
-    "27491",
-    "BeavercreekOHSupercharger",
-    "26731"
+    "33713",
+    "18682",
+    "59020"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 47,
+    "averageRequestMs": 134,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
