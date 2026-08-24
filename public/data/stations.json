@@ -47481,12 +47481,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-22T12:17:09.152Z",
-    "lastBlockedAt": "2026-08-22T12:17:09.152Z",
+    "lastAttemptedAt": "2026-08-24T15:54:29.097Z",
+    "lastBlockedAt": "2026-08-24T15:54:29.097Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 4,
-    "blockCooldownHours": 48,
-    "nextScrapeEligibleAt": "2026-08-24T12:17:09.152Z",
+    "consecutiveBlockedAttempts": 5,
+    "blockCooldownHours": 72,
+    "nextScrapeEligibleAt": "2026-08-27T15:54:29.097Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -47496,7 +47496,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 61,
+        "durationMs": 31,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -47510,7 +47510,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 61
+      "averageRequestMs": 31
     }
   },
   {
@@ -97245,7 +97245,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 419.25,
+    "observationPriorityScore": 536,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 900,
@@ -97267,7 +97267,39 @@
     "plugTypes": {
       "tpc": 6
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-24T15:54:29.097Z",
+    "lastBlockedAt": "2026-08-24T15:54:29.097Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-24T21:54:29.097Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/macedoniasupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 181,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 181
+    }
   },
   {
     "id": "mackinawcitymisupercharger",
@@ -111650,12 +111682,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-22T12:17:09.152Z",
-    "lastBlockedAt": "2026-08-22T12:17:09.152Z",
+    "lastAttemptedAt": "2026-08-24T15:54:29.097Z",
+    "lastBlockedAt": "2026-08-24T15:54:29.097Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 4,
-    "blockCooldownHours": 48,
-    "nextScrapeEligibleAt": "2026-08-24T12:17:09.152Z",
+    "consecutiveBlockedAttempts": 5,
+    "blockCooldownHours": 72,
+    "nextScrapeEligibleAt": "2026-08-27T15:54:29.097Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -111665,7 +111697,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 361,
+        "durationMs": 32,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -111679,7 +111711,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 361
+      "averageRequestMs": 32
     }
   },
   {
