@@ -55091,7 +55091,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.84,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -55117,7 +55117,39 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-24T09:01:44.610Z",
+    "lastBlockedAt": "2026-08-24T09:01:44.610Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-24T15:01:44.610Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/FindlayOHSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 265,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 265
+    }
   },
   {
     "id": "33538",
@@ -62151,7 +62183,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 442.89,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -62174,7 +62206,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-24T09:01:44.610Z",
+    "lastBlockedAt": "2026-08-24T09:01:44.610Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-24T15:01:44.610Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/genoaohnbsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 119,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 119
+    }
   },
   {
     "id": "GenoaOHSupercharger",
@@ -62195,7 +62259,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 442.91,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -62218,7 +62282,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-24T09:01:44.610Z",
+    "lastBlockedAt": "2026-08-24T09:01:44.610Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-24T15:01:44.610Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/GenoaOHSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 76,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 76
+    }
   },
   {
     "id": "31043",
