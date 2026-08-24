@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T18:09:59.181Z",
+  "generatedAt": "2026-08-24T00:28:39.557Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -1384,6 +1384,18 @@
       "reportUrl": "report.html?station=404356"
     },
     {
+      "id": "425005",
+      "name": "Queens, NY - Springfield Blvd",
+      "city": "Queens",
+      "state": "NY",
+      "lat": 40.680009,
+      "lng": -73.75382,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=425005"
+    },
+    {
       "id": "441119",
       "name": "Brooklyn, NY - 8923 Bay Pkwy",
       "city": "Brooklyn",
@@ -1622,18 +1634,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=407484"
-    },
-    {
-      "id": "425005",
-      "name": "Queens, NY - Springfield Blvd",
-      "city": "Queens",
-      "state": "NY",
-      "lat": 40.680009,
-      "lng": -73.75382,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=425005"
     },
     {
       "id": "32949",

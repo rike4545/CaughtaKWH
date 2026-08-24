@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-23T23:55:24.218Z",
+  "generatedAt": "2026-08-24T00:35:51.136Z",
   "requestedLimit": 100,
-  "inScopeStations": 353,
+  "inScopeStations": 332,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 95,
+  "cooldownSkipped": 84,
   "attemptedStationIds": [
-    "HalifaxNCQ42022",
-    "25858",
-    "34019"
+    "cincinnatiohiosupercharger",
+    "18707",
+    "18735"
   ],
   "blockedStationIds": [
-    "HalifaxNCQ42022",
-    "25858",
-    "34019"
+    "cincinnatiohiosupercharger",
+    "18707",
+    "18735"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 62,
+    "averageRequestMs": 91,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "NC",
       "ND",
       "NE",
       "NH",
       "NJ",
       "NM",
       "NV",
-      "NY"
+      "NY",
+      "OH"
     ],
     "countries": [],
     "nearby": null,
