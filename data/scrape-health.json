@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T16:22:48.227Z",
+  "generatedAt": "2026-08-24T17:02:38.590Z",
   "requestedLimit": 100,
   "inScopeStations": 346,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 70,
   "attemptedStationIds": [
-    "4007754",
-    "402407",
-    "428013"
+    "437658",
+    "valleystreamnewyorksupercharger",
+    "UnionCityNJsupercharger"
   ],
   "blockedStationIds": [
-    "4007754",
-    "402407",
-    "428013"
+    "437658",
+    "valleystreamnewyorksupercharger",
+    "UnionCityNJsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 70,
+    "averageRequestMs": 54,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
