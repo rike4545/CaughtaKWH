@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T07:19:02.356Z",
+  "generatedAt": "2026-08-24T08:09:58.619Z",
   "requestedLimit": 100,
-  "inScopeStations": 318,
+  "inScopeStations": 322,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 98,
+  "cooldownSkipped": 94,
   "attemptedStationIds": [
-    "27552",
-    "BroadviewHeightsOHSupercharger",
-    "18630"
+    "16610",
+    "chillicotheohsupercharger",
+    "18647"
   ],
   "blockedStationIds": [
-    "27552",
-    "BroadviewHeightsOHSupercharger",
-    "18630"
+    "16610",
+    "chillicotheohsupercharger",
+    "18647"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 75,
+    "averageRequestMs": 107,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
