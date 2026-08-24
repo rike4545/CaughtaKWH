@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T11:41:38.958Z",
+  "generatedAt": "2026-08-24T12:00:15.159Z",
   "requestedLimit": 100,
-  "inScopeStations": 342,
+  "inScopeStations": 340,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 74,
+  "cooldownSkipped": 76,
   "attemptedStationIds": [
-    "18685",
-    "18686",
-    "18634"
+    "TwinsburgOHSupercharger",
+    "westcincinnatiohsupercharger",
+    "columbusohiosupercharger"
   ],
   "blockedStationIds": [
-    "18685",
-    "18686",
-    "18634"
+    "TwinsburgOHSupercharger",
+    "westcincinnatiohsupercharger",
+    "columbusohiosupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 101,
+    "averageRequestMs": 83,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
