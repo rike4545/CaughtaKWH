@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T09:01:44.610Z",
+  "generatedAt": "2026-08-24T10:00:42.488Z",
   "requestedLimit": 100,
-  "inScopeStations": 326,
+  "inScopeStations": 334,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 90,
+  "cooldownSkipped": 82,
   "attemptedStationIds": [
-    "FindlayOHSupercharger",
-    "genoaohnbsupercharger",
-    "GenoaOHSupercharger"
+    "GirardOHSupercharger",
+    "33752",
+    "18632"
   ],
   "blockedStationIds": [
-    "FindlayOHSupercharger",
-    "genoaohnbsupercharger",
-    "GenoaOHSupercharger"
+    "GirardOHSupercharger",
+    "33752",
+    "18632"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 153,
+    "averageRequestMs": 102,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
