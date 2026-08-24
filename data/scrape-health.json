@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T15:54:29.097Z",
+  "generatedAt": "2026-08-24T16:22:48.227Z",
   "requestedLimit": 100,
   "inScopeStations": 346,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 70,
   "attemptedStationIds": [
-    "macedoniasupercharger",
-    "406608",
-    "EastRutherfordNJSupercharger"
+    "4007754",
+    "402407",
+    "428013"
   ],
   "blockedStationIds": [
-    "macedoniasupercharger",
-    "406608",
-    "EastRutherfordNJSupercharger"
+    "4007754",
+    "402407",
+    "428013"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 70,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
