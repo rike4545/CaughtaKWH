@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T23:32:47.154Z",
+  "generatedAt": "2026-08-24T23:55:44.554Z",
   "requestedLimit": 100,
-  "inScopeStations": 352,
+  "inScopeStations": 351,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 64,
+  "cooldownSkipped": 65,
   "attemptedStationIds": [
-    "27521",
-    "AvenelNJSupercharger",
-    "BataviaNYQ322"
+    "36222",
+    "18505",
+    "CarlePlaceNYsupercharger"
   ],
   "blockedStationIds": [
-    "27521",
-    "AvenelNJSupercharger",
-    "BataviaNYQ322"
+    "36222",
+    "18505",
+    "CarlePlaceNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 107,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
