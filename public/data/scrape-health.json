@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-24T23:55:44.554Z",
+  "generatedAt": "2026-08-25T00:35:15.706Z",
   "requestedLimit": 100,
-  "inScopeStations": 351,
+  "inScopeStations": 372,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 65,
+  "cooldownSkipped": 68,
   "attemptedStationIds": [
-    "36222",
-    "18505",
-    "CarlePlaceNYsupercharger"
+    "19218",
+    "58751",
+    "ardmoreoksupercharger"
   ],
   "blockedStationIds": [
-    "36222",
-    "18505",
-    "CarlePlaceNYsupercharger"
+    "19218",
+    "58751",
+    "ardmoreoksupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 107,
+    "averageRequestMs": 81,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "ND",
       "NE",
       "NH",
       "NJ",
       "NM",
       "NV",
       "NY",
-      "OH"
+      "OH",
+      "OK"
     ],
     "countries": [],
     "nearby": null,
