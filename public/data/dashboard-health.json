@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-24T11:58:10.400Z",
+  "generatedAt": "2026-08-25T11:58:35.340Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3110,
-    "checkedStations": 1800,
-    "checkedPct": 57.88,
+    "checkedStations": 1753,
+    "checkedPct": 56.37,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1307,
+    "blockedStations": 1354,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -171,7 +171,7 @@
       "state": "NM",
       "city": "Santa Rosa",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-22T19:54:10.330Z",
+      "lastAttemptedAt": "2026-08-24T20:17:10.788Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 823
