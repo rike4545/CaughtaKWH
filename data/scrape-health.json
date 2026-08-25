@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T18:03:47.019Z",
+  "generatedAt": "2026-08-25T18:55:12.624Z",
   "requestedLimit": 100,
-  "inScopeStations": 334,
+  "inScopeStations": 332,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 106,
+  "cooldownSkipped": 108,
   "attemptedStationIds": [
-    "17349",
-    "31888",
-    "404653"
+    "GardenCityNYSupercharger",
+    "18506",
+    "26776"
   ],
   "blockedStationIds": [
-    "17349",
-    "31888",
-    "404653"
+    "GardenCityNYSupercharger",
+    "18506",
+    "26776"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 57,
+    "averageRequestMs": 100,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
