@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T16:27:41.740Z",
+  "generatedAt": "2026-08-25T17:04:41.716Z",
   "requestedLimit": 100,
-  "inScopeStations": 338,
+  "inScopeStations": 337,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 102,
+  "cooldownSkipped": 103,
   "attemptedStationIds": [
-    "428013",
-    "425863",
-    "parsippanysupercharger"
+    "437658",
+    "valleystreamnewyorksupercharger",
+    "15015"
   ],
   "blockedStationIds": [
-    "428013",
-    "425863",
-    "parsippanysupercharger"
+    "437658",
+    "valleystreamnewyorksupercharger",
+    "15015"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 45,
+    "averageRequestMs": 144,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
