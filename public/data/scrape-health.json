@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T20:52:17.206Z",
+  "generatedAt": "2026-08-25T21:17:10.012Z",
   "requestedLimit": 100,
-  "inScopeStations": 325,
+  "inScopeStations": 322,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 115,
+  "cooldownSkipped": 118,
   "attemptedStationIds": [
-    "26671",
-    "OneidaDelivery",
-    "18391"
+    "19499",
+    "cincinnatiohiosupercharger",
+    "487202"
   ],
   "blockedStationIds": [
-    "26671",
-    "OneidaDelivery",
-    "18391"
+    "19499",
+    "cincinnatiohiosupercharger",
+    "487202"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 85,
+    "averageRequestMs": 37,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
