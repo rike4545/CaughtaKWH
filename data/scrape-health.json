@@ -1,24 +1,32 @@
 {
-  "generatedAt": "2026-08-25T15:58:38.691Z",
-  "requestedLimit": 10,
-  "inScopeStations": 0,
-  "attempted": 0,
+  "generatedAt": "2026-08-25T16:27:41.740Z",
+  "requestedLimit": 100,
+  "inScopeStations": 338,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 0,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 10,
-  "attemptedStationIds": [],
-  "blockedStationIds": [],
+  "cooldownSkipped": 102,
+  "attemptedStationIds": [
+    "428013",
+    "425863",
+    "parsippanysupercharger"
+  ],
+  "blockedStationIds": [
+    "428013",
+    "425863",
+    "parsippanysupercharger"
+  ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 0,
-    "requestAttempts": 0,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": null,
+    "averageRequestMs": 45,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -29,9 +37,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 0
+    "consecutiveBlocks": 3
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -39,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "NE",
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
