@@ -23016,12 +23016,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-24T17:43:41.528Z",
-    "lastBlockedAt": "2026-08-24T17:43:41.528Z",
+    "lastAttemptedAt": "2026-08-25T17:43:41.536Z",
+    "lastBlockedAt": "2026-08-25T17:43:41.536Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 3,
-    "blockCooldownHours": 24,
-    "nextScrapeEligibleAt": "2026-08-25T17:43:41.528Z",
+    "consecutiveBlockedAttempts": 4,
+    "blockCooldownHours": 48,
+    "nextScrapeEligibleAt": "2026-08-27T17:43:41.536Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -23031,7 +23031,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 66,
+        "durationMs": 32,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -23045,7 +23045,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 66
+      "averageRequestMs": 32
     }
   },
   {
@@ -23169,12 +23169,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-24T17:43:41.528Z",
-    "lastBlockedAt": "2026-08-24T17:43:41.528Z",
+    "lastAttemptedAt": "2026-08-25T17:43:41.536Z",
+    "lastBlockedAt": "2026-08-25T17:43:41.536Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 3,
-    "blockCooldownHours": 24,
-    "nextScrapeEligibleAt": "2026-08-25T17:43:41.528Z",
+    "consecutiveBlockedAttempts": 4,
+    "blockCooldownHours": 48,
+    "nextScrapeEligibleAt": "2026-08-27T17:43:41.536Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -23184,7 +23184,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 37,
+        "durationMs": 30,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -23198,7 +23198,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 37
+      "averageRequestMs": 30
     }
   },
   {
@@ -137941,12 +137941,12 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-24T17:43:41.528Z",
-    "lastBlockedAt": "2026-08-24T17:43:41.528Z",
+    "lastAttemptedAt": "2026-08-25T17:43:41.536Z",
+    "lastBlockedAt": "2026-08-25T17:43:41.536Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 3,
-    "blockCooldownHours": 24,
-    "nextScrapeEligibleAt": "2026-08-25T17:43:41.528Z",
+    "consecutiveBlockedAttempts": 4,
+    "blockCooldownHours": 48,
+    "nextScrapeEligibleAt": "2026-08-27T17:43:41.536Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -137956,7 +137956,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 70,
+        "durationMs": 151,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -137970,7 +137970,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 70
+      "averageRequestMs": 151
     },
     "facilityName": "Stop & Shop",
     "plugshareId": 862404

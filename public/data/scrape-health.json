@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T17:04:41.716Z",
+  "generatedAt": "2026-08-25T17:43:41.536Z",
   "requestedLimit": 100,
   "inScopeStations": 337,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 103,
   "attemptedStationIds": [
-    "437658",
-    "valleystreamnewyorksupercharger",
-    "15015"
+    "425005",
+    "441119",
+    "7951"
   ],
   "blockedStationIds": [
-    "437658",
-    "valleystreamnewyorksupercharger",
-    "15015"
+    "425005",
+    "441119",
+    "7951"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 144,
+    "averageRequestMs": 71,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
