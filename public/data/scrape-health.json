@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T15:02:12.772Z",
+  "generatedAt": "2026-08-25T15:57:32.133Z",
   "requestedLimit": 100,
-  "inScopeStations": 343,
+  "inScopeStations": 340,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 97,
+  "cooldownSkipped": 100,
   "attemptedStationIds": [
-    "newyorkjfknysupercharger",
-    "19498",
-    "27409"
+    "4005711",
+    "34052",
+    "27464"
   ],
   "blockedStationIds": [
-    "newyorkjfknysupercharger",
-    "19498",
-    "27409"
+    "4005711",
+    "34052",
+    "27464"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 117,
+    "averageRequestMs": 68,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
