@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T13:26:39.372Z",
+  "generatedAt": "2026-08-25T14:11:32.463Z",
   "requestedLimit": 100,
   "inScopeStations": 345,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 95,
   "attemptedStationIds": [
-    "19516",
-    "melvillenywaltwhitmanroadsupercharger",
-    "453502"
+    "4006212",
+    "26759",
+    "4005352"
   ],
   "blockedStationIds": [
-    "19516",
-    "melvillenywaltwhitmanroadsupercharger",
-    "453502"
+    "4006212",
+    "26759",
+    "4005352"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 43,
+    "averageRequestMs": 151,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
