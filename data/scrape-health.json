@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T11:55:52.832Z",
+  "generatedAt": "2026-08-25T12:24:01.124Z",
   "requestedLimit": 100,
-  "inScopeStations": 345,
+  "inScopeStations": 342,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 95,
+  "cooldownSkipped": 98,
   "attemptedStationIds": [
-    "20251",
-    "lasvegaslinqsupercharger",
-    "404159"
+    "19515",
+    "ManorvilleNYsupercharger",
+    "26769"
   ],
   "blockedStationIds": [
-    "20251",
-    "lasvegaslinqsupercharger",
-    "404159"
+    "19515",
+    "ManorvilleNYsupercharger",
+    "26769"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 103,
+    "averageRequestMs": 221,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
