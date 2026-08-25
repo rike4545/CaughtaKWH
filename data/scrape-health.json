@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-25T23:03:26.986Z",
+  "generatedAt": "2026-08-25T23:35:51.337Z",
   "requestedLimit": 100,
-  "inScopeStations": 318,
+  "inScopeStations": 321,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 122,
+  "cooldownSkipped": 119,
   "attemptedStationIds": [
-    "26639",
-    "16541",
-    "BrewsterNYsupercharger"
+    "BataviaNYQ322",
+    "424861",
+    "35810"
   ],
   "blockedStationIds": [
-    "26639",
-    "16541",
-    "BrewsterNYsupercharger"
+    "BataviaNYQ322",
+    "424861",
+    "35810"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 129,
+    "averageRequestMs": 96,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
