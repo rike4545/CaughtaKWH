@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T22:14:25.956Z",
+  "generatedAt": "2026-08-25T22:44:54.273Z",
   "requestedLimit": 100,
   "inScopeStations": 319,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 121,
   "attemptedStationIds": [
-    "4005560",
-    "20974",
-    "CranfordNJSupercharger"
+    "424174",
+    "453452",
+    "32055"
   ],
   "blockedStationIds": [
-    "4005560",
-    "20974",
-    "CranfordNJSupercharger"
+    "424174",
+    "453452",
+    "32055"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 99,
+    "averageRequestMs": 66,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
