@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T07:30:28.759Z",
+  "generatedAt": "2026-08-26T08:18:03.346Z",
   "requestedLimit": 100,
   "inScopeStations": 354,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 135,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "18990",
-    "BoardmanORSupercharger"
+    "408353",
+    "35508",
+    "CreswellORQ322"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "18990",
-    "BoardmanORSupercharger"
+    "408353",
+    "35508",
+    "CreswellORQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 83,
+    "averageRequestMs": 90,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
