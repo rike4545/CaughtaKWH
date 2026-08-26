@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T14:24:03.709Z",
+  "generatedAt": "2026-08-26T15:57:40.276Z",
   "requestedLimit": 100,
-  "inScopeStations": 371,
+  "inScopeStations": 378,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 118,
+  "cooldownSkipped": 111,
   "attemptedStationIds": [
-    "klamathfallssupercharger",
-    "lincolncityoregonsupercharger",
-    "pendletonsupercharger"
+    "sandysupercharger",
+    "seasideorupercharger",
+    "detroitlakesupercharger"
   ],
   "blockedStationIds": [
-    "klamathfallssupercharger",
-    "lincolncityoregonsupercharger",
-    "pendletonsupercharger"
+    "sandysupercharger",
+    "seasideorupercharger",
+    "detroitlakesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 140,
+    "averageRequestMs": 87,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
