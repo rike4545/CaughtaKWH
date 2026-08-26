@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T05:22:54.339Z",
+  "generatedAt": "2026-08-26T05:56:37.844Z",
   "requestedLimit": 100,
-  "inScopeStations": 358,
+  "inScopeStations": 355,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 131,
+  "cooldownSkipped": 134,
   "attemptedStationIds": [
-    "MyrtleCreekORsupercharger",
-    "21034",
-    "429466"
+    "salemoregonsupercharger",
+    "19175",
+    "TillamookORSupercharger"
   ],
   "blockedStationIds": [
-    "MyrtleCreekORsupercharger",
-    "21034",
-    "429466"
+    "salemoregonsupercharger",
+    "19175",
+    "TillamookORSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 121,
+    "averageRequestMs": 118,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
