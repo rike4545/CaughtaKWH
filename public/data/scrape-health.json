@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T11:24:11.491Z",
+  "generatedAt": "2026-08-26T11:53:23.046Z",
   "requestedLimit": 100,
-  "inScopeStations": 370,
+  "inScopeStations": 367,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 119,
+  "cooldownSkipped": 122,
   "attemptedStationIds": [
-    "31925",
-    "32199",
-    "TroutdaleORsupercharger"
+    "36053",
+    "15277",
+    "34567"
   ],
   "blockedStationIds": [
-    "31925",
-    "32199",
-    "TroutdaleORsupercharger"
+    "36053",
+    "15277",
+    "34567"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 37,
+    "averageRequestMs": 64,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
