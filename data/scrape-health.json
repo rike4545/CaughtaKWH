@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T08:59:53.379Z",
+  "generatedAt": "2026-08-26T09:39:38.991Z",
   "requestedLimit": 100,
-  "inScopeStations": 357,
+  "inScopeStations": 362,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 132,
+  "cooldownSkipped": 127,
   "attemptedStationIds": [
-    "458158",
-    "HarrisburgORSupercharger",
-    "burnsoregonsupercharger"
+    "hoodriverorsupercharger",
+    "19094",
+    "19104"
   ],
   "blockedStationIds": [
-    "458158",
-    "HarrisburgORSupercharger",
-    "burnsoregonsupercharger"
+    "hoodriverorsupercharger",
+    "19094",
+    "19104"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 45,
+    "averageRequestMs": 76,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
