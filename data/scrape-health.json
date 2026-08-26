@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T11:53:23.046Z",
+  "generatedAt": "2026-08-26T12:26:32.663Z",
   "requestedLimit": 100,
-  "inScopeStations": 367,
+  "inScopeStations": 369,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 122,
+  "cooldownSkipped": 120,
   "attemptedStationIds": [
-    "36053",
-    "15277",
-    "34567"
+    "springfieldsupercharger",
+    "tigardoregonsupercharger",
+    "bakercitysupercharger"
   ],
   "blockedStationIds": [
-    "36053",
-    "15277",
-    "34567"
+    "springfieldsupercharger",
+    "tigardoregonsupercharger",
+    "bakercitysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 64,
+    "averageRequestMs": 194,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
