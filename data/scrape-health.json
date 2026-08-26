@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T16:43:05.058Z",
+  "generatedAt": "2026-08-26T18:23:38.427Z",
   "requestedLimit": 100,
-  "inScopeStations": 375,
+  "inScopeStations": 382,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 114,
+  "cooldownSkipped": 107,
   "attemptedStationIds": [
-    "thedallessupercharger",
-    "26483",
-    "19129"
+    "405103",
+    "DobbsFerryNYSupercharger",
+    "EastHamptonNYSupercharger"
   ],
   "blockedStationIds": [
-    "thedallessupercharger",
-    "26483",
-    "19129"
+    "405103",
+    "DobbsFerryNYSupercharger",
+    "EastHamptonNYSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 55,
+    "averageRequestMs": 72,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
