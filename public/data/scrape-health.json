@@ -1,28 +1,32 @@
 {
-  "generatedAt": "2026-08-26T07:07:13.542Z",
-  "requestedLimit": 10,
-  "inScopeStations": 1,
-  "attempted": 1,
+  "generatedAt": "2026-08-26T07:30:28.759Z",
+  "requestedLimit": 100,
+  "inScopeStations": 354,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 1,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 135,
   "attemptedStationIds": [
-    "islandiasupercharger"
+    "LakeGroveNYsupercharger",
+    "18990",
+    "BoardmanORSupercharger"
   ],
   "blockedStationIds": [
-    "islandiasupercharger"
+    "LakeGroveNYsupercharger",
+    "18990",
+    "BoardmanORSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 1,
-    "requestAttempts": 1,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 147,
+    "averageRequestMs": 83,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -33,9 +37,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 1
+    "consecutiveBlocks": 3
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -43,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
