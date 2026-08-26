@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T13:31:46.808Z",
+  "generatedAt": "2026-08-26T14:24:03.709Z",
   "requestedLimit": 100,
   "inScopeStations": 371,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 118,
   "attemptedStationIds": [
-    "bandonsupercharger",
-    "bendoregonsupercharger",
-    "grantspassoregonsupercharger"
+    "klamathfallssupercharger",
+    "lincolncityoregonsupercharger",
+    "pendletonsupercharger"
   ],
   "blockedStationIds": [
-    "bandonsupercharger",
-    "bendoregonsupercharger",
-    "grantspassoregonsupercharger"
+    "klamathfallssupercharger",
+    "lincolncityoregonsupercharger",
+    "pendletonsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 92,
+    "averageRequestMs": 140,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,

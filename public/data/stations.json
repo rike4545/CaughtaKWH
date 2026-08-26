@@ -85319,7 +85319,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 418.79,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1200,
@@ -85343,7 +85343,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-26T14:24:03.709Z",
+    "lastBlockedAt": "2026-08-26T14:24:03.709Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-26T20:24:03.709Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/klamathfallssupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 253,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 253
+    }
   },
   {
     "id": "19104",
@@ -94412,7 +94444,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 419.07,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1200,
@@ -94436,7 +94468,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-26T14:24:03.709Z",
+    "lastBlockedAt": "2026-08-26T14:24:03.709Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-26T20:24:03.709Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/lincolncityoregonsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 84,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 84
+    }
   },
   {
     "id": "lincolncagrovelandlanesupercharger",
@@ -132042,7 +132106,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 415.95,
+    "observationPriorityScore": 538,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 1200,
@@ -132068,7 +132132,39 @@
     "plugTypes": {
       "tpc": 8
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-26T14:24:03.709Z",
+    "lastBlockedAt": "2026-08-26T14:24:03.709Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-26T20:24:03.709Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/pendletonsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 82,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 82
+    }
   },
   {
     "id": "4008208",
