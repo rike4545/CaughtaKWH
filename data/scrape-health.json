@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T10:17:14.619Z",
+  "generatedAt": "2026-08-26T10:58:06.025Z",
   "requestedLimit": 100,
-  "inScopeStations": 366,
+  "inScopeStations": 368,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 123,
+  "cooldownSkipped": 121,
   "attemptedStationIds": [
-    "MadrasORsupercharger",
-    "27560",
-    "ontarioorsupercharger"
+    "45282",
+    "32197",
+    "426555"
   ],
   "blockedStationIds": [
-    "MadrasORsupercharger",
-    "27560",
-    "ontarioorsupercharger"
+    "45282",
+    "32197",
+    "426555"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 90,
+    "averageRequestMs": 55,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
