@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T00:29:30.327Z",
+  "generatedAt": "2026-08-26T06:23:43.920Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -866,6 +866,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=412956"
+    },
+    {
+      "id": "26483",
+      "name": "Sutherlin, OR",
+      "city": "Sutherlin",
+      "state": "OR",
+      "lat": 43.386902,
+      "lng": -123.341367,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26483"
     },
     {
       "id": "29107",
@@ -2332,6 +2344,18 @@
       "reportUrl": "report.html?station=27521"
     },
     {
+      "id": "19129",
+      "name": "Ashland, OR",
+      "city": "Ashland",
+      "state": "OR",
+      "lat": 42.182661,
+      "lng": -122.662635,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19129"
+    },
+    {
       "id": "33701",
       "name": "Austell, GA",
       "city": "Austell",
@@ -2378,30 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=407814"
-    },
-    {
-      "id": "BataviaNYQ322",
-      "name": "Batavia, NY",
-      "city": "Batavia",
-      "state": "NY",
-      "lat": 43.017313,
-      "lng": -78.201531,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=BataviaNYQ322"
-    },
-    {
-      "id": "36222",
-      "name": "Berkeley Heights, NJ",
-      "city": "Berkeley Heights",
-      "state": "NJ",
-      "lat": 40.662013,
-      "lng": -74.416953,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=36222"
     }
   ]
 }
