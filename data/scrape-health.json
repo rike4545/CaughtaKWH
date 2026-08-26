@@ -1,32 +1,30 @@
 {
-  "generatedAt": "2026-08-26T09:39:38.991Z",
-  "requestedLimit": 100,
-  "inScopeStations": 362,
-  "attempted": 3,
+  "generatedAt": "2026-08-26T09:55:37.330Z",
+  "requestedLimit": 10,
+  "inScopeStations": 2,
+  "attempted": 2,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 2,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 127,
+  "cooldownSkipped": 8,
   "attemptedStationIds": [
-    "hoodriverorsupercharger",
-    "19094",
-    "19104"
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
-    "hoodriverorsupercharger",
-    "19094",
-    "19104"
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 2,
+    "requestAttempts": 2,
     "retries": 0,
-    "averageRequestMs": 76,
+    "averageRequestMs": 46,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +35,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 2
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +45,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NH",
-      "NJ",
-      "NM",
-      "NV",
-      "NY",
-      "OH",
-      "OK",
-      "OR"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
