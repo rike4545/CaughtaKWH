@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T04:53:17.398Z",
+  "generatedAt": "2026-08-26T05:22:54.339Z",
   "requestedLimit": 100,
-  "inScopeStations": 361,
+  "inScopeStations": 358,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 128,
+  "cooldownSkipped": 131,
   "attemptedStationIds": [
-    "413931",
-    "medfordorsupercharger",
-    "455315"
+    "MyrtleCreekORsupercharger",
+    "21034",
+    "429466"
   ],
   "blockedStationIds": [
-    "413931",
-    "medfordorsupercharger",
-    "455315"
+    "MyrtleCreekORsupercharger",
+    "21034",
+    "429466"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 174,
+    "averageRequestMs": 121,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
