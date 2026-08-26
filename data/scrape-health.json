@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-26T02:20:46.848Z",
+  "generatedAt": "2026-08-26T03:30:27.821Z",
   "requestedLimit": 100,
-  "inScopeStations": 370,
+  "inScopeStations": 368,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 119,
+  "cooldownSkipped": 121,
   "attemptedStationIds": [
-    "32876",
-    "26883",
-    "hoodriverorsupercharger2"
+    "407920",
+    "21089",
+    "26873"
   ],
   "blockedStationIds": [
-    "32876",
-    "26883",
-    "hoodriverorsupercharger2"
+    "407920",
+    "21089",
+    "26873"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 111,
+    "averageRequestMs": 85,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
