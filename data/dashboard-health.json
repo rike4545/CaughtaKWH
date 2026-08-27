@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-26T12:00:18.660Z",
+  "generatedAt": "2026-08-27T21:08:24.943Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3110,
-    "checkedStations": 1706,
-    "checkedPct": 54.86,
+    "checkedStations": 1687,
+    "checkedPct": 54.24,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1401,
+    "blockedStations": 1420,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -74,14 +74,14 @@
     {
       "state": "PA",
       "stations": 110,
-      "checked": 110,
+      "checked": 104,
       "priced": 0,
       "usable": 0,
       "stale": 110,
-      "checkedPct": 100,
+      "checkedPct": 94.55,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 48304.35
+      "priorityScore": 49064.23
     },
     {
       "state": "NJ",
@@ -138,7 +138,7 @@
       "state": "NJ",
       "city": "Woodcliff Lake",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-23T19:53:54.511Z",
+      "lastAttemptedAt": "2026-08-26T20:19:47.765Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 843
