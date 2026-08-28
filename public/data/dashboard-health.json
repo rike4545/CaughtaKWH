@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-27T21:08:24.943Z",
+  "generatedAt": "2026-08-28T21:30:42.235Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3110,
-    "checkedStations": 1687,
-    "checkedPct": 54.24,
+    "checkedStations": 1682,
+    "checkedPct": 54.08,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1420,
+    "blockedStations": 1425,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -74,14 +74,14 @@
     {
       "state": "PA",
       "stations": 110,
-      "checked": 104,
+      "checked": 99,
       "priced": 0,
       "usable": 0,
       "stale": 110,
-      "checkedPct": 94.55,
+      "checkedPct": 90,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 49064.23
+      "priorityScore": 49705.28
     },
     {
       "state": "NJ",
@@ -171,7 +171,7 @@
       "state": "NM",
       "city": "Santa Rosa",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-08-24T20:17:10.788Z",
+      "lastAttemptedAt": "2026-08-28T01:12:31.360Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 823
