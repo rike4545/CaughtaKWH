@@ -16656,7 +16656,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.62,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -16679,7 +16679,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-29T03:52:32.047Z",
+    "lastBlockedAt": "2026-08-29T03:52:32.047Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-29T09:52:32.047Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/59091",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 65,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 65
+    }
   },
   {
     "id": "BensonNCSupercharger",
@@ -18976,7 +19008,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.86,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -19005,7 +19037,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-29T03:52:32.047Z",
+    "lastBlockedAt": "2026-08-29T03:52:32.047Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-29T09:52:32.047Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BlakesleePAsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 29,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 29
+    }
   },
   {
     "id": "blandingsupercharger",
@@ -21762,7 +21826,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.19,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -21791,7 +21855,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-29T03:52:32.047Z",
+    "lastBlockedAt": "2026-08-29T03:52:32.047Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-29T09:52:32.047Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BreezewoodPASupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 28,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 28
+    }
   },
   {
     "id": "32654",
