@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-29T03:52:32.047Z",
-  "requestedLimit": 100,
-  "inScopeStations": 442,
+  "generatedAt": "2026-08-29T10:00:16.493Z",
+  "requestedLimit": 10,
+  "inScopeStations": 7,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 18,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "59091",
-    "BlakesleePAQ322",
-    "BreezewoodPASupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
-    "59091",
-    "BlakesleePAQ322",
-    "BreezewoodPASupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 41,
+    "averageRequestMs": 80,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NV",
-      "NY",
-      "OH",
-      "OK",
-      "OR",
-      "PA",
-      "PR",
-      "RI"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
