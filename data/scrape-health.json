@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-29T18:42:32.094Z",
-  "requestedLimit": 100,
-  "inScopeStations": 446,
+  "generatedAt": "2026-08-29T20:53:34.156Z",
+  "requestedLimit": 10,
+  "inScopeStations": 4,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 14,
+  "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "32911",
-    "32910",
-    "26688"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "blockedStationIds": [
-    "32911",
-    "32910",
-    "26688"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 67,
+    "averageRequestMs": 80,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NV",
-      "NY",
-      "OH",
-      "OK",
-      "OR",
-      "PA",
-      "PR",
-      "RI"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
