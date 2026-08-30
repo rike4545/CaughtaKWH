@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T20:02:51.668Z",
+  "generatedAt": "2026-08-30T01:52:58.085Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -736,6 +736,18 @@
       "reportUrl": "report.html?station=58957"
     },
     {
+      "id": "19346",
+      "name": "Dillon, SC",
+      "city": "Dillon",
+      "state": "SC",
+      "lat": 34.437534,
+      "lng": -79.370015,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19346"
+    },
+    {
       "id": "FortValleyGAQ322",
       "name": "Fort Valley, GA",
       "city": "Fort Valley",
@@ -794,6 +806,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4009311"
+    },
+    {
+      "id": "19330",
+      "name": "Manning, SC",
+      "city": "Manning",
+      "state": "SC",
+      "lat": 33.702427,
+      "lng": -80.237707,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19330"
     },
     {
       "id": "primmnvsupercharger",
@@ -2378,30 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=AvenelNJSupercharger"
-    },
-    {
-      "id": "412005",
-      "name": "Babcock Ranch, FL",
-      "city": "Babcock Ranch",
-      "state": "FL",
-      "lat": 26.775954,
-      "lng": -81.757539,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=412005"
-    },
-    {
-      "id": "407814",
-      "name": "Bartow, FL",
-      "city": "Bartow",
-      "state": "FL",
-      "lat": 27.907068,
-      "lng": -81.842699,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407814"
     }
   ]
 }
