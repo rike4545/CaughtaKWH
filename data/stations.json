@@ -46028,7 +46028,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.79,
+    "observationPriorityScore": 595,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 10000,
@@ -46053,7 +46053,39 @@
     },
     "superchargeInfoMatchedAt": "2026-08-23",
     "facilityName": "Popeyes",
-    "plugshareId": 555280
+    "plugshareId": 555280,
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-30T01:22:10.777Z",
+    "lastBlockedAt": "2026-08-30T01:22:10.777Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-30T07:22:10.777Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19346",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 90,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 90
+    }
   },
   {
     "id": "27467",
@@ -101674,7 +101706,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.29,
+    "observationPriorityScore": 595,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 19500,
@@ -101698,7 +101730,39 @@
     "plugTypes": {
       "nacs": 60
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-08-30T01:22:10.777Z",
+    "lastBlockedAt": "2026-08-30T01:22:10.777Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-30T07:22:10.777Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19330",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 57,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 57
+    }
   },
   {
     "id": "ManorvilleNYsupercharger",
@@ -180757,59 +180821,30 @@
     "lat": 32.878252,
     "lng": -80.71842,
     "lastDiscoveredAt": "2026-06-04T10:54:01.498Z",
-    "lastScrapeError": "No usable Tesla location candidate",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapedAt": "2026-06-13T19:06:38.471Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
-    "lastScrapeResult": "no_usable_candidate",
-    "lastScrapeAttemptCount": 4,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/33706",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 54,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
         "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/WalterboroSCsupercharger",
-        "reason": "city_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/WalterboroSCCaneBranchRdSCsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/WalterboroSCCaneBranchRdsupercharger",
-        "reason": "name_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
+        "publicDetailsFound": false,
         "error": null
       }
     ],
-    "observationPriorityScore": 375.34,
+    "observationPriorityScore": 575,
     "superchargeInfoId": 9916,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2026-05-29",
@@ -180824,7 +180859,19 @@
     "plugTypes": {
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-08-23"
+    "superchargeInfoMatchedAt": "2026-08-23",
+    "lastAttemptedAt": "2026-08-30T01:22:10.777Z",
+    "lastBlockedAt": "2026-08-30T01:22:10.777Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-08-30T07:22:10.777Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 54
+    }
   },
   {
     "id": "warehamsupercharger",

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-29T23:18:42.874Z",
+  "generatedAt": "2026-08-30T01:22:10.777Z",
   "requestedLimit": 100,
-  "inScopeStations": 441,
+  "inScopeStations": 422,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 19,
+  "cooldownSkipped": 16,
   "attemptedStationIds": [
-    "millhallpasupercharger",
-    "32909",
-    "445652"
+    "19346",
+    "19330",
+    "33706"
   ],
   "blockedStationIds": [
-    "millhallpasupercharger",
-    "32909",
-    "445652"
+    "19346",
+    "19330",
+    "33706"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 42,
+    "averageRequestMs": 67,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "NV",
       "NY",
       "OH",
       "OK",
       "OR",
       "PA",
       "PR",
-      "RI"
+      "RI",
+      "SC"
     ],
     "countries": [],
     "nearby": null,
