@@ -1,32 +1,24 @@
 {
-  "generatedAt": "2026-08-30T19:33:34.725Z",
-  "requestedLimit": 100,
-  "inScopeStations": 422,
-  "attempted": 3,
+  "generatedAt": "2026-08-30T21:01:27.001Z",
+  "requestedLimit": 10,
+  "inScopeStations": 0,
+  "attempted": 0,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 0,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 16,
-  "attemptedStationIds": [
-    "19321",
-    "33604",
-    "ColumbiaSCQ42022"
-  ],
-  "blockedStationIds": [
-    "19321",
-    "33604",
-    "ColumbiaSCQ42022"
-  ],
+  "cooldownSkipped": 10,
+  "attemptedStationIds": [],
+  "blockedStationIds": [],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 0,
+    "requestAttempts": 0,
     "retries": 0,
-    "averageRequestMs": 47,
+    "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +29,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 0
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +39,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NY",
-      "OH",
-      "OK",
-      "OR",
-      "PA",
-      "PR",
-      "RI",
-      "SC"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
