@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-30T12:23:40.902Z",
-  "requestedLimit": 100,
-  "inScopeStations": 425,
+  "generatedAt": "2026-08-30T14:32:03.493Z",
+  "requestedLimit": 300,
+  "inScopeStations": 378,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 13,
+  "cooldownSkipped": 10,
   "attemptedStationIds": [
-    "440906",
-    "412116",
-    "33704"
+    "PottstownPAQ322",
+    "36287",
+    "417261"
   ],
   "blockedStationIds": [
-    "440906",
-    "412116",
-    "33704"
+    "PottstownPAQ322",
+    "36287",
+    "417261"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 128,
+    "averageRequestMs": 72,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,9 +53,7 @@
       "OK",
       "OR",
       "PA",
-      "PR",
-      "RI",
-      "SC"
+      "PR"
     ],
     "countries": [],
     "nearby": null,
