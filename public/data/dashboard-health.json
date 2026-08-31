@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-08-30T15:27:14.049Z",
+  "generatedAt": "2026-08-31T18:07:20.862Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3110,
-    "checkedStations": 1649,
-    "checkedPct": 53.02,
+    "checkedStations": 1631,
+    "checkedPct": 52.44,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1458,
+    "blockedStations": 1476,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -74,14 +74,14 @@
     {
       "state": "PA",
       "stations": 110,
-      "checked": 75,
+      "checked": 73,
       "priced": 0,
       "usable": 0,
       "stale": 110,
-      "checkedPct": 68.18,
+      "checkedPct": 66.36,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 52691.67
+      "priorityScore": 52942.97
     },
     {
       "state": "NJ",
