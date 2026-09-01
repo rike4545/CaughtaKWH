@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-31T18:17:15.984Z",
+  "generatedAt": "2026-09-01T02:11:15.702Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -2200,6 +2200,18 @@
       "reportUrl": "report.html?station=407479"
     },
     {
+      "id": "PigeonForgeTNSupercharger",
+      "name": "Pigeon Forge, TN",
+      "city": "Pigeon Forge",
+      "state": "TN",
+      "lat": 35.806348,
+      "lng": -83.572721,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=PigeonForgeTNSupercharger"
+    },
+    {
       "id": "PortStLucieFLsupercharger",
       "name": "Port Saint Lucie, FL - Florida's Turnpike",
       "city": "Port St. Lucie",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=33701"
-    },
-    {
-      "id": "AvenelNJSupercharger",
-      "name": "Avenel, NJ",
-      "city": "Avenel",
-      "state": "NJ",
-      "lat": 40.576793,
-      "lng": -74.287572,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=AvenelNJSupercharger"
     }
   ]
 }
