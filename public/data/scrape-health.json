@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-01T22:00:38.551Z",
-  "requestedLimit": 100,
-  "inScopeStations": 302,
+  "generatedAt": "2026-09-01T23:17:07.365Z",
+  "requestedLimit": 10,
+  "inScopeStations": 4,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "27127",
-    "ChattanoogaTNSupercharger",
-    "32433"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "blockedStationIds": [
-    "27127",
-    "ChattanoogaTNSupercharger",
-    "32433"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 67,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "OK",
-      "OR",
-      "PA",
-      "PR",
-      "RI",
-      "SC",
-      "SD",
-      "TN"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
