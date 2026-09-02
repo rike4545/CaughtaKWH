@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T15:24:40.555Z",
+  "generatedAt": "2026-09-02T20:10:40.847Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -1204,6 +1204,18 @@
       "reportUrl": "report.html?station=4003236"
     },
     {
+      "id": "407108",
+      "name": "Houston, TX - Weslayan St",
+      "city": "Houston",
+      "state": "TX",
+      "lat": 29.722677,
+      "lng": -95.442928,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=407108"
+    },
+    {
       "id": "4005755",
       "name": "Huntington Beach, CA",
       "city": "Huntington Beach",
@@ -1214,6 +1226,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4005755"
+    },
+    {
+      "id": "KatyTXQ322",
+      "name": "Katy, TX - Katy Fwy",
+      "city": "Katy",
+      "state": "TX",
+      "lat": 29.779061,
+      "lng": -95.848811,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=KatyTXQ322"
     },
     {
       "id": "26461",
@@ -1250,6 +1274,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=15383"
+    },
+    {
+      "id": "NewBraunfelsTXSupercharger",
+      "name": "New Braunfels, TX",
+      "city": "New Braunfels",
+      "state": "TX",
+      "lat": 29.726936,
+      "lng": -98.079696,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=NewBraunfelsTXSupercharger"
     },
     {
       "id": "NorthridgeCAsupercharger",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=PortStLucieFLsupercharger"
-    },
-    {
-      "id": "442207",
-      "name": "Riverdale, NJ",
-      "city": "Riverdale",
-      "state": "NJ",
-      "lat": 40.990238,
-      "lng": -74.324646,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=442207"
-    },
-    {
-      "id": "424174",
-      "name": "Saugerties, NY",
-      "city": "Saugerties",
-      "state": "NY",
-      "lat": 42.080457,
-      "lng": -73.95984,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=424174"
-    },
-    {
-      "id": "SomervilleMAsupercharger",
-      "name": "Somerville, MA",
-      "city": "Somerville",
-      "state": "MA",
-      "lat": 42.390558,
-      "lng": -71.086016,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=SomervilleMAsupercharger"
     }
   ]
 }
