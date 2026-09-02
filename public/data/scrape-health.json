@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-01T23:51:44.486Z",
+  "generatedAt": "2026-09-02T01:47:18.907Z",
   "requestedLimit": 100,
-  "inScopeStations": 302,
+  "inScopeStations": 494,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "414005",
-    "KimballTNSupercharger",
-    "MemphisTNSupercharger2"
+    "madisonvilletxsupercharger",
+    "19206",
+    "20482"
   ],
   "blockedStationIds": [
-    "414005",
-    "KimballTNSupercharger",
-    "MemphisTNSupercharger2"
+    "madisonvilletxsupercharger",
+    "19206",
+    "20482"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 185,
+    "averageRequestMs": 104,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "OK",
       "OR",
       "PA",
       "PR",
       "RI",
       "SC",
       "SD",
-      "TN"
+      "TN",
+      "TX"
     ],
     "countries": [],
     "nearby": null,
