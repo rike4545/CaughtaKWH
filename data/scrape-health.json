@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T11:43:08.922Z",
+  "generatedAt": "2026-09-02T15:17:58.372Z",
   "requestedLimit": 100,
   "inScopeStations": 497,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "BaytownTXSupercharger",
-    "WallerTXSupercharger",
-    "32765"
+    "EnnisTXQ322",
+    "32743",
+    "4003236"
   ],
   "blockedStationIds": [
-    "BaytownTXSupercharger",
-    "WallerTXSupercharger",
-    "32765"
+    "EnnisTXQ322",
+    "32743",
+    "4003236"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 89,
+    "averageRequestMs": 88,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
