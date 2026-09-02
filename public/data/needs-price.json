@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T01:34:29.458Z",
+  "generatedAt": "2026-09-02T10:00:21.272Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -280,6 +280,18 @@
       "reportUrl": "report.html?station=25874"
     },
     {
+      "id": "madisonvilletxsupercharger",
+      "name": "Madisonville, TX",
+      "city": "Madisonville",
+      "state": "TX",
+      "lat": 30.966224,
+      "lng": -95.879546,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=madisonvilletxsupercharger"
+    },
+    {
       "id": "34294",
       "name": "Montebello, CA - N Wilcox Ave",
       "city": "Montebello",
@@ -436,6 +448,18 @@
       "reportUrl": "report.html?station=ArvinCAsupercharger"
     },
     {
+      "id": "19206",
+      "name": "Temple, TX",
+      "city": "Temple",
+      "state": "TX",
+      "lat": 31.13776,
+      "lng": -97.329332,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19206"
+    },
+    {
       "id": "34733",
       "name": "Upland, CA - Arrow Route",
       "city": "Upland",
@@ -484,6 +508,18 @@
       "reportUrl": "report.html?station=58505"
     },
     {
+      "id": "20482",
+      "name": "Terrell, TX",
+      "city": "Terrell",
+      "state": "TX",
+      "lat": 32.717529,
+      "lng": -96.323024,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20482"
+    },
+    {
       "id": "28541",
       "name": "Tustin, CA - Franklin Ave",
       "city": "Tustin",
@@ -496,6 +532,30 @@
       "reportUrl": "report.html?station=28541"
     },
     {
+      "id": "18987",
+      "name": "Houston, TX - Yale St",
+      "city": "Houston",
+      "state": "TX",
+      "lat": 29.774462,
+      "lng": -95.400551,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=18987"
+    },
+    {
+      "id": "DallasTXCentralQ322",
+      "name": "Dallas, TX - S Riverfront Blvd",
+      "city": "Dallas",
+      "state": "TX",
+      "lat": 32.767342,
+      "lng": -96.807817,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=DallasTXCentralQ322"
+    },
+    {
       "id": "SanFranciscoCAsupercharger2",
       "name": "San Francisco, CA - Geary Blvd",
       "city": "San Francisco",
@@ -506,6 +566,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=SanFranciscoCAsupercharger2"
+    },
+    {
+      "id": "BastropTXSupercharger",
+      "name": "Bastrop, TX",
+      "city": "Bastrop",
+      "state": "TX",
+      "lat": 30.10603,
+      "lng": -97.305318,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=BastropTXSupercharger"
     },
     {
       "id": "DaytonaBeachFLQ322",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=33745"
-    },
-    {
-      "id": "woodbridgesupercharger",
-      "name": "Woodbridge, NJ",
-      "city": "Woodbridge",
-      "state": "NJ",
-      "lat": 40.535862,
-      "lng": -74.297271,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=woodbridgesupercharger"
-    },
-    {
-      "id": "AlachuaFLsupercharger",
-      "name": "Alachua, FL",
-      "city": "Alachua",
-      "state": "FL",
-      "lat": 29.796918,
-      "lng": -82.500844,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=AlachuaFLsupercharger"
-    },
-    {
-      "id": "26639",
-      "name": "Albany, NY - Central Ave",
-      "city": "Albany",
-      "state": "NY",
-      "lat": 42.699213,
-      "lng": -73.810411,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26639"
-    },
-    {
-      "id": "27521",
-      "name": "Allamuchy, NJ",
-      "city": "Hackettstown",
-      "state": "NJ",
-      "lat": 40.904785,
-      "lng": -74.822803,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=27521"
-    },
-    {
-      "id": "19129",
-      "name": "Ashland, OR",
-      "city": "Ashland",
-      "state": "OR",
-      "lat": 42.182661,
-      "lng": -122.662635,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19129"
-    },
-    {
-      "id": "33701",
-      "name": "Austell, GA",
-      "city": "Austell",
-      "state": "GA",
-      "lat": 33.770385,
-      "lng": -84.557356,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33701"
     }
   ]
 }
