@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T10:00:21.272Z",
+  "generatedAt": "2026-09-02T15:24:40.555Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -748,6 +748,18 @@
       "reportUrl": "report.html?station=17769"
     },
     {
+      "id": "BaytownTXSupercharger",
+      "name": "Baytown, TX",
+      "city": "Baytown",
+      "state": "TX",
+      "lat": 29.801587,
+      "lng": -94.997897,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=BaytownTXSupercharger"
+    },
+    {
       "id": "31212",
       "name": "Buena Park, CA - Knott Ave",
       "city": "Buena Park",
@@ -988,6 +1000,18 @@
       "reportUrl": "report.html?station=29107"
     },
     {
+      "id": "WallerTXSupercharger",
+      "name": "Waller, TX",
+      "city": "Waller",
+      "state": "TX",
+      "lat": 30.070698,
+      "lng": -95.930431,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=WallerTXSupercharger"
+    },
+    {
       "id": "428013",
       "name": "Bronx, NY - East Gun Hill Rd",
       "city": "Bronx",
@@ -998,6 +1022,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=428013"
+    },
+    {
+      "id": "32765",
+      "name": "Austin, TX - N Mopac Expy",
+      "city": "Austin",
+      "state": "TX",
+      "lat": 30.390435,
+      "lng": -97.732962,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32765"
     },
     {
       "id": "BeaumontCAQ322",
@@ -1108,6 +1144,18 @@
       "reportUrl": "report.html?station=elcentrosupercharger"
     },
     {
+      "id": "EnnisTXQ322",
+      "name": "Ennis, TX",
+      "city": "Ennis",
+      "state": "TX",
+      "lat": 32.322389,
+      "lng": -96.605143,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=EnnisTXQ322"
+    },
+    {
       "id": "granadahillscaliforniasupercharger",
       "name": "Granada Hills, CA",
       "city": "Granada Hills",
@@ -1120,6 +1168,18 @@
       "reportUrl": "report.html?station=granadahillscaliforniasupercharger"
     },
     {
+      "id": "32743",
+      "name": "Hillsboro, TX",
+      "city": "Hillsboro",
+      "state": "TX",
+      "lat": 32.047222,
+      "lng": -97.093986,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32743"
+    },
+    {
       "id": "406157",
       "name": "Hollywood, FL",
       "city": "Hollywood",
@@ -1130,6 +1190,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=406157"
+    },
+    {
+      "id": "4003236",
+      "name": "Houston, TX - Franklin St",
+      "city": "Houston",
+      "state": "TX",
+      "lat": 29.766596,
+      "lng": -95.366118,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4003236"
     },
     {
       "id": "4005755",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=SomervilleMAsupercharger"
-    },
-    {
-      "id": "59043",
-      "name": "Tampa, FL - W Hillsborough Ave",
-      "city": "Tampa",
-      "state": "FL",
-      "lat": 27.995185,
-      "lng": -82.478147,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59043"
-    },
-    {
-      "id": "tintonfallssupercharger",
-      "name": "Tinton Falls, NJ",
-      "city": "Tinton Falls",
-      "state": "NJ",
-      "lat": 40.226272,
-      "lng": -74.093538,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=tintonfallssupercharger"
-    },
-    {
-      "id": "cocoawestsupercharger",
-      "name": "Titusville, FL",
-      "city": "Titusville",
-      "state": "FL",
-      "lat": 28.552782,
-      "lng": -80.840594,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=cocoawestsupercharger"
-    },
-    {
-      "id": "32953",
-      "name": "Vero Beach, FL - 20th St",
-      "city": "Vero Beach",
-      "state": "FL",
-      "lat": 27.640066,
-      "lng": -80.446862,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32953"
-    },
-    {
-      "id": "58476",
-      "name": "Wellington, FL",
-      "city": "Wellington",
-      "state": "FL",
-      "lat": 26.650233,
-      "lng": -80.205221,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58476"
-    },
-    {
-      "id": "33745",
-      "name": "Winter Park, FL - N Goldenrod Rd",
-      "city": "Winter Park",
-      "state": "FL",
-      "lat": 28.59593,
-      "lng": -81.28838,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=33745"
     }
   ]
 }
