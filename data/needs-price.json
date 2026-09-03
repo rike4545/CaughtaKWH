@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T15:17:49.432Z",
+  "generatedAt": "2026-09-03T20:10:59.592Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -2128,6 +2128,42 @@
       "reportUrl": "report.html?station=32768"
     },
     {
+      "id": "32766",
+      "name": "Austin, TX - E Ben White Blvd",
+      "city": "Austin",
+      "state": "TX",
+      "lat": 30.214915,
+      "lng": -97.742151,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32766"
+    },
+    {
+      "id": "403157",
+      "name": "Austin, TX - E Stassney Ln",
+      "city": "Austin",
+      "state": "TX",
+      "lat": 30.200106,
+      "lng": -97.767194,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=403157"
+    },
+    {
+      "id": "32767",
+      "name": "Austin, TX - W Canyon Ridge Dr",
+      "city": "Austin",
+      "state": "TX",
+      "lat": 30.403691,
+      "lng": -97.6734,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32767"
+    },
+    {
       "id": "59126",
       "name": "Blackwood, NJ",
       "city": "Blackwood",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=25857"
-    },
-    {
-      "id": "401360",
-      "name": "Las Vegas, NV - E Twain Ave",
-      "city": "Las Vegas",
-      "state": "NV",
-      "lat": 36.121716,
-      "lng": -115.145235,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=401360"
-    },
-    {
-      "id": "leemasupercharger",
-      "name": "Lee, MA",
-      "city": "Lee",
-      "state": "MA",
-      "lat": 42.29571,
-      "lng": -73.239245,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=leemasupercharger"
-    },
-    {
-      "id": "417090",
-      "name": "Medford, MA",
-      "city": "Medford",
-      "state": "MA",
-      "lat": 42.409473,
-      "lng": -71.086185,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=417090"
     }
   ]
 }
