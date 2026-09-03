@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T01:38:09.894Z",
+  "generatedAt": "2026-09-03T10:11:03.821Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -1864,6 +1864,18 @@
       "reportUrl": "report.html?station=26440"
     },
     {
+      "id": "nashtx",
+      "name": "Nash, TX",
+      "city": "Nash",
+      "state": "TX",
+      "lat": 33.452427,
+      "lng": -94.130939,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=nashtx"
+    },
+    {
       "id": "424060",
       "name": "North New Hyde Park, NY",
       "city": "North New Hyde Park",
@@ -1958,6 +1970,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=407484"
+    },
+    {
+      "id": "58802",
+      "name": "Round Rock, TX - University Blvd",
+      "city": "Round Rock",
+      "state": "TX",
+      "lat": 30.562315,
+      "lng": -97.689666,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58802"
+    },
+    {
+      "id": "20484",
+      "name": "Royse City, TX",
+      "city": "Royse City",
+      "state": "TX",
+      "lat": 32.979184,
+      "lng": -96.296371,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20484"
     },
     {
       "id": "32949",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=19293"
-    },
-    {
-      "id": "437003",
-      "name": "Newark, NJ",
-      "city": "Newark",
-      "state": "NJ",
-      "lat": 40.727548,
-      "lng": -74.150392,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=437003"
-    },
-    {
-      "id": "26671",
-      "name": "Newburgh, NY - NY-300",
-      "city": "Newburgh",
-      "state": "NY",
-      "lat": 41.51768,
-      "lng": -74.069717,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26671"
-    },
-    {
-      "id": "59033",
-      "name": "Orlando, FL - 7105 Palm Pkwy",
-      "city": "Orlando",
-      "state": "FL",
-      "lat": 28.401158,
-      "lng": -81.488438,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59033"
     }
   ]
 }
