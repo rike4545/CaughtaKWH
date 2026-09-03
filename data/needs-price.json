@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T20:10:40.847Z",
+  "generatedAt": "2026-09-03T01:38:09.894Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -14,6 +14,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=457753"
+    },
+    {
+      "id": "456416",
+      "name": "Orem, UT - N 980 W",
+      "city": "Orem",
+      "state": "UT",
+      "lat": 40.31287,
+      "lng": -111.721008,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=456416"
     },
     {
       "id": "401824",
@@ -1612,6 +1624,42 @@
       "reportUrl": "report.html?station=425005"
     },
     {
+      "id": "wacotxsupercharger",
+      "name": "Waco, TX",
+      "city": "Bellmead",
+      "state": "TX",
+      "lat": 31.58224,
+      "lng": -97.10915,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=wacotxsupercharger"
+    },
+    {
+      "id": "58900",
+      "name": "Amarillo, TX - I-40",
+      "city": "Amarillo",
+      "state": "TX",
+      "lat": 35.19182,
+      "lng": -101.72226,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58900"
+    },
+    {
+      "id": "58767",
+      "name": "Austin, TX - Spirit of Texas Dr",
+      "city": "Austin",
+      "state": "TX",
+      "lat": 30.210532,
+      "lng": -97.666642,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58767"
+    },
+    {
       "id": "441119",
       "name": "Brooklyn, NY - 8923 Bay Pkwy",
       "city": "Brooklyn",
@@ -1660,6 +1708,18 @@
       "reportUrl": "report.html?station=20521"
     },
     {
+      "id": "ClydeTXQ322",
+      "name": "Clyde, TX",
+      "city": "Clyde",
+      "state": "TX",
+      "lat": 32.417388,
+      "lng": -99.526579,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=ClydeTXQ322"
+    },
+    {
       "id": "32554",
       "name": "Davenport, FL - Grandview Pkwy",
       "city": "Davenport",
@@ -1682,6 +1742,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=426107"
+    },
+    {
+      "id": "32648",
+      "name": "El Paso, TX - Desert Blvd N",
+      "city": "El Paso",
+      "state": "TX",
+      "lat": 31.886359,
+      "lng": -106.580771,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32648"
+    },
+    {
+      "id": "20483",
+      "name": "Fort Worth, TX - North Fwy",
+      "city": "Fort Worth",
+      "state": "TX",
+      "lat": 33.023133,
+      "lng": -97.279033,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20483"
     },
     {
       "id": "GardenCityNYSupercharger",
@@ -1732,6 +1816,18 @@
       "reportUrl": "report.html?station=LittleFerryNJQ322"
     },
     {
+      "id": "32724",
+      "name": "Lorena, TX",
+      "city": "Lorena",
+      "state": "TX",
+      "lat": 31.394348,
+      "lng": -97.207597,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32724"
+    },
+    {
       "id": "407626",
       "name": "Melbourne, FL - Norfolk Pkwy",
       "city": "Melbourne",
@@ -1742,6 +1838,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=407626"
+    },
+    {
+      "id": "MelissaTXQ322",
+      "name": "Melissa, TX",
+      "city": "Melissa",
+      "state": "TX",
+      "lat": 33.270374,
+      "lng": -96.592973,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=MelissaTXQ322"
     },
     {
       "id": "26440",
@@ -2294,114 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=59033"
-    },
-    {
-      "id": "OrlandoFL2Q322",
-      "name": "Orlando, FL - S Orange Blossom Trl",
-      "city": "Orlando",
-      "state": "FL",
-      "lat": 28.448461,
-      "lng": -81.394583,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=OrlandoFL2Q322"
-    },
-    {
-      "id": "25969",
-      "name": "Orlando, FL - W Grant St",
-      "city": "Orlando",
-      "state": "FL",
-      "lat": 28.516287,
-      "lng": -81.379958,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=25969"
-    },
-    {
-      "id": "4005560",
-      "name": "Painted Post, NY",
-      "city": "Painted Post",
-      "state": "NY",
-      "lat": 42.153785,
-      "lng": -77.104896,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4005560"
-    },
-    {
-      "id": "25796",
-      "name": "Palm Beach Gardens, FL",
-      "city": "Palm Beach Gardens",
-      "state": "FL",
-      "lat": 26.840256,
-      "lng": -80.103913,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=25796"
-    },
-    {
-      "id": "4160",
-      "name": "Paramus, NJ - Bergen Town Center",
-      "city": "Paramus",
-      "state": "NJ",
-      "lat": 40.912759,
-      "lng": -74.057512,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4160"
-    },
-    {
-      "id": "407535",
-      "name": "Pembroke Park, FL",
-      "city": "Pembroke Park",
-      "state": "FL",
-      "lat": 25.984969,
-      "lng": -80.174963,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407535"
-    },
-    {
-      "id": "407479",
-      "name": "Pennsville, NJ",
-      "city": "Pennsville",
-      "state": "NJ",
-      "lat": 39.667727,
-      "lng": -75.507492,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407479"
-    },
-    {
-      "id": "PigeonForgeTNSupercharger",
-      "name": "Pigeon Forge, TN",
-      "city": "Pigeon Forge",
-      "state": "TN",
-      "lat": 35.806348,
-      "lng": -83.572721,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=PigeonForgeTNSupercharger"
-    },
-    {
-      "id": "PortStLucieFLsupercharger",
-      "name": "Port Saint Lucie, FL - Florida's Turnpike",
-      "city": "Port St. Lucie",
-      "state": "FL",
-      "lat": 27.300086,
-      "lng": -80.372074,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=PortStLucieFLsupercharger"
     }
   ]
 }
