@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-02T15:15:54.359Z",
+  "generatedAt": "2026-09-03T15:09:08.174Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3110,
-    "checkedStations": 1595,
-    "checkedPct": 51.29,
+    "checkedStations": 1573,
+    "checkedPct": 50.58,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1512,
+    "blockedStations": 1535,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -50,14 +50,14 @@
     {
       "state": "TX",
       "stations": 223,
-      "checked": 214,
+      "checked": 192,
       "priced": 0,
       "usable": 0,
       "stale": 223,
-      "checkedPct": 95.96,
+      "checkedPct": 86.1,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 101650.9
+      "priorityScore": 104545.2
     },
     {
       "state": "NY",
@@ -144,6 +144,17 @@
       "priorityScore": 843
     },
     {
+      "id": "456416",
+      "name": "Orem, UT - N 980 W",
+      "state": "UT",
+      "city": "Orem",
+      "lastScrapedAt": null,
+      "lastAttemptedAt": "2026-09-03T10:17:25.954Z",
+      "blocked": true,
+      "lastScrapeResult": "access_controlled",
+      "priorityScore": 830
+    },
+    {
       "id": "401824",
       "name": "Greeley, CO",
       "state": "CO",
@@ -214,17 +225,6 @@
       "name": "Arroyo Grande, CA - W Branch Rd",
       "state": "CA",
       "city": "Arroyo Grande",
-      "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-07-29T16:07:33.388Z",
-      "blocked": true,
-      "lastScrapeResult": "access_controlled",
-      "priorityScore": 607
-    },
-    {
-      "id": "bakercasupercharger",
-      "name": "Baker, CA",
-      "state": "CA",
-      "city": "Baker",
       "lastScrapedAt": null,
       "lastAttemptedAt": "2026-07-29T16:07:33.388Z",
       "blocked": true,
