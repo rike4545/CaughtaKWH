@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-02T23:26:14.802Z",
+  "generatedAt": "2026-09-03T01:15:51.641Z",
   "requestedLimit": 100,
-  "inScopeStations": 494,
+  "inScopeStations": 478,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "ClydeTXQ322",
-    "32648",
-    "20483"
+    "456416",
+    "32724",
+    "MelissaTXQ322"
   ],
   "blockedStationIds": [
-    "ClydeTXQ322",
-    "32648",
-    "20483"
+    "456416",
+    "32724",
+    "MelissaTXQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 79,
+    "averageRequestMs": 56,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "OR",
       "PA",
       "PR",
       "RI",
       "SC",
       "SD",
       "TN",
-      "TX"
+      "TX",
+      "UT"
     ],
     "countries": [],
     "nearby": null,
