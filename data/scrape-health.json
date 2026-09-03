@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T18:03:33.992Z",
+  "generatedAt": "2026-09-03T20:59:03.709Z",
   "requestedLimit": 100,
   "inScopeStations": 480,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 4,
   "attemptedStationIds": [
-    "32766",
-    "403157",
-    "32767"
+    "BigSpringTXQ322",
+    "brownsvilletxbocachicablvd",
+    "437210"
   ],
   "blockedStationIds": [
-    "32766",
-    "403157",
-    "32767"
+    "BigSpringTXQ322",
+    "brownsvilletxbocachicablvd",
+    "437210"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 131,
+    "averageRequestMs": 55,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
