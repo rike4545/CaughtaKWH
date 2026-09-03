@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T10:11:03.821Z",
+  "generatedAt": "2026-09-03T15:17:49.432Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -1996,6 +1996,18 @@
       "reportUrl": "report.html?station=20484"
     },
     {
+      "id": "19117",
+      "name": "San Antonio, TX - Worth Pkwy",
+      "city": "San Antonio",
+      "state": "TX",
+      "lat": 29.613001,
+      "lng": -98.601377,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19117"
+    },
+    {
       "id": "32949",
       "name": "St. Petersburg, FL - 25th St N",
       "city": "St. Petersburg",
@@ -2032,6 +2044,30 @@
       "reportUrl": "report.html?station=4008768"
     },
     {
+      "id": "whartonTXsupercharger",
+      "name": "Wharton, TX",
+      "city": "Wharton",
+      "state": "TX",
+      "lat": 29.325098,
+      "lng": -96.124308,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=whartonTXsupercharger"
+    },
+    {
+      "id": "58303",
+      "name": "Houston, TX - Kipling Street",
+      "city": "Houston",
+      "state": "TX",
+      "lat": 29.740076,
+      "lng": -95.411911,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58303"
+    },
+    {
       "id": "2251",
       "name": "Atlanta, GA",
       "city": "Atlanta",
@@ -2056,6 +2092,18 @@
       "reportUrl": "report.html?station=59214"
     },
     {
+      "id": "AddisonTXQ322",
+      "name": "Addison, TX",
+      "city": "Addison",
+      "state": "TX",
+      "lat": 32.950179,
+      "lng": -96.81853,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=AddisonTXQ322"
+    },
+    {
       "id": "auburnmasupercharger",
       "name": "Auburn, MA",
       "city": "Auburn",
@@ -2066,6 +2114,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=auburnmasupercharger"
+    },
+    {
+      "id": "32768",
+      "name": "Austin, TX - E 41st St",
+      "city": "Austin",
+      "state": "TX",
+      "lat": 30.29873,
+      "lng": -97.719606,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=32768"
     },
     {
       "id": "59126",
@@ -2342,66 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=417090"
-    },
-    {
-      "id": "59194",
-      "name": "Melbourne, FL - Shoppes Dr",
-      "city": "Melbourne",
-      "state": "FL",
-      "lat": 28.233468,
-      "lng": -80.72018,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59194"
-    },
-    {
-      "id": "59089",
-      "name": "Miami, FL - NW 183rd St",
-      "city": "Hialeah",
-      "state": "FL",
-      "lat": 25.93844,
-      "lng": -80.297836,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59089"
-    },
-    {
-      "id": "32843",
-      "name": "Miami, FL - SW 177th Ave",
-      "city": "Miami",
-      "state": "FL",
-      "lat": 25.762356,
-      "lng": -80.482724,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32843"
-    },
-    {
-      "id": "27079",
-      "name": "Miramar, FL - Miramar Pkwy",
-      "city": "Miramar",
-      "state": "FL",
-      "lat": 25.976412,
-      "lng": -80.310779,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=27079"
-    },
-    {
-      "id": "19293",
-      "name": "Naples, FL - Pine Ridge Rd",
-      "city": "Naples",
-      "state": "FL",
-      "lat": 26.209987,
-      "lng": -81.769531,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19293"
     }
   ]
 }
