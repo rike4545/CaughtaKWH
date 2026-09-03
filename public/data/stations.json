@@ -129482,12 +129482,12 @@
     "superchargeInfoMatchedAt": "2026-08-30",
     "plugshareId": 2076881,
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-09-03T01:15:51.641Z",
-    "lastBlockedAt": "2026-09-03T01:15:51.641Z",
+    "lastAttemptedAt": "2026-09-03T10:17:25.954Z",
+    "lastBlockedAt": "2026-09-03T10:17:25.954Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 1,
-    "blockCooldownHours": 6,
-    "nextScrapeEligibleAt": "2026-09-03T07:15:51.641Z",
+    "consecutiveBlockedAttempts": 2,
+    "blockCooldownHours": 12,
+    "nextScrapeEligibleAt": "2026-09-03T22:17:25.954Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -129497,7 +129497,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 64,
+        "durationMs": 178,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -129511,7 +129511,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 64
+      "averageRequestMs": 178
     },
     "observationPriorityScore": 830
   },
@@ -152742,7 +152742,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 453.56,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 5000,
@@ -152770,7 +152770,39 @@
     "plugTypes": {
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-03T10:17:25.954Z",
+    "lastBlockedAt": "2026-09-03T10:17:25.954Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-03T16:17:25.954Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19117",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 58,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 58
+    }
   },
   {
     "id": "27632",
@@ -187740,7 +187772,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 453.23,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 6500,
@@ -187770,7 +187802,39 @@
       "ccs1": 20,
       "multi": 20
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-03T10:17:25.954Z",
+    "lastBlockedAt": "2026-09-03T10:17:25.954Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-03T16:17:25.954Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/whartonTXsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 60,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 60
+    }
   },
   {
     "id": "wheatlandsupercharger",
