@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-03T20:10:59.592Z",
+  "generatedAt": "2026-09-04T01:32:54.704Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -50,6 +50,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=402202"
+    },
+    {
+      "id": "26853",
+      "name": "Richmond, VA - N Arthur Ashe Blvd",
+      "city": "Richmond",
+      "state": "VA",
+      "lat": 37.574657,
+      "lng": -77.464996,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26853"
     },
     {
       "id": "santarosanmsupercharger",
@@ -2164,6 +2176,18 @@
       "reportUrl": "report.html?station=32767"
     },
     {
+      "id": "BigSpringTXQ322",
+      "name": "Big Spring, TX",
+      "city": "Big Spring",
+      "state": "TX",
+      "lat": 32.258086,
+      "lng": -101.453298,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=BigSpringTXQ322"
+    },
+    {
       "id": "59126",
       "name": "Blackwood, NJ",
       "city": "Blackwood",
@@ -2200,6 +2224,30 @@
       "reportUrl": "report.html?station=braintreesupercharger"
     },
     {
+      "id": "brownsvilletxbocachicablvd",
+      "name": "Brownsville, TX - Boca Chica Blvd",
+      "city": "Brownsville",
+      "state": "TX",
+      "lat": 25.943983,
+      "lng": -97.42941,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=brownsvilletxbocachicablvd"
+    },
+    {
+      "id": "437210",
+      "name": "Bryan, TX",
+      "city": "Bryan",
+      "state": "TX",
+      "lat": 30.642521,
+      "lng": -96.350206,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=437210"
+    },
+    {
       "id": "19568",
       "name": "Champlain, NY",
       "city": "Champlain",
@@ -2224,6 +2272,18 @@
       "reportUrl": "report.html?station=36228"
     },
     {
+      "id": "455465",
+      "name": "Corpus Christi, TX - S Padre Island Dr",
+      "city": "Corpus Christi",
+      "state": "TX",
+      "lat": 27.707092,
+      "lng": -97.372697,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=455465"
+    },
+    {
       "id": "19280",
       "name": "Covington, GA",
       "city": "Covington",
@@ -2246,6 +2306,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=19511"
+    },
+    {
+      "id": "DallasTXsupercharger",
+      "name": "Dallas, TX - Park Ln",
+      "city": "Dallas",
+      "state": "TX",
+      "lat": 32.867745,
+      "lng": -96.767178,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=DallasTXsupercharger"
     },
     {
       "id": "45383",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=FortLauderdaleFLSupercharger20"
-    },
-    {
-      "id": "30775",
-      "name": "Garden City, NY - Stewart Ave",
-      "city": "Garden City",
-      "state": "NY",
-      "lat": 40.731449,
-      "lng": -73.609471,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=30775"
-    },
-    {
-      "id": "20901",
-      "name": "Jacksonville, FL - City Center Blvd",
-      "city": "Jacksonville",
-      "state": "FL",
-      "lat": 30.47963,
-      "lng": -81.637605,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20901"
-    },
-    {
-      "id": "406305",
-      "name": "Kearny, NJ - Harrison Ave",
-      "city": "Kearny",
-      "state": "NJ",
-      "lat": 40.748102,
-      "lng": -74.135407,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=406305"
-    },
-    {
-      "id": "18930",
-      "name": "Kissimmee, FL - W Osceola Pkwy",
-      "city": "Kissimmee",
-      "state": "FL",
-      "lat": 28.341509,
-      "lng": -81.411159,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=18930"
-    },
-    {
-      "id": "410902",
-      "name": "Las Vegas, NV - 3528 S Maryland Pkwy",
-      "city": "Las Vegas",
-      "state": "NV",
-      "lat": 36.125665,
-      "lng": -115.134614,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=410902"
-    },
-    {
-      "id": "25857",
-      "name": "Las Vegas, NV - 7400 Las Vegas Blvd S",
-      "city": "Las Vegas",
-      "state": "NV",
-      "lat": 36.056634,
-      "lng": -115.170356,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=25857"
     }
   ]
 }
