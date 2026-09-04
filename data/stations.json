@@ -120321,7 +120321,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.2,
+    "observationPriorityScore": 583,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4000,
@@ -120349,7 +120349,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-04T19:36:12.704Z",
+    "lastBlockedAt": "2026-09-04T19:36:12.704Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-05T01:36:12.704Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/NewBostonTXsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 88,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 88
+    }
   },
   {
     "id": "NewBraunfelsTXSupercharger",
@@ -120453,7 +120485,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.23,
+    "observationPriorityScore": 583,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4000,
@@ -120481,7 +120513,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-04T19:36:12.704Z",
+    "lastBlockedAt": "2026-09-04T19:36:12.704Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-05T01:36:12.704Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19084",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 35,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 35
+    }
   },
   {
     "id": "NewCastleDESupercharger",
@@ -135345,7 +135409,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 469.05,
+    "observationPriorityScore": 583,
     "superchargeInfoId": 6013,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2023-09-22",
@@ -135364,7 +135428,39 @@
       "ccs1": 16,
       "multi": 16
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-04T19:36:12.704Z",
+    "lastBlockedAt": "2026-09-04T19:36:12.704Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-05T01:36:12.704Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/26969",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 34,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 34
+    }
   },
   {
     "id": "pecossupercharger",
