@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-04T13:46:24.600Z",
-  "requestedLimit": 100,
-  "inScopeStations": 473,
+  "generatedAt": "2026-09-04T16:18:56.595Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 4,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "26635",
-    "408254",
-    "HoustonTXsupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
-    "26635",
-    "408254",
-    "HoustonTXsupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 83,
+    "averageRequestMs": 126,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "PR",
-      "RI",
-      "SC",
-      "SD",
-      "TN",
-      "TX",
-      "UT",
-      "VA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
