@@ -78576,7 +78576,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.73,
+    "observationPriorityScore": 583,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4000,
@@ -78604,7 +78604,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-04T13:46:24.600Z",
+    "lastBlockedAt": "2026-09-04T13:46:24.600Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-04T19:46:24.600Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/26635",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 175,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 175
+    }
   },
   {
     "id": "408254",
@@ -78635,51 +78667,22 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "lastScrapeAttemptCount": 4,
-    "lastScrapeResult": "valid_page_no_public_data",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeResult": "access_controlled",
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/408254",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 36,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
         "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/HoustonTXsupercharger",
-        "reason": "city_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/HoustonTXSSamHoustonPkwyETXsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/HoustonTXSSamHoustonPkwyEsupercharger",
-        "reason": "name_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
+        "publicDetailsFound": false,
         "error": null
       }
     ],
@@ -78706,7 +78709,7 @@
       "lastCheckedAt": "2026-06-04T10:42:54.204Z",
       "scrapeResult": "valid_page_no_public_data"
     },
-    "observationPriorityScore": 468.25,
+    "observationPriorityScore": 583,
     "superchargeInfoId": 9178,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2026-05-30",
@@ -78721,7 +78724,20 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-04T13:46:24.600Z",
+    "lastBlockedAt": "2026-09-04T13:46:24.600Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-04T19:46:24.600Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 36
+    }
   },
   {
     "id": "36231",
@@ -78868,7 +78884,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.78,
+    "observationPriorityScore": 583,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4000,
@@ -78896,7 +78912,39 @@
     "plugTypes": {
       "tpc": 16
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-04T13:46:24.600Z",
+    "lastBlockedAt": "2026-09-04T13:46:24.600Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-04T19:46:24.600Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/HoustonTXsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 38,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 38
+    }
   },
   {
     "id": "18987",
