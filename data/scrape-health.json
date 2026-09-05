@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-05T20:20:31.191Z",
+  "generatedAt": "2026-09-05T22:09:32.781Z",
   "requestedLimit": 100,
-  "inScopeStations": 472,
+  "inScopeStations": 473,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 8,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "AustinTXSouthsupercharger",
-    "20241",
-    "19033"
+    "26853",
+    "BeaumontTXQ322",
+    "beaverut525wsupercharger"
   ],
   "blockedStationIds": [
-    "AustinTXSouthsupercharger",
-    "20241",
-    "19033"
+    "26853",
+    "BeaumontTXQ322",
+    "beaverut525wsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 125,
+    "averageRequestMs": 51,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
