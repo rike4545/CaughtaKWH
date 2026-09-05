@@ -1,28 +1,32 @@
 {
-  "generatedAt": "2026-09-05T10:31:19.111Z",
-  "requestedLimit": 10,
-  "inScopeStations": 1,
-  "attempted": 1,
+  "generatedAt": "2026-09-05T13:02:04.485Z",
+  "requestedLimit": 100,
+  "inScopeStations": 475,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 1,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 5,
   "attemptedStationIds": [
-    "islandiasupercharger"
+    "56489",
+    "SanAntonioTXAlamoHeightssupercharger",
+    "19208"
   ],
   "blockedStationIds": [
-    "islandiasupercharger"
+    "56489",
+    "SanAntonioTXAlamoHeightssupercharger",
+    "19208"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 1,
-    "requestAttempts": 1,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 67,
+    "averageRequestMs": 102,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -33,9 +37,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 1
+    "consecutiveBlocks": 3
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -43,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
