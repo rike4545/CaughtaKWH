@@ -22740,7 +22740,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.73,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -22768,7 +22768,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-05T23:52:36.598Z",
+    "lastBlockedAt": "2026-09-05T23:52:36.598Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-06T05:52:36.598Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/32654",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 251,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 251
+    }
   },
   {
     "id": "BrentwoodCAsupercharger",
@@ -26052,7 +26084,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.05,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -26080,7 +26112,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-05T23:52:36.598Z",
+    "lastBlockedAt": "2026-09-05T23:52:36.598Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-06T05:52:36.598Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/32367",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 93,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 93
+    }
   },
   {
     "id": "burleyidsupercharger",
@@ -30292,7 +30356,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.49,
+    "observationPriorityScore": 579,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -30320,7 +30384,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-05T23:52:36.598Z",
+    "lastBlockedAt": "2026-09-05T23:52:36.598Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-06T05:52:36.598Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/CedarParkTXSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 116,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 116
+    }
   },
   {
     "id": "58811",
