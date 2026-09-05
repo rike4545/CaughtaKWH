@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-04T15:05:06.458Z",
+  "generatedAt": "2026-09-05T13:59:25.506Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3110,
-    "checkedStations": 1555,
-    "checkedPct": 50,
+    "checkedStations": 1533,
+    "checkedPct": 49.29,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1554,
+    "blockedStations": 1576,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -50,14 +50,14 @@
     {
       "state": "TX",
       "stations": 223,
-      "checked": 174,
+      "checked": 152,
       "priced": 0,
       "usable": 0,
       "stale": 223,
-      "checkedPct": 78.03,
+      "checkedPct": 68.16,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 106827.34
+      "priorityScore": 109590.04
     },
     {
       "state": "NY",
@@ -127,7 +127,7 @@
       "state": "NY",
       "city": "Lake Grove",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-01T14:08:09.004Z",
+      "lastAttemptedAt": "2026-09-04T16:18:56.595Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 1265
@@ -149,7 +149,7 @@
       "state": "UT",
       "city": "Orem",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-03T22:58:29.553Z",
+      "lastAttemptedAt": "2026-09-04T23:31:20.674Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 830
@@ -182,7 +182,7 @@
       "state": "VA",
       "city": "Richmond",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-04T09:35:15.202Z",
+      "lastAttemptedAt": "2026-09-04T21:48:27.083Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 823
