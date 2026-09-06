@@ -1,18 +1,18 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-09-05T13:59:25.506Z
+Generated: 2026-09-06T14:22:25.418Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
-- Stations: 3110
-- Checked by scraper: 1533 (49.29%)
-- Latest attempts blocked by access controls: 1576
+- Stations: 3112
+- Checked by scraper: 1504 (48.33%)
+- Latest attempts blocked by access controls: 1605
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
 - Fresh price stations: 0
-- Stale or unchecked stations: 3110
+- Stale or unchecked stations: 3112
 
 ## State Refresh Priorities
 
@@ -23,7 +23,7 @@ Generated: 2026-09-05T13:59:25.506Z
 - PA: 110 stale/unchecked, 0% priced
 - NJ: 108 stale/unchecked, 0% priced
 - VA: 103 stale/unchecked, 0% priced
-- NC: 90 stale/unchecked, 0% priced
+- NC: 91 stale/unchecked, 0% priced
 
 ## Station Refresh Targets
 
@@ -35,9 +35,9 @@ Generated: 2026-09-05T13:59:25.506Z
 
 ## Improvement Queue
 
-- Grow repeated observations: 0 of 3110 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
+- Grow repeated observations: 0 of 3112 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
 - Keep fresh data visible: 0 stations have a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current.
-- Prioritize slow Tesla pages: 3110 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
+- Prioritize slow Tesla pages: 3112 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
 - Add local power context state by state: New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear.
 
 ## Automation
