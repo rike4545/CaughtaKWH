@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-06T11:15:04.961Z",
-  "requestedLimit": 100,
-  "inScopeStations": 556,
+  "generatedAt": "2026-09-06T13:09:25.363Z",
+  "requestedLimit": 300,
+  "inScopeStations": 464,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 5,
+  "cooldownSkipped": 2,
   "attemptedStationIds": [
-    "403963",
-    "408160",
-    "21091"
+    "centervilletxsupercharger",
+    "407954",
+    "32606"
   ],
   "blockedStationIds": [
-    "403963",
-    "408160",
-    "21091"
+    "centervilletxsupercharger",
+    "407954",
+    "32606"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 102,
+    "averageRequestMs": 125,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,9 +53,7 @@
       "TN",
       "TX",
       "UT",
-      "VA",
-      "VT",
-      "WA"
+      "VA"
     ],
     "countries": [],
     "nearby": null,
