@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T01:27:13.695Z",
+  "generatedAt": "2026-09-06T09:44:46.350Z",
   "totalStations": 3110,
   "needsCount": 200,
   "stations": [
@@ -1312,6 +1312,18 @@
       "reportUrl": "report.html?station=NewBraunfelsTXSupercharger"
     },
     {
+      "id": "19139",
+      "name": "North Bend, WA - S Fork Ave SW",
+      "city": "North Bend",
+      "state": "WA",
+      "lat": 47.490839,
+      "lng": -121.796397,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19139"
+    },
+    {
       "id": "NorthridgeCAsupercharger",
       "name": "Northridge, CA",
       "city": "Northridge",
@@ -2056,6 +2068,18 @@
       "reportUrl": "report.html?station=4008768"
     },
     {
+      "id": "4008818",
+      "name": "Tumwater, WA - Kingswood Dr SW",
+      "city": "Tumwater",
+      "state": "WA",
+      "lat": 46.993092,
+      "lng": -122.921688,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4008818"
+    },
+    {
       "id": "whartonTXsupercharger",
       "name": "Wharton, TX",
       "city": "Wharton",
@@ -2200,6 +2224,18 @@
       "reportUrl": "report.html?station=59126"
     },
     {
+      "id": "18992",
+      "name": "Blaine, WA - Boblett St",
+      "city": "Blaine",
+      "state": "WA",
+      "lat": 48.990945,
+      "lng": -122.734368,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=18992"
+    },
+    {
       "id": "BoyntonBeachFLSupercharger",
       "name": "Boynton Beach, FL",
       "city": "Boynton Beach",
@@ -2246,6 +2282,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=437210"
+    },
+    {
+      "id": "27087",
+      "name": "Burlington, WA - Marketplace Dr",
+      "city": "Burlington",
+      "state": "WA",
+      "lat": 48.4511937,
+      "lng": -122.33983,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27087"
     },
     {
       "id": "19568",
@@ -2354,54 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=elizabethnjsupercharger"
-    },
-    {
-      "id": "EllentonFLQ322",
-      "name": "Ellenton, FL",
-      "city": "Ellenton",
-      "state": "FL",
-      "lat": 27.537933,
-      "lng": -82.507363,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=EllentonFLQ322"
-    },
-    {
-      "id": "EsteroFLSupercharger",
-      "name": "Estero, FL",
-      "city": "Estero",
-      "state": "FL",
-      "lat": 26.43604,
-      "lng": -81.773048,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=EsteroFLSupercharger"
-    },
-    {
-      "id": "florencesupercharger",
-      "name": "Florence, KY - Houston Rd",
-      "city": "Florence",
-      "state": "KY",
-      "lat": 39.011489,
-      "lng": -84.640279,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=florencesupercharger"
-    },
-    {
-      "id": "FortLauderdaleFLSupercharger20",
-      "name": "Fort Lauderdale, FL - East Sunrise Blvd",
-      "city": "Fort Lauderdale",
-      "state": "FL",
-      "lat": 26.136936,
-      "lng": -80.113134,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=FortLauderdaleFLSupercharger20"
     }
   ]
 }
