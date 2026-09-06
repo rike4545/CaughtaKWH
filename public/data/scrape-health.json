@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-05T23:52:36.598Z",
+  "generatedAt": "2026-09-06T01:42:17.870Z",
   "requestedLimit": 100,
-  "inScopeStations": 470,
+  "inScopeStations": 551,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 10,
   "attemptedStationIds": [
-    "32654",
-    "32367",
-    "CedarParkTXSupercharger"
+    "19139",
+    "4008818",
+    "18992"
   ],
   "blockedStationIds": [
-    "32654",
-    "32367",
-    "CedarParkTXSupercharger"
+    "19139",
+    "4008818",
+    "18992"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 153,
+    "averageRequestMs": 160,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "RI",
       "SC",
       "SD",
       "TN",
       "TX",
       "UT",
       "VA",
-      "VT"
+      "VT",
+      "WA"
     ],
     "countries": [],
     "nearby": null,

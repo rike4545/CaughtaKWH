@@ -19760,7 +19760,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.59,
+    "observationPriorityScore": 583,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 5200,
@@ -19787,7 +19787,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-06T01:42:17.870Z",
+    "lastBlockedAt": "2026-09-06T01:42:17.870Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-06T07:42:17.870Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/18992",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 74,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 74
+    }
   },
   {
     "id": "BlakesleePAQ322",
@@ -124701,7 +124733,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 455.49,
+    "observationPriorityScore": 591,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 7800,
@@ -124728,7 +124760,39 @@
     "plugTypes": {
       "nacs": 24
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-06T01:42:17.870Z",
+    "lastBlockedAt": "2026-09-06T01:42:17.870Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-06T07:42:17.870Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19139",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 227,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 227
+    }
   },
   {
     "id": "UnionCityNJsupercharger",
@@ -179679,7 +179743,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.65,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 6500,
@@ -179703,7 +179767,39 @@
     "plugTypes": {
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-08-30"
+    "superchargeInfoMatchedAt": "2026-08-30",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-06T01:42:17.870Z",
+    "lastBlockedAt": "2026-09-06T01:42:17.870Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-06T07:42:17.870Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/4008818",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 179,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 179
+    }
   },
   {
     "id": "tupelomssupercharger",
