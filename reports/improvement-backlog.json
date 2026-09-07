@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-31T17:00:16.734Z",
+  "generatedAt": "2026-09-07T14:59:53.649Z",
   "totals": {
-    "stations": 3110,
+    "stations": 3112,
     "withAnyHistory": 2,
     "predictions": 2
   },
@@ -9,7 +9,7 @@
     {
       "rank": 1,
       "action": "Capture first observations for stations with zero history",
-      "count": 3108,
+      "count": 3110,
       "sample": [
         "403969",
         "481260",
