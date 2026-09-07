@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-07T22:08:01.611Z",
-  "requestedLimit": 100,
-  "inScopeStations": 550,
+  "generatedAt": "2026-09-07T23:29:14.022Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 5,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "45384",
-    "45386",
-    "kelsowasupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "blockedStationIds": [
-    "45384",
-    "45386",
-    "kelsowasupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 44,
+    "averageRequestMs": 84,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "SD",
-      "TN",
-      "TX",
-      "UT",
-      "VA",
-      "VT",
-      "WA",
-      "WI"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
