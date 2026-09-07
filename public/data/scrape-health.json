@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T19:17:12.409Z",
+  "generatedAt": "2026-09-07T22:08:01.611Z",
   "requestedLimit": 100,
   "inScopeStations": 550,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 5,
   "attemptedStationIds": [
-    "HarlingenTXSupercharger",
-    "32652",
-    "18084"
+    "45384",
+    "45386",
+    "kelsowasupercharger"
   ],
   "blockedStationIds": [
-    "HarlingenTXSupercharger",
-    "32652",
-    "18084"
+    "45384",
+    "45386",
+    "kelsowasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 49,
+    "averageRequestMs": 44,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
