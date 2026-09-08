@@ -1,28 +1,32 @@
 {
-  "generatedAt": "2026-09-08T11:13:01.597Z",
-  "requestedLimit": 10,
-  "inScopeStations": 1,
-  "attempted": 1,
+  "generatedAt": "2026-09-08T13:37:35.045Z",
+  "requestedLimit": 100,
+  "inScopeStations": 558,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 1,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 5,
   "attemptedStationIds": [
-    "islandiasupercharger"
+    "19226",
+    "moseslakesupercharger",
+    "403607"
   ],
   "blockedStationIds": [
-    "islandiasupercharger"
+    "19226",
+    "moseslakesupercharger",
+    "403607"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 1,
-    "requestAttempts": 1,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 77,
+    "averageRequestMs": 75,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -33,9 +37,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 1
+    "consecutiveBlocks": 3
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -43,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "TN",
+      "TX",
+      "UT",
+      "VA",
+      "VT",
+      "WA",
+      "WI",
+      "WV"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
