@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-09T15:15:41.710Z",
+  "generatedAt": "2026-09-10T15:07:41.579Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3112,
-    "checkedStations": 1443,
-    "checkedPct": 46.37,
+    "checkedStations": 1426,
+    "checkedPct": 45.82,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1666,
+    "blockedStations": 1683,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -50,14 +50,14 @@
     {
       "state": "TX",
       "stations": 223,
-      "checked": 105,
+      "checked": 101,
       "priced": 0,
       "usable": 0,
       "stale": 223,
-      "checkedPct": 47.09,
+      "checkedPct": 45.29,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 115423.67
+      "priorityScore": 115928.97
     },
     {
       "state": "NY",
@@ -149,7 +149,7 @@
       "state": "UT",
       "city": "Orem",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-07T00:20:44.377Z",
+      "lastAttemptedAt": "2026-09-10T00:21:58.794Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 830
