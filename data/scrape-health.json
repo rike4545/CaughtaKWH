@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-10T04:57:45.346Z",
+  "generatedAt": "2026-09-10T09:20:34.194Z",
   "requestedLimit": 100,
-  "inScopeStations": 314,
+  "inScopeStations": 313,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 4,
+  "cooldownSkipped": 5,
   "attemptedStationIds": [
-    "19021",
-    "407456",
-    "entiatwasupercharger"
+    "forkswasupercharger",
+    "19116",
+    "northbendsupercharger"
   ],
   "blockedStationIds": [
-    "19021",
-    "407456",
-    "entiatwasupercharger"
+    "forkswasupercharger",
+    "19116",
+    "northbendsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 58,
+    "averageRequestMs": 122,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
