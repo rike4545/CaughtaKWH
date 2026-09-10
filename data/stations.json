@@ -144901,48 +144901,30 @@
     "lat": 46.216748,
     "lng": -119.786567,
     "lastDiscoveredAt": "2026-09-06T13:09:20.047Z",
-    "lastScrapeError": "No usable Tesla location candidate",
+    "lastScrapeError": "tesla_access_controlled",
     "lastScrapedAt": "2026-06-13T19:06:38.471Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
-    "lastScrapeResult": "no_usable_candidate",
-    "lastScrapeAttemptCount": 3,
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
         "url": "https://www.tesla.com/findus/location/supercharger/412860",
         "reason": "stored_tesla_url",
         "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 79,
+        "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
         "hasAvailability": false,
         "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/ProsserWAsupercharger",
-        "reason": "city_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
-        "error": null
-      },
-      {
-        "url": "https://www.tesla.com/findus/location/supercharger/ProsserWAWAsupercharger",
-        "reason": "name_state_slug",
-        "status": 403,
-        "contentSignal": "blocked",
-        "hasPrice": false,
-        "hasAvailability": false,
-        "priceCandidateCount": 0,
-        "publicDetailsFound": true,
+        "publicDetailsFound": false,
         "error": null
       }
     ],
-    "observationPriorityScore": 375.19,
+    "observationPriorityScore": 575,
     "superchargeInfoId": 10402,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2026-06-02",
@@ -144959,7 +144941,19 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-09-06"
+    "superchargeInfoMatchedAt": "2026-09-06",
+    "lastAttemptedAt": "2026-09-10T17:13:15.533Z",
+    "lastBlockedAt": "2026-09-10T17:13:15.533Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-10T23:13:15.533Z",
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 79
+    }
   },
   {
     "id": "ProvidenceRIQ322",
@@ -146175,7 +146169,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.57,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -146201,7 +146195,39 @@
       "ccs1": 8,
       "multi": 8
     },
-    "superchargeInfoMatchedAt": "2026-09-06"
+    "superchargeInfoMatchedAt": "2026-09-06",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-10T17:13:15.533Z",
+    "lastBlockedAt": "2026-09-10T17:13:15.533Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-10T23:13:15.533Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/QuincyWASupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 40,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 40
+    }
   },
   {
     "id": "412359",
@@ -149722,7 +149748,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.92,
+    "observationPriorityScore": 575,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2600,
@@ -149749,7 +149775,39 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-09-06"
+    "superchargeInfoMatchedAt": "2026-09-06",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-10T17:13:15.533Z",
+    "lastBlockedAt": "2026-09-10T17:13:15.533Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-10T23:13:15.533Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/27124",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 34,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 34
+    }
   },
   {
     "id": "riverdaleparkmdsupercharger",
