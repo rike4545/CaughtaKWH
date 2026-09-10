@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-10T17:13:15.533Z",
+  "generatedAt": "2026-09-10T19:41:06.984Z",
   "requestedLimit": 100,
-  "inScopeStations": 313,
+  "inScopeStations": 310,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 5,
+  "cooldownSkipped": 8,
   "attemptedStationIds": [
-    "412860",
-    "QuincyWASupercharger",
-    "27124"
+    "15300",
+    "436210",
+    "58528"
   ],
   "blockedStationIds": [
-    "412860",
-    "QuincyWASupercharger",
-    "27124"
+    "15300",
+    "436210",
+    "58528"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 51,
+    "averageRequestMs": 89,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
