@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T20:08:12.187Z",
+  "generatedAt": "2026-09-11T01:37:00.082Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -2212,6 +2212,18 @@
       "reportUrl": "report.html?station=BigSpringTXQ322"
     },
     {
+      "id": "404062",
+      "name": "Birmingham, AL - 1st Ave S",
+      "city": "Birmingham",
+      "state": "AL",
+      "lat": 33.512531,
+      "lng": -86.801796,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=404062"
+    },
+    {
       "id": "59126",
       "name": "Blackwood, NJ",
       "city": "Blackwood",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=edisonsupercharger"
-    },
-    {
-      "id": "elizabethnjsupercharger",
-      "name": "Elizabeth, NJ",
-      "city": "Elizabeth",
-      "state": "NJ",
-      "lat": 40.662806,
-      "lng": -74.173611,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=elizabethnjsupercharger"
     }
   ]
 }
