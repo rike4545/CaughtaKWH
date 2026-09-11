@@ -1,32 +1,28 @@
 {
-  "generatedAt": "2026-09-11T15:11:54.233Z",
-  "requestedLimit": 100,
-  "inScopeStations": 308,
-  "attempted": 3,
+  "generatedAt": "2026-09-11T16:25:37.089Z",
+  "requestedLimit": 10,
+  "inScopeStations": 1,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 4,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "19317",
-    "brattleborovtsupercharger",
-    "27067"
+    "islandiasupercharger"
   ],
   "blockedStationIds": [
-    "19317",
-    "brattleborovtsupercharger",
-    "27067"
+    "islandiasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 76,
+    "averageRequestMs": 199,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +33,9 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +43,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "VA",
-      "VT",
-      "WA",
-      "WI",
-      "WV",
-      "WY",
-      "AK",
-      "AL"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
