@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-10T23:31:34.576Z",
+  "generatedAt": "2026-09-11T01:27:29.188Z",
   "requestedLimit": 100,
-  "inScopeStations": 310,
+  "inScopeStations": 304,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 8,
   "attemptedStationIds": [
-    "tumwaterwasupercharger",
-    "26834",
-    "32770"
+    "26853",
+    "404062",
+    "32401"
   ],
   "blockedStationIds": [
-    "tumwaterwasupercharger",
-    "26834",
-    "32770"
+    "26853",
+    "404062",
+    "32401"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 61,
+    "averageRequestMs": 41,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "UT",
       "VA",
       "VT",
       "WA",
       "WI",
       "WV",
       "WY",
-      "AK"
+      "AK",
+      "AL"
     ],
     "countries": [],
     "nearby": null,
