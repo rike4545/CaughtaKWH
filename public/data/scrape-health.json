@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-11T06:18:34.291Z",
-  "requestedLimit": 100,
-  "inScopeStations": 309,
+  "generatedAt": "2026-09-11T11:15:59.937Z",
+  "requestedLimit": 10,
+  "inScopeStations": 4,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 3,
+  "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "vancouverwanevancouvermalldrivesupercharger",
-    "YakimaWAsupercharger",
-    "20604"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "blockedStationIds": [
-    "vancouverwanevancouvermalldrivesupercharger",
-    "YakimaWAsupercharger",
-    "20604"
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 73,
+    "averageRequestMs": 47,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "VA",
-      "VT",
-      "WA",
-      "WI",
-      "WV",
-      "WY",
-      "AK",
-      "AL"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
