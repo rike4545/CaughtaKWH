@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T21:09:15.787Z",
+  "generatedAt": "2026-09-11T23:14:28.497Z",
   "requestedLimit": 100,
   "inScopeStations": 305,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "402256",
-    "32371",
-    "RobertsdaleALSupercharger"
+    "412380",
+    "4003261",
+    "33540"
   ],
   "blockedStationIds": [
-    "402256",
-    "32371",
-    "RobertsdaleALSupercharger"
+    "412380",
+    "4003261",
+    "33540"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 101,
+    "averageRequestMs": 176,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
