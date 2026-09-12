@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T20:56:45.403Z",
+  "generatedAt": "2026-09-12T22:43:41.789Z",
   "requestedLimit": 100,
   "inScopeStations": 213,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "KenoshaWIsupercharger",
-    "LakeDeltonWISupercharger",
-    "33537"
+    "33548",
+    "MontgomeryALsupercharger",
+    "27053"
   ],
   "blockedStationIds": [
-    "KenoshaWIsupercharger",
-    "LakeDeltonWISupercharger",
-    "33537"
+    "33548",
+    "MontgomeryALsupercharger",
+    "27053"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 119,
+    "averageRequestMs": 90,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
