@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-12T16:16:47.622Z",
+  "generatedAt": "2026-09-12T18:32:15.181Z",
   "requestedLimit": 100,
-  "inScopeStations": 216,
+  "inScopeStations": 213,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 3,
+  "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "412205",
-    "GlendaleWIsupercharger",
-    "18671"
+    "greenvillealsupercharger",
+    "19305",
+    "HuntsvilleALSupercharger"
   ],
   "blockedStationIds": [
-    "412205",
-    "GlendaleWIsupercharger",
-    "18671"
+    "greenvillealsupercharger",
+    "19305",
+    "HuntsvilleALSupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 60,
+    "averageRequestMs": 85,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
