@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T05:45:06.823Z",
+  "generatedAt": "2026-09-12T09:36:19.094Z",
   "requestedLimit": 100,
   "inScopeStations": 216,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "32841",
-    "AuburnALSupercharger22",
-    "32497"
+    "32369",
+    "26517",
+    "407812"
   ],
   "blockedStationIds": [
-    "32841",
-    "AuburnALSupercharger22",
-    "32497"
+    "32369",
+    "26517",
+    "407812"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 93,
+    "averageRequestMs": 58,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
