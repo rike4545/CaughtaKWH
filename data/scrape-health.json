@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-13T17:29:24.166Z",
+  "generatedAt": "2026-09-13T19:39:04.808Z",
   "requestedLimit": 100,
-  "inScopeStations": 268,
+  "inScopeStations": 265,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "KingmanAZSupercharger2",
-    "56438",
-    "32640"
+    "32632",
+    "19138",
+    "26767"
   ],
   "blockedStationIds": [
-    "KingmanAZSupercharger2",
-    "56438",
-    "32640"
+    "32632",
+    "19138",
+    "26767"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 90,
+    "averageRequestMs": 112,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
