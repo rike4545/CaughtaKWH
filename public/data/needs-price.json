@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-12T19:43:22.569Z",
+  "generatedAt": "2026-09-13T01:33:45.758Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -1432,6 +1432,18 @@
       "reportUrl": "report.html?station=31297"
     },
     {
+      "id": "quartzsitesupercharger",
+      "name": "Quartzsite, AZ",
+      "city": "Quartzsite",
+      "state": "AZ",
+      "lat": 33.660859,
+      "lng": -114.242408,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=quartzsitesupercharger"
+    },
+    {
       "id": "29080",
       "name": "Roseville, CA - Freedom Way",
       "city": "Roseville",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=45383"
-    },
-    {
-      "id": "edisonsupercharger",
-      "name": "Edison, NJ",
-      "city": "Edison",
-      "state": "NJ",
-      "lat": 40.54454,
-      "lng": -74.33406,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=edisonsupercharger"
     }
   ]
 }
