@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-13T13:53:47.963Z",
-  "requestedLimit": 300,
-  "inScopeStations": 201,
+  "generatedAt": "2026-09-13T14:22:04.098Z",
+  "requestedLimit": 100,
+  "inScopeStations": 268,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "59098",
-    "32396",
-    "412004"
+    "413878",
+    "GlendaleAZSupercharger",
+    "34109"
   ],
   "blockedStationIds": [
-    "59098",
-    "32396",
-    "412004"
+    "413878",
+    "GlendaleAZSupercharger",
+    "34109"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 59,
+    "averageRequestMs": 112,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,7 +53,9 @@
       "WV",
       "WY",
       "AK",
-      "AL"
+      "AL",
+      "AR",
+      "AZ"
     ],
     "countries": [],
     "nearby": null,
