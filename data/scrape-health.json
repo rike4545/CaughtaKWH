@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T05:02:47.604Z",
+  "generatedAt": "2026-09-13T10:13:10.649Z",
   "requestedLimit": 100,
   "inScopeStations": 271,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "26789",
-    "26772",
-    "PhoenixAZsupercharger"
+    "58694",
+    "409145",
+    "gilabendsupercharger"
   ],
   "blockedStationIds": [
-    "26789",
-    "26772",
-    "PhoenixAZsupercharger"
+    "58694",
+    "409145",
+    "gilabendsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 153,
+    "averageRequestMs": 49,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
