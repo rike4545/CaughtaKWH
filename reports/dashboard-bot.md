@@ -1,13 +1,13 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-09-12T14:20:43.265Z
+Generated: 2026-09-13T15:01:35.754Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
 - Stations: 3112
-- Checked by scraper: 1382 (44.41%)
-- Latest attempts blocked by access controls: 1727
+- Checked by scraper: 1355 (43.54%)
+- Latest attempts blocked by access controls: 1754
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
