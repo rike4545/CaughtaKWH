@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-13T23:30:14.518Z",
+  "generatedAt": "2026-09-14T01:24:54.049Z",
   "requestedLimit": 100,
-  "inScopeStations": 268,
+  "inScopeStations": 838,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "58693",
-    "TucsonAZSupercharger2",
-    "19231"
+    "goletacasupercharger",
+    "27720",
+    "31521"
   ],
   "blockedStationIds": [
-    "58693",
-    "TucsonAZSupercharger2",
-    "19231"
+    "goletacasupercharger",
+    "27720",
+    "31521"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 164,
+    "averageRequestMs": 120,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "WA",
       "WI",
       "WV",
       "WY",
       "AK",
       "AL",
       "AR",
-      "AZ"
+      "AZ",
+      "CA"
     ],
     "countries": [],
     "nearby": null,
