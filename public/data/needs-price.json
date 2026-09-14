@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T01:52:00.178Z",
+  "generatedAt": "2026-09-14T11:02:23.340Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -1720,6 +1720,18 @@
       "reportUrl": "report.html?station=31521"
     },
     {
+      "id": "17280",
+      "name": "Anaheim, CA - E Lincoln Ave",
+      "city": "Anaheim",
+      "state": "CA",
+      "lat": 33.839003,
+      "lng": -117.888332,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=17280"
+    },
+    {
       "id": "58767",
       "name": "Austin, TX - Spirit of Texas Dr",
       "city": "Austin",
@@ -1730,6 +1742,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=58767"
+    },
+    {
+      "id": "28247",
+      "name": "Bakersfield, CA - Camino Del Rio Ct",
+      "city": "Bakersfield",
+      "state": "CA",
+      "lat": 35.382675,
+      "lng": -119.047533,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=28247"
+    },
+    {
+      "id": "BakersfieldCopusSupercharger21",
+      "name": "Bakersfield, CA - Copus Rd",
+      "city": "Kern County",
+      "state": "CA",
+      "lat": 35.094874,
+      "lng": -119.040158,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=BakersfieldCopusSupercharger21"
     },
     {
       "id": "441119",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=19568"
-    },
-    {
-      "id": "36228",
-      "name": "Clark, NJ",
-      "city": "Clark",
-      "state": "NJ",
-      "lat": 40.627689,
-      "lng": -74.301528,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=36228"
-    },
-    {
-      "id": "455465",
-      "name": "Corpus Christi, TX - S Padre Island Dr",
-      "city": "Corpus Christi",
-      "state": "TX",
-      "lat": 27.707092,
-      "lng": -97.372697,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=455465"
-    },
-    {
-      "id": "19280",
-      "name": "Covington, GA",
-      "city": "Covington",
-      "state": "GA",
-      "lat": 33.608864,
-      "lng": -83.825879,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19280"
     }
   ]
 }
