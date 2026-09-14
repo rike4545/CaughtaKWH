@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-14T01:24:54.049Z",
-  "requestedLimit": 100,
-  "inScopeStations": 838,
+  "generatedAt": "2026-09-14T04:50:41.110Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "goletacasupercharger",
-    "27720",
-    "31521"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "blockedStationIds": [
-    "goletacasupercharger",
-    "27720",
-    "31521"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 120,
+    "averageRequestMs": 125,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "WI",
-      "WV",
-      "WY",
-      "AK",
-      "AL",
-      "AR",
-      "AZ",
-      "CA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }

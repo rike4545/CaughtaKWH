@@ -1,8 +1,20 @@
 {
-  "generatedAt": "2026-09-13T19:54:57.236Z",
+  "generatedAt": "2026-09-14T01:52:00.178Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
+    {
+      "id": "goletacasupercharger",
+      "name": "Goleta, CA",
+      "city": "Goleta",
+      "state": "CA",
+      "lat": 34.428885,
+      "lng": -119.87338,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=goletacasupercharger"
+    },
     {
       "id": "457753",
       "name": "Woodcliff Lake, NJ - Chestnut Ridge Rd",
@@ -1648,6 +1660,18 @@
       "reportUrl": "report.html?station=404356"
     },
     {
+      "id": "27720",
+      "name": "Newark, CA - Gateway Blvd",
+      "city": "Newark",
+      "state": "CA",
+      "lat": 37.536013,
+      "lng": -122.063348,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27720"
+    },
+    {
       "id": "425005",
       "name": "Queens, NY - Springfield Blvd",
       "city": "Queens",
@@ -1682,6 +1706,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=58900"
+    },
+    {
+      "id": "31521",
+      "name": "Anaheim, CA - 1734  W Lincoln Ave",
+      "city": "Anaheim",
+      "state": "CA",
+      "lat": 33.83218,
+      "lng": -117.94314,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31521"
     },
     {
       "id": "58767",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=19280"
-    },
-    {
-      "id": "19511",
-      "name": "Cranbury, NJ - Forsgate Drive",
-      "city": "East Windsor",
-      "state": "NJ",
-      "lat": 40.345495,
-      "lng": -74.483726,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19511"
-    },
-    {
-      "id": "DallasTXsupercharger",
-      "name": "Dallas, TX - Park Ln",
-      "city": "Dallas",
-      "state": "TX",
-      "lat": 32.867745,
-      "lng": -96.767178,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=DallasTXsupercharger"
-    },
-    {
-      "id": "45383",
-      "name": "Delray Beach, FL - W Atlantic Ave",
-      "city": "Delray Beach",
-      "state": "FL",
-      "lat": 26.45468,
-      "lng": -80.161252,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=45383"
     }
   ]
 }
