@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T11:02:23.340Z",
+  "generatedAt": "2026-09-14T15:50:45.055Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -1768,6 +1768,30 @@
       "reportUrl": "report.html?station=BakersfieldCopusSupercharger21"
     },
     {
+      "id": "beaumontcasupercharger",
+      "name": "Beaumont, CA",
+      "city": "Beaumont",
+      "state": "CA",
+      "lat": 33.922692,
+      "lng": -116.951989,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=beaumontcasupercharger"
+    },
+    {
+      "id": "BreaCA1supercharger",
+      "name": "Brea, CA",
+      "city": "Brea",
+      "state": "CA",
+      "lat": 33.914491,
+      "lng": -117.883662,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=BreaCA1supercharger"
+    },
+    {
       "id": "441119",
       "name": "Brooklyn, NY - 8923 Bay Pkwy",
       "city": "Brooklyn",
@@ -2378,30 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=437210"
-    },
-    {
-      "id": "27087",
-      "name": "Burlington, WA - Marketplace Dr",
-      "city": "Burlington",
-      "state": "WA",
-      "lat": 48.4511937,
-      "lng": -122.33983,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=27087"
-    },
-    {
-      "id": "19568",
-      "name": "Champlain, NY",
-      "city": "Champlain",
-      "state": "NY",
-      "lat": 44.978988,
-      "lng": -73.445349,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19568"
     }
   ]
 }
