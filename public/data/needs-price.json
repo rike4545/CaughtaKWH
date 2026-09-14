@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T17:05:45.128Z",
+  "generatedAt": "2026-09-14T21:05:06.397Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -1816,6 +1816,42 @@
       "reportUrl": "report.html?station=7951"
     },
     {
+      "id": "3453",
+      "name": "Buellton, CA - McMurray Rd",
+      "city": "Buellton",
+      "state": "CA",
+      "lat": 34.61456,
+      "lng": -120.188387,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=3453"
+    },
+    {
+      "id": "26339",
+      "name": "Burlingame, CA",
+      "city": "Burlingame",
+      "state": "CA",
+      "lat": 37.591194,
+      "lng": -122.348705,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26339"
+    },
+    {
+      "id": "CalabasasCAsupercharger",
+      "name": "Calabasas, CA",
+      "city": "Calabasas",
+      "state": "CA",
+      "lat": 34.154607,
+      "lng": -118.645367,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=CalabasasCAsupercharger"
+    },
+    {
       "id": "35205",
       "name": "Canton, MA",
       "city": "Canton",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=BoyntonBeachFLSupercharger"
-    },
-    {
-      "id": "braintreesupercharger",
-      "name": "Braintree, MA",
-      "city": "Braintree",
-      "state": "MA",
-      "lat": 42.222955,
-      "lng": -71.021964,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=braintreesupercharger"
-    },
-    {
-      "id": "brownsvilletxbocachicablvd",
-      "name": "Brownsville, TX - Boca Chica Blvd",
-      "city": "Brownsville",
-      "state": "TX",
-      "lat": 25.943983,
-      "lng": -97.42941,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=brownsvilletxbocachicablvd"
-    },
-    {
-      "id": "437210",
-      "name": "Bryan, TX",
-      "city": "Bryan",
-      "state": "TX",
-      "lat": 30.642521,
-      "lng": -96.350206,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=437210"
     }
   ]
 }
