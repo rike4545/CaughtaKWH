@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T02:00:53.482Z",
+  "generatedAt": "2026-09-15T10:32:17.131Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -1936,6 +1936,30 @@
       "reportUrl": "report.html?station=ClydeTXQ322"
     },
     {
+      "id": "CommerceCAsupercharger",
+      "name": "Commerce, CA",
+      "city": "Commerce",
+      "state": "CA",
+      "lat": 34.006382,
+      "lng": -118.148878,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=CommerceCAsupercharger"
+    },
+    {
+      "id": "19778",
+      "name": "Costa Mesa, CA - S Coast Dr",
+      "city": "Costa Mesa",
+      "state": "CA",
+      "lat": 33.69019,
+      "lng": -117.914502,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19778"
+    },
+    {
       "id": "32554",
       "name": "Davenport, FL - Grandview Pkwy",
       "city": "Davenport",
@@ -1948,6 +1972,18 @@
       "reportUrl": "report.html?station=32554"
     },
     {
+      "id": "401813",
+      "name": "Davis, CA - Russell Blvd",
+      "city": "Davis",
+      "state": "CA",
+      "lat": 38.547712,
+      "lng": -121.759154,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=401813"
+    },
+    {
       "id": "426107",
       "name": "Daytona Beach, FL - S Nova Rd",
       "city": "Daytona Beach",
@@ -1958,6 +1994,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=426107"
+    },
+    {
+      "id": "20325",
+      "name": "East Palo Alto, CA - 1700 E Bayshore Rd",
+      "city": "East Palo Alto",
+      "state": "CA",
+      "lat": 37.460392,
+      "lng": -122.138404,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20325"
+    },
+    {
+      "id": "59132",
+      "name": "El Centro, CA -  N Imperial Ave",
+      "city": "El Centro",
+      "state": "CA",
+      "lat": 32.814081,
+      "lng": -115.568091,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=59132"
     },
     {
       "id": "32648",
@@ -2342,66 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=auburnmasupercharger"
-    },
-    {
-      "id": "32768",
-      "name": "Austin, TX - E 41st St",
-      "city": "Austin",
-      "state": "TX",
-      "lat": 30.29873,
-      "lng": -97.719606,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32768"
-    },
-    {
-      "id": "32766",
-      "name": "Austin, TX - E Ben White Blvd",
-      "city": "Austin",
-      "state": "TX",
-      "lat": 30.214915,
-      "lng": -97.742151,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32766"
-    },
-    {
-      "id": "403157",
-      "name": "Austin, TX - E Stassney Ln",
-      "city": "Austin",
-      "state": "TX",
-      "lat": 30.200106,
-      "lng": -97.767194,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=403157"
-    },
-    {
-      "id": "32767",
-      "name": "Austin, TX - W Canyon Ridge Dr",
-      "city": "Austin",
-      "state": "TX",
-      "lat": 30.403691,
-      "lng": -97.6734,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32767"
-    },
-    {
-      "id": "BigSpringTXQ322",
-      "name": "Big Spring, TX",
-      "city": "Big Spring",
-      "state": "TX",
-      "lat": 32.258086,
-      "lng": -101.453298,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=BigSpringTXQ322"
     }
   ]
 }
