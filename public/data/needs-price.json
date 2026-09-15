@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T15:45:17.700Z",
+  "generatedAt": "2026-09-15T20:30:15.875Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -2080,6 +2080,18 @@
       "reportUrl": "report.html?station=20483"
     },
     {
+      "id": "36216",
+      "name": "Galt, CA",
+      "city": "Galt",
+      "state": "CA",
+      "lat": 38.289405,
+      "lng": -121.306547,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=36216"
+    },
+    {
       "id": "GardenCityNYSupercharger",
       "name": "Garden City, NY",
       "city": "Garden City",
@@ -2090,6 +2102,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=GardenCityNYSupercharger"
+    },
+    {
+      "id": "31898",
+      "name": "Gardena, CA",
+      "city": "Gardena",
+      "state": "CA",
+      "lat": 33.873097,
+      "lng": -118.302972,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31898"
+    },
+    {
+      "id": "58497",
+      "name": "Gilroy, CA - Arroyo Cir",
+      "city": "Gilroy",
+      "state": "CA",
+      "lat": 37.019766,
+      "lng": -121.564216,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58497"
     },
     {
       "id": "4008968",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4008818"
-    },
-    {
-      "id": "whartonTXsupercharger",
-      "name": "Wharton, TX",
-      "city": "Wharton",
-      "state": "TX",
-      "lat": 29.325098,
-      "lng": -96.124308,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=whartonTXsupercharger"
-    },
-    {
-      "id": "58303",
-      "name": "Houston, TX - Kipling Street",
-      "city": "Houston",
-      "state": "TX",
-      "lat": 29.740076,
-      "lng": -95.411911,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58303"
-    },
-    {
-      "id": "2251",
-      "name": "Atlanta, GA",
-      "city": "Atlanta",
-      "state": "GA",
-      "lat": 33.793808,
-      "lng": -84.397203,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=2251"
     }
   ]
 }
