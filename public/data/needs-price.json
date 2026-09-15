@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T10:32:17.131Z",
+  "generatedAt": "2026-09-15T15:45:17.700Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -2020,6 +2020,18 @@
       "reportUrl": "report.html?station=59132"
     },
     {
+      "id": "34620",
+      "name": "El Monte, CA - Peck Rd",
+      "city": "El Monte",
+      "state": "CA",
+      "lat": 34.074386,
+      "lng": -118.02236,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=34620"
+    },
+    {
       "id": "32648",
       "name": "El Paso, TX - Desert Blvd N",
       "city": "El Paso",
@@ -2030,6 +2042,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=32648"
+    },
+    {
+      "id": "58904",
+      "name": "Encinitas, CA - N El Camino Real",
+      "city": "Encinitas",
+      "state": "CA",
+      "lat": 33.068208,
+      "lng": -117.267074,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=58904"
+    },
+    {
+      "id": "26153",
+      "name": "Escondido, CA",
+      "city": "Escondido",
+      "state": "CA",
+      "lat": 33.129482,
+      "lng": -117.087583,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=26153"
     },
     {
       "id": "20483",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=2251"
-    },
-    {
-      "id": "59214",
-      "name": "[Wawa] Alachua, FL - NW US Hwy 441",
-      "city": "Alachua",
-      "state": "FL",
-      "lat": 29.804109,
-      "lng": -82.52707,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59214"
-    },
-    {
-      "id": "AddisonTXQ322",
-      "name": "Addison, TX",
-      "city": "Addison",
-      "state": "TX",
-      "lat": 32.950179,
-      "lng": -96.81853,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=AddisonTXQ322"
-    },
-    {
-      "id": "auburnmasupercharger",
-      "name": "Auburn, MA",
-      "city": "Auburn",
-      "state": "MA",
-      "lat": 42.203764,
-      "lng": -71.832954,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=auburnmasupercharger"
     }
   ]
 }
