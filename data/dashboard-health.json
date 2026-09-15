@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-14T17:02:13.668Z",
+  "generatedAt": "2026-09-15T15:40:11.680Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3112,
-    "checkedStations": 1336,
-    "checkedPct": 42.93,
+    "checkedStations": 1321,
+    "checkedPct": 42.45,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1774,
+    "blockedStations": 1789,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -26,14 +26,14 @@
     {
       "state": "CA",
       "stations": 660,
-      "checked": 566,
+      "checked": 551,
       "priced": 0,
       "usable": 0,
       "stale": 660,
-      "checkedPct": 85.76,
+      "checkedPct": 83.48,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 310546.95
+      "priorityScore": 312515.85
     },
     {
       "state": "FL",
@@ -138,7 +138,7 @@
       "state": "CA",
       "city": "Goleta",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-14T13:20:24.149Z",
+      "lastAttemptedAt": "2026-09-15T05:19:50.928Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 863
@@ -171,7 +171,7 @@
       "state": "CO",
       "city": "Greeley",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-07-31T11:39:00.936Z",
+      "lastAttemptedAt": "2026-09-15T00:36:34.489Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 823
@@ -182,7 +182,7 @@
       "state": "CO",
       "city": "Pagosa Springs",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-07-31T11:39:00.936Z",
+      "lastAttemptedAt": "2026-09-15T00:36:34.489Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 823
