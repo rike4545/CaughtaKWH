@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T21:05:06.397Z",
+  "generatedAt": "2026-09-15T02:00:53.482Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -1852,6 +1852,18 @@
       "reportUrl": "report.html?station=CalabasasCAsupercharger"
     },
     {
+      "id": "35889",
+      "name": "Camarillo, CA",
+      "city": "Camarillo",
+      "state": "CA",
+      "lat": 34.21679,
+      "lng": -119.06643,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=35889"
+    },
+    {
       "id": "35205",
       "name": "Canton, MA",
       "city": "Canton",
@@ -1864,6 +1876,18 @@
       "reportUrl": "report.html?station=35205"
     },
     {
+      "id": "27777",
+      "name": "Carson, CA - E Carson St",
+      "city": "Carson",
+      "state": "CA",
+      "lat": 33.833432,
+      "lng": -118.260086,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27777"
+    },
+    {
       "id": "20521",
       "name": "Carteret, NJ",
       "city": "Carteret",
@@ -1874,6 +1898,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=20521"
+    },
+    {
+      "id": "31523",
+      "name": "Chino, CA",
+      "city": "Chino",
+      "state": "CA",
+      "lat": 33.957375,
+      "lng": -117.623658,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=31523"
+    },
+    {
+      "id": "IndustryCAsupercharger",
+      "name": "City of Industry, CA - Gale Ave",
+      "city": "City of Industry",
+      "state": "CA",
+      "lat": 33.994605,
+      "lng": -117.899677,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=IndustryCAsupercharger"
     },
     {
       "id": "ClydeTXQ322",
@@ -2354,54 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=BigSpringTXQ322"
-    },
-    {
-      "id": "404062",
-      "name": "Birmingham, AL - 1st Ave S",
-      "city": "Birmingham",
-      "state": "AL",
-      "lat": 33.512531,
-      "lng": -86.801796,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=404062"
-    },
-    {
-      "id": "59126",
-      "name": "Blackwood, NJ",
-      "city": "Blackwood",
-      "state": "NJ",
-      "lat": 39.786596,
-      "lng": -75.054587,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59126"
-    },
-    {
-      "id": "18992",
-      "name": "Blaine, WA - Boblett St",
-      "city": "Blaine",
-      "state": "WA",
-      "lat": 48.990945,
-      "lng": -122.734368,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=18992"
-    },
-    {
-      "id": "BoyntonBeachFLSupercharger",
-      "name": "Boynton Beach, FL",
-      "city": "Boynton Beach",
-      "state": "FL",
-      "lat": 26.533567,
-      "lng": -80.089394,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=BoyntonBeachFLSupercharger"
     }
   ]
 }
