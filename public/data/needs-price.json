@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-15T20:30:15.875Z",
+  "generatedAt": "2026-09-16T01:51:55.592Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -2128,6 +2128,30 @@
       "reportUrl": "report.html?station=58497"
     },
     {
+      "id": "18583",
+      "name": "Gilroy, CA - Renz Ln",
+      "city": "Gilroy",
+      "state": "CA",
+      "lat": 37.006813,
+      "lng": -121.550689,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=18583"
+    },
+    {
+      "id": "27561",
+      "name": "Grover Beach, CA",
+      "city": "Grover Beach",
+      "state": "CA",
+      "lat": 35.120445,
+      "lng": -120.610347,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27561"
+    },
+    {
       "id": "4008968",
       "name": "Hackensack, NJ - W Pleasantview Ave",
       "city": "Hackensack",
@@ -2138,6 +2162,54 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4008968"
+    },
+    {
+      "id": "hawthornecaweststreetsupercharger",
+      "name": "Hawthorne, CA - W 120th St",
+      "city": "Hawthorne",
+      "state": "CA",
+      "lat": 33.923198,
+      "lng": -118.322218,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=hawthornecaweststreetsupercharger"
+    },
+    {
+      "id": "28480",
+      "name": "Hayward, CA - 249 W Jackson St",
+      "city": "Hayward",
+      "state": "CA",
+      "lat": 37.653177,
+      "lng": -122.09032,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=28480"
+    },
+    {
+      "id": "hermosabeachcasupercharger",
+      "name": "Hermosa Beach, CA",
+      "city": "Hermosa Beach",
+      "state": "CA",
+      "lat": 33.864955,
+      "lng": -118.394819,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=hermosabeachcasupercharger"
+    },
+    {
+      "id": "hesperiasupercharger",
+      "name": "Hesperia, CA",
+      "city": "Hesperia",
+      "state": "CA",
+      "lat": 34.424864,
+      "lng": -117.385861,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=hesperiasupercharger"
     },
     {
       "id": "428917",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=58802"
-    },
-    {
-      "id": "20484",
-      "name": "Royse City, TX",
-      "city": "Royse City",
-      "state": "TX",
-      "lat": 32.979184,
-      "lng": -96.296371,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20484"
-    },
-    {
-      "id": "19117",
-      "name": "San Antonio, TX - Worth Pkwy",
-      "city": "San Antonio",
-      "state": "TX",
-      "lat": 29.613001,
-      "lng": -98.601377,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=19117"
-    },
-    {
-      "id": "32949",
-      "name": "St. Petersburg, FL - 25th St N",
-      "city": "St. Petersburg",
-      "state": "FL",
-      "lat": 27.793339,
-      "lng": -82.666714,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32949"
-    },
-    {
-      "id": "407679",
-      "name": "Stuart, FL - SW Lost River Rd",
-      "city": "Stuart",
-      "state": "FL",
-      "lat": 27.111067,
-      "lng": -80.25928,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407679"
-    },
-    {
-      "id": "4008768",
-      "name": "Teaneck, NJ",
-      "city": "Teaneck",
-      "state": "NJ",
-      "lat": 40.871041,
-      "lng": -74.005224,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4008768"
-    },
-    {
-      "id": "4008818",
-      "name": "Tumwater, WA - Kingswood Dr SW",
-      "city": "Tumwater",
-      "state": "WA",
-      "lat": 46.993092,
-      "lng": -122.921688,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4008818"
     }
   ]
 }

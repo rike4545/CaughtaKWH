@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-15T23:48:23.662Z",
+  "generatedAt": "2026-09-16T02:08:04.325Z",
   "requestedLimit": 100,
-  "inScopeStations": 863,
+  "inScopeStations": 886,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "28480",
-    "hermosabeachcasupercharger",
-    "hesperiasupercharger"
+    "18586",
+    "35664",
+    "LakewoodCASupercharger"
   ],
   "blockedStationIds": [
-    "28480",
-    "hermosabeachcasupercharger",
-    "hesperiasupercharger"
+    "18586",
+    "35664",
+    "LakewoodCASupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 96,
+    "averageRequestMs": 65,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "WV",
       "WY",
       "AK",
       "AL",
       "AR",
       "AZ",
       "CA",
-      "CO"
+      "CO",
+      "CT"
     ],
     "countries": [],
     "nearby": null,
