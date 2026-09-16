@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T17:22:29.083Z",
+  "generatedAt": "2026-09-16T20:17:19.531Z",
   "requestedLimit": 100,
   "inScopeStations": 889,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "4006018",
-    "19880",
-    "4006859"
+    "17697",
+    "palmdalecaliforniasupercharger",
+    "PasadenaCASupercharger22"
   ],
   "blockedStationIds": [
-    "4006018",
-    "19880",
-    "4006859"
+    "17697",
+    "palmdalecaliforniasupercharger",
+    "PasadenaCASupercharger22"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 43,
+    "averageRequestMs": 138,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
