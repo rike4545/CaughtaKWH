@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T10:21:13.803Z",
+  "generatedAt": "2026-09-16T15:37:21.345Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -2308,6 +2308,18 @@
       "reportUrl": "report.html?station=27525"
     },
     {
+      "id": "18458",
+      "name": "Lost Hills, CA",
+      "city": "Lost Hills",
+      "state": "CA",
+      "lat": 35.616874,
+      "lng": -119.656098,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=18458"
+    },
+    {
       "id": "407626",
       "name": "Melbourne, FL - Norfolk Pkwy",
       "city": "Melbourne",
@@ -2344,6 +2356,30 @@
       "reportUrl": "report.html?station=26440"
     },
     {
+      "id": "4009033",
+      "name": "Milpitas, CA - Barber Ln",
+      "city": "Milpitas",
+      "state": "CA",
+      "lat": 37.419397,
+      "lng": -121.915162,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4009033"
+    },
+    {
+      "id": "20977",
+      "name": "Mojave, CA - 16870 CA-14",
+      "city": "Mojave",
+      "state": "CA",
+      "lat": 35.067855,
+      "lng": -118.175439,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=20977"
+    },
+    {
       "id": "nashtx",
       "name": "Nash, TX",
       "city": "Nash",
@@ -2366,42 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=424060"
-    },
-    {
-      "id": "435458",
-      "name": "Ocala, FL - SW College Rd",
-      "city": "Ocala",
-      "state": "FL",
-      "lat": 29.173869,
-      "lng": -82.158118,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=435458"
-    },
-    {
-      "id": "58911",
-      "name": "Ocoee, FL - W Colonial Dr",
-      "city": "Ocoee",
-      "state": "FL",
-      "lat": 28.553479,
-      "lng": -81.519969,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58911"
-    },
-    {
-      "id": "4006805",
-      "name": "Orlando, FL - Eagle Watch Dr",
-      "city": "Orlando",
-      "state": "FL",
-      "lat": 28.460949,
-      "lng": -81.308287,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4006805"
     }
   ]
 }
