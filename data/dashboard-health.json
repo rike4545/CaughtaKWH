@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-15T15:40:11.680Z",
+  "generatedAt": "2026-09-16T15:31:08.780Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3112,
-    "checkedStations": 1321,
-    "checkedPct": 42.45,
+    "checkedStations": 1304,
+    "checkedPct": 41.9,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1789,
+    "blockedStations": 1806,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -26,14 +26,14 @@
     {
       "state": "CA",
       "stations": 660,
-      "checked": 551,
+      "checked": 534,
       "priced": 0,
       "usable": 0,
       "stale": 660,
-      "checkedPct": 83.48,
+      "checkedPct": 80.91,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 312515.85
+      "priorityScore": 314759.01
     },
     {
       "state": "FL",
@@ -138,7 +138,7 @@
       "state": "CA",
       "city": "Goleta",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-15T05:19:50.928Z",
+      "lastAttemptedAt": "2026-09-16T07:39:32.782Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 863
