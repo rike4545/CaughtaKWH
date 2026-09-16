@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T01:51:55.592Z",
+  "generatedAt": "2026-09-16T10:21:13.803Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -2212,6 +2212,18 @@
       "reportUrl": "report.html?station=hesperiasupercharger"
     },
     {
+      "id": "18586",
+      "name": "Hollister, CA - Airline Hwy",
+      "city": "Hollister",
+      "state": "CA",
+      "lat": 36.837926,
+      "lng": -121.391328,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=18586"
+    },
+    {
       "id": "428917",
       "name": "Inwood, NY",
       "city": "Inwood",
@@ -2222,6 +2234,30 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=428917"
+    },
+    {
+      "id": "35664",
+      "name": "Jurupa Valley, CA",
+      "city": "Jurupa Valley",
+      "state": "CA",
+      "lat": 34.012561,
+      "lng": -117.460477,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=35664"
+    },
+    {
+      "id": "LakewoodCASupercharger",
+      "name": "Lakewood, CA",
+      "city": "Lakewood",
+      "state": "CA",
+      "lat": 33.858572,
+      "lng": -118.116389,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=LakewoodCASupercharger"
     },
     {
       "id": "LittleFerryNJQ322",
@@ -2236,6 +2272,18 @@
       "reportUrl": "report.html?station=LittleFerryNJQ322"
     },
     {
+      "id": "longbeachsupercharger",
+      "name": "Long Beach, CA",
+      "city": "Long Beach",
+      "state": "CA",
+      "lat": 33.7574,
+      "lng": -118.1074,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=longbeachsupercharger"
+    },
+    {
       "id": "32724",
       "name": "Lorena, TX",
       "city": "Lorena",
@@ -2246,6 +2294,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=32724"
+    },
+    {
+      "id": "27525",
+      "name": "Los Altos, CA - Loucks Ave",
+      "city": "Los Altos",
+      "state": "CA",
+      "lat": 37.399922,
+      "lng": -122.114897,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27525"
     },
     {
       "id": "407626",
@@ -2342,66 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4006805"
-    },
-    {
-      "id": "34107",
-      "name": "Orlando, FL - Town Center Blvd",
-      "city": "Orlando",
-      "state": "FL",
-      "lat": 28.369498,
-      "lng": -81.405813,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=34107"
-    },
-    {
-      "id": "34872",
-      "name": "Paramus, NJ - 200 NJ-17",
-      "city": "Paramus",
-      "state": "NJ",
-      "lat": 40.93436,
-      "lng": -74.068608,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=34872"
-    },
-    {
-      "id": "59222",
-      "name": "Pinellas Park, FL - US Hwy 19 N",
-      "city": "Pinellas Park",
-      "state": "FL",
-      "lat": 27.837153,
-      "lng": -82.683432,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59222"
-    },
-    {
-      "id": "407484",
-      "name": "Pompano Beach, FL",
-      "city": "Pompano Beach",
-      "state": "FL",
-      "lat": 26.27553,
-      "lng": -80.152819,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407484"
-    },
-    {
-      "id": "58802",
-      "name": "Round Rock, TX - University Blvd",
-      "city": "Round Rock",
-      "state": "TX",
-      "lat": 30.562315,
-      "lng": -97.689666,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=58802"
     }
   ]
 }
