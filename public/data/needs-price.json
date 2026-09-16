@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T15:37:21.345Z",
+  "generatedAt": "2026-09-16T20:29:54.574Z",
   "totalStations": 3112,
   "needsCount": 200,
   "stations": [
@@ -2380,6 +2380,18 @@
       "reportUrl": "report.html?station=20977"
     },
     {
+      "id": "4006018",
+      "name": "Murrieta, CA - Murrieta Hot Springs Rd",
+      "city": "Murrieta",
+      "state": "CA",
+      "lat": 33.553761,
+      "lng": -117.139723,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=4006018"
+    },
+    {
       "id": "nashtx",
       "name": "Nash, TX",
       "city": "Nash",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=nashtx"
-    },
-    {
-      "id": "424060",
-      "name": "North New Hyde Park, NY",
-      "city": "North New Hyde Park",
-      "state": "NY",
-      "lat": 40.750893,
-      "lng": -73.674394,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=424060"
     }
   ]
 }
