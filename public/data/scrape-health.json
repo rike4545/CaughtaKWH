@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-17T11:36:36.371Z",
-  "requestedLimit": 10,
-  "inScopeStations": 3,
+  "generatedAt": "2026-09-17T11:54:45.300Z",
+  "requestedLimit": 100,
+  "inScopeStations": 880,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 7,
+  "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "26660",
-    "NorthBabylonNYSupercharger",
-    "shirleynysupercharger"
+    "SanLuisObispoCASupercharger3",
+    "SanMarcosCAsupercharger",
+    "4001213"
   ],
   "blockedStationIds": [
-    "26660",
-    "NorthBabylonNYSupercharger",
-    "shirleynysupercharger"
+    "SanLuisObispoCASupercharger3",
+    "SanMarcosCAsupercharger",
+    "4001213"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 167,
+    "averageRequestMs": 51,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,9 +47,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "AK",
+      "AL",
+      "AR",
+      "AZ",
+      "CA",
+      "CO",
+      "CT",
+      "DC"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
