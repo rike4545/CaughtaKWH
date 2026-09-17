@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T11:54:45.300Z",
+  "generatedAt": "2026-09-17T15:48:53.825Z",
   "requestedLimit": 100,
   "inScopeStations": 880,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 6,
   "attemptedStationIds": [
-    "SanLuisObispoCASupercharger3",
-    "SanMarcosCAsupercharger",
-    "4001213"
+    "santamariacasupercharger",
+    "4002766",
+    "santarosacasupercharger"
   ],
   "blockedStationIds": [
-    "SanLuisObispoCASupercharger3",
-    "SanMarcosCAsupercharger",
-    "4001213"
+    "santamariacasupercharger",
+    "4002766",
+    "santarosacasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 51,
+    "averageRequestMs": 43,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
