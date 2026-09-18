@@ -72456,12 +72456,12 @@
     },
     "superchargeInfoMatchedAt": "2026-09-13",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-09-15T00:36:34.489Z",
-    "lastBlockedAt": "2026-09-15T00:36:34.489Z",
+    "lastAttemptedAt": "2026-09-18T05:10:58.882Z",
+    "lastBlockedAt": "2026-09-18T05:10:58.882Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 5,
+    "consecutiveBlockedAttempts": 6,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-09-18T00:36:34.489Z",
+    "nextScrapeEligibleAt": "2026-09-21T05:10:58.882Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -72471,7 +72471,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 89,
+        "durationMs": 110,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -72485,7 +72485,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 89
+      "averageRequestMs": 110
     },
     "observationPriorityScore": 823
   },
@@ -138349,12 +138349,12 @@
     },
     "superchargeInfoMatchedAt": "2026-09-13",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-09-15T00:36:34.489Z",
-    "lastBlockedAt": "2026-09-15T00:36:34.489Z",
+    "lastAttemptedAt": "2026-09-18T05:10:58.882Z",
+    "lastBlockedAt": "2026-09-18T05:10:58.882Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 5,
+    "consecutiveBlockedAttempts": 6,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-09-18T00:36:34.489Z",
+    "nextScrapeEligibleAt": "2026-09-21T05:10:58.882Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -138364,7 +138364,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 52,
+        "durationMs": 42,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -138378,7 +138378,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 52
+      "averageRequestMs": 42
     },
     "observationPriorityScore": 823
   },
@@ -191716,7 +191716,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.73,
+    "observationPriorityScore": 586,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4750,
@@ -191744,7 +191744,39 @@
     "plugTypes": {
       "nacs": 19
     },
-    "superchargeInfoMatchedAt": "2026-09-13"
+    "superchargeInfoMatchedAt": "2026-09-13",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-18T05:10:58.882Z",
+    "lastBlockedAt": "2026-09-18T05:10:58.882Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-18T11:10:58.882Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/VisaliaCAsupercharger",
+        "reason": "city_state_slug",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 41,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 41
+    }
   },
   {
     "id": "400323",
