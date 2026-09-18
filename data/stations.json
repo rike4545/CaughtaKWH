@@ -139024,7 +139024,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.46,
+    "observationPriorityScore": 586,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4750,
@@ -139047,7 +139047,39 @@
       "tpc": 0,
       "nacs": 19
     },
-    "superchargeInfoMatchedAt": "2026-09-13"
+    "superchargeInfoMatchedAt": "2026-09-13",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-18T00:30:49.773Z",
+    "lastBlockedAt": "2026-09-18T00:30:49.773Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-18T06:30:49.773Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/PaloAltoCASupercharger2",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 90,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 90
+    }
   },
   {
     "id": "stanfordshoppingsupercharger",
@@ -191858,7 +191890,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.78,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 5000,
@@ -191881,7 +191913,39 @@
       "tpc": 0,
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-09-13"
+    "superchargeInfoMatchedAt": "2026-09-13",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-18T00:30:49.773Z",
+    "lastBlockedAt": "2026-09-18T00:30:49.773Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-18T06:30:49.773Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19899",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 187,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 187
+    }
   },
   {
     "id": "wacotxsupercharger",
@@ -195181,7 +195245,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.99,
+    "observationPriorityScore": 587,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 5000,
@@ -195208,7 +195272,39 @@
     "plugTypes": {
       "nacs": 20
     },
-    "superchargeInfoMatchedAt": "2026-09-13"
+    "superchargeInfoMatchedAt": "2026-09-13",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-18T00:30:49.773Z",
+    "lastBlockedAt": "2026-09-18T00:30:49.773Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-18T06:30:49.773Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/32215",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 115,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 115
+    }
   },
   {
     "id": "WestCovinaCAQ42022",
