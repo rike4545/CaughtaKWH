@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-19T16:26:03.687Z",
+  "generatedAt": "2026-09-19T18:40:27.980Z",
   "requestedLimit": 100,
-  "inScopeStations": 1098,
+  "inScopeStations": 1095,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "30950",
-    "18838",
-    "DavisCAsupercharger"
+    "401806",
+    "16661",
+    "EastvaleCAsupercharger"
   ],
   "blockedStationIds": [
-    "30950",
-    "18838",
-    "DavisCAsupercharger"
+    "401806",
+    "16661",
+    "EastvaleCAsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 42,
+    "averageRequestMs": 51,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
