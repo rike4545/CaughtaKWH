@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T20:59:40.247Z",
+  "generatedAt": "2026-09-19T22:41:39.918Z",
   "requestedLimit": 100,
   "inScopeStations": 1095,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "19741",
-    "elkgrovecaelkgroveblvdsupercharger",
-    "fremontcapacificcommonsblvdsupercharger"
+    "31549",
+    "18293",
+    "glendalecasupercharger2"
   ],
   "blockedStationIds": [
-    "19741",
-    "elkgrovecaelkgroveblvdsupercharger",
-    "fremontcapacificcommonsblvdsupercharger"
+    "31549",
+    "18293",
+    "glendalecasupercharger2"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 229,
+    "averageRequestMs": 77,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
