@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T00:23:31.315Z",
-  "requestedLimit": 100,
-  "inScopeStations": 1167,
+  "generatedAt": "2026-09-20T04:49:59.749Z",
+  "requestedLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 12,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "EastPointGAsupercharger",
-    "16221",
-    "20757"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
-    "EastPointGAsupercharger",
-    "16221",
-    "20757"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 68,
+    "averageRequestMs": 100,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,7 +37,7 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
@@ -47,18 +47,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "AZ",
-      "CA",
-      "CO",
-      "CT",
-      "DC",
-      "DE",
-      "FL",
-      "GA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
