@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T17:05:35.046Z",
+  "generatedAt": "2026-09-20T19:25:59.889Z",
   "requestedLimit": 100,
-  "inScopeStations": 1170,
+  "inScopeStations": 1167,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 12,
   "attemptedStationIds": [
-    "MaderaCASupercharger",
-    "402362",
-    "MartinezCAsupercharger"
+    "30860",
+    "407357",
+    "26922"
   ],
   "blockedStationIds": [
-    "MaderaCASupercharger",
-    "402362",
-    "MartinezCAsupercharger"
+    "30860",
+    "407357",
+    "26922"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 146,
+    "averageRequestMs": 91,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
