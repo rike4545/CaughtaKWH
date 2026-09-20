@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-20T13:42:30.299Z",
-  "requestedLimit": 300,
-  "inScopeStations": 844,
+  "generatedAt": "2026-09-20T13:47:22.993Z",
+  "requestedLimit": 100,
+  "inScopeStations": 1170,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 9,
   "attemptedStationIds": [
-    "19801",
-    "LakeElsinoreCAQ322",
-    "26979"
+    "14819",
+    "lonepinecasupercharger",
+    "12869"
   ],
   "blockedStationIds": [
-    "19801",
-    "LakeElsinoreCAQ322",
-    "26979"
+    "14819",
+    "lonepinecasupercharger",
+    "12869"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 37,
+    "averageRequestMs": 83,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -53,7 +53,9 @@
       "CO",
       "CT",
       "DC",
-      "DE"
+      "DE",
+      "FL",
+      "GA"
     ],
     "countries": [],
     "nearby": null,
