@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-09-19T14:44:46.820Z",
+  "generatedAt": "2026-09-20T14:50:04.763Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3112,
-    "checkedStations": 1247,
-    "checkedPct": 40.07,
+    "checkedStations": 1220,
+    "checkedPct": 39.2,
     "priceFoundStations": 0,
     "priceFoundPct": 0,
     "availabilityOnlyStations": 0,
-    "blockedStations": 1863,
+    "blockedStations": 1890,
     "pricedStations": 1,
     "pricedPct": 0.03,
     "usableHistoryStations": 0,
@@ -26,14 +26,14 @@
     {
       "state": "CA",
       "stations": 660,
-      "checked": 477,
+      "checked": 451,
       "priced": 0,
       "usable": 0,
       "stale": 660,
-      "checkedPct": 72.27,
+      "checkedPct": 68.33,
       "pricedPct": 0,
       "usablePct": 0,
-      "priorityScore": 322158.76
+      "priorityScore": 325505.33
     },
     {
       "state": "FL",
@@ -127,7 +127,7 @@
       "state": "NY",
       "city": "Lake Grove",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-17T04:48:26.605Z",
+      "lastAttemptedAt": "2026-09-20T04:49:59.749Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 1265
