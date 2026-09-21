@@ -71921,12 +71921,12 @@
     },
     "superchargeInfoMatchedAt": "2026-09-20",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-09-18T09:42:27.352Z",
-    "lastBlockedAt": "2026-09-18T09:42:27.352Z",
+    "lastAttemptedAt": "2026-09-21T13:20:00.942Z",
+    "lastBlockedAt": "2026-09-21T13:20:00.942Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 5,
+    "consecutiveBlockedAttempts": 6,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-09-21T09:42:27.352Z",
+    "nextScrapeEligibleAt": "2026-09-24T13:20:00.942Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -71936,7 +71936,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 204,
+        "durationMs": 113,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -71950,7 +71950,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 204
+      "averageRequestMs": 113
     },
     "observationPriorityScore": 863
   },
@@ -154623,7 +154623,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.88,
+    "observationPriorityScore": 583,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4000,
@@ -154647,7 +154647,39 @@
     },
     "superchargeInfoMatchedAt": "2026-09-20",
     "facilityName": "Pacific East Mall",
-    "plugshareId": 245934
+    "plugshareId": 245934,
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-21T13:20:00.942Z",
+    "lastBlockedAt": "2026-09-21T13:20:00.942Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-21T19:20:00.942Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/richmondcapiercestreetsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 57,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 57
+    }
   },
   {
     "id": "richmondinsupercharger",
@@ -155903,7 +155935,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 452.97,
+    "observationPriorityScore": 583,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 4000,
@@ -155928,7 +155960,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-09-20"
+    "superchargeInfoMatchedAt": "2026-09-20",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-21T13:20:00.942Z",
+    "lastBlockedAt": "2026-09-21T13:20:00.942Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-21T19:20:00.942Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/riversidecanyonspringssupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 58,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 58
+    }
   },
   {
     "id": "riverviewsupercharger",
