@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T05:42:45.994Z",
+  "generatedAt": "2026-09-22T10:22:06.214Z",
   "requestedLimit": 100,
   "inScopeStations": 477,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 5,
   "attemptedStationIds": [
-    "YuleeFLsupercharger",
-    "17945",
-    "lakelandflsupercharger"
+    "18929",
+    "484317",
+    "490113"
   ],
   "blockedStationIds": [
-    "YuleeFLsupercharger",
-    "17945",
-    "lakelandflsupercharger"
+    "18929",
+    "484317",
+    "490113"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 158,
+    "averageRequestMs": 90,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
