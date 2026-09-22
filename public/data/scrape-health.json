@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-22T21:43:35.005Z",
+  "generatedAt": "2026-09-22T23:49:21.905Z",
   "requestedLimit": 100,
-  "inScopeStations": 477,
+  "inScopeStations": 474,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 5,
+  "cooldownSkipped": 8,
   "attemptedStationIds": [
-    "35124",
-    "58699",
-    "27234"
+    "27309",
+    "lakewoodwcosupercharger",
+    "58918"
   ],
   "blockedStationIds": [
-    "35124",
-    "58699",
-    "27234"
+    "27309",
+    "lakewoodwcosupercharger",
+    "58918"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 95,
+    "averageRequestMs": 181,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
