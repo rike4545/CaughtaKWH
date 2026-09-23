@@ -175076,7 +175076,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.34,
+    "observationPriorityScore": 571,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 5200,
@@ -175102,7 +175102,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-09-20"
+    "superchargeInfoMatchedAt": "2026-09-20",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-23T13:01:35.062Z",
+    "lastBlockedAt": "2026-09-23T13:01:35.062Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-23T19:01:35.062Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/437123",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 181,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 181
+    }
   },
   {
     "id": "33887",
@@ -186612,7 +186644,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.1,
+    "observationPriorityScore": 571,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 5200,
@@ -186639,7 +186671,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-09-20"
+    "superchargeInfoMatchedAt": "2026-09-20",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-23T13:01:35.062Z",
+    "lastBlockedAt": "2026-09-23T13:01:35.062Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-23T19:01:35.062Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/27307",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 30,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 30
+    }
   },
   {
     "id": "tigardoregonsupercharger",
@@ -201826,7 +201890,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 456.42,
+    "observationPriorityScore": 571,
     "superchargeInfoId": 8089,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2025-06-18",
@@ -201841,7 +201905,39 @@
     "plugTypes": {
       "nacs": 16
     },
-    "superchargeInfoMatchedAt": "2026-09-20"
+    "superchargeInfoMatchedAt": "2026-09-20",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-23T13:01:35.062Z",
+    "lastBlockedAt": "2026-09-23T13:01:35.062Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-23T19:01:35.062Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/59061",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 38,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 38
+    }
   },
   {
     "id": "WillistonVTsupercharger",
