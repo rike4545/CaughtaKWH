@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T17:50:55.027Z",
+  "generatedAt": "2026-09-23T20:47:16.650Z",
   "requestedLimit": 100,
   "inScopeStations": 432,
   "attempted": 3,
@@ -11,14 +11,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "AdairsvilleGAQ322",
-    "AlbanyGAQ322",
-    "428953"
+    "ColumbusGAsupercharger",
+    "32857",
+    "428603"
   ],
   "blockedStationIds": [
-    "AdairsvilleGAQ322",
-    "AlbanyGAQ322",
-    "428953"
+    "ColumbusGAsupercharger",
+    "32857",
+    "428603"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 89,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
