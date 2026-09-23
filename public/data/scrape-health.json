@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-22T23:49:21.905Z",
+  "generatedAt": "2026-09-23T02:13:31.672Z",
   "requestedLimit": 100,
-  "inScopeStations": 474,
+  "inScopeStations": 432,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 8,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "27309",
-    "lakewoodwcosupercharger",
-    "58918"
+    "mariettagaexpansion",
+    "30804",
+    "36332"
   ],
   "blockedStationIds": [
-    "27309",
-    "lakewoodwcosupercharger",
-    "58918"
+    "mariettagaexpansion",
+    "30804",
+    "36332"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 181,
+    "averageRequestMs": 92,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "CO",
       "CT",
       "DC",
       "DE",
       "FL",
       "GA",
       "HI",
-      "IA"
+      "IA",
+      "ID"
     ],
     "countries": [],
     "nearby": null,
