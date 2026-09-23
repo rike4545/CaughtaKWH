@@ -84,9 +84,8 @@ Full setup reference: `docs/scrape-proxy.md`.
 This skill diagnoses and routes egress — it does **not** try to defeat Akamai's
 bot challenge beyond using a legitimate proxy. If pages return a sustained
 challenge, the correct outcome is BLOCKED plus a note to switch pools, not an
-escalating evasion arms race. This matches the deliberate boundary in
-`README-AGENTS.md` and keeps a public, Tesla-adjacent project on defensible
-footing.
+escalating evasion arms race. This is the local application of **The deliberate
+boundary** in `AGENTS.md`, which is the canonical statement.
 
 ## Related
 
