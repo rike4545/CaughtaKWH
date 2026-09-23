@@ -36,7 +36,15 @@ jobs:
           npm install --no-audit --no-fund
       - name: Build site
         run: npm run build
-      - uses: actions/configure-pages@v6
+      # No actions/configure-pages step on purpose. Its only job is to enable Pages and
+      # expose base_url/base_path outputs; Pages is already enabled here and vite.config.js
+      # builds with `base: './'`, so nothing consumes those outputs. Every action in this
+      # workflow is re-downloaded from codeload.github.com on each of the 72 scheduled runs
+      # per day, and codeload answers with 429/503 when a repo fetches too often — a failed
+      # tarball download happens in the runner's "Prepare all required actions" phase, before
+      # any step executes, so it cannot be caught by continue-on-error. Dropping an action we
+      # do not use removes that failure mode outright. Don't re-add it from the Pages starter
+      # workflow template without a step that actually reads its outputs.
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
