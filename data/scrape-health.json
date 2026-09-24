@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-23T23:17:11.411Z",
+  "generatedAt": "2026-09-24T01:31:12.681Z",
   "requestedLimit": 100,
-  "inScopeStations": 429,
+  "inScopeStations": 467,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 6,
+  "cooldownSkipped": 4,
   "attemptedStationIds": [
-    "32477",
-    "dariensouthsupercharger",
-    "DouglasvilleGAsupercharger"
+    "rosemontillinoissupercharger",
+    "dublingasuperchargerq422",
+    "27314"
   ],
   "blockedStationIds": [
-    "32477",
-    "dariensouthsupercharger",
-    "DouglasvilleGAsupercharger"
+    "rosemontillinoissupercharger",
+    "dublingasuperchargerq422",
+    "27314"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 154,
+    "averageRequestMs": 48,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "CT",
       "DC",
       "DE",
       "FL",
       "GA",
       "HI",
       "IA",
-      "ID"
+      "ID",
+      "IL"
     ],
     "countries": [],
     "nearby": null,

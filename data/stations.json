@@ -52105,7 +52105,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.96,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -52129,7 +52129,39 @@
       "tpc": 12,
       "nacs": 0
     },
-    "superchargeInfoMatchedAt": "2026-09-20"
+    "superchargeInfoMatchedAt": "2026-09-20",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-24T01:31:12.681Z",
+    "lastBlockedAt": "2026-09-24T01:31:12.681Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-24T07:31:12.681Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/dublingasuperchargerq422",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 31,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 31
+    }
   },
   {
     "id": "dublinohiosupercharger",
@@ -52346,7 +52378,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.99,
+    "observationPriorityScore": 567,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -52369,7 +52401,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-09-20"
+    "superchargeInfoMatchedAt": "2026-09-20",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-09-24T01:31:12.681Z",
+    "lastBlockedAt": "2026-09-24T01:31:12.681Z",
+    "lastScrapeBlocked": true,
+    "consecutiveBlockedAttempts": 1,
+    "blockCooldownHours": 6,
+    "nextScrapeEligibleAt": "2026-09-24T07:31:12.681Z",
+    "lastScrapeResult": "access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/27314",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 28,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 28
+    }
   },
   {
     "id": "duluthsupercharger",
@@ -159676,12 +159740,12 @@
     },
     "superchargeInfoMatchedAt": "2026-09-20",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-08-10T00:51:50.736Z",
-    "lastBlockedAt": "2026-08-10T00:51:50.736Z",
+    "lastAttemptedAt": "2026-09-24T01:31:12.681Z",
+    "lastBlockedAt": "2026-09-24T01:31:12.681Z",
     "lastScrapeBlocked": true,
-    "consecutiveBlockedAttempts": 6,
+    "consecutiveBlockedAttempts": 7,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-08-13T00:51:50.736Z",
+    "nextScrapeEligibleAt": "2026-09-27T01:31:12.681Z",
     "lastScrapeResult": "access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
@@ -159691,7 +159755,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 82,
+        "durationMs": 85,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -159705,7 +159769,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 82
+      "averageRequestMs": 85
     },
     "observationPriorityScore": 800
   },
