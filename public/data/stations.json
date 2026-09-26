@@ -79798,7 +79798,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 29,
+        "durationMs": 37,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -79808,16 +79808,16 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-09-23T21:28:08.526Z",
-    "lastBlockedAt": "2026-09-23T21:28:08.526Z",
-    "consecutiveBlockedAttempts": 33,
+    "lastAttemptedAt": "2026-09-26T23:35:41.316Z",
+    "lastBlockedAt": "2026-09-26T23:35:41.316Z",
+    "consecutiveBlockedAttempts": 34,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-09-26T21:28:08.526Z",
+    "nextScrapeEligibleAt": "2026-09-29T23:35:41.316Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 29
+      "averageRequestMs": 37
     }
   },
   {
@@ -116793,7 +116793,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 83,
+        "durationMs": 156,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -116803,16 +116803,16 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-09-23T21:28:08.526Z",
-    "lastBlockedAt": "2026-09-23T21:28:08.526Z",
-    "consecutiveBlockedAttempts": 33,
+    "lastAttemptedAt": "2026-09-26T23:35:41.316Z",
+    "lastBlockedAt": "2026-09-26T23:35:41.316Z",
+    "consecutiveBlockedAttempts": 34,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-09-26T21:28:08.526Z",
+    "nextScrapeEligibleAt": "2026-09-29T23:35:41.316Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 83
+      "averageRequestMs": 156
     }
   },
   {
@@ -176517,11 +176517,11 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-09-23T21:28:08.526Z",
-    "lastBlockedAt": "2026-09-23T21:28:08.526Z",
-    "consecutiveBlockedAttempts": 33,
+    "lastAttemptedAt": "2026-09-26T23:35:41.316Z",
+    "lastBlockedAt": "2026-09-26T23:35:41.316Z",
+    "consecutiveBlockedAttempts": 34,
     "blockCooldownHours": 72,
-    "nextScrapeEligibleAt": "2026-09-26T21:28:08.526Z",
+    "nextScrapeEligibleAt": "2026-09-29T23:35:41.316Z",
     "lastTransportSummary": {
       "candidateAttempts": 1,
       "requestAttempts": 1,
