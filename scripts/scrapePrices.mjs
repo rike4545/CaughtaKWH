@@ -21,6 +21,7 @@ import {
 const stations = await readJson(path.join(dataDir, 'stations.json'), []);
 const predictions = await readJson(path.join(dataDir, 'predictions.json'), []);
 const pricingNeuralModel = await readJson(path.join(dataDir, 'pricing-neural-model.json'), null);
+const previousScrapeHealth = await readJson(path.join(dataDir, 'scrape-health.json'), null);
 const MAX_STATIONS = Number(process.env.MAX_STATIONS || stations.length || 1);
 const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1200);
 const LOW_PRICE_THRESHOLD = Number(process.env.LOW_PRICE_THRESHOLD || 0.30);
@@ -49,6 +50,8 @@ const BLOCK_COOLDOWN_MAX_HOURS = Math.max(BLOCK_COOLDOWN_BASE_HOURS, Number(proc
 const SCRAPE_IGNORE_COOLDOWN = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_IGNORE_COOLDOWN || '').toLowerCase());
 const FETCH_MAX_ATTEMPTS = Math.max(1, Number(process.env.FETCH_MAX_ATTEMPTS || 2));
 const FETCH_RETRY_DELAY_MS = Math.max(0, Number(process.env.FETCH_RETRY_DELAY_MS || 750));
+const ROUTE_BLOCK_COOLDOWN_MINUTES = Math.max(15, Number(process.env.ROUTE_BLOCK_COOLDOWN_MINUTES || 30));
+const ROUTE_CANARY_STATIONS = Math.max(1, Number(process.env.ROUTE_CANARY_STATIONS || 1));
 const capturedAt = nowIso();
 const capturedDate = new Date(capturedAt);
 
@@ -195,7 +198,7 @@ function scrapeError(outcome, attempts, message = outcome) {
   return error;
 }
 
-async function scrapeOne(context, station) {
+async function scrapeOne(getContext, station) {
   const candidates = stationCandidates(station);
   const attempts = [];
   let bestValid = null;
@@ -277,6 +280,7 @@ async function scrapeOne(context, station) {
     attempts.push(fetchAttempt);
 
     // --- Playwright fallback: needed when the page requires JS rendering.
+    const context = await getContext();
     const page = await context.newPage();
     try {
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -423,74 +427,91 @@ function scopedStations() {
 }
 
 const inScope = scopedStations();
+
+const previousHealthAt = previousScrapeHealth?.generatedAt ? new Date(previousScrapeHealth.generatedAt) : null;
+const previousHealthAgeMinutes = previousHealthAt && !Number.isNaN(previousHealthAt.getTime())
+  ? Math.max(0, (capturedDate.getTime() - previousHealthAt.getTime()) / 60000)
+  : Infinity;
+const previousRouteBlocked = Boolean(
+  previousScrapeHealth?.adaptiveRoute?.routeAccessControlLikely
+  || (previousScrapeHealth?.circuitBreaker?.opened && Number(previousScrapeHealth?.validPages || 0) === 0)
+);
+const routeCooldownActive = previousRouteBlocked && previousHealthAgeMinutes < ROUTE_BLOCK_COOLDOWN_MINUTES;
+const effectiveMaxStations = routeCooldownActive
+  ? Math.min(MAX_STATIONS, ROUTE_CANARY_STATIONS)
+  : MAX_STATIONS;
+
+if (routeCooldownActive) {
+  console.log(
+    `Recent route-wide access control detected ${Math.round(previousHealthAgeMinutes)}m ago; `
+    + `running ${effectiveMaxStations} canary station(s) before resuming the normal ${MAX_STATIONS}-station budget.`
+  );
+}
+
 const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
-const browser = await chromium.launch({
-  headless: TESLA_HEADLESS,
-  ...(proxyConfig ? { proxy: proxyConfig } : {}),
-  args: [
-    '--disable-blink-features=AutomationControlled',
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
-    '--disable-dev-shm-usage',
-    '--disable-accelerated-2d-canvas',
-    '--no-first-run',
-    '--no-zygote',
-    '--disable-gpu',
-  ]
-});
-const context = await browser.newContext({
-  viewport: { width: 1440, height: 900 },
-  locale: 'en-US',
-  timezoneId: 'America/New_York',
-  userAgent: FETCH_UA,
-  extraHTTPHeaders: {
-    'Accept-Language': 'en-US,en;q=0.9',
-    'sec-ch-ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"macOS"',
-  }
-});
+let browser = null;
+let browserContext = null;
 
-// Stealth patches applied to every page before navigation.
-// Covers the vectors Akamai Bot Manager reads during its JS challenge.
-await context.addInitScript(() => {
-  // Core automation flag
-  Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+async function getBrowserContext() {
+  if (browserContext) return browserContext;
 
-  // userAgentData — Akamai reads this to detect Chromium vs Chrome
-  Object.defineProperty(navigator, 'userAgentData', {
-    get: () => ({
-      brands: [{ brand: 'Chromium', version: '136' }, { brand: 'Google Chrome', version: '136' }, { brand: 'Not.A/Brand', version: '99' }],
-      mobile: false,
-      platform: 'macOS',
-      getHighEntropyValues: async () => ({ platform: 'macOS', platformVersion: '13.6.0', architecture: 'arm', model: '', uaFullVersion: '136.0.7103.114' })
-    })
+  browser = await chromium.launch({
+    headless: TESLA_HEADLESS,
+    ...(proxyConfig ? { proxy: proxyConfig } : {}),
+    args: [
+      '--disable-blink-features=AutomationControlled',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--disable-gpu',
+    ]
+  });
+  browserContext = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+    locale: 'en-US',
+    timezoneId: 'America/New_York',
+    userAgent: FETCH_UA,
+    extraHTTPHeaders: {
+      'Accept-Language': 'en-US,en;q=0.9',
+      'sec-ch-ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"macOS"',
+    }
   });
 
-  // Plugins — empty list is a bot signal
-  Object.defineProperty(navigator, 'plugins', {
-    get: () => Object.assign([{ name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' }, { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' }, { name: 'Native Client', filename: 'internal-nacl-plugin' }], { item: i => this[i], namedItem: n => null, refresh: () => {} })
+  // Preserve the existing browser compatibility setup, but only pay its startup cost when
+  // the fetch-first path proves that JavaScript rendering is actually needed.
+  await browserContext.addInitScript(() => {
+    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+    Object.defineProperty(navigator, 'userAgentData', {
+      get: () => ({
+        brands: [{ brand: 'Chromium', version: '136' }, { brand: 'Google Chrome', version: '136' }, { brand: 'Not.A/Brand', version: '99' }],
+        mobile: false,
+        platform: 'macOS',
+        getHighEntropyValues: async () => ({ platform: 'macOS', platformVersion: '13.6.0', architecture: 'arm', model: '', uaFullVersion: '136.0.7103.114' })
+      })
+    });
+    Object.defineProperty(navigator, 'plugins', {
+      get: () => Object.assign([{ name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' }, { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' }, { name: 'Native Client', filename: 'internal-nacl-plugin' }], { item: i => this[i], namedItem: () => null, refresh: () => {} })
+    });
+    Object.defineProperty(navigator, 'mimeTypes', { get: () => [] });
+    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+    Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
+    Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
+    if (!window.chrome) window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
+    const permissionQuery = navigator.permissions.query.bind(navigator.permissions);
+    navigator.permissions.query = p => p.name === 'notifications'
+      ? Promise.resolve({ state: Notification.permission, onchange: null })
+      : permissionQuery(p);
+    Object.defineProperty(document, 'hidden', { get: () => false });
+    Object.defineProperty(document, 'visibilityState', { get: () => 'visible' });
   });
-  Object.defineProperty(navigator, 'mimeTypes', { get: () => [] });
-  Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
-  Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
-  Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
 
-  // Chrome runtime object — absence is a strong bot signal
-  if (!window.chrome) {
-    window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
-  }
-
-  // Permissions API — Akamai queries notification permission
-  const _permQuery = navigator.permissions.query.bind(navigator.permissions);
-  navigator.permissions.query = p => p.name === 'notifications'
-    ? Promise.resolve({ state: Notification.permission, onchange: null })
-    : _permQuery(p);
-
-  // Focus/visibility — automation contexts are often backgrounded
-  Object.defineProperty(document, 'hidden', { get: () => false });
-  Object.defineProperty(document, 'visibilityState', { get: () => 'visible' });
-});
+  return browserContext;
+}
 
 function summarizeAttempts(attempts) {
   return Array.isArray(attempts) ? attempts.slice(0, 8).map(attempt => ({
@@ -524,7 +545,8 @@ const blockedStationIds = [];
 const transientFailureStationIds = [];
 const unusableStationIds = [];
 const runAttempts = [];
-for (const station of ordered.slice(0, MAX_STATIONS)) {
+const blockedCooldownSnapshots = new Map();
+for (const station of ordered.slice(0, effectiveMaxStations)) {
   if (consecutiveBlocked >= AKAMAI_CIRCUIT_BREAKER) {
     circuitOpened = true;
     break;
@@ -532,7 +554,7 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
   attempted++;
   attemptedStationIds.push(station.id);
   try {
-    const result = await scrapeOne(context, station);
+    const result = await scrapeOne(getBrowserContext, station);
     runAttempts.push(...result.attempts);
     validPages++;
     consecutiveBlocked = 0;
@@ -576,12 +598,23 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
       blocked++;
       consecutiveBlocked++;
       blockedStationIds.push(station.id);
-      Object.assign(station, nextBlockedState(station, {
-        attemptedAt: capturedAt,
-        retryAfter: error.retryAfter,
-        baseHours: BLOCK_COOLDOWN_BASE_HOURS,
-        maxHours: BLOCK_COOLDOWN_MAX_HOURS
-      }));
+      blockedCooldownSnapshots.set(station.id, {
+        lastBlockedAt: station.lastBlockedAt ?? null,
+        lastScrapeBlocked: Boolean(station.lastScrapeBlocked),
+        consecutiveBlockedAttempts: Number(station.consecutiveBlockedAttempts || 0),
+        blockCooldownHours: Number(station.blockCooldownHours || 0),
+        nextScrapeEligibleAt: station.nextScrapeEligibleAt ?? null
+      });
+      if (!routeCooldownActive) {
+        Object.assign(station, nextBlockedState(station, {
+          attemptedAt: capturedAt,
+          retryAfter: error.retryAfter,
+          baseHours: BLOCK_COOLDOWN_BASE_HOURS,
+          maxHours: BLOCK_COOLDOWN_MAX_HOURS
+        }));
+      } else {
+        station.lastAttemptedAt = capturedAt;
+      }
       // Free-proxy failover: once blocks reach the circuit-breaker threshold, rotate the fetch
       // route to the next healthy proxy and keep going rather than opening the circuit. Only when
       // every candidate is exhausted does consecutiveBlocked stay high and the breaker trip.
@@ -607,7 +640,7 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
       station.blockCooldownHours = 0;
       station.nextScrapeEligibleAt = null;
     }
-    station.lastScrapeResult = isBlocked ? 'access_controlled' : outcome;
+    station.lastScrapeResult = isBlocked ? (routeCooldownActive ? 'route_access_controlled' : 'access_controlled') : outcome;
     station.lastScrapeAttemptCount = Array.isArray(error.attempts) ? error.attempts.length : 0;
     station.lastScrapeCandidates = summarizeAttempts(error.attempts);
     station.lastTransportSummary = summarizeTransport(error.attempts);
@@ -616,11 +649,34 @@ for (const station of ordered.slice(0, MAX_STATIONS)) {
     await sleep(DELAY_MS);
   }
 }
-await browser.close();
+
+const routeAccessControlLikely = Boolean(
+  (routeCooldownActive && attempted > 0 && blocked === attempted && validPages === 0)
+  || (circuitOpened && blocked >= AKAMAI_CIRCUIT_BREAKER && validPages === 0)
+);
+
+// When unrelated stations all hit the same access-control wall, treat that as route health,
+// not a station defect. Preserve the diagnostics but roll back station-specific cooldown growth.
+if (routeAccessControlLikely) {
+  for (const stationId of blockedStationIds) {
+    const station = stations.find(item => item.id === stationId);
+    const snapshot = blockedCooldownSnapshots.get(stationId);
+    if (!station || !snapshot) continue;
+    station.lastBlockedAt = snapshot.lastBlockedAt;
+    station.lastScrapeBlocked = snapshot.lastScrapeBlocked;
+    station.consecutiveBlockedAttempts = snapshot.consecutiveBlockedAttempts;
+    station.blockCooldownHours = snapshot.blockCooldownHours;
+    station.nextScrapeEligibleAt = snapshot.nextScrapeEligibleAt;
+    station.lastScrapeResult = 'route_access_controlled';
+  }
+}
+
+await browser?.close();
 await writeJson(path.join(dataDir, 'stations.json'), stations);
 await writeJson(path.join(dataDir, 'scrape-health.json'), {
   generatedAt: capturedAt,
   requestedLimit: MAX_STATIONS,
+  effectiveLimit: effectiveMaxStations,
   inScopeStations: inScope.length,
   attempted,
   validPages,
@@ -650,6 +706,17 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
     threshold: AKAMAI_CIRCUIT_BREAKER,
     consecutiveBlocks: consecutiveBlocked
   },
+  adaptiveRoute: {
+    previousRouteBlocked,
+    previousHealthAgeMinutes: Number.isFinite(previousHealthAgeMinutes) ? Number(previousHealthAgeMinutes.toFixed(1)) : null,
+    cooldownActive: routeCooldownActive,
+    cooldownMinutes: ROUTE_BLOCK_COOLDOWN_MINUTES,
+    canaryStations: ROUTE_CANARY_STATIONS,
+    routeAccessControlLikely,
+    nextProbeAt: routeAccessControlLikely
+      ? new Date(capturedDate.getTime() + ROUTE_BLOCK_COOLDOWN_MINUTES * 60000).toISOString()
+      : null
+  },
   cooldownPolicy: {
     baseHours: BLOCK_COOLDOWN_BASE_HOURS,
     maxHours: BLOCK_COOLDOWN_MAX_HOURS,
@@ -662,4 +729,4 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
     needsHistory: SCRAPE_NEEDS_HISTORY
   }
 });
-console.log(`Attempted ${attempted}; valid pages ${validPages}; access-controlled ${blocked}; transient ${transientFailures}; unusable ${unusableCandidates}; saved ${saved}; retries ${summarizeTransport(runAttempts).retries}; cooldown-skipped ${cooldownSkipped}; circuit ${circuitOpened ? 'open' : 'closed'}. In-scope stations: ${inScope.length}/${stations.length}.`);
+console.log(`Attempted ${attempted}/${effectiveMaxStations}; valid pages ${validPages}; access-controlled ${blocked}; transient ${transientFailures}; unusable ${unusableCandidates}; saved ${saved}; retries ${summarizeTransport(runAttempts).retries}; cooldown-skipped ${cooldownSkipped}; circuit ${circuitOpened ? 'open' : 'closed'}; route-health ${routeAccessControlLikely ? 'blocked' : routeCooldownActive ? 'canary' : 'normal'}. In-scope stations: ${inScope.length}/${stations.length}.`);
