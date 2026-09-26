@@ -37,7 +37,8 @@
     "ingest:sheet": "node scripts/ingestSheet.mjs",
     "test:core": "node scripts/testCore.mjs",
     "test:station-search": "node scripts/testStationSearch.mjs",
-    "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport"
+    "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@playwright/test": "latest",
