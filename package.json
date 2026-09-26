@@ -37,8 +37,10 @@
     "ingest:sheet": "node scripts/ingestSheet.mjs",
     "test:core": "node scripts/testCore.mjs",
     "test:station-search": "node scripts/testStationSearch.mjs",
-    "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport",
-    "test:e2e": "playwright test"
+    "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport && npm run test:scrape-parser && npm run test:scrape-syntax",
+    "test:e2e": "playwright test",
+    "test:scrape-parser": "node scripts/testTeslaPricingParser.mjs",
+    "test:scrape-syntax": "node --check scripts/scrapePrices.mjs"
   },
   "dependencies": {
     "@playwright/test": "latest",
