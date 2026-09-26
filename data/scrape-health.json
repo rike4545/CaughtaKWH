@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-26T18:39:39.213Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 517,
+  "generatedAt": "2026-09-26T21:06:41.017Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -10,16 +10,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 1,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "mettersupercharger",
-    "18031",
-    "19313"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "blockedStationIds": [
-    "mettersupercharger",
-    "18031",
-    "19313"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 119,
+    "averageRequestMs": 118,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -38,18 +38,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": false,
-    "previousHealthAgeMinutes": 139.6,
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 147,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
-    "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-26T19:09:39.213Z"
+    "routeAccessControlLikely": false,
+    "nextProbeAt": null
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +57,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "FL",
-      "GA",
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
