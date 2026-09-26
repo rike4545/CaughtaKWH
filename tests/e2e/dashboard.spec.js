@@ -104,7 +104,7 @@ test('dashboard navigation switches between major views', async ({ page }) => {
   await page.getByRole('button', { name: 'System health' }).click();
   await expect(page.getByRole('heading', { name: 'The system is learning in public' })).toBeVisible();
 
-  await page.getByRole('button', { name: 'Find chargers' }).click();
+  await page.getByRole('button', { name: 'Find chargers', exact: true }).click();
   await expect(page.getByText('Find chargers nearby')).toBeVisible();
 });
 
@@ -113,7 +113,7 @@ test('selected charger exposes pricing and charge-cost estimate', async ({ page 
   await search.fill('Lake Grove');
   await page.getByRole('button', { name: /Lake Grove Supercharger/ }).click();
 
-  await expect(page.getByRole('heading', { name: 'Lake Grove Supercharger' })).toBeVisible();
+  await expect(page.locator('.content').getByRole('heading', { name: 'Lake Grove Supercharger' })).toBeVisible();
   await expect(page.getByText('$0.30/kWh')).toBeVisible();
   await expect(page.getByRole('heading', { name: /to 80%/ })).toContainText('$9.00');
 
