@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-25T23:23:24.845Z",
+  "generatedAt": "2026-09-26T01:44:49.953Z",
   "requestedLimit": 100,
-  "inScopeStations": 513,
+  "inScopeStations": 515,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -9,16 +9,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 4,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "58988",
-    "400678",
-    "18460"
+    "4007566",
+    "MadisonGAsupercharger",
+    "19307"
   ],
   "blockedStationIds": [
-    "58988",
-    "400678",
-    "18460"
+    "4007566",
+    "MadisonGAsupercharger",
+    "19307"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -26,7 +26,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 113,
+    "averageRequestMs": 125,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -48,14 +48,14 @@
   },
   "scope": {
     "states": [
-      "DE",
       "FL",
       "GA",
       "HI",
       "IA",
       "ID",
       "IL",
-      "IN"
+      "IN",
+      "KS"
     ],
     "countries": [],
     "nearby": null,
