@@ -1,4 +1,4 @@
-import { classifySiteContent, inferAvailability, inferPrices, inferSiteDetails, stationCandidates } from './teslaSiteParser.mjs';
+import { classifySiteContent, extractNextData, inferAvailability, inferPrices, inferSiteDetails, stationCandidates } from './teslaSiteParser.mjs';
 
 const fixture = `
   <section>
@@ -71,6 +71,24 @@ const akamaiChallengePage = classifySiteContent({
 });
 if (!akamaiChallengePage.blocked || akamaiChallengePage.contentSignal !== 'akamai_challenge') throw new Error('Akamai challenge bootstrap page was not classified as a challenge');
 if (akamaiChallengePage.validTeslaLocation) throw new Error('Akamai challenge page should not be treated as a valid station page');
+
+
+// NEXT_DATA schema drift: pricing can move deeper than pageProps.location.
+const nestedNextData = extractNextData(`
+  <script id="__NEXT_DATA__" type="application/json">
+    {"props":{"pageProps":{"payload":{"locationDetails":{"chargingPricing":[
+      {"title":"Charging fees for Tesla vehicles","rates":[{"amount":"$0.28 / kWh"},{"amount":"$0.36 / kWh"}]},
+      {"title":"Pricing for Non-Tesla","rates":[{"amount":"$0.41 / kWh"}]}
+    ]}}}}}
+  </script>
+`);
+if (!nestedNextData) throw new Error('Nested NEXT_DATA pricing was not discovered');
+if (nestedNextData.memberPrice !== 0.28 || nestedNextData.memberPeakPrice !== 0.36) {
+  throw new Error(`Nested member pricing failed: ${JSON.stringify(nestedNextData)}`);
+}
+if (nestedNextData.nonMemberPrice !== 0.41) {
+  throw new Error(`Nested non-member pricing failed: ${JSON.stringify(nestedNextData)}`);
+}
 
 const candidates = stationCandidates({
   id: '404914',
