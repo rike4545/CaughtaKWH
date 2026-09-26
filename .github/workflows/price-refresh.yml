@@ -68,6 +68,8 @@ jobs:
       BLOCK_COOLDOWN_MAX_HOURS: 72
       FETCH_MAX_ATTEMPTS: 2
       FETCH_RETRY_DELAY_MS: 750
+      ROUTE_BLOCK_COOLDOWN_MINUTES: 30
+      ROUTE_CANARY_STATIONS: 1
       # Optional organization-approved egress routing. When the SCRAPE_PROXY secret is
       # unset this is a no-op and the runner IP is used (usually Akamai-blocked); set the
       # secret to route every scrape through a proxy. Cooldowns and the circuit breaker
