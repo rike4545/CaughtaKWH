@@ -114,7 +114,7 @@ test('selected charger exposes pricing and charge-cost estimate', async ({ page 
   await page.getByRole('button', { name: /Lake Grove Supercharger/ }).click();
 
   await expect(page.locator('.content').getByRole('heading', { name: 'Lake Grove Supercharger' }).first()).toBeVisible();
-  await expect(page.getByText('$0.30/kWh')).toBeVisible();
+  await expect(page.locator('.priceMatrix').getByText('$0.30/kWh')).toBeVisible();
   await expect(page.getByRole('heading', { name: /to 80%/ })).toContainText('$9.00');
 
   await page.getByLabel('Arrive at (%)').fill('20');
