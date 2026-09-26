@@ -1,32 +1,25 @@
 {
-  "generatedAt": "2026-09-26T01:44:49.953Z",
-  "requestedLimit": 100,
-  "inScopeStations": 515,
-  "attempted": 3,
+  "generatedAt": "2026-09-26T04:52:38.837Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 0,
+  "attempted": 0,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 0,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 3,
-  "attemptedStationIds": [
-    "4007566",
-    "MadisonGAsupercharger",
-    "19307"
-  ],
-  "blockedStationIds": [
-    "4007566",
-    "MadisonGAsupercharger",
-    "19307"
-  ],
+  "cooldownSkipped": 10,
+  "attemptedStationIds": [],
+  "blockedStationIds": [],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 0,
+    "requestAttempts": 0,
     "retries": 0,
-    "averageRequestMs": 125,
+    "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -37,9 +30,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 0
+  },
+  "adaptiveRoute": {
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 187.8,
+    "cooldownActive": false,
+    "cooldownMinutes": 30,
+    "canaryStations": 1,
+    "routeAccessControlLikely": false,
+    "nextProbeAt": null
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -47,18 +49,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "FL",
-      "GA",
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
