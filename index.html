@@ -2,11 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="CaughtaKWH tracks Tesla Supercharger kWh pricing history and predicts cheaper charging windows." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="CaughtaKWH tracks Tesla Supercharger pricing history, compares nearby stations, and estimates cheaper charging windows." />
+    <meta name="theme-color" content="#0a0a0b" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="application-name" content="CaughtaKWH" />
+    <meta property="og:title" content="CaughtaKWH · Supercharger price transparency" />
+    <meta property="og:description" content="Track public Tesla Supercharger prices, compare nearby stations, and find cheaper charging windows." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
     <title>CaughtaKWH</title>
   </head>
   <body>
+    <noscript>CaughtaKWH needs JavaScript to search stations and display pricing history.</noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
