@@ -15,6 +15,7 @@ import { PriceTruthNotice, manualCheckFromCurrentData, priceState, stationCountT
 import { StationComparison } from './components/StationComparison.jsx';
 import { ageText, cents, coords, distance, freshnessLabel, money, percent, shortDate, signedCents, slotLabel, titleCase } from './utils/formatters.js';
 import './styles.css';
+import './gui-refresh.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
