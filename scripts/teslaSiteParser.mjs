@@ -364,52 +364,102 @@ export function inferSiteDetails({ bodyText = '', html = '', station = {}, url =
   };
 }
 
+function pricingTiersFromObject(value) {
+  if (!value || typeof value !== 'object') return null;
+  for (const key of ['chargerPricing', 'pricing', 'chargingPricing', 'priceDetails']) {
+    if (Array.isArray(value[key])) return value[key];
+  }
+  return null;
+}
+
+function findPricingObjects(root, maxDepth = 10) {
+  const found = [];
+  const seen = new Set();
+  const visit = (value, depth) => {
+    if (!value || typeof value !== 'object' || depth > maxDepth || seen.has(value)) return;
+    seen.add(value);
+    if (pricingTiersFromObject(value)) found.push(value);
+    if (Array.isArray(value)) {
+      for (const item of value) visit(item, depth + 1);
+      return;
+    }
+    for (const child of Object.values(value)) visit(child, depth + 1);
+  };
+  visit(root, 0);
+  return found;
+}
+
+function parseNextPricingObject(loc) {
+  const pricing = pricingTiersFromObject(loc);
+  if (!pricing) return null;
+
+  let memberPrice = null;
+  let memberPeakPrice = null;
+  let nonMemberPrice = null;
+  let nonMemberPeakPrice = null;
+  let congestionFee = null;
+
+  for (const tier of pricing) {
+    const label = String(tier?.chargingLabel || tier?.label || tier?.title || tier?.name || '').toLowerCase();
+    const isMember = /tesla owner|tesla.*member|member.*tesla|charging fees for tesla|tesla vehicle/i.test(label);
+    const isNonMember = /non.?tesla|non.?member|all ev|other ev/i.test(label);
+    if (!isMember && !isNonMember) continue;
+    const details = Array.isArray(tier?.pricingDetails) ? tier.pricingDetails
+      : Array.isArray(tier?.details) ? tier.details
+      : Array.isArray(tier?.rates) ? tier.rates
+      : [];
+    const rates = details
+      .map(d => parseDollarValue(String(d?.rate ?? d?.price ?? d?.amount ?? '')))
+      .filter(v => v != null);
+    if (!rates.length) continue;
+    const offPeak = Math.min(...rates);
+    const peak = Math.max(...rates);
+    if (isMember && memberPrice == null) {
+      memberPrice = offPeak;
+      memberPeakPrice = peak !== offPeak ? peak : null;
+    } else if (isNonMember && nonMemberPrice == null) {
+      nonMemberPrice = offPeak;
+      nonMemberPeakPrice = peak !== offPeak ? peak : null;
+    }
+  }
+
+  const currentRate = parseDollarValue(String(loc.currentRate ?? loc.currentPrice ?? loc.pricePerKwh ?? ''));
+  if (memberPrice == null && currentRate != null) memberPrice = currentRate;
+
+  const congestionRaw = String(loc.congestionFees ?? loc.idleFees ?? loc.congestionFee ?? '');
+  const congestionMatch = congestionRaw.match(/\$(\d+(?:\.\d+)?)\s*\/\s*min/i);
+  if (congestionMatch) congestionFee = parseDollarValue(congestionMatch[1]);
+
+  if (memberPrice == null && nonMemberPrice == null) return null;
+  return { memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice, congestionFee };
+}
+
 export function extractNextData(html) {
   try {
     const match = String(html || '').match(/<script[^>]+id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/i);
     if (!match) return null;
     const data = JSON.parse(match[1]);
-    const props = data?.props?.pageProps ?? data?.props ?? {};
-    const loc = props?.location ?? props?.supercharger ?? props?.data ?? null;
-    if (!loc) return null;
-    const pricing = loc.chargerPricing ?? loc.pricing ?? null;
-    if (!pricing) return null;
+    const props = data?.props?.pageProps ?? data?.props ?? data;
 
-    let memberPrice = null;
-    let memberPeakPrice = null;
-    let nonMemberPrice = null;
-    let nonMemberPeakPrice = null;
-    let congestionFee = null;
+    const preferred = [
+      props?.location,
+      props?.supercharger,
+      props?.data,
+      props?.locationDetails,
+      props?.site
+    ].filter(Boolean);
 
-    for (const tier of pricing) {
-      const label = String(tier.chargingLabel || tier.label || '').toLowerCase();
-      const isMember = /tesla owner|tesla.*member|member.*tesla|charging fees for tesla/i.test(label);
-      const isNonMember = /non.?tesla|non.?member|all ev/i.test(label);
-      if (!isMember && !isNonMember) continue;
-      const details = tier.pricingDetails ?? tier.details ?? [];
-      const rates = details.map(d => parseDollarValue(String(d.rate ?? d.price ?? ''))).filter(v => v != null);
-      if (!rates.length) continue;
-      const offPeak = Math.min(...rates);
-      const peak = Math.max(...rates);
-      if (isMember && memberPrice == null) {
-        memberPrice = offPeak;
-        memberPeakPrice = peak !== offPeak ? peak : null;
-      } else if (isNonMember && nonMemberPrice == null) {
-        nonMemberPrice = offPeak;
-        nonMemberPeakPrice = peak !== offPeak ? peak : null;
-      }
+    const candidates = [...preferred, ...findPricingObjects(props)]
+      .filter((value, index, array) => array.indexOf(value) === index);
+
+    for (const candidate of candidates) {
+      const parsed = parseNextPricingObject(candidate);
+      if (parsed) return { ...parsed, source: '__NEXT_DATA__' };
     }
-
-    const currentRate = parseDollarValue(String(loc.currentRate ?? ''));
-    if (memberPrice == null && currentRate != null) memberPrice = currentRate;
-
-    const congestionRaw = String(loc.congestionFees ?? loc.idleFees ?? '');
-    const congestionMatch = congestionRaw.match(/\$(\d+(?:\.\d+)?)\s*\/\s*min/i);
-    if (congestionMatch) congestionFee = parseDollarValue(congestionMatch[1]);
-
-    if (memberPrice == null && nonMemberPrice == null) return null;
-    return { memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice, congestionFee, source: '__NEXT_DATA__' };
-  } catch { return null; }
+    return null;
+  } catch {
+    return null;
+  }
 }
 
 export function classifySiteContent({ bodyText = '', html = '', status = 0, finalUrl = '' } = {}) {
