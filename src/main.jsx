@@ -5,6 +5,8 @@ import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceL
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
 import { TESLA_BATTERY_PRESETS, estimateChargeCost } from './chargeCost.js';
+import { ErrorBoundary } from './ErrorBoundary.jsx';
+import { searchStations } from './stationSearch.js';
 import './styles.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
@@ -389,9 +391,21 @@ function App() {
   const [autoLocateDone, setAutoLocateDone] = useState(false);
   const detailRef = useRef(null);
 
-  const selected = stations.find(station => station.id === selectedId) ?? null;
+  const stationById = useMemo(() => new Map(stations.map(station => [station.id, station])), [stations]);
+  const predictionsByStation = useMemo(() => {
+    const map = new Map();
+    for (const item of predictions) {
+      const row = map.get(item.stationId) || {};
+      row[item.membershipType || 'unknown'] = item;
+      if (!row.any) row.any = item;
+      map.set(item.stationId, row);
+    }
+    return map;
+  }, [predictions]);
+  const selected = stationById.get(selectedId) ?? null;
   const { data: history } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
-  const prediction = predictions.find(item => item.stationId === selected?.id && item.membershipType === rateType) || predictions.find(item => item.stationId === selected?.id);
+  const selectedPredictions = predictionsByStation.get(selected?.id) || {};
+  const prediction = selectedPredictions[rateType] || selectedPredictions.any;
 
   useEffect(() => {
     setManualCheck({ status: 'idle' });
@@ -418,14 +432,10 @@ function App() {
   const states = useMemo(() => ['All', ...Array.from(new Set(stations.map(station => station.state).filter(Boolean))).sort()], [stations]);
   const nearbyLimit = originMode === 'near-me' ? 5 : originMode === 'zip' ? 5 : 0;
   const nearbyList = useMemo(() => origin ? nearestStations(stations, origin, nearbyLimit || 25) : [], [stations, origin, nearbyLimit]);
-  const filtered = useMemo(() => {
-    const normalized = query.toLowerCase().trim();
-    return stations.filter(station => {
-      const matchesState = stateFilter === 'All' || station.state === stateFilter;
-      const text = [station.name, station.city, station.state, station.address, station.id].filter(Boolean).join(' ').toLowerCase();
-      return matchesState && (!normalized || text.includes(normalized));
-    });
-  }, [stations, query, stateFilter]);
+  const filtered = useMemo(
+    () => searchStations(stations, query, stateFilter, 100),
+    [stations, query, stateFilter]
+  );
   const hasFilter = query.trim() || stateFilter !== 'All';
   const list = origin ? nearbyList : hasFilter ? filtered : [];
 
@@ -582,7 +592,8 @@ function App() {
   const darkPct = stations.length ? Math.round(darkStations / stations.length * 100) : 100;
   const CROWDSOURCE_URL = "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml";
 
-  return <main className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
+  return <main id="main-content" className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
+    {!isTesla && <a className="skipLink" href="#charger-results">Skip to charger results</a>}
     {isTesla
       ? <header className="teslaHeader">
           <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
@@ -646,9 +657,9 @@ function App() {
         </header>}
 
     {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
-      <button className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
-      <button className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
-      <button className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
+      <button type="button" aria-current={activeView === 'chargers' ? 'page' : undefined} className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
+      <button type="button" aria-current={activeView === 'transparency' ? 'page' : undefined} className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
+      <button type="button" aria-current={activeView === 'health' ? 'page' : undefined} className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
     </nav>}
 
     {(isTesla || activeView === 'chargers') && <>
@@ -662,9 +673,10 @@ function App() {
       <section className="layout">
       <Card className="sidebar">
         <div className="nearbyBox betterNearby"><div><strong>Find chargers nearby</strong><small>Enter a ZIP or use your location to find the 5 closest chargers.</small></div><form onSubmit={findZip}><div className="zipRow"><input placeholder="ZIP code" value={zip} onChange={event => setZip(event.target.value)} inputMode="numeric" maxLength={5}/><button disabled={geoLoading}>Find 5</button></div></form><button className="nearMeButton" onClick={useMyLocation} disabled={geoLoading}><Compass size={18}/><span>{geoLoading ? 'Finding…' : 'Use my location'}</span><small>Closest 5</small></button>{origin && <small>{originMode === 'near-me' ? 'Showing the closest 5 chargers to you. This same area can be used for a focused refresh run.' : `Showing 5 chargers near ${origin.zip} — ${origin.city}, ${origin.state}. This ZIP can be used for a focused refresh run.`}</small>}{geoError && <small className="errorText"><AlertTriangle size={12}/> {geoError}</small>}{origin && <button className="linkButton" onClick={() => { setOrigin(null); setOriginMode('browse'); }}>Clear nearby mode</button>}</div>
-        <label className="search"><Search size={16}/><input placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
-        <select className="filter" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select>
-        <div className="stationList">{!origin && !hasFilter && <p className="muted listPrompt">Enter a ZIP, use your location, or search to find chargers.</p>}{list.map(station => {
+        <label className="search"><span className="srOnly">Search stations</span><Search size={16}/><input aria-label="Search station, city, state, address, or station ID" placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
+        <label className="filterLabel"><span>State</span><select className="filter" aria-label="Filter chargers by state" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select></label>
+        <div className="resultsMeta" role="status" aria-live="polite">{origin ? `${list.length} nearby chargers` : hasFilter ? `${list.length} matching chargers` : 'Search or use your location to begin'}</div>
+        <div id="charger-results" className="stationList" aria-label="Charger search results">{!origin && !hasFilter && <p className="muted listPrompt">Enter a ZIP, use your location, or search to find chargers.</p>}{list.map(station => {
           const pred = predictions.find(p => p.stationId === station.id && p.membershipType === 'member');
           const hasFresh = pred && isCurrentPrediction(pred);
           return <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => { setSelectedId(station.id); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }}>
@@ -677,7 +689,7 @@ function App() {
       <div className="content" ref={detailRef}>
         <PriceTruthNotice selected={selected} prediction={prediction} />
         <Card>
-          <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url}>Open Tesla page</a>}</div>
+          <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
           <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={() => checkSelectedNow()} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' && !manualCheck.live ? 'spin' : ''}/>{manualCheck.status === 'loading' && !manualCheck.live ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <button className="liveTeslaButton" onClick={() => checkSelectedNow({ live: true })} disabled={manualCheck.status === 'loading'}>{manualCheck.status === 'loading' && manualCheck.live ? <RefreshCw size={16} className="spin"/> : <Zap size={16}/>}{manualCheck.status === 'loading' && manualCheck.live ? 'Syncing live price…' : 'Get live Tesla price'}</button>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
@@ -963,4 +975,4 @@ function App() {
 // calling createRoot() twice on the same container.
 const container = document.getElementById('root');
 const root = (window.__caughtaRoot ??= createRoot(container));
-root.render(<App />);
+root.render(<ErrorBoundary><App /></ErrorBoundary>);
