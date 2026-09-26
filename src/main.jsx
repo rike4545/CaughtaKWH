@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, AlertTriangle, ArrowRight, BatteryCharging, Clock3, Compass, Eye, EyeOff, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, ArrowRight, BatteryCharging, Clock3, Compass, Eye, EyeOff, Heart, MapPin, Navigation, RefreshCw, Scale, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
@@ -8,11 +8,14 @@ import { ErrorBoundary } from './ErrorBoundary.jsx';
 import { searchStations } from './stationSearch.js';
 import { EV_PRICE_LAWS, commercialBenchmarks } from './data/referenceData.js';
 import { useJson } from './hooks/useJson.js';
+import { usePersistentList } from './hooks/usePersistentList.js';
 import { Card, ChartTooltip, EmptyState, Stat } from './components/ui.jsx';
 import { ChargeCostCalculator, PriceMatrix } from './components/ChargeCostCalculator.jsx';
 import { PriceTruthNotice, manualCheckFromCurrentData, priceState, stationCountText, statusText, usableHistoryState } from './components/pricingState.jsx';
+import { StationComparison } from './components/StationComparison.jsx';
 import { ageText, cents, coords, distance, freshnessLabel, money, percent, shortDate, signedCents, slotLabel, titleCase } from './utils/formatters.js';
 import './styles.css';
+import './gui-refresh.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
@@ -77,6 +80,9 @@ function App() {
   const [activeView, setActiveView] = useState('chargers');
   const [manualCheck, setManualCheck] = useState({ status: 'idle' });
   const [autoLocateDone, setAutoLocateDone] = useState(false);
+  const favorites = usePersistentList('caughtakwh:favorites', { maxItems: 20 });
+  const recents = usePersistentList('caughtakwh:recents', { maxItems: 8 });
+  const comparison = usePersistentList('caughtakwh:comparison', { maxItems: 4 });
   const detailRef = useRef(null);
 
   const stationById = useMemo(() => new Map(stations.map(station => [station.id, station])), [stations]);
@@ -97,6 +103,7 @@ function App() {
 
   useEffect(() => {
     setManualCheck({ status: 'idle' });
+    if (selected?.id) recents.push(selected.id);
   }, [selected?.id]);
 
   // Sync URL hash and page title with the selected station. Keyed on selectedId so the
@@ -282,6 +289,13 @@ function App() {
 
   return <main id="main-content" className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
     {!isTesla && <a className="skipLink" href="#charger-results">Skip to charger results</a>}
+    {!isTesla && <div className="appTopbar">
+      <div className="appBrand"><span className="appBrandMark"><Zap size={15}/></span><span>CaughtaKWH</span><small>Supercharger intelligence</small></div>
+      <div className="appTopbarMeta">
+        <span className="networkStatus"><span aria-hidden="true"/> {currentStations ? `${currentStations} fresh price${currentStations === 1 ? '' : 's'}` : 'Historical pricing only'}</span>
+        <a href={CONTRIBUTE_URL}>Contribute</a>
+      </div>
+    </div>}
     {isTesla
       ? <header className="teslaHeader">
           <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
@@ -348,6 +362,7 @@ function App() {
       <button type="button" aria-current={activeView === 'chargers' ? 'page' : undefined} className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
       <button type="button" aria-current={activeView === 'transparency' ? 'page' : undefined} className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
       <button type="button" aria-current={activeView === 'health' ? 'page' : undefined} className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
+      <button type="button" aria-current={activeView === 'compare' ? 'page' : undefined} className={activeView === 'compare' ? 'active' : ''} onClick={() => setActiveView('compare')}><Scale size={17}/><span>Compare {comparison.items.length ? `(${comparison.items.length})` : ''}</span></button>
     </nav>}
 
     {(isTesla || activeView === 'chargers') && <>
@@ -361,6 +376,18 @@ function App() {
       <section className="layout">
       <Card className="sidebar">
         <div className="nearbyBox betterNearby"><div><strong>Find chargers nearby</strong><small>Enter a ZIP or use your location to find the 5 closest chargers.</small></div><form onSubmit={findZip}><div className="zipRow"><input placeholder="ZIP code" value={zip} onChange={event => setZip(event.target.value)} inputMode="numeric" maxLength={5}/><button disabled={geoLoading}>Find 5</button></div></form><button className="nearMeButton" onClick={useMyLocation} disabled={geoLoading}><Compass size={18}/><span>{geoLoading ? 'Finding…' : 'Use my location'}</span><small>Closest 5</small></button>{origin && <small>{originMode === 'near-me' ? 'Showing the closest 5 chargers to you. This same area can be used for a focused refresh run.' : `Showing 5 chargers near ${origin.zip} — ${origin.city}, ${origin.state}. This ZIP can be used for a focused refresh run.`}</small>}{geoError && <small className="errorText"><AlertTriangle size={12}/> {geoError}</small>}{origin && <button className="linkButton" onClick={() => { setOrigin(null); setOriginMode('browse'); }}>Clear nearby mode</button>}</div>
+        {(favorites.items.length > 0 || recents.items.length > 0) && <div className="savedStations">
+          {favorites.items.length > 0 && <div className="savedGroup"><div className="savedGroupTitle"><span><Heart size={14}/> Favorites</span><small>{favorites.items.length}</small></div>{favorites.items.slice(0, 4).map(id => {
+            const station = stationById.get(id);
+            if (!station) return null;
+            return <button type="button" key={id} onClick={() => { setSelectedId(id); setActiveView('chargers'); }}><strong>{station.name || id}</strong><span>{[station.city, station.state].filter(Boolean).join(', ')}</span></button>;
+          })}</div>}
+          {recents.items.length > 0 && <div className="savedGroup"><div className="savedGroupTitle"><span><Clock3 size={14}/> Recently viewed</span><button type="button" className="clearSaved" onClick={recents.clear}>Clear</button></div>{recents.items.slice(0, 4).map(id => {
+            const station = stationById.get(id);
+            if (!station) return null;
+            return <button type="button" key={id} onClick={() => { setSelectedId(id); setActiveView('chargers'); }}><strong>{station.name || id}</strong><span>{[station.city, station.state].filter(Boolean).join(', ')}</span></button>;
+          })}</div>}
+        </div>}
         <label className="search"><span className="srOnly">Search stations</span><Search size={16}/><input aria-label="Search station, city, state, address, or station ID" placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
         <label className="filterLabel"><span>State</span><select className="filter" aria-label="Filter chargers by state" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select></label>
         <div className="resultsMeta" role="status" aria-live="polite">{origin ? `${list.length} nearby chargers` : hasFilter ? `${list.length} matching chargers` : 'Search or use your location to begin'}</div>
@@ -377,8 +404,15 @@ function App() {
       <div className="content" ref={detailRef}>
         <PriceTruthNotice selected={selected} prediction={prediction} />
         <Card>
-          <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
+          <div className="sectionTitle stationTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a className="teslaPageLink" href={selected.url} target="_blank" rel="noreferrer">Open Tesla page <ArrowRight size={14}/></a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
+          {selected && <div className="stationMetaChips">
+            {selected?.stalls && <span><BatteryCharging size={14}/>{selected.stalls} stalls</span>}
+            {selected?.maxKw && <span><Zap size={14}/>Up to {selected.maxKw} kW</span>}
+            {selected?.state && <span><MapPin size={14}/>{selected.city ? `${selected.city}, ` : ''}{selected.state}</span>}
+            <span className={pricingFresh ? 'metaFresh' : ''}><Clock3 size={14}/>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'No price captured'}</span>
+          </div>}
+          <div className="stationActions">{selected && <button type="button" className={favorites.items.includes(selected.id) ? 'favoriteButton active' : 'favoriteButton'} aria-pressed={favorites.items.includes(selected.id)} onClick={() => favorites.toggle(selected.id)}><Heart size={16}/>{favorites.items.includes(selected.id) ? 'Favorited' : 'Favorite'}</button>}{selected && <button type="button" className={comparison.items.includes(selected.id) ? 'compareButton active' : 'compareButton'} aria-pressed={comparison.items.includes(selected.id)} onClick={() => comparison.toggle(selected.id)}><Scale size={16}/>{comparison.items.includes(selected.id) ? 'In comparison' : 'Compare'}</button>}{comparison.items.length > 1 && <button type="button" className="compareNowButton" onClick={() => setActiveView('compare')}>Compare {comparison.items.length} chargers</button>}</div>
           <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={() => checkSelectedNow()} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' && !manualCheck.live ? 'spin' : ''}/>{manualCheck.status === 'loading' && !manualCheck.live ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <button className="liveTeslaButton" onClick={() => checkSelectedNow({ live: true })} disabled={manualCheck.status === 'loading'}>{manualCheck.status === 'loading' && manualCheck.live ? <RefreshCw size={16} className="spin"/> : <Zap size={16}/>}{manualCheck.status === 'loading' && manualCheck.live ? 'Syncing live price…' : 'Get live Tesla price'}</button>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
           <div className="leadInsights">
@@ -539,6 +573,15 @@ function App() {
       <Stat icon={<Zap/>} label="This charger" value={publicCheckResult} note="latest page check" />
     </section>}
     </>}
+
+    {activeView === 'compare' && <StationComparison
+      stationIds={comparison.items}
+      stationById={stationById}
+      predictionsByStation={predictionsByStation}
+      origin={origin}
+      onRemove={comparison.remove}
+      onOpen={id => { setSelectedId(id); setActiveView('chargers'); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }}
+    />}
 
     {activeView === 'transparency' && <section className="transparencyView">
       <Card>
