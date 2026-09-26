@@ -34,7 +34,10 @@
     "agent:qa": "node scripts/predictionQA.mjs",
     "agent:community": "node scripts/communityQA.mjs",
     "community:rollup": "node scripts/communityRollup.mjs",
-    "ingest:sheet": "node scripts/ingestSheet.mjs"
+    "ingest:sheet": "node scripts/ingestSheet.mjs",
+    "test:core": "node scripts/testCore.mjs",
+    "test:station-search": "node scripts/testStationSearch.mjs",
+    "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport"
   },
   "dependencies": {
     "@playwright/test": "latest",
@@ -48,5 +51,8 @@
     "typescript": "latest",
     "undici": "^8.4.1",
     "vite": "latest"
+  },
+  "engines": {
+    "node": ">=24"
   }
 }
