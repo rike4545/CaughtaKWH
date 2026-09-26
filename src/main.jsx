@@ -15,6 +15,7 @@ import { PriceTruthNotice, manualCheckFromCurrentData, priceState, stationCountT
 import { StationComparison } from './components/StationComparison.jsx';
 import { ageText, cents, coords, distance, freshnessLabel, money, percent, shortDate, signedCents, slotLabel, titleCase } from './utils/formatters.js';
 import './styles.css';
+import './gui-refresh.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
@@ -288,6 +289,13 @@ function App() {
 
   return <main id="main-content" className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
     {!isTesla && <a className="skipLink" href="#charger-results">Skip to charger results</a>}
+    {!isTesla && <div className="appTopbar">
+      <div className="appBrand"><span className="appBrandMark"><Zap size={15}/></span><span>CaughtaKWH</span><small>Supercharger intelligence</small></div>
+      <div className="appTopbarMeta">
+        <span className="networkStatus"><span aria-hidden="true"/> {currentStations ? `${currentStations} fresh price${currentStations === 1 ? '' : 's'}` : 'Historical pricing only'}</span>
+        <a href={CONTRIBUTE_URL}>Contribute</a>
+      </div>
+    </div>}
     {isTesla
       ? <header className="teslaHeader">
           <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
@@ -396,8 +404,14 @@ function App() {
       <div className="content" ref={detailRef}>
         <PriceTruthNotice selected={selected} prediction={prediction} />
         <Card>
-          <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
+          <div className="sectionTitle stationTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a className="teslaPageLink" href={selected.url} target="_blank" rel="noreferrer">Open Tesla page <ArrowRight size={14}/></a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
+          {selected && <div className="stationMetaChips">
+            {selected?.stalls && <span><BatteryCharging size={14}/>{selected.stalls} stalls</span>}
+            {selected?.maxKw && <span><Zap size={14}/>Up to {selected.maxKw} kW</span>}
+            {selected?.state && <span><MapPin size={14}/>{selected.city ? `${selected.city}, ` : ''}{selected.state}</span>}
+            <span className={pricingFresh ? 'metaFresh' : ''}><Clock3 size={14}/>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'No price captured'}</span>
+          </div>}
           <div className="stationActions">{selected && <button type="button" className={favorites.items.includes(selected.id) ? 'favoriteButton active' : 'favoriteButton'} aria-pressed={favorites.items.includes(selected.id)} onClick={() => favorites.toggle(selected.id)}><Heart size={16}/>{favorites.items.includes(selected.id) ? 'Favorited' : 'Favorite'}</button>}{selected && <button type="button" className={comparison.items.includes(selected.id) ? 'compareButton active' : 'compareButton'} aria-pressed={comparison.items.includes(selected.id)} onClick={() => comparison.toggle(selected.id)}><Scale size={16}/>{comparison.items.includes(selected.id) ? 'In comparison' : 'Compare'}</button>}{comparison.items.length > 1 && <button type="button" className="compareNowButton" onClick={() => setActiveView('compare')}>Compare {comparison.items.length} chargers</button>}</div>
           <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={() => checkSelectedNow()} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' && !manualCheck.live ? 'spin' : ''}/>{manualCheck.status === 'loading' && !manualCheck.live ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <button className="liveTeslaButton" onClick={() => checkSelectedNow({ live: true })} disabled={manualCheck.status === 'loading'}>{manualCheck.status === 'loading' && manualCheck.live ? <RefreshCw size={16} className="spin"/> : <Zap size={16}/>}{manualCheck.status === 'loading' && manualCheck.live ? 'Syncing live price…' : 'Get live Tesla price'}</button>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
