@@ -198,7 +198,7 @@ function scrapeError(outcome, attempts, message = outcome) {
   return error;
 }
 
-async function scrapeOne(context, station) {
+async function scrapeOne(getContext, station) {
   const candidates = stationCandidates(station);
   const attempts = [];
   let bestValid = null;
@@ -280,6 +280,7 @@ async function scrapeOne(context, station) {
     attempts.push(fetchAttempt);
 
     // --- Playwright fallback: needed when the page requires JS rendering.
+    const context = await getContext();
     const page = await context.newPage();
     try {
       const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
@@ -448,73 +449,69 @@ if (routeCooldownActive) {
 }
 
 const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
-const browser = await chromium.launch({
-  headless: TESLA_HEADLESS,
-  ...(proxyConfig ? { proxy: proxyConfig } : {}),
-  args: [
-    '--disable-blink-features=AutomationControlled',
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
-    '--disable-dev-shm-usage',
-    '--disable-accelerated-2d-canvas',
-    '--no-first-run',
-    '--no-zygote',
-    '--disable-gpu',
-  ]
-});
-const context = await browser.newContext({
-  viewport: { width: 1440, height: 900 },
-  locale: 'en-US',
-  timezoneId: 'America/New_York',
-  userAgent: FETCH_UA,
-  extraHTTPHeaders: {
-    'Accept-Language': 'en-US,en;q=0.9',
-    'sec-ch-ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
-    'sec-ch-ua-mobile': '?0',
-    'sec-ch-ua-platform': '"macOS"',
-  }
-});
+let browser = null;
+let browserContext = null;
 
-// Stealth patches applied to every page before navigation.
-// Covers the vectors Akamai Bot Manager reads during its JS challenge.
-await context.addInitScript(() => {
-  // Core automation flag
-  Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+async function getBrowserContext() {
+  if (browserContext) return browserContext;
 
-  // userAgentData — Akamai reads this to detect Chromium vs Chrome
-  Object.defineProperty(navigator, 'userAgentData', {
-    get: () => ({
-      brands: [{ brand: 'Chromium', version: '136' }, { brand: 'Google Chrome', version: '136' }, { brand: 'Not.A/Brand', version: '99' }],
-      mobile: false,
-      platform: 'macOS',
-      getHighEntropyValues: async () => ({ platform: 'macOS', platformVersion: '13.6.0', architecture: 'arm', model: '', uaFullVersion: '136.0.7103.114' })
-    })
+  browser = await chromium.launch({
+    headless: TESLA_HEADLESS,
+    ...(proxyConfig ? { proxy: proxyConfig } : {}),
+    args: [
+      '--disable-blink-features=AutomationControlled',
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-accelerated-2d-canvas',
+      '--no-first-run',
+      '--no-zygote',
+      '--disable-gpu',
+    ]
+  });
+  browserContext = await browser.newContext({
+    viewport: { width: 1440, height: 900 },
+    locale: 'en-US',
+    timezoneId: 'America/New_York',
+    userAgent: FETCH_UA,
+    extraHTTPHeaders: {
+      'Accept-Language': 'en-US,en;q=0.9',
+      'sec-ch-ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"macOS"',
+    }
   });
 
-  // Plugins — empty list is a bot signal
-  Object.defineProperty(navigator, 'plugins', {
-    get: () => Object.assign([{ name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' }, { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' }, { name: 'Native Client', filename: 'internal-nacl-plugin' }], { item: i => this[i], namedItem: n => null, refresh: () => {} })
+  // Preserve the existing browser compatibility setup, but only pay its startup cost when
+  // the fetch-first path proves that JavaScript rendering is actually needed.
+  await browserContext.addInitScript(() => {
+    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+    Object.defineProperty(navigator, 'userAgentData', {
+      get: () => ({
+        brands: [{ brand: 'Chromium', version: '136' }, { brand: 'Google Chrome', version: '136' }, { brand: 'Not.A/Brand', version: '99' }],
+        mobile: false,
+        platform: 'macOS',
+        getHighEntropyValues: async () => ({ platform: 'macOS', platformVersion: '13.6.0', architecture: 'arm', model: '', uaFullVersion: '136.0.7103.114' })
+      })
+    });
+    Object.defineProperty(navigator, 'plugins', {
+      get: () => Object.assign([{ name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' }, { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' }, { name: 'Native Client', filename: 'internal-nacl-plugin' }], { item: i => this[i], namedItem: () => null, refresh: () => {} })
+    });
+    Object.defineProperty(navigator, 'mimeTypes', { get: () => [] });
+    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+    Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
+    Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
+    if (!window.chrome) window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
+    const permissionQuery = navigator.permissions.query.bind(navigator.permissions);
+    navigator.permissions.query = p => p.name === 'notifications'
+      ? Promise.resolve({ state: Notification.permission, onchange: null })
+      : permissionQuery(p);
+    Object.defineProperty(document, 'hidden', { get: () => false });
+    Object.defineProperty(document, 'visibilityState', { get: () => 'visible' });
   });
-  Object.defineProperty(navigator, 'mimeTypes', { get: () => [] });
-  Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
-  Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
-  Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
 
-  // Chrome runtime object — absence is a strong bot signal
-  if (!window.chrome) {
-    window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
-  }
-
-  // Permissions API — Akamai queries notification permission
-  const _permQuery = navigator.permissions.query.bind(navigator.permissions);
-  navigator.permissions.query = p => p.name === 'notifications'
-    ? Promise.resolve({ state: Notification.permission, onchange: null })
-    : _permQuery(p);
-
-  // Focus/visibility — automation contexts are often backgrounded
-  Object.defineProperty(document, 'hidden', { get: () => false });
-  Object.defineProperty(document, 'visibilityState', { get: () => 'visible' });
-});
+  return browserContext;
+}
 
 function summarizeAttempts(attempts) {
   return Array.isArray(attempts) ? attempts.slice(0, 8).map(attempt => ({
@@ -557,7 +554,7 @@ for (const station of ordered.slice(0, effectiveMaxStations)) {
   attempted++;
   attemptedStationIds.push(station.id);
   try {
-    const result = await scrapeOne(context, station);
+    const result = await scrapeOne(getBrowserContext, station);
     runAttempts.push(...result.attempts);
     validPages++;
     consecutiveBlocked = 0;
@@ -674,7 +671,7 @@ if (routeAccessControlLikely) {
   }
 }
 
-await browser.close();
+await browser?.close();
 await writeJson(path.join(dataDir, 'stations.json'), stations);
 await writeJson(path.join(dataDir, 'scrape-health.json'), {
   generatedAt: capturedAt,
