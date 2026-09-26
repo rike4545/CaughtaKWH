@@ -49,6 +49,18 @@ const predictions = [
     bestMinute: 0,
     sampleCount: 10,
     slots: []
+  },
+  {
+    stationId: 'smithtown',
+    membershipType: 'member',
+    latestObservedPrice: 0.34,
+    latestObservedAt: new Date().toISOString(),
+    latestObservationAgeHours: 0.3,
+    isCurrentPrice: true,
+    expectedPrice: 0.31,
+    averageObservedPrice: 0.34,
+    sampleCount: 8,
+    slots: []
   }
 ];
 
@@ -66,6 +78,7 @@ async function mockData(page) {
   await page.route('**/data/predictions.json*', route => route.fulfill({ json: predictions }));
   await page.route('**/data/dashboard-health.json*', route => route.fulfill({ json: { summary: {}, improvementQueue: [], refreshTargets: [], statePriorities: [] } }));
   await page.route('**/data/history/lakegrovenysupercharger.json*', route => route.fulfill({ json: history }));
+  await page.route('**/data/history/smithtown.json*', route => route.fulfill({ json: [] }));
   await page.route('**/data/history/none.json*', route => route.fulfill({ json: [] }));
 }
 
@@ -107,4 +120,41 @@ test('selected charger exposes pricing and charge-cost estimate', async ({ page 
   await page.getByLabel('Arrive at (%)').fill('20');
   await page.getByLabel('Charge to (%)').fill('80');
   await expect(page.getByRole('heading', { name: /to 80%/ })).toContainText('$13.50');
+});
+
+
+test('favorites persist and recently viewed chargers are surfaced', async ({ page }) => {
+  const search = page.getByLabel('Search station, city, state, address, or station ID');
+  await search.fill('Lake Grove');
+  await page.getByRole('button', { name: /Lake Grove Supercharger/ }).click();
+  await page.locator('.favoriteButton').click();
+
+  await expect(page.locator('.favoriteButton')).toHaveAttribute('aria-pressed', 'true');
+  await page.reload();
+
+  await expect(page.getByText('Favorites')).toBeVisible();
+  await expect(page.locator('.savedGroup').filter({ hasText: 'Favorites' })).toContainText('Lake Grove Supercharger');
+  await expect(page.locator('.savedGroup').filter({ hasText: 'Recently viewed' })).toContainText('Lake Grove Supercharger');
+});
+
+test('two chargers can be compared with session-cost estimates', async ({ page }) => {
+  const search = page.getByLabel('Search station, city, state, address, or station ID');
+
+  await search.fill('Lake Grove');
+  await page.getByRole('button', { name: /Lake Grove Supercharger/ }).click();
+  await page.locator('.compareButton').click();
+
+  await search.fill('Smithtown');
+  await page.getByRole('button', { name: /Smithtown Supercharger/ }).click();
+  await page.locator('.compareButton').click();
+
+  await page.getByRole('button', { name: /Compare \(2\)/ }).click();
+  await expect(page.getByRole('heading', { name: 'Compare the stops that actually fit your session' })).toBeVisible();
+  await expect(page.locator('.comparisonCard')).toHaveCount(2);
+  await expect(page.locator('.comparisonCard').filter({ hasText: 'Lake Grove Supercharger' })).toContainText('$13.50');
+  await expect(page.locator('.comparisonCard').filter({ hasText: 'Smithtown Supercharger' })).toContainText('$15.30');
+
+  await page.getByLabel('Energy needed this session').fill('20');
+  await expect(page.locator('.comparisonCard').filter({ hasText: 'Lake Grove Supercharger' })).toContainText('$6.00');
+  await expect(page.locator('.comparisonCard').filter({ hasText: 'Smithtown Supercharger' })).toContainText('$6.80');
 });
