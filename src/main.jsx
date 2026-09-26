@@ -11,7 +11,7 @@ import { useJson } from './hooks/useJson.js';
 import { Card, ChartTooltip, EmptyState, Stat } from './components/ui.jsx';
 import { ChargeCostCalculator, PriceMatrix } from './components/ChargeCostCalculator.jsx';
 import { PriceTruthNotice, manualCheckFromCurrentData, priceState, stationCountText, statusText, usableHistoryState } from './components/pricingState.jsx';
-import { ageText, cents, coords, distance, freshnessLabel, money, percent, shortDate, slotLabel, titleCase } from './utils/formatters.js';
+import { ageText, cents, coords, distance, freshnessLabel, money, percent, shortDate, signedCents, slotLabel, titleCase } from './utils/formatters.js';
 import './styles.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
