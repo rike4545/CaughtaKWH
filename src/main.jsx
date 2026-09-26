@@ -1,120 +1,28 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, AlertTriangle, ArrowRight, BatteryCharging, Clock3, Compass, Eye, EyeOff, MapPin, Navigation, RefreshCw, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, ArrowRight, BatteryCharging, Clock3, Compass, Eye, EyeOff, Heart, MapPin, Navigation, RefreshCw, Scale, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
-import { TESLA_BATTERY_PRESETS, estimateChargeCost } from './chargeCost.js';
+import { ErrorBoundary } from './ErrorBoundary.jsx';
+import { searchStations } from './stationSearch.js';
+import { EV_PRICE_LAWS, commercialBenchmarks } from './data/referenceData.js';
+import { useJson } from './hooks/useJson.js';
+import { usePersistentList } from './hooks/usePersistentList.js';
+import { Card, ChartTooltip, EmptyState, Stat } from './components/ui.jsx';
+import { ChargeCostCalculator, PriceMatrix } from './components/ChargeCostCalculator.jsx';
+import { PriceTruthNotice, manualCheckFromCurrentData, priceState, stationCountText, statusText, usableHistoryState } from './components/pricingState.jsx';
+import { StationComparison } from './components/StationComparison.jsx';
+import { ageText, cents, coords, distance, freshnessLabel, money, percent, shortDate, signedCents, slotLabel, titleCase } from './utils/formatters.js';
 import './styles.css';
+import './gui-refresh.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
-const money = value => typeof value === 'number' ? `$${value.toFixed(2)}` : '—';
-const cents = value => typeof value === 'number' ? `${value.toFixed(value % 1 ? 2 : 0)}¢` : '—';
-const signedCents = value => typeof value === 'number' ? `${value >= 0 ? '+' : '-'}${cents(Math.abs(value))}` : '—';
-const shortDate = iso => iso ? new Date(iso).toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) : '—';
-const distance = miles => typeof miles === 'number' ? `${miles.toFixed(miles < 10 ? 1 : 0)} mi` : '';
-const slotLabel = slot => `${String(Math.floor(slot / 2)).padStart(2, '0')}:${slot % 2 === 0 ? '00' : '30'}`;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
 const reportUrl = id => id ? `report.html?station=${encodeURIComponent(id)}` : 'report.html';
 const CONTRIBUTE_URL = './contribute.html';
 
-const EV_PRICE_LAWS = [
-  {
-    state: "Federal / NEVI",
-    status: "enacted",
-    requirement: "Price must be displayed prior to initiating a session in $/kWh. Real-time price must be shown and cannot change mid-session. All additional fees must be clearly disclosed. Price data must be available via open API to third parties.",
-    scope: "NEVI-funded DC fast chargers only",
-    authority: "Federal Highway Administration (FHWA) / U.S. DOT",
-    effectiveDate: "March 30, 2023",
-    citation: "23 CFR §§ 680.106, 680.116",
-  },
-  {
-    state: "CA",
-    status: "enacted",
-    requirement: "Two overlapping requirements: (1) CARB requires disclosure at point of sale of all fees and the price in $/kWh before the session starts; (2) CDFA weights-and-measures rule requires all commercial EVSE to display unit price in $/kWh. Billing by the minute is prohibited — pricing must be energy-based.",
-    scope: "All publicly available commercial chargers (L2 and DCFC)",
-    authority: "California Air Resources Board (CARB); CA Dept. of Food & Agriculture (CDFA)",
-    effectiveDate: "2022 (DCFC), 2023 (L2)",
-    citation: "Cal. Code Regs. tit. 13, § 2360.1; tit. 4, § 4002.11",
-  },
-  {
-    state: "WA",
-    status: "enacted",
-    requirement: "EV service providers must clearly disclose all charges, fees, and costs at the point of sale prior to initiating a session, including parking fees, price in $/kWh, and variable pricing terms. Free charging must also be disclosed before the session begins.",
-    scope: "All publicly available EVSE (L2 and DCFC)",
-    authority: "Washington State Dept. of Agriculture (WSDA) — Weights & Measures",
-    effectiveDate: "January 1, 2023",
-    citation: "RCW 19.94.560 (SB 5192, 2021)",
-  },
-  {
-    state: "TX",
-    status: "enacted",
-    requirement: "Providers must display on the charger: the method for calculating the fee, the current rate, and applicable surcharges. Itemized receipts available on request. TDLR administers registration, inspections, and consumer complaints.",
-    scope: "All publicly available EVSE",
-    authority: "Texas Dept. of Licensing and Regulation (TDLR)",
-    effectiveDate: "June 18, 2023 (statute); Dec 1, 2024 (TDLR rules)",
-    citation: "Texas Occ. Code §§ 2311.0206, 2311.0303–2311.0306 (SB 1001, 2023)",
-  },
-  {
-    state: "GA",
-    status: "enacted",
-    requirement: "All public EV charging stations must accurately measure and display electricity dispensed on a per-kWh basis. The Dept. of Revenue conducts inspections. Violations subject to fines up to $1,000. Compliance deadline was extended to 2027.",
-    scope: "All public EV charging stations (L2 and DCFC)",
-    authority: "Georgia Dept. of Revenue",
-    effectiveDate: "January 1, 2027 (compliance deadline)",
-    citation: "Georgia Code § 10-1-222 (SB 146, 2023; extended by HB 516, 2024)",
-  },
-  {
-    state: "MN",
-    status: "enacted",
-    requirement: "Retail EV chargers must display: price per kWh in whole or tenths of a cent (or indicate free); terms for variable pricing; charger power level; type of energy transfer; and any additional fees. Mirrors a weights-and-measures retail labeling approach.",
-    scope: "All retail (commercial public) chargers where electricity is sold as vehicle fuel",
-    authority: "Minnesota Dept. of Commerce — Weights & Measures",
-    effectiveDate: "June 14, 2025",
-    citation: "Minn. Stat. § 296A.073 (2025 Legislature, 1st Special Session)",
-  },
-  {
-    state: "NY",
-    status: "pending",
-    requirement: "Requires publicly available EV charging stations that received state funding, grants, tax benefits, or ratepayer support to clearly post the total price at the point of sale before a session starts. Prohibits requiring a mobile device as the sole payment method and barring access without a subscription. DPS must finalize rules by June 1, 2027; compliance required for stations constructed or upgraded after January 1, 2028.",
-    scope: "Publicly available chargers that received any state funding, grants, tax benefits, rebates, or ratepayer support",
-    authority: "NY Dept. of Public Service (DPS) / Public Service Commission",
-    effectiveDate: "Awaiting Governor signature (passed both chambers June 2, 2026); compliance Jan 1, 2028",
-    citation: "S7260A / A7633 (2025-2026 session), proposing Public Service Law § 66-x",
-  },
-  {
-    state: "MA",
-    status: "pending",
-    requirement: "Requires the Division of Standards to promulgate regulations setting minimum requirements for the communication and display of pricing information at public EV charging stations. Separately requires real-time data sharing including price by port. Law is enacted; implementing regulations are still being drafted.",
-    scope: "Public EV charging stations (residential properties with 4 or fewer units excluded)",
-    authority: "Massachusetts Division of Standards; Executive Office of Energy and Environmental Affairs (EOEEA)",
-    effectiveDate: "Law signed Nov 21, 2024; implementing regulations pending as of June 2026",
-    citation: "St. 2024, c. 239 (An Act Promoting a Clean Energy Grid), §§ 31, 42 (amending M.G.L. cc. 25B, 98)",
-  },
-  {
-    state: "NJ",
-    status: "none",
-    requirement: "No confirmed EV-charging-specific price disclosure law. Secondary sources reference a proposed 'Electric Vehicle Charging Public Disclosure Act' but no enacted statute citation could be verified in official legislative records as of June 2026.",
-    scope: "",
-    authority: "",
-    effectiveDate: "",
-    citation: "",
-  },
-  {
-    state: "CT",
-    status: "none",
-    requirement: "No confirmed enacted law or PURA regulation requiring consumer-facing price display at public EV chargers. PURA's EV Charging Program governs utility incentive programs and rate design but does not mandate point-of-sale price disclosure at third-party public stations.",
-    scope: "",
-    authority: "",
-    effectiveDate: "",
-    citation: "",
-  },
-];
 const wrapSlot = slot => (slot + 48) % 48;
-const ageText = hours => typeof hours === 'number' ? hours < 1 ? `${Math.round(hours * 60)} min old` : `${hours.toFixed(hours < 10 ? 1 : 0)} hr old` : 'No public price yet';
-const percent = value => typeof value === 'number' ? `${Math.round(value * 100)}%` : '—';
-const coords = station => typeof station?.lat === 'number' && typeof station?.lng === 'number' ? `${station.lat.toFixed(4)}, ${station.lng.toFixed(4)}` : '—';
-const titleCase = value => String(value || '—').replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
 const scrapeResultLabel = value => ({
   price_found: 'Price found',
   availability_found: 'Availability found',
@@ -141,230 +49,15 @@ const signalLabel = value => ({
   http_error: 'Page request failed',
   unknown: 'Unknown'
 })[value] || titleCase(value);
-const freshnessLabel = iso => {
-  if (!iso) return 'No recent observation';
-  const ageHours = (Date.now() - new Date(iso).getTime()) / 36e5;
-  if (ageHours < 0.5) return 'Fresh, under 30 min';
-  if (ageHours < 2) return 'Recent, under 2 hr';
-  if (ageHours < 24) return 'Getting old, over 2 hr';
-  return 'Old, over 24 hr';
-};
+
 // EIA Table 5.6.B — Commercial sector average retail prices, March 2026.
 // https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b
-const commercialBenchmarks = {
-  CA: { centsPerKwh: 29.14, label: 'CA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  MA: { centsPerKwh: 26.08, label: 'MA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  NY: { centsPerKwh: 22.21, label: 'NY commercial avg', period: 'EIA Mar 2026', secondary: 'NYSERDA Feb 2026: 23.5¢/kWh', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_a', secondaryUrl: 'https://www.nyserda.ny.gov/Energy-Prices/Electricity/Monthly-Avg-Electricity-Commercial' },
-  CT: { centsPerKwh: 21.84, label: 'CT commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  NJ: { centsPerKwh: 17.92, label: 'NJ commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  CO: { centsPerKwh: 14.21, label: 'CO commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  AZ: { centsPerKwh: 13.55, label: 'AZ commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  MI: { centsPerKwh: 13.41, label: 'MI commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  IL: { centsPerKwh: 12.98, label: 'IL commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  PA: { centsPerKwh: 12.44, label: 'PA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  FL: { centsPerKwh: 12.31, label: 'FL commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  GA: { centsPerKwh: 11.47, label: 'GA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  TX: { centsPerKwh: 11.23, label: 'TX commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  OH: { centsPerKwh: 11.18, label: 'OH commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  VA: { centsPerKwh: 9.84,  label: 'VA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  NC: { centsPerKwh: 9.62,  label: 'NC commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-  WA: { centsPerKwh: 9.11,  label: 'WA commercial avg', period: 'EIA Mar 2026', sourceUrl: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?lv=true&t=epmt_5_6_b' },
-};
 
-function useJson(url, fallback, refreshMs = 300000) {
-  const [data, setData] = useState(fallback);
-  const [error, setError] = useState(null);
-  const [fetchedAt, setFetchedAt] = useState(null);
-  useEffect(() => {
-    let live = true;
-    // Reset to fallback when the URL changes so one station's data never bleeds into the
-    // next when the new fetch 404s (e.g. a station with no saved price history file).
-    setData(fallback);
-    const load = () => {
-      setError(null);
-      fetch(`${url}?t=${Date.now()}`, { cache: 'no-store' })
-        .then(response => {
-          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-          return response.json();
-        })
-        .then(json => {
-          if (!live) return;
-          setData(json);
-          setFetchedAt(new Date().toISOString());
-        })
-        .catch(error => { if (live) { setError(error.message); setData(fallback); } });
-    };
-    load();
-    const timer = refreshMs ? window.setInterval(load, refreshMs) : null;
-    return () => { live = false; if (timer) window.clearInterval(timer); };
-  }, [url, refreshMs]);
-  return { data, error, fetchedAt };
-}
 
-function Card({ children, className = '' }) { return <section className={`card ${className}`}>{children}</section>; }
-function Stat({ icon, label, value, note }) { return <Card className="stat"><div className="statIcon">{icon}</div><div><p>{label}</p><strong>{value}</strong>{note && <small>{note}</small>}</div></Card>; }
-function EmptyState({ title, children }) { return <div className="empty"><AlertTriangle size={18}/><div><strong>{title}</strong><p>{children}</p></div></div>; }
 
-function ChartTooltip({ active, payload, label, formatter }) {
-  if (!active || !payload?.length) return null;
-  return <div className="chartTooltip">
-    {label && <p className="chartTooltipLabel">{label}</p>}
-    {payload.map((entry, i) => <p key={i} style={{ color: entry.color || entry.stroke || 'inherit' }}>{entry.name}: <strong>{formatter ? formatter(entry.value) : entry.value}</strong></p>)}
-  </div>;
-}
-function statusText(value) {
-  return ({ active: 'Active', healthy: 'Healthy', in_progress: 'In progress', needs_data: 'Needs data', next: 'Next' })[value] || titleCase(value);
-}
-function stationCountText(count, verb = 'have') {
-  const value = Number(count || 0);
-  const noun = value === 1 ? 'station' : 'stations';
-  const action = value === 1 && verb === 'have' ? 'has' : verb;
-  return `${value.toLocaleString()} ${noun} ${action}`;
-}
-function usableHistoryState(prediction, rows) {
-  const sampleCount = Number(prediction?.sampleCount || 0);
-  const recentRows = rows.filter(row => typeof row.memberPricePerKwh === 'number' || typeof row.nonMemberPricePerKwh === 'number');
-  const uniqueSlots = new Set(recentRows.map(row => row.halfHourSlot ?? `${row.localHour}:${row.localMinute}`)).size;
-  const ageHours = Number(prediction?.latestObservationAgeHours ?? Infinity);
-  if (sampleCount >= 10 && uniqueSlots >= 3 && ageHours <= 24) return { label: 'Strong history', tone: 'ok', next: 'This station has enough recent observations to start comparing time windows with more confidence.' };
-  if (sampleCount >= 3 && ageHours <= 48) return { label: 'Usable history', tone: 'ok', next: `Usable now. Add ${Math.max(0, 10 - sampleCount)} more observations across different times to strengthen the cheaper-window model.` };
-  if (sampleCount > 0) return { label: 'Needs more observations', tone: 'warn', next: `We have ${sampleCount} price observation${sampleCount === 1 ? '' : 's'}. Get to 3 recent observations before treating the history as usable.` };
-  return { label: 'No usable history yet', tone: 'warn', next: 'Run a focused refresh for this station to start building usable price history.' };
-}
-function manualCheckFromCurrentData(selected, prediction, rows) {
-  const latest = [...rows].filter(row => row.memberPricePerKwh != null || row.nonMemberPricePerKwh != null).at(-1);
-  return {
-    ok: true,
-    stationId: selected?.id || null,
-    source: 'CaughtaKWH public data',
-    latestObservedAt: latest?.capturedAt || prediction?.latestObservedAt || null,
-    memberPricePerKwh: latest?.memberPricePerKwh ?? prediction?.latestObservedPrice ?? null,
-    memberPeakPricePerKwh: latest?.memberPeakPricePerKwh ?? null,
-    nonMemberPricePerKwh: latest?.nonMemberPricePerKwh ?? null,
-    nonMemberPeakPricePerKwh: latest?.nonMemberPeakPricePerKwh ?? null,
-    confidence: prediction?.confidenceLabel || 'last saved',
-    historyCount: rows.length,
-    currentTeslaPriceGuaranteed: false
-  };
-}
 
-function priceState(selected, prediction) {
-  if (prediction?.latestObservedAt) {
-    const current = isCurrentPrediction(prediction);
-    const attemptNote = selected?.lastScrapeBlocked
-      ? ` Tesla blocked the latest automated attempt${selected.lastAttemptedAt ? ` on ${shortDate(selected.lastAttemptedAt)}` : ''}; the saved observation was preserved.`
-      : selected?.lastScrapeResult === 'transient_failure'
-        ? ` The latest automated attempt had a temporary connection problem${selected.lastAttemptedAt ? ` on ${shortDate(selected.lastAttemptedAt)}` : ''}; the saved observation was preserved.`
-        : '';
-    return {
-      title: current ? 'Recent Tesla public price observed' : 'Stale historical price only',
-      tone: current ? 'ok' : 'warn',
-      detail: `${money(prediction.latestObservedPrice)} last observed ${shortDate(prediction.latestObservedAt)} · ${ageText(prediction.latestObservationAgeHours)}. ${current ? 'Treat this as recently observed, but still verify in Tesla before charging.' : `Older than ${CURRENT_PRICE_MAX_HOURS} hours, so CaughtaKWH keeps it as history instead of showing it as the current Tesla price.`}${attemptNote}`
-    };
-  }
-  if (selected?.lastScrapeBlocked) return { title: 'Tesla blocked the automated check', tone: 'warn', detail: `Attempted ${shortDate(selected.lastAttemptedAt || selected.lastBlockedAt || selected.lastScrapedAt)}. CaughtaKWH preserved prior data and will wait until ${shortDate(selected.nextScrapeEligibleAt)} before retrying.` };
-  if (selected?.lastScrapeResult === 'transient_failure') return { title: 'Temporary connection problem', tone: 'warn', detail: `The attempt on ${shortDate(selected.lastAttemptedAt)} could not reliably reach Tesla. It was not counted as a successful page check, and prior data was preserved.` };
-  if (selected?.lastScrapeResult === 'no_usable_candidate') return { title: 'Tesla station page not confirmed', tone: 'warn', detail: `The attempt on ${shortDate(selected.lastAttemptedAt)} did not find a valid public page for this station. No price state was changed.` };
-  if (selected?.lastScrapeHadAvailability) return { title: 'Tesla shows the site, but not the price', tone: 'warn', detail: 'The station page had availability info last time we checked, but it did not show a public $/kWh rate.' };
-  if (selected?.lastScrapedAt) return { title: 'No price on the public page yet', tone: 'warn', detail: `Last checked ${shortDate(selected.lastScrapedAt)}. The live rate may only be visible in the Tesla app or inside the car.` };
-  return { title: 'We have not checked this one yet', tone: 'warn', detail: 'Until the scraper gets a clean look at this station, use Tesla for the live price.' };
-}
 
-function PriceTruthNotice({ selected, prediction }) {
-  const state = priceState(selected, prediction);
-  return <div className={state.tone === 'ok' ? 'truthNotice ok' : 'truthNotice'}>
-    <strong>{state.title}</strong>
-    <p>{state.detail}</p>
-  </div>;
-}
 
-function RateTile({ kind, label, icon, off, peak, fresh, benchDelta }) {
-  const hasPrice = typeof off === 'number';
-  return <div className={`rateTile ${kind}${fresh && hasPrice ? ' fresh' : ''}${hasPrice ? '' : ' empty'}`}>
-    <div className="rateTileHead">{icon}<span>{label}</span></div>
-    {hasPrice ? <>
-      <div className="rateBig">{money(off)}<small>/kWh{peak != null ? ' off-peak' : ''}</small></div>
-      {peak != null
-        ? <div className="ratePeak"><span className="peakDot" /> to <strong>{money(peak)}</strong> at peak</div>
-        : <div className="rateFlat">flat rate, all day</div>}
-      {benchDelta != null && <div className={`rateBench ${benchDelta > 0 ? 'over' : 'under'}`}>{signedCents(benchDelta)} vs local grid</div>}
-    </> : <div className="rateBig empty">Hidden<small>no public rate shown</small></div>}
-  </div>;
-}
-
-function PriceMatrix({ memberOff, memberPeak, nonOff, nonPeak, congestion, fresh, benchmarkCents, observedAt }) {
-  const benchmark = typeof benchmarkCents === 'number' ? benchmarkCents : null;
-  const delta = price => (typeof price === 'number' && benchmark != null) ? price * 100 - benchmark : null;
-  const anyPrice = typeof memberOff === 'number' || typeof nonOff === 'number';
-  return <div className={`priceMatrix${fresh ? ' fresh' : ''}`}>
-    <div className="rateRow">
-      <RateTile kind="member" label="Tesla / member" icon={<Zap size={15}/>} off={memberOff} peak={memberPeak} fresh={fresh} benchDelta={delta(memberOff)} />
-      <RateTile kind="nonmember" label="Non-Tesla" icon={<Users size={15}/>} off={nonOff} peak={nonPeak} fresh={fresh} benchDelta={delta(nonOff)} />
-    </div>
-    <div className="rateFooter">
-      <span className="rateFoot"><Clock3 size={14}/> Congestion fee <strong>{congestion != null ? `${money(congestion)}/min` : 'none shown'}</strong></span>
-      <span className="rateFoot"><TrendingDown size={14}/> Local grid <strong>{benchmark != null ? `${cents(benchmark)}/kWh` : 'no benchmark'}</strong></span>
-      <span className={`rateFoot rateFreshTag${fresh ? ' ok' : ''}`}>{anyPrice ? (fresh ? 'Recently observed' : observedAt ? 'Historical only' : 'Saved') : 'Not checked yet'}</span>
-    </div>
-  </div>;
-}
-
-function ChargeCostCalculator({ currentPrice, cheapestPrice, cheapestLabel, rateLabel, fresh, congestion }) {
-  const [presetId, setPresetId] = useState('m3-lr');
-  const [manualKwh, setManualKwh] = useState('');
-  const [arrival, setArrival] = useState(40);
-  const [target, setTarget] = useState(80);
-  const preset = TESLA_BATTERY_PRESETS.find(p => p.id === presetId) || TESLA_BATTERY_PRESETS[0];
-  const manualMode = presetId === 'other' || manualKwh.trim() !== '';
-  const usableKwh = manualKwh.trim() !== '' ? Number(manualKwh) : preset.usableKwh;
-  const priceForCalc = typeof currentPrice === 'number' ? currentPrice : null;
-  const now = estimateChargeCost({ usableKwh, arrivalPct: arrival, targetPct: target, pricePerKwh: priceForCalc });
-  const best = typeof cheapestPrice === 'number'
-    ? estimateChargeCost({ usableKwh, arrivalPct: arrival, targetPct: target, pricePerKwh: cheapestPrice })
-    : null;
-  const savings = now && best ? Number((now.cost - best.cost).toFixed(2)) : null;
-  const needBattery = !(typeof usableKwh === 'number' && usableKwh > 0);
-  return <Card>
-    <div className="sectionTitle"><div><p>Cost to charge</p><h2>{now ? `≈ ${money(now.cost)} to ${target}%` : 'Estimate your session cost'}</h2></div><span className={fresh ? 'badge fresh' : 'badge'}>{rateLabel}</span></div>
-    <p className="muted">Pick your car (or enter usable kWh), then your arrival charge. We multiply the energy you need by the {fresh ? 'latest observed' : 'best available'} {rateLabel.toLowerCase()} rate.</p>
-    <div className="costCalcInputs">
-      <label>Vehicle
-        <select value={presetId} onChange={e => { setPresetId(e.target.value); if (e.target.value !== 'other') setManualKwh(''); }}>
-          {TESLA_BATTERY_PRESETS.map(p => <option key={p.id} value={p.id}>{p.label}{p.usableKwh ? ` · ${p.usableKwh} kWh` : ''}</option>)}
-        </select>
-      </label>
-      <label>Usable battery (kWh)
-        <input type="number" inputMode="decimal" min="10" max="250" step="0.5" placeholder={preset.usableKwh ? String(preset.usableKwh) : 'e.g. 75'} value={manualKwh} onChange={e => setManualKwh(e.target.value)} />
-      </label>
-      <label>Arrive at (%)
-        <input type="number" inputMode="numeric" min="0" max="100" step="1" value={arrival} onChange={e => setArrival(e.target.value)} />
-      </label>
-      <label>Charge to (%)
-        <input type="number" inputMode="numeric" min="0" max="100" step="1" value={target} onChange={e => setTarget(e.target.value)} />
-      </label>
-    </div>
-    {needBattery
-      ? <EmptyState title="Pick your car or enter a battery size">Choose a Tesla model above, or type your usable battery capacity in kWh, to estimate the cost.</EmptyState>
-      : !now
-        ? <EmptyState title="No price to estimate with yet">We have not observed a public {rateLabel.toLowerCase()} rate for this charger, so there is no price to multiply by. Check Tesla for the live rate.</EmptyState>
-        : <>
-          <div className="costCalcResult">
-            <div className="costNow">
-              <span>Estimated cost{fresh ? '' : ' (from history)'}</span>
-              <strong>{money(now.cost)}</strong>
-              <small>{now.kwh} kWh added · {arrival}% → {target}% · {cents(now.pricePerKwh * 100)}/kWh</small>
-            </div>
-            {best && cheapestLabel && <div className="costBest">
-              <span>At the cheapest window ({cheapestLabel})</span>
-              <strong>{money(best.cost)}</strong>
-              <small>{cents(best.pricePerKwh * 100)}/kWh{savings > 0 ? ` · save ≈ ${money(savings)}` : ''}</small>
-            </div>}
-          </div>
-          {congestion != null && <p className="muted compactNote">Heads up: this station has shown a congestion fee of {money(congestion)}/min above a high state of charge — it is billed by the minute, not included here.</p>}
-          <p className="muted compactNote">Energy = (charge to − arrive at) × usable battery. Real sessions vary with charging speed, preconditioning, and temperature. Always confirm the live rate in Tesla before charging.</p>
-        </>}
-  </Card>;
-}
 
 const isTesla = /Tesla\//.test(navigator.userAgent);
 const isMobile = !isTesla && navigator.maxTouchPoints > 0
@@ -387,14 +80,30 @@ function App() {
   const [activeView, setActiveView] = useState('chargers');
   const [manualCheck, setManualCheck] = useState({ status: 'idle' });
   const [autoLocateDone, setAutoLocateDone] = useState(false);
+  const favorites = usePersistentList('caughtakwh:favorites', { maxItems: 20 });
+  const recents = usePersistentList('caughtakwh:recents', { maxItems: 8 });
+  const comparison = usePersistentList('caughtakwh:comparison', { maxItems: 4 });
   const detailRef = useRef(null);
 
-  const selected = stations.find(station => station.id === selectedId) ?? null;
+  const stationById = useMemo(() => new Map(stations.map(station => [station.id, station])), [stations]);
+  const predictionsByStation = useMemo(() => {
+    const map = new Map();
+    for (const item of predictions) {
+      const row = map.get(item.stationId) || {};
+      row[item.membershipType || 'unknown'] = item;
+      if (!row.any) row.any = item;
+      map.set(item.stationId, row);
+    }
+    return map;
+  }, [predictions]);
+  const selected = stationById.get(selectedId) ?? null;
   const { data: history } = useJson(selected?.id ? `./data/history/${selected.id}.json` : './data/history/none.json', []);
-  const prediction = predictions.find(item => item.stationId === selected?.id && item.membershipType === rateType) || predictions.find(item => item.stationId === selected?.id);
+  const selectedPredictions = predictionsByStation.get(selected?.id) || {};
+  const prediction = selectedPredictions[rateType] || selectedPredictions.any;
 
   useEffect(() => {
     setManualCheck({ status: 'idle' });
+    if (selected?.id) recents.push(selected.id);
   }, [selected?.id]);
 
   // Sync URL hash and page title with the selected station. Keyed on selectedId so the
@@ -418,14 +127,10 @@ function App() {
   const states = useMemo(() => ['All', ...Array.from(new Set(stations.map(station => station.state).filter(Boolean))).sort()], [stations]);
   const nearbyLimit = originMode === 'near-me' ? 5 : originMode === 'zip' ? 5 : 0;
   const nearbyList = useMemo(() => origin ? nearestStations(stations, origin, nearbyLimit || 25) : [], [stations, origin, nearbyLimit]);
-  const filtered = useMemo(() => {
-    const normalized = query.toLowerCase().trim();
-    return stations.filter(station => {
-      const matchesState = stateFilter === 'All' || station.state === stateFilter;
-      const text = [station.name, station.city, station.state, station.address, station.id].filter(Boolean).join(' ').toLowerCase();
-      return matchesState && (!normalized || text.includes(normalized));
-    });
-  }, [stations, query, stateFilter]);
+  const filtered = useMemo(
+    () => searchStations(stations, query, stateFilter, 100),
+    [stations, query, stateFilter]
+  );
   const hasFilter = query.trim() || stateFilter !== 'All';
   const list = origin ? nearbyList : hasFilter ? filtered : [];
 
@@ -582,7 +287,8 @@ function App() {
   const darkPct = stations.length ? Math.round(darkStations / stations.length * 100) : 100;
   const CROWDSOURCE_URL = "https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml";
 
-  return <main className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
+  return <main id="main-content" className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
+    {!isTesla && <a className="skipLink" href="#charger-results">Skip to charger results</a>}
     {isTesla
       ? <header className="teslaHeader">
           <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
@@ -646,9 +352,10 @@ function App() {
         </header>}
 
     {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
-      <button className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
-      <button className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
-      <button className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
+      <button type="button" aria-current={activeView === 'chargers' ? 'page' : undefined} className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
+      <button type="button" aria-current={activeView === 'transparency' ? 'page' : undefined} className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
+      <button type="button" aria-current={activeView === 'health' ? 'page' : undefined} className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
+      <button type="button" aria-current={activeView === 'compare' ? 'page' : undefined} className={activeView === 'compare' ? 'active' : ''} onClick={() => setActiveView('compare')}><Scale size={17}/><span>Compare {comparison.items.length ? `(${comparison.items.length})` : ''}</span></button>
     </nav>}
 
     {(isTesla || activeView === 'chargers') && <>
@@ -662,9 +369,22 @@ function App() {
       <section className="layout">
       <Card className="sidebar">
         <div className="nearbyBox betterNearby"><div><strong>Find chargers nearby</strong><small>Enter a ZIP or use your location to find the 5 closest chargers.</small></div><form onSubmit={findZip}><div className="zipRow"><input placeholder="ZIP code" value={zip} onChange={event => setZip(event.target.value)} inputMode="numeric" maxLength={5}/><button disabled={geoLoading}>Find 5</button></div></form><button className="nearMeButton" onClick={useMyLocation} disabled={geoLoading}><Compass size={18}/><span>{geoLoading ? 'Finding…' : 'Use my location'}</span><small>Closest 5</small></button>{origin && <small>{originMode === 'near-me' ? 'Showing the closest 5 chargers to you. This same area can be used for a focused refresh run.' : `Showing 5 chargers near ${origin.zip} — ${origin.city}, ${origin.state}. This ZIP can be used for a focused refresh run.`}</small>}{geoError && <small className="errorText"><AlertTriangle size={12}/> {geoError}</small>}{origin && <button className="linkButton" onClick={() => { setOrigin(null); setOriginMode('browse'); }}>Clear nearby mode</button>}</div>
-        <label className="search"><Search size={16}/><input placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
-        <select className="filter" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select>
-        <div className="stationList">{!origin && !hasFilter && <p className="muted listPrompt">Enter a ZIP, use your location, or search to find chargers.</p>}{list.map(station => {
+        {(favorites.items.length > 0 || recents.items.length > 0) && <div className="savedStations">
+          {favorites.items.length > 0 && <div className="savedGroup"><div className="savedGroupTitle"><span><Heart size={14}/> Favorites</span><small>{favorites.items.length}</small></div>{favorites.items.slice(0, 4).map(id => {
+            const station = stationById.get(id);
+            if (!station) return null;
+            return <button type="button" key={id} onClick={() => { setSelectedId(id); setActiveView('chargers'); }}><strong>{station.name || id}</strong><span>{[station.city, station.state].filter(Boolean).join(', ')}</span></button>;
+          })}</div>}
+          {recents.items.length > 0 && <div className="savedGroup"><div className="savedGroupTitle"><span><Clock3 size={14}/> Recently viewed</span><button type="button" className="clearSaved" onClick={recents.clear}>Clear</button></div>{recents.items.slice(0, 4).map(id => {
+            const station = stationById.get(id);
+            if (!station) return null;
+            return <button type="button" key={id} onClick={() => { setSelectedId(id); setActiveView('chargers'); }}><strong>{station.name || id}</strong><span>{[station.city, station.state].filter(Boolean).join(', ')}</span></button>;
+          })}</div>}
+        </div>}
+        <label className="search"><span className="srOnly">Search stations</span><Search size={16}/><input aria-label="Search station, city, state, address, or station ID" placeholder="Search station, city, state..." value={query} onChange={event => setQuery(event.target.value)} /></label>
+        <label className="filterLabel"><span>State</span><select className="filter" aria-label="Filter chargers by state" value={stateFilter} onChange={event => setStateFilter(event.target.value)}>{states.map(state => <option key={state}>{state}</option>)}</select></label>
+        <div className="resultsMeta" role="status" aria-live="polite">{origin ? `${list.length} nearby chargers` : hasFilter ? `${list.length} matching chargers` : 'Search or use your location to begin'}</div>
+        <div id="charger-results" className="stationList" aria-label="Charger search results">{!origin && !hasFilter && <p className="muted listPrompt">Enter a ZIP, use your location, or search to find chargers.</p>}{list.map(station => {
           const pred = predictions.find(p => p.stationId === station.id && p.membershipType === 'member');
           const hasFresh = pred && isCurrentPrediction(pred);
           return <button key={station.id} className={station.id === selected?.id ? 'active' : ''} onClick={() => { setSelectedId(station.id); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }}>
@@ -677,8 +397,9 @@ function App() {
       <div className="content" ref={detailRef}>
         <PriceTruthNotice selected={selected} prediction={prediction} />
         <Card>
-          <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url}>Open Tesla page</a>}</div>
+          <div className="sectionTitle"><div><p>Selected charger</p><h2>{selected?.name || 'Pick a charger'}</h2></div>{selected?.url && <a href={selected.url} target="_blank" rel="noreferrer">Open Tesla page</a>}</div>
           <p className="muted">{selected?.address || 'We do not have the street address for this one yet.'}</p>
+          <div className="stationActions">{selected && <button type="button" className={favorites.items.includes(selected.id) ? 'favoriteButton active' : 'favoriteButton'} aria-pressed={favorites.items.includes(selected.id)} onClick={() => favorites.toggle(selected.id)}><Heart size={16}/>{favorites.items.includes(selected.id) ? 'Favorited' : 'Favorite'}</button>}{selected && <button type="button" className={comparison.items.includes(selected.id) ? 'compareButton active' : 'compareButton'} aria-pressed={comparison.items.includes(selected.id)} onClick={() => comparison.toggle(selected.id)}><Scale size={16}/>{comparison.items.includes(selected.id) ? 'In comparison' : 'Compare'}</button>}{comparison.items.length > 1 && <button type="button" className="compareNowButton" onClick={() => setActiveView('compare')}>Compare {comparison.items.length} chargers</button>}</div>
           <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={() => checkSelectedNow()} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' && !manualCheck.live ? 'spin' : ''}/>{manualCheck.status === 'loading' && !manualCheck.live ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <button className="liveTeslaButton" onClick={() => checkSelectedNow({ live: true })} disabled={manualCheck.status === 'loading'}>{manualCheck.status === 'loading' && manualCheck.live ? <RefreshCw size={16} className="spin"/> : <Zap size={16}/>}{manualCheck.status === 'loading' && manualCheck.live ? 'Syncing live price…' : 'Get live Tesla price'}</button>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
           <div className="leadInsights">
@@ -840,6 +561,15 @@ function App() {
     </section>}
     </>}
 
+    {activeView === 'compare' && <StationComparison
+      stationIds={comparison.items}
+      stationById={stationById}
+      predictionsByStation={predictionsByStation}
+      origin={origin}
+      onRemove={comparison.remove}
+      onOpen={id => { setSelectedId(id); setActiveView('chargers'); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50); }}
+    />}
+
     {activeView === 'transparency' && <section className="transparencyView">
       <Card>
         <div className="sectionTitle"><div><p>Pricing transparency</p><h2>How much of the network is publicly priced?</h2></div><span className="badge">US Superchargers</span></div>
@@ -963,4 +693,4 @@ function App() {
 // calling createRoot() twice on the same container.
 const container = document.getElementById('root');
 const root = (window.__caughtaRoot ??= createRoot(container));
-root.render(<App />);
+root.render(<ErrorBoundary><App /></ErrorBoundary>);

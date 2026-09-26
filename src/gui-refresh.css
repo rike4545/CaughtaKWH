@@ -1,0 +1,671 @@
+/* Tesla-inspired GUI refresh — visual layer only */
+
+:root {
+  --brand: #e82127;
+  --brand-strong: #ff3940;
+  --brand-soft: rgba(232,33,39,.13);
+  --good: #55e6a5;
+  --info: #6ea8ff;
+  --bg: #08090b;
+  --card: rgba(17,19,23,.92);
+  --card2: rgba(23,25,30,.94);
+  --text: #f5f6f7;
+  --muted: #a2a7af;
+  --faint: #737983;
+  --line: rgba(255,255,255,.085);
+  --line-strong: rgba(255,255,255,.145);
+  --accent: var(--good);
+  --accent2: var(--info);
+}
+
+html { background: var(--bg); }
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -20%, rgba(232,33,39,.16), transparent 31rem),
+    linear-gradient(180deg, #0b0c0f 0%, #08090b 42%, #07080a 100%);
+}
+
+main {
+  width: min(1320px, calc(100% - 40px));
+  padding-top: 18px;
+}
+
+/* App shell navigation */
+.viewTabs {
+  position: sticky;
+  top: 12px;
+  z-index: 80;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 24px;
+  padding: 5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: rgba(13,14,17,.86);
+  box-shadow: 0 12px 36px rgba(0,0,0,.3);
+  backdrop-filter: blur(22px) saturate(150%);
+}
+
+.viewTabs button {
+  min-height: 42px;
+  border-radius: 12px;
+  padding: 0 15px;
+  font-weight: 700;
+  transition: background .16s ease, color .16s ease, transform .16s ease;
+}
+
+.viewTabs button:hover {
+  border-color: transparent;
+  background: rgba(255,255,255,.065);
+  transform: translateY(-1px);
+}
+
+.viewTabs button.active {
+  border-color: rgba(232,33,39,.42);
+  background: linear-gradient(180deg, rgba(232,33,39,.20), rgba(232,33,39,.10));
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.025);
+}
+
+.viewTabs svg { color: currentColor; }
+.viewTabs button.active svg { color: var(--brand-strong); }
+
+/* Hero */
+.hero {
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+  gap: clamp(28px, 5vw, 64px);
+  min-height: 470px;
+  padding: 62px 0 42px;
+}
+
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  color: #d8dade;
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.eyebrowDot {
+  background: var(--brand);
+  box-shadow: 0 0 14px rgba(232,33,39,.7);
+}
+
+h1 {
+  max-width: 9.8ch;
+  margin: 18px 0 20px;
+  font-size: clamp(52px, 6.6vw, 88px);
+  line-height: .93;
+  letter-spacing: -.065em;
+}
+
+.heroGrad {
+  background: linear-gradient(100deg, #fff 0%, #ff8b8f 58%, var(--brand-strong) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.heroLede {
+  max-width: 55ch;
+  margin: 0 0 28px;
+  color: #b2b6bd;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.btnPrimary {
+  min-height: 50px;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(180deg, #f02d33, #cf171d);
+  box-shadow: 0 12px 30px rgba(232,33,39,.22);
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 16px 38px rgba(232,33,39,.30);
+}
+
+.heroZip {
+  min-height: 50px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.035);
+}
+
+.heroZip button { color: #fff; }
+.heroZip button:hover { background: rgba(255,255,255,.07); }
+
+.heroTrust {
+  gap: 10px 24px;
+  margin-top: 25px;
+}
+
+.heroTrust span {
+  position: relative;
+  color: #848a94;
+}
+
+.heroTrust strong { color: #fff; }
+
+/* Surfaces */
+.heroPanel,
+.card,
+.truthNotice,
+.liveCard {
+  border-color: var(--line);
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.025), transparent 34%),
+    rgba(17,19,23,.92);
+  box-shadow: 0 18px 52px rgba(0,0,0,.25);
+  backdrop-filter: blur(18px);
+}
+
+.card { padding: 24px; }
+
+.liveCard {
+  align-self: center;
+  padding: 24px;
+  border-color: rgba(255,255,255,.11);
+  box-shadow: 0 28px 85px rgba(0,0,0,.38);
+}
+
+.liveCardTag {
+  color: #ff9da0;
+  border-color: rgba(232,33,39,.32);
+  background: rgba(232,33,39,.10);
+}
+
+.liveRates {
+  border-radius: 14px;
+  border-color: var(--line);
+}
+
+.liveRate { background: rgba(8,9,11,.66); }
+.liveRate.m .liveSw { background: var(--brand); }
+.liveRate.m .liveBig { color: #fff; }
+.liveRate.n .liveBig { color: #d8e7ff; }
+
+.liveCardCta {
+  border-radius: 12px;
+}
+
+.liveCardCta:hover {
+  border-color: rgba(232,33,39,.50);
+  background: rgba(232,33,39,.09);
+}
+
+/* Stats become quieter and more dashboard-like */
+.statsGrid {
+  gap: 12px;
+  margin: 0 0 24px;
+}
+
+.stat {
+  min-height: 106px;
+  padding: 18px 20px;
+  border-radius: 16px;
+}
+
+.statIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  color: var(--brand-strong);
+  background: var(--brand-soft);
+}
+
+.stat strong {
+  font-size: 24px;
+  letter-spacing: -.025em;
+}
+
+/* Main workspace */
+.layout {
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.sidebar {
+  top: 74px;
+  height: calc(100vh - 94px);
+  padding: 18px;
+  border-radius: 20px;
+}
+
+.nearbyBox {
+  padding: 15px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.028);
+}
+
+.nearMeButton {
+  min-height: 52px;
+  border-color: rgba(232,33,39,.30);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(232,33,39,.15), rgba(232,33,39,.055));
+}
+
+.nearMeButton:hover {
+  border-color: rgba(232,33,39,.55);
+  background: linear-gradient(135deg, rgba(232,33,39,.22), rgba(232,33,39,.08));
+}
+
+.nearMeButton small {
+  color: #ff9397;
+}
+
+.zipRow input,
+.zipRow button,
+.search,
+.filter {
+  border-radius: 11px;
+}
+
+.search,
+.filter {
+  background: rgba(255,255,255,.035);
+}
+
+.search:focus-within,
+.filter:focus {
+  border-color: rgba(232,33,39,.46);
+  box-shadow: 0 0 0 3px rgba(232,33,39,.08);
+}
+
+.stationList {
+  gap: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.18) transparent;
+}
+
+.stationList button {
+  position: relative;
+  border-radius: 12px;
+  padding: 13px 14px;
+  background: transparent;
+}
+
+.stationList button:hover {
+  border-color: transparent;
+  background: rgba(255,255,255,.045);
+}
+
+.stationList button.active {
+  border-color: rgba(232,33,39,.28);
+  background: rgba(232,33,39,.085);
+}
+
+.stationList button.active::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 11px;
+  bottom: 11px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--brand);
+}
+
+.stationPrice { color: var(--good); }
+
+/* Saved stations */
+.savedStations {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.savedGroup > button:not(.clearSaved) {
+  border-radius: 10px;
+  background: transparent;
+}
+
+.savedGroup > button:not(.clearSaved):hover {
+  border-color: rgba(255,255,255,.11);
+  background: rgba(255,255,255,.04);
+}
+
+.savedGroupTitle svg { color: var(--brand-strong); }
+
+/* Selected station: actions and rate switcher */
+.content { gap: 16px; }
+
+.content > .card:first-of-type {
+  border-color: rgba(255,255,255,.11);
+}
+
+.stationActions {
+  padding: 4px 0 2px;
+}
+
+.favoriteButton,
+.compareButton,
+.compareNowButton {
+  border-radius: 10px;
+  background: rgba(255,255,255,.035);
+}
+
+.favoriteButton.active {
+  border-color: rgba(232,33,39,.40);
+  background: rgba(232,33,39,.11);
+  color: #fff;
+}
+
+.favoriteButton.active svg { color: var(--brand-strong); }
+
+.compareButton.active,
+.compareNowButton {
+  border-color: rgba(255,255,255,.16);
+  background: rgba(255,255,255,.08);
+}
+
+.toolbar {
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.toolbar button {
+  border-radius: 10px;
+}
+
+.toolbar button.active {
+  border-color: rgba(232,33,39,.38);
+  background: rgba(232,33,39,.10);
+}
+
+.liveTeslaButton {
+  border-color: rgba(232,33,39,.36);
+  border-radius: 10px;
+  background: rgba(232,33,39,.10);
+}
+
+.liveTeslaButton:hover {
+  border-color: rgba(232,33,39,.6);
+  background: rgba(232,33,39,.16);
+}
+
+.reportPriceButton {
+  border-radius: 10px;
+  border-color: rgba(255,255,255,.13);
+  background: rgba(255,255,255,.045);
+}
+
+.badge {
+  border-radius: 999px;
+  background: rgba(255,255,255,.035);
+}
+
+.badge.fresh {
+  color: var(--good);
+  border-color: rgba(85,230,165,.30);
+  background: rgba(85,230,165,.06);
+}
+
+/* Pricing should be the visual focus */
+.priceMatrix {
+  margin-top: 20px;
+  border-radius: 16px;
+  background: rgba(7,8,10,.62);
+}
+
+.priceMatrix.fresh {
+  border-color: rgba(85,230,165,.25);
+  box-shadow: 0 16px 48px rgba(0,0,0,.24);
+}
+
+.rateTile {
+  min-height: 145px;
+  padding: 22px 24px;
+}
+
+.rateTile.member .rateTileHead svg { color: var(--brand-strong); }
+.rateTile.member.fresh .rateBig { color: #fff; }
+.rateTile.nonmember.fresh .rateBig { color: #d8e7ff; }
+
+.rateBig {
+  margin-top: 12px;
+  font-size: 44px;
+  letter-spacing: -.04em;
+}
+
+.rateFooter {
+  background: rgba(255,255,255,.018);
+}
+
+.leadInsights {
+  gap: 10px;
+}
+
+.leadIns {
+  border-radius: 14px;
+  background: rgba(255,255,255,.025);
+}
+
+.leadIns.cheap {
+  border-color: rgba(85,230,165,.20);
+  background: rgba(85,230,165,.035);
+}
+
+.leadIns.open {
+  border-color: rgba(110,168,255,.20);
+  background: rgba(110,168,255,.035);
+}
+
+.priceStrip {
+  gap: 8px;
+}
+
+.priceStrip > div {
+  border-radius: 12px;
+  background: rgba(255,255,255,.025);
+}
+
+/* Truth/status messaging should inform rather than dominate */
+.truthNotice {
+  padding: 14px 17px;
+  border-radius: 14px;
+}
+
+.truthNotice strong {
+  font-size: 15px;
+}
+
+.truthNotice p {
+  font-size: 13px;
+}
+
+/* Comparison workspace */
+.comparisonView {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.comparisonIntro {
+  padding: 28px;
+}
+
+.comparisonGrid {
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  gap: 14px;
+}
+
+.comparisonCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.comparisonCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand), transparent 70%);
+  opacity: .7;
+}
+
+.comparisonBadges .compareWinner {
+  color: var(--good);
+  background: rgba(85,230,165,.09);
+}
+
+.comparisonMetric.primary strong {
+  font-size: 1.8rem;
+  letter-spacing: -.035em;
+}
+
+.compareOpenButton {
+  border-color: rgba(232,33,39,.32);
+  border-radius: 10px;
+  background: rgba(232,33,39,.08);
+}
+
+.compareOpenButton:hover {
+  background: rgba(232,33,39,.14);
+}
+
+/* Charts and health views */
+.pulseGrid > div,
+.benchmarkRow,
+.lawCard {
+  border-radius: 14px;
+  background: rgba(255,255,255,.025);
+}
+
+.pulseGrid svg {
+  color: var(--brand-strong);
+  background: var(--brand-soft);
+}
+
+/* Responsive app-shell behavior */
+@media (max-width: 980px) {
+  main {
+    width: min(100% - 24px, 900px);
+    padding-top: 10px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 46px;
+  }
+
+  .liveCard { width: 100%; }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    min-height: 0;
+  }
+
+  .stationList {
+    max-height: 420px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .viewTabs {
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
+  }
+
+  .viewTabs::-webkit-scrollbar { display: none; }
+  .viewTabs button { flex: 0 0 auto; }
+}
+
+@media (max-width: 620px) {
+  main {
+    width: min(100% - 16px, 620px);
+  }
+
+  .hero {
+    gap: 24px;
+    padding: 32px 0 24px;
+  }
+
+  h1 {
+    max-width: 10ch;
+    font-size: clamp(45px, 14vw, 64px);
+  }
+
+  .heroLede {
+    font-size: 16px;
+  }
+
+  .heroCta {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .btnPrimary,
+  .heroZip {
+    width: 100%;
+  }
+
+  .heroZip input { flex: 1; width: auto; }
+
+  .heroTrust {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat {
+    min-height: 94px;
+    padding: 14px;
+  }
+
+  .statIcon { display: none; }
+  .stat strong { font-size: 21px; }
+
+  .card { padding: 18px; }
+
+  .rateRow {
+    grid-template-columns: 1fr;
+  }
+
+  .rateTile + .rateTile {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .rateBig { font-size: 38px; }
+
+  .priceStrip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .viewTabs {
+    position: sticky;
+    top: 6px;
+    margin-bottom: 14px;
+    padding: 4px;
+  }
+
+  .viewTabs button {
+    min-height: 39px;
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .comparisonGrid {
+    grid-template-columns: 1fr;
+  }
+}
