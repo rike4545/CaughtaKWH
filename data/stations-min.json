@@ -3000,6 +3000,12 @@
     "state": "CA"
   },
   {
+    "id": "477554",
+    "name": "Chattanooga, TN - Birmingham Hwy",
+    "city": "Chattanooga",
+    "state": "TN"
+  },
+  {
     "id": "ChattanoogaTNSupercharger",
     "name": "Chattanooga, TN - Hamilton Place Blvd",
     "city": "Chattanooga",
@@ -8632,6 +8638,12 @@
     "name": "Land O’ Lakes, FL",
     "city": "Land O’ Lakes",
     "state": "FL"
+  },
+  {
+    "id": "19169",
+    "name": "Lander, WY",
+    "city": "Lander",
+    "state": "WY"
   },
   {
     "id": "LanghornePASupercharger",
