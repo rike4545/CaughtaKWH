@@ -1,33 +1,25 @@
 {
-  "generatedAt": "2026-09-27T14:50:28.779Z",
-  "requestedLimit": 300,
-  "effectiveLimit": 300,
-  "inScopeStations": 254,
-  "attempted": 3,
+  "generatedAt": "2026-09-27T16:55:53.442Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 0,
+  "attempted": 0,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 0,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
-  "attemptedStationIds": [
-    "rosemontillinoissupercharger",
-    "mettersupercharger",
-    "18031"
-  ],
-  "blockedStationIds": [
-    "rosemontillinoissupercharger",
-    "mettersupercharger",
-    "18031"
-  ],
+  "cooldownSkipped": 10,
+  "attemptedStationIds": [],
+  "blockedStationIds": [],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 0,
+    "requestAttempts": 0,
     "retries": 0,
-    "averageRequestMs": 39,
+    "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -38,18 +30,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 0
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 41.5,
+    "previousHealthAgeMinutes": 125.4,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
-    "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-27T15:20:28.779Z"
+    "routeAccessControlLikely": false,
+    "nextProbeAt": null
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,16 +49,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "GA",
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
