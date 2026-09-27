@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-26T23:53:01.266Z",
+  "generatedAt": "2026-09-27T02:17:40.434Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
-  "inScopeStations": 517,
+  "inScopeStations": 293,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -10,16 +10,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 1,
+  "cooldownSkipped": 0,
   "attemptedStationIds": [
+    "rosemontillinoissupercharger",
     "mettersupercharger",
-    "18031",
-    "19313"
+    "18031"
   ],
   "blockedStationIds": [
+    "rosemontillinoissupercharger",
     "mettersupercharger",
-    "18031",
-    "19313"
+    "18031"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 156,
+    "averageRequestMs": 80,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -43,13 +43,13 @@
     "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": false,
-    "previousHealthAgeMinutes": 17.3,
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 144.7,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-27T00:23:01.266Z"
+    "nextProbeAt": "2026-09-27T02:47:40.434Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -58,14 +58,14 @@
   },
   "scope": {
     "states": [
-      "FL",
       "GA",
       "HI",
       "IA",
       "ID",
       "IL",
       "IN",
-      "KS"
+      "KS",
+      "KY"
     ],
     "countries": [],
     "nearby": null,
