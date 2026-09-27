@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-27T14:08:58.181Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 293,
+  "generatedAt": "2026-09-27T14:50:28.779Z",
+  "requestedLimit": 300,
+  "effectiveLimit": 300,
+  "inScopeStations": 254,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 79,
+    "averageRequestMs": 39,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -43,13 +43,13 @@
     "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": false,
-    "previousHealthAgeMinutes": 130.9,
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 41.5,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-27T14:38:58.181Z"
+    "nextProbeAt": "2026-09-27T15:20:28.779Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -63,9 +63,7 @@
       "IA",
       "ID",
       "IL",
-      "IN",
-      "KS",
-      "KY"
+      "IN"
     ],
     "countries": [],
     "nearby": null,
