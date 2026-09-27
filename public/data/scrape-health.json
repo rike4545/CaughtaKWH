@@ -1,29 +1,33 @@
 {
-  "generatedAt": "2026-09-27T05:14:12.370Z",
-  "requestedLimit": 10,
-  "effectiveLimit": 10,
-  "inScopeStations": 1,
-  "attempted": 1,
+  "generatedAt": "2026-09-27T08:24:02.967Z",
+  "requestedLimit": 100,
+  "effectiveLimit": 100,
+  "inScopeStations": 293,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 1,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 9,
+  "cooldownSkipped": 0,
   "attemptedStationIds": [
-    "islandiasupercharger"
+    "rosemontillinoissupercharger",
+    "mettersupercharger",
+    "18031"
   ],
   "blockedStationIds": [
-    "islandiasupercharger"
+    "rosemontillinoissupercharger",
+    "mettersupercharger",
+    "18031"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 1,
-    "requestAttempts": 1,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 145,
+    "averageRequestMs": 121,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -34,18 +38,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 1
+    "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 176.5,
+    "previousRouteBlocked": false,
+    "previousHealthAgeMinutes": 189.8,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
-    "routeAccessControlLikely": false,
-    "nextProbeAt": null
+    "routeAccessControlLikely": true,
+    "nextProbeAt": "2026-09-27T08:54:02.967Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -53,9 +57,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "GA",
+      "HI",
+      "IA",
+      "ID",
+      "IL",
+      "IN",
+      "KS",
+      "KY"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
