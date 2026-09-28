@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-27T23:53:03.247Z",
+  "generatedAt": "2026-09-28T02:22:11.067Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
-  "inScopeStations": 293,
+  "inScopeStations": 228,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -13,13 +13,13 @@
   "cooldownSkipped": 0,
   "attemptedStationIds": [
     "rosemontillinoissupercharger",
-    "mettersupercharger",
-    "18031"
+    "SiouxCityIAsupercharger",
+    "WalcottIASupercharger"
   ],
   "blockedStationIds": [
     "rosemontillinoissupercharger",
-    "mettersupercharger",
-    "18031"
+    "SiouxCityIAsupercharger",
+    "WalcottIASupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 95,
+    "averageRequestMs": 115,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 143.3,
+    "previousHealthAgeMinutes": 149.1,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-28T00:23:03.247Z"
+    "nextProbeAt": "2026-09-28T02:52:11.067Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -58,14 +58,14 @@
   },
   "scope": {
     "states": [
-      "GA",
       "HI",
       "IA",
       "ID",
       "IL",
       "IN",
       "KS",
-      "KY"
+      "KY",
+      "LA"
     ],
     "countries": [],
     "nearby": null,
