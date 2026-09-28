@@ -1,33 +1,25 @@
 {
-  "generatedAt": "2026-09-28T17:08:12.727Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 228,
-  "attempted": 3,
+  "generatedAt": "2026-09-28T21:13:17.620Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 0,
+  "attempted": 0,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 0,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
-  "attemptedStationIds": [
-    "rosemontillinoissupercharger",
-    "SiouxCityIAsupercharger",
-    "WalcottIASupercharger"
-  ],
-  "blockedStationIds": [
-    "rosemontillinoissupercharger",
-    "SiouxCityIAsupercharger",
-    "WalcottIASupercharger"
-  ],
+  "cooldownSkipped": 10,
+  "attemptedStationIds": [],
+  "blockedStationIds": [],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 0,
+    "requestAttempts": 0,
     "retries": 0,
-    "averageRequestMs": 64,
+    "averageRequestMs": null,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -38,18 +30,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 0
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": false,
-    "previousHealthAgeMinutes": 200.9,
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 245.1,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
-    "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-28T17:38:12.727Z"
+    "routeAccessControlLikely": false,
+    "nextProbeAt": null
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +49,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "HI",
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS",
-      "KY",
-      "LA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
