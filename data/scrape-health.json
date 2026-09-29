@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-29T15:12:00.091Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 283,
+  "generatedAt": "2026-09-29T19:58:28.209Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 3,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -10,16 +10,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 7,
   "attemptedStationIds": [
-    "rosemontillinoissupercharger",
-    "SiouxCityIAsupercharger",
-    "WalcottIASupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
-    "rosemontillinoissupercharger",
-    "SiouxCityIAsupercharger",
-    "WalcottIASupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 84,
+    "averageRequestMs": 78,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -38,18 +38,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
     "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": false,
-    "previousHealthAgeMinutes": 145.1,
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 286.5,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
-    "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-29T15:42:00.091Z"
+    "routeAccessControlLikely": false,
+    "nextProbeAt": null
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +57,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS",
-      "KY",
-      "LA",
-      "MA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
