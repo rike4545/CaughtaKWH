@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T21:33:29.129Z",
+  "generatedAt": "2026-09-30T02:34:12.752Z",
   "totalStations": 3114,
   "needsCount": 200,
   "stations": [
@@ -26,6 +26,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=457753"
+    },
+    {
+      "id": "452152",
+      "name": "Potomac, MD",
+      "city": "Potomac",
+      "state": "MD",
+      "lat": 39.040583,
+      "lng": -77.158093,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=452152"
     },
     {
       "id": "456416",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4006018"
-    },
-    {
-      "id": "nashtx",
-      "name": "Nash, TX",
-      "city": "Nash",
-      "state": "TX",
-      "lat": 33.452427,
-      "lng": -94.130939,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=nashtx"
     }
   ]
 }
