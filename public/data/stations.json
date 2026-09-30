@@ -32919,7 +32919,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 101,
+        "durationMs": 150,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -32929,7 +32929,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-09-30T09:37:36.050Z",
+    "lastAttemptedAt": "2026-09-30T17:59:56.587Z",
     "lastBlockedAt": "2026-09-26T21:06:41.017Z",
     "consecutiveBlockedAttempts": 35,
     "blockCooldownHours": 72,
@@ -32938,7 +32938,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 101
+      "averageRequestMs": 150
     }
   },
   {
@@ -133168,7 +133168,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 85,
+        "durationMs": 36,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -133178,7 +133178,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-09-30T09:37:36.050Z",
+    "lastAttemptedAt": "2026-09-30T17:59:56.587Z",
     "lastBlockedAt": "2026-09-26T21:06:41.017Z",
     "consecutiveBlockedAttempts": 35,
     "blockCooldownHours": 72,
@@ -133187,7 +133187,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 85
+      "averageRequestMs": 36
     }
   },
   {
@@ -174961,7 +174961,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 48,
+        "durationMs": 38,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -174971,7 +174971,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-09-30T09:37:36.050Z",
+    "lastAttemptedAt": "2026-09-30T17:59:56.587Z",
     "lastBlockedAt": "2026-09-26T21:06:41.017Z",
     "consecutiveBlockedAttempts": 35,
     "blockCooldownHours": 72,
@@ -174980,7 +174980,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 48
+      "averageRequestMs": 38
     }
   },
   {
