@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-29T23:25:34.104Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 283,
+  "generatedAt": "2026-09-30T00:24:22.716Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 6,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -10,16 +10,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 4,
   "attemptedStationIds": [
-    "rosemontillinoissupercharger",
-    "SiouxCityIAsupercharger",
-    "WalcottIASupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "blockedStationIds": [
-    "rosemontillinoissupercharger",
-    "SiouxCityIAsupercharger",
-    "WalcottIASupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 53,
+    "averageRequestMs": 50,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 206.2,
+    "previousHealthAgeMinutes": 58.8,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-29T23:55:34.104Z"
+    "nextProbeAt": "2026-09-30T00:54:22.716Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +57,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "IA",
-      "ID",
-      "IL",
-      "IN",
-      "KS",
-      "KY",
-      "LA",
-      "MA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
