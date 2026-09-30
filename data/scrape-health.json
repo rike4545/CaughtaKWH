@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-09-30T20:10:09.324Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 336,
+  "generatedAt": "2026-09-30T22:12:17.206Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 7,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -10,16 +10,16 @@
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "452152",
-    "13542",
-    "rosemontillinoissupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "blockedStationIds": [
-    "452152",
-    "13542",
-    "rosemontillinoissupercharger"
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 120,
+    "averageRequestMs": 87,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 130.2,
+    "previousHealthAgeMinutes": 122.1,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-09-30T20:40:09.324Z"
+    "nextProbeAt": "2026-09-30T22:42:17.206Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +57,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "ID",
-      "IL",
-      "IN",
-      "KS",
-      "KY",
-      "LA",
-      "MA",
-      "MD"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
