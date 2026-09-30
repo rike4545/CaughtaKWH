@@ -19,14 +19,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
       - run: npm ci
 
-      - name: Audit and apply safe fixes
+      - name: Apply safe fixes and record the resulting audit
         run: |
-          npm audit --json > reports/npm-audit.json || true
+          mkdir -p reports
           npm audit fix || true
+          # Record the audit *after* fixing, so the committed report describes the
+          # lockfile in this commit rather than the one it replaced.
+          npm audit --json > reports/npm-audit.json || true
 
       - name: Open PR if anything changed
         uses: peter-evans/create-pull-request@v6
