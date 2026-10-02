@@ -30226,7 +30226,7 @@
     },
     "superchargeInfoMatchedAt": "2026-09-27",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-02T00:44:38.983Z",
+    "lastAttemptedAt": "2026-10-02T06:14:59.483Z",
     "lastBlockedAt": "2026-08-15T15:54:39.608Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 5,
@@ -30241,7 +30241,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 98,
+        "durationMs": 34,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -30255,7 +30255,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 98
+      "averageRequestMs": 34
     }
   },
   {
@@ -77511,7 +77511,7 @@
     },
     "superchargeInfoMatchedAt": "2026-09-27",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-02T00:44:38.983Z",
+    "lastAttemptedAt": "2026-10-02T06:14:59.483Z",
     "lastBlockedAt": "2026-08-15T20:09:34.324Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -77526,7 +77526,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 117,
+        "durationMs": 38,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -77540,7 +77540,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 117
+      "averageRequestMs": 38
     },
     "observationPriorityScore": 822
   },
@@ -152052,7 +152052,7 @@
     },
     "superchargeInfoMatchedAt": "2026-09-27",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-02T00:44:38.983Z",
+    "lastAttemptedAt": "2026-10-02T06:14:59.483Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -152067,7 +152067,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 109,
+        "durationMs": 100,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -152081,7 +152081,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 109
+      "averageRequestMs": 100
     },
     "observationPriorityScore": 831
   },
