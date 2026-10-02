@@ -1,33 +1,29 @@
 {
-  "generatedAt": "2026-10-02T00:44:38.983Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 307,
-  "attempted": 3,
+  "generatedAt": "2026-10-02T00:45:33.606Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 1,
+  "inScopeStations": 7,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
-  "cooldownSkipped": 0,
+  "cooldownSkipped": 3,
   "attemptedStationIds": [
-    "452152",
-    "13542",
-    "35205"
+    "26660"
   ],
   "blockedStationIds": [
-    "452152",
-    "13542",
-    "35205"
+    "26660"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 108,
+    "averageRequestMs": 198,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -38,18 +34,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 214.8,
-    "cooldownActive": false,
+    "previousHealthAgeMinutes": 0.9,
+    "cooldownActive": true,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-02T01:14:38.983Z"
+    "nextProbeAt": "2026-10-02T01:15:33.606Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +53,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "IN",
-      "KS",
-      "KY",
-      "LA",
-      "MA",
-      "MD",
-      "ME",
-      "MI"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
