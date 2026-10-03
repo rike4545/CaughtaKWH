@@ -30226,7 +30226,7 @@
     },
     "superchargeInfoMatchedAt": "2026-09-27",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-03T06:27:25.179Z",
+    "lastAttemptedAt": "2026-10-03T15:21:28.149Z",
     "lastBlockedAt": "2026-08-15T15:54:39.608Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 5,
@@ -30241,7 +30241,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 27,
+        "durationMs": 66,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -30255,7 +30255,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 27
+      "averageRequestMs": 66
     }
   },
   {
@@ -77511,7 +77511,7 @@
     },
     "superchargeInfoMatchedAt": "2026-09-27",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-03T06:27:25.179Z",
+    "lastAttemptedAt": "2026-10-03T15:21:28.149Z",
     "lastBlockedAt": "2026-08-15T20:09:34.324Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -77526,7 +77526,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 26,
+        "durationMs": 48,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -77540,7 +77540,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 26
+      "averageRequestMs": 48
     },
     "observationPriorityScore": 822
   },
@@ -152052,7 +152052,7 @@
     },
     "superchargeInfoMatchedAt": "2026-09-27",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-03T11:52:48.180Z",
+    "lastAttemptedAt": "2026-10-03T15:21:28.149Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -152067,7 +152067,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 80,
+        "durationMs": 87,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -152081,9 +152081,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 80
+      "averageRequestMs": 87
     },
-    "observationPriorityScore": 1031
+    "observationPriorityScore": 831
   },
   {
     "id": "PotsdamNYQ322",
