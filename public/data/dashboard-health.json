@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T16:48:51.518Z",
+  "generatedAt": "2026-10-03T15:13:59.539Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3114,
@@ -127,10 +127,21 @@
       "state": "NY",
       "city": "Lake Grove",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-29T19:58:28.209Z",
+      "lastAttemptedAt": "2026-10-03T11:35:59.121Z",
       "blocked": true,
-      "lastScrapeResult": "access_controlled",
+      "lastScrapeResult": "route_access_controlled",
       "priorityScore": 1265
+    },
+    {
+      "id": "452152",
+      "name": "Potomac, MD",
+      "state": "MD",
+      "city": "Potomac",
+      "lastScrapedAt": null,
+      "lastAttemptedAt": "2026-10-03T11:52:48.180Z",
+      "blocked": false,
+      "lastScrapeResult": "route_access_controlled",
+      "priorityScore": 1031
     },
     {
       "id": "goletacasupercharger",
@@ -153,17 +164,6 @@
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 843
-    },
-    {
-      "id": "452152",
-      "name": "Potomac, MD",
-      "state": "MD",
-      "city": "Potomac",
-      "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-02T12:35:13.305Z",
-      "blocked": false,
-      "lastScrapeResult": "route_access_controlled",
-      "priorityScore": 831
     },
     {
       "id": "456416",
@@ -226,7 +226,7 @@
       "state": "MD",
       "city": "Halethorpe",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-02T12:35:13.305Z",
+      "lastAttemptedAt": "2026-10-03T06:27:25.179Z",
       "blocked": true,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 822
