@@ -1,20 +1,8 @@
 {
-  "generatedAt": "2026-10-04T11:23:22.291Z",
-  "totalStations": 3114,
+  "generatedAt": "2026-10-04T16:01:33.461Z",
+  "totalStations": 3115,
   "needsCount": 200,
   "stations": [
-    {
-      "id": "452152",
-      "name": "Potomac, MD",
-      "city": "Potomac",
-      "state": "MD",
-      "lat": 39.040583,
-      "lng": -77.158093,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=452152"
-    },
     {
       "id": "goletacasupercharger",
       "name": "Goleta, CA",
@@ -38,6 +26,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=457753"
+    },
+    {
+      "id": "452152",
+      "name": "Potomac, MD",
+      "city": "Potomac",
+      "state": "MD",
+      "lat": 39.040583,
+      "lng": -77.158093,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=452152"
     },
     {
       "id": "456416",
