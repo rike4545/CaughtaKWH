@@ -152102,7 +152102,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-04",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-04T15:54:34.503Z",
+    "lastAttemptedAt": "2026-10-04T18:52:56.912Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -152117,7 +152117,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 99,
+        "durationMs": 152,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -152131,9 +152131,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 99
+      "averageRequestMs": 152
     },
-    "observationPriorityScore": 831
+    "observationPriorityScore": 1031
   },
   {
     "id": "PotsdamNYQ322",
