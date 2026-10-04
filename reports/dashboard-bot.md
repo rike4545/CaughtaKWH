@@ -1,22 +1,22 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-10-03T15:13:59.539Z
+Generated: 2026-10-04T15:57:42.914Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
-- Stations: 3114
-- Checked by scraper: 1119 (35.93%)
+- Stations: 3115
+- Checked by scraper: 1119 (35.92%)
 - Latest attempts blocked by access controls: 1991
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
 - Fresh price stations: 0
-- Stale or unchecked stations: 3114
+- Stale or unchecked stations: 3115
 
 ## State Refresh Priorities
 
-- CA: 660 stale/unchecked, 0% priced
+- CA: 661 stale/unchecked, 0% priced
 - FL: 244 stale/unchecked, 0% priced
 - TX: 223 stale/unchecked, 0% priced
 - NY: 124 stale/unchecked, 0.81% priced
@@ -28,16 +28,16 @@ Generated: 2026-10-03T15:13:59.539Z
 ## Station Refresh Targets
 
 - Lake Grove, NY (LakeGroveNYsupercharger) · route_access_controlled
-- Potomac, MD (452152) · route_access_controlled
 - Goleta, CA (goletacasupercharger) · access_controlled
 - Woodcliff Lake, NJ - Chestnut Ridge Rd (457753) · access_controlled
+- Potomac, MD (452152) · route_access_controlled
 - Orem, UT - N 980 W (456416) · access_controlled
 
 ## Improvement Queue
 
-- Grow repeated observations: 0 of 3114 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
+- Grow repeated observations: 0 of 3115 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
 - Keep fresh data visible: 0 stations have a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current.
-- Prioritize slow Tesla pages: 3114 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
+- Prioritize slow Tesla pages: 3115 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
 - Add local power context state by state: New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear.
 
 ## Automation
