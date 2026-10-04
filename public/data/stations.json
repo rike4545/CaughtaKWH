@@ -30230,7 +30230,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-04",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-04T15:54:34.503Z",
+    "lastAttemptedAt": "2026-10-04T22:04:10.288Z",
     "lastBlockedAt": "2026-08-15T15:54:39.608Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 5,
@@ -30245,7 +30245,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 41,
+        "durationMs": 34,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -30259,7 +30259,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 41
+      "averageRequestMs": 34
     }
   },
   {
@@ -77534,7 +77534,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-04",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-04T15:54:34.503Z",
+    "lastAttemptedAt": "2026-10-04T22:04:10.288Z",
     "lastBlockedAt": "2026-08-15T20:09:34.324Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -77549,7 +77549,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 45,
+        "durationMs": 36,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -77563,7 +77563,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 45
+      "averageRequestMs": 36
     },
     "observationPriorityScore": 822
   },
@@ -152102,7 +152102,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-04",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-04T18:52:56.912Z",
+    "lastAttemptedAt": "2026-10-04T22:04:10.288Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -152133,7 +152133,7 @@
       "retries": 0,
       "averageRequestMs": 152
     },
-    "observationPriorityScore": 1031
+    "observationPriorityScore": 831
   },
   {
     "id": "PotsdamNYQ322",
