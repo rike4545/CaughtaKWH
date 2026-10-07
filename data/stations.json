@@ -52954,7 +52954,40 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-10-04"
+    "superchargeInfoMatchedAt": "2026-10-04",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-07T00:07:18.973Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/428652",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 74,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 74
+    },
+    "observationPriorityScore": 823
   },
   {
     "id": "DunniganCAQ322",
@@ -77534,7 +77567,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-04",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-06T20:33:30.480Z",
+    "lastAttemptedAt": "2026-10-07T00:07:18.973Z",
     "lastBlockedAt": "2026-08-15T20:09:34.324Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -77549,7 +77582,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 42,
+        "durationMs": 61,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -77563,7 +77596,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 42
+      "averageRequestMs": 61
     },
     "observationPriorityScore": 822
   },
@@ -152102,7 +152135,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-04",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-06T20:33:30.480Z",
+    "lastAttemptedAt": "2026-10-07T00:07:18.973Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -152117,7 +152150,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 147,
+        "durationMs": 162,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -152131,7 +152164,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 147
+      "averageRequestMs": 162
     },
     "observationPriorityScore": 831
   },
