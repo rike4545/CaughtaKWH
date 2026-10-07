@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T00:07:18.973Z",
+  "generatedAt": "2026-10-07T05:51:59.087Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
   "inScopeStations": 330,
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 99,
+    "averageRequestMs": 84,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 89.1,
+    "previousHealthAgeMinutes": 344.7,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-07T00:37:18.973Z"
+    "nextProbeAt": "2026-10-07T06:21:59.087Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,

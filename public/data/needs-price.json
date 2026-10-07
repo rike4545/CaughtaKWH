@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-06T21:55:43.908Z",
+  "generatedAt": "2026-10-07T02:50:43.754Z",
   "totalStations": 3115,
   "needsCount": 200,
   "stations": [
@@ -50,6 +50,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=456416"
+    },
+    {
+      "id": "428652",
+      "name": "Dunn, NC",
+      "city": "Dunn",
+      "state": "NC",
+      "lat": 35.296335,
+      "lng": -78.598812,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=428652"
     },
     {
       "id": "401824",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=20977"
-    },
-    {
-      "id": "4006018",
-      "name": "Murrieta, CA - Murrieta Hot Springs Rd",
-      "city": "Murrieta",
-      "state": "CA",
-      "lat": 33.553761,
-      "lng": -117.139723,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=4006018"
     }
   ]
 }
