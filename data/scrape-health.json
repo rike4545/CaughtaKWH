@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-08T18:49:51.337Z",
-  "requestedLimit": 10,
-  "effectiveLimit": 10,
-  "inScopeStations": 10,
+  "generatedAt": "2026-10-08T21:39:30.703Z",
+  "requestedLimit": 100,
+  "effectiveLimit": 100,
+  "inScopeStations": 265,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -12,14 +12,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 0,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "428652",
+    "HalifaxNCQ42022",
+    "caryncbassprolanesupercharger"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "428652",
+    "HalifaxNCQ42022",
+    "caryncbassprolanesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 92,
+    "averageRequestMs": 100,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 113.4,
+    "previousHealthAgeMinutes": 169.7,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-08T19:19:51.337Z"
+    "nextProbeAt": "2026-10-08T22:09:30.703Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,9 +57,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "ME",
+      "MI",
+      "MN",
+      "MO",
+      "MS",
+      "MT",
+      "NC",
+      "ND"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
