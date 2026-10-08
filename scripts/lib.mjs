@@ -10,8 +10,14 @@ export async function ensureDir(dir) {
 }
 
 export async function readJson(file, fallback) {
+  const baseFull = path.resolve(root);
+  const target = path.resolve(baseFull, file);
+  const rel = path.relative(baseFull, target);
+  if (rel === '..' || rel.startsWith(`..${path.sep}`) || path.isAbsolute(rel)) {
+    throw new Error('Invalid file path');
+  }
   try {
-    return JSON.parse(await fs.readFile(file, 'utf8'));
+    return JSON.parse(await fs.readFile(target, 'utf8'));
   } catch {
     return fallback;
   }
