@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-07T17:57:05.007Z",
+  "generatedAt": "2026-10-08T17:58:34.214Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3115,
@@ -127,7 +127,7 @@
       "state": "NY",
       "city": "Lake Grove",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-07T13:15:47.481Z",
+      "lastAttemptedAt": "2026-10-08T10:29:25.295Z",
       "blocked": true,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 1265
@@ -160,7 +160,7 @@
       "state": "MD",
       "city": "Potomac",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-07T12:14:00.471Z",
+      "lastAttemptedAt": "2026-10-07T18:58:59.339Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 831
@@ -182,7 +182,7 @@
       "state": "NC",
       "city": "Dunn",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-07T12:14:00.471Z",
+      "lastAttemptedAt": "2026-10-08T16:56:28.969Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 823
