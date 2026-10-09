@@ -1,8 +1,20 @@
 {
-  "generatedAt": "2026-10-08T22:31:52.097Z",
+  "generatedAt": "2026-10-09T03:14:29.353Z",
   "totalStations": 3115,
   "needsCount": 200,
   "stations": [
+    {
+      "id": "428652",
+      "name": "Dunn, NC",
+      "city": "Dunn",
+      "state": "NC",
+      "lat": 35.296335,
+      "lng": -78.598812,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=428652"
+    },
     {
       "id": "goletacasupercharger",
       "name": "Goleta, CA",
@@ -50,18 +62,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=456416"
-    },
-    {
-      "id": "428652",
-      "name": "Dunn, NC",
-      "city": "Dunn",
-      "state": "NC",
-      "lat": 35.296335,
-      "lng": -78.598812,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=428652"
     },
     {
       "id": "401824",
