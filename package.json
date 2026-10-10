@@ -52,7 +52,7 @@
     "recharts": "latest",
     "synaptic": "^1.1.4",
     "typescript": "latest",
-    "undici": "^8.4.1",
+    "undici": "^8.10.2",
     "vite": "latest"
   },
   "engines": {
