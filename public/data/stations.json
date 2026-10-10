@@ -16470,7 +16470,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 121,
+        "durationMs": 84,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -16480,7 +16480,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-10-10T17:19:46.440Z",
+    "lastAttemptedAt": "2026-10-10T21:38:13.703Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -16489,7 +16489,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 121
+      "averageRequestMs": 84
     }
   },
   {
@@ -42048,7 +42048,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 66,
+        "durationMs": 71,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -42058,7 +42058,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-10-10T17:19:46.440Z",
+    "lastAttemptedAt": "2026-10-10T21:38:13.703Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -42067,7 +42067,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 66
+      "averageRequestMs": 71
     }
   },
   {
@@ -97668,7 +97668,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 207,
+        "durationMs": 216,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97727,7 +97727,7 @@
     "superchargeInfoMatchedAt": "2026-10-04",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-10T17:19:46.440Z",
+    "lastAttemptedAt": "2026-10-10T21:38:13.703Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97736,7 +97736,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 207
+      "averageRequestMs": 216
     }
   },
   {
