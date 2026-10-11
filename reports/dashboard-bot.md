@@ -1,6 +1,6 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-10-10T16:22:02.181Z
+Generated: 2026-10-11T16:44:58.624Z
 
 ## Public Dashboard Health
 
@@ -29,7 +29,7 @@ Generated: 2026-10-10T16:22:02.181Z
 
 - Lake Grove, NY (LakeGroveNYsupercharger) · route_access_controlled
 - Goleta, CA (goletacasupercharger) · access_controlled
-- Woodcliff Lake, NJ - Chestnut Ridge Rd (457753) · access_controlled
+- Woodcliff Lake, NJ - Chestnut Ridge Rd (457753) · route_access_controlled
 - Potomac, MD (452152) · route_access_controlled
 - Orem, UT - N 980 W (456416) · access_controlled
 
