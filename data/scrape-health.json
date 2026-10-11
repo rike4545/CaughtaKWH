@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-11T14:15:28.489Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 305,
+  "generatedAt": "2026-10-11T15:58:35.176Z",
+  "requestedLimit": 300,
+  "effectiveLimit": 300,
+  "inScopeStations": 177,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -13,13 +13,13 @@
   "cooldownSkipped": 0,
   "attemptedStationIds": [
     "428652",
-    "457753",
-    "406608"
+    "HalifaxNCQ42022",
+    "caryncbassprolanesupercharger"
   ],
   "blockedStationIds": [
     "428652",
-    "457753",
-    "406608"
+    "HalifaxNCQ42022",
+    "caryncbassprolanesupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 44,
+    "averageRequestMs": 37,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 92.1,
+    "previousHealthAgeMinutes": 103.1,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-11T14:45:28.489Z"
+    "nextProbeAt": "2026-10-11T16:28:35.176Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -63,9 +63,7 @@
       "MT",
       "NC",
       "ND",
-      "NE",
-      "NH",
-      "NJ"
+      "NE"
     ],
     "countries": [],
     "nearby": null,
