@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-12T23:55:13.425Z",
+  "generatedAt": "2026-10-13T04:19:27.257Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
-  "inScopeStations": 293,
+  "inScopeStations": 345,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 54,
+    "averageRequestMs": 111,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 159.9,
+    "previousHealthAgeMinutes": 264.2,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-13T00:25:13.425Z"
+    "nextProbeAt": "2026-10-13T04:49:27.257Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -58,14 +58,14 @@
   },
   "scope": {
     "states": [
-      "MS",
       "MT",
       "NC",
       "ND",
       "NE",
       "NH",
       "NJ",
-      "NM"
+      "NM",
+      "NV"
     ],
     "countries": [],
     "nearby": null,
