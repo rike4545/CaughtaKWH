@@ -52966,7 +52966,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-11",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-13T18:53:58.534Z",
+    "lastAttemptedAt": "2026-10-13T23:09:27.848Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -52981,7 +52981,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 172,
+        "durationMs": 226,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -52995,9 +52995,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 172
+      "averageRequestMs": 226
     },
-    "observationPriorityScore": 823
+    "observationPriorityScore": 1023
   },
   {
     "id": "DunniganCAQ322",
