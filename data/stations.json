@@ -52966,7 +52966,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-11",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-14T01:52:17.633Z",
+    "lastAttemptedAt": "2026-10-14T06:52:10.768Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -52981,7 +52981,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 63,
+        "durationMs": 30,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -52995,7 +52995,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 63
+      "averageRequestMs": 30
     },
     "observationPriorityScore": 823
   },
@@ -97679,7 +97679,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 187,
+        "durationMs": 120,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97738,7 +97738,7 @@
     "superchargeInfoMatchedAt": "2026-10-11",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-14T04:47:59.140Z",
+    "lastAttemptedAt": "2026-10-14T06:52:10.768Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97747,7 +97747,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 187
+      "averageRequestMs": 120
     }
   },
   {
@@ -205720,7 +205720,7 @@
     "lng": -74.072093,
     "lastDiscoveredAt": "2026-10-11T15:58:30.047Z",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-14T01:52:17.633Z",
+    "lastAttemptedAt": "2026-10-14T06:52:10.768Z",
     "lastBlockedAt": "2026-08-26T20:19:47.765Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -205735,7 +205735,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 61,
+        "durationMs": 35,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -205749,7 +205749,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 61
+      "averageRequestMs": 35
     },
     "observationPriorityScore": 843,
     "superchargeInfoId": 10713,
