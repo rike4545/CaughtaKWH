@@ -1,6 +1,7 @@
 import React from 'react';
 import { isCurrentPrediction } from '../kpis.js';
 import { ageText, money, shortDate, titleCase } from '../utils/formatters.js';
+import { Mascot, moodFor } from './Mascot.jsx';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
 
@@ -64,10 +65,14 @@ export function priceState(selected, prediction) {
 
 export function PriceTruthNotice({ selected, prediction }) {
   const state = priceState(selected, prediction);
+  const mood = moodFor({
+    fresh: state.tone === 'ok',
+    hasHistory: Boolean(prediction?.latestObservedAt),
+    checked: Boolean(selected?.lastScrapedAt),
+    blocked: Boolean(selected?.lastScrapeBlocked)
+  });
   return <div className={state.tone === 'ok' ? 'truthNotice ok' : 'truthNotice'}>
-    <strong>{state.title}</strong>
-    <p>{state.detail}</p>
+    <Mascot mood={mood} size={52} className="truthMascot" />
+    <div><strong>{state.title}</strong><p>{state.detail}</p></div>
   </div>;
 }
-
-

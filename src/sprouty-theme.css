@@ -1,0 +1,232 @@
+/* Warm, calm, flat theme — inspired by the Sprouty design case study
+   (https://zapador.net/sprouty/): warm off-white surfaces, a terracotta accent, sage for
+   "good" states, muted tinted cards, ~20px radii, 16px gutters, hairline borders instead of
+   heavy shadows, and pixel-art used as an accent only (mascot, status). Light is primary;
+   dark deepens the same hues. Loaded last so it re-skins the earlier layers via tokens. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #f7f3ea;
+  --card: #fcfaf5;
+  --card2: #ffffff;
+  --text: #2a2a28;
+  --muted: #6e6a62;
+  --faint: #8a8579;
+  --line: rgba(42,42,40,.11);
+  --line-strong: rgba(42,42,40,.2);
+  --brand: #d9774b;
+  --brand-strong: #c4633a;
+  --brand-soft: rgba(217,119,75,.14);
+  --accent: #4f7a55;          /* sage, darkened for text contrast on cream */
+  --accent2: #55768f;         /* slate blue */
+  --good: #4f7a55;
+  --info: #55768f;
+  --warning: #a9741f;
+  --on-brand: #2a2a28;
+  /* Muted card hues (Sprouty palette) */
+  --hue-sage: #7fa283;
+  --hue-rose: #c98e80;
+  --hue-lavender: #a194b8;
+  --hue-slate: #7e9ab2;
+  --hue-moss: #9ba36f;
+  --hue-ochre: #d4b478;
+  --tint: 22%;
+  --radius: 20px;
+  --gutter: 16px;
+  --font: "Nunito Sans", "Source Sans 3", Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f2120;
+    --card: #282a28;
+    --card2: #2f322f;
+    --text: #f2eee4;
+    --muted: #b6b0a3;
+    --faint: #8f8a7f;
+    --line: rgba(242,238,228,.12);
+    --line-strong: rgba(242,238,228,.22);
+    --brand: #e0845a;
+    --brand-strong: #ea9670;
+    --brand-soft: rgba(224,132,90,.18);
+    --accent: #9cc3a0;
+    --accent2: #9fbad0;
+    --good: #9cc3a0;
+    --info: #9fbad0;
+    --warning: #e0b865;
+    --tint: 16%;
+  }
+}
+
+html { background: var(--bg); }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+main { width: min(1200px, calc(100% - 2 * var(--gutter))); }
+a { color: var(--brand-strong); }
+@media (prefers-color-scheme: dark) { a { color: var(--brand); } }
+p { color: var(--muted); }
+h1, h2 { letter-spacing: -.02em; line-height: 1.05; }
+h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1; margin: 14px 0; }
+.eyebrow { color: var(--brand-strong); letter-spacing: .06em; font-weight: 800; }
+@media (prefers-color-scheme: dark) { .eyebrow { color: var(--brand); } }
+.eyebrowDot { background: var(--brand); box-shadow: none; }
+.heroGrad { background: none; color: var(--brand-strong); -webkit-background-clip: initial; background-clip: initial; }
+@media (prefers-color-scheme: dark) { .heroGrad { color: var(--brand); } }
+.hero::before { display: none; }
+
+/* ── Flat surfaces ── */
+.card, .heroPanel, .truthNotice, .liveCard, .comparisonCard, .lawCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.card { padding: 22px; }
+.liveCard .liveRates, .priceMatrix { border-radius: 16px; }
+.liveRate, .rateTile { background: var(--card2); }
+.liveRates { background: var(--line); }
+.zipRow input, .heroZip, .costCalcInputs select, .costCalcInputs input, .search, .filter {
+  background: var(--card2); border-color: var(--line-strong); color: var(--text);
+}
+.heroZip input { background: transparent; }
+.heroZip button { color: var(--brand-strong); }
+.heroZip button:hover { background: var(--brand-soft); }
+.search, .nearbyBox, .stationList button, .toolbar button, .badge, .priceStrip > div, .leadIns,
+.metaGrid span, .historyReadiness span, .hourGrid span, .nearby, .impactGrid > div,
+.improvementList > div, .priorityColumns > div, .pulseGrid > div, .scorecardStat,
+.transparencyNote, .crowdsourceContext, .policyPoints > div, .costCalcResult > div, .benchmarkGrid {
+  background: color-mix(in srgb, var(--text) 4%, transparent);
+  border-color: var(--line);
+}
+
+/* ── Buttons ── */
+.btnPrimary, .nearMeButton, .crowdsourceButton {
+  background: var(--brand); color: var(--on-brand); border-color: transparent; box-shadow: none; border-radius: 14px;
+}
+.btnPrimary:hover, .nearMeButton:hover { background: var(--brand-strong); transform: translateY(-1px); box-shadow: none; }
+.nearMeButton small, .crowdsourceButton small { color: color-mix(in srgb, var(--on-brand) 75%, transparent); }
+.toolbar button.active, .stationActions button.active, .favoriteButton.active {
+  background: var(--brand-soft); border-color: var(--brand); color: var(--text);
+}
+.liveCardCta:hover { border-color: var(--brand); background: var(--brand-soft); }
+.liveCardTag { color: var(--accent2); background: color-mix(in srgb, var(--hue-slate) 20%, transparent); border-color: color-mix(in srgb, var(--hue-slate) 45%, transparent); }
+
+/* ── Top bar & tabs ── */
+.appTopbar {
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+.appBrandMark { background: transparent; box-shadow: none; width: 30px; height: 30px; }
+.appBrand small { color: var(--faint); }
+.networkStatus { color: var(--muted); }
+.viewTabs {
+  background: var(--card); border: 1px solid var(--line); box-shadow: none; backdrop-filter: none; border-radius: 16px;
+}
+.viewTabs button { color: var(--muted); border-radius: 12px; font-weight: 700; }
+.viewTabs button:hover { background: color-mix(in srgb, var(--text) 5%, transparent); color: var(--text); }
+.viewTabs button.active { background: var(--brand); color: var(--on-brand); box-shadow: none; }
+.viewTabs button.active svg { color: var(--on-brand); }
+@media (max-width: 560px) {
+  .viewTabs {
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--card); box-shadow: none; border-top: 1px solid var(--line);
+  }
+  .viewTabs button { color: var(--muted); }
+  .viewTabs button.active { background: transparent; color: var(--brand-strong); position: relative; }
+  .viewTabs button.active svg { color: var(--brand-strong); }
+  .viewTabs button.active::before { content: ""; position: absolute; top: 0; left: 28%; right: 28%; height: 3px; border-radius: 0 0 4px 4px; background: var(--brand); }
+}
+
+/* ── Stat tiles: one muted hue each ── */
+.statsGrid { gap: 12px; }
+.statsGrid .stat, .statsGrid .stat:first-child { border-radius: var(--radius); box-shadow: none; background: color-mix(in srgb, var(--hue-sage) var(--tint), var(--card)); }
+.statsGrid .stat:nth-child(2) { background: color-mix(in srgb, var(--hue-rose) var(--tint), var(--card)); }
+.statsGrid .stat:nth-child(3) { background: color-mix(in srgb, var(--hue-slate) var(--tint), var(--card)); }
+.statsGrid .stat:nth-child(4) { background: color-mix(in srgb, var(--hue-ochre) var(--tint), var(--card)); }
+.statsGrid .stat::after { display: none; }
+.statsGrid .stat:first-child, .statsGrid .stat:nth-child(3), .statsGrid .stat:nth-child(4) { border-color: var(--line); }
+.stat p { color: var(--muted); }
+.statIcon { background: color-mix(in srgb, var(--text) 8%, transparent); color: var(--text); border-radius: 12px; }
+
+/* ── Station list ── */
+.stationList button.active { background: var(--brand-soft); border-color: var(--brand); }
+.stationList button.active::before { background: var(--brand); }
+.stationPrice { color: var(--accent); }
+
+/* ── Price tiles ── */
+.rateTile.member.fresh { background: color-mix(in srgb, var(--hue-sage) var(--tint), var(--card2)); }
+.rateTile.nonmember.fresh { background: color-mix(in srgb, var(--hue-slate) var(--tint), var(--card2)); }
+.leadIns.cheap { background: color-mix(in srgb, var(--hue-sage) var(--tint), var(--card)); }
+.leadIns.open { background: color-mix(in srgb, var(--hue-lavender) var(--tint), var(--card)); }
+.badge.fresh, .freshPill.ok { color: var(--accent); background: color-mix(in srgb, var(--hue-sage) 24%, transparent); border-color: color-mix(in srgb, var(--hue-sage) 55%, transparent); }
+.liveRate.m .liveBig, .liveRate.m .liveSw { color: var(--accent); }
+.liveRate.m .liveSw { background: var(--hue-sage); }
+.liveRate.n .liveSw { background: var(--hue-slate); }
+
+/* ── Truth notice with mascot ── */
+.truthNotice { display: flex; gap: 16px; align-items: center; padding: 16px 20px; border-color: color-mix(in srgb, var(--hue-ochre) 60%, transparent); background: color-mix(in srgb, var(--hue-ochre) var(--tint), var(--card)); }
+.truthNotice.ok { border-color: color-mix(in srgb, var(--hue-sage) 60%, transparent); background: color-mix(in srgb, var(--hue-sage) var(--tint), var(--card)); }
+.truthNotice p { margin-top: 2px; color: var(--muted); }
+.truthMascot { flex: none; }
+.heroPanel { align-items: flex-start; gap: 6px; background: color-mix(in srgb, var(--hue-lavender) var(--tint), var(--card)); }
+.heroMascot { margin-bottom: 8px; }
+.empty { display: flex; gap: 14px; align-items: center; background: color-mix(in srgb, var(--text) 3%, transparent); border: 1px dashed var(--line-strong); border-radius: var(--radius); }
+.empty .mascot { flex: none; }
+
+/* ── Pixel mascot ── */
+.mascot { display: block; image-rendering: pixelated; overflow: visible; }
+.mascotBody { fill: var(--brand); }
+.mascotInk { fill: #2a2a28; }
+.mascotBolt { fill: var(--hue-ochre); }
+.mascotDrop { fill: var(--hue-slate); }
+.mascot-idle, .mascot-searching { animation: mascotBob 2.8s ease-in-out infinite; }
+.mascot-happy { animation: mascotHop 1.6s ease-in-out infinite; }
+@keyframes mascotBob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes mascotHop { 0%,70%,100% { transform: translateY(0); } 80% { transform: translateY(-4px); } }
+
+/* ── Charts & misc ── */
+.recharts-cartesian-grid line { stroke: var(--line); }
+.chartTooltip, .recharts-default-tooltip { background: var(--card2) !important; border: 1px solid var(--line-strong) !important; border-radius: 12px !important; box-shadow: none !important; color: var(--text); }
+:focus-visible { outline-color: var(--brand); }
+
+@media (max-width: 560px) {
+  :root { --radius: 18px; }
+  .card { padding: 16px; }
+  .truthNotice { padding: 14px; gap: 12px; }
+  .truthMascot { width: 40px; height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mascot { animation: none !important; }
+}
+
+/* ── Re-point literal dark-theme colours from the earlier layers at tokens ── */
+.heroTrust span { color: var(--faint); }
+.heroTrust strong { color: var(--text); }
+.liveRate.m .liveBig { color: var(--accent); }
+.liveRate.n .liveBig { color: var(--accent2); }
+.priceMatrix, .priceMatrix.fresh { background: var(--card2); border-color: var(--line); }
+.rateFooter { background: color-mix(in srgb, var(--text) 4%, transparent); }
+.rateTile, .rateTile:hover { background: var(--card2); }
+.rateTile.member .rateTileHead svg { color: var(--brand-strong); }
+.rateBig { color: var(--text); }
+.rateTile.member.fresh .rateBig { color: var(--accent); }
+.rateTile.nonmember.fresh .rateBig { color: var(--accent2); }
+.rateBig small, .rateFlat, .ratePeak { color: var(--muted); }
+.stat strong { color: var(--text); }
+.appTopbarMeta a { color: var(--brand-strong); }
+.heroLede, .hero > div:first-child > p { color: var(--muted); }
+.skipLink { box-shadow: none; background: var(--card2); color: var(--text); border: 1px solid var(--line-strong); }
+.skipLink:not(:focus) { visibility: hidden; }
+.networkStatus > span { background: var(--hue-sage); box-shadow: none; }
+@media (prefers-color-scheme: dark) { .appTopbarMeta a { color: var(--brand); } }
+.viewTabs button.active { border-color: transparent; }
+@media (max-width: 560px) {
+  .viewTabs { border-radius: 0; border-left: 0; border-right: 0; border-bottom: 0; }
+  .viewTabs button.active { border-color: transparent; }
+}
