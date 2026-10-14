@@ -52966,7 +52966,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-11",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-13T23:09:27.848Z",
+    "lastAttemptedAt": "2026-10-14T01:52:17.633Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -52981,7 +52981,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 226,
+        "durationMs": 63,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -52995,9 +52995,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 226
+      "averageRequestMs": 63
     },
-    "observationPriorityScore": 1023
+    "observationPriorityScore": 823
   },
   {
     "id": "DunniganCAQ322",
@@ -97679,7 +97679,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 143,
+        "durationMs": 189,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97738,7 +97738,7 @@
     "superchargeInfoMatchedAt": "2026-10-11",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-13T22:40:24.585Z",
+    "lastAttemptedAt": "2026-10-14T01:52:17.633Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97747,7 +97747,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 143
+      "averageRequestMs": 189
     }
   },
   {
@@ -205720,7 +205720,7 @@
     "lng": -74.072093,
     "lastDiscoveredAt": "2026-10-11T15:58:30.047Z",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-13T18:53:58.534Z",
+    "lastAttemptedAt": "2026-10-14T01:52:17.633Z",
     "lastBlockedAt": "2026-08-26T20:19:47.765Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -205735,7 +205735,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 136,
+        "durationMs": 61,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -205749,7 +205749,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 136
+      "averageRequestMs": 61
     },
     "observationPriorityScore": 843,
     "superchargeInfoId": 10713,
