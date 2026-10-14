@@ -364,7 +364,7 @@ function App() {
     {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
       <button type="button" aria-current={activeView === 'chargers' ? 'page' : undefined} className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
       <button type="button" aria-current={activeView === 'transparency' ? 'page' : undefined} className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
-      <button type="button" aria-current={activeView === 'health' ? 'page' : undefined} className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>Health</span></button>
+      <button type="button" aria-current={activeView === 'health' ? 'page' : undefined} className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
       <button type="button" aria-current={activeView === 'compare' ? 'page' : undefined} className={activeView === 'compare' ? 'active' : ''} onClick={() => setActiveView('compare')}><Scale size={17}/><span>Compare {comparison.items.length ? `(${comparison.items.length})` : ''}</span></button>
     </nav>}
 

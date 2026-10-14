@@ -230,3 +230,4 @@ h1 { font-size: clamp(38px, 6vw, 68px); line-height: 1; margin: 14px 0; }
   .viewTabs { border-radius: 0; border-left: 0; border-right: 0; border-bottom: 0; }
   .viewTabs button.active { border-color: transparent; }
 }
+@media (max-width: 560px) { .viewTabs button { padding-inline: 2px; } .viewTabs button span { font-size: 10.5px; white-space: nowrap; } }
