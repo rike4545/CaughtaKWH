@@ -3,6 +3,9 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "description": "CaughtaKWH tracks Tesla Supercharger kWh pricing by station and recommends cheaper charging windows with 95% confidence intervals.",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
@@ -15,6 +18,7 @@
     "test:neural": "node scripts/testPricingNeuralNetwork.mjs",
     "test:scrape-policy": "node scripts/testScrapePolicy.mjs",
     "test:scrape-transport": "node scripts/testScrapeTransport.mjs",
+    "test:toolchain": "node scripts/testToolchain.mjs",
     "pilot:lake-grove": "node scripts/buildLakeGrovePilot.mjs",
     "update:data": "npm run discover && npm run scrape && npm run predict && npm run validate:data && npm run sync:public",
     "validate:data": "node scripts/validateData.mjs",
