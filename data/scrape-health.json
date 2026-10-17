@@ -1,29 +1,33 @@
 {
-  "generatedAt": "2026-10-17T20:32:44.544Z",
-  "requestedLimit": 10,
-  "effectiveLimit": 1,
-  "inScopeStations": 10,
-  "attempted": 1,
+  "generatedAt": "2026-10-17T22:38:51.617Z",
+  "requestedLimit": 100,
+  "effectiveLimit": 100,
+  "inScopeStations": 489,
+  "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 1,
+  "blocked": 3,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
   "cooldownSkipped": 0,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger"
+    "LakeGroveNYsupercharger",
+    "457753",
+    "santarosanmsupercharger"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger"
+    "LakeGroveNYsupercharger",
+    "457753",
+    "santarosanmsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 1,
-    "requestAttempts": 1,
+    "candidateAttempts": 3,
+    "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 68,
+    "averageRequestMs": 111,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -34,18 +38,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": false,
+    "opened": true,
     "threshold": 3,
-    "consecutiveBlocks": 1
+    "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 0.9,
-    "cooldownActive": true,
+    "previousHealthAgeMinutes": 126.1,
+    "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-17T21:02:44.544Z"
+    "nextProbeAt": "2026-10-17T23:08:51.617Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -53,9 +57,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "NH",
+      "NJ",
+      "NM",
+      "NV",
+      "NY",
+      "OH",
+      "OK",
+      "OR"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
