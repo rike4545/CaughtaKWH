@@ -8190,6 +8190,12 @@
     "state": "CA"
   },
   {
+    "id": "33803",
+    "name": "Key West, FL",
+    "city": "Key West",
+    "state": "FL"
+  },
+  {
     "id": "killdevilhillssupercharger",
     "name": "Kill Devil Hills, NC",
     "city": "Kill Devil Hills",
@@ -13300,6 +13306,12 @@
     "name": "Pooler, GA - US 80",
     "city": "Pooler",
     "state": "GA"
+  },
+  {
+    "id": "27029",
+    "name": "Port Charlotte, FL",
+    "city": "Port Charlotte",
+    "state": "FL"
   },
   {
     "id": "32161",
