@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-18T09:12:47.773Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 579,
+  "generatedAt": "2026-10-18T10:59:02.257Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 10,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -13,13 +13,13 @@
   "cooldownSkipped": 0,
   "attemptedStationIds": [
     "LakeGroveNYsupercharger",
-    "457753",
-    "santarosanmsupercharger"
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
     "LakeGroveNYsupercharger",
-    "457753",
-    "santarosanmsupercharger"
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 80,
+    "averageRequestMs": 82,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 262.6,
+    "previousHealthAgeMinutes": 106.2,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-18T09:42:47.773Z"
+    "nextProbeAt": "2026-10-18T11:29:02.257Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +57,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NJ",
-      "NM",
-      "NV",
-      "NY",
-      "OH",
-      "OK",
-      "OR",
-      "PA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
