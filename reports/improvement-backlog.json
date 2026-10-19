@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-12T18:53:08.593Z",
+  "generatedAt": "2026-10-19T16:23:59.247Z",
   "totals": {
-    "stations": 3115,
+    "stations": 3117,
     "withAnyHistory": 2,
     "predictions": 2
   },
@@ -9,7 +9,7 @@
     {
       "rank": 1,
       "action": "Capture first observations for stations with zero history",
-      "count": 3113,
+      "count": 3115,
       "sample": [
         "403969",
         "481260",
@@ -68,7 +68,7 @@
         {
           "state": "FL",
           "coverage": 0,
-          "total": 244
+          "total": 246
         },
         {
           "state": "TX",
