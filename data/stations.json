@@ -97741,7 +97741,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 220,
+        "durationMs": 93,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97800,7 +97800,7 @@
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-19T13:02:40.830Z",
+    "lastAttemptedAt": "2026-10-19T13:04:01.396Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97809,7 +97809,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 220
+      "averageRequestMs": 93
     }
   },
   {

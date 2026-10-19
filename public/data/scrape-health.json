@@ -1,33 +1,29 @@
 {
-  "generatedAt": "2026-10-19T13:02:40.830Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 476,
-  "attempted": 3,
+  "generatedAt": "2026-10-19T13:04:01.396Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 1,
+  "inScopeStations": 10,
+  "attempted": 1,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 1,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
   "cooldownSkipped": 0,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "santarosanmsupercharger",
-    "BartonsvillePASupercharger"
+    "LakeGroveNYsupercharger"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "santarosanmsupercharger",
-    "BartonsvillePASupercharger"
+    "LakeGroveNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 1,
+    "requestAttempts": 1,
     "retries": 0,
-    "averageRequestMs": 111,
+    "averageRequestMs": 93,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -38,18 +34,18 @@
     }
   },
   "circuitBreaker": {
-    "opened": true,
+    "opened": false,
     "threshold": 3,
-    "consecutiveBlocks": 3
+    "consecutiveBlocks": 1
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 413.8,
-    "cooldownActive": false,
+    "previousHealthAgeMinutes": 1.3,
+    "cooldownActive": true,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-19T13:32:40.830Z"
+    "nextProbeAt": "2026-10-19T13:34:01.396Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +53,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NM",
-      "NV",
-      "NY",
-      "OH",
-      "OK",
-      "OR",
-      "PA",
-      "PR"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
