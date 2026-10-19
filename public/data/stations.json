@@ -15534,7 +15534,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.27,
+    "observationPriorityScore": 563,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -15563,7 +15563,39 @@
       "tpc": 0,
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-10-18"
+    "superchargeInfoMatchedAt": "2026-10-18",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-19T01:11:05.908Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/BartonsvillePASupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 66,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 66
+    }
   },
   {
     "id": "407814",
@@ -97709,7 +97741,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 60,
+        "durationMs": 127,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97768,7 +97800,7 @@
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-18T23:07:54.855Z",
+    "lastAttemptedAt": "2026-10-19T01:11:05.908Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97777,7 +97809,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 60
+      "averageRequestMs": 127
     }
   },
   {
@@ -171565,7 +171597,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-18T23:06:52.327Z",
+    "lastAttemptedAt": "2026-10-19T01:11:05.908Z",
     "lastBlockedAt": "2026-08-28T01:12:31.360Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -171580,7 +171612,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 25,
+        "durationMs": 63,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -171594,7 +171626,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 25
+      "averageRequestMs": 63
     },
     "observationPriorityScore": 823
   },
