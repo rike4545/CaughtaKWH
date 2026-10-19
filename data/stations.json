@@ -16514,7 +16514,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-10-19T04:34:04.364Z",
+    "lastAttemptedAt": "2026-10-19T20:34:07.305Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -42084,7 +42084,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 103,
+        "durationMs": 55,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -42094,7 +42094,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-10-19T04:34:04.364Z",
+    "lastAttemptedAt": "2026-10-19T20:34:07.305Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -42103,7 +42103,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 103
+      "averageRequestMs": 55
     }
   },
   {
@@ -97741,7 +97741,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 121,
+        "durationMs": 189,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97800,7 +97800,7 @@
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-19T19:17:13.234Z",
+    "lastAttemptedAt": "2026-10-19T20:34:07.305Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97809,7 +97809,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 121
+      "averageRequestMs": 189
     }
   },
   {
