@@ -15565,7 +15565,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-21T05:30:22.550Z",
+    "lastAttemptedAt": "2026-10-21T10:27:50.306Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -15580,7 +15580,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 57,
+        "durationMs": 38,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -15594,7 +15594,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 57
+      "averageRequestMs": 38
     }
   },
   {
@@ -18785,7 +18785,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-21T05:30:22.550Z",
+    "lastAttemptedAt": "2026-10-21T10:27:50.306Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -18800,7 +18800,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 62,
+        "durationMs": 42,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -18814,7 +18814,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 62
+      "averageRequestMs": 42
     }
   },
   {
@@ -97773,7 +97773,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 288,
+        "durationMs": 116,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97832,7 +97832,7 @@
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-21T05:30:22.550Z",
+    "lastAttemptedAt": "2026-10-21T10:27:50.306Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97841,7 +97841,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 288
+      "averageRequestMs": 116
     }
   },
   {
