@@ -1,0 +1,33 @@
+# Caddy forward proxy for CaughtaKWH scrape egress.
+#
+# Run this on a box whose IP you want the scraper to egress from (a home connection is far
+# more likely to pass Tesla's Akamai than a datacenter IP). Then set the repo secret
+#   SCRAPE_PROXY=https://<PROXY_USER>:<PROXY_PASS>@<PROXY_DOMAIN>
+# and run the proxy-check skill / `node scripts/proxyDoctor.mjs` to verify.
+#
+# Requires a Caddy build with the forwardproxy plugin (see Dockerfile).
+
+{
+	order forward_proxy before file_server
+	email {$ACME_EMAIL}
+}
+
+{$PROXY_DOMAIN} {
+	forward_proxy {
+		basic_auth {$PROXY_USER} {$PROXY_PASS}
+		hide_ip
+		hide_via
+		probe_resistance
+
+		# Only tunnel HTTPS, and only to the hosts the scraper needs.
+		# api.ipify.org is used by scripts/proxyPool.mjs checkProxy() as a liveness check.
+		ports 443
+		acl {
+			allow tesla.com *.tesla.com api.ipify.org
+			deny all
+		}
+	}
+
+	# Anything that isn't an authenticated proxy request looks like a dead site.
+	respond "Not found" 404
+}
