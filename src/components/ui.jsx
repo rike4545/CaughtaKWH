@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle } from 'lucide-react';
+import { Mascot } from './Mascot.jsx';
 
 export function Card({ children, className = '' }) {
   return <section className={`card ${className}`}>{children}</section>;
@@ -10,7 +10,7 @@ export function Stat({ icon, label, value, note }) {
 }
 
 export function EmptyState({ title, children }) {
-  return <div className="empty"><AlertTriangle size={18}/><div><strong>{title}</strong><p>{children}</p></div></div>;
+  return <div className="empty"><Mascot mood="searching" size={44} /><div><strong>{title}</strong><p>{children}</p></div></div>;
 }
 
 export function ChartTooltip({ active, payload, label, formatter }) {

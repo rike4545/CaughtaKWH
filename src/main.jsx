@@ -9,6 +9,7 @@ import { searchStations } from './stationSearch.js';
 import { EV_PRICE_LAWS, commercialBenchmarks } from './data/referenceData.js';
 import { useJson } from './hooks/useJson.js';
 import { usePersistentList } from './hooks/usePersistentList.js';
+import { Mascot } from './components/Mascot.jsx';
 import { Card, ChartTooltip, EmptyState, Stat } from './components/ui.jsx';
 import { ChargeCostCalculator, PriceMatrix } from './components/ChargeCostCalculator.jsx';
 import { PriceTruthNotice, manualCheckFromCurrentData, priceState, stationCountText, statusText, usableHistoryState } from './components/pricingState.jsx';
@@ -16,6 +17,7 @@ import { StationComparison } from './components/StationComparison.jsx';
 import { ageText, cents, coords, distance, freshnessLabel, money, percent, shortDate, signedCents, slotLabel, titleCase } from './utils/formatters.js';
 import './styles.css';
 import './gui-refresh.css';
+import './sprouty-theme.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
@@ -290,7 +292,7 @@ function App() {
   return <main id="main-content" className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
     {!isTesla && <a className="skipLink" href="#charger-results">Skip to charger results</a>}
     {!isTesla && <div className="appTopbar">
-      <div className="appBrand"><span className="appBrandMark"><Zap size={15}/></span><span>CaughtaKWH</span><small>Supercharger intelligence</small></div>
+      <div className="appBrand"><span className="appBrandMark"><Mascot mood="idle" size={24} /></span><span>CaughtaKWH</span><small>Supercharger intelligence</small></div>
       <div className="appTopbarMeta">
         <span className="networkStatus"><span aria-hidden="true"/> {currentStations ? `${currentStations} fresh price${currentStations === 1 ? '' : 's'}` : 'Historical pricing only'}</span>
         <a href={CONTRIBUTE_URL}>Contribute</a>
@@ -330,6 +332,7 @@ function App() {
             const st = yourStation || (example ? stations.find(item => item.id === example.stationId) : null);
             if (!st) {
               return <div className="heroPanel">
+                <Mascot mood="searching" size={84} className="heroMascot" />
                 <strong>Why this matters</strong>
                 <p>Without posted prices, drivers can't comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH builds the public price record Tesla doesn't provide.</p>
                 <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>

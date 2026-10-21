@@ -90,6 +90,17 @@ cooldowns.
   charger (ZIP or geolocation), falling back to a labeled example only when no
   location is known. Don't regress it back to a single hardcoded/pilot station.
 
+## Web ↔ iOS parity & theme
+
+`ios/CaughtaKWHSuperchargerPricingView.swift` mirrors the web dashboard: same four tabs
+(Find chargers, Transparency, System health, Compare), the same "recent = observed within
+2 hours" rule (`isCurrentPrediction` / `CaughtaKWHPrediction.isCurrent`), member vs non-Tesla
+rates, cost calculator, favorites/recents (same `caughtakwh:*` keys). When you add or change a
+web feature or a pricing rule, update the Swift view too. Both share the warm, flat theme
+(terracotta accent, sage = good, muted tinted cards, pixel mascot "Volt"): tokens live in
+`src/sprouty-theme.css` (loaded last) and the `Theme` enum in the Swift file — keep them in sync.
+The Swift file can't be compiled in the Linux agent sandbox; say so in PRs.
+
 ## The deliberate boundary
 
 The agents/scrapers make the pipeline resilient to *legitimate* breakage
