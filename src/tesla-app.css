@@ -1,0 +1,257 @@
+/* Tesla-app visual layer — loaded last, re-skins everything through the shared tokens.
+   Ideas taken from the Tesla mobile/web app: near-black canvas with a faint red floor glow,
+   a left list of big titled rows with grey subtitles, a battery-style status pill,
+   a hero "stage", and a row of icon-over-label quick actions. Dark is the default;
+   light follows the system setting with the same structure. */
+
+:root {
+  color-scheme: dark light;
+  --bg: #0e0f11;
+  --card: #17181b;
+  --card2: #1e2024;
+  --text: #f4f5f6;
+  --muted: #9ea3ab;
+  --faint: #6f747c;
+  --line: rgba(255,255,255,.08);
+  --line-strong: rgba(255,255,255,.16);
+  --brand: #e31937;
+  --brand-strong: #ff4b5f;
+  --brand-soft: rgba(227,25,55,.14);
+  --on-brand: #fff;
+  --accent: #5be0a3;
+  --accent2: #7db4ff;
+  --good: #5be0a3;
+  --info: #7db4ff;
+  --warning: #f0b95a;
+  --radius: 14px;
+  --font: "Inter", "Nunito Sans", ui-sans-serif, -apple-system, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  /* Sprouty hues → neutral glass so nothing is tinted pastel */
+  --hue-sage: #5be0a3;
+  --hue-rose: #e31937;
+  --hue-lavender: #8c93ff;
+  --hue-slate: #7db4ff;
+  --hue-moss: #9ba36f;
+  --hue-ochre: #f0b95a;
+  --tint: 7%;
+  --glow: radial-gradient(60% 70% at 50% 0%, rgba(227,25,55,.22), transparent 70%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f4f4f5;
+    --card: #ffffff;
+    --card2: #f0f1f2;
+    --text: #171a20;
+    --muted: #5c5e62;
+    --faint: #8e8e8e;
+    --line: rgba(23,26,32,.09);
+    --line-strong: rgba(23,26,32,.18);
+    --brand: #e31937;
+    --brand-strong: #c8102e;
+    --brand-soft: rgba(227,25,55,.09);
+    --accent: #0f8f5b;
+    --accent2: #2b6fd1;
+    --good: #0f8f5b;
+    --info: #2b6fd1;
+    --warning: #a66a00;
+    --glow: radial-gradient(60% 70% at 50% 0%, rgba(227,25,55,.10), transparent 70%);
+  }
+}
+
+html { background: var(--bg); }
+body {
+  font-family: var(--font);
+  background: var(--bg) var(--glow) no-repeat;
+  background-size: 100% 520px;
+  color: var(--text);
+  letter-spacing: -.005em;
+}
+a { color: var(--text); text-decoration-color: var(--line-strong); }
+a:hover { text-decoration-color: var(--brand); }
+:focus-visible { outline: 2px solid var(--brand-strong); outline-offset: 2px; }
+h1, h2, h3 { font-weight: 600; letter-spacing: -.025em; }
+h1 { font-size: clamp(34px, 4.4vw, 52px); line-height: 1.04; margin: 10px 0 14px; }
+.heroGrad { color: var(--text); background: none; position: relative; white-space: nowrap; }
+.heroGrad::after { content: ""; position: absolute; left: 0; right: 0; bottom: -.04em; height: 3px; border-radius: 3px; background: var(--brand); }
+.eyebrow { color: var(--muted); font-weight: 600; letter-spacing: .12em; font-size: 11.5px; }
+.eyebrowDot { background: var(--brand); box-shadow: 0 0 10px var(--brand); }
+main { width: min(1280px, calc(100% - 2 * var(--gutter, 16px))); }
+
+/* ── Surfaces: flat, quiet, hairline ── */
+.card, .heroPanel, .truthNotice, .liveCard, .comparisonCard, .lawCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.card { padding: 24px; }
+.sectionTitle p, .sectionTitle > div > p { color: var(--faint); letter-spacing: .12em; font-weight: 600; font-size: 11.5px; text-transform: uppercase; }
+.search, .nearbyBox, .stationList button, .toolbar button, .badge, .priceStrip > div, .leadIns,
+.metaGrid span, .historyReadiness span, .hourGrid span, .nearby, .impactGrid > div,
+.improvementList > div, .priorityColumns > div, .pulseGrid > div, .scorecardStat,
+.transparencyNote, .crowdsourceContext, .policyPoints > div, .costCalcResult > div, .benchmarkGrid {
+  background: color-mix(in srgb, var(--text) 3.5%, transparent);
+  border-color: var(--line);
+  border-radius: 12px;
+}
+.zipRow input, .heroZip, .costCalcInputs select, .costCalcInputs input, .search, .filter {
+  background: var(--card2); border-color: var(--line); color: var(--text); border-radius: 12px;
+}
+.heroZip button, .zipRow button { color: var(--text); font-weight: 600; }
+.heroZip button:hover, .zipRow button:hover { background: var(--brand-soft); }
+
+/* ── Buttons ── */
+.btnPrimary, .nearMeButton, .crowdsourceButton {
+  background: var(--brand); color: var(--on-brand); border: 0; border-radius: 10px; font-weight: 600; box-shadow: none;
+}
+.btnPrimary:hover, .nearMeButton:hover { background: var(--brand-strong); transform: none; }
+.toolbar button { color: var(--text); font-weight: 500; }
+.toolbar button.active, .stationActions button.active, .favoriteButton.active {
+  background: var(--text); color: var(--bg); border-color: var(--text);
+}
+.liveCardCta { border-radius: 10px; font-weight: 600; }
+.liveCardCta:hover { border-color: var(--brand); background: var(--brand-soft); }
+
+/* ── Top bar with battery-style status pill ── */
+.appTopbar { background: transparent; border-bottom: 0; backdrop-filter: none; padding-top: 14px; }
+.appBrand { font-weight: 600; letter-spacing: -.01em; }
+.appBrand small { display: none; }
+.appBrandMark { width: 28px; height: 28px; }
+.mascotBody { fill: var(--brand); }
+.networkStatus { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.networkStatus b { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.networkStatus em { font-style: normal; color: var(--faint); }
+.networkStatus .battery {
+  position: relative; width: 30px; height: 14px; border-radius: 4px; padding: 2px;
+  background: color-mix(in srgb, var(--text) 14%, transparent); box-sizing: border-box; flex: none;
+}
+.networkStatus .battery::after { content: ""; position: absolute; right: -3px; top: 4px; width: 2px; height: 6px; border-radius: 0 2px 2px 0; background: color-mix(in srgb, var(--text) 30%, transparent); }
+.networkStatus .battery i { display: block; height: 100%; border-radius: 2px; background: var(--text); min-width: 2px; }
+.networkStatus > span:not(.battery) { display: none; }
+.appTopbarMeta a { color: var(--text); font-weight: 500; }
+
+/* ── Home shell: list nav on the left, stage on the right ── */
+.homeShell { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 28px; align-items: start; margin-bottom: 28px; }
+.homeMain { min-width: 0; }
+.viewTabs {
+  position: sticky; top: 16px; z-index: 40;
+  display: flex; flex-direction: column; gap: 4px; width: auto; max-width: none; margin: 18px 0 0; padding: 0;
+  background: none; border: 0; box-shadow: none; backdrop-filter: none; border-radius: 0;
+}
+.viewTabs button {
+  display: grid; grid-template-columns: 28px minmax(0, 1fr) 18px; align-items: center; justify-content: stretch; justify-items: start; gap: 14px; text-align: left; width: 100%;
+  min-height: 68px; padding: 12px 16px; border-radius: 12px; border: 1px solid transparent;
+  background: transparent; color: var(--muted); font-weight: 400; transform: none;
+}
+.viewTabs button svg { color: var(--muted); stroke-width: 1.75; }
+.viewTabs .tabText { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.viewTabs .tabText strong { font-size: 18px; font-weight: 600; color: var(--text); letter-spacing: -.015em; }
+.viewTabs .tabText small { font-size: 13px; color: var(--faint); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.viewTabs .tabChevron { opacity: 0; color: var(--faint); transition: opacity .15s, transform .15s; }
+.viewTabs button:hover { background: color-mix(in srgb, var(--text) 4%, transparent); transform: none; }
+.viewTabs button:hover .tabChevron { opacity: 1; transform: translateX(2px); }
+.viewTabs button.active { background: color-mix(in srgb, var(--text) 7%, transparent); border-color: transparent; color: var(--text); box-shadow: none; }
+.viewTabs button.active svg { color: var(--text); }
+.viewTabs button.active .tabChevron { opacity: 1; color: var(--muted); }
+
+/* ── Hero stage ── */
+.hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; min-height: 0; padding: 18px 0 8px; align-items: center; }
+.heroLede { font-size: 15.5px; line-height: 1.55; max-width: 46ch; }
+.heroCta { gap: 10px; }
+.heroTrust { gap: 6px 18px; }
+.liveCard {
+  position: relative; overflow: hidden; padding: 22px; border-radius: 20px;
+  background:
+    radial-gradient(75% 55% at 50% 118%, rgba(227,25,55,.34), transparent 70%),
+    linear-gradient(180deg, var(--card2), var(--card));
+}
+.liveCard::before { content: ""; position: absolute; inset: auto 8% 0 8%; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,75,95,.7), transparent); }
+.liveCardTag { background: none; border: 0; padding: 0; color: var(--faint); letter-spacing: .12em; font-weight: 600; font-size: 11px; }
+.liveName { font-size: 22px; font-weight: 600; letter-spacing: -.02em; }
+.liveName span { font-size: 13px; font-weight: 400; color: var(--muted); }
+.liveRates { background: none; gap: 10px; border: 0; }
+.liveRate { background: color-mix(in srgb, var(--text) 4%, transparent); border: 1px solid var(--line); border-radius: 14px; }
+.liveBig { font-size: clamp(34px, 3.6vw, 46px); font-weight: 600; letter-spacing: -.035em; font-variant-numeric: tabular-nums; }
+.liveRate.m .liveBig, .liveRate.n .liveBig { color: var(--text); }
+.liveRateLbl { color: var(--muted); font-weight: 500; letter-spacing: .02em; }
+.liveRate.m .liveSw { background: var(--accent); }
+.liveRate.n .liveSw { background: var(--accent2); }
+.freshPill { background: color-mix(in srgb, var(--text) 6%, transparent); border-color: var(--line); color: var(--muted); }
+.freshPill.ok, .badge.fresh { color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+
+/* ── Quick actions: icon over label, like Flash / Honk / Start / Homelink ── */
+.quickActions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 0; }
+.quickActions > * {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 84px;
+  background: transparent; border: 1px solid var(--line); border-radius: 14px; color: var(--muted);
+  font: inherit; font-size: 13px; font-weight: 500; text-decoration: none; cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.quickActions > *:hover { background: color-mix(in srgb, var(--text) 5%, transparent); color: var(--text); border-color: var(--line-strong); }
+.quickActions > *:active { background: var(--brand-soft); }
+.quickActions svg { stroke-width: 1.6; }
+.quickActions > *:disabled { opacity: .5; cursor: progress; }
+
+/* ── Stat tiles: neutral, big numerals ── */
+.statsGrid .stat, .statsGrid .stat:first-child, .statsGrid .stat:nth-child(n) { background: var(--card); border: 1px solid var(--line); }
+.statIcon { background: color-mix(in srgb, var(--text) 7%, transparent); color: var(--text); border-radius: 10px; }
+.stat strong { font-weight: 600; letter-spacing: -.03em; }
+.stat p { color: var(--muted); }
+
+/* ── Station list ── */
+.stationList button { transition: background .15s; }
+.stationList button:hover { background: color-mix(in srgb, var(--text) 6%, transparent); }
+.stationList button.active { background: color-mix(in srgb, var(--text) 8%, transparent); border-color: var(--line-strong); }
+.stationList button.active::before { background: var(--brand); }
+.stationPrice { color: var(--accent); font-weight: 600; font-style: normal; }
+
+/* ── Price tiles / notices ── */
+.priceMatrix, .priceMatrix.fresh { background: var(--card2); border-color: var(--line); border-radius: 14px; }
+.rateTile.member.fresh, .rateTile.nonmember.fresh, .leadIns.cheap, .leadIns.open { background: var(--card2); }
+.rateTile.member.fresh .rateBig { color: var(--accent); }
+.rateTile.nonmember.fresh .rateBig { color: var(--accent2); }
+.leadIns.cheap { border-color: color-mix(in srgb, var(--accent) 28%, var(--line)); }
+.truthNotice { background: var(--card); border-color: color-mix(in srgb, var(--warning) 40%, var(--line)); }
+.truthNotice.ok { background: var(--card); border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.heroPanel { background: var(--card); }
+.empty { background: none; }
+
+/* ── Charts ── */
+.recharts-cartesian-grid line { stroke: var(--line); }
+.recharts-text { fill: var(--muted); }
+.chartTooltip, .recharts-default-tooltip { background: var(--card2) !important; border: 1px solid var(--line-strong) !important; border-radius: 10px !important; }
+
+/* ── Tablet ── */
+@media (max-width: 980px) {
+  .homeShell { grid-template-columns: 1fr; gap: 8px; }
+  .viewTabs { position: static; flex-direction: row; overflow-x: auto; gap: 6px; margin: 4px 0 8px; scrollbar-width: none; }
+  .viewTabs::-webkit-scrollbar { display: none; }
+  .viewTabs button { min-height: 56px; grid-template-columns: 22px auto; padding: 8px 14px; flex: none; width: auto; border-color: var(--line); }
+  .viewTabs .tabChevron { display: none; }
+  .viewTabs .tabText strong { font-size: 15px; }
+  .hero { grid-template-columns: 1fr; }
+}
+
+/* ── Phone: Tesla-style bottom tab bar ── */
+@media (max-width: 560px) {
+  :root { --radius: 14px; }
+  .card { padding: 16px; }
+  .homeShell { padding-bottom: 76px; }
+  .viewTabs {
+    position: fixed; left: 0; right: 0; bottom: 0; top: auto; z-index: 90; margin: 0; padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; overflow: visible;
+    background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(20px) saturate(160%);
+    border-top: 1px solid var(--line); border-radius: 0;
+  }
+  .viewTabs button { grid-template-columns: 1fr; justify-items: center; width: auto; gap: 4px; min-height: 52px; padding: 6px 2px; border: 0; background: none; border-radius: 10px; }
+  .viewTabs .tabText strong { font-size: 10.5px; font-weight: 500; color: inherit; white-space: nowrap; }
+  .viewTabs .tabText small { display: none; }
+  .viewTabs button.active { background: none; color: var(--text); }
+  .viewTabs button.active::before { display: none; }
+  .viewTabs button.active svg { color: var(--brand-strong); }
+  .appTopbarMeta a { display: none; }
+  .networkStatus em { display: none; }
+  .quickActions > * { min-height: 72px; }
+  h1 { font-size: 32px; }
+  .heroGrad { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
