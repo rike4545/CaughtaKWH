@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-22T10:42:26.155Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 100,
-  "inScopeStations": 324,
+  "generatedAt": "2026-10-22T11:45:14.857Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 10,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -12,14 +12,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 0,
   "attemptedStationIds": [
-    "BartonsvillePASupercharger",
-    "bensalempasupercharger",
-    "BethelParkPAQ322"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "blockedStationIds": [
-    "BartonsvillePASupercharger",
-    "bensalempasupercharger",
-    "BethelParkPAQ322"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 81,
+    "averageRequestMs": 172,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 308.2,
+    "previousHealthAgeMinutes": 62.8,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-22T11:12:26.155Z"
+    "nextProbeAt": "2026-10-22T12:15:14.857Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,18 +57,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "OH",
-      "OK",
-      "OR",
-      "PA",
-      "PR",
-      "RI",
-      "SC",
-      "SD"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
