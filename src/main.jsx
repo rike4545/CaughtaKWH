@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { Activity, AlertTriangle, ArrowRight, BatteryCharging, Clock3, Compass, Eye, EyeOff, Heart, MapPin, Navigation, RefreshCw, Scale, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
+import { Activity, AlertTriangle, ArrowRight, BatteryCharging, ChevronRight, Clock3, Compass, Eye, EyeOff, Flag, Heart, MapPin, Navigation, RefreshCw, Scale, Search, ShieldCheck, Target, TrendingDown, Users, Zap } from 'lucide-react';
 import { Bar, BarChart, CartesianGrid, Cell, Legend, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { geocodeZip, nearestStations } from './zipSearch.js';
 import { coverageKpis, currentPricingStats, isCurrentPrediction, pricingStats } from './kpis.js';
@@ -18,6 +18,7 @@ import { ageText, cents, coords, distance, freshnessLabel, money, percent, short
 import './styles.css';
 import './gui-refresh.css';
 import './sprouty-theme.css';
+import './tesla-app.css';
 
 const CURRENT_PRICE_MAX_HOURS = 2;
 const REPORT_FORM = 'https://github.com/rike4545/CaughtaKWH/issues/new?template=price-report.yml';
@@ -294,10 +295,20 @@ function App() {
     {!isTesla && <div className="appTopbar">
       <div className="appBrand"><span className="appBrandMark"><Mascot mood="idle" size={24} /></span><span>CaughtaKWH</span><small>Supercharger intelligence</small></div>
       <div className="appTopbarMeta">
-        <span className="networkStatus"><span aria-hidden="true"/> {currentStations ? `${currentStations} fresh price${currentStations === 1 ? '' : 's'}` : 'Historical pricing only'}</span>
+        <span className="networkStatus" title="Share of tracked stations with a captured price"><span className="battery" aria-hidden="true"><i style={{ width: `${Math.max(4, Math.min(100, dashboardSummary.pricedPct || 0))}%` }}/></span><b>{Math.round(dashboardSummary.pricedPct || 0)}%</b><em>{currentStations ? `${currentStations} fresh price${currentStations === 1 ? '' : 's'}` : 'Historical pricing only'}</em></span>
         <a href={CONTRIBUTE_URL}>Contribute</a>
       </div>
     </div>}
+    <div className={isTesla ? '' : 'homeShell'}>
+    {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
+      {[
+        ['chargers', Search, 'Find chargers', origin ? `${list.length} near ${origin.city || 'you'}` : 'ZIP, GPS or search'],
+        ['transparency', Eye, 'Transparency', `${darkPct}% hide their price`],
+        ['health', Activity, 'System health', `${Math.round(dashboardSummary.checkedPct || 0)}% of stations checked`],
+        ['compare', Scale, `Compare${comparison.items.length ? ` (${comparison.items.length})` : ''}`, comparison.items.length ? `${comparison.items.length} charger${comparison.items.length === 1 ? '' : 's'} selected` : 'Side by side, up to 4']
+      ].map(([id, Icon, title, sub]) => <button key={id} type="button" aria-label={title} aria-current={activeView === id ? 'page' : undefined} className={activeView === id ? 'active' : ''} onClick={() => setActiveView(id)}><Icon size={22}/><span className="tabText"><strong>{title}</strong><small>{sub}</small></span><ChevronRight className="tabChevron" size={18} aria-hidden="true"/></button>)}
+    </nav>}
+    <div className="homeMain">
     {isTesla
       ? <header className="teslaHeader">
           <div className="eyebrow"><Zap size={16}/> CaughtaKWH</div>
@@ -361,13 +372,14 @@ function App() {
           })()}
         </header>}
 
-    {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
-      <button type="button" aria-current={activeView === 'chargers' ? 'page' : undefined} className={activeView === 'chargers' ? 'active' : ''} onClick={() => setActiveView('chargers')}><Search size={17}/><span>Find chargers</span></button>
-      <button type="button" aria-current={activeView === 'transparency' ? 'page' : undefined} className={activeView === 'transparency' ? 'active' : ''} onClick={() => setActiveView('transparency')}><Eye size={17}/><span>Transparency</span></button>
-      <button type="button" aria-current={activeView === 'health' ? 'page' : undefined} className={activeView === 'health' ? 'active' : ''} onClick={() => setActiveView('health')}><Activity size={17}/><span>System health</span></button>
-      <button type="button" aria-current={activeView === 'compare' ? 'page' : undefined} className={activeView === 'compare' ? 'active' : ''} onClick={() => setActiveView('compare')}><Scale size={17}/><span>Compare {comparison.items.length ? `(${comparison.items.length})` : ''}</span></button>
-    </nav>}
-
+    {!isTesla && <div className="quickActions" role="group" aria-label="Quick actions">
+      <button type="button" onClick={useMyLocation} disabled={geoLoading}><Compass size={22}/><span>{geoLoading ? 'Finding' : 'Near me'}</span></button>
+      <button type="button" onClick={() => { setActiveView('chargers'); setTimeout(() => document.getElementById('charger-results')?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 60); }}><Search size={22}/><span>Search</span></button>
+      <a href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Flag size={22}/><span>Report</span></a>
+      <a href={CONTRIBUTE_URL}><Heart size={22}/><span>Contribute</span></a>
+    </div>}
+    </div>
+    </div>
     {(isTesla || activeView === 'chargers') && <>
       {!isTesla && <section className="statsGrid">
         <Stat icon={<MapPin/>} label="US Supercharger stations" value={stations.length.toLocaleString()} note={`${coverage.coordsPct}% with coordinates`} />
