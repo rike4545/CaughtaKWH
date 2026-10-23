@@ -16504,7 +16504,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 31,
+        "durationMs": 67,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -16514,7 +16514,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-10-23T04:43:10.311Z",
+    "lastAttemptedAt": "2026-10-23T11:41:29.783Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -16523,7 +16523,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 31
+      "averageRequestMs": 67
     }
   },
   {
@@ -42181,7 +42181,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 29,
+        "durationMs": 67,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -42191,7 +42191,7 @@
         "error": null
       }
     ],
-    "lastAttemptedAt": "2026-10-23T04:43:10.311Z",
+    "lastAttemptedAt": "2026-10-23T11:41:29.783Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -42200,7 +42200,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 29
+      "averageRequestMs": 67
     }
   },
   {
@@ -97838,7 +97838,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 69,
+        "durationMs": 169,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -97897,7 +97897,7 @@
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-23T04:43:10.311Z",
+    "lastAttemptedAt": "2026-10-23T11:41:29.783Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -97906,7 +97906,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 69
+      "averageRequestMs": 169
     }
   },
   {
