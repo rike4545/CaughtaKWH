@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T20:53:24.361Z",
+  "generatedAt": "2026-10-23T02:07:53.341Z",
   "totalStations": 3117,
   "needsCount": 200,
   "stations": [
@@ -50,6 +50,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=456416"
+    },
+    {
+      "id": "477554",
+      "name": "Chattanooga, TN - Birmingham Hwy",
+      "city": "Chattanooga",
+      "state": "TN",
+      "lat": 35.016616,
+      "lng": -85.383309,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=477554"
     },
     {
       "id": "428652",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=4009033"
-    },
-    {
-      "id": "20977",
-      "name": "Mojave, CA - 16870 CA-14",
-      "city": "Mojave",
-      "state": "CA",
-      "lat": 35.067855,
-      "lng": -118.175439,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20977"
     }
   ]
 }
