@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-24T23:09:19.399Z",
-  "requestedLimit": 10,
-  "effectiveLimit": 10,
-  "inScopeStations": 10,
+  "generatedAt": "2026-10-24T23:42:11.260Z",
+  "requestedLimit": 100,
+  "effectiveLimit": 100,
+  "inScopeStations": 501,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -12,14 +12,14 @@
   "unusableCandidates": 0,
   "cooldownSkipped": 0,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "477554",
+    "AliceTXQ322",
+    "58811"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger",
-    "401968",
-    "BayshoreNYsupercharger"
+    "477554",
+    "AliceTXQ322",
+    "58811"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 1444,
+    "averageRequestMs": 105,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 93.9,
+    "previousHealthAgeMinutes": 32.9,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-24T23:39:19.399Z"
+    "nextProbeAt": "2026-10-25T00:12:11.260Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,9 +57,18 @@
     "ignored": false
   },
   "scope": {
-    "states": [],
+    "states": [
+      "OR",
+      "PA",
+      "PR",
+      "RI",
+      "SC",
+      "SD",
+      "TN",
+      "TX"
+    ],
     "countries": [],
     "nearby": null,
-    "needsHistory": false
+    "needsHistory": true
   }
 }
