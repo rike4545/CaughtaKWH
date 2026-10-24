@@ -10,3 +10,4 @@ caughtakwh-agents.patch
 .claude/*
 !.claude/skills/
 !.claude/commands/
+!.claude/agents/
