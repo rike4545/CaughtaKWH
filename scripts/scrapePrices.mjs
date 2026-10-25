@@ -564,11 +564,14 @@ for (const station of ordered.slice(0, effectiveMaxStations)) {
     const observation = { stationId: station.id, capturedAt, localDate: capturedAt.slice(0, 10), localHour: capturedDate.getHours(), localMinute: capturedDate.getMinutes(), halfHourSlot: halfHourSlot(capturedDate), ...result.prices, ...result.availability, currency: 'USD', source: 'tesla_public_findus_location_page', url: result.url };
     observation.neuralValidation = validateCapturedPrices(pricingNeuralModel, { station, observation });
     const hasPrice = observation.memberPricePerKwh !== null || observation.nonMemberPricePerKwh !== null;
+    const hasSchedule = Object.values(observation.timeOfDayPricing || {}).some(chart => Array.isArray(chart?.slots) && chart.slots.length > 0);
     const hasAvailability = observation.availableStalls !== null || observation.utilizationPct !== null || observation.availabilityLabel !== null;
-    if (hasPrice || hasAvailability) {
+    // Preserve a Tesla time-of-day chart even when the page omits a headline rate and
+    // availability. A schedule is useful source evidence, but is not itself a live quote.
+    if (hasPrice || hasSchedule || hasAvailability) {
       const history = await readJson(stationHistoryPath(station.id), []);
-      const key = `${observation.capturedAt}-${observation.memberPricePerKwh}-${observation.nonMemberPricePerKwh}-${observation.congestionFeePerMinuteMax}-${observation.availableStalls}-${observation.utilizationPct}`;
-      const merged = [...history.filter(x => `${x.capturedAt}-${x.memberPricePerKwh}-${x.nonMemberPricePerKwh}-${x.congestionFeePerMinuteMax}-${x.availableStalls}-${x.utilizationPct}` !== key), observation];
+      const key = `${observation.capturedAt}-${observation.memberPricePerKwh}-${observation.nonMemberPricePerKwh}-${observation.congestionFeePerMinuteMax}-${observation.availableStalls}-${observation.utilizationPct}-${JSON.stringify(observation.timeOfDayPricing || {})}`;
+      const merged = [...history.filter(x => `${x.capturedAt}-${x.memberPricePerKwh}-${x.nonMemberPricePerKwh}-${x.congestionFeePerMinuteMax}-${x.availableStalls}-${x.utilizationPct}-${JSON.stringify(x.timeOfDayPricing || {})}` !== key), observation];
       await writeJson(stationHistoryPath(station.id), merged);
       saved++;
     }
