@@ -391,3 +391,48 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .statsGrid > * { padding:14px; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition-duration:.01ms !important; } }
+
+
+/* Contrast guardrails: keep text legible if earlier theme layers leak light-mode colors. */
+.appTopbar,
+.appTopbar .appBrand,
+.appTopbar .appBrand small,
+.appTopbar .appTopbarMeta,
+.appTopbar .networkStatus,
+.viewTabs button,
+.viewTabs button .tabText strong,
+.viewTabs button .tabText small {
+  color: #f4f5f6 !important;
+}
+.appTopbar .appBrand small,
+.appTopbar .appTopbarMeta,
+.appTopbar .networkStatus,
+.viewTabs button .tabText small {
+  color: #b7bdc6 !important;
+}
+.heroLede,
+.hero p,
+.liveCard p,
+.liveName > span,
+.liveRateLbl,
+.liveBig small,
+.liveSub,
+.freshPill,
+.muted,
+.compactNote {
+  color: #b7bdc6 !important;
+}
+.liveName,
+.liveBig,
+.liveRate .liveBig,
+.liveCardCta,
+.rateBig,
+.rateTileHead,
+.rateFoot,
+.priceStrip strong,
+.stat strong {
+  color: #f4f5f6 !important;
+}
+.liveRate.m .liveBig { color: #f4f5f6 !important; }
+.liveRate.n .liveBig { color: #e0eaff !important; }
+button, a { -webkit-text-fill-color: currentColor; }
