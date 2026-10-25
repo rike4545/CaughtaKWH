@@ -97,15 +97,39 @@ test('search ranks the strongest charger match first', async ({ page }) => {
   await expect(page.getByRole('status')).toContainText('1 matching chargers');
 });
 
-test('dashboard navigation switches between major views', async ({ page }) => {
+test('dashboard navigation switches views and supports browser Back/Forward', async ({ page }) => {
   await page.getByRole('button', { name: 'Transparency' }).click();
   await expect(page.getByRole('heading', { name: 'How much of the network is publicly priced?' })).toBeVisible();
+  await expect(page).toHaveURL(/view=transparency/);
 
   await page.getByRole('button', { name: 'System health' }).click();
+  await expect(page.getByRole('heading', { name: 'The system is learning in public' })).toBeVisible();
+  await expect(page).toHaveURL(/view=health/);
+
+  await page.goBack();
+  await expect(page.getByRole('heading', { name: 'How much of the network is publicly priced?' })).toBeVisible();
+  await expect(page).toHaveURL(/view=transparency/);
+
+  await page.goForward();
   await expect(page.getByRole('heading', { name: 'The system is learning in public' })).toBeVisible();
 
   await page.getByRole('button', { name: 'Find chargers', exact: true }).click();
   await expect(page.getByText('Find chargers nearby')).toBeVisible();
+  await expect(page).not.toHaveURL(/view=/);
+
+  await page.getByRole('button', { name: /Compare/ }).click();
+  await expect(page.getByRole('heading', { name: 'Compare the stops that actually fit your session' })).toBeVisible();
+  await expect(page).toHaveURL(/view=compare/);
+});
+
+test('dashboard view deep links open the requested view directly', async ({ page }) => {
+  await page.goto('/?view=health');
+  await expect(page.getByRole('heading', { name: 'The system is learning in public' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'System health' })).toHaveAttribute('aria-current', 'page');
+
+  await page.goto('/?view=transparency');
+  await expect(page.getByRole('heading', { name: 'How much of the network is publicly priced?' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Transparency' })).toHaveAttribute('aria-current', 'page');
 });
 
 test('selected charger exposes pricing and charge-cost estimate', async ({ page }) => {
