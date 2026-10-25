@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T15:06:24.770Z",
+  "generatedAt": "2026-10-25T20:02:36.138Z",
   "totalStations": 3120,
   "needsCount": 200,
   "stations": [
@@ -16,30 +16,6 @@
       "reportUrl": "report.html?station=goletacasupercharger"
     },
     {
-      "id": "457753",
-      "name": "Woodcliff Lake, NJ - Chestnut Ridge Rd",
-      "city": "Woodcliff Lake",
-      "state": "NJ",
-      "lat": 41.043804,
-      "lng": -74.072093,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=457753"
-    },
-    {
-      "id": "452152",
-      "name": "Potomac, MD",
-      "city": "Potomac",
-      "state": "MD",
-      "lat": 39.040583,
-      "lng": -77.158093,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=452152"
-    },
-    {
       "id": "456416",
       "name": "Orem, UT - N 980 W",
       "city": "Orem",
@@ -50,42 +26,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=456416"
-    },
-    {
-      "id": "401410",
-      "name": "Waynesburg, PA",
-      "city": "Waynesburg",
-      "state": "PA",
-      "lat": 39.897791,
-      "lng": -80.134492,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=401410"
-    },
-    {
-      "id": "477554",
-      "name": "Chattanooga, TN - Birmingham Hwy",
-      "city": "Chattanooga",
-      "state": "TN",
-      "lat": 35.016616,
-      "lng": -85.383309,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=477554"
-    },
-    {
-      "id": "428652",
-      "name": "Dunn, NC",
-      "city": "Dunn",
-      "state": "NC",
-      "lat": 35.296335,
-      "lng": -78.598812,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=428652"
     },
     {
       "id": "401824",
@@ -158,6 +98,138 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=rosemontillinoissupercharger"
+    },
+    {
+      "id": "457753",
+      "name": "Woodcliff Lake, NJ - Chestnut Ridge Rd",
+      "city": "Woodcliff Lake",
+      "state": "NJ",
+      "lat": 41.043804,
+      "lng": -74.072093,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=457753"
+    },
+    {
+      "id": "423655",
+      "name": "San Ramon, CA - 2205 San Ramon Valley Blvd",
+      "city": "San Ramon",
+      "state": "CA",
+      "lat": 37.781648,
+      "lng": -121.979667,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=423655"
+    },
+    {
+      "id": "33803",
+      "name": "Key West, FL",
+      "city": "Key West",
+      "state": "FL",
+      "lat": 24.565008,
+      "lng": -81.77263,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=33803"
+    },
+    {
+      "id": "498706",
+      "name": "[Victron Energy] Valley View, TX",
+      "city": "Valley View",
+      "state": "TX",
+      "lat": 33.436641,
+      "lng": -97.164177,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=498706"
+    },
+    {
+      "id": "27029",
+      "name": "Port Charlotte, FL",
+      "city": "Port Charlotte",
+      "state": "FL",
+      "lat": 27.013161,
+      "lng": -82.143931,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=27029"
+    },
+    {
+      "id": "452152",
+      "name": "Potomac, MD",
+      "city": "Potomac",
+      "state": "MD",
+      "lat": 39.040583,
+      "lng": -77.158093,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=452152"
+    },
+    {
+      "id": "401410",
+      "name": "Waynesburg, PA",
+      "city": "Waynesburg",
+      "state": "PA",
+      "lat": 39.897791,
+      "lng": -80.134492,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=401410"
+    },
+    {
+      "id": "477554",
+      "name": "Chattanooga, TN - Birmingham Hwy",
+      "city": "Chattanooga",
+      "state": "TN",
+      "lat": 35.016616,
+      "lng": -85.383309,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=477554"
+    },
+    {
+      "id": "428652",
+      "name": "Dunn, NC",
+      "city": "Dunn",
+      "state": "NC",
+      "lat": 35.296335,
+      "lng": -78.598812,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=428652"
+    },
+    {
+      "id": "19169",
+      "name": "Lander, WY",
+      "city": "Lander",
+      "state": "WY",
+      "lat": 42.834791,
+      "lng": -108.740717,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=19169"
+    },
+    {
+      "id": "467705",
+      "name": "Tillamook, OR - N Main Ave",
+      "city": "Tillamook",
+      "state": "OR",
+      "lat": 45.475958,
+      "lng": -123.846133,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=467705"
     },
     {
       "id": "ArroyoGrandeCAsupercharger",
@@ -2330,78 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=longbeachsupercharger"
-    },
-    {
-      "id": "32724",
-      "name": "Lorena, TX",
-      "city": "Lorena",
-      "state": "TX",
-      "lat": 31.394348,
-      "lng": -97.207597,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=32724"
-    },
-    {
-      "id": "27525",
-      "name": "Los Altos, CA - Loucks Ave",
-      "city": "Los Altos",
-      "state": "CA",
-      "lat": 37.399922,
-      "lng": -122.114897,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=27525"
-    },
-    {
-      "id": "18458",
-      "name": "Lost Hills, CA",
-      "city": "Lost Hills",
-      "state": "CA",
-      "lat": 35.616874,
-      "lng": -119.656098,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=18458"
-    },
-    {
-      "id": "407626",
-      "name": "Melbourne, FL - Norfolk Pkwy",
-      "city": "Melbourne",
-      "state": "FL",
-      "lat": 28.038724,
-      "lng": -80.662643,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=407626"
-    },
-    {
-      "id": "MelissaTXQ322",
-      "name": "Melissa, TX",
-      "city": "Melissa",
-      "state": "TX",
-      "lat": 33.270374,
-      "lng": -96.592973,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=MelissaTXQ322"
-    },
-    {
-      "id": "26440",
-      "name": "Miami, FL - SW 136th St",
-      "city": "Miami",
-      "state": "FL",
-      "lat": 25.646391,
-      "lng": -80.337976,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=26440"
     }
   ]
 }
