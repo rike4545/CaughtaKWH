@@ -12,6 +12,8 @@
 
 import { ProxyAgent } from 'undici';
 
+const DEFAULT_PROXY_LIST_URL = 'https://raw.githubusercontent.com/iplocate/free-proxy-list/main/protocols/http.txt';
+
 const CHECK_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
 
 export function splitList(value) {
@@ -57,6 +59,11 @@ export function parseProxy(raw, { username = '', password = '' } = {}) {
     return null;
   }
   if (!url.host) return null;
+  // This transport supports HTTP(S) proxy endpoints, not SOCKS4/SOCKS5 entries.
+  if (!['http:', 'https:'].includes(url.protocol)) {
+    console.warn(`Ignoring ${url.protocol} proxy ${url.host}: only HTTP(S) proxy endpoints are supported.`);
+    return null;
+  }
 
   // These are browser-facing web-proxy portals, not HTTP(S) CONNECT proxy endpoints.
   // Passing their homepage as SCRAPE_PROXY makes undici attempt CONNECT to the portal,
@@ -90,7 +97,9 @@ export async function gatherProxyCandidates(env = process.env) {
   const out = [];
   if (env.SCRAPE_PROXY) out.push(...splitList(env.SCRAPE_PROXY));
   if (env.SCRAPE_PROXY_LIST) out.push(...splitList(env.SCRAPE_PROXY_LIST));
-  const listUrl = String(env.SCRAPE_PROXY_LIST_URL || '').trim();
+  // Use IPLocate's HTTP-only list by default; an explicitly empty value disables it.
+  const configuredListUrl = env.SCRAPE_PROXY_LIST_URL;
+  const listUrl = configuredListUrl === '' ? '' : String(configuredListUrl || DEFAULT_PROXY_LIST_URL).trim();
   if (listUrl) {
     try {
       const controller = new AbortController();
