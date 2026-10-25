@@ -97,7 +97,7 @@ const stations = collected
   };
   })
   .filter(Boolean)
-  .sort((a, b) => a.state.localeCompare(b.state) || String(a.name || '').localeCompare(String(b.name || ''));
+  .sort((a, b) => a.state.localeCompare(b.state) || String(a.name || '').localeCompare(String(b.name || '')));
 
 if (!stations.length) throw new Error('No DCFC Tracker stations matched existing CaughtaKWH stations in the configured states; refusing to overwrite the previous snapshot.');
 const priced = stations.filter(station => station.publicPricePerKwh !== null || station.memberPricePerKwh !== null).length;
