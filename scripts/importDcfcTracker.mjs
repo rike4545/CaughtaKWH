@@ -1,4 +1,6 @@
 import { readJson, writeJson, nowIso } from './lib.mjs';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const API = 'https://dcfctracker.com/api/v1';
 const apiKey = String(process.env.DCFC_API_KEY || '').trim();
@@ -130,6 +132,20 @@ if (priced === 0) {
   }
 }
 
+// Keep independent recovery copies. The previous snapshot is the immediate rollback point;
+// the UTC-hour archive preserves a lightweight historical trail without creating a file every 15 minutes.
+const currentPath = path.join(process.cwd(), 'data', 'dcfc-tracker.json');
+const previousSnapshot = await readJson('data/dcfc-tracker.json', null);
+if (previousSnapshot && Array.isArray(previousSnapshot.stations) && previousSnapshot.stations.length > 0) {
+  await writeJson('data/backups/dcfc-tracker-previous.json', previousSnapshot);
+}
+const hourBucket = new Date().toISOString().slice(0, 13).replace('T', '-');
+const hourlyArchivePath = path.join('data', 'history', 'dcfc-tracker', `${hourBucket}.json`);
+try {
+  await fs.access(hourlyArchivePath);
+} catch {
+  await writeJson(hourlyArchivePath, snapshot);
+}
 await writeJson('data/dcfc-tracker.json', snapshot);
 console.log(JSON.stringify({
   generatedAt: snapshot.generatedAt,
