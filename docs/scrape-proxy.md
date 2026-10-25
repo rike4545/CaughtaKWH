@@ -19,7 +19,7 @@ browser and Node's global `fetch` through the first one that connects.
 | --- | --- |
 | `SCRAPE_PROXY` | A single proxy, e.g. `http://proxy.example.com:8080`. Credentials may be embedded (`http://user:pass@host:port`) or supplied separately. Bare `ip:port` is also accepted (assumed `http://`). |
 | `SCRAPE_PROXY_LIST` | Multiple proxies, comma/space/newline separated. Used for rotation/failover. |
-| `SCRAPE_PROXY_LIST_URL` | A URL returning a proxy list — plain `ip:port` lines, proxy URLs, or JSON (`["ip:port", ...]` or `[{ip,port}, ...]`). Fetched once at startup. Handy for free proxy-list endpoints. |
+| `SCRAPE_PROXY_LIST_URL` | A URL returning plain `ip:port` lines, proxy URLs, or JSON. Defaults to IPLocate's maintained HTTP-only list at `https://raw.githubusercontent.com/iplocate/free-proxy-list/main/protocols/http.txt`; set an empty value to disable the default. |
 | `SCRAPE_PROXY_USERNAME` / `SCRAPE_PROXY_PASSWORD` | Optional shared credentials applied to every candidate (override any embedded in the URL). |
 | `SCRAPE_PROXY_CHECK_URL` | Connectivity-check endpoint (default `https://api.ipify.org`). |
 | `SCRAPE_PROXY_CHECK_TIMEOUT_MS` | Per-proxy check timeout (default `8000`). |
@@ -81,15 +81,13 @@ browser-facing proxy portal itself cannot be plugged into this scraper as-is.
    scheduled run of **Dynamic Tesla Pricing Refresh**, **Pricing Pilot Panel**,
    and **Update Supercharger Price Data** will route through the proxy.
 
-### Using a free proxy list
+### IPLocate free proxy list
 
-Set `SCRAPE_PROXY_LIST` to several `ip:port` entries, or point
-`SCRAPE_PROXY_LIST_URL` at a free proxy-list endpoint (e.g. a ProxyScrape /
-geonode "free list" URL). The pool will health-check them and use the first that
-connects, rotating on blocks. **Manage expectations:** free proxies are
-datacenter IPs that Akamai usually pre-blocks, so even a "working" (connectable)
-proxy often still returns `access_controlled` on Tesla. Free lists are good for
-*testing the plumbing*; a residential proxy is what reliably gets through.
+The default candidate source is [iplocate/free-proxy-list](https://github.com/iplocate/free-proxy-list), using its `protocols/http.txt` endpoint rather than `all-proxies.txt`. The all-proxies file includes SOCKS4/SOCKS5 entries, which this scraper's current proxy transport does not support. The HTTP-only endpoint is refreshed upstream about every 30 minutes.
+
+Candidates are capped by `SCRAPE_PROXY_MAX_CANDIDATES` (default 25) and health-checked before use. To use a different source, set `SCRAPE_PROXY_LIST_URL`; set it to an empty value to disable the default list. Existing `SCRAPE_PROXY` and `SCRAPE_PROXY_LIST` entries retain priority.
+
+**Security and reliability warning:** these are public, unauthenticated proxies operated by third parties. They can observe destination metadata and may be unreliable or malicious. Do not send credentials, cookies, or private data through them. The scraper should only use them for public pages; a successful connectivity check does not mean Tesla will serve a page. A free proxy list is experimental, not a guaranteed fix for blocked requests.
 
 ## Verifying
 
