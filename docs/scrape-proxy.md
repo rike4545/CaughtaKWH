@@ -53,6 +53,22 @@ circuit breaker all stay in effect regardless of the proxy. The run's
 `data/scrape-health.json` records `transport.proxyPool` (`candidates`, `tried`,
 `activeHost`) so you can see what happened.
 
+## Important: browser-based proxy websites are not proxy endpoints
+
+CroxyProxy, ProxySite.com, ProxyOrb, and IPFighter's free web-proxy pages are
+websites that proxy a browsing session through their own page/interface. Their
+homepage URLs are **not** HTTP(S) CONNECT proxy servers. Do not set
+`SCRAPE_PROXY=https://www.croxyproxy.com` (or the other portal homepages):
+the scraper's HTTP client and Playwright proxy setting require a real proxy
+endpoint, and the code now rejects these known portal domains with a clear
+warning instead of trying to use them.
+
+If one of these providers offers a separate, documented proxy endpoint for
+automated clients, use that endpoint only if its terms permit this use. Otherwise
+configure a conventional HTTP(S)/CONNECT proxy service that explicitly supports
+server-side automated requests, or use a permitted pricing-data source. The
+browser-facing proxy portal itself cannot be plugged into this scraper as-is.
+
 ## Enabling it
 
 1. Obtain a proxy endpoint. Residential/ISP proxies pass Akamai most reliably;
