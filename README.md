@@ -322,6 +322,28 @@ GitHub Actions automatically:
 - Syncs public datasets
 - Deploys the website
 
+
+## DCFC Tracker API (supplemental regional price feed)
+
+CaughtaKWH can import Tesla Supercharger station metadata and published public/member price fields from the DCFC Tracker API for New York, New Jersey, and Connecticut. The scheduled refresh publishes the snapshot as `data/dcfc-tracker.json` and mirrors it to `public/data/dcfc-tracker.json`; it remains a separately attributed source and does not overwrite Tesla-scraper observations or historical station records.
+
+### Enable the feed
+
+1. Obtain API access from [DCFC Tracker's developer page](https://dcfctracker.com/developers). The API currently requires a Pro subscription and API key.
+2. In the GitHub repository, open **Settings → Secrets and variables → Actions → New repository secret**.
+3. Create a secret named `DCFC_API_KEY` and paste the key. Never put the key in frontend code, public JSON, a committed file, or a URL.
+4. Run **Dynamic Tesla Pricing Refresh** manually or wait for the scheduled workflow.
+
+Run the importer locally with `DCFC_API_KEY` set in your shell environment:
+
+```bash
+DCFC_STATES=NY,NJ,CT npm run import:dcfc-tracker
+```
+
+The importer records source attribution, price source/type, price rate, price update time, station location, access, stalls, and public/member per-kWh prices. It fails on API/auth/schema errors and refuses to replace an existing priced snapshot with an empty result. A station with a null price remains “unknown”; it is not treated as free. DCFC Tracker's list endpoint exposes the highest public price and a member price where available; time-of-use schedules and detailed price history require station-specific API requests and are not inferred from these summary fields.
+
+**Important:** this first integration is a separately published regional data feed, not yet a replacement for the existing Tesla observation/history model or a claim that the dashboard's current-price labels now use DCFC Tracker. The API's network data refreshes on its own cadence (Tesla status/pricing metadata may be several hours old); consumers should honor `priceUpdatedAt` and retain the project's two-hour freshness rule for “current” pricing. Data use is subject to [DCFC Tracker's API terms and fair-use notes](https://dcfctracker.com/developers); credit DCFC Tracker when displaying its data.
+
 ## Neural pricing model
 
 `npm run predict` first trains a small feed-forward network from validated history and then rebuilds the public predictions. Its inputs include half-hour time, weekday, membership type, utilization when available, stall count, maximum power, congestion fees, coordinates, source type, and parser candidate density.
