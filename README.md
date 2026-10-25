@@ -420,3 +420,19 @@ Suggested contribution areas:
 CaughtaKWH is an independent project and is not affiliated with or endorsed by Tesla.
 
 Tesla trademarks, vehicle names, and Supercharger branding belong to Tesla, Inc.
+
+
+
+### DCFC Tracker methodology, provenance, and recovery backups
+
+CaughtaKWH follows the same source-transparency principles described in [DCFC Tracker's methodology](https://dcfctracker.com/methodology):
+
+- **Keep source layers separate.** DCFC Tracker is a supplemental feed, not a replacement for Tesla observations or CaughtaKWH's existing price history. Every imported snapshot identifies the source and links to the API documentation.
+- **Preserve snapshots over time.** The importer stores a UTC-hour archive at `data/history/dcfc-tracker/` so source changes can be compared over time without generating a new archive file every 15-minute workflow run.
+- **Keep a rollback copy.** Before a new valid snapshot replaces `data/dcfc-tracker.json`, the prior snapshot is saved to `data/backups/dcfc-tracker-previous.json`. The importer refuses to replace a priced snapshot with an unexpectedly empty or metadata-only result when the prior snapshot contains prices.
+- **Treat missing data as unknown.** A missing/null price is not interpreted as free charging. A failed request, schema change, or no-match result should not be presented as a successful refresh.
+- **Show provenance and freshness.** Preserve the source, source type, rate, and source update timestamp. CaughtaKWH's existing rule remains in effect: observations older than two hours are historical, not current.
+- **Do not infer closures from missing records.** A station disappearing from a source feed is a source-data change, not proof the physical site has closed. Reconcile it against later snapshots before changing station status.
+- **Verify before driving.** DCFC Tracker notes that published rates can lag the stall price; Tesla's app or in-vehicle navigation remains the operational source of truth.
+
+These backups are versioned by the repository's existing automated data commit workflow. They are recovery and comparison snapshots, not a substitute for an independent off-repository backup. The API key remains in the GitHub Actions secret `DCFC_API_KEY` and is never written into snapshots.
