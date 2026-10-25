@@ -293,7 +293,7 @@ function App() {
   return <main id="main-content" className={isTesla ? 'tesla-mode' : isMobile ? 'mobile-mode' : ''}>
     {!isTesla && <a className="skipLink" href="#charger-results">Skip to charger results</a>}
     {!isTesla && <div className="appTopbar">
-      <div className="appBrand"><span className="appBrandMark"><Mascot mood="idle" size={24} /></span><span>CaughtaKWH</span><small>Supercharger intelligence</small></div>
+      <div className="appBrand"><span className="appBrandMark"><Zap size={18} aria-hidden="true" /></span><span>CaughtaKWH</span><small>Supercharger intelligence</small></div>
       <div className="appTopbarMeta">
         <span className="networkStatus" title="Share of tracked stations with a captured price"><span className="battery" aria-hidden="true"><i style={{ width: `${Math.max(4, Math.min(100, dashboardSummary.pricedPct || 0))}%` }}/></span><b>{Math.round(dashboardSummary.pricedPct || 0)}%</b><em>{currentStations ? `${currentStations} fresh price${currentStations === 1 ? '' : 's'}` : 'Historical pricing only'}</em></span>
         <a href={CONTRIBUTE_URL}>Contribute</a>
@@ -343,7 +343,7 @@ function App() {
             const st = yourStation || (example ? stations.find(item => item.id === example.stationId) : null);
             if (!st) {
               return <div className="heroPanel">
-                <Mascot mood="searching" size={84} className="heroMascot" />
+                <div className="heroPanelMark" aria-hidden="true"><Zap size={36} /></div>
                 <strong>Why this matters</strong>
                 <p>Without posted prices, drivers can't comparison-shop, budget a trip, or hold operators accountable. CaughtaKWH builds the public price record Tesla doesn't provide.</p>
                 <a className="crowdsourceLink" href={CROWDSOURCE_URL} target="_blank" rel="noreferrer"><Users size={15}/> Saw a price? Report it</a>
