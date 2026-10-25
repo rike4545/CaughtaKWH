@@ -322,6 +322,29 @@ GitHub Actions automatically:
 - Syncs public datasets
 - Deploys the website
 
+
+## Free-source station metadata and published pricing
+
+CaughtaKWH does **not** require a paid DCFC Tracker API subscription or a `DCFC_API_KEY` to run its scheduled refresh. The paid DCFC Tracker API importer is not called by the workflow. Do not add a paid API secret just to make scheduled updates work.
+
+The NLR / U.S. Department of Energy Alternative Fuels Data Center (AFDC) importer is an optional station-inventory and metadata supplement. It uses the NLR Developer Network API and publishes a separate `data/nlr-afdc-stations.json` snapshot, mirrored to `public/data/`. Configure the `NLR_API_KEY` Actions secret if you want this metadata feed; it is not a pricing feed and must not be presented as live price data.
+
+For network-specific published pricing, use public network data only where it is genuinely accessible without a paid aggregator subscription. Keep the network's source label and source-update timestamp, preserve time-of-use rates when available, and state that a published rate reflects the last sync and may differ from the price charged at the charger. If a network does not expose a free, accessible public feed, mark that network's price unavailable rather than inventing a rate or requiring a paid key. The Tesla scraper and its existing historical price observations remain independent.
+
+### NLR / AFDC metadata setup
+
+1. Obtain an NLR Developer Network API key.
+2. Add it as the GitHub Actions repository secret `NLR_API_KEY`.
+3. Run the scheduled refresh, or locally run:
+
+```bash
+NLR_STATES=NY,NJ,CT npm run import:nlr-afdc
+```
+
+The importer defaults to New York, New Jersey, and Connecticut. It saves the previous snapshot to `data/backups/nlr-afdc-stations-previous.json` and UTC-hour archives under `data/history/nlr-afdc-stations/`. It only matches existing CaughtaKWH stations and does not treat missing records as proof that a charger has closed.
+
+**Freshness:** preserve the source timestamp on each observation. CaughtaKWH's two-hour rule still applies before calling a price “current”; older prices should be labeled historical. Always advise drivers to verify the final rate in the charging network's official app or on the charger.
+
 ## Neural pricing model
 
 `npm run predict` first trains a small feed-forward network from validated history and then rebuilds the public predictions. Its inputs include half-hour time, weekday, membership type, utilization when available, stall count, maximum power, congestion fees, coordinates, source type, and parser candidate density.
@@ -398,3 +421,49 @@ Suggested contribution areas:
 CaughtaKWH is an independent project and is not affiliated with or endorsed by Tesla.
 
 Tesla trademarks, vehicle names, and Supercharger branding belong to Tesla, Inc.
+
+
+
+### DCFC Tracker methodology, provenance, and recovery backups
+
+CaughtaKWH follows the same source-transparency principles described in [DCFC Tracker's methodology](https://dcfctracker.com/methodology):
+
+- **Keep source layers separate.** DCFC Tracker is a supplemental feed, not a replacement for Tesla observations or CaughtaKWH's existing price history. Every imported snapshot identifies the source and links to the API documentation.
+- **Preserve snapshots over time.** The importer stores a UTC-hour archive at `data/history/dcfc-tracker/` so source changes can be compared over time without generating a new archive file every 15-minute workflow run.
+- **Keep a rollback copy.** Before a new valid snapshot replaces `data/dcfc-tracker.json`, the prior snapshot is saved to `data/backups/dcfc-tracker-previous.json`. The importer refuses to replace a priced snapshot with an unexpectedly empty or metadata-only result when the prior snapshot contains prices.
+- **Treat missing data as unknown.** A missing/null price is not interpreted as free charging. A failed request, schema change, or no-match result should not be presented as a successful refresh.
+- **Show provenance and freshness.** Preserve the source, source type, rate, and source update timestamp. CaughtaKWH's existing rule remains in effect: observations older than two hours are historical, not current.
+- **Do not infer closures from missing records.** A station disappearing from a source feed is a source-data change, not proof the physical site has closed. Reconcile it against later snapshots before changing station status.
+- **Verify before driving.** DCFC Tracker notes that published rates can lag the stall price; Tesla's app or in-vehicle navigation remains the operational source of truth.
+
+These backups are versioned by the repository's existing automated data commit workflow. They are recovery and comparison snapshots, not a substitute for an independent off-repository backup. The API key remains in the GitHub Actions secret `DCFC_API_KEY` and is never written into snapshots.
+
+
+## NLR / AFDC station metadata and backups
+
+CaughtaKWH can use the [NLR Alternative Fuel Stations API](https://developer.nlr.gov/docs/transportation/alt-fuel-stations-v1/) to cross-check Tesla station inventory and metadata for NY, NJ, and CT. The API supplies station location, network, status, connector types, reported charging-port counts, access details, and source update/confirmation dates. It is an inventory/metadata source—not a real-time Tesla pricing feed—and must not be used to manufacture or overwrite price observations.
+
+### Enable the feed
+
+1. Sign up for an API key through the [NLR Developer Network](https://developer.nlr.gov/docs/).
+2. Add a GitHub Actions repository secret named `NLR_API_KEY`.
+3. The scheduled refresh runs `npm run import:nlr-afdc` when that secret is configured. Without it, the optional step is skipped.
+4. To run locally, set `NLR_API_KEY` in your shell and run:
+
+```bash
+NLR_STATES=NY,NJ,CT npm run import:nlr-afdc
+```
+
+### Source safeguards and recovery
+
+- Writes a separately attributed `data/nlr-afdc-stations.json` snapshot and mirrors it through the existing public-data sync.
+- Before replacing a prior snapshot, saves it to `data/backups/nlr-afdc-stations-previous.json`.
+- Keeps one UTC-hour archive in `data/history/nlr-afdc-stations/` to make changes auditable without writing a new archive on every 15-minute run.
+- Matches records only to existing CaughtaKWH stations by normalized name or coordinates within 0.5 miles; it does not add unmatched stations or delete stations missing from a feed.
+- Fails closed on HTTP/auth/schema errors or zero matches so the last valid snapshot remains intact.
+- Preserves NLR/AFDC status codes and source dates as reported. A status or missing record is a signal to investigate, not automatic proof that a charger has closed.
+- Keeps the API key server-side; it is never written to the snapshot or frontend.
+- Repository snapshots provide rollback/history, but are not independent off-site backups.
+
+NLR's documented default rate limit is 1,000 requests per hour per key across its APIs; the importer makes a single station-list request per run. Confirm current availability and live pricing with the charging network before a trip.
+

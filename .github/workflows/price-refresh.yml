@@ -83,6 +83,9 @@ jobs:
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
       # Optional trusted provider proxy-list download URL; do not commit its token or credentials.
       SCRAPE_PROXY_LIST_URL: ${{ secrets.SCRAPE_PROXY_LIST_URL }}
+      # NLR API key is used server-side for AFDC station metadata and backup validation.
+      NLR_API_KEY: ${{ secrets.NLR_API_KEY }}
+      NLR_STATES: NY,NJ,CT
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -97,6 +100,9 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm install --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
+      - name: Import NLR AFDC Tesla station metadata (NY/NJ/CT)
+        if: env.NLR_API_KEY != ''
+        run: npm run import:nlr-afdc
       - name: Verify authorized Tesla access route
         run: npm run scrape:proxy-test
       - name: Refresh dynamic Tesla pricing
