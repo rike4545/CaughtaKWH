@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '100' }}
-      SCRAPE_DELAY_MS: 600
+      SCRAPE_DELAY_MS: 1500
       SCRAPE_ROTATE_STATES: ${{ github.event_name == 'schedule' && 'true' || 'false' }}
       # 8 states/day (was 4). The window slides by 1 state/day, so the 52-region sweep period is
       # unchanged, but each state now gets an 8-day coverage burst (was 4) and twice as many
@@ -92,7 +92,35 @@ jobs:
       - run: npm install --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
       - name: Refresh dynamic Tesla pricing
-        run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape || true
+        run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape
+      - name: Report scrape coverage
+        if: always()
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const file = 'data/scrape-health.json';
+          if (!fs.existsSync(file)) {
+            console.error('::error::Scraper did not produce data/scrape-health.json.');
+            process.exit(1);
+          }
+          const health = JSON.parse(fs.readFileSync(file, 'utf8'));
+          const summary = {
+            generatedAt: health.generatedAt,
+            attempted: health.attempted ?? 0,
+            validPages: health.validPages ?? 0,
+            savedObservations: health.savedObservations ?? 0,
+            blocked: health.blocked ?? 0,
+            failed: health.failed ?? 0,
+            proxyConfigured: health.transport?.proxyConfigured ?? false,
+            activeHost: health.transport?.proxyPool?.activeHost ?? null
+          };
+          console.log('Scrape health:', JSON.stringify(summary, null, 2));
+          if (summary.validPages === 0 && summary.attempted > 0) {
+            console.log('::warning::Scraper reached no usable Tesla pages. Existing historical/public data will be retained; do not interpret this run as a successful price refresh.');
+          } else if (summary.validPages > 0 && summary.savedObservations === 0) {
+            console.log('::warning::Tesla pages loaded, but no new observations were saved. Check whether pages contained current pricing or availability.');
+          }
+          NODE
       - name: Rebuild predictions and public data
         run: |
           npm run predict
