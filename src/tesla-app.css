@@ -436,3 +436,35 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .liveRate.m .liveBig { color: #f4f5f6 !important; }
 .liveRate.n .liveBig { color: #e0eaff !important; }
 button, a { -webkit-text-fill-color: currentColor; }
+
+
+/* Final canvas override: this app is intentionally dark regardless of OS appearance.
+   Apply to the document canvas as well as the React root so no light gutter surrounds
+   the dashboard on wide screens or during overscroll. */
+:root {
+  color-scheme: dark !important;
+  --bg: #0b0c0f !important;
+  --card: #14161a;
+  --card2: #1b1e23;
+  --text: #f4f5f6;
+  --muted: #a0a5ae;
+  --faint: #747b85;
+}
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: #0b0c0f !important;
+}
+html {
+  background: #0b0c0f !important;
+  color-scheme: dark !important;
+}
+body {
+  color: #f4f5f6;
+  background:
+    radial-gradient(ellipse at 50% -260px, rgba(232,33,39,.10), transparent 660px),
+    #0b0c0f !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 660px !important;
+}
