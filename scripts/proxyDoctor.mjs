@@ -204,11 +204,10 @@ const anyProxyPasses = proxyResults.some(r => r.verdict === 'PASS');
 
 if (!parsedProxies.length) {
   const direct = results.find(r => r.label.startsWith('direct'));
-  console.log('\nNo SCRAPE_PROXY configured — only direct egress was tested.');
+  console.log('\nNo trusted SCRAPE_PROXY endpoint configured — only direct egress was tested.');
   if (direct && direct.verdict !== 'PASS') {
-    console.log('Direct egress is being blocked by Akamai (expected from datacenter IPs). Configure a');
-    console.log('residential SCRAPE_PROXY secret and re-run this to confirm it gets through. Supercharger');
-    console.log('pages are ~100–500 KB each, so pay-as-you-go residential bandwidth costs pennies per run.');
+    console.error('Direct egress cannot retrieve usable Tesla pages. Configure an authorized proxy endpoint or use an approved data source before attempting a live refresh.');
+    process.exit(1);
   }
   process.exit(0);
 }
@@ -219,6 +218,5 @@ if (anyProxyPasses) {
 }
 
 console.error('\n❌ No configured proxy returned a usable Tesla page. They connect but Akamai denies their IPs.');
-console.error('   Free/public proxy IPs are almost always on Akamai\'s blocklist. Use a residential proxy');
-console.error('   (IPRoyal, SOAX, Bright Data, Oxylabs pay-as-you-go all work) and re-run this check.');
+console.error('   Use an authorized egress route permitted by its provider and Tesla\'s terms, or switch to an approved pricing-data source.');
 process.exit(1);
