@@ -1,26 +1,26 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-10-24T14:50:28.852Z
+Generated: 2026-10-25T15:02:13.607Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
-- Stations: 3117
-- Checked by scraper: 1119 (35.9%)
+- Stations: 3120
+- Checked by scraper: 1119 (35.87%)
 - Latest attempts blocked by access controls: 1991
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
 - Fresh price stations: 0
-- Stale or unchecked stations: 3117
+- Stale or unchecked stations: 3120
 
 ## State Refresh Priorities
 
 - CA: 661 stale/unchecked, 0% priced
 - FL: 246 stale/unchecked, 0% priced
-- TX: 223 stale/unchecked, 0% priced
+- TX: 224 stale/unchecked, 0% priced
 - NY: 124 stale/unchecked, 0.81% priced
-- PA: 110 stale/unchecked, 0% priced
+- PA: 111 stale/unchecked, 0% priced
 - NJ: 108 stale/unchecked, 0% priced
 - VA: 103 stale/unchecked, 0% priced
 - NC: 91 stale/unchecked, 0% priced
@@ -31,13 +31,13 @@ Generated: 2026-10-24T14:50:28.852Z
 - Goleta, CA (goletacasupercharger) · access_controlled
 - Woodcliff Lake, NJ - Chestnut Ridge Rd (457753) · route_access_controlled
 - Potomac, MD (452152) · route_access_controlled
-- Orem, UT - N 980 W (456416) · access_controlled
+- Orem, UT - N 980 W (456416) · route_access_controlled
 
 ## Improvement Queue
 
-- Grow repeated observations: 0 of 3117 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
+- Grow repeated observations: 0 of 3120 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
 - Keep fresh data visible: 0 stations have a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current.
-- Prioritize slow Tesla pages: 3117 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
+- Prioritize slow Tesla pages: 3120 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
 - Add local power context state by state: New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear.
 
 ## Automation
