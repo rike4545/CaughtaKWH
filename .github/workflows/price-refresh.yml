@@ -86,6 +86,7 @@ jobs:
       # DCFC Tracker API key stays in Actions secrets; imported data is published without the key.
       DCFC_API_KEY: ${{ secrets.DCFC_API_KEY }}
       DCFC_STATES: NY,NJ,CT
+      NETWORK_PRICING_STATES: NY,NJ,CT
       # NLR API key is used server-side for AFDC station metadata and backup validation.
       NLR_API_KEY: ${{ secrets.NLR_API_KEY }}
       NLR_STATES: NY,NJ,CT
@@ -109,6 +110,9 @@ jobs:
       - name: Import DCFC Tracker Tesla pricing (NY/NJ/CT)
         if: env.DCFC_API_KEY != ''
         run: npm run import:dcfc-tracker
+      - name: Import multi-network published pricing and site details
+        if: env.DCFC_API_KEY != ''
+        run: npm run import:network-pricing
       - name: Verify authorized Tesla access route
         run: npm run scrape:proxy-test
       - name: Refresh dynamic Tesla pricing
