@@ -324,7 +324,7 @@ function App() {
             </div>
             <div className="heroTrust">
               <span><strong>{stations.length.toLocaleString()}</strong> US stations tracked</span>
-              <span><strong>{darkPct}%</strong> never show price publicly</span>
+              <span><strong>{darkPct}%</strong> have no public price on record</span>
               <span>Community price reports help build the record</span>
             </div>
           </div>
