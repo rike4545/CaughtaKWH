@@ -468,3 +468,29 @@ body {
   background-repeat: no-repeat !important;
   background-size: 100% 660px !important;
 }
+
+
+/* Whole-page canvas reset. The earlier theme layers style body, html and content
+   independently; make the document and React mount fill the viewport and inherit
+   the same dark canvas, including the unused space beside the centered layout. */
+html {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  background: #0b0c0f !important;
+  color-scheme: dark !important;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #0b0c0f !important;
+  background-image: radial-gradient(ellipse at 50% -260px, rgba(232,33,39,.10), transparent 660px) !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 660px !important;
+}
+#root {
+  width: 100%;
+  min-height: 100vh;
+  background: transparent !important;
+}
