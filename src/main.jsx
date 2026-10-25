@@ -80,13 +80,37 @@ function App() {
   const [originMode, setOriginMode] = useState('browse');
   const [geoError, setGeoError] = useState('');
   const [geoLoading, setGeoLoading] = useState(false);
-  const [activeView, setActiveView] = useState('chargers');
+  const VALID_VIEWS = new Set(['chargers', 'transparency', 'health', 'compare']);
+  const [activeView, setActiveView] = useState(() => {
+    const requested = new URLSearchParams(window.location.search).get('view');
+    return VALID_VIEWS.has(requested) ? requested : 'chargers';
+  });
   const [manualCheck, setManualCheck] = useState({ status: 'idle' });
   const [autoLocateDone, setAutoLocateDone] = useState(false);
   const favorites = usePersistentList('caughtakwh:favorites', { maxItems: 20 });
   const recents = usePersistentList('caughtakwh:recents', { maxItems: 8 });
   const comparison = usePersistentList('caughtakwh:comparison', { maxItems: 4 });
   const detailRef = useRef(null);
+
+  // Keep the major dashboard views addressable and make browser Back/Forward restore them.
+  // Query parameters coexist with station hashes, so a shared station link remains shareable.
+  function navigateToView(view) {
+    if (!VALID_VIEWS.has(view)) return;
+    setActiveView(view);
+    const url = new URL(window.location.href);
+    if (view === 'chargers') url.searchParams.delete('view');
+    else url.searchParams.set('view', view);
+    window.history.pushState({ view }, '', `${url.pathname}${url.search}${url.hash}`);
+  }
+
+  useEffect(() => {
+    const restoreView = () => {
+      const requested = new URLSearchParams(window.location.search).get('view');
+      setActiveView(VALID_VIEWS.has(requested) ? requested : 'chargers');
+    };
+    window.addEventListener('popstate', restoreView);
+    return () => window.removeEventListener('popstate', restoreView);
+  }, []);
 
   const stationById = useMemo(() => new Map(stations.map(station => [station.id, station])), [stations]);
   const predictionsByStation = useMemo(() => {
@@ -114,10 +138,10 @@ function App() {
   useEffect(() => {
     if (selectedId) {
       const hash = `#${selectedId}`;
-      if (window.location.hash !== hash) window.history.replaceState(null, '', hash);
+      if (window.location.hash !== hash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${hash}`);
       document.title = `${selected?.name || selected?.city || selectedId} · CaughtaKWH`;
     } else {
-      if (window.location.hash) window.history.replaceState(null, '', window.location.pathname);
+      if (window.location.hash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
       document.title = 'CaughtaKWH';
     }
   }, [selectedId, selected?.name]);
@@ -302,7 +326,7 @@ function App() {
         ['transparency', Eye, 'Transparency', `${darkPct}% have no public price on record`],
         ['health', Activity, 'System health', `${Math.round(dashboardSummary.checkedPct || 0)}% of stations checked`],
         ['compare', Scale, `Compare${comparison.items.length ? ` (${comparison.items.length})` : ''}`, comparison.items.length ? `${comparison.items.length} charger${comparison.items.length === 1 ? '' : 's'} selected` : 'Side by side, up to 4']
-      ].map(([id, Icon, title, sub]) => <button key={id} type="button" aria-label={title} aria-current={activeView === id ? 'page' : undefined} className={activeView === id ? 'active' : ''} onClick={() => setActiveView(id)}><Icon size={22}/><span className="tabText"><strong>{title}</strong><small>{sub}</small></span><ChevronRight className="tabChevron" size={18} aria-hidden="true"/></button>)}
+      ].map(([id, Icon, title, sub]) => <button key={id} type="button" aria-label={title} aria-current={activeView === id ? 'page' : undefined} className={activeView === id ? 'active' : ''} onClick={() => navigateToView(id)}><Icon size={22}/><span className="tabText"><strong>{title}</strong><small>{sub}</small></span><ChevronRight className="tabChevron" size={18} aria-hidden="true"/></button>)}
     </nav>}
     <div className="homeMain">
     {isTesla
