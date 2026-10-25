@@ -26,6 +26,8 @@ const MAX_STATIONS = Number(process.env.MAX_STATIONS || stations.length || 1);
 const DELAY_MS = Number(process.env.SCRAPE_DELAY_MS || 1200);
 const LOW_PRICE_THRESHOLD = Number(process.env.LOW_PRICE_THRESHOLD || 0.30);
 const SCRAPE_STATES = splitEnvList(process.env.SCRAPE_STATES || process.env.SCRAPE_STATE);
+// Optional operator-configured regions are shared operational priorities, never inferred from visitors' locations.
+const SCRAPE_PRIORITY_STATES = splitEnvList(process.env.SCRAPE_PRIORITY_STATES).map(state => state.toUpperCase());
 const SCRAPE_COUNTRIES = splitEnvList(process.env.SCRAPE_COUNTRIES || process.env.SCRAPE_COUNTRY);
 const SCRAPE_STATION_IDS = splitEnvList(process.env.SCRAPE_STATION_IDS || process.env.SCRAPE_STATION_ID);
 const SCRAPE_ZIP = String(process.env.SCRAPE_ZIP || '').trim();
@@ -164,7 +166,10 @@ async function scrapeScope() {
       ? await geocodeZip(SCRAPE_ZIP)
       : null;
   const rotationStates = SCRAPE_ROTATE_STATES ? rotatedStatesForToday(stations, capturedDate) : [];
-  const states = SCRAPE_STATES.length ? SCRAPE_STATES : rotationStates;
+  // Scheduled runs continue the rotating national sweep while including explicitly configured priority regions.
+  const states = SCRAPE_STATES.length
+    ? SCRAPE_STATES
+    : [...new Set([...rotationStates, ...(SCRAPE_ROTATE_STATES ? SCRAPE_PRIORITY_STATES : [])])];
   return { origin, states, countries: SCRAPE_COUNTRIES };
 }
 
@@ -380,6 +385,8 @@ function priorityFor(station) {
   if (samples < 3 && samples > 0) score += 80; else if (samples < 10) score += 35;
   if (SCRAPE_NEEDS_HISTORY && samples < 3) score += 160;
   if (['CA', 'NY', 'FL', 'TX', 'NJ', 'WA', 'MA'].includes(station.state)) score += 12;
+  // Configured regions receive a bounded boost; normal freshness/history scoring still applies.
+  if (SCRAPE_PRIORITY_STATES.includes(String(station.state || '').toUpperCase())) score += 100;
   // Stations confirmed Akamai-blocked last run are deprioritized unless they have price history.
   // They still rotate in over time as scrapeAge accumulates, but don't crowd out unknown stations.
   if (station.lastScrapeBlocked && samples === 0) score -= 200;
