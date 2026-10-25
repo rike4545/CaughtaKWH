@@ -494,3 +494,207 @@ body {
   min-height: 100vh;
   background: transparent !important;
 }
+
+
+/* ─────────────────────────────────────────────────────────────
+   Starlink-inspired page-wide alignment pass.
+   The earlier Tesla rail layout added a second left sidebar beside the
+   charger browser. Keep one horizontal global nav and one charger sidebar.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  color-scheme: dark !important;
+  --bg: #08090b !important;
+  --card: #111317 !important;
+  --card2: #171a1f !important;
+  --text: #f5f6f7 !important;
+  --muted: #b0b5bd !important;
+  --faint: #858c96 !important;
+  --line: rgba(255,255,255,.12) !important;
+  --line-strong: rgba(255,255,255,.2) !important;
+  --brand: #e82127 !important;
+  --brand-strong: #ff454b !important;
+  --brand-soft: rgba(232,33,39,.14) !important;
+}
+html, body, #root { width:100%; min-height:100%; background-color:#08090b !important; }
+body {
+  margin:0;
+  color:#f5f6f7 !important;
+  background:
+    radial-gradient(ellipse at 50% -280px, rgba(232,33,39,.16), transparent 720px),
+    linear-gradient(180deg,#08090b 0%,#090a0c 55%,#08090b 100%) !important;
+  background-repeat:no-repeat !important;
+  background-size:100% 760px !important;
+}
+#main-content { width:100%; max-width:none; overflow:visible; padding:0; }
+.appTopbar {
+  min-height:72px;
+  padding:0 clamp(20px,5vw,80px);
+  background:rgba(8,9,11,.88) !important;
+  border-bottom:1px solid rgba(255,255,255,.12) !important;
+}
+.appBrand { font-size:16px; font-weight:700; }
+.appBrandMark { border-radius:50%; background:#e82127 !important; }
+.homeShell {
+  display:block !important;
+  width:min(1440px,100%) !important;
+  max-width:1440px;
+  margin:0 auto !important;
+  padding:0 clamp(20px,5vw,80px) 72px !important;
+}
+.homeMain { min-width:0; width:100%; }
+.viewTabs {
+  position:relative !important;
+  top:auto !important;
+  z-index:20;
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center;
+  width:100% !important;
+  max-width:none !important;
+  gap:clamp(6px,1vw,14px) !important;
+  margin:0 0 28px !important;
+  padding:14px 0 !important;
+  overflow-x:auto;
+  border:0 !important;
+  border-bottom:1px solid var(--line) !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+}
+.viewTabs button {
+  display:inline-flex !important;
+  flex:0 0 auto;
+  flex-direction:row !important;
+  align-items:center;
+  justify-content:center;
+  gap:9px !important;
+  width:auto !important;
+  min-height:42px !important;
+  padding:0 15px !important;
+  border:1px solid transparent !important;
+  border-radius:999px !important;
+  background:transparent !important;
+  color:#c2c7ce !important;
+  text-align:center !important;
+}
+.viewTabs button > svg { width:17px; height:17px; color:currentColor !important; }
+.viewTabs .tabText { display:flex; flex-direction:column; gap:0 !important; }
+.viewTabs .tabText strong { color:inherit !important; font-size:13px !important; font-weight:650 !important; }
+.viewTabs .tabText small, .viewTabs .tabChevron { display:none !important; }
+.viewTabs button:hover { background:rgba(255,255,255,.06) !important; color:#fff !important; }
+.viewTabs button.active { background:rgba(232,33,39,.15) !important; border-color:rgba(232,33,39,.38) !important; color:#fff !important; }
+.hero {
+  grid-template-columns:minmax(0,1.05fr) minmax(340px,.8fr) !important;
+  gap:clamp(28px,5vw,76px) !important;
+  min-height:440px;
+  margin:0 0 28px !important;
+  padding:clamp(28px,5vw,68px) !important;
+  border:1px solid rgba(255,255,255,.13) !important;
+  border-radius:22px !important;
+  background:
+    radial-gradient(ellipse at 90% 10%,rgba(232,33,39,.14),transparent 42%),
+    linear-gradient(115deg,#15171b 0%,#0e1013 62%,#121317 100%) !important;
+}
+.hero::after {
+  top:-130px; right:-120px; width:420px; height:420px;
+  border-color:rgba(255,255,255,.055);
+  box-shadow:0 0 0 42px rgba(255,255,255,.018),0 0 0 90px rgba(255,255,255,.012);
+}
+.hero h1 {
+  max-width:11ch;
+  font-size:clamp(44px,5.3vw,76px) !important;
+  line-height:1.02 !important;
+  letter-spacing:-.065em !important;
+  text-wrap:balance;
+}
+.heroGrad { white-space:normal !important; color:#fff !important; }
+.heroGrad::after { height:3px; background:#e82127; }
+.heroLede { max-width:54ch; font-size:16px !important; line-height:1.75 !important; color:#c0c5cc !important; }
+.heroCta { align-items:stretch; gap:10px !important; }
+.btnPrimary { min-height:46px; padding:0 17px; border-radius:999px !important; background:#f5f6f7 !important; color:#101114 !important; }
+.btnPrimary:hover { background:#fff !important; }
+.heroZip { border:1px solid rgba(255,255,255,.2) !important; border-radius:999px !important; background:rgba(0,0,0,.28) !important; }
+.heroZip input { min-height:44px; border:0 !important; background:transparent !important; }
+.heroZip button { min-height:44px; border:0 !important; border-left:1px solid var(--line) !important; border-radius:0 999px 999px 0; }
+.heroTrust { gap:12px 22px !important; }
+.heroTrust span { color:#b7bdc6 !important; border-color:rgba(255,255,255,.2); }
+.heroTrust strong { color:#fff !important; }
+.liveCard, .heroPanel {
+  background:rgba(7,8,10,.74) !important;
+  border:1px solid rgba(255,255,255,.15) !important;
+  border-radius:18px !important;
+  box-shadow:0 24px 70px rgba(0,0,0,.28) !important;
+}
+.liveName, .liveBig, .liveRate .liveBig { color:#f5f6f7 !important; }
+.liveRate { background:rgba(255,255,255,.035) !important; }
+.liveRateLbl, .liveName > span, .liveBig small, .liveSub, .freshPill { color:#b7bdc6 !important; }
+.quickActions { display:flex !important; flex-wrap:wrap; gap:10px !important; margin:0 0 28px !important; }
+.quickActions > * { min-height:44px !important; border-radius:999px !important; padding:0 16px !important; }
+.statsGrid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px !important; }
+.statsGrid > *, .statsGrid .stat, .statsGrid .stat:first-child, .statsGrid .stat:nth-child(n) {
+  min-width:0;
+  background:linear-gradient(145deg,#15171b,#101114) !important;
+  border:1px solid var(--line) !important;
+  border-radius:16px !important;
+}
+.layout {
+  grid-template-columns:minmax(270px,320px) minmax(0,1fr) !important;
+  align-items:start;
+  gap:18px !important;
+}
+.sidebar { top:86px !important; height:calc(100vh - 104px) !important; }
+.content { min-width:0; }
+.card, .panel, .sidebar, .stationCard, .comparisonCard, .lawCard, .dashboardPulse, .dashboardOps > *, .healthView > *, .transparencyView > *, .compareView > * {
+  border-radius:16px !important;
+}
+.card { background:#111317 !important; border:1px solid var(--line) !important; }
+.sectionTitle h2, .card h2, .card h3 { color:#f5f6f7; }
+p, .muted, .compactNote { color:#b0b5bd; }
+input, select, textarea { color:#f5f6f7; background:#171a1f; border-color:var(--line-strong); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:2px solid #ff7478 !important; outline-offset:3px; }
+@media (max-width:1100px) {
+  .homeShell { padding-inline:24px !important; }
+  .hero { grid-template-columns:minmax(0,1fr) minmax(300px,.85fr) !important; gap:24px !important; }
+  .layout { grid-template-columns:minmax(240px,290px) minmax(0,1fr) !important; }
+  .statsGrid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:820px) {
+  .appTopbar { padding-inline:20px; }
+  .homeShell { padding-inline:20px !important; }
+  .hero { grid-template-columns:minmax(0,1fr) !important; min-height:0; padding:32px 24px !important; }
+  .hero h1 { max-width:12ch; }
+  .liveCard, .heroPanel { max-width:none; width:100%; }
+  .layout { grid-template-columns:minmax(0,1fr) !important; }
+  .sidebar { position:static !important; width:100%; height:auto !important; min-height:0; max-height:none; }
+  .stationList { max-height:360px; }
+}
+@media (max-width:560px) {
+  .appTopbar { min-height:60px; padding-inline:16px; }
+  .appBrand small { display:none; }
+  .networkStatus em { display:none; }
+  .homeShell { padding:0 14px 32px !important; }
+  .viewTabs { gap:4px !important; padding:10px 0 !important; margin-bottom:16px !important; }
+  .viewTabs button { min-height:38px !important; padding:0 10px !important; gap:6px !important; }
+  .viewTabs button > svg { width:15px; height:15px; }
+  .viewTabs .tabText strong { font-size:11px !important; }
+  .hero { padding:25px 18px !important; gap:20px !important; border-radius:16px !important; }
+  .hero h1 { font-size:clamp(38px,11vw,50px) !important; }
+  .heroCta { display:grid !important; grid-template-columns:minmax(0,1fr) !important; }
+  .heroZip { display:grid !important; grid-template-columns:minmax(0,1fr) auto; }
+  .heroZip input { width:100%; min-width:0; }
+  .heroZip button { border-radius:0 999px 999px 0; }
+  .heroTrust { display:grid; grid-template-columns:1fr; gap:8px !important; }
+  .heroTrust span { padding-left:10px; }
+  .liveTop { flex-direction:column; }
+  .liveRates { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .liveRate { padding:12px 10px; }
+  .liveBig { font-size:clamp(24px,7vw,32px) !important; }
+  .quickActions { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .quickActions > * { justify-content:center; min-width:0; padding:0 10px !important; }
+  .statsGrid { grid-template-columns:repeat(2,minmax(0,1fr)) !important; }
+  .statsGrid > * { padding:14px !important; }
+  .stat { align-items:flex-start; gap:10px; }
+  .statIcon { width:34px; height:34px; flex:0 0 auto; }
+  .stat strong { font-size:21px; }
+}
