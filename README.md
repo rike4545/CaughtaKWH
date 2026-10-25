@@ -323,46 +323,27 @@ GitHub Actions automatically:
 - Deploys the website
 
 
-## DCFC Tracker API (supplemental regional price feed)
+## Free-source station metadata and published pricing
 
-CaughtaKWH can import Tesla Supercharger station metadata and published public/member price fields from the DCFC Tracker API for New York, New Jersey, and Connecticut. The scheduled refresh publishes the snapshot as `data/dcfc-tracker.json` and mirrors it to `public/data/dcfc-tracker.json`; it remains a separately attributed source and does not overwrite Tesla-scraper observations or historical station records.
+CaughtaKWH does **not** require a paid DCFC Tracker API subscription or a `DCFC_API_KEY` to run its scheduled refresh. The paid DCFC Tracker API importer is not called by the workflow. Do not add a paid API secret just to make scheduled updates work.
 
-### Enable the feed
+The NLR / U.S. Department of Energy Alternative Fuels Data Center (AFDC) importer is an optional station-inventory and metadata supplement. It uses the NLR Developer Network API and publishes a separate `data/nlr-afdc-stations.json` snapshot, mirrored to `public/data/`. Configure the `NLR_API_KEY` Actions secret if you want this metadata feed; it is not a pricing feed and must not be presented as live price data.
 
-1. Obtain API access from [DCFC Tracker's developer page](https://dcfctracker.com/developers). The API currently requires a Pro subscription and API key.
-2. In the GitHub repository, open **Settings → Secrets and variables → Actions → New repository secret**.
-3. Create a secret named `DCFC_API_KEY` and paste the key. Never put the key in frontend code, public JSON, a committed file, or a URL.
-4. Run **Dynamic Tesla Pricing Refresh** manually or wait for the scheduled workflow.
+For network-specific published pricing, use public network data only where it is genuinely accessible without a paid aggregator subscription. Keep the network's source label and source-update timestamp, preserve time-of-use rates when available, and state that a published rate reflects the last sync and may differ from the price charged at the charger. If a network does not expose a free, accessible public feed, mark that network's price unavailable rather than inventing a rate or requiring a paid key. The Tesla scraper and its existing historical price observations remain independent.
 
-Run the importer locally with `DCFC_API_KEY` set in your shell environment:
+### NLR / AFDC metadata setup
 
-```bash
-DCFC_STATES=NY,NJ,CT npm run import:dcfc-tracker
-```
-
-The importer records source attribution, price source/type, price rate, price update time, station location, access, stalls, and public/member per-kWh prices. It fails on API/auth/schema errors and refuses to replace an existing priced snapshot with an empty result. A station with a null price remains “unknown”; it is not treated as free. DCFC Tracker's list endpoint exposes the highest public price and a member price where available; time-of-use schedules and detailed price history require station-specific API requests and are not inferred from these summary fields.
-
-**Important:** this first integration is a separately published regional data feed, not yet a replacement for the existing Tesla observation/history model or a claim that the dashboard's current-price labels now use DCFC Tracker. The API's network data refreshes on its own cadence (Tesla status/pricing metadata may be several hours old); consumers should honor `priceUpdatedAt` and retain the project's two-hour freshness rule for “current” pricing. Data use is subject to [DCFC Tracker's API terms and fair-use notes](https://dcfctracker.com/developers); credit DCFC Tracker when displaying its data.
-
-## Multi-network published pricing and site detail
-
-The supplemental network feed uses DCFC Tracker's API, whose station-level price source is labeled from the underlying network publication. The tracked networks are Tesla, Electrify America, EVgo, IONNA, ChargePoint, Blink, bp pulse, Shell Recharge, Rivian Adventure Network, Rivian Waypoints, Mercedes-Benz, Red E Charge, Francis Energy, and Walmart. Rivian's Adventure Network and Waypoints are represented separately where the API does so.
-
-The feed is kept separate from Tesla scraper observations and is published as `data/network-pricing.json` (also synced to `public/data/network-pricing.json`). It carries the API snapshot time, per-station price source, price update timestamp, available pricing schedules, member/public rate fields, site details, connectors, power, and timezone. It does not silently blend network-published rates into Tesla's native observation history.
-
-### Enable and run
-
-Reuse the server-side `DCFC_API_KEY` GitHub Actions secret. The scheduled **Dynamic Tesla Pricing Refresh** imports the multi-network snapshot when this secret is configured. To run locally:
+1. Obtain an NLR Developer Network API key.
+2. Add it as the GitHub Actions repository secret `NLR_API_KEY`.
+3. Run the scheduled refresh, or locally run:
 
 ```bash
-NETWORK_PRICING_STATES=NY,NJ,CT npm run import:network-pricing
+NLR_STATES=NY,NJ,CT npm run import:nlr-afdc
 ```
 
-Set `NETWORK_PRICING_STATES` to another comma-separated list of US state codes if you want a different region. The importer paginates the API, checks that the response schema is usable, rejects empty results, and avoids mixing pages if the API snapshot changes during a paginated fetch. Before replacing an existing snapshot, it saves `data/backups/network-pricing-previous.json` and keeps a UTC-hour archive under `data/history/network-pricing/`.
+The importer defaults to New York, New Jersey, and Connecticut. It saves the previous snapshot to `data/backups/nlr-afdc-stations-previous.json` and UTC-hour archives under `data/history/nlr-afdc-stations/`. It only matches existing CaughtaKWH stations and does not treat missing records as proof that a charger has closed.
 
-**Pricing freshness and attribution:** station pages should show the network/source label and the source's `priceUpdatedAt` timestamp when available. The captured rate means the price published by that source at its last sync; it can differ from what a driver is charged at the stall. Do not label an old timestamp as live/current. Retain CaughtaKWH's two-hour freshness rule for any UI label that says “current”; older records are historical/reference data. Null prices mean unknown or a rate structure not represented by a simple per-kWh value—not free. Preserve time-of-use schedules when supplied rather than flattening them into an invented current rate. Always advise drivers to confirm the price in the charging network's official app or at the charger.
-
-Network publication cadence differs by operator, so the refresh job's run time is not the same as the source's own update time. API access requires a DCFC Tracker Pro key; the importer has not been validated with live credentials in this change. Keep the key only in GitHub Actions secrets or a local environment variable, never in client-side code or public JSON.
+**Freshness:** preserve the source timestamp on each observation. CaughtaKWH's two-hour rule still applies before calling a price “current”; older prices should be labeled historical. Always advise drivers to verify the final rate in the charging network's official app or on the charger.
 
 ## Neural pricing model
 
