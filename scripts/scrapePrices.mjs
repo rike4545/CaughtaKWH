@@ -92,7 +92,7 @@ async function activateNextProxy() {
       }
     }
     try {
-      setGlobalDispatcher(new ProxyAgent(candidate.dispatcherUrl));
+      setGlobalDispatcher(new ProxyAgent({ uri: candidate.dispatcherUrl }));
     } catch (error) {
       console.warn(`Could not apply proxy ${candidate.host} to fetch: ${error.message}`);
       continue;
