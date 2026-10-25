@@ -83,6 +83,9 @@ jobs:
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
       # Optional trusted provider proxy-list download URL; do not commit its token or credentials.
       SCRAPE_PROXY_LIST_URL: ${{ secrets.SCRAPE_PROXY_LIST_URL }}
+      # DCFC Tracker API key stays in Actions secrets; imported data is published without the key.
+      DCFC_API_KEY: ${{ secrets.DCFC_API_KEY }}
+      DCFC_STATES: NY,NJ,CT
       TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
@@ -97,6 +100,9 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: npm install --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
+      - name: Import DCFC Tracker Tesla pricing (NY/NJ/CT)
+        if: env.DCFC_API_KEY != ''
+        run: npm run import:dcfc-tracker
       - name: Verify authorized Tesla access route
         run: npm run scrape:proxy-test
       - name: Refresh dynamic Tesla pricing
