@@ -21,7 +21,7 @@
 // PROXY_TEST_INCLUDE_DIRECT, SCRAPE_PROXY[_LIST|_LIST_URL], SCRAPE_PROXY_USERNAME/PASSWORD)
 
 import path from 'node:path';
-import { ProxyAgent } from 'undici';
+import { fetch as undiciFetch, ProxyAgent } from 'undici';
 import { dataDir, readJson } from './lib.mjs';
 import { gatherProxyCandidates, parseProxy } from './proxyPool.mjs';
 import { classifySiteContent, extractNextData, sleep } from './teslaSiteParser.mjs';
@@ -75,7 +75,7 @@ async function fetchThrough(url, dispatcher) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
   try {
-    const response = await fetch(url, {
+    const response = await undiciFetch(url, {
       headers: FETCH_HEADERS,
       redirect: 'follow',
       signal: controller.signal,
@@ -95,7 +95,7 @@ async function egressIp(dispatcher) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 8000);
   try {
-    const response = await fetch(CHECK_URL, {
+    const response = await undiciFetch(CHECK_URL, {
       headers: { 'User-Agent': FETCH_UA },
       signal: controller.signal,
       ...(dispatcher ? { dispatcher } : {})
@@ -116,7 +116,7 @@ async function diagnoseProxyConnection(parsed) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 8000);
   try {
-    const response = await fetch(CHECK_URL, {
+    const response = await undiciFetch(CHECK_URL, {
       dispatcher,
       signal: controller.signal,
       headers: { 'User-Agent': FETCH_UA }
