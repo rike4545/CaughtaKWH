@@ -41,7 +41,7 @@ const appStations = await readJson('data/stations.json', []);
 if (!Array.isArray(appStations) || appStations.length === 0) {
   throw new Error('data/stations.json is empty or invalid; refusing to import a broad third-party station catalog.');
 }
-const normalizeName = value => String(value || '').toLowerCase().replace(/\\bsupercharger\\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+const normalizeName = value => String(value || '').toLowerCase().replace(/\bsupercharger\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 const milesBetween = (aLat, aLng, bLat, bLng) => {
   const rad = value => value * Math.PI / 180;
   const dLat = rad(bLat - aLat), dLng = rad(bLng - aLng);
