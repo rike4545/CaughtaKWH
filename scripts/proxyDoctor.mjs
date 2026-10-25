@@ -23,7 +23,7 @@
 import path from 'node:path';
 import { ProxyAgent } from 'undici';
 import { dataDir, readJson } from './lib.mjs';
-import { gatherProxyCandidates, parseProxy, checkProxy } from './proxyPool.mjs';
+import { gatherProxyCandidates, parseProxy } from './proxyPool.mjs';
 import { classifySiteContent, extractNextData, sleep } from './teslaSiteParser.mjs';
 
 const FETCH_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
@@ -109,18 +109,55 @@ async function egressIp(dispatcher) {
   }
 }
 
+// Diagnose connectivity without hiding proxy HTTP status codes. HTTP 407 means the
+// endpoint was reached but rejected proxy authentication; it is not a dead proxy.
+async function diagnoseProxyConnection(parsed) {
+  const dispatcher = new ProxyAgent(parsed.dispatcherUrl);
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 8000);
+  try {
+    const response = await fetch(CHECK_URL, {
+      dispatcher,
+      signal: controller.signal,
+      headers: { 'User-Agent': FETCH_UA }
+    });
+    return {
+      connected: response.status >= 200 && response.status < 400,
+      status: response.status,
+      reason: response.status === 407 ? 'AUTH_REJECTED'
+        : response.status >= 400 ? 'HTTP_ERROR' : null
+    };
+  } catch (error) {
+    return {
+      connected: false,
+      status: null,
+      reason: String(error?.name === 'AbortError' ? 'TIMEOUT' : error?.message || 'CONNECTION_ERROR')
+    };
+  } finally {
+    clearTimeout(timer);
+    try { await dispatcher.close(); } catch { /* ignore */ }
+  }
+}
+
 // Probe one egress route (a parsed proxy, or null for direct) against the sample URLs.
 async function probeRoute({ label, parsed }, stations) {
   const dispatcher = parsed ? new ProxyAgent(parsed.dispatcherUrl) : null;
   const tally = { usable: 0, priced: 0, blocked: 0, rateLimited: 0, notFound: 0, error: 0, other: 0 };
   let connected = true;
+  let connectionDiagnostic = null;
   let ip = null;
 
   try {
     if (parsed) {
-      connected = await checkProxy(parsed, { url: CHECK_URL, timeoutMs: 8000 });
+      connectionDiagnostic = await diagnoseProxyConnection(parsed);
+      connected = connectionDiagnostic.connected;
       if (!connected) {
-        return { label, connected: false, ip: null, tally, verdict: 'DEAD', total: 0 };
+        return {
+          label, connected: false, ip: null, tally,
+          verdict: connectionDiagnostic.reason || 'CONNECTION_FAILED',
+          connectionStatus: connectionDiagnostic.status,
+          total: 0
+        };
       }
     }
     ip = await egressIp(dispatcher);
@@ -158,7 +195,13 @@ function printReport(results) {
   for (const r of results) {
     console.log(`\n• ${r.label}`);
     if (!r.connected) {
-      console.log('    connectivity : DEAD (proxy did not forward a request) — skipped Tesla probes');
+      if (r.verdict === 'AUTH_REJECTED') {
+        console.log('    connectivity : AUTH REJECTED (HTTP 407) — check provider-issued proxy credentials and auth settings');
+      } else if (r.connectionStatus) {
+        console.log(`    connectivity : HTTP ${r.connectionStatus} (${r.verdict}) — skipped Tesla probes`);
+      } else {
+        console.log(`    connectivity : ${r.verdict} — proxy did not complete connectivity check; skipped Tesla probes`);
+      }
       continue;
     }
     console.log(`    egress IP    : ${r.ip || 'unknown'}`);
@@ -218,5 +261,8 @@ if (anyProxyPasses) {
 }
 
 console.error('\n❌ No configured proxy returned a usable Tesla page. They connect but Akamai denies their IPs.');
+if (proxyResults.some(r => r.verdict === 'AUTH_REJECTED')) {
+  console.error('   HTTP 407 confirms proxy authentication was rejected. Update Actions secrets with the provider-issued proxy username/password; these may differ from your account login.');
+}
 console.error('   Use an authorized egress route permitted by its provider and Tesla\'s terms, or switch to an approved pricing-data source.');
 process.exit(1);
