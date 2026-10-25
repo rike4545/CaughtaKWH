@@ -7,7 +7,11 @@ on:
         required: false
         default: '100'
       scrape_states:
-        description: Optional comma-separated states/provinces to refresh, for example CA,NV,ON
+        description: Optional comma-separated states/provinces to limit this run to, for example CA,NV,ON
+        required: false
+        default: ''
+      priority_states:
+        description: Optional regional priority states/provinces, e.g. NY,NJ; scheduled runs also read the SCRAPE_PRIORITY_STATES repository variable
         required: false
         default: ''
       scrape_countries:
@@ -57,6 +61,7 @@ jobs:
       # load; priority scoring still picks what to hit. Raise further once a proxy lifts blocks.
       SCRAPE_ROTATION_COUNT: 8
       SCRAPE_STATES: ${{ github.event.inputs.scrape_states || '' }}
+      SCRAPE_PRIORITY_STATES: ${{ github.event.inputs.priority_states || vars.SCRAPE_PRIORITY_STATES || '' }}
       SCRAPE_COUNTRIES: ${{ github.event.inputs.scrape_countries || '' }}
       SCRAPE_ZIP: ${{ github.event.inputs.scrape_zip || '' }}
       SCRAPE_LAT: ${{ github.event.inputs.scrape_lat || '' }}
