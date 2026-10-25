@@ -103,12 +103,6 @@ jobs:
       - name: Import NLR AFDC Tesla station metadata (NY/NJ/CT)
         if: env.NLR_API_KEY != ''
         run: npm run import:nlr-afdc
-      - name: Import DCFC Tracker Tesla pricing (NY/NJ/CT)
-        if: env.DCFC_API_KEY != ''
-        run: npm run import:dcfc-tracker
-      - name: Import multi-network published pricing and site details
-        if: env.DCFC_API_KEY != ''
-        run: npm run import:network-pricing
       - name: Verify authorized Tesla access route
         run: npm run scrape:proxy-test
       - name: Refresh dynamic Tesla pricing
