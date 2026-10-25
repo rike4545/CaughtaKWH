@@ -262,12 +262,14 @@ if (anyProxyPasses) {
 
 const anyProxyConnected = proxyResults.some(r => r.connected);
 if (anyProxyConnected) {
-  console.error('\n❌ No configured proxy returned a usable Tesla page. At least one proxy connected, but its Tesla probes were blocked or unusable.');
-} else {
-  console.error('\n❌ No configured proxy completed the connectivity check. See each connectivity reason above; this is not yet evidence that Akamai blocked the proxy IP.');
+  console.warn('\n⚠️ No configured proxy returned a usable Tesla page. Proxy connectivity works, but Tesla pages were blocked or unusable.');
+  console.warn('   This is diagnostic, not proof of a successful price refresh. The workflow may continue so the scraper can preserve existing observations and report its own coverage.');
+  console.warn('   Use a source and access method authorized by Tesla and the provider; do not attempt to evade access controls.');
+  process.exit(0);
 }
+console.error('\n❌ No configured proxy completed the connectivity check. See each connectivity reason above; this is not evidence that Tesla blocked the proxy IP.');
 if (proxyResults.some(r => r.verdict === 'AUTH_REJECTED')) {
   console.error('   HTTP 407 confirms proxy authentication was rejected. Update Actions secrets with the provider-issued proxy username/password; these may differ from your account login.');
 }
-console.error('   Use an authorized egress route permitted by its provider and Tesla\'s terms, or switch to an approved pricing-data source.');
+console.error('   Check the authorized proxy endpoint and provider credentials, or switch to an approved pricing-data source.');
 process.exit(1);
