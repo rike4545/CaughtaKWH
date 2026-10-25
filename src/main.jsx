@@ -86,7 +86,6 @@ function App() {
     return VALID_VIEWS.has(requested) ? requested : 'chargers';
   });
   const [manualCheck, setManualCheck] = useState({ status: 'idle' });
-  const [autoLocateDone, setAutoLocateDone] = useState(false);
   const favorites = usePersistentList('caughtakwh:favorites', { maxItems: 20 });
   const recents = usePersistentList('caughtakwh:recents', { maxItems: 8 });
   const comparison = usePersistentList('caughtakwh:comparison', { maxItems: 4 });
@@ -161,34 +160,7 @@ function App() {
   const hasFilter = query.trim() || stateFilter !== 'All';
   const list = origin ? nearbyList : hasFilter ? filtered : [];
 
-  // Auto-geolocate on load so visitors land on their nearest charger without typing a ZIP.
-  useEffect(() => {
-    if (autoLocateDone || !stations.length || !navigator.geolocation) return;
-
-    const locate = () => {
-      setAutoLocateDone(true);
-      setGeoLoading(true);
-      navigator.geolocation.getCurrentPosition(position => {
-        const found = { zip: 'current location', city: 'Your location', state: '', lat: position.coords.latitude, lng: position.coords.longitude };
-        setOrigin(found);
-        setOriginMode('near-me');
-        const closest = nearestStations(stations, found, 1)[0];
-        if (closest) setSelectedId(closest.id);
-        setGeoLoading(false);
-      }, () => setGeoLoading(false), { enableHighAccuracy: true, timeout: 12000, maximumAge: 60000 });
-    };
-
-    // Tesla dash and mobile are almost always at or near a charger, so prompting is expected —
-    // auto-locate right away. On desktop, don't fire an unsolicited permission prompt on load;
-    // only auto-locate when the visitor has already granted it (returning users), otherwise leave
-    // the prominent "Find chargers near me" button for a one-click, gesture-driven request.
-    if (isTesla || isMobile) { locate(); return; }
-    if (navigator.permissions?.query) {
-      navigator.permissions.query({ name: 'geolocation' })
-        .then(status => { if (status.state === 'granted') locate(); })
-        .catch(() => {});
-    }
-  }, [stations.length, autoLocateDone]);
+  // Location is requested only after an explicit click on “Use my location”.
 
   async function findZip(event) {
     event.preventDefault();
