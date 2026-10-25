@@ -186,6 +186,12 @@
     "state": "ID"
   },
   {
+    "id": "498706",
+    "name": "[Victron Energy] Valley View, TX",
+    "city": "Valley View",
+    "state": "TX"
+  },
+  {
     "id": "59214",
     "name": "[Wawa] Alachua, FL - NW US Hwy 441",
     "city": "Alachua",
@@ -16884,6 +16890,12 @@
     "state": "OR"
   },
   {
+    "id": "467705",
+    "name": "Tillamook, OR - N Main Ave",
+    "city": "Tillamook",
+    "state": "OR"
+  },
+  {
     "id": "TiltonNHsupercharger",
     "name": "Tilton, NH",
     "city": "Tilton",
@@ -17914,6 +17926,12 @@
     "name": "Waxahachie, TX",
     "city": "Waxahachie",
     "state": "TX"
+  },
+  {
+    "id": "401410",
+    "name": "Waynesburg, PA",
+    "city": "Waynesburg",
+    "state": "PA"
   },
   {
     "id": "weatherfordoksupercharger",
