@@ -1,4 +1,4 @@
-import { writeJson, nowIso } from './lib.mjs';
+import { readJson, writeJson, nowIso } from './lib.mjs';
 
 const API = 'https://dcfctracker.com/api/v1';
 const apiKey = String(process.env.DCFC_API_KEY || '').trim();
@@ -35,6 +35,17 @@ async function requestPage(page) {
   return body;
 }
 
+const appStations = await readJson('data/stations.json', []);
+if (!Array.isArray(appStations) || appStations.length === 0) {
+  throw new Error('data/stations.json is empty or invalid; refusing to import a broad third-party station catalog.');
+}
+const normalizeName = value => String(value || '').toLowerCase().replace(/\\bsupercharger\\b/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+const milesBetween = (aLat, aLng, bLat, bLng) => {
+  const rad = value => value * Math.PI / 180;
+  const dLat = rad(bLat - aLat), dLng = rad(bLng - aLng);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(rad(aLat)) * Math.cos(rad(bLat)) * Math.sin(dLng / 2) ** 2;
+  return 3958.7613 * 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
+};
 const collected = [];
 let page = 1;
 let expectedTotal = null;
@@ -49,8 +60,21 @@ while (true) {
 
 const stations = collected
   .filter(station => station.network === 'Tesla' && states.includes(String(station.state || '').toUpperCase()))
-  .map(station => ({
-    id: String(station.id),
+  .map(station => {
+    const stationName = normalizeName(station.name);
+    const matched = appStations.find(appStation => {
+      if (String(appStation.state || '').toUpperCase() !== String(station.state || '').toUpperCase()) return false;
+      const appName = normalizeName(appStation.name);
+      if (stationName && appName && stationName === appName) return true;
+      if ([appStation.lat, appStation.lng, station.lat, station.lng].every(Number.isFinite)) {
+        return milesBetween(appStation.lat, appStation.lng, station.lat, station.lng) <= 0.5;
+      }
+      return false;
+    });
+    if (!matched) return null;
+    return {
+    id: String(matched.id),
+    sourceStationId: String(station.id),
     name: station.name ?? null,
     network: station.network ?? 'Tesla',
     address: [station.street, station.city, station.state, station.zip].filter(Boolean).join(', '),
@@ -70,16 +94,18 @@ const stations = collected
     priceRate: station.priceRate ?? null,
     priceUpdatedAt: station.priceUpdatedAt ?? null,
     sourceUrl: station.url ?? null
-  }))
-  .sort((a, b) => a.state.localeCompare(b.state) || a.name.localeCompare(b.name));
+  };
+  })
+  .filter(Boolean)
+  .sort((a, b) => a.state.localeCompare(b.state) || String(a.name || '').localeCompare(String(b.name || ''));
 
-if (!stations.length) throw new Error('DCFC Tracker returned no Tesla stations for the configured states; refusing to overwrite the previous snapshot.');
+if (!stations.length) throw new Error('No DCFC Tracker stations matched existing CaughtaKWH stations in the configured states; refusing to overwrite the previous snapshot.');
 const priced = stations.filter(station => station.publicPricePerKwh !== null || station.memberPricePerKwh !== null).length;
 const snapshot = {
   schemaVersion: 1,
   source: 'DCFC Tracker API',
   sourceUrl: 'https://dcfctracker.com/developers',
-  attribution: 'Station and price data from DCFC Tracker (dcfctracker.com).',
+  attribution: 'Price and station details from DCFC Tracker (dcfctracker.com); only matched CaughtaKWH stations are included.',
   generatedAt: nowIso(),
   apiGeneratedAt: null,
   states,
