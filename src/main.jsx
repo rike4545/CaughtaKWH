@@ -299,7 +299,7 @@ function App() {
     {!isTesla && <nav className="viewTabs" aria-label="Dashboard views">
       {[
         ['chargers', Search, 'Find chargers', origin ? `${list.length} near ${origin.city || 'you'}` : 'ZIP, GPS or search'],
-        ['transparency', Eye, 'Transparency', `${darkPct}% hide their price`],
+        ['transparency', Eye, 'Transparency', `${darkPct}% have no public price on record`],
         ['health', Activity, 'System health', `${Math.round(dashboardSummary.checkedPct || 0)}% of stations checked`],
         ['compare', Scale, `Compare${comparison.items.length ? ` (${comparison.items.length})` : ''}`, comparison.items.length ? `${comparison.items.length} charger${comparison.items.length === 1 ? '' : 's'} selected` : 'Side by side, up to 4']
       ].map(([id, Icon, title, sub]) => <button key={id} type="button" aria-label={title} aria-current={activeView === id ? 'page' : undefined} className={activeView === id ? 'active' : ''} onClick={() => setActiveView(id)}><Icon size={22}/><span className="tabText"><strong>{title}</strong><small>{sub}</small></span><ChevronRight className="tabChevron" size={18} aria-hidden="true"/></button>)}
@@ -325,7 +325,7 @@ function App() {
             <div className="heroTrust">
               <span><strong>{stations.length.toLocaleString()}</strong> US stations tracked</span>
               <span><strong>{darkPct}%</strong> never show price publicly</span>
-              <span>Prices verified by <strong>the community</strong></span>
+              <span>Community price reports help build the record</span>
             </div>
           </div>
           {(() => {
@@ -348,7 +348,7 @@ function App() {
             const member = predictions.find(item => item.stationId === st.id && item.membershipType === 'member');
             const non = predictions.find(item => item.stationId === st.id && item.membershipType === 'non_member');
             const fresh = member ? isCurrentPrediction(member) : false;
-            const spread = non?.latestObservedPrice && member?.latestObservedPrice ? Math.round((non.latestObservedPrice / member.latestObservedPrice - 1) * 100) : null;
+            const spread = fresh && non?.latestObservedPrice != null && member?.latestObservedPrice != null ? Math.round((non.latestObservedPrice / member.latestObservedPrice - 1) * 100) : null;
             const tag = yourStation
               ? (selected ? 'Your selected charger' : originMode === 'near-me' ? 'Nearest to you' : `Nearest to ${origin?.zip || 'you'}`)
               : 'Example observed price';
@@ -356,11 +356,11 @@ function App() {
               <div className="liveCardTag">{tag}</div>
               <div className="liveTop">
                 <div className="liveName">{st.name || st.id}<span>{[st.city, st.state].filter(Boolean).join(', ') || 'United States'}{typeof st.distanceMiles === 'number' ? ` · ${distance(st.distanceMiles)}` : ''}{st.stalls ? ` · ${st.stalls} stalls` : ''}</span></div>
-                <span className={fresh ? 'freshPill ok' : 'freshPill'}><span className="freshDot" aria-hidden="true"/>{member?.latestObservedAt ? freshnessLabel(member.latestObservedAt) : 'No price captured yet'}</span>
+                <span className={fresh ? 'freshPill ok' : 'freshPill'}><span className="freshDot" aria-hidden="true"/>{fresh ? 'Recent price' : member?.latestObservedAt ? 'Historical only' : 'No price captured yet'}</span>
               </div>
               <div className="liveRates">
-                <div className="liveRate m"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Tesla / member</span><div className="liveBig">{money(member?.latestObservedPrice)}<small>/kWh</small></div></div>
-                <div className="liveRate n"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Non-Tesla</span><div className="liveBig">{non?.latestObservedPrice != null ? money(non.latestObservedPrice) : '—'}<small>/kWh</small></div>{spread != null && <div className="liveSub">{spread}% more than member</div>}</div>
+                <div className="liveRate m"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Tesla / member</span><div className="liveBig">{fresh && member?.latestObservedPrice != null ? money(member.latestObservedPrice) : '—'}<small>/kWh</small></div></div>
+                <div className="liveRate n"><span className="liveRateLbl"><span className="liveSw" aria-hidden="true"/>Non-Tesla</span><div className="liveBig">{fresh && non?.latestObservedPrice != null ? money(non.latestObservedPrice) : '—'}<small>/kWh</small></div>{spread != null && <div className="liveSub">{spread}% more than member</div>}</div>
               </div>
               {yourStation && member?.latestObservedPrice == null && <p className="liveEmptyNote">No public price captured here yet. Open it to run a live check or report what you paid.</p>}
               <button className="liveCardCta" onClick={() => { setSelectedId(st.id); setTimeout(() => detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 60); }}>See this charger<ArrowRight size={15}/></button>
@@ -379,7 +379,7 @@ function App() {
     {(isTesla || activeView === 'chargers') && <>
       {!isTesla && <section className="statsGrid">
         <Stat icon={<MapPin/>} label="US Supercharger stations" value={stations.length.toLocaleString()} note={`${coverage.coordsPct}% with coordinates`} />
-        <Stat icon={<EyeOff/>} label="Stations hiding price" value={`${darkPct}%`} note={`${darkStations.toLocaleString()} of ${stations.length.toLocaleString()} never shown publicly`} />
+        <Stat icon={<EyeOff/>} label="Stations with no public price on record" value={`${darkPct}%`} note={`${darkStations.toLocaleString()} of ${stations.length.toLocaleString()} have no captured public price`} />
         <Stat icon={<Clock3/>} label="Prices captured" value={pricedStations} note={currentStations ? `${currentStations} current (under 2 hr)` : 'none current'} />
         <Stat icon={<TrendingDown/>} label="Lowest captured price" value={cheapest ? money(cheapest.expectedPrice) : '—'} note={cheapest?.stationId || 'no current prices'} />
       </section>}
