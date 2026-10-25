@@ -61,7 +61,7 @@ jobs:
       # load; priority scoring still picks what to hit. Raise further once a proxy lifts blocks.
       SCRAPE_ROTATION_COUNT: 8
       SCRAPE_STATES: ${{ github.event.inputs.scrape_states || '' }}
-      SCRAPE_PRIORITY_STATES: ${{ github.event.inputs.priority_states || vars.SCRAPE_PRIORITY_STATES || '' }}
+      SCRAPE_PRIORITY_STATES: ${{ github.event.inputs.priority_states || vars.SCRAPE_PRIORITY_STATES || 'NY,NJ,CT' }}
       SCRAPE_COUNTRIES: ${{ github.event.inputs.scrape_countries || '' }}
       SCRAPE_ZIP: ${{ github.event.inputs.scrape_zip || '' }}
       SCRAPE_LAT: ${{ github.event.inputs.scrape_lat || '' }}
