@@ -1,40 +1,82 @@
 {
-  "generatedAt": "2026-10-25T17:22:09.202Z",
+  "generatedAt": "2026-10-25T18:42:14.439Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
-  "inScopeStations": 227,
-  "attempted": 3,
+  "inScopeStations": 3120,
+  "attempted": 24,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 3,
+  "blocked": 24,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
   "cooldownSkipped": 0,
   "attemptedStationIds": [
     "LakeGroveNYsupercharger",
+    "423655",
+    "33803",
+    "498706",
+    "27029",
+    "452152",
+    "401410",
+    "477554",
+    "428652",
+    "19169",
+    "467705",
+    "457753",
     "26755",
-    "32031"
+    "32031",
+    "19589",
+    "fairfieldctnsupercharger",
+    "HamdenCTsupercharger",
+    "32510",
+    "MysticCTSupercharger",
+    "NewHavenCTsupercharger",
+    "4008806",
+    "407518",
+    "RockyHillCTSupercharger",
+    "16752"
   ],
   "blockedStationIds": [
     "LakeGroveNYsupercharger",
+    "423655",
+    "33803",
+    "498706",
+    "27029",
+    "452152",
+    "401410",
+    "477554",
+    "428652",
+    "19169",
+    "467705",
+    "457753",
     "26755",
-    "32031"
+    "32031",
+    "19589",
+    "fairfieldctnsupercharger",
+    "HamdenCTsupercharger",
+    "32510",
+    "MysticCTSupercharger",
+    "NewHavenCTsupercharger",
+    "4008806",
+    "407518",
+    "RockyHillCTSupercharger",
+    "16752"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 3,
-    "requestAttempts": 3,
+    "candidateAttempts": 24,
+    "requestAttempts": 24,
     "retries": 0,
-    "averageRequestMs": 91,
+    "averageRequestMs": 550,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
-    "proxyConfigured": false,
+    "proxyConfigured": true,
     "proxyPool": {
-      "candidates": 25,
-      "tried": 25,
-      "activeHost": null
+      "candidates": 8,
+      "tried": 8,
+      "activeHost": "64.137.10.153:5803"
     }
   },
   "circuitBreaker": {
@@ -44,12 +86,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 71.1,
+    "previousHealthAgeMinutes": 80.1,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-25T17:52:09.202Z"
+    "nextProbeAt": "2026-10-25T19:12:14.439Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -57,11 +99,7 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "NY",
-      "CT",
-      "MA"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
     "needsHistory": false

@@ -2486,7 +2486,7 @@
     "lng": -97.164177,
     "lastDiscoveredAt": "2026-10-25T13:56:06.602Z",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-25T16:10:05.594Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -2501,7 +2501,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 190,
+        "durationMs": 633,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -2515,9 +2515,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 190
+      "averageRequestMs": 633
     },
-    "observationPriorityScore": 835
+    "observationPriorityScore": 675
   },
   {
     "id": "59214",
@@ -35049,7 +35049,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-25",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-25T16:10:05.594Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -35064,7 +35064,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 34,
+        "durationMs": 469,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -35078,9 +35078,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 34
+      "averageRequestMs": 469
     },
-    "observationPriorityScore": 823
+    "observationPriorityScore": 663
   },
   {
     "id": "ChattanoogaTNSupercharger",
@@ -53267,7 +53267,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-25",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-14T23:36:50.064Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -53282,7 +53282,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 96,
+        "durationMs": 696,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -53296,9 +53296,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 96
+      "averageRequestMs": 696
     },
-    "observationPriorityScore": 823
+    "observationPriorityScore": 663
   },
   {
     "id": "DunniganCAQ322",
@@ -53997,7 +53997,7 @@
     "lastScrapedAt": "2026-05-31T09:29:51.130Z",
     "lastScrapeHadPrice": false,
     "lastScrapeHadAvailability": false,
-    "observationPriorityScore": 407,
+    "observationPriorityScore": 507,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
     "capacitySource": "supercharge_info_site_metadata",
@@ -54025,7 +54025,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-25",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-25T17:22:09.202Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -54040,7 +54040,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 58,
+        "durationMs": 692,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -54054,7 +54054,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 58
+      "averageRequestMs": 692
     }
   },
   {
@@ -59010,7 +59010,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 407,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -59037,7 +59037,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-25",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-25T17:22:09.202Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -59052,7 +59052,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 75,
+        "durationMs": 675,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -59066,7 +59066,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 75
+      "averageRequestMs": 675
     }
   },
   {
@@ -61542,7 +61542,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.57,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -61565,7 +61565,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19589",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 691,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 691
+    }
   },
   {
     "id": "fairfieldctnsupercharger",
@@ -61586,7 +61618,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.59,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -61609,7 +61641,39 @@
     "plugTypes": {
       "tpc": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/fairfieldctnsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 491,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 491
+    }
   },
   {
     "id": "fairfieldctssupercharger",
@@ -78399,7 +78463,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 443.52,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -78423,7 +78487,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/HamdenCTsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 422,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 422
+    }
   },
   {
     "id": "hamiltontownshipnjsupercharger",
@@ -94145,7 +94241,40 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/33803",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 589,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 589
+    },
+    "observationPriorityScore": 679
   },
   {
     "id": "killdevilhillssupercharger",
@@ -98126,7 +98255,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 21,
     "lastLowPriceId": null,
-    "observationPriorityScore": 1265,
+    "observationPriorityScore": 1365,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 2000,
@@ -98145,7 +98274,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 140,
+        "durationMs": 576,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -98204,7 +98333,7 @@
     "superchargeInfoMatchedAt": "2026-10-25",
     "lastScrapeBlocked": true,
     "lastObservationSource": "community_form",
-    "lastAttemptedAt": "2026-10-25T17:22:09.202Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": "2026-09-29T19:58:28.209Z",
     "consecutiveBlockedAttempts": 36,
     "blockCooldownHours": 72,
@@ -98213,7 +98342,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 140
+      "averageRequestMs": 576
     }
   },
   {
@@ -99437,7 +99566,40 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/19169",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 317,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 317
+    },
+    "observationPriorityScore": 663
   },
   {
     "id": "LanghornePASupercharger",
@@ -112136,7 +112298,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.22,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -112166,7 +112328,39 @@
       "ccs1": 12,
       "multi": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/32510",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 428,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 428
+    }
   },
   {
     "id": "31129",
@@ -127688,7 +127882,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.66,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -127712,7 +127906,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/MysticCTSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 332,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 332
+    }
   },
   {
     "id": "nacogdochessupercharger",
@@ -130384,7 +130610,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 441.98,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -130408,7 +130634,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/NewHavenCTsupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 181,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 181
+    }
   },
   {
     "id": "4008806",
@@ -130429,7 +130687,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 442,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -130453,7 +130711,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/4008806",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 191,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 191
+    }
   },
   {
     "id": "newlondonctsupercharger",
@@ -136340,7 +136630,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 442.65,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3900,
@@ -136370,7 +136660,39 @@
       "ccs1": 12,
       "multi": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/407518",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 627,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 627
+    }
   },
   {
     "id": "32729",
@@ -151377,7 +151699,40 @@
     "plugTypes": {
       "nacs": 8
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/27029",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 631,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 631
+    },
+    "observationPriorityScore": 675
   },
   {
     "id": "32161",
@@ -152810,7 +153165,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-25",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-07T18:58:59.339Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -152825,7 +153180,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 189,
+        "durationMs": 635,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -152839,9 +153194,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 189
+      "averageRequestMs": 635
     },
-    "observationPriorityScore": 831
+    "observationPriorityScore": 671
   },
   {
     "id": "PotsdamNYQ322",
@@ -160811,7 +161166,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 444.36,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -160835,7 +161190,39 @@
       "tpc": 0,
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/RockyHillCTSupercharger",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 573,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 573
+    }
   },
   {
     "id": "rockymountsupercharger",
@@ -170406,7 +170793,40 @@
       "ccs1": 20,
       "multi": 20
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/423655",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 577,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 577
+    },
+    "observationPriorityScore": 687
   },
   {
     "id": "4001213",
@@ -179665,7 +180085,7 @@
     "lastScrapeHadAvailability": false,
     "lastPriceCandidateCount": 0,
     "lastLowPriceId": null,
-    "observationPriorityScore": 440.59,
+    "observationPriorityScore": 507,
     "capacitySource": "supercharge_info_site_metadata",
     "capacityConfidence": "high",
     "estimatedSiteKw": 3000,
@@ -179689,7 +180109,39 @@
     "plugTypes": {
       "nacs": 12
     },
-    "superchargeInfoMatchedAt": "2026-10-25"
+    "superchargeInfoMatchedAt": "2026-10-25",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/16752",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 1576,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 1576
+    }
   },
   {
     "id": "southlaketxsupercharger",
@@ -189364,7 +189816,40 @@
     },
     "lat": 45.475958,
     "lng": -123.846133,
-    "lastDiscoveredAt": "2026-10-25T13:56:06.602Z"
+    "lastDiscoveredAt": "2026-10-25T13:56:06.602Z",
+    "lastScrapeError": "tesla_access_controlled",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
+    "lastBlockedAt": null,
+    "lastScrapeBlocked": false,
+    "consecutiveBlockedAttempts": 0,
+    "blockCooldownHours": 0,
+    "nextScrapeEligibleAt": null,
+    "lastScrapeResult": "route_access_controlled",
+    "lastScrapeAttemptCount": 1,
+    "lastScrapeCandidates": [
+      {
+        "url": "https://www.tesla.com/findus/location/supercharger/467705",
+        "reason": "stored_tesla_url",
+        "status": 403,
+        "retryAfter": null,
+        "via": "fetch",
+        "durationMs": 278,
+        "retryCount": 0,
+        "contentSignal": "blocked",
+        "hasPrice": false,
+        "hasAvailability": false,
+        "priceCandidateCount": 0,
+        "publicDetailsFound": false,
+        "error": null
+      }
+    ],
+    "lastTransportSummary": {
+      "candidateAttempts": 1,
+      "requestAttempts": 1,
+      "retries": 0,
+      "averageRequestMs": 278
+    },
+    "observationPriorityScore": 663
   },
   {
     "id": "TiltonNHsupercharger",
@@ -200168,7 +200653,7 @@
     "lng": -80.134492,
     "lastDiscoveredAt": "2026-10-25T13:56:06.601Z",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-25T16:10:05.594Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -200183,7 +200668,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 32,
+        "durationMs": 634,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -200197,9 +200682,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 32
+      "averageRequestMs": 634
     },
-    "observationPriorityScore": 827
+    "observationPriorityScore": 667
   },
   {
     "id": "weatherfordoksupercharger",
@@ -206493,7 +206978,7 @@
     "lng": -74.072093,
     "lastDiscoveredAt": "2026-10-25T13:56:06.601Z",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-18T23:06:52.327Z",
+    "lastAttemptedAt": "2026-10-25T18:42:14.439Z",
     "lastBlockedAt": "2026-08-26T20:19:47.765Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
@@ -206508,7 +206993,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 28,
+        "durationMs": 287,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -206522,9 +207007,9 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 28
+      "averageRequestMs": 287
     },
-    "observationPriorityScore": 843,
+    "observationPriorityScore": 783,
     "superchargeInfoId": 10713,
     "superchargeInfoStatus": "OPEN",
     "dateOpened": "2026-08-10",
