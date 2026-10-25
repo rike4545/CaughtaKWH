@@ -10,7 +10,7 @@
 //   SCRAPE_PROXY_LIST     inline list, comma/newline/space separated
 //   SCRAPE_PROXY_LIST_URL URL returning a proxy list (plain ip:port lines, proxy URLs, or JSON)
 
-import { ProxyAgent } from 'undici';
+import { Dispatcher1Wrapper, ProxyAgent } from 'undici';
 
 // No public proxy list by default: untrusted free relays are unreliable and can expose request metadata.
 const DEFAULT_PROXY_LIST_URL = '';
@@ -127,7 +127,7 @@ export async function checkProxy(parsed, { url = 'https://api.ipify.org', timeou
   try {
     dispatcher = new ProxyAgent({ uri: parsed.dispatcherUrl });
     const response = await fetch(url, {
-      dispatcher,
+      dispatcher: new Dispatcher1Wrapper(dispatcher),
       signal: controller.signal,
       headers: { 'User-Agent': CHECK_UA }
     });
