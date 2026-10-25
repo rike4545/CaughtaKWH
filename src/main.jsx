@@ -198,27 +198,18 @@ function App() {
     }, error => { setGeoError(error.message || 'Location permission denied.'); setGeoLoading(false); }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 });
   }
 
-  async function checkSelectedNow({ live = false } = {}) {
-    if (!selected?.id || manualCheck.status === 'loading') return;
-    setManualCheck({ status: 'loading', live });
-    try {
-      // `live=1` asks the backend to run a careful, headless (hidden) Tesla page
-      // check on demand. The scrape happens server-side because a browser cannot
-      // read Tesla's cross-origin page directly; we just surface the result inline
-      // instead of opening a new window.
-      const response = await fetch(`/api/station-price?id=${encodeURIComponent(selected.id)}${live ? '&live=1' : ''}&t=${Date.now()}`, { cache: 'no-store' });
-      if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-      const json = await response.json();
-      setManualCheck({ status: 'success', live, checkedAt: new Date().toISOString(), data: json });
-    } catch (error) {
-      setManualCheck({
-        status: 'success',
-        live,
-        checkedAt: new Date().toISOString(),
-        data: manualCheckFromCurrentData(selected, prediction, historyRows),
-        note: 'Live sync was unavailable, so this is the newest data already loaded in this dashboard.'
-      });
-    }
+  function checkSelectedNow() {
+    if (!selected?.id) return;
+    // GitHub Pages is a static host and does not provide /api/station-price.
+    // Show the saved observation already loaded with the dashboard rather than
+    // calling a nonexistent endpoint and presenting its fallback as a refresh.
+    setManualCheck({
+      status: 'success',
+      live: false,
+      checkedAt: new Date().toISOString(),
+      data: manualCheckFromCurrentData(selected, prediction, historyRows),
+      note: 'This is the latest saved observation available in the dashboard; it was not refreshed from Tesla.'
+    });
   }
 
   const historyRows = useMemo(() => (Array.isArray(history) ? history : []).map(row => ({ ...row, capturedLabel: shortDate(row.capturedAt), member: row.memberPricePerKwh ?? null, nonMember: row.nonMemberPricePerKwh ?? null })).slice(-120), [history]);
@@ -428,7 +419,7 @@ function App() {
             <span className={pricingFresh ? 'metaFresh' : ''}><Clock3 size={14}/>{prediction?.latestObservedAt ? freshnessLabel(prediction.latestObservedAt) : 'No price captured'}</span>
           </div>}
           <div className="stationActions">{selected && <button type="button" className={favorites.items.includes(selected.id) ? 'favoriteButton active' : 'favoriteButton'} aria-pressed={favorites.items.includes(selected.id)} onClick={() => favorites.toggle(selected.id)}><Heart size={16}/>{favorites.items.includes(selected.id) ? 'Favorited' : 'Favorite'}</button>}{selected && <button type="button" className={comparison.items.includes(selected.id) ? 'compareButton active' : 'compareButton'} aria-pressed={comparison.items.includes(selected.id)} onClick={() => comparison.toggle(selected.id)}><Scale size={16}/>{comparison.items.includes(selected.id) ? 'In comparison' : 'Compare'}</button>}{comparison.items.length > 1 && <button type="button" className="compareNowButton" onClick={() => setActiveView('compare')}>Compare {comparison.items.length} chargers</button>}</div>
-          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={() => checkSelectedNow()} disabled={manualCheck.status === 'loading'}><RefreshCw size={16} className={manualCheck.status === 'loading' && !manualCheck.live ? 'spin' : ''}/>{manualCheck.status === 'loading' && !manualCheck.live ? 'Loading…' : 'Latest observation'}</button>{selected?.url && <button className="liveTeslaButton" onClick={() => checkSelectedNow({ live: true })} disabled={manualCheck.status === 'loading'}>{manualCheck.status === 'loading' && manualCheck.live ? <RefreshCw size={16} className="spin"/> : <Zap size={16}/>}{manualCheck.status === 'loading' && manualCheck.live ? 'Syncing live price…' : 'Get live Tesla price'}</button>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
+          <div className="toolbar"><button className={rateType === 'member' ? 'active' : ''} onClick={() => setRateType('member')}>Tesla / member</button><button className={rateType === 'non_member' ? 'active' : ''} onClick={() => setRateType('non_member')}>Non-Tesla</button><button className="refreshButton" onClick={checkSelectedNow}><RefreshCw size={16}/>{'Show saved observation'}</button>{selected?.url && <a className="liveTeslaButton" href={selected.url} target="_blank" rel="noreferrer"><Zap size={16}/>Open Tesla station page</a>}{selected && <a className="reportPriceButton" href={reportUrl(selected.id)} target="_blank" rel="noreferrer"><Users size={16}/>Report this price</a>}<span className={pricingFresh ? 'badge fresh' : 'badge'}>{state.title}</span></div>
           <PriceMatrix memberOff={rateMemberOff} memberPeak={rateMemberPeak} nonOff={rateNonOff} nonPeak={rateNonPeak} congestion={rateCongestion} fresh={pricingFresh} benchmarkCents={benchmarkCents} observedAt={prediction?.latestObservedAt || latestHistory?.capturedAt} />
           <div className="leadInsights">
             <div className="leadIns cheap">
