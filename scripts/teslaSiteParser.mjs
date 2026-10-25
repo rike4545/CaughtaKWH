@@ -109,10 +109,14 @@ export function normalizeText(text) {
 }
 
 function parseDollarValue(value) {
-  const parsed = Number(String(value).replace(/[^0-9.]/g, ''));
-  if (!Number.isFinite(parsed)) return null;
-  if (parsed <= 0 || parsed > 2.5) return null;
-  return Number(parsed.toFixed(2));
+  // Keep sub-cent precision from source pages. Some station schedules publish rates
+  // to three decimal places; rounding to cents can collapse distinct peak/off-peak rates
+  // and can move a value across a low-price threshold.
+  const raw = String(value).replace(/[^0-9.]/g, '');
+  if (!/^\d+(?:\.\d{1,3})?$/.test(raw)) return null;
+  const parsed = Number(raw);
+  if (!Number.isFinite(parsed) || parsed <= 0 || parsed > 2.5) return null;
+  return Number(parsed.toFixed(3));
 }
 
 function lowPriceId(price) {
