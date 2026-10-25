@@ -5,9 +5,9 @@ requests coming from GitHub Actions runner IP ranges. Without a proxy, the
 automated price scrapers almost always get an `access_controlled` result and
 capture no prices — the dataset then depends entirely on crowdsourced reports.
 
-Routing the scrapers through a reputable egress proxy (residential or a
-well-maintained datacenter pool) is the single biggest lever for restoring
-automated coverage.
+Automated access is not guaranteed. Use an authorized egress route only if the
+provider's terms and Tesla's terms permit this use, or use an approved pricing
+data source. Do not rely on random free proxies to solve access-control blocks.
 
 ## How it's wired
 
@@ -19,16 +19,16 @@ browser and Node's global `fetch` through the first one that connects.
 | --- | --- |
 | `SCRAPE_PROXY` | A single proxy, e.g. `http://proxy.example.com:8080`. Credentials may be embedded (`http://user:pass@host:port`) or supplied separately. Bare `ip:port` is also accepted (assumed `http://`). |
 | `SCRAPE_PROXY_LIST` | Multiple proxies, comma/space/newline separated. Used for rotation/failover. |
-| `SCRAPE_PROXY_LIST_URL` | A URL returning plain `ip:port` lines, proxy URLs, or JSON. Defaults to IPLocate's maintained HTTP-only list at `https://raw.githubusercontent.com/iplocate/free-proxy-list/main/protocols/http.txt`; set an empty value to disable the default. |
+| `SCRAPE_PROXY_LIST_URL` | Optional URL returning plain `ip:port` lines, proxy URLs, or JSON. There is no default public list; set this only to a trusted source you are authorized to use. |
 | `SCRAPE_PROXY_USERNAME` / `SCRAPE_PROXY_PASSWORD` | Optional shared credentials applied to every candidate (override any embedded in the URL). |
 | `SCRAPE_PROXY_CHECK_URL` | Connectivity-check endpoint (default `https://api.ipify.org`). |
 | `SCRAPE_PROXY_CHECK_TIMEOUT_MS` | Per-proxy check timeout (default `8000`). |
 | `SCRAPE_PROXY_MAX_CANDIDATES` | Cap on candidates considered per run (default `25`). |
 | `SCRAPE_PROXY_SKIP_CHECK` | `true` to skip health checks and use candidates as-is. |
 
-When no candidates are configured, the code logs that it's using the runner IP
-directly and behaves exactly as before — so adding these env vars to a workflow
-is safe even before any proxy exists.
+When no candidates are configured, the scraper can otherwise fall back to the runner IP.
+The scheduled workflow now runs a real Tesla-page preflight first and stops if no route
+returns a usable page, so a blocked route is not mistaken for a successful refresh.
 
 ### Rotation and failover
 
