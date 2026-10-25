@@ -40,7 +40,8 @@
     "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport && npm run test:scrape-parser && npm run test:scrape-syntax",
     "test:e2e": "playwright test",
     "test:scrape-parser": "node scripts/testTeslaPricingParser.mjs",
-    "test:scrape-syntax": "node --check scripts/scrapePrices.mjs"
+    "test:scrape-syntax": "node --check scripts/scrapePrices.mjs",
+    "import:dcfc-tracker": "node scripts/importDcfcTracker.mjs"
   },
   "dependencies": {
     "@playwright/test": "latest",
