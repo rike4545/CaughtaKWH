@@ -1,36 +1,54 @@
 {
-  "generatedAt": "2026-10-25T19:01:24.862Z",
-  "requestedLimit": 100,
-  "effectiveLimit": 1,
-  "inScopeStations": 760,
-  "attempted": 1,
+  "generatedAt": "2026-10-25T20:53:41.499Z",
+  "requestedLimit": 10,
+  "effectiveLimit": 10,
+  "inScopeStations": 10,
+  "attempted": 10,
   "validPages": 0,
   "savedObservations": 0,
-  "blocked": 1,
+  "blocked": 10,
   "failed": 0,
   "transientFailures": 0,
   "unusableCandidates": 0,
   "cooldownSkipped": 0,
   "attemptedStationIds": [
-    "LakeGroveNYsupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger",
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger",
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490",
+    "islandiasupercharger"
   ],
   "blockedStationIds": [
-    "LakeGroveNYsupercharger"
+    "LakeGroveNYsupercharger",
+    "401968",
+    "BayshoreNYsupercharger",
+    "26660",
+    "NorthBabylonNYSupercharger",
+    "shirleynysupercharger",
+    "MelvilleNYsupercharger",
+    "HauppaugeNYsupercharger",
+    "56490",
+    "islandiasupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
   "transport": {
-    "candidateAttempts": 1,
-    "requestAttempts": 1,
+    "candidateAttempts": 10,
+    "requestAttempts": 10,
     "retries": 0,
-    "averageRequestMs": 452,
+    "averageRequestMs": 471,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": true,
     "proxyPool": {
       "candidates": 8,
-      "tried": 1,
-      "activeHost": "45.38.107.97:6014"
+      "tried": 4,
+      "activeHost": "38.154.185.97:6370"
     }
   },
   "circuitBreaker": {
@@ -40,12 +58,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 19.2,
-    "cooldownActive": true,
+    "previousHealthAgeMinutes": 112.3,
+    "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
-    "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-25T19:31:24.862Z"
+    "routeAccessControlLikely": false,
+    "nextProbeAt": null
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -53,21 +71,9 @@
     "ignored": false
   },
   "scope": {
-    "states": [
-      "PA",
-      "PR",
-      "RI",
-      "SC",
-      "SD",
-      "TN",
-      "TX",
-      "UT",
-      "NY",
-      "NJ",
-      "CT"
-    ],
+    "states": [],
     "countries": [],
     "nearby": null,
-    "needsHistory": true
+    "needsHistory": false
   }
 }
