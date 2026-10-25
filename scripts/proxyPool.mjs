@@ -57,6 +57,25 @@ export function parseProxy(raw, { username = '', password = '' } = {}) {
     return null;
   }
   if (!url.host) return null;
+
+  // These are browser-facing web-proxy portals, not HTTP(S) CONNECT proxy endpoints.
+  // Passing their homepage as SCRAPE_PROXY makes undici attempt CONNECT to the portal,
+  // which is not how their URL-rewriting/session-based service works.
+  const host = url.hostname.toLowerCase().replace(/^www\\./, '');
+  const webProxyPortals = [
+    'croxyproxy.com',
+    'proxysite.com',
+    'proxyorb.com',
+    'ipfighter.com'
+  ];
+  if (webProxyPortals.some(domain => host === domain || host.endsWith('.' + domain))) {
+    console.warn(
+      'Ignoring ' + host + ': this is a browser-based proxy website, not a compatible HTTP proxy endpoint. ' +
+      'Configure an actual HTTP(S)/CONNECT proxy URL instead.'
+    );
+    return null;
+  }
+
   const user = username || decodeURIComponent(url.username || '');
   const pass = password || decodeURIComponent(url.password || '');
   const token = user && pass ? `${encodeURIComponent(user)}:${encodeURIComponent(pass)}@` : '';
