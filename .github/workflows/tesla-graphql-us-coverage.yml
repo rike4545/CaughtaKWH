@@ -1,0 +1,35 @@
+name: Tesla GraphQL US Coverage Diagnostic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tesla-graphql-us-coverage-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out diagnostic branch
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Query Tesla GraphQL coverage (read-only)
+        env:
+          TESLA_GRAPHQL_TOKEN: ${{ secrets.TESLA_GRAPHQL_TOKEN }}
+        run: node scripts/diagnoseTeslaGraphqlCoverage.mjs
+      - name: Upload diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: tesla-graphql-us-coverage
+          path: artifacts/tesla-graphql-us-coverage.json
+          if-no-files-found: warn
+          retention-days: 7
