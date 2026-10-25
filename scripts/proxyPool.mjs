@@ -12,7 +12,8 @@
 
 import { ProxyAgent } from 'undici';
 
-const DEFAULT_PROXY_LIST_URL = 'https://raw.githubusercontent.com/iplocate/free-proxy-list/main/protocols/http.txt';
+// No public proxy list by default: untrusted free relays are unreliable and can expose request metadata.
+const DEFAULT_PROXY_LIST_URL = '';
 
 const CHECK_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
 
