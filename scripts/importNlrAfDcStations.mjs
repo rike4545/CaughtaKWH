@@ -56,9 +56,10 @@ for (const station of body.fuel_stations) {
     if (String(appStation.state || '').toUpperCase() !== String(station.state || '').toUpperCase()) return false;
     const appName = normalizeName(appStation.name);
     if (sourceName && appName && sourceName === appName) return true;
-    const appLat = Number(appStation.lat ?? appStation.latitude);
-    const appLng = Number(appStation.lng ?? appStation.longitude);
-    const sourceLat = Number(station.latitude), sourceLng = Number(station.longitude);
+    const numericCoordinate = value => value === null || value === undefined || value === '' ? NaN : Number(value);
+    const appLat = numericCoordinate(appStation.lat ?? appStation.latitude);
+    const appLng = numericCoordinate(appStation.lng ?? appStation.longitude);
+    const sourceLat = numericCoordinate(station.latitude), sourceLng = numericCoordinate(station.longitude);
     if ([appLat, appLng, sourceLat, sourceLng].every(Number.isFinite)) {
       return milesBetween(appLat, appLng, sourceLat, sourceLng) <= 0.5;
     }
