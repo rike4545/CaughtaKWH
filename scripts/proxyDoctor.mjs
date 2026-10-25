@@ -131,7 +131,7 @@ async function diagnoseProxyConnection(parsed) {
     return {
       connected: false,
       status: null,
-      reason: String(error?.name === 'AbortError' ? 'TIMEOUT' : error?.message || 'CONNECTION_ERROR')
+      reason: error?.name === 'AbortError' ? 'TIMEOUT' : [error?.cause?.code, error?.cause?.message, error?.code, error?.message].filter(Boolean).join(' — ') || 'CONNECTION_ERROR'
     };
   } finally {
     clearTimeout(timer);
@@ -260,7 +260,12 @@ if (anyProxyPasses) {
   process.exit(0);
 }
 
-console.error('\n❌ No configured proxy returned a usable Tesla page. They connect but Akamai denies their IPs.');
+const anyProxyConnected = proxyResults.some(r => r.connected);
+if (anyProxyConnected) {
+  console.error('\n❌ No configured proxy returned a usable Tesla page. At least one proxy connected, but its Tesla probes were blocked or unusable.');
+} else {
+  console.error('\n❌ No configured proxy completed the connectivity check. See each connectivity reason above; this is not yet evidence that Akamai blocked the proxy IP.');
+}
 if (proxyResults.some(r => r.verdict === 'AUTH_REJECTED')) {
   console.error('   HTTP 407 confirms proxy authentication was rejected. Update Actions secrets with the provider-issued proxy username/password; these may differ from your account login.');
 }
