@@ -436,3 +436,33 @@ CaughtaKWH follows the same source-transparency principles described in [DCFC Tr
 - **Verify before driving.** DCFC Tracker notes that published rates can lag the stall price; Tesla's app or in-vehicle navigation remains the operational source of truth.
 
 These backups are versioned by the repository's existing automated data commit workflow. They are recovery and comparison snapshots, not a substitute for an independent off-repository backup. The API key remains in the GitHub Actions secret `DCFC_API_KEY` and is never written into snapshots.
+
+
+## NLR / AFDC station metadata and backups
+
+CaughtaKWH can use the [NLR Alternative Fuel Stations API](https://developer.nlr.gov/docs/transportation/alt-fuel-stations-v1/) to cross-check Tesla station inventory and metadata for NY, NJ, and CT. The API supplies station location, network, status, connector types, reported charging-port counts, access details, and source update/confirmation dates. It is an inventory/metadata source—not a real-time Tesla pricing feed—and must not be used to manufacture or overwrite price observations.
+
+### Enable the feed
+
+1. Sign up for an API key through the [NLR Developer Network](https://developer.nlr.gov/docs/).
+2. Add a GitHub Actions repository secret named `NLR_API_KEY`.
+3. The scheduled refresh runs `npm run import:nlr-afdc` when that secret is configured. Without it, the optional step is skipped.
+4. To run locally, set `NLR_API_KEY` in your shell and run:
+
+```bash
+NLR_STATES=NY,NJ,CT npm run import:nlr-afdc
+```
+
+### Source safeguards and recovery
+
+- Writes a separately attributed `data/nlr-afdc-stations.json` snapshot and mirrors it through the existing public-data sync.
+- Before replacing a prior snapshot, saves it to `data/backups/nlr-afdc-stations-previous.json`.
+- Keeps one UTC-hour archive in `data/history/nlr-afdc-stations/` to make changes auditable without writing a new archive on every 15-minute run.
+- Matches records only to existing CaughtaKWH stations by normalized name or coordinates within 0.5 miles; it does not add unmatched stations or delete stations missing from a feed.
+- Fails closed on HTTP/auth/schema errors or zero matches so the last valid snapshot remains intact.
+- Preserves NLR/AFDC status codes and source dates as reported. A status or missing record is a signal to investigate, not automatic proof that a charger has closed.
+- Keeps the API key server-side; it is never written to the snapshot or frontend.
+- Repository snapshots provide rollback/history, but are not independent off-site backups.
+
+NLR's documented default rate limit is 1,000 requests per hour per key across its APIs; the importer makes a single station-list request per run. Confirm current availability and live pricing with the charging network before a trip.
+
