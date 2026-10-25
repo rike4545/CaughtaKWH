@@ -5273,7 +5273,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-24T23:42:11.260Z",
+    "lastAttemptedAt": "2026-10-25T01:38:42.137Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -5288,7 +5288,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 67,
+        "durationMs": 57,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -5302,7 +5302,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 67
+      "averageRequestMs": 57
     }
   },
   {
@@ -34965,7 +34965,7 @@
     },
     "superchargeInfoMatchedAt": "2026-10-18",
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-10-24T23:42:11.260Z",
+    "lastAttemptedAt": "2026-10-25T01:38:42.137Z",
     "lastBlockedAt": null,
     "lastScrapeBlocked": false,
     "consecutiveBlockedAttempts": 0,
@@ -34980,7 +34980,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 151,
+        "durationMs": 129,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -34994,7 +34994,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 151
+      "averageRequestMs": 129
     },
     "observationPriorityScore": 823
   },
@@ -140193,13 +140193,13 @@
     "superchargeInfoMatchedAt": "2026-10-18",
     "plugshareId": 2076881,
     "lastScrapeError": "tesla_access_controlled",
-    "lastAttemptedAt": "2026-09-10T00:21:58.794Z",
+    "lastAttemptedAt": "2026-10-25T01:38:42.137Z",
     "lastBlockedAt": "2026-09-10T00:21:58.794Z",
     "lastScrapeBlocked": true,
     "consecutiveBlockedAttempts": 6,
     "blockCooldownHours": 72,
     "nextScrapeEligibleAt": "2026-09-13T00:21:58.794Z",
-    "lastScrapeResult": "access_controlled",
+    "lastScrapeResult": "route_access_controlled",
     "lastScrapeAttemptCount": 1,
     "lastScrapeCandidates": [
       {
@@ -140208,7 +140208,7 @@
         "status": 403,
         "retryAfter": null,
         "via": "fetch",
-        "durationMs": 187,
+        "durationMs": 60,
         "retryCount": 0,
         "contentSignal": "blocked",
         "hasPrice": false,
@@ -140222,7 +140222,7 @@
       "candidateAttempts": 1,
       "requestAttempts": 1,
       "retries": 0,
-      "averageRequestMs": 187
+      "averageRequestMs": 60
     },
     "observationPriorityScore": 830
   },

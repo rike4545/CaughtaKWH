@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-24T23:42:11.260Z",
+  "generatedAt": "2026-10-25T01:38:42.137Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
-  "inScopeStations": 501,
+  "inScopeStations": 485,
   "attempted": 3,
   "validPages": 0,
   "savedObservations": 0,
@@ -13,13 +13,13 @@
   "cooldownSkipped": 0,
   "attemptedStationIds": [
     "477554",
-    "AliceTXQ322",
-    "58811"
+    "456416",
+    "AliceTXQ322"
   ],
   "blockedStationIds": [
     "477554",
-    "AliceTXQ322",
-    "58811"
+    "456416",
+    "AliceTXQ322"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -27,7 +27,7 @@
     "candidateAttempts": 3,
     "requestAttempts": 3,
     "retries": 0,
-    "averageRequestMs": 105,
+    "averageRequestMs": 82,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": false,
@@ -44,12 +44,12 @@
   },
   "adaptiveRoute": {
     "previousRouteBlocked": true,
-    "previousHealthAgeMinutes": 32.9,
+    "previousHealthAgeMinutes": 116.5,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-25T00:12:11.260Z"
+    "nextProbeAt": "2026-10-25T02:08:42.137Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -58,14 +58,14 @@
   },
   "scope": {
     "states": [
-      "OR",
       "PA",
       "PR",
       "RI",
       "SC",
       "SD",
       "TN",
-      "TX"
+      "TX",
+      "UT"
     ],
     "countries": [],
     "nearby": null,
