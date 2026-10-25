@@ -125,7 +125,7 @@ export async function checkProxy(parsed, { url = 'https://api.ipify.org', timeou
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    dispatcher = new ProxyAgent(parsed.dispatcherUrl);
+    dispatcher = new ProxyAgent({ uri: parsed.dispatcherUrl });
     const response = await fetch(url, {
       dispatcher,
       signal: controller.signal,
