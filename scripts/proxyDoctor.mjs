@@ -112,7 +112,7 @@ async function egressIp(dispatcher) {
 // Diagnose connectivity without hiding proxy HTTP status codes. HTTP 407 means the
 // endpoint was reached but rejected proxy authentication; it is not a dead proxy.
 async function diagnoseProxyConnection(parsed) {
-  const dispatcher = new ProxyAgent(parsed.dispatcherUrl);
+  const dispatcher = new ProxyAgent({ uri: parsed.dispatcherUrl });
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 8000);
   try {
@@ -141,7 +141,7 @@ async function diagnoseProxyConnection(parsed) {
 
 // Probe one egress route (a parsed proxy, or null for direct) against the sample URLs.
 async function probeRoute({ label, parsed }, stations) {
-  const dispatcher = parsed ? new ProxyAgent(parsed.dispatcherUrl) : null;
+  const dispatcher = parsed ? new ProxyAgent({ uri: parsed.dispatcherUrl }) : null;
   const tally = { usable: 0, priced: 0, blocked: 0, rateLimited: 0, notFound: 0, error: 0, other: 0 };
   let connected = true;
   let connectionDiagnostic = null;
