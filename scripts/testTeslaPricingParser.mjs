@@ -99,4 +99,32 @@ const candidates = stationCandidates({
 if (!candidates.some(candidate => candidate.url.endsWith('/404914'))) throw new Error('Numeric Tesla location ID candidate was not generated');
 if (!candidates.some(candidate => candidate.reason === 'city_state_slug')) throw new Error('City/state fallback candidate was not generated');
 
+
+const histogramData = extractNextData(`
+  <script id="__NEXT_DATA__" type="application/json">
+    {\"props\":{\"pageProps\":{\"location\":{
+      \"chargerPricing\":[
+        {\"chargingLabel\":\"Charging Fees for Tesla Owner\",\"pricingDetails\":[{\"label\":\"Base Rate\",\"rate\":\"$0.46/kWh\"}]},
+        {\"chargingLabel\":\"Charging Fees for All EVs\",\"pricingDetails\":[{\"label\":\"Base Rate\",\"rate\":\"$0.68/kWh\"}]}
+      ],
+      \"chargerHistogramData\":[
+        {\"chargingLabel\":\"Pricing for Tesla & Members\",\"data\":{\"labels\":[\"4AM\",\"5AM\",\"6AM\"],\"datasets\":[{\"label\":\"Price level\",\"data\":[0.32,0.46,0.52]}]}},
+        {\"chargingLabel\":\"Pricing for Non-Tesla\",\"data\":{\"labels\":[\"4AM\",\"5AM\",\"6AM\"],\"datasets\":[{\"label\":\"Price level\",\"data\":[0.52,0.62,0.68]}]}}
+      ]
+    }}}}
+  </script>
+`);
+if (!histogramData?.timeOfDayPricing?.member || !histogramData?.timeOfDayPricing?.non_tesla) {
+  throw new Error('Tesla time-of-day pricing charts were not extracted by membership type');
+}
+if (histogramData.timeOfDayPricing.member.slots.length !== 3) {
+  throw new Error('Tesla member pricing chart did not preserve every time slot');
+}
+if (histogramData.timeOfDayPricing.member.slots[2].pricePerKwh !== 0.52) {
+  throw new Error('Explicit Tesla member chart prices were not retained');
+}
+if (histogramData.timeOfDayPricing.non_tesla.slots[2].pricePerKwh !== 0.68) {
+  throw new Error('Explicit non-Tesla chart prices were not retained');
+}
+
 console.log('Tesla pricing parser regression passed.');

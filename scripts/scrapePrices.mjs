@@ -261,12 +261,15 @@ async function scrapeOne(getContext, station) {
           lowPriceId: null,
           priceExtractionVersion: 'tesla-next-data-v1',
           priceCandidateCount: (nextData.memberPrice != null ? 1 : 0) + (nextData.nonMemberPrice != null ? 1 : 0),
+          timeOfDayPricing: nextData.timeOfDayPricing || {},
           priceEvidence: { source: '__NEXT_DATA__', ...nextData }
         };
         const availability = inferAvailability('', station);
         const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
-        attempts.push({ ...fetchAttempt, contentSignal: 'tesla_location_page', hasPrice: true, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' });
-        return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: true, hasAvailability: false, attempts };
+        const hasPrice = prices.memberPricePerKwh != null || prices.nonMemberPricePerKwh != null;
+        const hasSchedule = Object.values(prices.timeOfDayPricing || {}).some(chart => Array.isArray(chart.slots) && chart.slots.length > 0);
+        attempts.push({ ...fetchAttempt, contentSignal: 'tesla_location_page', hasPrice: hasPrice || hasSchedule, hasSchedule, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' });
+        return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: hasPrice || hasSchedule, hasAvailability: false, attempts };
       }
       // Page loaded but no __NEXT_DATA__ pricing — try text extraction before Playwright
       const prices = fetchSite.validTeslaLocation ? inferPrices('', fetched.html) : inferPrices('', '');

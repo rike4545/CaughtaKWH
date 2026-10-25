@@ -389,6 +389,70 @@ function findPricingObjects(root, maxDepth = 10) {
   return found;
 }
 
+function parseHistogramPricing(root) {
+  const found = [];
+  const seen = new Set();
+  const visit = (value, depth = 0) => {
+    if (!value || typeof value !== 'object' || depth > 12 || seen.has(value)) return;
+    seen.add(value);
+    if (Array.isArray(value.chargerHistogramData)) {
+      for (const chart of value.chargerHistogramData) {
+        const label = String(chart?.chargingLabel || chart?.label || chart?.title || '').toLowerCase();
+        const membershipType = /non.?tesla|all ev|other ev|non.?member/i.test(label)
+          ? 'non_tesla'
+          : /tesla|member/i.test(label) ? 'member' : null;
+        if (!membershipType) continue;
+        const labels = Array.isArray(chart?.data?.labels) ? chart.data.labels.map(v => String(v)) : [];
+        const datasets = Array.isArray(chart?.data?.datasets) ? chart.data.datasets : [];
+        const regionLabels = Array.isArray(chart?.regionLabels) ? chart.regionLabels : [];
+        for (const dataset of datasets) {
+          const values = Array.isArray(dataset?.data) ? dataset.data : [];
+          if (!labels.length || !values.length) continue;
+          const slots = labels.map((time, index) => {
+            const rawValue = values[index];
+            const numericValue = typeof rawValue === 'number' && Number.isFinite(rawValue) ? rawValue : null;
+            // Only call a dataset value a price when the payload explicitly supplies a
+            // plausible dollar/kWh value. Tesla also uses normalized bar heights here.
+            const explicitPrice = numericValue != null && numericValue > 0 && numericValue <= 2.5
+              && /price|rate|kwh|cost|charging/i.test(String(dataset?.label || ''));
+            return {
+              time,
+              slotIndex: index,
+              barValue: numericValue,
+              pricePerKwh: explicitPrice ? Number(numericValue.toFixed(4)) : null
+            };
+          });
+          found.push({
+            membershipType,
+            sectionLabel: chart?.chargingLabel || chart?.label || null,
+            datasetLabel: dataset?.label || null,
+            slots,
+            axisLabels: Array.isArray(value.axisLabels) ? value.axisLabels : [],
+            regionLabels: regionLabels.map(item => ({
+              index: typeof item?.index === 'number' ? item.index : null,
+              label: item?.value?.label || item?.value?.name || null,
+              currencyCode: item?.value?.currencyCode || null,
+              price: typeof item?.value?.price === 'number' ? item.value.price : null,
+              text: typeof item?.value === 'string' ? item.value : null
+            }))
+          });
+        }
+      }
+    }
+    if (Array.isArray(value)) for (const item of value) visit(item, depth + 1);
+    else for (const child of Object.values(value)) visit(child, depth + 1);
+  };
+  visit(root);
+  // Prefer one schedule per membership type, preserving the chart's original order.
+  const output = {};
+  for (const chart of found) {
+    if (!output[chart.membershipType] || chart.slots.length > output[chart.membershipType].slots.length) {
+      output[chart.membershipType] = chart;
+    }
+  }
+  return output;
+}
+
 function parseNextPricingObject(loc) {
   const pricing = pricingTiersFromObject(loc);
   if (!pricing) return null;
@@ -398,6 +462,7 @@ function parseNextPricingObject(loc) {
   let nonMemberPrice = null;
   let nonMemberPeakPrice = null;
   let congestionFee = null;
+  const timeOfDayPricing = parseHistogramPricing(loc);
 
   for (const tier of pricing) {
     const label = String(tier?.chargingLabel || tier?.label || tier?.title || tier?.name || '').toLowerCase();
@@ -431,7 +496,7 @@ function parseNextPricingObject(loc) {
   if (congestionMatch) congestionFee = parseDollarValue(congestionMatch[1]);
 
   if (memberPrice == null && nonMemberPrice == null) return null;
-  return { memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice, congestionFee };
+  return { memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice, congestionFee, timeOfDayPricing };
 }
 
 export function extractNextData(html) {
@@ -452,11 +517,12 @@ export function extractNextData(html) {
     const candidates = [...preferred, ...findPricingObjects(props)]
       .filter((value, index, array) => array.indexOf(value) === index);
 
+    const histogramPricing = parseHistogramPricing(props);
     for (const candidate of candidates) {
       const parsed = parseNextPricingObject(candidate);
-      if (parsed) return { ...parsed, source: '__NEXT_DATA__' };
+      if (parsed) return { ...parsed, timeOfDayPricing: Object.keys(parsed.timeOfDayPricing || {}).length ? parsed.timeOfDayPricing : histogramPricing, source: '__NEXT_DATA__' };
     }
-    return null;
+    return Object.keys(histogramPricing).length ? { memberPrice: null, memberPeakPrice: null, nonMemberPrice: null, nonMemberPeakPrice: null, congestionFee: null, timeOfDayPricing: histogramPricing, source: '__NEXT_DATA__' } : null;
   } catch {
     return null;
   }
