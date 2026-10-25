@@ -230,6 +230,11 @@ function App() {
   const state = priceState(selected, prediction);
   const pricingFresh = isCurrentPrediction(prediction);
   const latestHistory = historyRows.at(-1);
+  // Tesla's time-of-day chart is a separate source signal from historical statistical estimates.
+  // Use the newest saved observation that actually contains a chart, rather than silently losing
+  // it when a later scrape captures only a headline rate or availability.
+  const scheduleHistory = [...historyRows].reverse().find(row => row.timeOfDayPricing && Object.values(row.timeOfDayPricing).some(chart => Array.isArray(chart?.slots) && chart.slots.length));
+  const timeOfDayPricing = scheduleHistory?.timeOfDayPricing || {};
   const historyReadiness = usableHistoryState(prediction, historyRows);
   const manualData = manualCheck.data || null;
   const publicCheckResult = pricingFresh ? 'Recent price found' : prediction?.latestObservedAt ? 'Stale history only' : selected?.lastScrapeBlocked ? 'Automated check blocked' : selected?.lastScrapeHadAvailability ? 'Availability only' : selected?.lastScrapedAt ? 'No price shown' : 'Not checked yet';
@@ -511,6 +516,24 @@ function App() {
           <p className="muted compactNote">CaughtaKWH keeps checking stations over time. A station needs at least three recent public price observations before its history becomes useful for trend watching.</p>
         </Card>
 
+        {Object.keys(timeOfDayPricing).length > 0 && <Card>
+          <div className="sectionTitle"><div><p>Tesla-published schedule</p><h2>Time-of-day price chart</h2></div><span className="badge">Source data</span></div>
+          <p className="muted">This chart is parsed from Tesla's public station page, separate from CaughtaKWH's historical estimates. A chart bar is shown as a dollar rate only when Tesla's page explicitly provides a price value; normalized bar heights are not converted into prices.</p>
+          {scheduleHistory?.capturedAt && <p className="compactNote muted">Captured {shortDate(scheduleHistory.capturedAt)} · {freshnessLabel(scheduleHistory.capturedAt)} · not a live quote</p>}
+          <div className="scheduleGrid">
+            {Object.entries(timeOfDayPricing).map(([kind, chart]) => {
+              const pricedSlots = (chart.slots || []).filter(slot => typeof slot.pricePerKwh === 'number');
+              const chartLabel = kind === 'non_tesla' ? 'Non-Tesla' : kind === 'member' ? 'Tesla / members' : titleCase(kind.replaceAll('_', ' '));
+              return <div className="schedulePanel" key={kind}>
+                <div className="schedulePanelTitle"><strong>{chartLabel}</strong><span>{pricedSlots.length ? 'Explicit $/kWh values' : 'Chart captured · values not exposed as prices'}</span></div>
+                {pricedSlots.length > 0
+                  ? <div className="scheduleRates">{pricedSlots.map(slot => <div key={slot.slotIndex}><span>{slot.time}</span><strong>{money(slot.pricePerKwh)}</strong></div>)}</div>
+                  : <p className="muted compactNote">Tesla's page exposed chart positions, but not reliable numeric $/kWh values for these bars. We won't invent prices from bar heights.</p>}
+                {Array.isArray(chart.regionLabels) && chart.regionLabels.some(item => item.price != null || item.text) && <div className="scheduleRegions">{chart.regionLabels.filter(item => item.price != null || item.text).map((item, index) => <span key={index}>{item.label || item.text || 'Rate'}{item.price != null ? ` · ${money(item.price)}` : ''}</span>)}</div>}
+              </div>;
+            })}
+          </div>
+        </Card>}
         <Card>{(() => {
           const priceVals = modelRows.map(r => r.expectedPrice).filter(v => v != null);
           const minPrice = priceVals.length ? Math.min(...priceVals) : 0;
