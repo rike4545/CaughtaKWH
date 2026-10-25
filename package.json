@@ -42,7 +42,8 @@
     "test:scrape-parser": "node scripts/testTeslaPricingParser.mjs",
     "test:scrape-syntax": "node --check scripts/scrapePrices.mjs",
     "import:dcfc-tracker": "node scripts/importDcfcTracker.mjs",
-    "import:nlr-afdc": "node scripts/importNlrAfDcStations.mjs"
+    "import:nlr-afdc": "node scripts/importNlrAfDcStations.mjs",
+    "import:network-pricing": "node scripts/importNetworkPricing.mjs"
   },
   "dependencies": {
     "@playwright/test": "latest",
