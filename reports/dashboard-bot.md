@@ -1,6 +1,6 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-10-25T15:02:13.607Z
+Generated: 2026-10-26T17:37:45.828Z
 
 ## Public Dashboard Health
 
@@ -27,10 +27,10 @@ Generated: 2026-10-25T15:02:13.607Z
 
 ## Station Refresh Targets
 
-- Lake Grove, NY (LakeGroveNYsupercharger) · route_access_controlled
-- Goleta, CA (goletacasupercharger) · access_controlled
+- Lake Grove, NY (LakeGroveNYsupercharger) · access_controlled
 - Woodcliff Lake, NJ - Chestnut Ridge Rd (457753) · route_access_controlled
-- Potomac, MD (452152) · route_access_controlled
+- Goleta, CA (goletacasupercharger) · access_controlled
+- [Victron Energy] Valley View, TX (498706) · route_access_controlled
 - Orem, UT - N 980 W (456416) · route_access_controlled
 
 ## Improvement Queue
