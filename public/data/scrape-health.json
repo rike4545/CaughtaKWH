@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-25T23:27:04.997Z",
+  "generatedAt": "2026-10-26T01:26:44.073Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
-  "inScopeStations": 750,
+  "inScopeStations": 742,
   "attempted": 24,
   "validPages": 0,
   "savedObservations": 0,
@@ -13,7 +13,6 @@
   "cooldownSkipped": 10,
   "attemptedStationIds": [
     "498706",
-    "401410",
     "477554",
     "457753",
     "26755",
@@ -35,11 +34,11 @@
     "fairfieldctssupercharger",
     "lisbon160ctsupercharger",
     "meridenctsupercharger",
-    "newlondonctsupercharger"
+    "newlondonctsupercharger",
+    "torringtonsupercharger"
   ],
   "blockedStationIds": [
     "498706",
-    "401410",
     "477554",
     "457753",
     "26755",
@@ -61,7 +60,8 @@
     "fairfieldctssupercharger",
     "lisbon160ctsupercharger",
     "meridenctsupercharger",
-    "newlondonctsupercharger"
+    "newlondonctsupercharger",
+    "torringtonsupercharger"
   ],
   "transientFailureStationIds": [],
   "unusableStationIds": [],
@@ -69,7 +69,7 @@
     "candidateAttempts": 24,
     "requestAttempts": 24,
     "retries": 0,
-    "averageRequestMs": 399,
+    "averageRequestMs": 423,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": true,
@@ -85,13 +85,13 @@
     "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": false,
-    "previousHealthAgeMinutes": 13.3,
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 119.7,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-25T23:57:04.997Z"
+    "nextProbeAt": "2026-10-26T01:56:44.073Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -100,7 +100,6 @@
   },
   "scope": {
     "states": [
-      "PA",
       "PR",
       "RI",
       "SC",
@@ -108,6 +107,7 @@
       "TN",
       "TX",
       "UT",
+      "VA",
       "NY",
       "NJ",
       "CT"
