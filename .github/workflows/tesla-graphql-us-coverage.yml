@@ -27,7 +27,7 @@ jobs:
         run: node scripts/diagnoseTeslaGraphqlCoverage.mjs
       - name: Upload diagnostic report
         if: always()
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: tesla-graphql-us-coverage
           path: artifacts/tesla-graphql-us-coverage.json
