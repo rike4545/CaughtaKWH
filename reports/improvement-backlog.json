@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-19T16:23:59.247Z",
+  "generatedAt": "2026-10-26T16:03:12.067Z",
   "totals": {
-    "stations": 3117,
+    "stations": 3120,
     "withAnyHistory": 2,
     "predictions": 2
   },
@@ -9,7 +9,7 @@
     {
       "rank": 1,
       "action": "Capture first observations for stations with zero history",
-      "count": 3115,
+      "count": 3118,
       "sample": [
         "403969",
         "481260",
@@ -73,7 +73,7 @@
         {
           "state": "TX",
           "coverage": 0,
-          "total": 223
+          "total": 224
         }
       ],
       "how": "Set SCRAPE_STATES to these states for upcoming rotations."
