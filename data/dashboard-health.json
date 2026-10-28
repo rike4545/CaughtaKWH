@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T16:50:01.541Z",
+  "generatedAt": "2026-10-28T17:20:03.175Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3120,
@@ -138,7 +138,7 @@
       "state": "NJ",
       "city": "Woodcliff Lake",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-27T13:44:40.836Z",
+      "lastAttemptedAt": "2026-10-28T14:31:46.579Z",
       "blocked": true,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 943
@@ -160,7 +160,7 @@
       "state": "TX",
       "city": "Valley View",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-27T13:44:40.836Z",
+      "lastAttemptedAt": "2026-10-28T14:31:46.579Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 835
@@ -193,7 +193,7 @@
       "state": "TN",
       "city": "Chattanooga",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-27T13:44:40.836Z",
+      "lastAttemptedAt": "2026-10-28T14:31:46.579Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 823
