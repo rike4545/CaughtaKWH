@@ -4,7 +4,7 @@
   "sourceUrl": "https://developer.nlr.gov/docs/transportation/alt-fuel-stations-v1/",
   "methodologyUrl": "https://afdc.energy.gov/fuels/electricity_infrastructure.html",
   "attribution": "Station inventory and metadata from the Alternative Fuels Data Center. This feed is for station metadata and corroboration, not a real-time pricing source.",
-  "generatedAt": "2026-10-30T13:31:24.360Z",
+  "generatedAt": "2026-10-30T18:50:32.246Z",
   "sourceDataUpdatedAt": null,
   "states": [
     "NY",
@@ -12,7 +12,7 @@
     "CT"
   ],
   "network": "Tesla",
-  "queryTotalResults": 284,
+  "queryTotalResults": 285,
   "matchedStationCount": 274,
   "stations": [
     {
