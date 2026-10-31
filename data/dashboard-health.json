@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T17:08:27.079Z",
+  "generatedAt": "2026-10-31T16:17:31.135Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3120,
@@ -138,7 +138,7 @@
       "state": "NJ",
       "city": "Woodcliff Lake",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-30T13:33:05.828Z",
+      "lastAttemptedAt": "2026-10-31T13:54:29.560Z",
       "blocked": true,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 943
@@ -160,7 +160,7 @@
       "state": "TX",
       "city": "Valley View",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-30T13:33:05.828Z",
+      "lastAttemptedAt": "2026-10-31T13:54:29.560Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 835
@@ -193,7 +193,7 @@
       "state": "TN",
       "city": "Chattanooga",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-10-30T13:33:05.828Z",
+      "lastAttemptedAt": "2026-10-30T22:44:27.822Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 823
@@ -210,23 +210,23 @@
       "priorityScore": 823
     },
     {
+      "id": "19169",
+      "name": "Lander, WY",
+      "state": "WY",
+      "city": "Lander",
+      "lastScrapedAt": null,
+      "lastAttemptedAt": "2026-10-31T13:54:29.560Z",
+      "blocked": false,
+      "lastScrapeResult": "route_access_controlled",
+      "priorityScore": 823
+    },
+    {
       "id": "402202",
       "name": "Pagosa Springs, CO",
       "state": "CO",
       "city": "Pagosa Springs",
       "lastScrapedAt": null,
       "lastAttemptedAt": "2026-09-21T06:37:21.666Z",
-      "blocked": true,
-      "lastScrapeResult": "access_controlled",
-      "priorityScore": 823
-    },
-    {
-      "id": "26853",
-      "name": "Richmond, VA - N Arthur Ashe Blvd",
-      "state": "VA",
-      "city": "Richmond",
-      "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-09-11T01:27:29.188Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 823
