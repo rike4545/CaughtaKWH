@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-30T22:44:27.822Z",
+  "generatedAt": "2026-10-31T01:49:59.487Z",
   "requestedLimit": 100,
   "effectiveLimit": 100,
-  "inScopeStations": 828,
+  "inScopeStations": 799,
   "attempted": 24,
   "validPages": 0,
   "savedObservations": 0,
@@ -13,7 +13,7 @@
   "cooldownSkipped": 10,
   "attemptedStationIds": [
     "498706",
-    "477554",
+    "19169",
     "457753",
     "26755",
     "32031",
@@ -39,7 +39,7 @@
   ],
   "blockedStationIds": [
     "498706",
-    "477554",
+    "19169",
     "457753",
     "26755",
     "32031",
@@ -69,7 +69,7 @@
     "candidateAttempts": 24,
     "requestAttempts": 24,
     "retries": 0,
-    "averageRequestMs": 616,
+    "averageRequestMs": 395,
     "fetchMaxAttempts": 2,
     "retryDelayMs": 750,
     "proxyConfigured": true,
@@ -85,13 +85,13 @@
     "consecutiveBlocks": 3
   },
   "adaptiveRoute": {
-    "previousRouteBlocked": false,
-    "previousHealthAgeMinutes": 29.2,
+    "previousRouteBlocked": true,
+    "previousHealthAgeMinutes": 185.5,
     "cooldownActive": false,
     "cooldownMinutes": 30,
     "canaryStations": 1,
     "routeAccessControlLikely": true,
-    "nextProbeAt": "2026-10-30T23:14:27.822Z"
+    "nextProbeAt": "2026-10-31T02:19:59.487Z"
   },
   "cooldownPolicy": {
     "baseHours": 6,
@@ -100,7 +100,6 @@
   },
   "scope": {
     "states": [
-      "TN",
       "TX",
       "UT",
       "VA",
@@ -108,6 +107,7 @@
       "WA",
       "WI",
       "WV",
+      "WY",
       "NY",
       "NJ",
       "CT"
