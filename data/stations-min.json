@@ -1428,6 +1428,12 @@
     "state": "VA"
   },
   {
+    "id": "412216",
+    "name": "Bealeton, VA - James Madison Hwy",
+    "city": "Bealeton",
+    "state": "VA"
+  },
+  {
     "id": "BearDEQ322",
     "name": "Bear, DE",
     "city": "Bear",
@@ -7530,6 +7536,12 @@
     "state": "NY"
   },
   {
+    "id": "452068",
+    "name": "Hudson, WI",
+    "city": "Hudson",
+    "state": "WI"
+  },
+  {
     "id": "hudsonvillesupercharger",
     "name": "Hudsonville, MI",
     "city": "Hudsonville",
@@ -8882,6 +8894,12 @@
   {
     "id": "laurelsupercharger",
     "name": "Laurel, MD",
+    "city": "Laurel",
+    "state": "MD"
+  },
+  {
+    "id": "409159",
+    "name": "Laurel, MD - 3470 Fort Meade Rd",
     "city": "Laurel",
     "state": "MD"
   },
@@ -13848,6 +13866,12 @@
     "state": "MA"
   },
   {
+    "id": "459273",
+    "name": "Reynoldsburg, OH",
+    "city": "Reynoldsburg",
+    "state": "OH"
+  },
+  {
     "id": "19034",
     "name": "Richardson, TX",
     "city": "Richardson",
@@ -15182,6 +15206,12 @@
   {
     "id": "santaanacaeast5thstsupercharger",
     "name": "Santa Ana, CA - E 5th St",
+    "city": "Santa Ana",
+    "state": "CA"
+  },
+  {
+    "id": "458525",
+    "name": "Santa Ana, CA - N Grand Ave",
     "city": "Santa Ana",
     "state": "CA"
   },
