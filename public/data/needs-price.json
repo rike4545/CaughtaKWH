@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-01T12:06:57.745Z",
-  "totalStations": 3120,
+  "generatedAt": "2026-11-01T21:24:13.017Z",
+  "totalStations": 3125,
   "needsCount": 200,
   "stations": [
     {
@@ -52,6 +52,18 @@
       "reportUrl": "report.html?station=456416"
     },
     {
+      "id": "452068",
+      "name": "Hudson, WI",
+      "city": "Hudson",
+      "state": "WI",
+      "lat": 44.965333,
+      "lng": -92.72262,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=452068"
+    },
+    {
       "id": "401410",
       "name": "Waynesburg, PA",
       "city": "Waynesburg",
@@ -62,6 +74,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=401410"
+    },
+    {
+      "id": "412216",
+      "name": "Bealeton, VA - James Madison Hwy",
+      "city": "Bealeton",
+      "state": "VA",
+      "lat": 38.620646,
+      "lng": -77.801382,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=412216"
     },
     {
       "id": "477554",
@@ -2378,30 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=426107"
-    },
-    {
-      "id": "20325",
-      "name": "East Palo Alto, CA - 1700 E Bayshore Rd",
-      "city": "East Palo Alto",
-      "state": "CA",
-      "lat": 37.460392,
-      "lng": -122.138404,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=20325"
-    },
-    {
-      "id": "59132",
-      "name": "El Centro, CA -  N Imperial Ave",
-      "city": "El Centro",
-      "state": "CA",
-      "lat": 32.814081,
-      "lng": -115.568091,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=59132"
     }
   ]
 }
