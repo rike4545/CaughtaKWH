@@ -1,28 +1,28 @@
 # Dashboard Improvement Bot
 
-Generated: 2026-10-31T16:17:31.135Z
+Generated: 2026-11-01T17:13:51.113Z
 
 ## Public Dashboard Health
 
 - Scope: United States Superchargers first
-- Stations: 3120
-- Checked by scraper: 1119 (35.87%)
+- Stations: 3125
+- Checked by scraper: 1119 (35.81%)
 - Latest attempts blocked by access controls: 1991
 - Stations with any price history: 1 (0.03%)
 - Stations with usable price history: 0 (0%)
 - Stations with strong price history: 0 (0%)
 - Fresh price stations: 0
-- Stale or unchecked stations: 3120
+- Stale or unchecked stations: 3125
 
 ## State Refresh Priorities
 
-- CA: 661 stale/unchecked, 0% priced
+- CA: 662 stale/unchecked, 0% priced
 - FL: 246 stale/unchecked, 0% priced
 - TX: 224 stale/unchecked, 0% priced
 - NY: 124 stale/unchecked, 0.81% priced
 - PA: 111 stale/unchecked, 0% priced
 - NJ: 108 stale/unchecked, 0% priced
-- VA: 103 stale/unchecked, 0% priced
+- VA: 104 stale/unchecked, 0% priced
 - NC: 91 stale/unchecked, 0% priced
 
 ## Station Refresh Targets
@@ -35,9 +35,9 @@ Generated: 2026-10-31T16:17:31.135Z
 
 ## Improvement Queue
 
-- Grow repeated observations: 0 of 3120 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
+- Grow repeated observations: 0 of 3125 US stations have usable price history. A station becomes usable after at least 3 recent price observations.
 - Keep fresh data visible: 0 stations have a price observation from the last 24 hours. Freshness should stay prominent so visitors know what is current.
-- Prioritize slow Tesla pages: 3120 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
+- Prioritize slow Tesla pages: 3125 stations are unchecked or older than 72 hours. Refreshes should stay staggered by state because each Tesla candidate page needs render time.
 - Add local power context state by state: New York has public commercial-rate context in the app. Add verified benchmarks only when the source and period are clear.
 
 ## Automation
