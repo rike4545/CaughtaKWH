@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T20:42:55.854Z",
+  "generatedAt": "2026-11-01T02:45:21.859Z",
   "totalStations": 3120,
   "needsCount": 200,
   "stations": [
@@ -470,6 +470,18 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=torringtonsupercharger"
+    },
+    {
+      "id": "northcanaanctsupercharger",
+      "name": "North Canaan, CT",
+      "city": "Canaan",
+      "state": "CT",
+      "lat": 42.024331,
+      "lng": -73.322684,
+      "observations": 0,
+      "status": "no_price_yet",
+      "lastPriceAgeHours": null,
+      "reportUrl": "report.html?station=northcanaanctsupercharger"
     },
     {
       "id": "467705",
@@ -2390,18 +2402,6 @@
       "status": "no_price_yet",
       "lastPriceAgeHours": null,
       "reportUrl": "report.html?station=59132"
-    },
-    {
-      "id": "34620",
-      "name": "El Monte, CA - Peck Rd",
-      "city": "El Monte",
-      "state": "CA",
-      "lat": 34.074386,
-      "lng": -118.02236,
-      "observations": 0,
-      "status": "no_price_yet",
-      "lastPriceAgeHours": null,
-      "reportUrl": "report.html?station=34620"
     }
   ]
 }
