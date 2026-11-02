@@ -10,8 +10,10 @@ on:
         description: Max pilot stations to scrape
         required: false
         default: '10'
+  # The block cooldown starts at six hours; don't schedule a redundant run halfway
+  # through that window. Manual dispatch remains available for a deliberate retry.
   schedule:
-    - cron: '12 */3 * * *'
+    - cron: '12 */6 * * *'
 permissions:
   contents: write
   pages: write
@@ -51,9 +53,11 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
+          cache: npm
           registry-url: https://registry.npmjs.org
 
-      - run: npm install --no-audit --no-fund
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
 
       - run: npx playwright install --with-deps chromium
 
@@ -68,6 +72,10 @@ jobs:
           fi
           echo "Refreshing Lake Grove cluster: $station_ids"
           xvfb-run -a env SCRAPE_STATION_IDS="$station_ids" MAX_STATIONS="$PRICE_SCRAPE_LIMIT" npm run scrape
+
+      - name: Report actual scrape coverage
+        if: always()
+        run: node scripts/reportScrapeHealth.mjs
 
       - name: Rebuild predictions and public data
         run: |
