@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { summarizeScrapeHealth } from './reportScrapeHealth.mjs';
+import { summarizeScrapeHealth } from './scrapeHealthSummary.mjs';
 
 const cooldown = summarizeScrapeHealth({ inScopeStations: 10, attempted: 0, cooldownSkipped: 10 });
 assert.equal(cooldown.status, 'cooldown');
