@@ -265,7 +265,8 @@ if (anyProxyConnected) {
   console.warn('\n⚠️ No configured proxy returned a usable Tesla page. Proxy connectivity works, but Tesla pages were blocked or unusable.');
   console.warn('   This is diagnostic, not proof of a successful price refresh. The workflow may continue so the scraper can preserve existing observations and report its own coverage.');
   console.warn('   Use a source and access method authorized by Tesla and the provider; do not attempt to evade access controls.');
-  process.exit(0);
+  console.error('   No route passed the Tesla-page preflight; failing this diagnostic so scheduled pricing workflows cannot report a false success.');
+  process.exit(1);
 }
 console.error('\n❌ No configured proxy completed the connectivity check. See each connectivity reason above; this is not evidence that Tesla blocked the proxy IP.');
 if (proxyResults.some(r => r.verdict === 'AUTH_REJECTED')) {
