@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T20:52:20.222Z",
+  "generatedAt": "2026-11-03T18:38:56.741Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3125,
@@ -138,7 +138,7 @@
       "state": "NJ",
       "city": "Woodcliff Lake",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-11-02T18:24:53.687Z",
+      "lastAttemptedAt": "2026-11-03T15:36:11.954Z",
       "blocked": true,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 943
@@ -182,7 +182,7 @@
       "state": "WI",
       "city": "Hudson",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-11-02T18:24:53.687Z",
+      "lastAttemptedAt": "2026-11-03T15:36:11.954Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 827
