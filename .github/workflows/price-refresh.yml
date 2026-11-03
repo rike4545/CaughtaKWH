@@ -38,8 +38,9 @@ on:
         description: Only refresh stations that need usable price history
         required: false
         default: 'false'
+  # Match the six-hour blocked-station cooldown instead of repeatedly probing the same route.
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '37 */6 * * *'
 permissions:
   contents: write
   pages: write
@@ -75,15 +76,12 @@ jobs:
       FETCH_RETRY_DELAY_MS: 750
       ROUTE_BLOCK_COOLDOWN_MINUTES: 30
       ROUTE_CANARY_STATIONS: 1
-      # Optional authorized proxy routing. Set endpoints in SCRAPE_PROXY_LIST as one
-      # IP:PORT or HTTP(S) proxy URL per line; shared provider credentials are separate secrets.
+      # Use only endpoints the project is authorized to access.
       SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}
       SCRAPE_PROXY_LIST: ${{ secrets.SCRAPE_PROXY_LIST }}
       SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
-      # Optional trusted provider proxy-list download URL; do not commit its token or credentials.
       SCRAPE_PROXY_LIST_URL: ${{ secrets.SCRAPE_PROXY_LIST_URL }}
-      # NLR API key is used server-side for AFDC station metadata and backup validation.
       NLR_API_KEY: ${{ secrets.NLR_API_KEY }}
       NLR_STATES: NY,NJ,CT
       TESLA_HEADLESS: 'false'
@@ -97,14 +95,28 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
+          cache: npm
           registry-url: https://registry.npmjs.org
-      - run: npm install --no-audit --no-fund
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
       - name: Import NLR AFDC Tesla station metadata (NY/NJ/CT)
         if: env.NLR_API_KEY != ''
         run: npm run import:nlr-afdc
-      - name: Verify authorized Tesla access route
-        run: npm run scrape:proxy-test
+      - name: Require a Tesla-accessible egress route
+        shell: bash
+        run: |
+          set -euo pipefail
+          log_file="$RUNNER_TEMP/proxy-doctor.log"
+          if npm run scrape:proxy-test 2>&1 | tee "$log_file"; then
+            doctor_status=0
+          else
+            doctor_status=$?
+          fi
+          if [ "$doctor_status" -ne 0 ] || ! grep -Fq 'gets past Akamai' "$log_file"; then
+            echo "::error::No configured egress route passed the live Tesla-page preflight. Pricing scrape and data commit are intentionally stopped; configure an authorized proxy that passes Proxy Doctor."
+            exit 1
+          fi
       - name: Refresh dynamic Tesla pricing
         run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape
       - name: Report scrape coverage
