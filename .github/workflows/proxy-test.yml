@@ -36,7 +36,7 @@ jobs:
       SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           ref: main
       - uses: actions/setup-node@v6
