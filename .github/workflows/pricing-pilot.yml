@@ -64,7 +64,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Scrapling HTTP fetcher
-        run: python -m pip install --disable-pip-version-check --no-input 'scrapling[fetchers]==0.5'
+        run: python -m pip install --disable-pip-version-check --no-input -r requirements-scraping.txt
 
       - name: Build Lake Grove pricing cluster
         run: npm run pilot:lake-grove
