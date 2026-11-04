@@ -9,6 +9,7 @@ import { gatherProxyCandidates, parseProxy, checkProxy } from './proxyPool.mjs';
 import {
   classifySiteContent,
   extractNextData,
+  deriveSchedulePriceRange,
   halfHourSlot,
   hoursSince,
   inferSiteDetails,
@@ -195,19 +196,6 @@ function scrapeError(outcome, attempts, message = outcome) {
   return error;
 }
 
-function schedulePriceRange(charts, membershipType) {
-  const values = Object.values(charts || {})
-    .filter(chart => chart?.membershipType === membershipType)
-    .flatMap(chart => Array.isArray(chart.slots) ? chart.slots : [])
-    .map(slot => Number(slot?.pricePerKwh))
-    .filter(value => Number.isFinite(value) && value > 0 && value <= 2.5);
-  if (!values.length) return { min: null, max: null, samples: 0 };
-  return {
-    min: Number(Math.min(...values).toFixed(4)),
-    max: Number(Math.max(...values).toFixed(4)),
-    samples: values.length
-  };
-}
 
 async function scrapeOne(station) {
   const candidates = stationCandidates(station);
@@ -261,12 +249,12 @@ async function scrapeOne(station) {
       const nextData = fetchSite.validTeslaLocation ? extractNextData(fetched.html) : null;
       if (nextData) {
         const timeOfDayPricing = nextData.timeOfDayPricing || {};
-        const memberSchedule = schedulePriceRange(timeOfDayPricing, 'member');
-        const nonMemberSchedule = schedulePriceRange(timeOfDayPricing, 'non_tesla');
-        const memberPrice = nextData.memberPrice ?? memberSchedule.min;
-        const memberPeakPrice = nextData.memberPeakPrice ?? (memberSchedule.max !== memberSchedule.min ? memberSchedule.max : null);
-        const nonMemberPrice = nextData.nonMemberPrice ?? nonMemberSchedule.min;
-        const nonMemberPeakPrice = nextData.nonMemberPeakPrice ?? (nonMemberSchedule.max !== nonMemberSchedule.min ? nonMemberSchedule.max : null);
+        const memberSchedule = deriveSchedulePriceRange(timeOfDayPricing, 'member');
+        const nonMemberSchedule = deriveSchedulePriceRange(timeOfDayPricing, 'non_tesla');
+        const memberPrice = memberSchedule.min ?? nextData.memberPrice;
+        const memberPeakPrice = memberSchedule.max !== memberSchedule.min ? memberSchedule.max : nextData.memberPeakPrice ?? null;
+        const nonMemberPrice = nonMemberSchedule.min ?? nextData.nonMemberPrice;
+        const nonMemberPeakPrice = nonMemberSchedule.max !== nonMemberSchedule.min ? nonMemberSchedule.max : nextData.nonMemberPeakPrice ?? null;
         const observedRates = [memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice]
           .filter(value => typeof value === 'number' && Number.isFinite(value));
         const prices = {
