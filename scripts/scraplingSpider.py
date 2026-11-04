@@ -3,6 +3,7 @@
 from __future__ import annotations
 import argparse
 import json
+import logging
 import os
 from pathlib import Path
 from urllib.parse import urlparse
@@ -44,18 +45,23 @@ class TeslaStationSpider(Spider):
     autothrottle_max_delay = 120.0
     autothrottle_block_backoff = True
     max_blocked_retries = 1
+    logging_level = logging.INFO
+
     def __init__(self, stations: list[dict], proxy_urls: list[str], **kwargs):
         super().__init__(**kwargs)
         self.stations_by_url = {item["url"]: item for item in stations}
         self.start_urls = list(self.stations_by_url)
         self.proxy_urls = proxy_urls
+
     def configure_sessions(self, manager: SessionManager) -> None:
         # Operator-authorized proxy endpoints only; standard HTTP, no stealth/browser bypass.
         rotator = ProxyRotator(self.proxy_urls) if self.proxy_urls else None
         manager.add("default", FetcherSession(proxy_rotator=rotator, timeout=20, retries=0))
+
     async def is_blocked(self, response: Response) -> bool:
         # Do not rotate/retry around 401/403/407/429 access-control responses.
         return response.status in {500, 502, 503, 504}
+
     async def parse(self, response: Response):
         station = self.stations_by_url.get(str(response.url), {})
         yield {
