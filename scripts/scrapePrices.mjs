@@ -109,8 +109,7 @@ if (!proxyCandidates.length) {
   await activateNextProxy();
   if (!activeProxy) console.log(`None of the ${proxyCandidates.length} proxy candidate(s) passed the connectivity check — using the runner IP directly.`);
 }
-// Playwright is launched once with the first working proxy; the fetch-first path can rotate
-// across the rest mid-run (the browser tab keeps this initial proxy as a fallback).
+// Scrapling receives the current active proxy on each request, including after failover.
 const proxyConfig = activeProxy ? activeProxy.dispatcherUrl : null;
 
 function splitEnvList(value) {
@@ -212,6 +211,20 @@ function scrapeError(outcome, attempts, message = outcome) {
   return error;
 }
 
+function schedulePriceRange(charts, membershipType) {
+  const values = Object.values(charts || {})
+    .filter(chart => chart?.membershipType === membershipType)
+    .flatMap(chart => Array.isArray(chart.slots) ? chart.slots : [])
+    .map(slot => Number(slot?.pricePerKwh))
+    .filter(value => Number.isFinite(value) && value > 0 && value <= 2.5);
+  if (!values.length) return { min: null, max: null, samples: 0 };
+  return {
+    min: Number(Math.min(...values).toFixed(4)),
+    max: Number(Math.max(...values).toFixed(4)),
+    samples: values.length
+  };
+}
+
 async function scrapeOne(station) {
   const candidates = stationCandidates(station);
   const attempts = [];
@@ -221,8 +234,7 @@ async function scrapeOne(station) {
   for (const candidate of candidates) {
     const { url, reason } = candidate;
 
-    // --- Fetch-first: try a plain HTTPS request before spinning up a browser tab.
-    // Tesla's SSR pages embed full pricing in __NEXT_DATA__ JSON — no JS execution needed.
+    // Scrapling HTTP fetch: Tesla's SSR pages embed pricing in __NEXT_DATA__ JSON.
     const fetched = await fetchHtml(url);
     const fetchSite = classifySiteContent({ html: fetched.html, status: fetched.status, finalUrl: fetched.finalUrl });
     const fetchSignal = fetchSite.contentSignal !== 'unknown'
@@ -265,18 +277,32 @@ async function scrapeOne(station) {
     if (fetched.status === 200 && fetched.html) {
       const nextData = fetchSite.validTeslaLocation ? extractNextData(fetched.html) : null;
       if (nextData) {
+        const timeOfDayPricing = nextData.timeOfDayPricing || {};
+        const memberSchedule = schedulePriceRange(timeOfDayPricing, 'member');
+        const nonMemberSchedule = schedulePriceRange(timeOfDayPricing, 'non_tesla');
+        const memberPrice = nextData.memberPrice ?? memberSchedule.min;
+        const memberPeakPrice = nextData.memberPeakPrice ?? (memberSchedule.max !== memberSchedule.min ? memberSchedule.max : null);
+        const nonMemberPrice = nextData.nonMemberPrice ?? nonMemberSchedule.min;
+        const nonMemberPeakPrice = nextData.nonMemberPeakPrice ?? (nonMemberSchedule.max !== nonMemberSchedule.min ? nonMemberSchedule.max : null);
+        const observedRates = [memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice]
+          .filter(value => typeof value === 'number' && Number.isFinite(value));
         const prices = {
-          memberPricePerKwh: nextData.memberPrice,
-          memberPeakPricePerKwh: nextData.memberPeakPrice ?? null,
-          nonMemberPricePerKwh: nextData.nonMemberPrice,
-          nonMemberPeakPricePerKwh: nextData.nonMemberPeakPrice ?? null,
+          memberPricePerKwh: memberPrice,
+          memberPeakPricePerKwh: memberPeakPrice,
+          nonMemberPricePerKwh: nonMemberPrice,
+          nonMemberPeakPricePerKwh: nonMemberPeakPrice,
           congestionFeePerMinuteMax: nextData.congestionFee ?? null,
-          lowestObservedPricePerKwh: [nextData.memberPrice, nextData.nonMemberPrice].filter(v => v != null).sort((a, b) => a - b)[0] ?? null,
+          lowestObservedPricePerKwh: observedRates.length ? Math.min(...observedRates) : null,
           lowPriceId: null,
-          priceExtractionVersion: 'tesla-next-data-v1',
-          priceCandidateCount: (nextData.memberPrice != null ? 1 : 0) + (nextData.nonMemberPrice != null ? 1 : 0),
-          timeOfDayPricing: nextData.timeOfDayPricing || {},
-          priceEvidence: { source: '__NEXT_DATA__', ...nextData }
+          priceExtractionVersion: 'scrapling-next-data-v2',
+          priceCandidateCount: observedRates.length,
+          timeOfDayPricing,
+          priceEvidence: {
+            source: '__NEXT_DATA__',
+            scraper: 'Scrapling',
+            ...nextData,
+            scheduleDerived: { member: memberSchedule, nonTesla: nonMemberSchedule }
+          }
         };
         const availability = inferAvailability('', station);
         const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
