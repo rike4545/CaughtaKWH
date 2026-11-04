@@ -41,7 +41,6 @@ jobs:
       SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}
       SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
-      TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v7
@@ -59,10 +58,19 @@ jobs:
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
 
-      - run: npx playwright install --with-deps chromium
+      - name: Set up Python for Scrapling
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Install Scrapling HTTP fetcher
+        run: python -m pip install --disable-pip-version-check --no-input 'scrapling[fetchers]==0.5'
 
       - name: Build Lake Grove pricing cluster
         run: npm run pilot:lake-grove
+
+      - name: Verify authorized Tesla access route
+        run: npm run scrape:proxy-test
 
       - name: Refresh pilot pricing panel
         run: |
