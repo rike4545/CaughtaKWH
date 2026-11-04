@@ -88,6 +88,18 @@ Candidates are capped by `SCRAPE_PROXY_MAX_CANDIDATES` (default 25) and health-c
 
 **Security and reliability warning:** these are public, unauthenticated proxies operated by third parties. They can observe destination metadata and may be unreliable or malicious. Do not send credentials, cookies, or private data through them. The scraper should only use them for public pages; a successful connectivity check does not mean Tesla will serve a page. Scrapling is configured for ordinary HTTP fetching only; it does not launch stealth browsers or solve challenges. A free proxy list is experimental, not a guaranteed fix for blocked requests.
 
+## Local setup
+
+Install the pinned Python fetcher dependency before running the scraper or Proxy Doctor locally:
+
+```bash
+python3 -m pip install -r requirements-scraping.txt
+npm ci
+npm run scrape:proxy-test
+```
+
+The pricing pipeline uses Scrapling's standard HTTP `FetcherSession` only. It does not enable stealth-browser mode, CAPTCHA solving, or challenge bypass. HTTP 403/429 responses remain access-control signals and trigger the existing cooldown/circuit-breaker behavior.
+
 ## Verifying
 
 **Don't wait for a scheduled scrape to find out if your proxy works.** Connecting
