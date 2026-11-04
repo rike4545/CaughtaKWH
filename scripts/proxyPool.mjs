@@ -47,8 +47,8 @@ function parseListPayload(text) {
   return splitList(trimmed);
 }
 
-// Normalize a raw entry (`ip:port`, `http://ip:port`, `http://user:pass@host:port`) into the
-// pieces the scraper needs: a dispatcher URL for undici/fetch and a Playwright proxy config.
+// Normalize a raw entry (`ip:port`, `http://ip:port`, `http://user:pass@host:port`) into
+// the authenticated HTTP(S) proxy URL consumed by Scrapling.
 export function parseProxy(raw, { username = '', password = '' } = {}) {
   let value = String(raw || '').trim();
   if (!value) return null;
@@ -88,9 +88,7 @@ export function parseProxy(raw, { username = '', password = '' } = {}) {
   const pass = password || decodeURIComponent(url.password || '');
   const token = user && pass ? `${encodeURIComponent(user)}:${encodeURIComponent(pass)}@` : '';
   const dispatcherUrl = `${url.protocol}//${token}${url.host}`;
-  const server = `${url.protocol}//${url.host}`;
-  const playwright = user ? { server, username: user, password: pass } : { server };
-  return { raw: value, host: url.host, dispatcherUrl, playwright };
+  return { raw: value, host: url.host, dispatcherUrl };
 }
 
 // Gather candidate proxy strings from env (single + inline list + remote list URL), de-duped.
