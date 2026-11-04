@@ -51,7 +51,7 @@ def main():
                         kwargs["proxy"] = proxy
                     response = session.get(url, **kwargs)
                     status = int(getattr(response, "status", 0) or 0)
-                    html = str(getattr(response, "text", "") or "") if 200 <= status < 300 else ""
+                    html = str(response.get() or "") if 200 <= status < 300 else ""
                     emit({
                         "id": request_id,
                         "status": status,
