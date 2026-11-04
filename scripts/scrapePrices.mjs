@@ -311,10 +311,9 @@ async function scrapeOne(station) {
         bodyText: '',
         hasPrice: prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null,
         hasAvailability: availability.availableStalls !== null || availability.utilizationPct !== null || availability.availabilityLabel !== null,
-        attempts: [...attempts, fetchAttempt]
+        attempts: [...attempts]
       };
     }
-    attempts.push(fetchAttempt);
     if (fetchSite.validTeslaLocation) continue;
   }
 
