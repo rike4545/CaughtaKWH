@@ -69,6 +69,12 @@ The automated collector uses [Scrapling](https://github.com/D4Vinci/Scrapling) w
 
 Refresh workflows run a real Tesla-page preflight before collecting prices. HTTP access denials and rate limits are treated as blocks, not retried as if they were temporary errors; station cooldowns and a run-level circuit breaker protect the source. A successful proxy connection alone is not considered a successful price scrape. Scrapling's stealth-browser and challenge-solving features are not enabled.
 
+## Full Scrapling toolkit
+
+The repository includes Scrapling's concurrent spider framework, authorized proxy rotation for transient failures, bounded retries, AutoThrottle, robots.txt compliance, checkpoint-based pause/resume, streaming JSONL, and JSON/JSONL/CSV/XML exports. Optional terminal commands, an MCP server, and a project-specific Agent Skill are included. See [the Scrapling toolkit guide](docs/scrapling-toolkit.md).
+
+The Tesla production collector remains standard HTTP and fail-closed: access denials (401/403/407/429) are not retried or rotated around. Crawl exports are raw evidence only; the existing Node price-validation pipeline remains the only path to canonical published observations.
+
 ## Predict Cheaper Charging Windows
 
 The prediction engine estimates:
@@ -218,13 +224,13 @@ When Tesla returns an Akamai challenge or access-control response, the scraper d
 To spend a run only on stations that still need usable price history:
 
 ```bash
-TESLA_HEADLESS=false SCRAPE_NEEDS_HISTORY=true MAX_STATIONS=25 npm run scrape
+SCRAPE_NEEDS_HISTORY=true MAX_STATIONS=25 npm run scrape
 ```
 
 You can target one station while debugging:
 
 ```bash
-TESLA_HEADLESS=false SCRAPE_STATION_IDS=LakeGroveNYsupercharger MAX_STATIONS=1 npm run scrape
+SCRAPE_STATION_IDS=LakeGroveNYsupercharger MAX_STATIONS=1 npm run scrape
 ```
 
 ## Build Pricing Analytics
@@ -321,7 +327,7 @@ npm run build
 
 GitHub Actions automatically:
 
-- Refreshes pricing data with headed Chromium
+- Refreshes pricing data through Scrapling's standard HTTP transport
 - Updates predictions
 - Regenerates the public dashboard-health feed
 - Writes dashboard improvement recommendations from real data
