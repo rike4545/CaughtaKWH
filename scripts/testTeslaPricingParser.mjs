@@ -1,4 +1,4 @@
-import { classifySiteContent, extractNextData, inferAvailability, inferPrices, inferSiteDetails, stationCandidates } from './teslaSiteParser.mjs';
+import { classifySiteContent, deriveSchedulePriceRange, extractNextData, inferAvailability, inferPrices, inferSiteDetails, stationCandidates } from './teslaSiteParser.mjs';
 
 const fixture = `
   <section>
@@ -125,6 +125,14 @@ if (histogramData.timeOfDayPricing.member.slots[2].pricePerKwh !== 0.52) {
 }
 if (histogramData.timeOfDayPricing.non_tesla.slots[2].pricePerKwh !== 0.68) {
   throw new Error('Explicit non-Tesla chart prices were not retained');
+}
+const memberScheduleRange = deriveSchedulePriceRange(histogramData.timeOfDayPricing, 'member');
+const nonTeslaScheduleRange = deriveSchedulePriceRange(histogramData.timeOfDayPricing, 'non_tesla');
+if (memberScheduleRange.min !== 0.32 || memberScheduleRange.max !== 0.52 || memberScheduleRange.samples !== 3) {
+  throw new Error(`Member schedule range was not derived correctly: ${JSON.stringify(memberScheduleRange)}`);
+}
+if (nonTeslaScheduleRange.min !== 0.52 || nonTeslaScheduleRange.max !== 0.68 || nonTeslaScheduleRange.samples !== 3) {
+  throw new Error(`Non-Tesla schedule range was not derived correctly: ${JSON.stringify(nonTeslaScheduleRange)}`);
 }
 
 console.log('Tesla pricing parser regression passed.');
