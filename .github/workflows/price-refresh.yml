@@ -110,7 +110,7 @@ jobs:
       - name: Verify authorized Tesla access route
         run: npm run scrape:proxy-test
       - name: Refresh dynamic Tesla pricing
-        run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape
+        run: env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape
       - name: Report scrape coverage
         if: always()
         run: |
