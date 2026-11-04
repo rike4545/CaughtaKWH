@@ -76,9 +76,8 @@ const proxyCandidates = (await gatherProxyCandidates(process.env))
 const triedProxyUrls = new Set();
 let activeProxy = null;
 
-// Find the next candidate that passes a connectivity check, apply it to Node's global fetch
-// dispatcher, and return its parsed form (with Playwright config). Returns null when the list
-// is exhausted, so callers can fall back to a direct connection.
+// Find the next candidate that passes a neutral connectivity check and make it
+// available to the Scrapling worker. Returns null when the list is exhausted.
 async function activateNextProxy() {
   for (const candidate of proxyCandidates) {
     if (triedProxyUrls.has(candidate.dispatcherUrl)) continue;
@@ -311,7 +310,7 @@ async function scrapeOne(station) {
         attempts.push({ ...fetchAttempt, contentSignal: 'tesla_location_page', hasPrice: hasPrice || hasSchedule, hasSchedule, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' });
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: hasPrice || hasSchedule, hasAvailability: false, attempts };
       }
-      // Page loaded but no __NEXT_DATA__ pricing — try text extraction before Playwright
+      // Page loaded but no __NEXT_DATA__ pricing — try the HTML text parser.
       const prices = fetchSite.validTeslaLocation ? inferPrices('', fetched.html) : inferPrices('', '');
       if (prices.memberPricePerKwh != null || prices.nonMemberPricePerKwh != null) {
         const availability = inferAvailability('', station);
