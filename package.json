@@ -10,6 +10,11 @@
     "preview": "vite preview --host 0.0.0.0",
     "discover": "node scripts/discoverStations.mjs",
     "scrape": "node scripts/scrapePrices.mjs",
+    "scrape:crawl": "python3 scripts/scraplingSpider.py",
+    "scrapling:help": "scrapling --help",
+    "scrapling:shell": "scrapling shell",
+    "scrapling:mcp": "scrapling-mcp",
+    "scrapling:extract": "scrapling extract",
     "train:neural": "node scripts/trainPricingNeuralNetwork.mjs",
     "predict": "npm run train:neural && node scripts/buildPredictions.mjs",
     "test:neural": "node scripts/testPricingNeuralNetwork.mjs",
@@ -43,7 +48,7 @@
     "test:scrape-parser": "node scripts/testTeslaPricingParser.mjs",
     "test:scrape-syntax": "node --check scripts/scrapePrices.mjs",
     "import:nlr-afdc": "node scripts/importNlrAfDcStations.mjs",
-    "test:scrapling": "node --check scripts/scraplingClient.mjs && node --check scripts/proxyDoctor.mjs && node --check scripts/proxyPool.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('scripts/scraplingFetcher.py').read_text())\""
+    "test:scrapling": "node --check scripts/scraplingClient.mjs && node --check scripts/proxyDoctor.mjs && node --check scripts/proxyPool.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('scripts/scraplingFetcher.py').read_text()); ast.parse(pathlib.Path('scripts/scraplingSpider.py').read_text())\" && python3 scripts/testScraplingToolkit.py"
   },
   "dependencies": {
     "@playwright/test": "latest",

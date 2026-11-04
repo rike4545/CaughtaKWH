@@ -29,7 +29,13 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install --disable-pip-version-check --no-input -r requirements-scraping.txt
       - run: npm ci
-      - run: python -c "from scrapling.fetchers import FetcherSession; ctx=FetcherSession(impersonate=None, stealthy_headers=False, timeout=18, retries=0); ctx.__enter__(); ctx.__exit__(None,None,None); print('Scrapling HTTP fetcher ready')"
+      - name: Verify Scrapling HTTP, spider, MCP, and CLI components
+        run: |
+          python -c "from scrapling.fetchers import FetcherSession; ctx=FetcherSession(impersonate=None, stealthy_headers=False, timeout=18, retries=0); ctx.__enter__(); ctx.__exit__(None,None,None); print('Scrapling HTTP fetcher ready')"
+          python -c "from scrapling.spiders import Spider, Response, SessionManager; from scrapling.fetchers import ProxyRotator; print('Scrapling spider and proxy rotation ready')"
+          python -c "from scrapling.core.ai import ScraplingMCPServer; print('Scrapling MCP server ready')"
+          scrapling --help
+          python -c "import sys; sys.path.insert(0, 'scripts'); import scraplingSpider; print('CaughtaKWH spider imports successfully')"
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium
