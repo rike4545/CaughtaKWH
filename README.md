@@ -116,9 +116,9 @@ Location is only used to rank nearby chargers.
 ## Data Pipeline
 
 - Node.js
-- Playwright
+- Scrapling HTTP fetcher and optional Spider framework
 - GitHub Actions
-- Headed Chromium through Xvfb for Tesla page checks
+- Optional local Scrapling MCP server and terminal shell
 
 ## Hosting
 
@@ -132,12 +132,12 @@ Location is only used to rank nearby chargers.
 The update system:
 
 1. Discovers Supercharger stations
-2. Opens Tesla public station pages in a headed browser
-3. Expands pricing accordions for Tesla/member and Non-Tesla rates
-4. Stores historical observations
-5. Builds prediction models
-6. Syncs public JSON data
-7. Deploys automatically to GitHub Pages
+2. Runs a real Tesla-page access preflight
+3. Fetches publicly accessible Tesla location pages through Scrapling's standard HTTP session
+4. Validates source content and member/non-member pricing in the Node pipeline
+5. Stores validated historical observations
+6. Builds prediction models
+7. Syncs public JSON data and deploys to GitHub Pages
 
 The project is intentionally designed without a traditional backend server.
 
@@ -172,17 +172,15 @@ The project is intentionally designed without a traditional backend server.
 npm install
 ```
 
-## Install Playwright
+## Install Scrapling
 
 ```bash
-npx playwright install chromium
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements-scraping.txt
 ```
 
-Tesla currently blocks headless Chromium on some public station pages. For local live scraping, run the scraper in headed mode:
-
-```bash
-TESLA_HEADLESS=false npm run scrape
-```
+The production collector uses ordinary HTTP only. Browser dependencies are not installed in CI. For local browser-based MCP tools, run `scrapling install`.
 
 ## Start Development Server
 
@@ -196,15 +194,20 @@ npm run dev
 npm run update:data
 ```
 
-For live scraping in environments without a visible display, use a virtual display:
+## Use the Scrapling toolkit
 
 ```bash
-xvfb-run -a env TESLA_HEADLESS=false MAX_STATIONS=25 npm run scrape
+npm run scrape:crawl -- --limit 10 --format jsonl
+npm run scrape:crawl -- --stream --format jsonl
+npm run scrapling:help
+npm run scrapling:shell
+npm run scrapling:mcp
 ```
+
+The crawler supports JSON, JSONL, CSV, and XML exports and resumes from its crawl checkpoint when rerun with the same crawl directory. See [docs/scrapling-toolkit.md](docs/scrapling-toolkit.md).
 
 ## Refresh A Local Area
 
-Tesla station pages can be slow because every candidate page needs a browser render pass.
 For focused checks, refresh a smaller area instead of the whole United States catalog:
 
 ```bash
@@ -292,7 +295,7 @@ Sources:
 To refresh one station locally:
 
 ```bash
-TESLA_HEADLESS=false SCRAPE_STATION_IDS=LakeGroveNYsupercharger MAX_STATIONS=1 npm run scrape
+SCRAPE_STATION_IDS=LakeGroveNYsupercharger MAX_STATIONS=1 npm run scrape
 npm run predict
 npm run sync:public
 npm run build
