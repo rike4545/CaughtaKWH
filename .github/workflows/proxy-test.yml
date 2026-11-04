@@ -48,7 +48,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install Scrapling HTTP fetcher
-        run: python -m pip install --disable-pip-version-check --no-input 'scrapling[fetchers]==0.5'
+        run: python -m pip install --disable-pip-version-check --no-input -r requirements-scraping.txt
       - run: npm ci --no-audit --no-fund
       - name: Probe proxies against real Supercharger pages
         run: npm run scrape:proxy-test
