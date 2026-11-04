@@ -43,7 +43,7 @@
     "test:scrape-parser": "node scripts/testTeslaPricingParser.mjs",
     "test:scrape-syntax": "node --check scripts/scrapePrices.mjs",
     "import:nlr-afdc": "node scripts/importNlrAfDcStations.mjs",
-    "test:scrapling": "node --check scripts/scraplingClient.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('scripts/scraplingFetcher.py').read_text())\""
+    "test:scrapling": "node --check scripts/scraplingClient.mjs && node --check scripts/proxyDoctor.mjs && node --check scripts/proxyPool.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('scripts/scraplingFetcher.py').read_text())\""
   },
   "dependencies": {
     "@playwright/test": "latest",
