@@ -1,6 +1,5 @@
 import { spawn } from 'node:child_process';
 import readline from 'node:readline';
-import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const workerPath = fileURLToPath(new URL('./scraplingFetcher.py', import.meta.url));
