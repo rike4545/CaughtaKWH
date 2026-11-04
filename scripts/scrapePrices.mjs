@@ -109,7 +109,6 @@ if (!proxyCandidates.length) {
   if (!activeProxy) console.log(`None of the ${proxyCandidates.length} proxy candidate(s) passed the connectivity check — using the runner IP directly.`);
 }
 // Scrapling receives the current active proxy on each request, including after failover.
-const proxyConfig = activeProxy ? activeProxy.dispatcherUrl : null;
 
 function splitEnvList(value) {
   return String(value || '').split(',').map(item => item.trim()).filter(Boolean);
@@ -170,23 +169,9 @@ async function scrapeScope() {
   return { origin, states, countries: SCRAPE_COUNTRIES };
 }
 
-const FETCH_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
-const FETCH_HEADERS = {
-  'User-Agent': FETCH_UA,
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-  'Accept-Language': 'en-US,en;q=0.9',
-  'Accept-Encoding': 'gzip, deflate, br',
-  'Sec-Fetch-Dest': 'document',
-  'Sec-Fetch-Mode': 'navigate',
-  'Sec-Fetch-Site': 'none',
-  'Sec-Fetch-User': '?1',
-  'Cache-Control': 'max-age=0',
-  'Upgrade-Insecure-Requests': '1',
-};
 
 async function fetchHtml(url) {
   return fetchHtmlWithRetry(url, {
-    headers: FETCH_HEADERS,
     fetchImpl: async target => {
       const result = await fetchWithScrapling(target, { proxy: activeProxy?.dispatcherUrl || null });
       return {
@@ -228,7 +213,6 @@ async function scrapeOne(station) {
   const candidates = stationCandidates(station);
   const attempts = [];
   let bestValid = null;
-  let lastError = null;
 
   for (const candidate of candidates) {
     const { url, reason } = candidate;
@@ -349,7 +333,7 @@ async function scrapeOne(station) {
   throw scrapeError(
     transientOnly ? 'transient_failure' : 'no_usable_candidate',
     attempts,
-    lastError ? String(lastError.message || lastError) : transientOnly ? 'temporary_transport_failure' : 'No usable Tesla location candidate'
+    transientOnly ? 'temporary_transport_failure' : 'No usable Tesla location candidate'
   );
 }
 
@@ -637,7 +621,7 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
     scraperVersion: '0.5',
     fetchMaxAttempts: FETCH_MAX_ATTEMPTS,
     retryDelayMs: FETCH_RETRY_DELAY_MS,
-    proxyConfigured: Boolean(proxyConfig),
+    proxyConfigured: proxyCandidates.length > 0,
     proxyPool: {
       candidates: proxyCandidates.length,
       tried: triedProxyUrls.size,
