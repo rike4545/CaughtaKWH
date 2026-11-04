@@ -53,7 +53,7 @@ jobs:
     env:
       DISCOVERY_LIMIT: ${{ github.event.inputs.discovery_limit || '5000' }}
       PRICE_SCRAPE_LIMIT: ${{ github.event.inputs.max_stations || '300' }}
-      SCRAPE_DELAY_MS: 350
+      SCRAPE_DELAY_MS: 1200
       SCRAPE_ROTATE_STATES: ${{ github.event_name == 'schedule' && 'true' || 'false' }}
       SCRAPE_ROTATION_COUNT: 6
       SCRAPE_STATES: ${{ github.event.inputs.scrape_states || '' }}
@@ -73,11 +73,12 @@ jobs:
       SCRAPE_PROXY: ${{ secrets.SCRAPE_PROXY }}
       SCRAPE_PROXY_USERNAME: ${{ secrets.SCRAPE_PROXY_USERNAME }}
       SCRAPE_PROXY_PASSWORD: ${{ secrets.SCRAPE_PROXY_PASSWORD }}
+      SCRAPE_PROXY_LIST: ${{ secrets.SCRAPE_PROXY_LIST }}
+      SCRAPE_PROXY_LIST_URL: ${{ secrets.SCRAPE_PROXY_LIST_URL }}
       # Mastodon @caughtakwh bot. Add secret MASTODON_ACCESS_TOKEN (write:statuses)
       # to enable auto-posting of new/changed prices; without it the step is a no-op.
       MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}
       MASTODON_INSTANCE: ${{ secrets.MASTODON_INSTANCE || 'https://mastodon.social' }}
-      TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v7
@@ -91,15 +92,24 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org
 
-      - run: npm install --no-audit --no-fund
+      - name: Set up Python for Scrapling
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
 
-      - run: npx playwright install --with-deps chromium
+      - name: Install Scrapling HTTP fetcher
+        run: python -m pip install --disable-pip-version-check --no-input -r requirements-scraping.txt
+
+      - run: npm ci --no-audit --no-fund
 
       - name: Enrich stations from supercharge.info
         run: npm run enrich:superchargeinfo
 
+      - name: Verify authorized Tesla access route
+        run: npm run scrape:proxy-test
+
       - name: Run full data refresh pipeline
-        run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run update:data
+        run: env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run update:data
 
       - name: Announce new and changed prices on Mastodon
         run: npm run social:post
