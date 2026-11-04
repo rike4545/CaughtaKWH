@@ -293,7 +293,7 @@ async function scrapeOne(station) {
           nonMemberPeakPricePerKwh: nonMemberPeakPrice,
           congestionFeePerMinuteMax: nextData.congestionFee ?? null,
           lowestObservedPricePerKwh: observedRates.length ? Math.min(...observedRates) : null,
-          lowPriceId: null,
+          lowPriceId: observedRates.length && Math.min(...observedRates) < LOW_PRICE_THRESHOLD ? 'low_under_030_kwh' : null,
           priceExtractionVersion: 'scrapling-next-data-v2',
           priceCandidateCount: observedRates.length,
           timeOfDayPricing,
@@ -634,6 +634,8 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
   unusableStationIds,
   transport: {
     ...summarizeTransport(runAttempts),
+    scraper: 'Scrapling FetcherSession',
+    scraperVersion: '0.5',
     fetchMaxAttempts: FETCH_MAX_ATTEMPTS,
     retryDelayMs: FETCH_RETRY_DELAY_MS,
     proxyConfigured: Boolean(proxyConfig),
