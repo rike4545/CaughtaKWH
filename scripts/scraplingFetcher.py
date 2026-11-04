@@ -16,7 +16,7 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml",
     "Accept-Language": "en-US,en;q=0.8",
 }
-TIMEOUT = float(os.environ.get("SCRAPLING_TIMEOUT_SECONDS", "20"))
+TIMEOUT = float(os.environ.get("SCRAPLING_TIMEOUT_SECONDS", "18"))
 
 def emit(payload):
     sys.stdout.write(json.dumps(payload, separators=(",", ":")) + "\n")
