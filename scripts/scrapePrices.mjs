@@ -1,5 +1,5 @@
-import { chromium } from '@playwright/test';
 import path from 'node:path';
+import { fetchWithScrapling, closeScraplingWorker } from './scraplingClient.mjs';
 import { ProxyAgent, setGlobalDispatcher } from 'undici';
 import { dataDir, readJson, writeJson, nowIso, stationHistoryPath } from './lib.mjs';
 import { validateCapturedPrices } from './pricingNeuralNetwork.mjs';
@@ -9,6 +9,7 @@ import { gatherProxyCandidates, parseProxy, checkProxy } from './proxyPool.mjs';
 import {
   classifySiteContent,
   extractNextData,
+  deriveSchedulePriceRange,
   halfHourSlot,
   hoursSince,
   inferSiteDetails,
@@ -45,7 +46,6 @@ const SCRAPE_RADIUS_MILES = Number(process.env.SCRAPE_RADIUS_MILES || 150);
 const SCRAPE_ROTATE_STATES = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_ROTATE_STATES || '').toLowerCase());
 const SCRAPE_ROTATION_COUNT = Math.max(1, Number(process.env.SCRAPE_ROTATION_COUNT || 1));
 const SCRAPE_NEEDS_HISTORY = ['1', 'true', 'yes'].includes(String(process.env.SCRAPE_NEEDS_HISTORY || '').toLowerCase());
-const TESLA_HEADLESS = !['0', 'false', 'no'].includes(String(process.env.TESLA_HEADLESS ?? 'true').toLowerCase());
 const AKAMAI_CIRCUIT_BREAKER = Math.max(1, Number(process.env.AKAMAI_CIRCUIT_BREAKER || 3));
 const BLOCK_COOLDOWN_BASE_HOURS = Math.max(1, Number(process.env.BLOCK_COOLDOWN_BASE_HOURS || 6));
 const BLOCK_COOLDOWN_MAX_HOURS = Math.max(BLOCK_COOLDOWN_BASE_HOURS, Number(process.env.BLOCK_COOLDOWN_MAX_HOURS || 72));
@@ -77,9 +77,8 @@ const proxyCandidates = (await gatherProxyCandidates(process.env))
 const triedProxyUrls = new Set();
 let activeProxy = null;
 
-// Find the next candidate that passes a connectivity check, apply it to Node's global fetch
-// dispatcher, and return its parsed form (with Playwright config). Returns null when the list
-// is exhausted, so callers can fall back to a direct connection.
+// Find the next candidate that passes a neutral connectivity check and make it
+// available to the Scrapling worker. Returns null when the list is exhausted.
 async function activateNextProxy() {
   for (const candidate of proxyCandidates) {
     if (triedProxyUrls.has(candidate.dispatcherUrl)) continue;
@@ -110,9 +109,7 @@ if (!proxyCandidates.length) {
   await activateNextProxy();
   if (!activeProxy) console.log(`None of the ${proxyCandidates.length} proxy candidate(s) passed the connectivity check — using the runner IP directly.`);
 }
-// Playwright is launched once with the first working proxy; the fetch-first path can rotate
-// across the rest mid-run (the browser tab keeps this initial proxy as a fallback).
-const proxyConfig = activeProxy ? activeProxy.playwright : null;
+// Scrapling receives the current active proxy on each request, including after failover.
 
 function splitEnvList(value) {
   return String(value || '').split(',').map(item => item.trim()).filter(Boolean);
@@ -173,23 +170,19 @@ async function scrapeScope() {
   return { origin, states, countries: SCRAPE_COUNTRIES };
 }
 
-const FETCH_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36';
-const FETCH_HEADERS = {
-  'User-Agent': FETCH_UA,
-  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-  'Accept-Language': 'en-US,en;q=0.9',
-  'Accept-Encoding': 'gzip, deflate, br',
-  'Sec-Fetch-Dest': 'document',
-  'Sec-Fetch-Mode': 'navigate',
-  'Sec-Fetch-Site': 'none',
-  'Sec-Fetch-User': '?1',
-  'Cache-Control': 'max-age=0',
-  'Upgrade-Insecure-Requests': '1',
-};
 
 async function fetchHtml(url) {
   return fetchHtmlWithRetry(url, {
-    headers: FETCH_HEADERS,
+    fetchImpl: async target => {
+      const result = await fetchWithScrapling(target, { proxy: activeProxy?.dispatcherUrl || null });
+      return {
+        ok: result.status >= 200 && result.status < 300,
+        status: result.status,
+        url: result.finalUrl || target,
+        headers: { get: name => name.toLowerCase() === 'retry-after' ? result.retryAfter || null : null },
+        text: async () => result.html || ''
+      };
+    },
     maxAttempts: FETCH_MAX_ATTEMPTS,
     retryDelayMs: FETCH_RETRY_DELAY_MS
   });
@@ -203,17 +196,16 @@ function scrapeError(outcome, attempts, message = outcome) {
   return error;
 }
 
-async function scrapeOne(getContext, station) {
+
+async function scrapeOne(station) {
   const candidates = stationCandidates(station);
   const attempts = [];
   let bestValid = null;
-  let lastError = null;
 
   for (const candidate of candidates) {
     const { url, reason } = candidate;
 
-    // --- Fetch-first: try a plain HTTPS request before spinning up a browser tab.
-    // Tesla's SSR pages embed full pricing in __NEXT_DATA__ JSON — no JS execution needed.
+    // Scrapling HTTP fetch: Tesla's SSR pages embed pricing in __NEXT_DATA__ JSON.
     const fetched = await fetchHtml(url);
     const fetchSite = classifySiteContent({ html: fetched.html, status: fetched.status, finalUrl: fetched.finalUrl });
     const fetchSignal = fetchSite.contentSignal !== 'unknown'
@@ -256,18 +248,32 @@ async function scrapeOne(getContext, station) {
     if (fetched.status === 200 && fetched.html) {
       const nextData = fetchSite.validTeslaLocation ? extractNextData(fetched.html) : null;
       if (nextData) {
+        const timeOfDayPricing = nextData.timeOfDayPricing || {};
+        const memberSchedule = deriveSchedulePriceRange(timeOfDayPricing, 'member');
+        const nonMemberSchedule = deriveSchedulePriceRange(timeOfDayPricing, 'non_tesla');
+        const memberPrice = memberSchedule.min ?? nextData.memberPrice;
+        const memberPeakPrice = memberSchedule.max !== memberSchedule.min ? memberSchedule.max : nextData.memberPeakPrice ?? null;
+        const nonMemberPrice = nonMemberSchedule.min ?? nextData.nonMemberPrice;
+        const nonMemberPeakPrice = nonMemberSchedule.max !== nonMemberSchedule.min ? nonMemberSchedule.max : nextData.nonMemberPeakPrice ?? null;
+        const observedRates = [memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice]
+          .filter(value => typeof value === 'number' && Number.isFinite(value));
         const prices = {
-          memberPricePerKwh: nextData.memberPrice,
-          memberPeakPricePerKwh: nextData.memberPeakPrice ?? null,
-          nonMemberPricePerKwh: nextData.nonMemberPrice,
-          nonMemberPeakPricePerKwh: nextData.nonMemberPeakPrice ?? null,
+          memberPricePerKwh: memberPrice,
+          memberPeakPricePerKwh: memberPeakPrice,
+          nonMemberPricePerKwh: nonMemberPrice,
+          nonMemberPeakPricePerKwh: nonMemberPeakPrice,
           congestionFeePerMinuteMax: nextData.congestionFee ?? null,
-          lowestObservedPricePerKwh: [nextData.memberPrice, nextData.nonMemberPrice].filter(v => v != null).sort((a, b) => a - b)[0] ?? null,
-          lowPriceId: null,
-          priceExtractionVersion: 'tesla-next-data-v1',
-          priceCandidateCount: (nextData.memberPrice != null ? 1 : 0) + (nextData.nonMemberPrice != null ? 1 : 0),
-          timeOfDayPricing: nextData.timeOfDayPricing || {},
-          priceEvidence: { source: '__NEXT_DATA__', ...nextData }
+          lowestObservedPricePerKwh: observedRates.length ? Math.min(...observedRates) : null,
+          lowPriceId: observedRates.length && Math.min(...observedRates) < LOW_PRICE_THRESHOLD ? 'low_under_030_kwh' : null,
+          priceExtractionVersion: 'scrapling-next-data-v2',
+          priceCandidateCount: observedRates.length,
+          timeOfDayPricing,
+          priceEvidence: {
+            source: '__NEXT_DATA__',
+            scraper: 'Scrapling',
+            ...nextData,
+            scheduleDerived: { member: memberSchedule, nonTesla: nonMemberSchedule }
+          }
         };
         const availability = inferAvailability('', station);
         const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
@@ -276,7 +282,7 @@ async function scrapeOne(getContext, station) {
         attempts.push({ ...fetchAttempt, contentSignal: 'tesla_location_page', hasPrice: hasPrice || hasSchedule, hasSchedule, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'fetch+next_data' });
         return { url: fetched.finalUrl, prices, availability, siteDetails, bodyText: '', hasPrice: hasPrice || hasSchedule, hasAvailability: false, attempts };
       }
-      // Page loaded but no __NEXT_DATA__ pricing — try text extraction before Playwright
+      // Page loaded but no __NEXT_DATA__ pricing — try the HTML text parser.
       const prices = fetchSite.validTeslaLocation ? inferPrices('', fetched.html) : inferPrices('', '');
       if (prices.memberPricePerKwh != null || prices.nonMemberPricePerKwh != null) {
         const availability = inferAvailability('', station);
@@ -287,52 +293,25 @@ async function scrapeOne(getContext, station) {
     }
     attempts.push(fetchAttempt);
 
-    // --- Playwright fallback: needed when the page requires JS rendering.
-    const context = await getContext();
-    const page = await context.newPage();
-    try {
-      const response = await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
-      const status = response?.status() || 0;
-      await page.waitForLoadState('networkidle', { timeout: 12000 }).catch(() => {});
-      await page.waitForTimeout(2500);
-      // Check for Akamai challenge before spending more time on this page.
-      const html = await page.content().catch(() => '');
-      const site = classifySiteContent({ html, status, finalUrl: page.url() });
-      if (site.blocked || isAccessControlStatus(status)) {
-        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: site.contentSignal, hasPrice: false, hasAvailability: false, via: 'playwright' });
-        throw scrapeError('access_control', attempts, site.rateLimited ? 'tesla_rate_limited' : 'tesla_access_controlled');
-      }
-      if (site.pageNotFound) {
-        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: 'not_found', hasPrice: false, hasAvailability: false, via: 'playwright' });
-        continue;
-      }
-      if (isTransientStatus(status)) {
-        attempts.push({ url, finalUrl: page.url(), reason, status, contentSignal: 'transient_failure', hasPrice: false, hasAvailability: false, via: 'playwright' });
-        continue;
-      }
-      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight)).catch(() => {});
-      await page.waitForTimeout(1000);
-      await expandPricingAccordions(page);
-      const bodyText = await page.locator('body').innerText({ timeout: 12000 });
-      const scriptsText = await page.locator('script').evaluateAll(nodes => nodes.map(n => n.textContent || '').join('\n')).catch(() => '');
-      const prices = inferPrices(`${bodyText}\n${scriptsText}`, html);
-      const availability = inferAvailability(bodyText, station);
-      const siteDetails = inferSiteDetails({ bodyText, html, station, url: page.url() || url, candidateReason: reason });
-      const hasPrice = prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null;
-      const hasAvailability = availability.availableStalls !== null || availability.utilizationPct !== null || availability.availabilityLabel !== null;
-      const attempt = { url, finalUrl: page.url(), reason, status, contentSignal: site.contentSignal, hasPrice, hasAvailability, publicDetailsFound: siteDetails.publicDetailsFound, priceCandidateCount: prices.priceCandidateCount, via: 'playwright' };
-      attempts.push(attempt);
-      const result = { url: page.url() || url, prices, availability, siteDetails, bodyText, hasPrice, hasAvailability, attempts };
-      if (hasPrice) return result;
-      // Only use this URL as the canonical stored URL if it looks like a real Tesla page.
-      if ((hasAvailability || site.validTeslaLocation) && !bestValid) bestValid = result;
-    } catch (error) {
-      if (error.scrapeOutcome) throw error;
-      lastError = error;
-      attempts.push({ url, reason, status: 0, contentSignal: 'transient_failure', via: 'playwright', error: String(error.message || error) });
-    } finally {
-      await page.close();
+    // Scrapling's standard HTTP fetcher is the sole transport. Tesla's public
+    // location pages are server-rendered; if a valid page has no public price
+    // evidence, preserve its diagnostics rather than launching a stealth browser.
+    if (fetchSite.validTeslaLocation && !bestValid) {
+      const prices = inferPrices('', fetched.html);
+      const availability = inferAvailability(fetched.html, station);
+      const siteDetails = inferSiteDetails({ bodyText: '', html: fetched.html, station, url: fetched.finalUrl, candidateReason: reason });
+      bestValid = {
+        url: fetched.finalUrl,
+        prices,
+        availability,
+        siteDetails,
+        bodyText: '',
+        hasPrice: prices.memberPricePerKwh !== null || prices.nonMemberPricePerKwh !== null,
+        hasAvailability: availability.availableStalls !== null || availability.utilizationPct !== null || availability.availabilityLabel !== null,
+        attempts: [...attempts]
+      };
     }
+    if (fetchSite.validTeslaLocation) continue;
   }
 
   if (bestValid) return bestValid;
@@ -342,26 +321,10 @@ async function scrapeOne(getContext, station) {
   throw scrapeError(
     transientOnly ? 'transient_failure' : 'no_usable_candidate',
     attempts,
-    lastError ? String(lastError.message || lastError) : transientOnly ? 'temporary_transport_failure' : 'No usable Tesla location candidate'
+    transientOnly ? 'temporary_transport_failure' : 'No usable Tesla location candidate'
   );
 }
-async function expandPricingAccordions(page) {
-  const labels = ['Pricing for Tesla & Members', 'Pricing for Non-Tesla'];
-  for (const label of labels) {
-    const summary = page.locator('summary').filter({ hasText: label }).first();
-    try {
-      if (await summary.count()) {
-        const detailsOpen = await summary.evaluate(el => el.parentElement?.hasAttribute('open')).catch(() => false);
-        if (!detailsOpen) await summary.click({ timeout: 5000 });
-        continue;
-      }
-    } catch {}
-    try {
-      await page.getByText(label, { exact: true }).click({ timeout: 5000 });
-    } catch {}
-  }
-  await page.waitForTimeout(800);
-}
+
 function priorityFor(station) {
   const prediction = predictions.find(p => p.stationId === station.id && p.membershipType === 'member') || predictions.find(p => p.stationId === station.id);
   const scrapeAge = hoursSince(station.lastScrapedAt);
@@ -459,69 +422,6 @@ if (routeCooldownActive) {
 }
 
 const ordered = inScope.map(station => ({ station, priorityScore: priorityFor(station) + (distanceByStation.has(station) ? Math.max(0, 100 - distanceByStation.get(station)) : 0) })).sort((a, b) => b.priorityScore - a.priorityScore).map(item => item.station);
-let browser = null;
-let browserContext = null;
-
-async function getBrowserContext() {
-  if (browserContext) return browserContext;
-
-  browser = await chromium.launch({
-    headless: TESLA_HEADLESS,
-    ...(proxyConfig ? { proxy: proxyConfig } : {}),
-    args: [
-      '--disable-blink-features=AutomationControlled',
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-accelerated-2d-canvas',
-      '--no-first-run',
-      '--no-zygote',
-      '--disable-gpu',
-    ]
-  });
-  browserContext = await browser.newContext({
-    viewport: { width: 1440, height: 900 },
-    locale: 'en-US',
-    timezoneId: 'America/New_York',
-    userAgent: FETCH_UA,
-    extraHTTPHeaders: {
-      'Accept-Language': 'en-US,en;q=0.9',
-      'sec-ch-ua': '"Chromium";v="136", "Google Chrome";v="136", "Not.A/Brand";v="99"',
-      'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"macOS"',
-    }
-  });
-
-  // Preserve the existing browser compatibility setup, but only pay its startup cost when
-  // the fetch-first path proves that JavaScript rendering is actually needed.
-  await browserContext.addInitScript(() => {
-    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-    Object.defineProperty(navigator, 'userAgentData', {
-      get: () => ({
-        brands: [{ brand: 'Chromium', version: '136' }, { brand: 'Google Chrome', version: '136' }, { brand: 'Not.A/Brand', version: '99' }],
-        mobile: false,
-        platform: 'macOS',
-        getHighEntropyValues: async () => ({ platform: 'macOS', platformVersion: '13.6.0', architecture: 'arm', model: '', uaFullVersion: '136.0.7103.114' })
-      })
-    });
-    Object.defineProperty(navigator, 'plugins', {
-      get: () => Object.assign([{ name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer' }, { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai' }, { name: 'Native Client', filename: 'internal-nacl-plugin' }], { item: i => this[i], namedItem: () => null, refresh: () => {} })
-    });
-    Object.defineProperty(navigator, 'mimeTypes', { get: () => [] });
-    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
-    Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
-    Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
-    if (!window.chrome) window.chrome = { runtime: {}, loadTimes: () => ({}), csi: () => ({}), app: {} };
-    const permissionQuery = navigator.permissions.query.bind(navigator.permissions);
-    navigator.permissions.query = p => p.name === 'notifications'
-      ? Promise.resolve({ state: Notification.permission, onchange: null })
-      : permissionQuery(p);
-    Object.defineProperty(document, 'hidden', { get: () => false });
-    Object.defineProperty(document, 'visibilityState', { get: () => 'visible' });
-  });
-
-  return browserContext;
-}
 
 function summarizeAttempts(attempts) {
   return Array.isArray(attempts) ? attempts.slice(0, 8).map(attempt => ({
@@ -564,7 +464,7 @@ for (const station of ordered.slice(0, effectiveMaxStations)) {
   attempted++;
   attemptedStationIds.push(station.id);
   try {
-    const result = await scrapeOne(getBrowserContext, station);
+    const result = await scrapeOne(station);
     runAttempts.push(...result.attempts);
     validPages++;
     consecutiveBlocked = 0;
@@ -684,7 +584,7 @@ if (routeAccessControlLikely) {
   }
 }
 
-await browser?.close();
+await closeScraplingWorker();
 await writeJson(path.join(dataDir, 'stations.json'), stations);
 await writeJson(path.join(dataDir, 'scrape-health.json'), {
   generatedAt: capturedAt,
@@ -705,9 +605,11 @@ await writeJson(path.join(dataDir, 'scrape-health.json'), {
   unusableStationIds,
   transport: {
     ...summarizeTransport(runAttempts),
+    scraper: 'Scrapling FetcherSession',
+    scraperVersion: '0.5',
     fetchMaxAttempts: FETCH_MAX_ATTEMPTS,
     retryDelayMs: FETCH_RETRY_DELAY_MS,
-    proxyConfigured: Boolean(proxyConfig),
+    proxyConfigured: proxyCandidates.length > 0,
     proxyPool: {
       candidates: proxyCandidates.length,
       tried: triedProxyUrls.size,

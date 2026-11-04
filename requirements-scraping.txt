@@ -1,0 +1,3 @@
+# Minimal supported runtime for the CaughtaKWH Scrapling HTTP fetcher.
+# Browser/stealth extras are intentionally not used.
+scrapling[fetchers]==0.5

@@ -38,11 +38,12 @@
     "ingest:sheet": "node scripts/ingestSheet.mjs",
     "test:core": "node scripts/testCore.mjs",
     "test:station-search": "node scripts/testStationSearch.mjs",
-    "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport && npm run test:scrape-health && npm run test:scrape-parser && npm run test:scrape-syntax",
+    "test": "npm run test:core && npm run test:station-search && npm run test:scrape-policy && npm run test:scrape-transport && npm run test:scrape-health && npm run test:scrape-parser && npm run test:scrape-syntax && npm run test:scrapling",
     "test:e2e": "playwright test",
     "test:scrape-parser": "node scripts/testTeslaPricingParser.mjs",
     "test:scrape-syntax": "node --check scripts/scrapePrices.mjs",
-    "import:nlr-afdc": "node scripts/importNlrAfDcStations.mjs"
+    "import:nlr-afdc": "node scripts/importNlrAfDcStations.mjs",
+    "test:scrapling": "node --check scripts/scraplingClient.mjs && node --check scripts/proxyDoctor.mjs && node --check scripts/proxyPool.mjs && python3 -c \"import ast,pathlib; ast.parse(pathlib.Path('scripts/scraplingFetcher.py').read_text())\""
   },
   "dependencies": {
     "@playwright/test": "latest",

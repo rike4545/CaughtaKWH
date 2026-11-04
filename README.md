@@ -63,6 +63,12 @@ CaughtaKWH stores historical pricing observations and displays:
 
 ---
 
+## Pricing data pipeline
+
+The automated collector uses [Scrapling](https://github.com/D4Vinci/Scrapling) with its standard HTTP session. It reads Tesla's publicly rendered location-page data, preserves the source evidence, and extracts member and non-member rates—including peak/off-peak values when Tesla publishes an explicit time-of-day price schedule. Schedule-derived prices are kept distinct from live quotes, and captured rates are checked against the project's pricing model for review signals.
+
+Refresh workflows run a real Tesla-page preflight before collecting prices. HTTP access denials and rate limits are treated as blocks, not retried as if they were temporary errors; station cooldowns and a run-level circuit breaker protect the source. A successful proxy connection alone is not considered a successful price scrape. Scrapling's stealth-browser and challenge-solving features are not enabled.
+
 ## Predict Cheaper Charging Windows
 
 The prediction engine estimates:

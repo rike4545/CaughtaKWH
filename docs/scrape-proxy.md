@@ -12,8 +12,7 @@ data source. Do not rely on random free proxies to solve access-control blocks.
 ## How it's wired
 
 `scripts/proxyPool.mjs` gathers proxy candidates from the env vars below,
-health-checks them, and `scripts/scrapePrices.mjs` routes **both** the Playwright
-browser and Node's global `fetch` through the first one that connects.
+health-checks them, and `scripts/scrapePrices.mjs` routes the Scrapling HTTP session through the active endpoint for each request.
 
 | Variable | Purpose |
 | --- | --- |
@@ -43,10 +42,10 @@ or already blocked:
    proxy** and the run continues, instead of stopping. The breaker only trips
    once every candidate is exhausted.
 
-The fetch-first path (which handles most successful captures via Tesla's
-embedded SSR JSON) rotates freely. The Playwright browser keeps the
-**initial** proxy for the whole run as a fallback — relaunching the browser per
-rotation would be far more expensive.
+Scrapling is the only pricing transport. It reuses one HTTP session, receives
+the current proxy on each request, and preserves the existing per-station
+cooldowns, rate-limit handling, and run-level circuit breaker. No browser
+fallback or challenge-solving mode is enabled.
 
 Block detection, per-station cooldowns (`BLOCK_COOLDOWN_*`), and the run-level
 circuit breaker all stay in effect regardless of the proxy. The run's
@@ -87,7 +86,19 @@ The default candidate source is [iplocate/free-proxy-list](https://github.com/ip
 
 Candidates are capped by `SCRAPE_PROXY_MAX_CANDIDATES` (default 25) and health-checked before use. To use a different source, set `SCRAPE_PROXY_LIST_URL`; set it to an empty value to disable the default list. Existing `SCRAPE_PROXY` and `SCRAPE_PROXY_LIST` entries retain priority.
 
-**Security and reliability warning:** these are public, unauthenticated proxies operated by third parties. They can observe destination metadata and may be unreliable or malicious. Do not send credentials, cookies, or private data through them. The scraper should only use them for public pages; a successful connectivity check does not mean Tesla will serve a page. A free proxy list is experimental, not a guaranteed fix for blocked requests.
+**Security and reliability warning:** these are public, unauthenticated proxies operated by third parties. They can observe destination metadata and may be unreliable or malicious. Do not send credentials, cookies, or private data through them. The scraper should only use them for public pages; a successful connectivity check does not mean Tesla will serve a page. Scrapling is configured for ordinary HTTP fetching only; it does not launch stealth browsers or solve challenges. A free proxy list is experimental, not a guaranteed fix for blocked requests.
+
+## Local setup
+
+Install the pinned Python fetcher dependency before running the scraper or Proxy Doctor locally:
+
+```bash
+python3 -m pip install -r requirements-scraping.txt
+npm ci
+npm run scrape:proxy-test
+```
+
+The pricing pipeline uses Scrapling's standard HTTP `FetcherSession` only. It does not enable stealth-browser mode, CAPTCHA solving, or challenge bypass. HTTP 403/429 responses remain access-control signals and trigger the existing cooldown/circuit-breaker behavior.
 
 ## Verifying
 
@@ -105,9 +116,8 @@ thing directly:
   first). Tunables: `PROXY_TEST_SAMPLE` (pages per proxy, default 6),
   `PROXY_TEST_DELAY_MS`, `PROXY_TEST_INCLUDE_DIRECT`.
 
-A `PASS` means that proxy returned usable Supercharger pages (and, for priced
-stations, extracted the embedded pricing) — the scraper will widen coverage
-through it. `BLOCKED` means Akamai is denying that IP; try a residential pool.
+A `PASS` means Scrapling returned usable Supercharger pages (and, for priced
+stations, extracted the embedded pricing) through that route. `BLOCKED` means Akamai is denying that IP; try a residential pool.
 Running it with no proxy configured shows direct GitHub-Actions egress getting
 blocked, which is the baseline a proxy has to beat.
 

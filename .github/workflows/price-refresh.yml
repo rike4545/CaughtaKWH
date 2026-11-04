@@ -39,7 +39,7 @@ on:
         required: false
         default: 'false'
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '37 */6 * * *'
 permissions:
   contents: write
   pages: write
@@ -86,7 +86,6 @@ jobs:
       # NLR API key is used server-side for AFDC station metadata and backup validation.
       NLR_API_KEY: ${{ secrets.NLR_API_KEY }}
       NLR_STATES: NY,NJ,CT
-      TESLA_HEADLESS: 'false'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v7
@@ -98,15 +97,20 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-      - run: npm install --no-audit --no-fund
-      - run: npx playwright install --with-deps chromium
+      - name: Set up Python for Scrapling
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install Scrapling HTTP fetcher
+        run: python -m pip install --disable-pip-version-check --no-input -r requirements-scraping.txt
+      - run: npm ci --no-audit --no-fund
       - name: Import NLR AFDC Tesla station metadata (NY/NJ/CT)
         if: env.NLR_API_KEY != ''
         run: npm run import:nlr-afdc
       - name: Verify authorized Tesla access route
         run: npm run scrape:proxy-test
       - name: Refresh dynamic Tesla pricing
-        run: xvfb-run -a env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape
+        run: env MAX_STATIONS=$PRICE_SCRAPE_LIMIT npm run scrape
       - name: Report scrape coverage
         if: always()
         run: |

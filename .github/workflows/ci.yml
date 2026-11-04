@@ -23,7 +23,13 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      - name: Set up Python for Scrapling
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check --no-input -r requirements-scraping.txt
       - run: npm ci
+      - run: python -c "from scrapling.fetchers import FetcherSession; ctx=FetcherSession(impersonate=None, stealthy_headers=False, timeout=18, retries=0); ctx.__enter__(); ctx.__exit__(None,None,None); print('Scrapling HTTP fetcher ready')"
       - run: npm test
       - run: npm run build
       - run: npx playwright install --with-deps chromium

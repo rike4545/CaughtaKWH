@@ -23,6 +23,7 @@
 import path from 'node:path';
 import { fetch as undiciFetch, ProxyAgent } from 'undici';
 import { dataDir, readJson } from './lib.mjs';
+import { fetchWithScrapling, closeScraplingWorker } from './scraplingClient.mjs';
 import { gatherProxyCandidates, parseProxy } from './proxyPool.mjs';
 import { classifySiteContent, extractNextData, sleep } from './teslaSiteParser.mjs';
 
@@ -71,23 +72,17 @@ function sampleStations(stations) {
   return picked.slice(0, SAMPLE_SIZE);
 }
 
-async function fetchThrough(url, dispatcher) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+async function fetchThrough(url, parsed) {
   try {
-    const response = await undiciFetch(url, {
-      headers: FETCH_HEADERS,
-      redirect: 'follow',
-      signal: controller.signal,
-      ...(dispatcher ? { dispatcher } : {})
-    });
-    const status = Number(response.status || 0);
-    const html = response.ok ? await response.text() : '';
-    return { status, html, finalUrl: response.url || url, error: null };
+    const result = await fetchWithScrapling(url, { proxy: parsed?.dispatcherUrl || null });
+    return {
+      status: Number(result.status || 0),
+      html: result.html || '',
+      finalUrl: result.finalUrl || url,
+      error: result.error || null
+    };
   } catch (error) {
-    return { status: 0, html: '', finalUrl: url, error: String(error?.name === 'AbortError' ? 'timeout' : error?.message || error) };
-  } finally {
-    clearTimeout(timer);
+    return { status: 0, html: '', finalUrl: url, error: String(error?.message || error) };
   }
 }
 
@@ -163,7 +158,7 @@ async function probeRoute({ label, parsed }, stations) {
     ip = await egressIp(dispatcher);
 
     for (const station of stations) {
-      const { status, html, finalUrl, error } = await fetchThrough(station.url, dispatcher);
+      const { status, html, finalUrl, error } = await fetchThrough(station.url, parsed);
       if (error) { tally.error++; }
       else {
         const site = classifySiteContent({ html, status, finalUrl });
@@ -240,6 +235,7 @@ const results = [];
 for (const route of routes) {
   results.push(await probeRoute(route, sample));
 }
+await closeScraplingWorker();
 printReport(results);
 
 const proxyResults = results.filter(r => r.label.startsWith('proxy #'));
@@ -263,9 +259,9 @@ if (anyProxyPasses) {
 const anyProxyConnected = proxyResults.some(r => r.connected);
 if (anyProxyConnected) {
   console.warn('\n⚠️ No configured proxy returned a usable Tesla page. Proxy connectivity works, but Tesla pages were blocked or unusable.');
-  console.warn('   This is diagnostic, not proof of a successful price refresh. The workflow may continue so the scraper can preserve existing observations and report its own coverage.');
+  console.error('   No configured route can retrieve a usable Tesla page. Stop the refresh and preserve existing observations.');
   console.warn('   Use a source and access method authorized by Tesla and the provider; do not attempt to evade access controls.');
-  process.exit(0);
+  process.exit(1);
 }
 console.error('\n❌ No configured proxy completed the connectivity check. See each connectivity reason above; this is not evidence that Tesla blocked the proxy IP.');
 if (proxyResults.some(r => r.verdict === 'AUTH_REJECTED')) {
