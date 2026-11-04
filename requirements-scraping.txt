@@ -1,3 +1,3 @@
-# Minimal supported runtime for the CaughtaKWH Scrapling HTTP fetcher.
-# Browser/stealth extras are intentionally not used.
-scrapling[fetchers]==0.5
+# Scrapling HTTP fetcher, spider framework, MCP server, and terminal shell.
+# Browser binaries are intentionally not installed in CI; Tesla production collection uses HTTP only.
+scrapling[fetchers,ai,shell]==0.5
