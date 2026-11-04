@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T18:38:56.741Z",
+  "generatedAt": "2026-11-04T18:50:40.974Z",
   "scope": "United States Superchargers first",
   "summary": {
     "stationCount": 3125,
@@ -127,7 +127,7 @@
       "state": "NY",
       "city": "Lake Grove",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-11-01T05:56:24.716Z",
+      "lastAttemptedAt": "2026-11-04T06:21:12.867Z",
       "blocked": true,
       "lastScrapeResult": "access_controlled",
       "priorityScore": 1265
@@ -138,7 +138,7 @@
       "state": "NJ",
       "city": "Woodcliff Lake",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-11-03T15:36:11.954Z",
+      "lastAttemptedAt": "2026-11-04T07:40:40.863Z",
       "blocked": true,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 943
@@ -182,7 +182,7 @@
       "state": "WI",
       "city": "Hudson",
       "lastScrapedAt": null,
-      "lastAttemptedAt": "2026-11-03T15:36:11.954Z",
+      "lastAttemptedAt": "2026-11-04T07:40:40.863Z",
       "blocked": false,
       "lastScrapeResult": "route_access_controlled",
       "priorityScore": 827
