@@ -46,7 +46,7 @@ def main():
                 started = time.monotonic()
                 try:
                     proxy = request.get("proxy")
-                    kwargs = {"timeout": TIMEOUT}
+                    kwargs = {}
                     if proxy:
                         kwargs["proxy"] = proxy
                     response = session.get(url, **kwargs)
