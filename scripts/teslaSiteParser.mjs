@@ -503,6 +503,20 @@ function parseNextPricingObject(loc) {
   return { memberPrice, memberPeakPrice, nonMemberPrice, nonMemberPeakPrice, congestionFee, timeOfDayPricing };
 }
 
+export function deriveSchedulePriceRange(charts, membershipType) {
+  const values = Object.values(charts || {})
+    .filter(chart => chart?.membershipType === membershipType)
+    .flatMap(chart => Array.isArray(chart.slots) ? chart.slots : [])
+    .map(slot => Number(slot?.pricePerKwh))
+    .filter(value => Number.isFinite(value) && value > 0 && value <= 2.5);
+  if (!values.length) return { min: null, max: null, samples: 0 };
+  return {
+    min: Number(Math.min(...values).toFixed(4)),
+    max: Number(Math.max(...values).toFixed(4)),
+    samples: values.length
+  };
+}
+
 export function extractNextData(html) {
   try {
     const match = String(html || '').match(/<script[^>]+id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/i);
